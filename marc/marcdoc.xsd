@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Altova Professional XML Suite 2006 (http://www.xmlspy.com) by Ray Denenberg  (Library of Congress)
+-->
+
+<!-- DRAFT SCHEMA - This is not an official schema.  A finalized schema will be made available in early 2007 -->
+
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:marc="http://www.loc.gov/MARC21/slim" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.loc.gov/MARC21/slim" schemaLocation="MARC21slim-x.xsd"/>
+	<!-- 
+********************root element declaration 
+-->
+	<xs:element name="field" type="fieldType"/>
+	<!-- 
+******End root element declaration 
+
+*********************************FieldType (top level elements)
+-->
+	<xs:complexType name="fieldType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:annotation>
+				<xs:documentation>
+Generally, these top-level elements will occur in the order listed below, each zero or more times.  However there are exceptions: fieldtocs and conventions may occur more than once, and fieldpros might occur out of sequence, because of these and other possible as-yet-unknown exceptions the strict sequencing has been abandoned in favor of "choice" with unlimited occurences. 
+			</xs:documentation>
+			</xs:annotation>
+			<xs:element name="label" type="textPlusChanged"/>
+			<xs:element name="name" type="textPlusChanged"/>
+			<xs:element name="repeat" type="textPlusChanged"/>
+			<xs:element name="level" type="levelType"/>
+			<xs:element name="dateIssued" type="xs:string"/>
+			<xs:element name="summary" type="summaryType"/>
+			<xs:element name="fieldtocs" type="fieldtocsType"/>
+			<xs:element name="fieldpros" type="fieldprosType"/>
+			<xs:element name="wildcard" type="wildcardType"/>
+			<xs:element name="definition" type="definitionType"/>
+			<xs:element name="guidelines" type="guidelinesType"/>
+			<xs:element name="conventions" type="conventionsType"/>
+			<xs:element name="history" type="historyType"/>
+			<xs:element name="uri" type="xs:anyURI"/>
+			<xs:element name="add" type="addType"/>
+			<xs:element name="subfieldtocs" type="subfieldtocsType"/>
+			<xs:element name="blank" type="blankType"></xs:element>
+			
+		</xs:choice>
+		<xs:attribute name="documentSet">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="bibliographic"/>
+					<xs:enumeration value="authority"/>
+					<xs:enumeration value="holdings"/>
+					<xs:enumeration value="community information"/>
+					<xs:enumeration value="classification"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!-- 
+*************************************
+
+ Top Level Definitions  (alphabetical order)
+
+***********************************
+
+********** addType (top level element, referenced by fieldType)
+
+-->
+	<xs:complexType name="addType">
+		<xs:sequence>
+			<xs:element name="head" type="markup" minOccurs="0"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="p" type="markup"/>
+				<xs:element name="table" type="tableType"/>
+				<xs:element name="examplesec" type="examplesecType"/>
+				<xs:element name="examplegp" type="examplegpType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--
+
+********** conventionsType (top level element, referenced by fieldType)
+
+-->
+	<xs:complexType name="conventionsType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="examplegp" type="examplegpType"/>
+		</xs:choice>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!--
+
+********** definitionType (top level element, referenced by fieldType)
+
+-->
+	<xs:complexType name="definitionType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="glossary" type="glossaryType"/>
+			<xs:element name="examplegp" type="examplegpType"/>
+		</xs:choice>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!--
+
+********** fieldProsType (top level element, referenced by fieldType)
+
+-->
+	<xs:complexType name="fieldprosType">
+		<xs:sequence>
+			<xs:element name="characterPositions" type="proCharacterpositionsType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!--
+	
+********** fieldTocsType (top level element, referenced by fieldType)
+
+-->
+	<xs:complexType name="fieldtocsType">
+		<xs:sequence>
+			<xs:element name="fieldtoc" type="fieldtocType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!-- 
+
+********** guidelinesType (top level element, referenced by fieldType)
+
+-->
+	<xs:complexType name="guidelinesType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="list" type="listType"/>
+			<xs:element name="indicators" type="indicatorsType"/>
+			<xs:element name="subfields" type="subfieldsType"/>
+			<xs:element name="characterPositions" type="characterPositionsType"/>
+			<xs:element name="examplesec" type="examplesecType"/>
+			<xs:element name="glossary" type="glossaryType"/>
+			<xs:element name="conversion" type="conversionType"/>
+			<xs:element name="update" type="updateType"/>
+			<xs:element name="change" type="changeType"/>
+			<xs:element name="article" type="articleType"/>
+			<xs:element name="note" type="markup"/>
+		</xs:choice>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--
+	** following definitions are referenced by guidelinesType
+
+*** indicatorsType ( referenced by guidelinesType)
+-->
+	<xs:complexType name="indicatorsType">
+		<xs:sequence>
+			<xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="indicator" type="indicatorType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--  
+*** subfieldsType  ( referenced by guidelinesType)
+-->
+	<xs:complexType name="subfieldsType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="subfield" type="subfieldType"/>
+			<xs:element name="examplegp" type="examplegpType"/>
+		</xs:choice>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--  
+*** conversionType ( referenced by guidelinesType)
+-->
+	<xs:complexType name="conversionType">
+		<xs:sequence>
+			<xs:element name="description" type="descriptionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--  
+*** updateType  ( referenced by guidelinesType)
+-->
+	<xs:complexType name="updateType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="date" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--  
+*** changeType  ( referenced by guidelinesType)
+-->
+	<xs:complexType name="changeType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="field" type="fieldxType"/>
+			<xs:element name="section" type="xs:string"/>
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="subfield" type="changeSubfieldType"/>
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="indicator" type="changeIndicatorType"/>
+		</xs:choice>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!--  
+*** changeSubfieldType ( referenced by changeType)
+-->
+	<xs:complexType name="changeSubfieldType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="location" type="markup"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--  
+*** changeIndicatorType ( referenced by changeType)
+-->
+	<xs:complexType name="changeIndicatorType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="field" type="xs:string"/>
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="value" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--  
+*** articleType ( referenced by guidelinesType)
+-->
+	<xs:complexType name="articleType">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string" minOccurs="0"/>
+			<xs:element name="language" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!-- 
+	** end definitions  referenced by guidelinesType
+
+
+********** historyType (top level element,  referenced by fieldType)
+
+-->
+	<xs:complexType name="historyType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="field" type="historyFieldType"/>
+			<xs:element name="indicator" type="historyIndicatorType"/>
+			<xs:element name="subfield" type="historySubfieldType"/>
+			<xs:element name="characterPosition" type="historyCharacterPositionType"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--
+*** historyFieldType  referenced by historyType
+-->
+	<xs:complexType name="historyFieldType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="uri" type="xs:anyURI"/>
+			<xs:element name="level" type="levelType"/>
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="repeat" type="xs:string"/>
+			<xs:element name="status" type="statusType"/>
+			<xs:element name="format" type="xs:string"/>
+			<xs:element name="desc" type="textPlusChanged"/>
+			<xs:element name="description" type="descriptionType"/>
+		</xs:choice>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!--
+	
+********** subfieldtocsType (top level element, referenced by fieldType)
+
+-->
+	<xs:complexType name="subfieldtocsType">
+		<xs:sequence>
+			<xs:element name="subfieldtoc" type="fieldtocType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!-- 
+ 
+
+********** summaryType (top level element,  referenced by fieldType)
+
+-->
+	<xs:complexType name="summaryType">
+		<xs:sequence>
+			<xs:element name="fieldtype" type="fieldtypeType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+*** Definitions  referenced by summaryType
+
+ fieldtypeType ( referenced by summaryType)
+-->
+	<xs:complexType name="fieldtypeType">
+		<xs:sequence>
+			<xs:element name="name" type="textPlusChanged" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="fieldgroup" type="fieldgroupType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+fieldgroupType  ( referenced by fieldTypeType)
+-->
+	<xs:complexType name="fieldgroupType">
+		<xs:sequence>
+			<xs:element name="label" type="textPlusChanged" minOccurs="0"/>
+			<xs:element name="name" type="textPlusChanged" minOccurs="0"/>
+			<xs:element name="fieldgroup" type="fieldgroupType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="field" type="fieldxType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+*** End definitions  referenced by summaryType
+
+
+********** wildcardType (top level element,  referenced by fieldType)
+
+-->
+	<xs:complexType name="wildcardType">
+		<xs:sequence>
+			<xs:element name="description" type="descriptionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!--
+*************************************
+
+End Top Level Definitions
+
+************************************
+
+The remaining definitions are  referenced by more than one top-level element.
+
+- Character-position-related Type Definitions:
+	 proCharacterPositionType
+     historyCharacterPositionType
+     characterPositionType
+      	altType ( referenced by characterPositionType)
+     proCharacterpositionsType
+     characterPositionsType
+- Example-related Definitions:
+      exampleType
+      examplegpType
+			Display_iType   ( referenced by examplegpType)
+     examplesecType
+-Indicator-related definitions:
+    indicatorType
+    historyIndicatorType 
+-Subfield related definitions:
+   historySubfieldType
+   subfieldType
+-Value-related definitions:
+   proValueType
+   historyValueType
+   valueType
+- text/markup-related definitions:
+   textPlusCaption
+   textPlusCaptionPlusChanged
+   textPlusChanged
+  markup
+  textPlusHref
+
+Miscellaneous types.......
+
+- changedType, referenced by:
+ fieldType,  fieldxType, definitionType, fieldtocType, historyFieldType, wildcardType, proCharacterPositionType, historyCharacterPositionType, characterPositionType, exampleType, examplegpType, indicatorType, historyIndicatorType, historySubfieldType , subfieldType, proValueType, valueType, textPlusCaptionPlusChanged, textPlusChanged
+
+-fieldtocType, referenced by:
+fieldtocsType, subfieldtocsType
+
+-formatType, referenced by:
+ historyCharacterPositionType, historyIndicatorType, historySubfieldType, historySubfieldType
+
+-levelType, referenced by:
+ fieldType, fieldTocType, historyFieldType, 
+
+-statusType,  referenced by:
+ historyFieldType, historyCharacterPositionType, historyIndicatorType, historyValueType, historySubfieldType, statusValues: statusType
+
+
+-typeType, referenced by:
+ fieldType addType, definitionType, fieldprosType, fieldtocsType, fieldtocType, guidelinesType, indicatorsType, subfieldsType, conversionType, updateType, articleType, wildcardType, proCharacterPositionType, characterPositionType, exampleType, examplegpType, display_iType, examplesecType, indicatorType, historyIndicatorType, subfieldType, proValueType, valueType, 
+
+- fieldxType, referenced by:
+ changeType, fieldgroupType
+
+- descriptionType, referenced by:
+ conventionsType,l guidelinesType, indicatorsType, subfieldsType, conversionType, changeType, historyType, historyFieldType, wildcardType, historyCharacterPositionType, characterPositionType, proCharacterpositionsType, examplesecType, indicatorType, historyIndicatorType, historySubfieldType, subfieldType, proValueType, historyValueType, valueType,  markup
+
+- tableType , referenced by:
+addType, exampleSecType and descriptionType
+
+- glossaryType, referenced by: 
+ definitionType and to guidelinesType
+
+- glossaryEntryType , referenced by: 
+*listType ( referenced by guidelinesType and descriptionType)
+
+- groupType referenced as attribute in valueType and subfield type
+
+
+
+******** Character-position-related type definitions
+	
+
+*** proCharacterPositionType
+
+-->
+	<xs:complexType name="proCharacterPositionType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="level" type="xs:string"/>
+			<xs:element name="label" type="textPlusChanged"/>
+			<xs:element name="name" type="textPlusChanged"/>
+			<xs:element name="value" type="proValueType"/>
+			<xs:element name="description" type="descriptionType"/>
+					</xs:choice>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="group" type="xs:string"/>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="changed" type="changedType"/>
+		
+	</xs:complexType>
+	<!--
+
+*** historyCharacterPositionType
+
+-->
+	<xs:complexType name="historyCharacterPositionType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="status" type="statusType"/>
+			<xs:element name="format" type="formatType"/>
+			<xs:element name="level" type="xs:string"/>
+			<xs:element name="uri" type="xs:anyURI"/>
+			<xs:element name="date" type="xs:string"/>
+			<xs:element name="value" type="historyValueType"/>
+			<xs:element name="description" type="descriptionType"/>
+		</xs:choice>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!--
+
+*** characterPositionType
+
+-->
+	<xs:complexType name="characterPositionType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="examplegp" type="examplegpType"/>
+			<xs:element name="uri" type="xs:anyURI"/>
+			<xs:element name="label" type="textPlusChanged"/>
+			<xs:element name="name" type="textPlusChanged"/>
+			<xs:element name="alt" type="altType"/>
+			<xs:element name="level" type="xs:string"/>
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="value" type="valueType"/>
+		</xs:choice>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!--    
+altType  referenced by characterPositionType
+-->
+	<xs:complexType name="altType">
+		<xs:sequence>
+			<xs:element name="field" type="xs:string" minOccurs="0"/>
+			<xs:element name="label" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+
+***proCharacterpositionsType   (note "positions" plural)
+
+-->
+	<xs:complexType name="proCharacterpositionsType">
+		<xs:sequence>
+			<xs:element name="characterPosition" type="proCharacterPositionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+
+***characterpositionsType   (note "positions" plural)
+
+-->
+	<xs:complexType name="characterPositionsType">
+		<xs:sequence>
+			<xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="characterPosition" type="characterPositionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--	
+*** End character-position-related type definitions
+
+ 
+******  Example-related Definitions
+
+*** exampleType
+
+-->
+	<xs:complexType name="exampleType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="marc:controlfield"/>
+			<xs:element ref="marc:datafield"/>
+			<xs:element ref="marc:leader"/>
+			<xs:element name="desc" type="textPlusChanged"/>
+			<xs:element name="display" type="textPlusCaption"/>
+		</xs:choice>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--
+
+*** examplegpType
+
+-->
+	<xs:complexType name="examplegpType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="example" type="exampleType"/>
+			<xs:element name="desc" type="textPlusChanged"/>
+			<xs:element name="display" type="textPlusCaptionPlusChanged"/>
+			<xs:element name="display_i" type="display_iType"/>
+		</xs:choice>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!--  
+Display_iType   ( referenced by examplegpType)
+-->
+	<xs:complexType name="display_iType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="i1" type="textPlusChanged"/>
+			<xs:element name="i2" type="textPlusChanged"/>
+			<xs:element name="i3" type="textPlusChanged"/>
+			<xs:element name="i4" type="textPlusChanged"/>
+			<xs:element name="i5" type="textPlusChanged"/>
+			<xs:element name="i6" type="textPlusChanged"/>
+			<xs:element name="i7" type="textPlusChanged"/>
+			<xs:element name="i8" type="textPlusChanged"/>
+			<xs:element name="i9" type="textPlusChanged"/>
+			<xs:element name="i10" type="textPlusChanged"/>
+			<xs:element name="desc" type="xs:string"/>
+		</xs:choice>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--
+
+*** examplesecType
+
+-->
+	<xs:complexType name="examplesecType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="table" type="tableType"/>
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="examplegp" type="examplegpType"/>
+			<xs:element name="display_i" type="display_iType"/>
+		</xs:choice>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!-- 
+******  End Example-related Definitions
+
+
+*****Iindicator-related Types
+
+*** indicatorType
+-->
+	<xs:complexType name="indicatorType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="name" type="textPlusChanged"/>
+			<xs:element name="level" type="xs:string"/>
+			<xs:element name="description" type="descriptionType"/>
+			<xs:element name="value" type="valueType"/>
+		</xs:choice>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="field" type="xs:string"/>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!-- 
+
+*** history IndicatorType
+-->
+	<xs:complexType name="historyIndicatorType">
+		<xs:sequence>
+			<xs:element name="label" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="name" type="textPlusChanged" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="status" type="statusType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="format" type="formatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="level" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="description" type="descriptionType"/>
+				<xs:element name="uri" type="xs:anyURI"/>
+				<xs:element name="value" type="historyValueType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!-- 
+******  End Indicator-related Definitions
+
+
+*****subfield-related Types
+
+*** historySubfieldType
+-->
+	<xs:complexType name="historySubfieldType">
+		<xs:sequence>
+			<xs:element name="label" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="name" type="markup" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="repeat" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="status" type="statusType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="format" type="formatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="level" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="description" type="descriptionType"/>
+				<xs:element name="uri" type="xs:anyURI"/>
+				<xs:element name="value" type="historyValueType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="field" type="xs:string"/>
+	</xs:complexType>
+	<!-- 
+
+*** subfieldType
+-->
+	<xs:complexType name="subfieldType">
+		<xs:sequence>
+			<xs:element name="level" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="label" type="textPlusChanged" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="name" type="textPlusChanged" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="repeat" type="textPlusChanged" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="description" type="descriptionType"/>
+				<xs:element name="examplegp" type="examplegpType"/>
+				<xs:element name="characterPosition" type="characterPositionType"/>
+				<xs:element name="value" type="valueType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="group" type="groupType"/>
+		<xs:attribute name="field" type="xs:string"/>
+	</xs:complexType>
+	<!-- 
+******  End subfield-related Definitions
+
+
+***value-related Types
+
+*** proValueType
+-->
+	<xs:complexType name="proValueType">
+		<xs:sequence>
+			<xs:element name="label" type="textPlusChanged" minOccurs="0"/>
+			<xs:element name="name" type="textPlusChanged" minOccurs="0"/>
+			<xs:element name="level" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!-- 
+
+*** historyValueType
+-->
+	<xs:complexType name="historyValueType">
+		<xs:sequence>
+			<xs:element name="label" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="markup" minOccurs="0"/>
+			<xs:element name="status" type="statusType" minOccurs="0"/>
+			<xs:element name="format" type="formatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="level" type="xs:string" minOccurs="0"/>
+			<xs:element name="uri" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 
+
+*** valueType
+-->
+	<xs:complexType name="valueType">
+		<xs:sequence>
+			<xs:element name="label" type="textPlusChanged" minOccurs="0"/>
+			<xs:element name="name" type="textPlusChanged" minOccurs="0"/>
+			<xs:element name="level" type="xs:string" minOccurs="0"/>
+			<xs:choice maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="description" type="descriptionType"/>
+				<xs:element name="examplegp" type="examplegpType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="field" type="xs:string"/>
+		<xs:attribute name="group" type="groupType"/>
+	</xs:complexType>
+	<!-- 
+******  End value-related Definitions
+
+
+****** Definitions having to do with text, markup, etc.
+
+  **** textPlusCaption
+-->
+	<xs:complexType name="textPlusCaption">
+		<xs:complexContent>
+			<xs:extension base="markup">
+				<xs:attribute name="caption" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--
+
+  **** textPlusCaptionPlusChanged
+-->
+	<xs:complexType name="textPlusCaptionPlusChanged">
+		<xs:complexContent>
+			<xs:extension base="textPlusCaption">
+				<xs:attribute name="changed" type="changedType"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--
+
+  **** textPlusChanged
+-->
+	<xs:complexType name="textPlusChanged">
+		<xs:complexContent>
+			<xs:extension base="markup">
+				<xs:attribute name="changed" type="changedType"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--
+
+  **** markup
+-->
+	<xs:complexType name="markup" mixed="true">
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="em"/>
+			<xs:element name="strong"/>
+			<xs:element name="u"/>
+			<xs:element name="a" type="textPlusHref"/>
+			<xs:element name="description" type="descriptionType"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--
+
+  **** textPlusHref
+-->
+	<xs:complexType name="textPlusHref">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="href" type="xs:anyURI"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--
+****** End Definitions having to do with text, markup, etc.
+
+
+***** Miscellaneous types referenced by more than one type. 
+
+
+*** changedType
+
+-->
+	<xs:simpleType name="changedType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="yes"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 
+
+*** fieldtocType
+
+ -->
+	
+<xs:complexType name="fieldtocType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="name" type="textPlusChanged"/>
+			<xs:element name="repeat" type="xs:string"/>
+			<xs:element name="level" type="levelType"/>
+						<xs:element name="field" type="xs:string"/>
+												<xs:element name="value" type="xs:string"/>
+		</xs:choice>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>	
+	
+	
+	
+	<!-- 
+
+*** formatType
+
+ -->
+	<xs:simpleType name="formatType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BK"/>
+			<xs:enumeration value="SE"/>
+			<xs:enumeration value="MP"/>
+			<xs:enumeration value="MU"/>
+			<xs:enumeration value="AM"/>
+			<xs:enumeration value="VM"/>
+			<xs:enumeration value="CF"/>
+			<xs:enumeration value="CR"/>
+			<xs:enumeration value="CANMARC"/>
+			<xs:enumeration value="USMARC"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<!-- 
+
+*** levelType
+
+ -->
+	<xs:simpleType name="levelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="standard"/>
+			<xs:enumeration value="local"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<!-- 
+
+*** statusType
+
+ -->
+	<xs:complexType name="statusType">
+		<xs:simpleContent>
+			<xs:extension base="statusValues">
+				<xs:attribute name="date" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- 
+ statusValues, referenced by statusType
+-->
+	<xs:simpleType name="statusValues">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[oO][bB][sS][oO][lL][eE][tT][eE]"/>
+			<xs:pattern value="[rR][eE][dD][eE][fF][iI][nN][eE][dD]"/>
+			<xs:pattern value="[rR][eE][nN][aA][mM][eE][dD]"/>
+			<xs:pattern value="[nN][eE][wW]"/>
+			<xs:pattern value="[dD][eE][fF][iI][nN][eE][dD]"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<!-- 
+
+*** typeType
+
+ -->
+	<xs:simpleType name="typeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="full"/>
+			<xs:enumeration value="concise"/>
+			<xs:enumeration value="lite"/>
+			<xs:enumeration value="full concise"/>
+			<xs:enumeration value="full concise lite"/>
+			<xs:enumeration value="concise lite"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+
+ *** fieldxType 
+
+-->
+	<xs:complexType name="fieldxType">
+		<xs:sequence>
+			<xs:element name="label" type="textPlusChanged" minOccurs="0"/>
+			<xs:element name="name" type="textPlusChanged" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="changed" type="changedType"/>
+	</xs:complexType>
+	<!--	
+
+	*** descriptionType 
+
+-->
+	<xs:complexType name="descriptionType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="p" type="textPlusChanged"/>
+			<xs:element name="syntax" type="textPlusChanged"/>
+			<xs:element name="examplegp" type="examplegpType"/>
+			<xs:element name="list" type="listType"/>
+			<xs:element name="table" type="tableType"/>
+			<xs:element name="citation" type="citationType"/>
+			<xs:element name="heading" type="xs:string"/>
+		</xs:choice>
+		<xs:attribute name="changed" type="changedType"/>
+		<xs:attribute name="type" type="typeType"/>
+		<xs:attribute name="caption" type="xs:string"/>
+	</xs:complexType>
+	<!--  
+
+*** tableType
+
+  -->
+	<xs:complexType name="tableType">
+		<xs:sequence>
+			<xs:element name="tgroup" type="tgroupType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="tabletypeType"/>
+	</xs:complexType>
+	<!--    Following Definitions are referenced by tableType -->
+	<xs:complexType name="tgroupType">
+		<xs:sequence>
+			<xs:element name="thead" type="oneRow" minOccurs="0"/>
+			<xs:element name="tbody" type="oneRow" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="cols" type="xs:integer"/>
+	</xs:complexType>
+	<!--     -->
+	<xs:complexType name="oneRow">
+		<xs:sequence>
+			<xs:element name="row" type="rowType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--     -->
+	<xs:complexType name="rowType">
+		<xs:sequence>
+			<xs:element name="entry" type="entryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--     -->
+	<xs:complexType name="entryType" mixed="true">
+		<xs:sequence>
+			<xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--   -->
+	<xs:simpleType name="tabletypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="displayConstant"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--   -->
+	<xs:complexType name="citationType">
+		<xs:sequence>
+			<xs:element name="name" type="markup" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="address" type="markup" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="fax" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="internet" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--    
+
+End definitions  referenced by tableType
+
+ 
+
+ ****glossaryType 
+
+-->
+	<xs:complexType name="glossaryType">
+		<xs:sequence>
+			<xs:element name="glossaryEntry" type="glossaryEntryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!-- 
+ glossaryEntryType ( referenced by glossaryType)
+-->
+	<xs:complexType name="glossaryEntryType">
+		<xs:sequence>
+			<xs:element name="term" type="xs:string" minOccurs="0"/>
+			<xs:element name="glossaryDescription" type="descriptionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="fields" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 
+
+***listType
+
+-->
+	<xs:complexType name="listType">
+		<xs:sequence>
+			<xs:element name="item" type="textPlusChanged" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="typeType"/>
+	</xs:complexType>
+	<!--
+
+***  groupType 
+
+-->
+	<xs:simpleType name="groupType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="Name portion:*"/>
+			<xs:pattern value="Title portion:*"/>
+			<xs:pattern value="Name and title portions:*"/>
+			<xs:pattern value="Subject subdivision portion:*"/>
+			<xs:pattern value="Control subfields:*"/>
+			<xs:pattern value="Descriptive information:*"/>
+			<xs:pattern value="Numbers and codes:*"/>
+			<xs:pattern value="Tracing and linking subfields:*"/>
+			<xs:pattern value="Enumeration caption:*"/>
+			<xs:pattern value="Chronology caption:*"/>
+			<xs:pattern value="Other caption:*"/>
+						<xs:pattern value="Other captions:*"/>
+			<xs:pattern value="Publication patterns:*"/>
+				<xs:pattern value="Publication pattern:*"/>
+			<xs:pattern value="Enumeration:*"/>
+			<xs:pattern value="Chronology:*"/>
+			<xs:pattern value="Descriptors:*"/>
+			<xs:pattern value="Notes:*"/>
+			<xs:pattern value="Numbers:*"/>
+			<xs:pattern value="Acquisitions:*"/>
+			<xs:pattern value="Circulation:*"/>
+			<xs:pattern value="Location:*"/>
+			<xs:pattern value="Shelving designation:*"/>
+			<xs:pattern value="Caption portion:*"/>
+			<xs:pattern value="Tracing subfields:*"/>
+			<xs:pattern value="Tracing and control subfields:*"/>
+			<xs:pattern value="Tracing and linking subfield:*"/>
+			<xs:pattern value="Microfilm*"/>
+			<xs:pattern value="Aperture Card*"/>
+			<xs:pattern value="Microfiche, Microopaque, etc.*"/>
+			<xs:pattern value="Other*"/>
+			<xs:pattern value="Numbers/codes*"/>
+			<xs:pattern value="Main term portion:*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="blankType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="description" type="descriptionType"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>
