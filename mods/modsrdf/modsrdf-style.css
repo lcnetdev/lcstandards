@@ -1,0 +1,290 @@
+body {
+	text-align:center; 
+	font-family:"Times New Roman", Times, serif; 
+	font-size:16px; 
+	color:#000
+}
+
+                    .container {
+                        width: 90%;
+                        text-align: left;
+                        border: 1px solid gray;
+                        padding: 10px;
+                    }
+                    p, .normal {
+                        font-family:"Times New Roman", Times, serif;
+                        font-size: 16px;
+                    }
+                    
+a {
+	color: #333399;
+}
+a:visited {
+	color: #6666CC;
+}
+a:hover {
+	color: #6666CC;
+}
+
+pre {
+	font-size:12px; 
+};
+
+h1 {
+	font-weight: bold;
+	color: #990000
+}
+
+.heading, .p5, .p6 {
+	margin-top: 50px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.emphasis {
+	font-weight: bold;
+}
+
+.italicized {
+	font-style: italic;
+}
+
+br {
+	padding: 0px;
+	margin: 0px;
+	line-height: 12px;
+}
+
+/* main title */
+.p23 {
+	margin-left: 20px;
+	font-weight: bold;
+	color: #990000;
+	font-size: 24px;
+}
+
+/* section headings */
+.P27 {
+	margin-left: 20px;
+    margin-top: 40px;
+    font-weight: bold;
+	font-size: 20px;
+}
+                    .cORp {
+						font-family: "Courier New", Courier, "Nimbus Mono L";
+						font-weight: bold;
+						font-size: 14px;
+					}
+                    .P9, .P6 {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    .P10, .P3 {
+                        margin-top: 50px;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                    .P8, .P11, .P17, .P19, .P20 {
+                        margin-left: 20px;
+                        margin-top: 40px;
+                        font-weight: bold;
+                    }
+                    
+                    .P4 {
+                        margin: 0px;
+                    }
+                    
+                    .P1, .P2, .P5, .P12, .P28, .P31, .P32 {
+                        margin-left: 20px;
+                    }
+                    
+                    .T2 {
+                        font-weight: bold;
+                    }
+                    .T20, .T21, .T22, .T25, .P4, .P35, .P36, .P38 {
+                        font-family: courier;
+                    }
+                    
+
+                    .T26 {
+                        margin-left: -20px;
+                    }
+                    .P7 {
+                        margin-left: 20px;
+                    }
+                    
+                    
+                    .P13, .P14, .P15, .P16, .P17 {
+                        margin-left: 40px;
+                    }
+                    
+                    .P20 {
+                        font-weight: bold;
+                    }
+                    
+                    /*
+                     * table {
+                        border: 1px solid black;
+                        margin-left: 20px;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                    }
+                    * 
+                    */
+                    
+                    .pORcTable {
+                        border: 1px solid grey;
+                        margin-left: 5%;
+                        margin-right: 5%;
+                        /* padding-top: 20px; */
+                        /* padding-bottom: 20px; */
+                        width: 90%;
+                        max-width: 90%;
+                        table-layout: fixed;
+                    }
+                    
+                    tr {
+                        vertical-align: top;
+                        text-align: top;
+                    }
+                    
+			.trheading {
+                        font-weight: bold;
+                        font-size: 18px;
+                        background-color: #99B2FF;
+                    }
+                    
+                    td {
+                        align: left;
+                    }
+                    
+                    .tdleft {
+                        width: 15%;
+                    }
+                    .tdright {
+                        width: 85%;
+                    }
+                    
+                    
+                    .trbottomrow {
+                        vertical-align: bottom;
+                    }
+                    
+                    .tdbottomrow {
+                        padding-top: 15px;
+                        width: 100%;
+                        font-size: 13px;
+                        text-align: right;
+                    }
+                    .bottomrow {
+                        font-size: 13px;
+                    }
+                    
+                    
+                    ul {
+                        list-style-type: none;
+                        margin: 0px;
+                    }
+                    ul p {
+                        margin: 0px;
+                    }
+                    li p {
+                        margin: 0px;
+                    }
+                    
+                    /* For XML element names */
+                    .T3, .T4 {
+                        font-family: courier;
+                        color: #1C4469;
+                    }
+                    
+                    /* For attribute names */
+                    .T8, .T10 {
+                        font-family: courier;
+                        color: #8F6A27;
+                    }
+                    
+                    /* For attribute values */
+                    .T12, .T13, {
+                        color: #694E1C;
+                    }
+                    
+/*********************   
+TABBED NAV 1
+*********************/
+ul.tabnav {
+margin: 0;
+padding: 0;
+list-style: none;
+height: 26px;
+border-bottom: 1px solid #ccc;
+border-left: 1px solid #ccc;
+}
+ul.tabnav li {
+float: left;
+margin: 0;
+padding: 0;
+height: 25px;
+line-height: 25px;
+border: 1px solid #ccc;
+margin-bottom: -1px;
+margin-right:2px;
+background: #eee;
+position: relative;
+}
+ul.tabnav li.first {
+border-left: none;
+}
+ul.tabnav li.second {
+border-left: none;
+}
+ul.tabnav li a,
+ul.tabnav li a:visited {
+text-decoration: none;
+color: #666;
+display: block;
+padding: 0 20px;
+border: 1px none #fff;
+outline: none;
+}
+ul.tabnav li a:hover,
+ul.tabnav li a:focus {
+background: #ddd;
+}
+ul.tabnav li a:visited,
+ul.tabnav li a:active,
+ul.tabnav li a:hover {
+text-decoration: none;
+}
+ul.tabnav li.active,
+ul.tabnav li.active a,
+ul.tabnav li.active a:hover,
+ul.tabnav li.active a:visited  {
+background: #fff;
+border-bottom: 1px solid #fff;
+color:#900;
+font-weight:bold;
+text-decoration:none;
+}
+.tab_container {
+border: 1px solid #ccc;
+border-top: none;
+clear: both;
+padding:15px 10px 10px 10px;
+margin-bottom:1.25em;
+}
+.tab_content1 {
+background-color:transparent;
+}
+.tab_content2 {
+background-color:transparent;
+}
+.tab_content3 {
+background-color:transparent;
+}
+.tab_content4 {
+background-color:transparent;
+}
+.tab_content5 {
+background-color:transparent;
+}

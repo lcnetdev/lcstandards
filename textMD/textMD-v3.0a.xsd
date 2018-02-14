@@ -1,0 +1,1463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with oXygen 8.2 (http://www.oxygenxml.com) by Clay Redding, Library of Congress Network Development and MARC Standards Office, cred@loc.gov -->
+<!-- textMD Schema Version 3.0 alpha -->
+<!-- Clay Redding, Library of Congress -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- Root element for textMD -->
+	<xs:element name="textMD">
+		<xs:annotation>
+			<xs:documentation>Root Element for bundling text technical metadata</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="encoding" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>technical aspects of the text generation, whether analog-to-digital or
+						born digital.  It has a single attribute, QUALITY, used to record a quality
+						measure for the output of the encoding process (OCR quality, transcription
+						quality, etc.).
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="encoding_platform" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>hardware platform on which document was original produced,
+									including specific computer type and any scanner used for OCR.
+									Optional attribute of linebreak to indicate whether it's a CR or CR/LF system.
+								</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="linebreak" use="optional">
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="CR"/>
+														<xs:enumeration value="CR/LF"/>
+														<xs:enumeration value="LF"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="encoding_software" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Type of software used in producing text (including
+									OCR, word processing, text editor, etc.
+								</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="version" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="encoding_agent" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Person who transcribed text from the original medium to 
+									another; e.g. in the case of an oral history transcript or a transcription of a 
+									stone rubbing.
+								</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="role" use="required">
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="OCR"/>
+														<xs:enumeration value="TRANSCRIBER"/>
+														<xs:enumeration value="MARKUP"/>
+														<xs:enumeration value="EDITOR"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="QUALITY" type="xs:string" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="character_info" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Information regarding the encoding of characters
+						within the file, including the standardized name of the character set,
+						the byte order, the character size, and the line break mechanism.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="charset" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The character set employed by the text.  Controlled vocab 
+										using IANA names for character sets.  See http://www.iana.org/assignments/character-sets 
+										for details.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="ANSI_X3.4-1968"/>
+										<xs:enumeration value="ISO-10646-UTF-1"/>
+										<xs:enumeration value="ISO_646.basic:1983"/>
+										<xs:enumeration value="INVARIANT"/>
+										<xs:enumeration value="ISO_646.irv:1983"/>
+										<xs:enumeration value="BS_4730"/>
+										<xs:enumeration value="NATS-SEFI"/>
+										<xs:enumeration value="NATS-SEFI-ADD"/>
+										<xs:enumeration value="NATS-DANO"/>
+										<xs:enumeration value="NATS-DANO-ADD"/>
+										<xs:enumeration value="SEN_850200_B"/>
+										<xs:enumeration value="SEN_850200_C"/>
+										<xs:enumeration value="KS_C_5601-1987"/>
+										<xs:enumeration value="ISO-2022-KR"/>
+										<xs:enumeration value="EUC-KR"/>
+										<xs:enumeration value="ISO-2022-JP"/>
+										<xs:enumeration value="ISO-2022-JP-2"/>
+										<xs:enumeration value="ISO-2022-CN"/>
+										<xs:enumeration value="ISO-2022-CN-EXT"/>
+										<xs:enumeration value="JIS_C6220-1969-jp"/>
+										<xs:enumeration value="JIS_C6220-1969-ro"/>
+										<xs:enumeration value="IT"/>
+										<xs:enumeration value="PT"/>
+										<xs:enumeration value="ES"/>
+										<xs:enumeration value="greek7-old"/>
+										<xs:enumeration value="latin-greek"/>
+										<xs:enumeration value="DIN_66003"/>
+										<xs:enumeration value="NF_Z_62-010_(1973)"/>
+										<xs:enumeration value="latin-greek-1"/>
+										<xs:enumeration value="ISO_5427"/>
+										<xs:enumeration value="JIS_C6226-1978"/>
+										<xs:enumeration value="BS_viewdata"/>
+										<xs:enumeration value="INIS"/>
+										<xs:enumeration value="INIS-8"/>
+										<xs:enumeration value="INIS-cyrillic"/>
+										<xs:enumeration value="ISO_5427:1981"/>
+										<xs:enumeration value="ISO_5428:1980"/>
+										<xs:enumeration value="GB_1988-80"/>
+										<xs:enumeration value="GB_2312-80"/>
+										<xs:enumeration value="NS_4551-1"/>
+										<xs:enumeration value="NS_4551-2"/>
+										<xs:enumeration value="NF_Z_62-010"/>
+										<xs:enumeration value="videotex-suppl"/>
+										<xs:enumeration value="PT2"/>
+										<xs:enumeration value="ES2"/>
+										<xs:enumeration value="MSZ_7795.3"/>
+										<xs:enumeration value="JIS_C6226-1983"/>
+										<xs:enumeration value="greek7"/>
+										<xs:enumeration value="ASMO_449"/>
+										<xs:enumeration value="iso-ir-90"/>
+										<xs:enumeration value="JIS_C6229-1984-a"/>
+										<xs:enumeration value="JIS_C6229-1984-b"/>
+										<xs:enumeration value="JIS_C6229-1984-b-add"/>
+										<xs:enumeration value="JIS_C6229-1984-hand"/>
+										<xs:enumeration value="JIS_C6229-1984-hand-add"/>
+										<xs:enumeration value="JIS_C6229-1984-kana"/>
+										<xs:enumeration value="ISO_2033-1983"/>
+										<xs:enumeration value="ANSI_X3.110-1983"/>
+										<xs:enumeration value="ISO_8859-1:1987"/>
+										<xs:enumeration value="ISO_8859-2:1987"/>
+										<xs:enumeration value="ISO_8859-3:1988"/>
+										<xs:enumeration value="ISO_8859-4:1988"/>
+										<xs:enumeration value="T.61-7bit"/>
+										<xs:enumeration value="ECMA-cyrillic"/>
+										<xs:enumeration value="CSA_Z243.4-1985-1"/>
+										<xs:enumeration value="CSA_Z243.4-1985-2"/>
+										<xs:enumeration value="CSA_Z243.4-1985-gr"/>
+										<xs:enumeration value="ISO_8859-6:1987"/>
+										<xs:enumeration value="ISO_8859-6-E"/>
+										<xs:enumeration value="ISO_8859-6-I"/>
+										<xs:enumeration value="ISO_8859-7:1987"/>
+										<xs:enumeration value="T.101-G2"/>
+										<xs:enumeration value="ISO_8859-8:1988"/>
+										<xs:enumeration value="ISO_8859-8-E"/>
+										<xs:enumeration value="ISO_8859-8-I"/>
+										<xs:enumeration value="CSN_369103"/>
+										<xs:enumeration value="JUS_I.B1.002"/>
+										<xs:enumeration value="ISO_6937-2-add"/>
+										<xs:enumeration value="IEC_P27-1"/>
+										<xs:enumeration value="ISO_8859-5:1988"/>
+										<xs:enumeration value="JUS_I.B1.003-serb"/>
+										<xs:enumeration value="JUS_I.B1.003-mac"/>
+										<xs:enumeration value="ISO_8859-9:1989"/>
+										<xs:enumeration value="greek-ccitt"/>
+										<xs:enumeration value="NC_NC00-10:81"/>
+										<xs:enumeration value="ISO_6937-2-25"/>
+										<xs:enumeration value="GOST_19768-74"/>
+										<xs:enumeration value="ISO_8859-supp"/>
+										<xs:enumeration value="ISO_10367-box"/>
+										<xs:enumeration value="ISO-8859-10"/>
+										<xs:enumeration value="latin-lap"/>
+										<xs:enumeration value="JIS_X0212-1990"/>
+										<xs:enumeration value="DS_2089"/>
+										<xs:enumeration value="us-dk"/>
+										<xs:enumeration value="dk-us"/>
+										<xs:enumeration value="JIS_X0201"/>
+										<xs:enumeration value="KSC5636"/>
+										<xs:enumeration value="ISO-10646-UCS-2"/>
+										<xs:enumeration value="ISO-10646-UCS-4"/>
+										<xs:enumeration value="DEC-MCS"/>
+										<xs:enumeration value="hp-roman8"/>
+										<xs:enumeration value="macintosh"/>
+										<xs:enumeration value="IBM037"/>
+										<xs:enumeration value="IBM038"/>
+										<xs:enumeration value="IBM273"/>
+										<xs:enumeration value="IBM274"/>
+										<xs:enumeration value="IBM275"/>
+										<xs:enumeration value="IBM277"/>
+										<xs:enumeration value="IBM278"/>
+										<xs:enumeration value="IBM280"/>
+										<xs:enumeration value="IBM281"/>
+										<xs:enumeration value="IBM284"/>
+										<xs:enumeration value="IBM285"/>
+										<xs:enumeration value="IBM290"/>
+										<xs:enumeration value="IBM297"/>
+										<xs:enumeration value="IBM420"/>
+										<xs:enumeration value="IBM423"/>
+										<xs:enumeration value="IBM424"/>
+										<xs:enumeration value="IBM437"/>
+										<xs:enumeration value="IBM500"/>
+										<xs:enumeration value="IBM775"/>
+										<xs:enumeration value="IBM850"/>
+										<xs:enumeration value="IBM851"/>
+										<xs:enumeration value="IBM852"/>
+										<xs:enumeration value="IBM855"/>
+										<xs:enumeration value="IBM857"/>
+										<xs:enumeration value="IBM860"/>
+										<xs:enumeration value="IBM861"/>
+										<xs:enumeration value="IBM862"/>
+										<xs:enumeration value="IBM863"/>
+										<xs:enumeration value="IBM864"/>
+										<xs:enumeration value="IBM865"/>
+										<xs:enumeration value="IBM866"/>
+										<xs:enumeration value="IBM869"/>
+										<xs:enumeration value="IBM870"/>
+										<xs:enumeration value="IBM871"/>
+										<xs:enumeration value="IBM880"/>
+										<xs:enumeration value="IBM891"/>
+										<xs:enumeration value="IBM903"/>
+										<xs:enumeration value="IBM904"/>
+										<xs:enumeration value="IBM905"/>
+										<xs:enumeration value="IBM918"/>
+										<xs:enumeration value="IBM1026"/>
+										<xs:enumeration value="EBCDIC-AT-DE"/>
+										<xs:enumeration value="EBCDIC-AT-DE-A"/>
+										<xs:enumeration value="EBCDIC-CA-FR"/>
+										<xs:enumeration value="EBCDIC-DK-NO"/>
+										<xs:enumeration value="EBCDIC-DK-NO-A"/>
+										<xs:enumeration value="EBCDIC-FI-SE"/>
+										<xs:enumeration value="EBCDIC-FI-SE-A"/>
+										<xs:enumeration value="EBCDIC-FR"/>
+										<xs:enumeration value="EBCDIC-IT"/>
+										<xs:enumeration value="EBCDIC-PT"/>
+										<xs:enumeration value="EBCDIC-ES"/>
+										<xs:enumeration value="EBCDIC-ES-A"/>
+										<xs:enumeration value="EBCDIC-ES-S"/>
+										<xs:enumeration value="EBCDIC-UK"/>
+										<xs:enumeration value="EBCDIC-US"/>
+										<xs:enumeration value="UNKNOWN-8BIT"/>
+										<xs:enumeration value="MNEMONIC"/>
+										<xs:enumeration value="MNEM"/>
+										<xs:enumeration value="VISCII"/>
+										<xs:enumeration value="VIQR"/>
+										<xs:enumeration value="KOI8-R"/>
+										<xs:enumeration value="KOI8-U"/>
+										<xs:enumeration value="IBM00858"/>
+										<xs:enumeration value="IBM00924"/>
+										<xs:enumeration value="IBM01140"/>
+										<xs:enumeration value="IBM01141"/>
+										<xs:enumeration value="IBM01142"/>
+										<xs:enumeration value="IBM01143"/>
+										<xs:enumeration value="IBM01144"/>
+										<xs:enumeration value="IBM01145"/>
+										<xs:enumeration value="IBM01146"/>
+										<xs:enumeration value="IBM01147"/>
+										<xs:enumeration value="IBM01148"/>
+										<xs:enumeration value="IBM01149"/>
+										<xs:enumeration value="Big5-HKSCS"/>
+										<xs:enumeration value="UNICODE-1-1"/>
+										<xs:enumeration value="SCSU"/>
+										<xs:enumeration value="UTF-7"/>
+										<xs:enumeration value="UTF-16BE"/>
+										<xs:enumeration value="UTF-16LE"/>
+										<xs:enumeration value="UTF-16"/>
+										<xs:enumeration value="CESU-8"/>
+										<xs:enumeration value="UTF-32"/>
+										<xs:enumeration value="UTF-32BE"/>
+										<xs:enumeration value="UTF-32LE"/>
+										<xs:enumeration value="UNICODE-1-1-UTF-7"/>
+										<xs:enumeration value="UTF-8"/>
+										<xs:enumeration value="ISO-8859-13"/>
+										<xs:enumeration value="ISO-8859-14"/>
+										<xs:enumeration value="ISO-8859-15"/>
+										<xs:enumeration value="ISO-8859-16"/>
+										<xs:enumeration value="JIS_Encoding"/>
+										<xs:enumeration value="Shift_JIS"/>
+										<xs:enumeration value="Extended_UNIX_Code_Packed_Format_for_Japanese"/>
+										<xs:enumeration value="Extended_UNIX_Code_Fixed_Width_for_Japanese"/>
+										<xs:enumeration value="ISO-10646-UCS-Basic"/>
+										<xs:enumeration value="ISO-10646-Unicode-Latin1"/>
+										<xs:enumeration value="ISO-10646-J-1"/>
+										<xs:enumeration value="ISO-Unicode-IBM-1268"/>
+										<xs:enumeration value="ISO-Unicode-IBM-1276"/>
+										<xs:enumeration value="ISO-Unicode-IBM-1264"/>
+										<xs:enumeration value="ISO-Unicode-IBM-1265"/>
+										<xs:enumeration value="ISO-8859-1-Windows-3.0-Latin-1"/>
+										<xs:enumeration value="ISO-8859-1-Windows-3.1-Latin-1"/>
+										<xs:enumeration value="ISO-8859-2-Windows-Latin-2"/>
+										<xs:enumeration value="ISO-8859-9-Windows-Latin-5"/>
+										<xs:enumeration value="Adobe-Standard-Encoding"/>
+										<xs:enumeration value="Ventura-US"/>
+										<xs:enumeration value="Ventura-International"/>
+										<xs:enumeration value="PC8-Danish-Norwegian"/>
+										<xs:enumeration value="PC8-Turkish"/>
+										<xs:enumeration value="IBM-Symbols"/>
+										<xs:enumeration value="IBM-Thai"/>
+										<xs:enumeration value="HP-Legal"/>
+										<xs:enumeration value="HP-Pi-font"/>
+										<xs:enumeration value="HP-Math8"/>
+										<xs:enumeration value="Adobe-Symbol-Encoding"/>
+										<xs:enumeration value="HP-DeskTop"/>
+										<xs:enumeration value="Ventura-Math"/>
+										<xs:enumeration value="Microsoft-Publishing"/>
+										<xs:enumeration value="Windows-31J"/>
+										<xs:enumeration value="GB2312"/>
+										<xs:enumeration value="Big5"/>
+										<xs:enumeration value="windows-1250"/>
+										<xs:enumeration value="windows-1251"/>
+										<xs:enumeration value="windows-1252"/>
+										<xs:enumeration value="windows-1253"/>
+										<xs:enumeration value="windows-1254"/>
+										<xs:enumeration value="windows-1255"/>
+										<xs:enumeration value="windows-1256"/>
+										<xs:enumeration value="windows-1257"/>
+										<xs:enumeration value="windows-1258"/>
+										<xs:enumeration value="TIS-620"/>
+										<xs:enumeration value="HZ-GB-2312"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="byte_order">
+								<xs:annotation>
+									<xs:documentation>Byte order, primarily useful for cases 
+									where it’s not clear just by specifying an IANA character set.  
+									Uses a fixed list of ‘big,’ ‘little,’ and ‘middle' endian.											</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="big"/>
+										<xs:enumeration value="little"/>
+										<xs:enumeration value="middle"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="byte_size">
+								<xs:annotation>
+									<xs:documentation>The size of an individual byte within the
+									expressed as a number of bits.  This does not necessarily
+									equal the character size, as a character may have more than
+									one, or a variable number of bytes per character.												</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:integer"/>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="character_size">
+								<xs:annotation>
+									<xs:documentation>The size of an individual character within the
+									character set as a number of bytes of the size expressed in the
+									byte_size.  In the case of variable encodings, such as UTF-8 
+									for Unicode, the character_size element should state "variable" 
+									and also identify the specific variable character set encoding in 
+									the encoding attribute.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="encoding" type="xs:string" use="optional"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="linebreak">
+								<xs:annotation>
+									<xs:documentation>How line breaks are represented in current 
+									file (which may differ from how they were originally encoded).  
+									Either carriage return, or carriage return/line feed.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="CR"/>
+										<xs:enumeration value="CR/LF"/>
+										<xs:enumeration value="LF"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="language" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Language(s) used in work.  Use ISO 639-2 codes.  To wit:
+			
+Abkhazian; abk
+Achinese; ace 
+Acoli; ach 
+Adangme; ada
+Afar; aar
+Afrihili; afh 
+Afrikaans; afr
+Afro-Asiatic (Other); afa 
+Akan; aka
+Akkadian; akk 
+Albanian; alb/sqi
+Aleut; ale 
+Algonquian languages; alg 
+Altaic (Other); tut
+Amharic; amh
+Apache languages; apa
+Arabic; ara
+Aramaic; arc
+Arapaho; arp
+Araucanian; arn
+Arawak; arw
+Armenian; arm/hye
+Artificial (Other); art
+Assamese; asm
+
+Asturian; ast
+Athapascan languages; ath 
+Australian languages; aus
+Austronesian (Other); map 
+Avaric; ava
+Avestan; ave
+Awadhi; awa
+Aymara; aym
+Azerbaijani; aze
+Bable; ast
+
+Balinese; ban 
+Baltic (Other); bat 
+Baluchi; bal 
+Bambara; bam 
+Bamileke languages; bai 
+Banda; bad 
+Bantu (Other); bnt 
+Basa; bas 
+Bashkir; bak
+Basque; baq/eus
+Batak (Indonesia); btk  
+Beja; bej 
+Belarusian; bel
+Bemba; bem 
+Bengali; ben
+Berber (Other); ber 
+Bhojpuri; bho 
+Bihari; bih
+Bikol; bik 
+Bini; bin 
+Bislama; bis
+Bokmål, Norwegian; nob
+Bosnian; bos
+Braj; bra 
+Breton; bre
+Buginese; bug 
+Bulgarian; bul
+Buriat; bua 
+Burmese; bur/mya
+
+Caddo; cad 
+Carib; car
+Castilian; spa 
+Catalan; cat
+Caucasian (Other); cau 
+Cebuano; ceb 
+Celtic (Other); cel 
+Central American Indian (Other); cai 
+Chagatai; chg 
+Chamic languages; cmc 
+Chamorro; cha
+Chechen; che
+Cherokee; chr 
+Chewa; nya
+Cheyenne; chy 
+Chibcha; chb 
+Chichewa; nya
+Chinese; chi/zho
+Chinook jargon; chn 
+Chipewyan; chp 
+Choctaw; cho
+Chuang; zha 
+Church Slavic; chu
+Church Slavonic; chu
+Chuukese; chk 
+Chuvash; chv
+Coptic; cop 
+Cornish; cor
+Corsican; cos
+Cree; cre 
+Creek; mus 
+Creoles and pidgins(Other); crp 
+Creoles and pidgins, English-based (Other); cpe 
+Creoles and pidgins, French-based (Other); cpf 
+Creoles and pidgins, Portuguese-based (Other); cpp 
+Croatian; scr/hrv
+Cushitic (Other); cus 
+Czech; cze/ces
+
+Dakota; dak 
+Danish; dan
+Dayak; day 
+Delaware; del 
+Dinka; din 
+Divehi; div 
+Dogri; doi 
+Dogrib; dgr 
+Dravidian (Other); dra 
+Duala; dua 
+Dutch; dut/nld
+Dutch, Middle (ca. 1050-1350); dum 
+Dyula; dyu 
+Dzongkha; dzo
+
+Efik; efi 
+Egyptian (Ancient); egy 
+Ekajuk; eka 
+Elamite; elx 
+English; eng
+English, Middle (1100-1500); enm 
+English, Old (ca.450-1100); ang 
+Esperanto; epo
+Estonian; est
+Ewe; ewe 
+Ewondo; ewo 
+
+Fang; fan 
+Fanti; fat 
+Faroese; fao
+Fijian; fij
+Finnish; fin
+Finno-Ugrian (Other); fiu 
+Fon; fon 
+French; fre/fra
+French, Middle (ca.1400-1600); frm 
+French, Old (842-ca.1400); fro 
+Frisian; fry
+Friulian; fur 
+Fulah; ful 
+
+Ga; gaa 
+Gaelic; gla
+Gallegan; glg
+Ganda; lug 
+Gayo; gay 
+Gbaya; gba 
+Geez; gez 
+Georgian; geo/kat
+German; ger/deu
+German, Low; nds 
+German, Middle High (ca.1050-1500); gmh 
+German, Old High (ca.750-1050); goh 
+Germanic (Other); gem
+Gikuyu; kik 
+Gilbertese; gil 
+Gondi; gon 
+Gorontalo; gor 
+Gothic; got 
+Grebo; grb 
+Greek, Ancient (to 1453); grc 
+Greek, Modern (1453-); gre/ell
+Guarani; grn
+Gujarati; guj
+Gwich´in; gwi 
+
+Haida; hai 
+Hausa; hau
+Hawaiian; haw 
+Hebrew; heb
+Herero; her
+Hiligaynon; hil 
+Himachali; him 
+Hindi; hin
+Hiri Motu; hmo
+Hittite; hit 
+Hmong; hmn 
+Hungarian; hun
+Hupa; hup 
+
+Iban; iba 
+Icelandic; ice/isl
+Ido; ido
+Igbo; ibo 
+Ijo; ijo 
+Iloko; ilo 
+Inari Sami; smn
+Indic (Other); inc 
+Indo-European (Other); ine 
+Indonesian; ind
+Interlingua (International Auxiliary Language Association); ina
+Interlingue; ile
+Inuktitut; iku
+Inupiaq; ipk
+Iranian (Other); ira 
+Irish; gle
+Irish, Middle (900-1200); mga
+Irish, Old (to 900); sga 
+Iroquoian languages; iro 
+Italian; ita
+
+Japanese; jpn
+Javanese; jav
+Judeo-Arabic; jrb 
+Judeo-Persian; jpr 
+
+Kabyle; kab 
+Kachin; kac 
+Kalaallisut; kal
+Kamba; kam 
+Kannada; kan
+Kanuri; kau 
+Kara-Kalpak; kaa 
+Karen; kar 
+Kashmiri; kas
+Kawi; kaw 
+Kazakh; kaz
+Khasi; kha 
+Khmer; khm
+Khoisan (Other); khi 
+Khotanese; kho 
+Kikuyu; kik
+Kimbundu; kmb 
+Kinyarwanda; kin
+Kirghiz; kir
+Komi; kom
+Kongo; kon 
+Konkani; kok 
+Korean; kor
+Kosraean; kos 
+Kpelle; kpe 
+Kru; kro 
+Kuanyama; kua
+Kumyk; kum 
+Kurdish; kur
+Kurukh; kru 
+Kutenai; kut
+Kwanyama; kua
+
+Ladino; lad 
+Lahnda; lah 
+Lamba; lam 
+Lao; lao
+Latin; lat
+Latvian; lav
+Letzeburgesch; ltz
+Lezghian; lez 
+Lingala; lin
+Lithuanian; lit
+Low German; nds 
+Low Saxon; nds 
+Lozi; loz 
+Luba-Katanga; lub 
+Luba-Lulua; lua 
+Luiseno; lui 
+Lule Sami; smj
+Lunda; lun 
+Luo (Kenya and Tanzania); luo 
+Luxembourgish; ltz
+Lushai; lus 
+
+Macedonian; mac/mkd
+Madurese; mad 
+Magahi; mag 
+Maithili; mai 
+Makasar; mak 
+Malagasy; mlg
+Malay; may/msa
+Malayalam; mal
+Maltese; mlt
+Manchu; mnc
+Mandar; mdr 
+Mandingo; man 
+Manipuri; mni 
+Manobo languages; mno 
+Manx; glv
+Maori; mao/mri
+Marathi; mar
+Mari; chm 
+Marshallese; mah
+Marwari; mwr 
+Masai; mas 
+Mayan languages; myn 
+Mende; men 
+Micmac; mic 
+Minangkabau; min 
+Miscellaneous languages; mis 
+Mohawk; moh 
+Moldavian; mol
+Mon-Khmer (Other); mkh 
+Mongo; lol 
+Mongolian; mon
+Mossi; mos 
+Multiple languages; mul 
+Munda languages; mun 
+
+Nahuatl; nah 
+Nauru; nau
+Navaho; nav
+Navajo; nav
+Ndebele, North; nde
+Ndebele, South; nbl
+Ndonga; ndo
+Nepali; nep
+Newari; new 
+Nias; nia 
+Niger-Kordofanian (Other); nic 
+Nilo-Saharan (Other); ssa 
+Niuean; niu 
+Norse, Old; non 
+North American Indian (Other); nai 
+Northern Sami; sme
+North Ndebele; nde
+Norwegian; nor
+Norwegian Bokmål; nob
+Norwegian Nynorsk; nno
+Nubian languages; nub 
+Nyamwezi; nym 
+Nyanja; nya
+Nyankole; nyn
+Nynorsk, Norwegian; nno 
+Nyoro; nyo 
+Nzima; nzi 
+
+Occitan (post 1500); oci
+Ojibwa; oji 
+Old Bulgarian; chu
+Old Church Slavonic; chu
+Old Slavonic; chu
+Oriya; ori
+Oromo; orm
+Osage; osa 
+Ossetian; oss
+Ossetic; oss
+Otomian languages; oto 
+
+Pahlavi; pal 
+Palauan; pau 
+Pali; pli
+Pampanga; pam 
+Pangasinan; pag 
+Panjabi; pan
+Papiamento; pap 
+Papuan (Other); paa 
+Persian; per/fas
+Persian, Old (ca.600-400); peo 
+Philippine (Other); phi 
+Phoenician; phn 
+Pohnpeian; pon 
+Polish; pol
+Portuguese; por
+Prakrit languages; pra 
+Provençal; oci
+Provençal, Old (to 1500); pro 
+Pushto; pus
+
+Quechua; que
+
+Raeto-Romance; roh
+Rajasthani; raj 
+Rapanui; rap 
+Rarotongan; rar 
+Reserved for local user; qaa-qtz 
+Romance (Other); roa 
+Romanian; rum/ron
+Romany; rom 
+Rundi; run
+Russian; rus
+
+Salishan languages; sal 
+Samaritan Aramaic; sam 
+Sami languages (Other); smi 
+Samoan; smo
+Sandawe; sad 
+Sango; sag
+Sanskrit; san
+Santali; sat 
+Sardinian; srd
+Sasak; sas 
+Saxon, Low; nds
+Scots; sco
+Scottish Gaelic; gla  
+Selkup; sel 
+Semitic (Other); sem 
+Serbian; scc/srp
+Serer; srr 
+Shan; shn 
+Shona; sna
+Sidamo; sid 
+Sign languages; sgn 
+Siksika; bla 
+Sindhi; snd
+Sinhalese; sin
+Sino-Tibetan (Other); sit 
+Siouan languages; sio
+Skolt Sami; sms 
+Slave (Athapascan); den 
+Slavic (Other); sla 
+Slovak; slo/slk
+Slovenian; slv
+Sogdian; sog 
+Somali; som
+Songhai; son 
+Soninke; snk 
+Sorbian languages; wen 
+Sotho, Northern; nso 
+Sotho, Southern; sot
+South American Indian (Other); sai 
+Southern Sami; sma
+South Ndebele; nbl
+Spanish; spa
+Sukuma; suk 
+Sumerian; sux 
+Sundanese; sun
+Susu; sus 
+Swahili; swa
+Swati; ssw
+Swedish; swe
+Syriac; syr 
+
+Tagalog; tgl
+Tahitian; tah
+Tai (Other); tai 
+Tajik; tgk
+Tamashek; tmh 
+Tamil; tam
+Tatar; tat
+Telugu; tel
+Tereno; ter 
+Tetum; tet 
+Thai; tha
+Tibetan; tib/bod
+Tigre; tig 
+Tigrinya; tir
+Timne; tem 
+Tiv; tiv 
+Tlingit; tli 
+Tok Pisin; tpi 
+Tokelau; tkl 
+Tonga (Nyasa); tog 
+Tonga (Tonga Islands); ton
+Tsimshian; tsi 
+Tsonga; tso
+Tswana; tsn
+Tumbuka; tum 
+Tupi languages; tup
+Turkish; tur
+Turkish, Ottoman (1500-1928); ota 
+Turkmen; tuk
+Tuvalu; tvl 
+Tuvinian; tyv 
+Twi; twi
+
+Ugaritic; uga 
+Uighur; uig
+Ukrainian; ukr
+Umbundu; umb 
+Undetermined; und 
+Urdu; urd
+Uzbek; uzb
+
+Vai; vai 
+Venda; ven 
+Vietnamese; vie
+Volapük; vol
+Votic; vot 
+
+Wakashan languages; wak 
+Walamo; wal 
+Walloon; wln
+Waray; war 
+Washo; was 
+Welsh; wel/cym
+Wolof; wol
+
+Xhosa; xho
+
+Yakut; sah 
+Yao; yao 
+Yapese; yap 
+Yiddish; yid
+Yoruba; yor
+Yupik languages; ypk 
+
+Zande; znd 
+Zapotec; zap 
+Zenaga; zen 
+Zhuang; zha
+Zulu; zul
+Zuni;j zun 
+
+						</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="abk"/>
+							<xs:enumeration value="ace"/>
+							<xs:enumeration value="ach"/>
+							<xs:enumeration value="ada"/>
+							<xs:enumeration value="aar"/>
+							<xs:enumeration value="afh"/>
+							<xs:enumeration value="afr"/>
+							<xs:enumeration value="afa"/>
+							<xs:enumeration value="aka"/>
+							<xs:enumeration value="akk"/>
+							<xs:enumeration value="alb/sqi"/>
+							<xs:enumeration value="ale"/>
+							<xs:enumeration value="alg"/>
+							<xs:enumeration value="amh"/>
+							<xs:enumeration value="apa"/>
+							<xs:enumeration value="ara"/>
+							<xs:enumeration value="arc"/>
+							<xs:enumeration value="arp"/>
+							<xs:enumeration value="arn"/>
+							<xs:enumeration value="arw"/>
+							<xs:enumeration value="arm/hye"/>
+							<xs:enumeration value="art"/>
+							<xs:enumeration value="asm"/>
+							<xs:enumeration value="ast"/>
+							<xs:enumeration value="ath"/>
+							<xs:enumeration value="aus"/>
+							<xs:enumeration value="ava"/>
+							<xs:enumeration value="ave"/>
+							<xs:enumeration value="awa"/>
+							<xs:enumeration value="aym"/>
+							<xs:enumeration value="aze"/>
+							<xs:enumeration value="ban"/>
+							<xs:enumeration value="bat"/>
+							<xs:enumeration value="bal"/>
+							<xs:enumeration value="bam"/>
+							<xs:enumeration value="bai"/>
+							<xs:enumeration value="bad"/>
+							<xs:enumeration value="bnt"/>
+							<xs:enumeration value="bas"/>
+							<xs:enumeration value="bak"/>
+							<xs:enumeration value="baq/eus"/>
+							<xs:enumeration value="btk"/>
+							<xs:enumeration value="bej"/>
+							<xs:enumeration value="bel"/>
+							<xs:enumeration value="bem"/>
+							<xs:enumeration value="ben"/>
+							<xs:enumeration value="ber"/>
+							<xs:enumeration value="bho"/>
+							<xs:enumeration value="bih"/>
+							<xs:enumeration value="bik"/>
+							<xs:enumeration value="bin"/>
+							<xs:enumeration value="bis"/>
+							<xs:enumeration value="bos"/>
+							<xs:enumeration value="bra"/>
+							<xs:enumeration value="bre"/>
+							<xs:enumeration value="bug"/>
+							<xs:enumeration value="bul"/>
+							<xs:enumeration value="bua"/>
+							<xs:enumeration value="bur/mya"/>
+							<xs:enumeration value="cad"/>
+							<xs:enumeration value="car"/>
+							<xs:enumeration value="cat"/>
+							<xs:enumeration value="cau"/>
+							<xs:enumeration value="ceb"/>
+							<xs:enumeration value="cel"/>
+							<xs:enumeration value="cai"/>
+							<xs:enumeration value="chg"/>
+							<xs:enumeration value="cmc"/>
+							<xs:enumeration value="cha"/>
+							<xs:enumeration value="che"/>
+							<xs:enumeration value="chr"/>
+							<xs:enumeration value="chy"/>
+							<xs:enumeration value="chb"/>
+							<xs:enumeration value="chi/zho"/>
+							<xs:enumeration value="chn"/>
+							<xs:enumeration value="chp"/>
+							<xs:enumeration value="cho"/>
+							<xs:enumeration value="chu"/>
+							<xs:enumeration value="chk"/>
+							<xs:enumeration value="chv"/>
+							<xs:enumeration value="cop"/>
+							<xs:enumeration value="cor"/>
+							<xs:enumeration value="cos"/>
+							<xs:enumeration value="cre"/>
+							<xs:enumeration value="crp"/>
+							<xs:enumeration value="cpe"/>
+							<xs:enumeration value="cpf"/>
+							<xs:enumeration value="cpp"/>
+							<xs:enumeration value="scr/hrv"/>
+							<xs:enumeration value="cus"/>
+							<xs:enumeration value="cze/ces"/>
+							<xs:enumeration value="dak"/>
+							<xs:enumeration value="dan"/>
+							<xs:enumeration value="day"/>
+							<xs:enumeration value="del"/>
+							<xs:enumeration value="din"/>
+							<xs:enumeration value="div"/>
+							<xs:enumeration value="doi"/>
+							<xs:enumeration value="dgr"/>
+							<xs:enumeration value="dra"/>
+							<xs:enumeration value="dua"/>
+							<xs:enumeration value="dut/nld"/>
+							<xs:enumeration value="dum"/>
+							<xs:enumeration value="dyu"/>
+							<xs:enumeration value="dzo"/>
+							<xs:enumeration value="efi"/>
+							<xs:enumeration value="egy"/>
+							<xs:enumeration value="eka"/>
+							<xs:enumeration value="elx"/>
+							<xs:enumeration value="eng"/>
+							<xs:enumeration value="enm"/>
+							<xs:enumeration value="ang"/>
+							<xs:enumeration value="epo"/>
+							<xs:enumeration value="est"/>
+							<xs:enumeration value="ewe"/>
+							<xs:enumeration value="ewo"/>
+							<xs:enumeration value="fan"/>
+							<xs:enumeration value="fat"/>
+							<xs:enumeration value="fao"/>
+							<xs:enumeration value="fij"/>
+							<xs:enumeration value="fin"/>
+							<xs:enumeration value="fiu"/>
+							<xs:enumeration value="fon"/>
+							<xs:enumeration value="fre/fra"/>
+							<xs:enumeration value="frm"/>
+							<xs:enumeration value="fro"/>
+							<xs:enumeration value="fry"/>
+							<xs:enumeration value="fur"/>
+							<xs:enumeration value="ful"/>
+							<xs:enumeration value="gaa"/>
+							<xs:enumeration value="gla"/>
+							<xs:enumeration value="glg"/>
+							<xs:enumeration value="lug"/>
+							<xs:enumeration value="gay"/>
+							<xs:enumeration value="gba"/>
+							<xs:enumeration value="gez"/>
+							<xs:enumeration value="geo/kat"/>
+							<xs:enumeration value="ger/deu"/>
+							<xs:enumeration value="gmh"/>
+							<xs:enumeration value="goh"/>
+							<xs:enumeration value="gem"/>
+							<xs:enumeration value="gil"/>
+							<xs:enumeration value="gon"/>
+							<xs:enumeration value="gor"/>
+							<xs:enumeration value="got"/>
+							<xs:enumeration value="grb"/>
+							<xs:enumeration value="grc"/>
+							<xs:enumeration value="gre/ell"/>
+							<xs:enumeration value="grn"/>
+							<xs:enumeration value="guj"/>
+							<xs:enumeration value="gwi"/>
+							<xs:enumeration value="hai"/>
+							<xs:enumeration value="hau"/>
+							<xs:enumeration value="haw"/>
+							<xs:enumeration value="heb"/>
+							<xs:enumeration value="her"/>
+							<xs:enumeration value="hil"/>
+							<xs:enumeration value="him"/>
+							<xs:enumeration value="hin"/>
+							<xs:enumeration value="hmo"/>
+							<xs:enumeration value="hit"/>
+							<xs:enumeration value="hmn"/>
+							<xs:enumeration value="hun"/>
+							<xs:enumeration value="hup"/>
+							<xs:enumeration value="iba"/>
+							<xs:enumeration value="ice/isl"/>
+							<xs:enumeration value="ido"/>
+							<xs:enumeration value="ibo"/>
+							<xs:enumeration value="ijo"/>
+							<xs:enumeration value="ilo"/>
+							<xs:enumeration value="inc"/>
+							<xs:enumeration value="ine"/>
+							<xs:enumeration value="ind"/>
+							<xs:enumeration value="ina"/>
+							<xs:enumeration value="ile"/>
+							<xs:enumeration value="iku"/>
+							<xs:enumeration value="ipk"/>
+							<xs:enumeration value="ira"/>
+							<xs:enumeration value="gle"/>
+							<xs:enumeration value="mga"/>
+							<xs:enumeration value="sga"/>
+							<xs:enumeration value="iro"/>
+							<xs:enumeration value="ita"/>
+							<xs:enumeration value="jpn"/>
+							<xs:enumeration value="jav"/>
+							<xs:enumeration value="jrb"/>
+							<xs:enumeration value="jpr"/>
+							<xs:enumeration value="kab"/>
+							<xs:enumeration value="kac"/>
+							<xs:enumeration value="kal"/>
+							<xs:enumeration value="kam"/>
+							<xs:enumeration value="kan"/>
+							<xs:enumeration value="kau"/>
+							<xs:enumeration value="kaa"/>
+							<xs:enumeration value="kar"/>
+							<xs:enumeration value="kas"/>
+							<xs:enumeration value="kaw"/>
+							<xs:enumeration value="kaz"/>
+							<xs:enumeration value="kha"/>
+							<xs:enumeration value="khm"/>
+							<xs:enumeration value="khi"/>
+							<xs:enumeration value="kho"/>
+							<xs:enumeration value="kik"/>
+							<xs:enumeration value="kmb"/>
+							<xs:enumeration value="kin"/>
+							<xs:enumeration value="kir"/>
+							<xs:enumeration value="kom"/>
+							<xs:enumeration value="kon"/>
+							<xs:enumeration value="kok"/>
+							<xs:enumeration value="kor"/>
+							<xs:enumeration value="kos"/>
+							<xs:enumeration value="kpe"/>
+							<xs:enumeration value="kro"/>
+							<xs:enumeration value="kua"/>
+							<xs:enumeration value="kum"/>
+							<xs:enumeration value="kur"/>
+							<xs:enumeration value="kru"/>
+							<xs:enumeration value="kut"/>
+							<xs:enumeration value="lad"/>
+							<xs:enumeration value="lah"/>
+							<xs:enumeration value="lam"/>
+							<xs:enumeration value="lao"/>
+							<xs:enumeration value="lat"/>
+							<xs:enumeration value="lav"/>
+							<xs:enumeration value="ltz"/>
+							<xs:enumeration value="lez"/>
+							<xs:enumeration value="lin"/>
+							<xs:enumeration value="lit"/>
+							<xs:enumeration value="nds"/>
+							<xs:enumeration value="loz"/>
+							<xs:enumeration value="lub"/>
+							<xs:enumeration value="lua"/>
+							<xs:enumeration value="lui"/>
+							<xs:enumeration value="smj"/>
+							<xs:enumeration value="lun"/>
+							<xs:enumeration value="luo"/>
+							<xs:enumeration value="lus"/>
+							<xs:enumeration value="mac/mkd"/>
+							<xs:enumeration value="mad"/>
+							<xs:enumeration value="mag"/>
+							<xs:enumeration value="mai"/>
+							<xs:enumeration value="mak"/>
+							<xs:enumeration value="mlg"/>
+							<xs:enumeration value="may/msa"/>
+							<xs:enumeration value="mal"/>
+							<xs:enumeration value="map"/>
+							<xs:enumeration value="mlt"/>
+							<xs:enumeration value="mnc"/>
+							<xs:enumeration value="mdr"/>
+							<xs:enumeration value="man"/>
+							<xs:enumeration value="mni"/>
+							<xs:enumeration value="mno"/>
+							<xs:enumeration value="glv"/>
+							<xs:enumeration value="mao/mri"/>
+							<xs:enumeration value="mar"/>
+							<xs:enumeration value="chm"/>
+							<xs:enumeration value="mah"/>
+							<xs:enumeration value="mwr"/>
+							<xs:enumeration value="mas"/>
+							<xs:enumeration value="myn"/>
+							<xs:enumeration value="men"/>
+							<xs:enumeration value="mic"/>
+							<xs:enumeration value="min"/>
+							<xs:enumeration value="mis"/>
+							<xs:enumeration value="moh"/>
+							<xs:enumeration value="mol"/>
+							<xs:enumeration value="mkh"/>
+							<xs:enumeration value="lol"/>
+							<xs:enumeration value="mon"/>
+							<xs:enumeration value="mos"/>
+							<xs:enumeration value="mul"/>
+							<xs:enumeration value="mun"/>
+							<xs:enumeration value="mus"/>
+							<xs:enumeration value="nah"/>
+							<xs:enumeration value="nau"/>
+							<xs:enumeration value="nav"/>
+							<xs:enumeration value="nde"/>
+							<xs:enumeration value="nbl"/>
+							<xs:enumeration value="ndo"/>
+							<xs:enumeration value="nep"/>
+							<xs:enumeration value="new"/>
+							<xs:enumeration value="nia"/>
+							<xs:enumeration value="nic"/>
+							<xs:enumeration value="ssa"/>
+							<xs:enumeration value="niu"/>
+							<xs:enumeration value="non"/>
+							<xs:enumeration value="nai"/>
+							<xs:enumeration value="sme"/>
+							<xs:enumeration value="nor"/>
+							<xs:enumeration value="nob"/>
+							<xs:enumeration value="nno"/>
+							<xs:enumeration value="nub"/>
+							<xs:enumeration value="nym"/>
+							<xs:enumeration value="nya"/>
+							<xs:enumeration value="nyn"/>
+							<xs:enumeration value="nyo"/>
+							<xs:enumeration value="nzi"/>
+							<xs:enumeration value="oji"/>
+							<xs:enumeration value="ori"/>
+							<xs:enumeration value="orm"/>
+							<xs:enumeration value="osa"/>
+							<xs:enumeration value="oss"/>
+							<xs:enumeration value="oto"/>
+							<xs:enumeration value="pal"/>
+							<xs:enumeration value="pau"/>
+							<xs:enumeration value="pli"/>
+							<xs:enumeration value="pam"/>
+							<xs:enumeration value="pag"/>
+							<xs:enumeration value="pan"/>
+							<xs:enumeration value="pap"/>
+							<xs:enumeration value="paa"/>
+							<xs:enumeration value="per/fas"/>
+							<xs:enumeration value="peo"/>
+							<xs:enumeration value="phi"/>
+							<xs:enumeration value="phn"/>
+							<xs:enumeration value="pon"/>
+							<xs:enumeration value="pol"/>
+							<xs:enumeration value="por"/>
+							<xs:enumeration value="pra"/>
+							<xs:enumeration value="oci"/>
+							<xs:enumeration value="pro"/>
+							<xs:enumeration value="pus"/>
+							<xs:enumeration value="que"/>
+							<xs:enumeration value="roh"/>
+							<xs:enumeration value="raj"/>
+							<xs:enumeration value="rap"/>
+							<xs:enumeration value="rar"/>
+							<xs:enumeration value="qaa-qtz"/>
+							<xs:enumeration value="roa"/>
+							<xs:enumeration value="rum/ron"/>
+							<xs:enumeration value="rom"/>
+							<xs:enumeration value="run"/>
+							<xs:enumeration value="rus"/>
+							<xs:enumeration value="sal"/>
+							<xs:enumeration value="sam"/>
+							<xs:enumeration value="smi"/>
+							<xs:enumeration value="smo"/>
+							<xs:enumeration value="sad"/>
+							<xs:enumeration value="sag"/>
+							<xs:enumeration value="san"/>
+							<xs:enumeration value="sat"/>
+							<xs:enumeration value="srd"/>
+							<xs:enumeration value="sas"/>
+							<xs:enumeration value="sco"/>
+							<xs:enumeration value="sel"/>
+							<xs:enumeration value="sem"/>
+							<xs:enumeration value="scc/srp"/>
+							<xs:enumeration value="srr"/>
+							<xs:enumeration value="shn"/>
+							<xs:enumeration value="sna"/>
+							<xs:enumeration value="sid"/>
+							<xs:enumeration value="sgn"/>
+							<xs:enumeration value="bla"/>
+							<xs:enumeration value="snd"/>
+							<xs:enumeration value="sin"/>
+							<xs:enumeration value="sit"/>
+							<xs:enumeration value="sio"/>
+							<xs:enumeration value="sms"/>
+							<xs:enumeration value="den"/>
+							<xs:enumeration value="sla"/>
+							<xs:enumeration value="slo/sl"/>
+							<xs:enumeration value="slv"/>
+							<xs:enumeration value="sog"/>
+							<xs:enumeration value="som"/>
+							<xs:enumeration value="son"/>
+							<xs:enumeration value="snk"/>
+							<xs:enumeration value="wen"/>
+							<xs:enumeration value="nso"/>
+							<xs:enumeration value="sot"/>
+							<xs:enumeration value="sai"/>
+							<xs:enumeration value="sma"/>
+							<xs:enumeration value="smn"/>
+							<xs:enumeration value="spa"/>
+							<xs:enumeration value="suk"/>
+							<xs:enumeration value="sux"/>
+							<xs:enumeration value="sun"/>
+							<xs:enumeration value="sus"/>
+							<xs:enumeration value="swa"/>
+							<xs:enumeration value="ssw"/>
+							<xs:enumeration value="swe"/>
+							<xs:enumeration value="syr"/>
+							<xs:enumeration value="tgl"/>
+							<xs:enumeration value="tah"/>
+							<xs:enumeration value="tai"/>
+							<xs:enumeration value="tgk"/>
+							<xs:enumeration value="tmh"/>
+							<xs:enumeration value="tam"/>
+							<xs:enumeration value="tat"/>
+							<xs:enumeration value="tel"/>
+							<xs:enumeration value="ter"/>
+							<xs:enumeration value="tet"/>
+							<xs:enumeration value="tha"/>
+							<xs:enumeration value="tib/bod"/>
+							<xs:enumeration value="tig"/>
+							<xs:enumeration value="tir"/>
+							<xs:enumeration value="tem"/>
+							<xs:enumeration value="tiv"/>
+							<xs:enumeration value="tli"/>
+							<xs:enumeration value="tpi"/>
+							<xs:enumeration value="tkl"/>
+							<xs:enumeration value="tog"/>
+							<xs:enumeration value="ton"/>
+							<xs:enumeration value="tsi"/>
+							<xs:enumeration value="tso"/>
+							<xs:enumeration value="tsn"/>
+							<xs:enumeration value="tum"/>
+							<xs:enumeration value="tup"/>
+							<xs:enumeration value="tur"/>
+							<xs:enumeration value="ota"/>
+							<xs:enumeration value="tuk"/>
+							<xs:enumeration value="tut"/>
+							<xs:enumeration value="tvl"/>
+							<xs:enumeration value="tyv"/>
+							<xs:enumeration value="twi"/>
+							<xs:enumeration value="uga"/>
+							<xs:enumeration value="uig"/>
+							<xs:enumeration value="ukr"/>
+							<xs:enumeration value="umb"/>
+							<xs:enumeration value="und"/>
+							<xs:enumeration value="urd"/>
+							<xs:enumeration value="uzb"/>
+							<xs:enumeration value="vai"/>
+							<xs:enumeration value="ven"/>
+							<xs:enumeration value="vie"/>
+							<xs:enumeration value="vol"/>
+							<xs:enumeration value="vot"/>
+							<xs:enumeration value="wak"/>
+							<xs:enumeration value="wal"/>
+							<xs:enumeration value="wln"/>
+							<xs:enumeration value="war"/>
+							<xs:enumeration value="was"/>
+							<xs:enumeration value="wel/cym"/>
+							<xs:enumeration value="wol"/>
+							<xs:enumeration value="xho"/>
+							<xs:enumeration value="sah"/>
+							<xs:enumeration value="yao"/>
+							<xs:enumeration value="yap"/>
+							<xs:enumeration value="yid"/>
+							<xs:enumeration value="yor"/>
+							<xs:enumeration value="ypk"/>
+							<xs:enumeration value="znd"/>
+							<xs:enumeration value="zap"/>
+							<xs:enumeration value="zen"/>
+							<xs:enumeration value="zha"/>
+							<xs:enumeration value="zul"/>
+							<xs:enumeration value="zun"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="alt_language" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>A language code/description for
+			the text other than ISO 639-2.  The alt_language element
+			has a single attribute, authority, which may be used to
+			record the source of the language code (e.g., Ethnologue).
+			</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="authority" type="xs:string" use="optional"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="font_script" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>The default font or script of the item
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				
+					<xs:element name="markup_basis" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The metalanguage used to create the markup language, that is, SGML, XML, GML (there’s gotta still be some other there), other.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="version" type="xs:string" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="markup_language" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Markup language employed on the text (i.e., the specific schema or dtd).
+								May be a URI for schema or dtd, but not mandatory.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="version" type="xs:string" use="optional"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="processingNote" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Any general note about the processing of the file
+							 not covered elsewhere
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="printRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Any special requirements for printing the item
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="viewingRequirements" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Any special hardware or software requirements for 
+								viewing the item
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="textNote" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Any general note on material not covered 		
+							elsewhere.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				<xs:element name="pageOrder">
+					<xs:annotation>
+						<xs:documentation>The natural (language-specific) page turning order of the text (left-to-right for Latin-based script, right-to-left for Arabic, Hebrew, etc.) independent of how it is represented in the METS file.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="left-to-right"/>
+							<xs:enumeration value="right-to-left"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="pageSequence">
+					<xs:annotation>
+						<xs:documentation>The arrangement of the page-level divs in the METS file. That is, does the first div contain the first page a user would naturally read based on the language-specific direction of the text (the beginning of the content) or the last page the user would naturally read (the end of the content).</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="reading-order"/>
+							<xs:enumeration value="inverse-reading-order"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ray Denenberg (LIBRARY OF CONGRESS) -->
+<!-- MADS, an XML schema based on  the MARC Authorities Format 
+******************* April 29, 2004 ***************************
+-->
+<xsd:schema targetNamespace="http://www.loc.gov/mads/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/mads/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+	<xsd:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.loc.gov/standards/mods/xlink.xsd"/>
+	<!-- 
+	
+	Root Elements	
+	
+	 a single MADS record: -->
+	<xsd:element name="mads" type="madsType"/>
+	<!--
+	
+	******* another root elements to be added ********
+	
+	 a collection of MADS records 
+	<xsd:element name="madsCollection">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="mads" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+***************** End Root elements ****************************
+	
+	
+	 Definition of a single MADS record 
+			A MADS record must have one authoritative field and can have any number of references; followed by miscellaneous elements.  Example:
+Example:
+<mads>
+	<authority>
+	    <name> 
+	    <titleInfo> 
+	       .....    - one or more of  name,  title, topic, temporal, genre, geographic, hierarchical geographic, or occupation
+	</authority>
+	<refs>
+		<ref relationship="earlier">  ..... first ref
+		<name>....
+		<titleInfo>...... etc.
+		</ref>
+		<ref relationship="later">   ..... second ref
+		<name>.... etc.
+		</ref>
+	</refs>
+	<otherElements>
+		<note>....
+		<affiliation> ....    - etc.
+	</otherElements>
+</mads>
+
+
+Basic high-level structure-->
+	<xsd:complexType name="madsType">
+		<xsd:sequence>
+			<xsd:element name="authority" type="descriptors"/>
+			<xsd:element name="refs" type="refsType" minOccurs="0"/>
+			<xsd:element name="otherElements" type="otherElementsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--
+		END definition of basic high-level structure.
+		BEGIN definition of second-level data structures for authority, refs, and otherElements. Note that "authority" is defined in terms of "descriptiors";  "refs" is one or more "ref" which is an extension of "descriptors".
+		
+		-->
+	<xsd:complexType name="descriptors">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="name" type="nameType"/>
+			<xsd:element name="titleInfo" type="modsTitleInfo"/>
+			<xsd:element name="topic" type="descriptorUnstructured"/>
+			<xsd:element name="temporal" type="temporalType"/>
+			<xsd:element name="genre" type="descriptorUnstructured"/>
+			<xsd:element name="geographic" type="descriptorUnstructured"/>
+			<xsd:element name="hierarchicalGeographic" type="modsHierarchicalGeographic"/>
+			<xsd:element name="occupation" type="descriptorUnstructured"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="refsType">
+		<xsd:sequence>
+			<xsd:element name="ref" type="refType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="refType">
+		<xsd:complexContent>
+			<xsd:extension base="descriptors">
+				<xsd:attribute name="relatedType" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="earlier"/>
+							<xsd:enumeration value="later"/>
+							<xsd:enumeration value="parentOrg"/>
+							<xsd:enumeration value="broader"/>
+							<xsd:enumeration value="narrower"/>
+							<xsd:enumeration value="otherRelated"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+				<xsd:attribute name="variantType" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="acronym"/>
+							<xsd:enumeration value="abbreviation"/>
+							<xsd:enumeration value="translation"/>
+							<xsd:enumeration value="otherVariant"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="otherElementsType">
+		<xsd:choice>
+			<xsd:element name="note" type="noteType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="affiliation" type="affiliationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="url" type="modsUrl" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="identifier" type="modsIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="position" type="otherUnstructured" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="fieldOfActivity" type="otherUnstructured" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="extension" type="modsExtension" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="recordInfo" type="modsRecordInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<!--
+		END definition of second-level structure.
+		BEGIN definition of  data structures for the descriptors for name, title, topic, temporal, genre, geographic, hierarchical geographic, and occupation.
+		
+ ******* nameType definition ****** -->
+	<xsd:complexType name="nameType">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="namePart" type="modsNamePart"/>
+			<xsd:element name="description"/>
+			<xsd:element name="role"/>
+			<!--	use only for a role in a name/title combination to specify
+the role of the name in relation to the title-->
+		</xsd:choice>
+		<xsd:attribute name="type" use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="personal"/>
+					<xsd:enumeration value="corporate"/>
+					<xsd:enumeration value="event"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attributeGroup ref="descriptorGroup"/>
+	</xsd:complexType>
+	<!--
+ ********** titleInfoType definition **********
+ -->
+	<xsd:complexType name="modsTitleInfo">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="title"/>
+			<xsd:element name="subTitle"/>
+			<xsd:element name="partNumber"/>
+			<xsd:element name="partName"/>
+			<xsd:element name="nonSort"/>
+			<!--All characters, including space, up to the first sort character-->
+		</xsd:choice>
+		<xsd:attributeGroup ref="descriptorGroup"/>
+	</xsd:complexType>
+	<!--	
+********** temporal definition  **********  	                      	
+-->
+	<xsd:complexType name="temporalType">
+		<xsd:annotation>
+			<xsd:documentation>648, 6xx $y</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="modsDate">
+				<xsd:attributeGroup ref="descriptorGroup"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--	
+********** hierarchical geographic definition  **********  	                      	
+-->
+	<xsd:complexType name="modsHierarchicalGeographic">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="continent"/>
+			<xsd:element name="country"/>
+			<xsd:element name="province"/>
+			<xsd:element name="region"/>
+			<xsd:element name="state"/>
+			<xsd:element name="territory"/>
+			<xsd:element name="county"/>
+			<xsd:element name="city"/>
+			<xsd:element name="island"/>
+			<xsd:element name="area"/>
+		</xsd:choice>
+		<xsd:attributeGroup ref="descriptorGroup"/>
+	</xsd:complexType>
+	<!--	
+********** descriptorUnstructured definition  **********  	                      	
+-->
+	<xsd:complexType name="descriptorUnstructured">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attributeGroup ref="descriptorGroup"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--
+		END definition of data structures for the descriptors
+		BEGIN definition of  structures for otherElements: note, affiliation, url, position, fieldOfActivity, identifier, extension, recordInfo
+		
+********** note definition **********  
+-->
+	<xsd:complexType name="noteType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attributeGroup ref="unstructuredTextGroup"/>
+				<xsd:attribute name="type" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="source"/>
+							<xsd:enumeration value="history"/>
+							<xsd:enumeration value="notFound"/>
+							<xsd:enumeration value="endUser"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--
+	 *********** definition of affiliationType *********** -->
+	<xsd:complexType name="affiliationType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+             <xsd:element name="organization"/>			
+             <xsd:element name="position"/>
+             <xsd:element name="address" type="addressType"/>
+			<xsd:element name="email"/>
+			<xsd:element name="phone"/>
+			<xsd:element name="fax"/>
+			<xsd:element name="hours"/>
+			<xsd:element name="dateValid" type="modsBaseDate"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<!--	
+********** url definition  **********  	                      	
+-->
+	<xsd:complexType name="modsUrl">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="dateLastAccessed" use="optional"/>
+				<xsd:attribute name="displayLabel" use="optional"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--********** identifier definition  **********  	                     	
+-->
+	<xsd:complexType name="modsIdentifier">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="type" use="optional"/>
+				<xsd:attribute name="invalid" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>$z in 0XX fields</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="yes"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+				<xsd:attributeGroup ref="languageAndDisplayGroup"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--  
+		
+********** extension definition **********  
+-->
+	<xsd:complexType name="modsExtension" mixed="true">
+		<xsd:sequence>
+			<xsd:any processContents="skip" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<!--use for local extensions or for extensions from other XML schemas</xsd:documentation-->
+	</xsd:complexType>
+	<!--  
+**********  recordInfo definition **********   
+-->
+	<xsd:complexType name="modsRecordInfo">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="recordContentSource" type="modsSource"/>
+			<xsd:element name="recordCreationDate" type="modsBaseDate"/>
+			<xsd:element name="recordChangeDate" type="modsBaseDate"/>
+			<xsd:element name="recordIdentifier">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="source" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="languageOfCataloging" type="modsLanguage"/>
+			<xsd:element name="recordOrigin"/>
+			<!-- This applies to the record at large. Other elements can indicate a language, which overides this value for that element. -->
+		</xsd:choice>
+		<xsd:attributeGroup ref="modsLanguageGroup"/>
+		<!-- This applies to the language of RecordInfo only. I.e. for recordContentSource and for source of identifier. -->
+	</xsd:complexType>
+	<!--	
+********** otherUnstructured definition  **********  	                      	
+-->
+	<xsd:complexType name="otherUnstructured">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attributeGroup ref="unstructuredTextGroup"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--
+		END definition of structures for otherElements
+		BEGIN auxiliary definition 
+
+ ********** definition of addressType ******* -->
+	<xsd:complexType name="addressType">
+		<xsd:sequence>
+			<xsd:element name="street" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="city" minOccurs="0"/>
+			<xsd:element name="state" minOccurs="0"/>
+			<xsd:element name="country" minOccurs="0"/>
+			<xsd:element name="postcode" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--  
+********** source definition  **********  	                       	  
+-->
+	<xsd:complexType name="modsSource">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attributeGroup ref="languageAndAuthorityGroup"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--  
+********** date definition  **********  
+-->
+	<xsd:complexType name="modsBaseDate">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="encoding" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="w3cdtf"/>
+							<xsd:enumeration value="iso8601"/>
+							<xsd:enumeration value="marc"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+					<!--if omitted, free text is assumed-->
+				</xsd:attribute>
+				<xsd:attribute name="qualifier" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="approximate"/>
+							<xsd:enumeration value="inferred"/>
+							<xsd:enumeration value="questionable"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+				<xsd:attribute name="point" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="start"/>
+							<xsd:enumeration value="end"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="modsDate">
+		<xsd:simpleContent>
+			<xsd:extension base="modsBaseDate">
+				<xsd:attribute name="keyDate" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="yes"/>
+						</xsd:restriction>
+						<!--So that a particular date may be distinguished among several dates. Thus for example when sorting MODS records by date, a date with keyDate="yes" would be the date to sort on. It should occur only for one date at most in a given record.-->
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--	
+********** language definition  **********  	                      	
+-->
+	<xsd:complexType name="modsLanguage">
+		<xsd:sequence>
+			<xsd:element name="languageTerm" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="authority" use="optional">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="rfc3066"/>
+										<xsd:enumeration value="iso639-2b"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute name="type" type="codeOrText" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--  
+   ********** definition of codeOrText type used by type attribute 
+   for elements that distinguish code from text  **********  	                       	  
+ -->
+	<xsd:simpleType name="codeOrText">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="code"/>
+			<xsd:enumeration value="text"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--
+
+********** namePart defintion  **********  	
+-->
+	<xsd:complexType name="modsNamePart">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="type" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="date"/>
+							<xsd:enumeration value="family"/>
+							<xsd:enumeration value="given"/>
+							<xsd:enumeration value="termsOfAddress"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--
+		END auxiliary definitions
+		BEGIN definition of attributes and attributeGroups
+
+
+
+definition of Attribute Group unstructuredTextGroup
+
+-->
+	<xsd:attributeGroup name="unstructuredTextGroup">
+		<xsd:attributeGroup ref="xlink:simpleLink"/>
+		<xsd:attributeGroup ref="languageAndDisplayGroup"/>
+	</xsd:attributeGroup>
+	<!-- 
+
+
+definition of Attribute Group descriptorGroup
+
+-->
+	<xsd:attributeGroup name="descriptorGroup">
+		<xsd:attributeGroup ref="xlink:simpleLink"/>
+		<xsd:attributeGroup ref="languageAndAuthorityGroup"/>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional"/>
+	</xsd:attributeGroup>
+	<!-- 
+	
+	
+
+
+definition of languageAndDisplay Attribute Group
+
+-->
+	<xsd:attributeGroup name="languageAndDisplayGroup">
+		<xsd:attributeGroup ref="modsLanguageGroup"/>
+		<xsd:attribute name="displayLabel" use="optional"/>
+	</xsd:attributeGroup>
+	<!--
+definition of languageAndAuthority Attribute Group
+
+-->
+	<xsd:attributeGroup name="languageAndAuthorityGroup">
+		<xsd:attributeGroup ref="modsLanguageGroup"/>
+		<xsd:attribute ref="authority" use="optional"/>
+	</xsd:attributeGroup>
+	<!--  
+ ********** authority attribute definition  **********  	                       	  
+-->
+	<xsd:attribute name="authority"/>
+	<!--
+				For Name: Value is from the list at  
+				http:/www.loc.gov/marc/sourcecode/authorityfile/authorityfilesource.html
+				For Title: Value is from the list at 
+				http:/www.loc.gov/marc/sourcecode/authorityfile/authorityfilesource.html
+				For genre: Value is from the list at 		
+				http://www.loc.gov/marc/sourcecode/genre/genresource.html
+				For geographic: Value is from the list at 		
+				 http:/www.loc.gov/marc/sourcecode/subject/subjectsource.html
+				For organizations (source): Value is from the list at 		
+				http://www.loc.gov/marc/sourcecode/organization/organizationsource.html.  
+
+ ********** language attribute group definition  **********  	                       	  
+-->
+	<xsd:attributeGroup name="modsLanguageGroup">
+		<xsd:attribute name="lang" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ISO 639-2b</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute ref="xml:lang" use="optional"/>
+		<xsd:attribute name="script" use="optional"/>
+		<xsd:attribute name="transliteration" use="optional"/>
+	</xsd:attributeGroup>
+</xsd:schema>

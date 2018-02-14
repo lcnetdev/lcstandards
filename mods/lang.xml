@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languages>
+	<language ISO639-2="aar" ISO639-1="aa" English="Afar" French="afar"/>
+	<language ISO639-2="abk" ISO639-1="ab" English="Abkhazian" French="abkhaze"/>
+	<language ISO639-2="ace" ISO639-1="" English="Achinese" French="aceh"/>
+	<language ISO639-2="ach" ISO639-1="" English="Acoli" French="acoli"/>
+	<language ISO639-2="ada" ISO639-1="" English="Adangme" French="adangme"/>
+	<language ISO639-2="afa" ISO639-1="" English="Afro-Asiatic (Other)" French="afro-asiatiques, autres langues"/>
+	<language ISO639-2="afh" ISO639-1="" English="Afrihili" French="afrihili"/>
+	<language ISO639-2="afr" ISO639-1="af" English="Afrikaans" French="afrikaans"/>
+	<language ISO639-2="aka" ISO639-1="" English="Akan" French="akan"/>
+	<language ISO639-2="akk" ISO639-1="" English="Akkadian" French="akkadien"/>
+	<language ISO639-2="alb" ISO639-1="sq" English="Albanian" French="albanais"/>
+	<language ISO639-2="ale" ISO639-1="" English="Aleut" French="aléoute"/>
+	<language ISO639-2="alg" ISO639-1="" English="Algonquian languages" French="algonquines, langues"/>
+	<language ISO639-2="amh" ISO639-1="am" English="Amharic" French="amharique"/>
+	<language ISO639-2="ang" ISO639-1="" English="English, Old (ca.450-1100)" French="anglo-saxon (ca.450-1100)"/>
+	<language ISO639-2="apa" ISO639-1="" English="Apache languages" French="apache"/>
+	<language ISO639-2="ara" ISO639-1="ar" English="Arabic" French="arabe"/>
+	<language ISO639-2="arc" ISO639-1="" English="Aramaic" French="araméen"/>
+	<language ISO639-2="arm" ISO639-1="hy" English="Armenian" French="arménien"/>
+	<language ISO639-2="arn" ISO639-1="" English="Araucanian" French="araucan"/>
+	<language ISO639-2="arp" ISO639-1="" English="Arapaho" French="arapaho"/>
+	<language ISO639-2="art" ISO639-1="" English="Artificial (Other)" French="artificielles, autres langues"/>
+	<language ISO639-2="arw" ISO639-1="" English="Arawak" French="arawak"/>
+	<language ISO639-2="asm" ISO639-1="as" English="Assamese" French="assamais"/>
+	<language ISO639-2="ast" ISO639-1="" English="Asturian; Bable" French="asturien; bable"/>
+	<language ISO639-2="ath" ISO639-1="" English="Athapascan languages" French="athapascanes, langues"/>
+	<language ISO639-2="aus" ISO639-1="" English="Australian languages" French="australiennes, langues"/>
+	<language ISO639-2="ava" ISO639-1="" English="Avaric" French="avar"/>
+	<language ISO639-2="ave" ISO639-1="ae" English="Avestan" French="avestique"/>
+	<language ISO639-2="awa" ISO639-1="" English="Awadhi" French="awadhi"/>
+	<language ISO639-2="aym" ISO639-1="ay" English="Aymara" French="aymara"/>
+	<language ISO639-2="aze" ISO639-1="az" English="Azerbaijani" French="azéri"/>
+	<language ISO639-2="bad" ISO639-1="" English="Banda" French="banda"/>
+	<language ISO639-2="bai" ISO639-1="" English="Bamileke languages" French="bamilékés, langues"/>
+	<language ISO639-2="bak" ISO639-1="ba" English="Bashkir" French="bachkir"/>
+	<language ISO639-2="bal" ISO639-1="" English="Baluchi" French="baloutchi"/>
+	<language ISO639-2="bam" ISO639-1="" English="Bambara" French="bambara"/>
+	<language ISO639-2="ban" ISO639-1="" English="Balinese" French="balinais"/>
+	<language ISO639-2="baq" ISO639-1="eu" English="Basque" French="basque"/>
+	<language ISO639-2="bas" ISO639-1="" English="Basa" French="basa"/>
+	<language ISO639-2="bat" ISO639-1="" English="Baltic (Other)" French="baltiques, autres langues"/>
+	<language ISO639-2="bej" ISO639-1="" English="Beja" French="bedja"/>
+	<language ISO639-2="bel" ISO639-1="be" English="Belarusian" French="biélorusse"/>
+	<language ISO639-2="bem" ISO639-1="" English="Bemba" French="bemba"/>
+	<language ISO639-2="ben" ISO639-1="bn" English="Bengali" French="bengali"/>
+	<language ISO639-2="ber" ISO639-1="" English="Berber (Other)" French="berbères, autres langues"/>
+	<language ISO639-2="bho" ISO639-1="" English="Bhojpuri" French="bhojpuri"/>
+	<language ISO639-2="bih" ISO639-1="bh" English="Bihari" French="bihari"/>
+	<language ISO639-2="bik" ISO639-1="" English="Bikol" French="bikol"/>
+	<language ISO639-2="bin" ISO639-1="" English="Bini" French="bini"/>
+	<language ISO639-2="bis" ISO639-1="bi" English="Bislama" French="bichlamar"/>
+	<language ISO639-2="bla" ISO639-1="" English="Siksika" French="blackfoot"/>
+	<language ISO639-2="bnt" ISO639-1="" English="Bantu (Other)" French="bantoues, autres langues"/>
+	<language ISO639-2="tib" ISO639-1="bo" English="Tibetan" French="tibétain"/>
+	<language ISO639-2="bos" ISO639-1="bs" English="Bosnian" French="bosniaque"/>
+	<language ISO639-2="bra" ISO639-1="" English="Braj" French="braj"/>
+	<language ISO639-2="bre" ISO639-1="br" English="Breton" French="breton"/>
+	<language ISO639-2="btk" ISO639-1="" English="Batak (Indonesia)" French="batak (Indonésie)"/>
+	<language ISO639-2="bua" ISO639-1="" English="Buriat" French="bouriate"/>
+	<language ISO639-2="bug" ISO639-1="" English="Buginese" French="bugi"/>
+	<language ISO639-2="bul" ISO639-1="bg" English="Bulgarian" French="bulgare"/>
+	<language ISO639-2="bur" ISO639-1="my" English="Burmese" French="birman"/>
+	<language ISO639-2="cad" ISO639-1="" English="Caddo" French="caddo"/>
+	<language ISO639-2="cai" ISO639-1="" English="Central American Indian (Other)" French="indiennes d'Amérique centrale, autres langues"/>
+	<language ISO639-2="car" ISO639-1="" English="Carib" French="caribe"/>
+	<language ISO639-2="cat" ISO639-1="ca" English="Catalan" French="catalan"/>
+	<language ISO639-2="cau" ISO639-1="" English="Caucasian (Other)" French="caucasiennes, autres langues"/>
+	<language ISO639-2="ceb" ISO639-1="" English="Cebuano" French="cebuano"/>
+	<language ISO639-2="cel" ISO639-1="" English="Celtic (Other)" French="celtiques, autres langues"/>
+	<language ISO639-2="cze" ISO639-1="cs" English="Czech" French="tchèque"/>
+	<language ISO639-2="cha" ISO639-1="ch" English="Chamorro" French="chamorro"/>
+	<language ISO639-2="chb" ISO639-1="" English="Chibcha " French="chibcha"/>
+	<language ISO639-2="che" ISO639-1="ce" English="Chechen " French="tchétchène"/>
+	<language ISO639-2="chg" ISO639-1="" English="Chagatai" French="djaghataï"/>
+	<language ISO639-2="chi" ISO639-1="zh" English="Chinese" French="chinois"/>
+	<language ISO639-2="chk" ISO639-1="" English="Chuukese" French="chuuk"/>
+	<language ISO639-2="chm" ISO639-1="" English="Mari" French="mari"/>
+	<language ISO639-2="chn" ISO639-1="" English="Chinook jargon" French="chinook, jargon"/>
+	<language ISO639-2="cho" ISO639-1="" English="Choctaw" French="choctaw"/>
+	<language ISO639-2="chp" ISO639-1="" English="Chipewyan" French="chipewyan"/>
+	<language ISO639-2="chr" ISO639-1="" English="Cherokee" French="cherokee"/>
+	<language ISO639-2="chu" ISO639-1="cu" English="Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic" French="slavon d'église; vieux slave; slavon liturgique; vieux bulgare "/>
+	<language ISO639-2="chv" ISO639-1="cv" English="Chuvash" French="tchouvache"/>
+	<language ISO639-2="chy" ISO639-1="" English="Cheyenne" French="cheyenne"/>
+	<language ISO639-2="cmc" ISO639-1="" English="Chamic languages" French="chames, langues"/>
+	<language ISO639-2="cop" ISO639-1="" English="Coptic" French="copte"/>
+	<language ISO639-2="cor" ISO639-1="kw" English="Cornish" French="cornique"/>
+	<language ISO639-2="cos" ISO639-1="co" English="Corsican" French="corse"/>
+	<language ISO639-2="cpe" ISO639-1="" English="Creoles and pidgins, English based (Other)" French="créoles et pidgins anglais, autres"/>
+	<language ISO639-2="cpf" ISO639-1="" English="Creoles and pidgins, French-based (Other)" French="créoles et pidgins français, autres"/>
+	<language ISO639-2="cpp" ISO639-1="" English="Creoles and pidgins, Portuguese-based (Other) " French="créoles et pidgins portugais, autres"/>
+	<language ISO639-2="cre" ISO639-1="" English="Cree" French="cree"/>
+	<language ISO639-2="crp" ISO639-1="" English="Creoles and pidgins (Other)" French="créoles et pidgins divers"/>
+	<language ISO639-2="cus" ISO639-1="" English="Cushitic (Other)" French="couchitiques, autres langues"/>
+	<language ISO639-2="wel" ISO639-1="cy" English="Welsh" French="gallois"/>
+	<language ISO639-2="cze" ISO639-1="cs" English="Czech" French="tchèque"/>
+	<language ISO639-2="dak" ISO639-1="" English="Dakota" French="dakota"/>
+	<language ISO639-2="dan" ISO639-1="da" English="Danish " French="danois"/>
+	<language ISO639-2="day" ISO639-1="" English="Dayak" French="dayak"/>
+	<language ISO639-2="del" ISO639-1="" English="Delaware" French="delaware"/>
+	<language ISO639-2="den" ISO639-1="" English="Slave (Athapascan)" French="esclave (athapascan)"/>
+	<language ISO639-2="ger" ISO639-1="de" English="German" French="allemand"/>
+	<language ISO639-2="dgr" ISO639-1="" English="Dogrib" French="dogrib"/>
+	<language ISO639-2="din" ISO639-1="" English="Dinka" French="dinka"/>
+	<language ISO639-2="div" ISO639-1="" English="Divehi" French="maldivien"/>
+	<language ISO639-2="doi" ISO639-1="" English="Dogri" French="dogri"/>
+	<language ISO639-2="dra" ISO639-1="" English="Dravidian (Other)" French="dravidiennes, autres langues"/>
+	<language ISO639-2="dua" ISO639-1="" English="Duala" French="douala"/>
+	<language ISO639-2="dum" ISO639-1="" English="Dutch, Middle (ca.1050-1350)" French="néerlandais moyen (ca. 1050-1350)"/>
+	<language ISO639-2="dut" ISO639-1="nl" English="Dutch" French="néerlandais"/>
+	<language ISO639-2="dyu" ISO639-1="" English="Dyula" French="dioula"/>
+	<language ISO639-2="dzo" ISO639-1="dz" English="Dzongkha" French="dzongkha"/>
+	<language ISO639-2="efi" ISO639-1="" English="Efik" French="efik"/>
+	<language ISO639-2="egy" ISO639-1="" English="Egyptian (Ancient)" French="égyptien"/>
+	<language ISO639-2="eka" ISO639-1="" English="Ekajuk" French="ekajuk"/>
+	<language ISO639-2="gre" ISO639-1="el" English="Greek, Modern (1453-)" French="grec moderne (après 1453)"/>
+	<language ISO639-2="elx" ISO639-1="" English="Elamite" French="élamite"/>
+	<language ISO639-2="eng" ISO639-1="en" English="English" French="anglais"/>
+	<language ISO639-2="enm" ISO639-1="" English="English, Middle (1100-1500)" French="anglais moyen (1100-1500)"/>
+	<language ISO639-2="epo" ISO639-1="eo" English="Esperanto" French="espéranto"/>
+	<language ISO639-2="est" ISO639-1="et" English="Estonian" French="estonien"/>
+	<language ISO639-2="baq" ISO639-1="eu" English="Basque" French="basque"/>
+	<language ISO639-2="ewe" ISO639-1="" English="Ewe" French="éwé"/>
+	<language ISO639-2="ewo" ISO639-1="" English="Ewondo" French="éwondo"/>
+	<language ISO639-2="fan" ISO639-1="" English="Fang" French="fang"/>
+	<language ISO639-2="fao" ISO639-1="fo" English="Faroese" French="féroïen"/>
+	<language ISO639-2="per" ISO639-1="fa" English="Persian" French="persan"/>
+	<language ISO639-2="fat" ISO639-1="" English="Fanti" French="fanti"/>
+	<language ISO639-2="fij" ISO639-1="fj" English="Fijian" French="fidjien"/>
+	<language ISO639-2="fin" ISO639-1="fi" English="Finnish" French="finnois"/>
+	<language ISO639-2="fiu" ISO639-1="" English="Finno-Ugrian (Other)" French="finno-ougriennes, autres langues"/>
+	<language ISO639-2="fon" ISO639-1="" English="Fon" French="fon"/>
+	<language ISO639-2="fre" ISO639-1="fr" English="French" French="français"/>
+	<language ISO639-2="frm" ISO639-1="" English="French, Middle (ca.1400-1800)" French="français moyen (1400-1800)"/>
+	<language ISO639-2="fro" ISO639-1="" English="French, Old (842-ca.1400)" French="français ancien (842-ca.1400)"/>
+	<language ISO639-2="fry" ISO639-1="fy" English="Frisian" French="frison"/>
+	<language ISO639-2="ful" ISO639-1="" English="Fulah" French="peul"/>
+	<language ISO639-2="fur" ISO639-1="" English="Friulian" French="frioulan"/>
+	<language ISO639-2="gaa" ISO639-1="" English="Ga" French="ga"/>
+	<language ISO639-2="gay" ISO639-1="" English="Gayo" French="gayo"/>
+	<language ISO639-2="gba" ISO639-1="" English="Gbaya" French="gbaya"/>
+	<language ISO639-2="gem" ISO639-1="" English="Germanic (Other)" French="germaniques, autres langues"/>
+	<language ISO639-2="geo" ISO639-1="ka" English="Georgian" French="géorgien"/>
+	<language ISO639-2="ger" ISO639-1="de" English="German" French="allemand"/>
+	<language ISO639-2="gez" ISO639-1="" English="Geez" French="guèze"/>
+	<language ISO639-2="gil" ISO639-1="" English="Gilbertese" French="kiribati"/>
+	<language ISO639-2="gla" ISO639-1="gd" English="Gaelic; Scottish Gaelic" French="gaélique; gaélique écossais"/>
+	<language ISO639-2="gle" ISO639-1="ga" English="Irish" French="irlandais"/>
+	<language ISO639-2="glg" ISO639-1="gl" English="Gallegan" French="galicien"/>
+	<language ISO639-2="glv" ISO639-1="gv" English="Manx" French=" manx; mannois"/>
+	<language ISO639-2="gmh" ISO639-1="" English="German, Middle High (ca.1050-1500)" French="allemand, moyen haut (ca. 1050-1500)"/>
+	<language ISO639-2="goh" ISO639-1="" English="German, Old High (ca.750-1050)" French="allemand, vieux haut (ca. 750-1050)"/>
+	<language ISO639-2="gon" ISO639-1="" English="Gondi" French="gond"/>
+	<language ISO639-2="gor" ISO639-1="" English="Gorontalo" French="gorontalo"/>
+	<language ISO639-2="got" ISO639-1="" English="Gothic" French="gothique"/>
+	<language ISO639-2="grb" ISO639-1="" English="Grebo" French="grebo"/>
+	<language ISO639-2="grc" ISO639-1="" English="Greek, Ancient (to 1453)" French="grec ancien (jusqu'à 1453)"/>
+	<language ISO639-2="gre" ISO639-1="el" English="Greek, Modern (1453-)" French="grec moderne (après 1453)"/>
+	<language ISO639-2="grn" ISO639-1="gn" English="Guarani" French="guarani"/>
+	<language ISO639-2="guj" ISO639-1="gu" English="Gujarati" French="goudjrati"/>
+	<language ISO639-2="gwi" ISO639-1="" English="Gwich&#180;in" French="gwich&#180;in"/>
+	<language ISO639-2="hai" ISO639-1="" English="Haida" French="haida"/>
+	<language ISO639-2="hau" ISO639-1="ha" English="Hausa" French="haoussa"/>
+	<language ISO639-2="haw" ISO639-1="" English="Hawaiian" French="hawaïen"/>
+	<language ISO639-2="heb" ISO639-1="he" English="Hebrew" French="hébreu"/>
+	<language ISO639-2="her" ISO639-1="hz" English="Herero" French="herero"/>
+	<language ISO639-2="hil" ISO639-1="" English="Hiligaynon" French="hiligaynon"/>
+	<language ISO639-2="him" ISO639-1="" English="Himachali" French="himachali"/>
+	<language ISO639-2="hin" ISO639-1="hi" English="Hindi " French="hindi"/>
+	<language ISO639-2="hit" ISO639-1="" English="Hittite" French="hittite"/>
+	<language ISO639-2="hmn" ISO639-1="" English="Hmong" French="hmong"/>
+	<language ISO639-2="hmo" ISO639-1="ho" English="Hiri Motu" French="hiri motu"/>
+	<language ISO639-2="scr" ISO639-1="hr" English="Croatian" French="croate"/>
+	<language ISO639-2="hun" ISO639-1="hu" English="Hungarian" French="hongrois"/>
+	<language ISO639-2="hup" ISO639-1="" English="Hupa" French="hupa"/>
+	<language ISO639-2="arm" ISO639-1="hy" English="Armenian" French="arménien"/>
+	<language ISO639-2="iba" ISO639-1="" English="Iban" French="iban"/>
+	<language ISO639-2="ibo" ISO639-1="" English="Igbo" French="igbo"/>
+	<language ISO639-2="ice" ISO639-1="is" English="Icelandic" French="islandais"/>
+	<language ISO639-2="ido" ISO639-1="io" English="Ido" French="ido"/>
+	<language ISO639-2="ijo" ISO639-1="" English="Ijo" French="ijo"/>
+	<language ISO639-2="iku" ISO639-1="iu" English="Inuktitut" French="inuktitut"/>
+	<language ISO639-2="ile" ISO639-1="ie" English="Interlingue" French="interlingue"/>
+	<language ISO639-2="ilo" ISO639-1="" English="Iloko" French="ilocano"/>
+	<language ISO639-2="ina" ISO639-1="ia" English="Interlingua (International Auxiliary Language Association)" French="interlingua (langue auxiliaire internationale)"/>
+	<language ISO639-2="inc" ISO639-1="" English="Indic (Other)" French="indo-aryennes, autres langues"/>
+	<language ISO639-2="ind" ISO639-1="id" English="Indonesian" French="indonésien"/>
+	<language ISO639-2="ine" ISO639-1="" English="Indo-European (Other)" French="indo-européennes, autres langues"/>
+	<language ISO639-2="ipk" ISO639-1="ik" English="Inupiaq" French="inupiaq"/>
+	<language ISO639-2="ira" ISO639-1="" English="Iranian (Other)" French="iraniennes, autres langues"/>
+	<language ISO639-2="iro" ISO639-1="" English="Iroquoian languages" French="iroquoises, langues (famille)"/>
+	<language ISO639-2="ice" ISO639-1="is" English="Icelandic" French="islandais"/>
+	<language ISO639-2="ita" ISO639-1="it" English="Italian" French="italien"/>
+	<language ISO639-2="jav" ISO639-1="jv" English="Javanese" French="javanais"/>
+	<language ISO639-2="jpn" ISO639-1="ja" English="Japanese" French="japonais"/>
+	<language ISO639-2="jpr" ISO639-1="" English="Judeo-Persian" French="judéo-persan"/>
+	<language ISO639-2="jrb" ISO639-1="" English="Judeo-Arabic" French="judéo-arabe"/>
+	<language ISO639-2="kaa" ISO639-1="" English="Kara-Kalpak" French="karakalpak"/>
+	<language ISO639-2="kab" ISO639-1="" English="Kabyle" French="kabyle"/>
+	<language ISO639-2="kac" ISO639-1="" English="Kachin" French="kachin"/>
+	<language ISO639-2="kal" ISO639-1="kl" English="Kalaallisut" French="groenlandais"/>
+	<language ISO639-2="kam" ISO639-1="" English="Kamba" French="kamba"/>
+	<language ISO639-2="kan" ISO639-1="kn" English="Kannada" French="kannada"/>
+	<language ISO639-2="kar" ISO639-1="" English="Karen" French="karen"/>
+	<language ISO639-2="kas" ISO639-1="ks" English="Kashmiri" French="kashmiri"/>
+	<language ISO639-2="geo" ISO639-1="ka" English="Georgian" French="géorgien"/>
+	<language ISO639-2="kau" ISO639-1="" English="Kanuri" French="kanouri"/>
+	<language ISO639-2="kaw" ISO639-1="" English="Kawi" French="kawi"/>
+	<language ISO639-2="kaz" ISO639-1="kk" English="Kazakh" French="kazakh"/>
+	<language ISO639-2="kha" ISO639-1="" English="Khasi" French="khasi"/>
+	<language ISO639-2="khi" ISO639-1="" English="Khoisan (Other)" French="khoisan, autres langues"/>
+	<language ISO639-2="khm" ISO639-1="km" English="Khmer" French="khmer"/>
+	<language ISO639-2="kho" ISO639-1="" English="Khotanese" French="khotanais"/>
+	<language ISO639-2="kik" ISO639-1="ki" English="Kikuyu; Gikuyu" French="kikuyu"/>
+	<language ISO639-2="kin" ISO639-1="rw" English="Kinyarwanda" French="rwanda"/>
+	<language ISO639-2="kir" ISO639-1="ky" English="Kirghiz" French="kirghize"/>
+	<language ISO639-2="kmb" ISO639-1="" English="Kimbundu" French="kimbundu"/>
+	<language ISO639-2="kok" ISO639-1="" English="Konkani" French="konkani"/>
+	<language ISO639-2="kom" ISO639-1="kv" English="Komi" French="kom"/>
+	<language ISO639-2="kon" ISO639-1="" English="Kongo" French="kongo"/>
+	<language ISO639-2="kor" ISO639-1="ko" English="Korean" French="coréen"/>
+	<language ISO639-2="kos" ISO639-1="" English="Kosraean" French="kosrae"/>
+	<language ISO639-2="kpe" ISO639-1="" English="Kpelle" French="kpellé"/>
+	<language ISO639-2="kro" ISO639-1="" English="Kru" French="krou"/>
+	<language ISO639-2="kru" ISO639-1="" English="Kurukh" French="kurukh"/>
+	<language ISO639-2="kua" ISO639-1="kj" English="Kuanyama; Kwanyama" French="kuanyama; kwanyama"/>
+	<language ISO639-2="kum" ISO639-1="" English="Kumyk" French="koumyk"/>
+	<language ISO639-2="kur" ISO639-1="ku" English="Kurdish" French="kurde"/>
+	<language ISO639-2="kut" ISO639-1="" English="Kutenai" French="kutenai"/>
+	<language ISO639-2="lad" ISO639-1="" English="Ladino" French="judéo-espagnol"/>
+	<language ISO639-2="lah" ISO639-1="" English="Lahnda" French="lahnda"/>
+	<language ISO639-2="lam" ISO639-1="" English="Lamba" French="lamba"/>
+	<language ISO639-2="lao" ISO639-1="lo" English="Lao" French="lao"/>
+	<language ISO639-2="lat" ISO639-1="la" English="Latin" French="latin"/>
+	<language ISO639-2="lav" ISO639-1="lv" English="Latvian" French="letton"/>
+	<language ISO639-2="lez" ISO639-1="" English="Lezghian" French="lezghien"/>
+	<language ISO639-2="lin" ISO639-1="ln" English="Lingala" French="lingala"/>
+	<language ISO639-2="lit" ISO639-1="lt" English="Lithuanian" French="lituanien"/>
+	<language ISO639-2="lol" ISO639-1="" English="Mongo" French="mongo"/>
+	<language ISO639-2="loz" ISO639-1="" English="Lozi" French="lozi"/>
+	<language ISO639-2="ltz" ISO639-1="lb" English="Luxembourgish; Letzeburgesch" French="luxembourgeois"/>
+	<language ISO639-2="lua" ISO639-1="" English="Luba-Lulua" French="luba-lulua"/>
+	<language ISO639-2="lub" ISO639-1="" English="Luba-Katanga" French="luba-katanga"/>
+	<language ISO639-2="lug" ISO639-1="" English="Ganda" French="ganda"/>
+	<language ISO639-2="lui" ISO639-1="" English="Luiseno" French="luiseno"/>
+	<language ISO639-2="lun" ISO639-1="" English="Lunda" French="lunda"/>
+	<language ISO639-2="luo" ISO639-1="" English="Luo (Kenya and Tanzania)" French="luo (Kenya et Tanzanie)"/>
+	<language ISO639-2="lus" ISO639-1="" English="lushai" French="Lushai"/>
+	<language ISO639-2="mac" ISO639-1="mk" English="Macedonian" French="macédonien"/>
+	<language ISO639-2="mad" ISO639-1="" English="Madurese" French="madourais"/>
+	<language ISO639-2="mag" ISO639-1="" English="Magahi" French="magahi"/>
+	<language ISO639-2="mah" ISO639-1="mh" English="Marshallese" French="marshall"/>
+	<language ISO639-2="mai" ISO639-1="" English="Maithili" French="maithili"/>
+	<language ISO639-2="mak" ISO639-1="" English="Makasar" French="makassar"/>
+	<language ISO639-2="mal" ISO639-1="ml" English="Malayalam" French="malayalam"/>
+	<language ISO639-2="man" ISO639-1="" English="Mandingo" French="mandingue"/>
+	<language ISO639-2="mao" ISO639-1="mi" English="Maori" French="maori"/>
+	<language ISO639-2="map" ISO639-1="" English="Austronesian (Other)" French="malayo-polynésiennes,autres langues"/>
+	<language ISO639-2="mar" ISO639-1="mr" English="Marathi" French="marathe"/>
+	<language ISO639-2="mas" ISO639-1="" English="Masai" French="massaï"/>
+	<language ISO639-2="may" ISO639-1="ms" English="Malay" French="malais"/>
+	<language ISO639-2="mdr" ISO639-1="" English="Mandar" French="mandar"/>
+	<language ISO639-2="men" ISO639-1="" English="Mende" French="mendé"/>
+	<language ISO639-2="mga" ISO639-1="" English="Irish, Middle (900-1200)" French="irlandais moyen (900-1200)"/>
+	<language ISO639-2="mic" ISO639-1="" English="Micmac" French="micmac"/>
+	<language ISO639-2="min" ISO639-1="" English="Minangkabau" French="minangkabau"/>
+	<language ISO639-2="mis" ISO639-1="" English="Miscellaneous languages" French="diverses, langues"/>
+	<language ISO639-2="mac" ISO639-1="mk" English="Macedonian" French="macédonien"/>
+	<language ISO639-2="mkh" ISO639-1="" English="Mon-Khmer (Other)" French="môn-khmer, autres langues"/>
+	<language ISO639-2="mlg" ISO639-1="mg" English="Malagasy" French="malgache"/>
+	<language ISO639-2="mlt" ISO639-1="mt" English="Maltese" French="maltais"/>
+	<language ISO639-2="mnc" ISO639-1="" English="Manchu" French="mandchou"/>
+	<language ISO639-2="mni" ISO639-1="" English="Manipuri" French="manipuri"/>
+	<language ISO639-2="mno" ISO639-1="" English="Manobo languages " French="manobo, langues"/>
+	<language ISO639-2="moh" ISO639-1="" English="Mohawk" French="mohawk"/>
+	<language ISO639-2="mol" ISO639-1="mo" English="Moldavian" French="moldave"/>
+	<language ISO639-2="mon" ISO639-1="mn" English="Mongolian" French="mongol"/>
+	<language ISO639-2="mos" ISO639-1="" English="Mossi" French="moré"/>
+	<language ISO639-2="mao" ISO639-1="mi" English="Maori" French="maori"/>
+	<language ISO639-2="may" ISO639-1="ms" English="Malay" French="malais"/>
+	<language ISO639-2="mul" ISO639-1="" English="Multiple languages" French="multilingue"/>
+	<language ISO639-2="mun" ISO639-1="" English="Munda languages" French="mounda, langues"/>
+	<language ISO639-2="mus" ISO639-1="" English="Creek" French="muskogee"/>
+	<language ISO639-2="mwr" ISO639-1="" English="Marwari" French="marvari"/>
+	<language ISO639-2="bur" ISO639-1="my" English="Burmese" French="birman"/>
+	<language ISO639-2="myn" ISO639-1="" English="Mayan languages" French="maya, langues"/>
+	<language ISO639-2="nah" ISO639-1="" English="Nahuatl" French="nahuatl"/>
+	<language ISO639-2="nai" ISO639-1="" English="North American Indian" French="indiennes d'Amérique du Nord, autres langues"/>
+	<language ISO639-2="nau" ISO639-1="na" English="Nauru" French="nauruan"/>
+	<language ISO639-2="nav" ISO639-1="nv" English="Navajo; Navaho" French="navaho"/>
+	<language ISO639-2="nbl" ISO639-1="nr" English="Ndebele, South; South Ndebele" French="ndébélé du Sud"/>
+	<language ISO639-2="nde" ISO639-1="nd" English="Ndebele, North; North Ndebele" French="ndébélé du Nord"/>
+	<language ISO639-2="ndo" ISO639-1="ng" English="Ndonga" French="ndonga"/>
+	<language ISO639-2="nds" ISO639-1="" English="Low German; Low Saxon; German, Low; Saxon, Low" French="bas allemand; bas saxon; allemand, bas; saxon, bas"/>
+	<language ISO639-2="nep" ISO639-1="ne" English="Nepali" French="népalais"/>
+	<language ISO639-2="new" ISO639-1="" English="Newari" French="newari"/>
+	<language ISO639-2="nia" ISO639-1="" English="Nias" French="nias"/>
+	<language ISO639-2="nic" ISO639-1="" English="Niger-Kordofanian (Other)" French="nigéro-congolaises, autres langues"/>
+	<language ISO639-2="niu" ISO639-1="" English="Niuean" French="niué"/>
+	<language ISO639-2="dut" ISO639-1="nl" English="Dutch" French="néerlandais"/>
+	<language ISO639-2="non" ISO639-1="" English="Norse, Old" French="norrois, vieux"/>
+	<language ISO639-2="nor" ISO639-1="no" English="Norwegian" French="norvégien"/>
+	<language ISO639-2="nno" ISO639-1="nn" English="Norwegian Nynorsk; Nynorsk, Norwegian" French="norvégien nynorsk; nynorsk, norvégien "/>
+	<language ISO639-2="nob" ISO639-1="nb" English="Norwegian Bokmål; Bokmål, Norwegian" French="norvégien bokmål; bokmål, norvégien"/>
+	<language ISO639-2="nso" ISO639-1="" English="Sotho, Northern" French="sotho du Nord"/>
+	<language ISO639-2="nub" ISO639-1="" English="Nubian languages" French="nubiennes, langues"/>
+	<language ISO639-2="nya" ISO639-1="ny" English=" Chichewa; Chewa; Nyanja" French="chichewa; chewa; nyanja"/>
+	<language ISO639-2="nym" ISO639-1="" English="Nyamwezi" French="nyamwezi"/>
+	<language ISO639-2="nyn" ISO639-1="" English="Nyankole" French="nyankolé"/>
+	<language ISO639-2="nyo" ISO639-1="" English="Nyoro" French="nyoro"/>
+	<language ISO639-2="nzi" ISO639-1="" English="Nzima" French="nzema"/>
+	<language ISO639-2="oci" ISO639-1="oc" English="Occitan (post 1500); Provençal" French="occitan (après 1500); provençal"/>
+	<language ISO639-2="oji" ISO639-1="" English="Ojibwa" French="ojibwa"/>
+	<language ISO639-2="ori" ISO639-1="or" English="Oriya" French="oriya"/>
+	<language ISO639-2="orm" ISO639-1="om" English="Oromo" French="galla"/>
+	<language ISO639-2="osa" ISO639-1="" English="Osage" French="osage"/>
+	<language ISO639-2="oss" ISO639-1="os" English="Ossetian; Ossetic" French="ossète"/>
+	<language ISO639-2="ota" ISO639-1="" English="Turkish, Ottoman (1500-1928)" French="turc ottoman (1500-1928)"/>
+	<language ISO639-2="oto" ISO639-1="" English="Otomian languages" French="otomangue, langues"/>
+	<language ISO639-2="paa" ISO639-1="" English="Papuan (Other)" French="papoues, autres langues"/>
+	<language ISO639-2="pag" ISO639-1="" English="Pangasinan" French="pangasinan"/>
+	<language ISO639-2="pal" ISO639-1="" English="Pahlavi" French="pahlavi"/>
+	<language ISO639-2="pam" ISO639-1="" English="Pampanga" French="pampangan"/>
+	<language ISO639-2="pan" ISO639-1="pa" English="Panjabi" French="pendjabi"/>
+	<language ISO639-2="pap" ISO639-1="" English="Papiamento" French="papiamento"/>
+	<language ISO639-2="pau" ISO639-1="" English="Palauan" French="palau"/>
+	<language ISO639-2="peo" ISO639-1="" English="Persian, Old (ca.600-400 B.C.)" French="perse, vieux (ca. 600-400 av. J.-C.)"/>
+	<language ISO639-2="per" ISO639-1="fa" English="Persian" French="persan"/>
+	<language ISO639-2="phi" ISO639-1="" English="Philippine (Other)" French="philippines, autres langues"/>
+	<language ISO639-2="phn" ISO639-1="" English="Phoenician" French="phénicien"/>
+	<language ISO639-2="pli" ISO639-1="pi" English="Pali" French="pali"/>
+	<language ISO639-2="pol" ISO639-1="pl" English="Polish " French="polonais"/>
+	<language ISO639-2="pon" ISO639-1="" English="Pohnpeian" French="pohnpei"/>
+	<language ISO639-2="por" ISO639-1="pt" English="Portuguese " French="portugais"/>
+	<language ISO639-2="pra" ISO639-1="" English="Prakrit languages" French="prâkrit"/>
+	<language ISO639-2="pro" ISO639-1="" English="Proven&#231;al, Old (to 1500)" French="provençal ancien (jusqu'à 1500)"/>
+	<language ISO639-2="pus" ISO639-1="ps" English="Pushto" French="pachto"/>
+	<language ISO639-2="qaa" ISO639-1="" English="Reserved for local use" French="réservée à l'usage local"/>
+	<language ISO639-2="que" ISO639-1="qu" English="Quechua" French="quechua"/>
+	<language ISO639-2="raj" ISO639-1="" English="Rajasthani" French="rajasthani"/>
+	<language ISO639-2="rap" ISO639-1="" English="Rapanui " French="rapanui"/>
+	<language ISO639-2="rar" ISO639-1="" English="Rarotongan" French="rarotonga"/>
+	<language ISO639-2="roa" ISO639-1="" English="Romance (Other)" French="romanes, autres langues"/>
+	<language ISO639-2="roh" ISO639-1="rm" English="Raeto-Romance" French="rhéto-roman"/>
+	<language ISO639-2="rom" ISO639-1="" English="Romany" French="tsigane"/>
+	<language ISO639-2="rum" ISO639-1="ro" English="Romanian" French="roumain"/>
+	<language ISO639-2="run" ISO639-1="rn" English="Rundi" French="rundi"/>
+	<language ISO639-2="rus" ISO639-1="ru" English="Russian" French="russe"/>
+	<language ISO639-2="sad" ISO639-1="" English="Sandawe" French="sandawe"/>
+	<language ISO639-2="sag" ISO639-1="sg" English="Sango" French="sango"/>
+	<language ISO639-2="sah" ISO639-1="" English="Yakut" French="iakoute"/>
+	<language ISO639-2="sai" ISO639-1="" English="South American Indian (Other)" French="indiennes d'Amérique du Sud,autres langues"/>
+	<language ISO639-2="sal" ISO639-1="" English="Salishan languages " French="salish, langues"/>
+	<language ISO639-2="sam" ISO639-1="" English="Samaritan Aramaic" French="samaritain"/>
+	<language ISO639-2="san" ISO639-1="sa" English="Sanskrit" French="sanskrit"/>
+	<language ISO639-2="sas" ISO639-1="" English="Sasak" French="sasak"/>
+	<language ISO639-2="sat" ISO639-1="" English="Santali" French="santal"/>
+	<language ISO639-2="scc" ISO639-1="sr" English="Serbian" French="serbe"/>
+	<language ISO639-2="sco" ISO639-1="" English="Scots" French="écossais"/>
+	<language ISO639-2="scr" ISO639-1="hr" English="Croatian" French="croate"/>
+	<language ISO639-2="sel" ISO639-1="" English="Selkup" French="selkoupe"/>
+	<language ISO639-2="sem" ISO639-1="" English="Semitic (Other) " French="sémitiques, autres langues"/>
+	<language ISO639-2="sga" ISO639-1="" English="Irish, Old (to 900) " French="irlandais ancien (jusqu'à 900)"/>
+	<language ISO639-2="sgn" ISO639-1="" English="Sign Languages" French="langues des signes"/>
+	<language ISO639-2="shn" ISO639-1="" English="Shan " French="chan"/>
+	<language ISO639-2="sid" ISO639-1="" English="Sidamo" French="sidamo"/>
+	<language ISO639-2="sin" ISO639-1="si" English="Sinhalese" French="singhalais"/>
+	<language ISO639-2="sio" ISO639-1="" English="Siouan languages " French="sioux, langues"/>
+	<language ISO639-2="sit" ISO639-1="" English="Sino-Tibetan (Other)" French="sino-tibétaines, autres langues"/>
+	<language ISO639-2="sla" ISO639-1="" English="Slavic (Other)" French="slaves, autres langues"/>
+	<language ISO639-2="slo" ISO639-1="sk" English="Slovak" French="slovaque"/>
+	<language ISO639-2="slv" ISO639-1="sl" English="Slovenian" French="slovène"/>
+	<language ISO639-2="sma" ISO639-1="" English="Southern Sami" French="sami du Sud"/>
+	<language ISO639-2="sme" ISO639-1="se" English="Northern Sami" French="sami du Nord"/>
+	<language ISO639-2="smi" ISO639-1="" English="Sami languages (Other) " French="sami, autres langues"/>
+	<language ISO639-2="smj" ISO639-1="" English="Lule Sami" French="sami de Lule"/>
+	<language ISO639-2="smn" ISO639-1="" English="Inari Sami" French="sami d'Inari"/>
+	<language ISO639-2="smo" ISO639-1="sm" English="Samoan " French="samoan"/>
+	<language ISO639-2="sms" ISO639-1="" English="Skolt Sami" French="sami skolt"/>
+	<language ISO639-2="sna" ISO639-1="sn" English="Shona" French="shona"/>
+	<language ISO639-2="snd" ISO639-1="sd" English="Sindhi" French="sindhi"/>
+	<language ISO639-2="snk" ISO639-1="" English="Soninke " French="soninké"/>
+	<language ISO639-2="sog" ISO639-1="" English="Sogdian" French="sogdien"/>
+	<language ISO639-2="som" ISO639-1="so" English="Somali" French="somali"/>
+	<language ISO639-2="son" ISO639-1="" English="Songhai" French="songhai"/>
+	<language ISO639-2="sot" ISO639-1="st" English="Sotho, Southern " French="sotho du Sud"/>
+	<language ISO639-2="spa" ISO639-1="es" English="Spanish; Castilian" French="espagnol; castillan"/>
+	<language ISO639-2="alb" ISO639-1="sq" English="Albanian" French="albanais"/>
+	<language ISO639-2="srd" ISO639-1="sc" English="Sardinian" French="sarde"/>
+	<language ISO639-2="scc" ISO639-1="sr" English="Serbian" French="serbe"/>
+	<language ISO639-2="srr" ISO639-1="" English="Serer" French="sérère"/>
+	<language ISO639-2="ssa" ISO639-1="" English="Nilo-Saharan (Other)" French="nilo-sahariennes, autres langues"/>
+	<language ISO639-2="ssw" ISO639-1="ss" English="Swati" French="swati"/>
+	<language ISO639-2="suk" ISO639-1="" English="Sukuma" French="sukuma"/>
+	<language ISO639-2="sun" ISO639-1="su" English="Sundanese " French="soundanais"/>
+	<language ISO639-2="sus" ISO639-1="" English="Susu" French="soussou"/>
+	<language ISO639-2="sux" ISO639-1="" English="Sumerian" French="sumérien"/>
+	<language ISO639-2="swa" ISO639-1="sw" English="Swahili" French="swahili"/>
+	<language ISO639-2="swe" ISO639-1="sv" English="Swedish" French="suédois"/>
+	<language ISO639-2="syr" ISO639-1="" English="Syriac" French="syriaque"/>
+	<language ISO639-2="tah" ISO639-1="ty" English="Tahitian" French="tahitien"/>
+	<language ISO639-2="tai" ISO639-1="" English="Tai (Other)" French="thaïes, autres langues"/>
+	<language ISO639-2="tam" ISO639-1="ta" English="Tamil" French="tamoul"/>
+	<language ISO639-2="tat" ISO639-1="tt" English="Tatar " French="tatar"/>
+	<language ISO639-2="tel" ISO639-1="te" English="Telugu" French="télougou"/>
+	<language ISO639-2="tem" ISO639-1="" English="Timne" French="temne"/>
+	<language ISO639-2="ter" ISO639-1="" English="Tereno" French="tereno"/>
+	<language ISO639-2="tet" ISO639-1="" English="Tetum" French="tetum"/>
+	<language ISO639-2="tgk" ISO639-1="tg" English="Tajik" French="tadjik"/>
+	<language ISO639-2="tgl" ISO639-1="tl" English="Tagalog" French="tagalog"/>
+	<language ISO639-2="tha" ISO639-1="th" English="Thai" French="thaï"/>
+	<language ISO639-2="tib" ISO639-1="bo" English="Tibetan" French="tibétain"/>
+	<language ISO639-2="tig" ISO639-1="" English="Tigre" French="tigré"/>
+	<language ISO639-2="tir" ISO639-1="ti" English="Tigrinya" French="tigrigna"/>
+	<language ISO639-2="tiv" ISO639-1="" English="Tiv" French="tiv"/>
+	<language ISO639-2="tkl" ISO639-1="" English="Tokelau" French="tokelau"/>
+	<language ISO639-2="tli" ISO639-1="" English="Tlingit" French="tlingit"/>
+	<language ISO639-2="tmh" ISO639-1="" English="Tamashek" French="tamacheq"/>
+	<language ISO639-2="tog" ISO639-1="" English="Tonga (Nyasa) " French="tonga (Nyasa)"/>
+	<language ISO639-2="ton" ISO639-1="to" English="Tonga (Tonga Islands)" French="tongan (Îles Tonga)"/>
+	<language ISO639-2="tpi" ISO639-1="" English="Tok Pisin" French="tok pisin"/>
+	<language ISO639-2="tsi" ISO639-1="" English="Tsimshian" French="tsimshian"/>
+	<language ISO639-2="tsn" ISO639-1="tn" English="Tswana" French="tswana"/>
+	<language ISO639-2="tso" ISO639-1="ts" English="Tsonga" French="tsonga"/>
+	<language ISO639-2="tuk" ISO639-1="tk" English="Turkmen" French="turkmène"/>
+	<language ISO639-2="tum" ISO639-1="" English="Tumbuka" French="tumbuka"/>
+	<language ISO639-2="tup" ISO639-1="" English="Tupi languages" French="tupi, langues"/>
+	<language ISO639-2="tur" ISO639-1="tr" English="Turkish" French="turc"/>
+	<language ISO639-2="tut" ISO639-1="" English="Altaic (Other)" French="altaïques, autres langues"/>
+	<language ISO639-2="tvl" ISO639-1="" English="Tuvalu" French="tuvalu"/>
+	<language ISO639-2="twi" ISO639-1="tw" English="Twi" French="twi"/>
+	<language ISO639-2="tyv" ISO639-1="" English="Tuvinian" French="touva"/>
+	<language ISO639-2="uga" ISO639-1="" English="Ugaritic" French="ougaritique"/>
+	<language ISO639-2="uig" ISO639-1="ug" English="Uighur" French="ouïgour"/>
+	<language ISO639-2="ukr" ISO639-1="uk" English="Ukrainian" French="ukrainien"/>
+	<language ISO639-2="umb" ISO639-1="" English="Umbundu" French="umbundu"/>
+	<language ISO639-2="und" ISO639-1="" English="Undetermined " French="indéterminée"/>
+	<language ISO639-2="urd" ISO639-1="ur" English="Urdu" French="ourdou"/>
+	<language ISO639-2="uzb" ISO639-1="uz" English="Uzbek" French="ouszbek"/>
+	<language ISO639-2="vai" ISO639-1="" English="Vai" French="vaï"/>
+	<language ISO639-2="ven" ISO639-1="" English="Venda" French="venda"/>
+	<language ISO639-2="vie" ISO639-1="vi" English="Vietnamese" French="vietnamien"/>
+	<language ISO639-2="vol" ISO639-1="vo" English="Volap&#252;k" French="volapük"/>
+	<language ISO639-2="vot" ISO639-1="" English="Votic" French="vote"/>
+	<language ISO639-2="wak" ISO639-1="" English="Wakashan languages" French="wakashennes, langues"/>
+	<language ISO639-2="wal" ISO639-1="" English="Walamo" French="walamo"/>
+	<language ISO639-2="war" ISO639-1="" English="Waray" French="waray"/>
+	<language ISO639-2="was" ISO639-1="" English="Washo" French="washo"/>
+	<language ISO639-2="wel" ISO639-1="cy" English="Welsh" French="gallois"/>
+	<language ISO639-2="wen" ISO639-1="" English="Sorbian languages" French="sorabes, langues"/>
+	<language ISO639-2="wln" ISO639-1="wa" English="Walloon" French="wallon"/>
+	<language ISO639-2="wol" ISO639-1="wo" English="Wolof" French="wolof"/>
+	<language ISO639-2="xho" ISO639-1="xh" English="Xhosa" French="xhosa"/>
+	<language ISO639-2="yao" ISO639-1="" English="Yao" French="yao"/>
+	<language ISO639-2="yap" ISO639-1="" English="Yapese" French="yapois"/>
+	<language ISO639-2="yid" ISO639-1="yi" English="Yiddish" French="yiddish"/>
+	<language ISO639-2="yor" ISO639-1="yo" English="Yoruba" French="yoruba"/>
+	<language ISO639-2="ypk" ISO639-1="" English="Yupik languages" French="yupik, langues"/>
+	<language ISO639-2="zap" ISO639-1="" English="Zapotec" French="zapotèque"/>
+	<language ISO639-2="zen" ISO639-1="" English="Zenaga" French="zenaga"/>
+	<language ISO639-2="zha" ISO639-1="za" English="Zhuang; Chuang" French="zhuang; chuang"/>
+	<language ISO639-2="chi" ISO639-1="zh" English="Chinese" French="chinois"/>
+	<language ISO639-2="znd" ISO639-1="" English="Zande" French="zandé"/>
+	<language ISO639-2="zul" ISO639-1="zu" English="Zulu" French="zoulou"/>
+	<language ISO639-2="zun" ISO639-1="" English="Zuni" French="zuni"/>
+</languages>

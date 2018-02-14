@@ -1,0 +1,76 @@
+TABLE {
+	border : none;
+	padding : none;
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+P {
+	FONT-SIZE: 10pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+BODY {
+	FONT-SIZE: 10pt;
+	COLOR: #333333;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	background-color : Gray;
+}
+.sheet-title {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #003399; FONT-FAMILY: Geneva, Arial, Helvetica, sans-serif
+}
+DD {
+	FONT-SIZE: 10pt; TEXT-INDENT: 0pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+DT {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.selected {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #ffffcc; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TH {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #666633; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-ALIGN: left
+}
+.smaller {
+	FONT-SIZE: 9pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.ltgray-text {
+	FONT-SIZE: 10pt; COLOR: #eeeeee; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+A.white {
+	FONT-SIZE: 9pt; COLOR: #eeeeee; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.white:hover {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+A.whiter {
+	FONT-SIZE: 10pt; COLOR: #ffffcc; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.whiter:hover {
+	FONT-SIZE: 10pt; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+.white-text {
+	FONT-SIZE: 9pt; COLOR: #eeeeee; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.whiter-text {
+	FONT-SIZE: 10pt; COLOR: #ffffcc; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.arial-override {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.bold {
+	FONT-WEIGHT: bold
+}
+DL {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: top; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.coll-songtitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; COLOR: #cc0000; FONT-FAMILY: Georgia, "Times New Roman", Times, serif
+}
+.caption {
+	FONT-SIZE: 9pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #669966; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #336633; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}

@@ -1,0 +1,347 @@
+body { margin: 0px;
+	padding: 0px;
+	height: 100%;
+	min-height: 100%;
+	border: none;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+table.header {
+	width: 765px;
+	text-align: left;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+table.footer {
+	width: 765px;
+	text-align: left;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+table.layout {
+	width: 765px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #fff;
+	border: 1px solid #999;
+	color:#333;
+	text-align: left;
+}
+table table {
+	margin-left: 10px;
+	font:80%/140% verdana, helvetica, sans-serif;
+}
+table pre {
+	margin-left: 10px;
+	font:80%/140% verdana, helvetica, sans-serif;
+}
+form {
+	margin-bottom: 0;
+}
+.sitenav {
+	float: left;
+	text-align: left;
+	font: 70% verdana, helvetica, sans-serif;
+}
+.contactus {
+	float: right;
+	text-align: right;
+	font: 70% verdana, helvetica, sans-serif;
+}
+#graphic {
+	background: #333399;
+}
+#official {
+	float: right;
+	clear: both;
+	font: 75% verdana, helvetica, sans-serif;
+	font-weight: bold;
+	color: #66CC33;
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
+#breadcrumbs {
+	float: left;
+	margin-left: 5px;
+	font: 75% verdana, helvetica, sans-serif;
+	font-weight: bold;
+	color: #66CC33;
+	margin-top: 0px;
+}
+#breadcrumbs-bottom {
+	float: left;
+	margin-left: 5px;
+	font: bold 75% verdana, helvetica, sans-serif;
+	color: #66CC33;
+	margin-top: 10px;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+#sitesearch {
+	float: right;
+	width: auto;
+}
+h1 {
+	clear: left;
+	margin-left: 10px;
+	padding-top: 5px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	font: bold 130%/150% Verdana, Arial, Helvetica, sans-serif;
+	color: #333399;
+}
+h1.homepage {
+	clear: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+h2 {
+	font: bold 110%/140% Arial, Helvetica, sans-serif;
+	color: #6666cc;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding:0px;
+}
+h2.homepage {
+	font: bold 100%/105% Georgia, "Times New Roman", Times, serif;
+	color: #000000;
+	margin-left: 0px;
+	margin-top: 0px;
+	padding:0px;
+}
+h3 {
+	font: bold 100%/110% Arial, Helvetica, sans-serif;
+	color: #666666;
+	background: #fffcc9;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding:0px;
+}
+h4 {
+	font: bold 90%/95% verdana, helvetica, sans-serif;
+	color: #333;
+	margin:0px;
+	padding:0px;
+}
+h5 {
+	font: bold 80%/85% verdana, helvetica, sans-serif;
+	color: #333;
+	margin:0px;
+	padding:0px;
+}
+h6 {
+	font: bold 90%/95% verdana, helvetica, sans-serif;
+	color: #333;
+	margin:0px;
+	padding:0px;
+}
+.indent {  text-indent: 10pt}
+.row {color:#990000;}
+.topnav {
+	padding-bottom: 8px;
+	padding-left: 2px;
+	font-size:11pt;
+
+}
+.bottomnav {
+	padding-left: 2px;
+	font-size: 11pt;
+	padding-top: 8px;
+
+}
+.background-blue
+{
+	background-color: #6666cc;
+	background-image: url(images/spacer-blue.gif);
+
+
+}
+.selected {
+	font-weight: bold;
+	color: #000066;
+}
+.redtext {
+	color: #ff0000;
+}
+p.indent1 {
+	padding-left: 3em;
+	margin: 0px;
+
+}
+p.indent2 {
+	padding-left: 6em;
+	margin: 0px;
+
+}
+p.indent3 {
+	padding-left: 9em;
+	margin: 0px;
+
+}
+p.indent4 {
+	padding-left: 12em;
+	margin: 0px;
+
+}
+p, li, td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+.smaller {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #333333;
+}
+pre {
+	font-family: "Courier New", Courier, mono;
+	font-size: 9pt;
+}
+th {
+	color: #3366CC;
+}
+p.homeblurb {
+	font: 70%/140% verdana, helvetica, sans-serif;
+	text-align: left;
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+}
+a {
+	color: #333399;
+	font-family: verdana, helvetica, sans-serif;
+	text-decoration: underline;
+}
+a:link {
+	color: #6666cc;
+	text-decoration: underline;
+}
+a:visited {
+	color: #6666cc;
+	text-decoration: underline;
+}
+a:hover {
+	color: #6666cc;
+	text-decoration: underline;
+	background: #eeeeee;
+}
+a.menu {
+	color: #333399;
+	font-family: verdana, helvetica, sans-serif;
+	font-weight:600;
+	text-decoration: underline;
+}
+a.menu:link {
+	color: #333399;
+	text-decoration: underline;
+}
+a.menu:visited {
+	color: #333399;
+	text-decoration: underline;
+}
+a.menu:hover {
+	color: #333;
+	text-decoration: underline;
+	background: #eeeeee;
+}
+a#skip {
+	position: absolute;
+	top:-100px;
+}
+.command-text {
+	font-family: "Courier New", Courier, mono;
+	font-size: 100%;
+	font-weight: bold;
+	color: #666;
+}
+.box {
+	float: right;
+	width: 35%;
+	border: 2px dashed #6666cc;
+	margin-left: 15px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #FEFEF6;
+}
+
+hr.dashed {
+	border: none 0; 
+	border-top: 2px dashed #333399;/*the border*/
+	width: 100%;
+	height: 2px;/*whatever the total width of the border-top and border-bottom equal*/
+} 
+div.goldtop {
+	background: #6666cc;
+	height: 10px;
+	width: 100%;
+	line-height: 1px;
+    font-size: 1px;/*these two lines override a default in IE*/
+}
+div.space {
+	height: 15px;
+	width: 100%;
+	line-height: 1px;
+    font-size: 1px;/*these two lines override a default in IE*/
+}
+div.clear {
+	clear: both;
+}
+div.gold {
+	background: #6666cc;
+	height: 4px;
+	width: 100%;
+	line-height: 1px;
+    font-size: 1px;/*these two lines override a default in IE*/
+} 
+div.green {
+	background: #333399;
+	height: 8px;
+	width: 100%;
+	line-height: 1px;
+    font-size: 1px;/*these two lines override a default in IE*/
+} 
+div.clear {
+	clear: both;
+}
+.pdf {
+	font: 70% verdana, helvetica, sans-serif;
+}
+.selected {
+	font: verdana, helvetica, sans-serif;
+	color: #333399;
+	font-weight:600;
+}
+p.home-indent {
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+	font: 90% verdana, helvetica, sans-serif;
+}
+.center {
+	text-align: center;
+}
+
+.redtext
+{color: #cc0000;}

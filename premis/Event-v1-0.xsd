@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright © 2005 OCLC Online Computer Library Center and RLG Research Libraries Group -->
+<!-- PREMIS Preservation Metadata Schema: Event  -->
+<!-- Version 1.0, May 17, 2005 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.loc.gov/standards/premis" xmlns="http://www.loc.gov/standards/premis" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:element name="event">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="eventIdentifier" minOccurs="1" maxOccurs="1">
+                
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="eventIdentifierType" minOccurs="1" maxOccurs="1" type="xs:string">
+                        </xs:element>
+                        <xs:element name="eventIdentifierValue" minOccurs="1" maxOccurs="1" type="xs:string">
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink/"></xs:anyAttribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="eventType" minOccurs="1" maxOccurs="1" type="xs:string">                
+            </xs:element>
+            <xs:element name="eventDateTime" minOccurs="1" maxOccurs="1" type="xs:dateTime">                
+            </xs:element>
+            <xs:element name="eventDetail" minOccurs="0" maxOccurs="1" type="xs:string">                
+            </xs:element>
+            <xs:element name="eventOutcomeInformation" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="eventOutcome" minOccurs="0" maxOccurs="1" type="xs:string">
+                        </xs:element>
+                        <xs:element name="eventOutcomeDetail" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:any namespace="##any" processContents="lax"></xs:any>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="linkingAgentIdentifier" minOccurs="0" maxOccurs="unbounded">                
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="linkingAgentIdentifierType" minOccurs="1" maxOccurs="1" type="xs:string">                            
+                        </xs:element>
+                        <xs:element name="linkingAgentIdentifierValue" minOccurs="1" maxOccurs="1" type="xs:string">                            
+                        </xs:element>
+                        <xs:element name="linkingAgentRole" minOccurs="0" maxOccurs="unbounded" type="xs:string">                            
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="LinkAgentXmlID" type="xs:IDREF" use="optional"></xs:attribute>
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink/"></xs:anyAttribute>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="linkingObjectIdentifier" minOccurs="0" maxOccurs="unbounded">                
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="linkingObjectIdentifierType" minOccurs="1" maxOccurs="1" type="xs:string">                            
+                        </xs:element>
+                        <xs:element name="linkingObjectIdentifierValue" minOccurs="1" maxOccurs="1" type="xs:string">                            
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="LinkObjectXmlID" type="xs:IDREF" use="optional"></xs:attribute>
+                    <xs:anyAttribute namespace="http://www.w3.org/1999/xlink/"></xs:anyAttribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="xmlID" type="xs:ID"></xs:attribute>
+    </xs:complexType>
+</xs:element>
+</xs:schema>

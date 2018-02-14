@@ -1,0 +1,970 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Metadata Object Description Schema: MODS (Library of Congress)</title>
+<meta name="keywords" content="mods metadata object description schema web site library congress xml official site library congress">
+<meta name="description" content="The MODS schema is intended to be able to carry selected data from existing MARC 21 records as well as to enable the creation of original resource description records.">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link type="text/css" media="print" href="../mods-print.css" rel="stylesheet">
+<style type="text/css" media="screen">
+@import url(../mods.css);
+.style1 {font-size: 9pt}
+.style2 {font-size: 9}
+.style3 {font-family: "Times New Roman", Times, serif}
+.style4 {color: #0000FF}
+.style5 {color: #000000}
+</style>
+<meta http-equiv="Content-Language" content="en-us">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<form style="margin-bottom:0;" action="http://search.loc.gov:8765/query.html" accept-charset="utf-8" name="seek1" method="get">
+
+<input type="hidden" name="col" value="loc">
+<input type="hidden" name="sc" value="0">
+<input type="hidden" name="ws" value="0">
+<input type="hidden" name="la" value="en">
+<input type="hidden" name="qm" value="0">
+<input type="hidden" name="st" value="1">
+<input type="hidden" name="nh" value="10">
+<input type="hidden" name="lk" value="1">
+<input type="hidden" name="rf" value="0">
+<input type="hidden" name="oq" value="">
+<input type="hidden" name="si" value="0">
+<input type="hidden" name="rq" value="0">
+<input type="hidden" name="qc" value="">
+<table align="center" class="header" cellpadding="0" cellspacing="0" border="0">
+  <tr><td width="475">
+    <div class="sitenav"><a id="skip" href="#skip_menu">&nbsp;</a><a href="http://www.loc.gov/">The
+      Library of Congress</a> &gt;&gt; <a href="http://www.loc.gov/standards/">Standards</a> &gt;&gt; <a href="http://www.loc.gov/mods/">MODS </a>&gt;&gt;&gt;&gt; <a href="index.html">MODS RDF</a></div>
+    &gt;&gt; Primer Part 2 </td>
+    <td><select name="qp" tabindex="1">
+        <option value="url:/standards/mods" selected>MODS Pages</option>
+        <option value="url:/standards url:/ead url:/marc">Standards Pages</option>
+        <option value="">All Library Pages</option>
+      </select>
+    </td>
+    <td><span class="drop-box">
+      <input type="text" name="qt" id="keyword" size="18" value="" tabindex="2">
+    </span></td>
+    <td align="left">
+      <input name="search_button" type="image" id="search_button" tabindex="3" value="SEARCH" src="../images/search.gif" alt="search">
+    </td>
+  </tr>
+</table></form>
+<table align="center" class="layout" cellpadding="0" cellspacing="0"><tr><td>
+<div id="graphic"><a href="http://www.loc.gov/standards/mods/">
+<img src="../images/mods.gif" alt="Metadata Object Description Schema: Official Web Site" width="600" height="80" border="0"></a></div>
+<div class="goldtop"><span class="selected">HOME</span></div>
+<div class="space"></div>
+<div class="clear"></div>
+<h2 align="center"><strong>MODS RDF Ontology:</strong></h2>
+<h1 align="center"> <strong>Primer</strong> Part 2: MODS XML to RDF Conversion </h1>
+<hr/>
+<p><strong>Abstract </strong></p>
+<p>This is a companion document to <a href="primer.html"><strong><em>MODS  RDF Ontology: Primer</em></strong>.</a>&nbsp;&nbsp; It&nbsp; describes how a MODS XML record&nbsp; is transformed into&nbsp; RDF/XML according to the MODS RDF ontology. </p>
+<hr/>
+<h2>Contents</h2>
+<p><a href="#intro">Introduction</a></p>
+<p><a href="#topLevelTriple">Top Level Triple</a></p>
+<p><strong>Treatment of MODS Top-level Elements:</strong></p>
+<p>&nbsp;&nbsp; &nbsp;<a href="#abstract">&lt;abstract&gt; </a></p>
+<p>&nbsp;&nbsp;&nbsp; <a href="#accessCondition">&lt;accessCondition&gt; </a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#classification">&lt;classification&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#genre">&lt;genre&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp; <a href="#identifier">&lt;identifier&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#identifier">&lt;language&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#location">&lt;location&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#name">&lt;name&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#note">&lt;note&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#originInfo">&lt;originInfo&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#part">&lt;part&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#physicalDescription">&lt;physicalDescription&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#recordInfo">&lt;recordInfo&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#relatedItem">&lt;relatedItem&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#subject">&lt;subject&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#tableOfContents">&lt;tableOfContents&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#targetAudience">&lt;targetAudience&gt;</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="#titleInfo">&lt;titleInfo&gt;</a></p>
+<HR/>
+<h2><a name="intro"></a>Introduction</h2>
+<p>The document <strong><em>MODS RDF Ontology:  Primer</em></strong> describes MODS RDF, an RDF ontology for MODS, which may be used  to create born-RDF MODS, or it may be used to create an RDF description  corresponding to an existing MODS XML record.&nbsp;  This document addresses the&nbsp;  latter.&nbsp;&nbsp; <br>
+  The description below assumes that  there is a MODS XML record, and describes how that record is transformed into a  MODS RDF description (with XML serialization) according to the MODS RDF  ontology.&nbsp; A stylesheet for this  transformation is avalable at <u><a href="http://www.loc.gov/mods/modsrdf/xsl-files/modsrdf.xsl">http://www.loc.gov/mods/modsrdf/xsl-files/modsrdf.xsl </a></u></p>
+<p>Examples of MODS  XML records and their corresponding RDF descriptions are at:<br>
+  <a href="http://www.loc.gov/standards/mods/modsrdf/examples/">http://www.loc.gov/standards/mods/modsrdf/examples/</a></p>
+<hr/>
+<h2> <a name="topLevelTriple"></a>Top Level Triple</h2>
+<p>The top level RDF triple for a MODS RDF description is of  the form:</p>
+<h4> {MODS resource}&nbsp; &nbsp;&nbsp;is-a&nbsp;&nbsp;&nbsp; #ModsResource</h4>
+<p>Where {MODS resource} is the resource  described.&nbsp; #ModsResource is a blank node  and becomes the subject for subsequent triples corresponding to top-level MODS  elements.&nbsp; <br>
+  {MODS resource}&nbsp; is of  the form:<br>
+  <a href="http://www.loc.gov/mods/rdf/v1#{someIdentifier}">http://www.loc.gov/mods/rdf/v1#{someIdentifier}</a> <br>
+  The MODS XML to RDF stylesheet assigns a value to {someIdentifier} as  follows:</p>
+<ul>
+  <li><span dir="LTR">If the XML record includes an  identifier with type &lsquo;modsRDFIdentifier&rsquo;, the value of that identifier is used.</span></li>
+  <li><span dir="LTR">Otherwise, the value &lsquo;MODS123456&rsquo;  is assigned.</span></li>
+</ul>
+<p>For example if the record includes:</p>
+<table width="331" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="321"><p class="style1 style2">&lt;identifier type=&rsquo;modsRDFIdentifier&rsquo;&gt;xyz&lt;/identifier&gt;</p></td>
+  </tr>
+</table>
+<p> then the top-level triple will be:<br>
+    <a href="http://www.loc.gov/mods/rdf/v1#xyz">http://www.loc.gov/mods/rdf/v1#xyz</a> is-a&nbsp;&nbsp;&nbsp; #ModsResource<br>
+  In XML:<br>
+  &lt;modsrdf:ModsResource  rdf:about=&quot;http://www.loc.gov/mods/rdf/v1#MODS123456&quot;&gt; <br>
+  if the record does not include an identifier with type=&rsquo;modsRDFIdentifier&rsquo;  then the top-level triple will be:<br>
+  <a href="http://www.loc.gov/mods/rdf/v1#123456">http://www.loc.gov/mods/rdf/v1#123456</a> &nbsp;is-a&nbsp;&nbsp;&nbsp;  #ModsResource<br>
+  A user of the stylesheet wishing to ensure that a meaningful  identifier will be used for this triple should insert an identifier with type=&rsquo;modsRDFIdentifier&rsquo;  into the record.</p>
+<hr/>
+<h1>Treatment of MODS Top-level Elements </h1>
+<hr/>
+<h3><a name="abstract"></a>MODS &lt;abstract&gt; </h3>
+<p>The Following MODS record:</p>
+<table width="331" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="321" height="45"><p>&lt;mods&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;abstract&gt;<strong> </strong>based on a novel by a&nbsp; <em>man named Lear</em> &lt;/abstract&gt;<br>
+      &lt;/mods&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF description.<br>
+</p>
+<table width="499" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="489" height="45"><p class="style4">&lt;rdf:RDF&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf:ModsResource  rdf:about=&quot;http://www.loc.gov/mods/rdf/v1#MODS123456&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf:abstract&gt; based on a novel by <em>a man named Lear</em>&lt;/modsrdf:abstract&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/modsrdf:ModsResource&gt;<br>
+      &lt;/rdf:RDF&gt;</p></td>
+  </tr>
+</table>
+<p>&nbsp;For all subsequent  examples the MODS wrapper for XML and the RDF and ModsResource wrappers for RDF  will be omitted.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<hr/>
+<h3><a name="accessCondition"></a>MODS &lt;accessCondition&gt; </h3>
+<p>The Following XML:</p>
+<table width="331" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="321" height="45"><p>&lt;accessCondition&gt;No Restriction&lt;/accessCondition&gt; </p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="397" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="387" height="40"><p class="style4">modsrdf:accessCondition&gt; No Restriction  &lt;/modsrdf: accessCondition&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3><a name="classification"></a>MODS &lt;classification&gt;</h3>
+<p>The Following XML:</p>
+<table width="350" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="340" height="45"><p>&lt;classification  authority=&quot;lcc&quot;&gt;HE380.8&lt;/classification&gt;<br>
+      &lt;classification  authority=&quot;xyz&quot;&gt;abc.xyz&lt;/classification&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;class:lcc&gt;HE380.8&lt;/class:lcc&gt;<br>
+      &lt;!--      --&gt;<br>
+      &lt;modsrdf:classificationGroup&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;ClassificationGroup&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;classificationGroupScheme&gt;xyz&lt;/classificationGroupScheme&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;classificationGroupValue&gt;abc.xyz&lt;/classificationGroupValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/ClassificationGroup&gt;<br>
+      &lt;/modsrdf:classificationGroup&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3><a name="genre"></a>MODS &lt;genre&gt;</h3>
+<p>The Following XML:</p>
+<table width="350" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="340" height="45"><p>&lt;genre&gt;television&lt;/genre&gt; </p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;modsrdf:genre&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;GenreForm  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rdf:type rdf:resource=&quot;http://www.loc.gov/mads/rdf/v1#GenreForm&quot;/&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rdfs:label&gt;television&lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;GenreFormElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;elementValue&gt;television&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/GenreFormElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/GenreForm&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/modsrdf:genre&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3><a name="identifier"></a>MODS &lt;identifier&gt;</h3>
+<p>The Following XML:</p>
+<table width="350" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="340" height="45"><p>&lt;identifier  type=&quot;isbn&quot;&gt;0-937383-18-X&lt;/identifier&gt;<br>
+      &lt;identifier type=&quot;lccn&quot;&gt;##2001336783&lt;/identifier&gt;<br>
+      &lt;identifier type=&quot;local&quot;&gt;xjz123&lt;/identifier&gt; </p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;identifier:isbn&gt;0-937383-18-X&lt;/identifier:isbn&gt;<br>
+      &lt;identifier:lccn&gt;##2001336783&lt;/identifier:lccn&gt;<br>
+      &lt;modsrdf:identifierGroup&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;IdentifierGroup&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;identifierGroupType&gt;local&lt;/identifierGroupType&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;identifierGroupValue&gt;xjz123&lt;/identifierGroupValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/IdentifierGroup&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+      &lt;/modsrdf:identifierGroup&gt; </p></td>
+  </tr>
+</table>
+<hr/>
+<h3><a name="language"></a>MODS &lt;language&gt;</h3>
+<p>The Following XML:</p>
+<table width="350" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="340" height="45"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;languageTerm authority=&quot;iso639-2b&quot;  &gt;eng&lt;/languageTerm&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;languageTerm&gt;english&lt;/languageTerm&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;LanguageOfResource  rdf:resource=&quot;http://id.loc.gov/vocabulary/language#eng&quot;/&gt;<br>
+      &lt;LanguageOfResource &gt;english&lt;/LanguageOfResource&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3><a name="location"></a>MODS &lt;location&gt;</h3>
+<p>The Following XML:</p>
+<table width="502" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="492" height="45"><p>&lt;location&gt;<strong> &nbsp; </strong><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;physicalLocation&gt;Library  of Congress &lt;/ physicalLocation &gt; &nbsp; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;sublocation&gt;Prints  and Photographs Division Washington, D.C. 20540 USA&lt;/sublocation&gt; &nbsp; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;shelfLocator&gt;DAG  no. 1410&lt;/shelfLocator&gt; <br>
+      &lt;/location&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="580" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="570" height="69"><p class="style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;locationOfResource&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Location&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;locationPhysical&gt;Library  of Congress &lt;/locationPhysical&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &lt;locationSublocation&gt;Prints and  Photographs Division Washington, D.C. 20540 USA&lt;/locationSublocation&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;locationShelfLocator&gt;DAG  no. 1410&lt;/locationShelfLocator&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Location&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/locationOfResource&gt;</p></td>
+  </tr>
+</table>
+<p>In the  following example of a MODS location, copy information is included, via  subelement holdingsSimple:</p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;location&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;physicalLocation  authority=&quot;marcorg&quot;&gt;MnRM&lt;/physicalLocation&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;holdingSimple&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;copyInformation&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;sublocation&gt;Patient  reading room&lt;/sublocation&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;shelfLocator&gt;QH511.A1J68&lt;/shelfLocator&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;enumerationAndChronology  unitType=&quot;1&quot;&gt; v.1-v.8 1970-1976&lt;/enumerationAndChronology&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/copyInformation&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/holdingSimple&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/location&gt;</p></td>
+  </tr>
+</table>
+<p>This  results in the following RDF: </p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p class="style4">&lt;locationOfResource  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Location&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;locationPhysicalLocation&gt;MnRM&lt;/locationPhysicalLocation&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;locationCopy&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Copy&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;locationCopyShelfLocator&gt;QH511.A1J68&lt;/locationCopyShelfLocator&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;locationCopyEnumerationAndChronologyBasic&gt;  v.1-v.8  1970-1976 &lt;/location........&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Copy&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/locationCopy&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Location&gt;<br>
+      &lt;/locationOfResource&gt;</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<hr/>
+<h3><a name="name"></a>MODS &lt;name&gt; (and &lt;name&gt;&lt;role&gt;)</h3>
+<p>The following MODS XML name:</p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p>&nbsp;&lt;name  type=&quot;personal&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;namePart  type=&quot;family&quot;&gt;Whitman&lt;/namePart&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;namePart  type=&quot;given&quot;&gt;Walt&lt;/namePart&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;namePart  type=&quot;date&quot;&gt;1819-1892&lt;/namePart&gt;<br>
+      &lt;/name&gt;</p></td>
+  </tr>
+</table>
+<p>Results in the following RDF: </p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p class="style4">&nbsp; &lt;name  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;PersonalName  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;  rdf:about=&quot;idname178227440&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;&nbsp;&nbsp;&nbsp; Walt&nbsp;  Whitman&nbsp; 1819-1892&nbsp; &lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FamilyNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Whitman&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/FamilyNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;GivenNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Walt&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/GivenNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DateNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;1819-1892&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/DateNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&lt;/PersonalName&gt;<br>
+      &lt;/name</p></td>
+  </tr>
+</table>
+<p>The simpler case of an unparsed name (no namepart types  supplied), e.g.:</p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p>&lt;name  type=&quot;personal&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;namePart&gt;Walt  Whitman 1819-1892&lt;/namePart&gt;<br>
+      &lt;/name&gt;</p></td>
+  </tr>
+</table>
+<p>Results in the following RDF: </p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p class="style4">&lt;name xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;PersonalName xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot; rdf:about=&quot;idname130712944&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Walt Whitman 1819-1892 &lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Walt Whitman 1819-1892&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/PersonalName&gt;<br>
+      &lt;/name&gt;</p></td>
+  </tr>
+</table>
+<p>So the following MODS name,  with role included:</p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p>&nbsp;&lt;name  type=&quot;personal&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;namePart&gt;Epstein,  Daniel Mark.&lt;/namePart&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;role&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;roleTerm  type=&quot;code&quot; authority=&quot;marcrelator&quot;&gt;spk&lt;/roleTerm&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/role&gt;<br>
+      &nbsp;&lt;/name&gt;</p></td>
+  </tr>
+</table>
+<p>Results in the following RDF: </p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p class="style4">&lt;name  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;PersonalName  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;  rdf:about=&quot;idname103263352&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Epstein, Daniel  Mark.&nbsp; &lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Epstein,  Daniel Mark.&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/PersonalName&gt;<br>
+      &lt;/name&gt;<br>
+      &lt;!-<br>
+      -****  Roles for this name.<br>
+      --&gt;<br>
+      &lt;relator:spk  rdf:resource=&quot;idname103263352&quot;/&gt;</p></td>
+  </tr>
+</table>
+<p>In the preceding example, first the name is described and in the  process an identifier is assigned (&quot;rdf:about=&quot;idname103263352&quot;), for reference in the role description &ndash; the last line of  the example &ndash; so that the entire name description does not have to be repeated. <br>
+  For the property <strong>relator:spk</strong>. &lsquo;relator:&rsquo; is the prefix for the default vocabulary  of roles assumed by this ontology, <a href="http://id.loc.gov/vocabulary/relator/">http://id.loc.gov/vocabulary/relator/</a>,  For  each&nbsp; term in the vocabulary a property  is defined whose domain is ModsResource and whose range is madsrdf:Name. The rule which applies in this example is  that if the MODS XML roleTerm is within the  default vocabulary, this form is used. <br>
+  Now consider the  same MODS XML name, except that the supplied role ('painter') is not in the default vocabulary:</p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p>&nbsp;&lt;name  type=&quot;personal&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;namePart&gt;Epstein,  Daniel Mark.&lt;/namePart&gt;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;role&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;roleTerm&gt;painter&lt;/roleTerm&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/role&gt;<br>
+      &lt;/name&gt;</p></td>
+  </tr>
+</table>
+<p>Results in the following RDF: </p>
+<table width="549" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="539" height="45"><p class="style4">&lt;name  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;PersonalName  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot; rdf:about=&quot;idname179930232&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Epstein, Daniel  Mark.&nbsp;&nbsp; &lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Epstein,  Daniel Mark.&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;/PersonalName&gt;<br>
+      &lt;/name&gt;<br>
+      &lt;!--<br>
+      ****  Roles for this name.<br>
+      --&gt;<br>
+      &lt;modsrdf:roleRelationship&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf:RoleRelationship&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf:roleRelationshipRole&gt;painter&lt;/modsrdf:  roleRelationshipRole&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf: roleRelationshipName  rdf:resource=&quot;idname179930232&quot;/&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;/modsrdf:RoleRelationship&gt;<br>
+      &lt;/modsrdf:roleRelationship&gt;</p></td>
+  </tr>
+</table>
+<p>In this case to express the role,  a RoleRelationship aggregator is used to wrap a name and a role and thereby  establish the relationship between the two. </p>
+<hr/>
+<h3>MODS &lt;note<a name="note"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="350" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="340" height="45"><p>&lt;note&gt;Text in English; summaries in English and  French.&lt;/note&gt;<br>
+      &lt;note type=&rdquo;statement of responsibility&rdquo;&gt; see &nbsp;label on t.p.&lt;/note&gt;<br>
+      &lt;note type=&quot;bibliography&quot;&gt;Includes  bibliographies.&lt;/note&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--*******note -  no type--&gt;<br>
+      &lt;modsrdf:note&gt;Text  in English; summaries in English and French.&lt;/modsrdf:note&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--*******statement of  responsibility--&gt;<br>
+      &lt;modsrdf:statementOfResponsibility&gt;  see&nbsp; label on t.p.&lt;/modsrdf:statementOfResponsibility&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--*******typed note  --&gt;<br>
+      &lt;modsrdf:noteGroup&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf:NoteGroup&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf:noteGroupType&gt;bibliography&lt;/modsrdf:noteGroupType&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;modsrdf:noteGroupValue&gt;Includes  bibliographies.&lt;/modsrdf:noteGroupValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/modsrdf:NoteGroup&gt;<br>
+      &lt;/modsrdf:noteGroup&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3>MODS &lt;originInfo<a name="originInfo"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="350" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="340" height="45"><p>&lt;originInfo&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;place&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;placeTerm&gt;Lincoln, Neb&lt;/placeTerm&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/place&gt;<br>
+      &lt;/originInfo&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p>&nbsp;<span class="style4">&lt;placeOfOrigin  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Geographic  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Lincoln, Neb&lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;GeographicElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Lincoln, Neb&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/GeographicElement&gt;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;/Geographic&gt;<br>
+      &lt;/placeOfOrigin&gt;</span></p></td>
+  </tr>
+</table>
+<p>The Following XML:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&lt;originInfo&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dateIssued&gt;  January 1, 2001&lt;/dateIssued&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dateIssued  encoding=&quot;w3cdtf&quot;&gt;2001-01-01&lt;/dateIssued&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dateIssued  point=&quot;start&quot; encoding=&quot;w3cdtf&quot;&gt;2001-01-01&lt;/dateIssued&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dateIssued  point=&quot;end&quot; encoding=&quot;w3cdtf&quot;&gt;2001-01-02&lt;/dateIssued&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dateIssued  point=&quot;start&quot;&gt; January 1, 2001&lt;/dateIssued&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dateIssued  point=&quot;end&quot;&gt; January 2, 2001&lt;/dateIssued&gt;<br>
+      &lt;/originInfo&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;resourceDateIssued  rdf:datatype=&quot;xsd:string&quot;&gt; January 1,  2001&lt;/resourceDateIssued&gt;<br>
+      &lt;resourceDateIssued  rdf:datatype=&quot;xsd:date&quot;&gt;2001-01-01&lt;/resourceDateIssued&gt;<br>
+      &lt;resourceDateIssuedStart  rdf:datatype=&quot;xsd:date&quot;&gt;2001-01-01&lt;/resourceDateIssuedStart&gt;<br>
+      &lt;resourceDateIssuedEnd  rdf:datatype=&quot;xsd:date&quot;&gt;2001-01-02&lt;/resourceDateIssuedEnd&gt;<br>
+      &lt;resourceDateIssuedStart  rdf:datatype=&quot;xsd:string&quot;&gt; January 1,  2001&lt;/resourceDateIssuedStart&gt;<br>
+      &lt;resourceDateIssuedEnd  rdf:datatype=&quot;xsd:string&quot;&gt; January 2,  2001&lt;/resourceDateIssuedEnd&gt; </p></td>
+  </tr>
+</table>
+<p>The Following XML:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&lt;originInfo&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;edition&gt;morning  edition&lt;/edition&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;frequency&gt;once a week&lt;/frequency&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;publisher&gt;Maxwell Edison&lt;/publisher&gt;<br>
+      &lt;/originInfo&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;!--**********edition--&gt;<br>
+      &lt;edition  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;morning  edition&lt;/edition&gt;</p>
+        <p class="style4">&lt;!--**********frequency--&gt;<br>
+          &lt;frequency  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;c sharp&lt;/frequency&gt;</p>
+      <p class="style4">&lt;!--<br>
+            <br>
+        *******&nbsp; publisher<br>
+        --&gt;<br>
+        &lt;publisher  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;CorporateName  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Maxwell Edison&lt;/label&gt;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FullNameElement&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Maxwell  Edison&lt;/elementValue&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/FullNameElement&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;/CorporateName&gt;<br>
+        &lt;/publisher&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3>MODS &lt;part<a name="part"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&lt;part  order=&quot;4&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;detail  type=&quot;issue&quot; level=&quot;v.2, no. 3&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;number&gt;2&lt;/number&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;caption&gt;no.&lt;/caption&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;title&gt;History  of the World&lt;/title&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/detail&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extent  unit=&quot;pages&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;start&gt;761&lt;/start&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;end&gt;1275&lt;/end&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;total&gt;515&lt;/total&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/extent&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;date  encoding=&quot;w3cdtf&quot;&gt;1999&lt;/date&gt;<br>
+      &lt;/part&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;part  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;Part&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partOrder&gt;4&lt;/partOrder&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partLevel&gt;v.2,  no. 3&lt;/partLevel&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partUnit&gt;pages&lt;/partUnit&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partDetailType&gt;issue&lt;/partDetailType&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partNumber&gt;2&lt;/partNumber&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partCaption&gt;no.&lt;/partCaption&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partTitle&gt;History  of the World&lt;/partTitle&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partStart&gt;761&lt;/partStart&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partEnd&gt;1275&lt;/partEnd&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partTotal&gt;515&lt;/partTotal&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;partDate  rdf:datatype=&quot;xsd:date&quot;&gt;1999&lt;/partDate&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/Part&gt;<br>
+      &lt;/part&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3>MODS &lt;physicalDescription<a name="physicalDescription"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&lt;physicalDescription&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;form  type=&quot;material&quot;&gt;oil paint&lt;/form&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;form  type=&quot;technique&quot;&gt;painting&lt;/form&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;reformattingQuality&gt;access&lt;/reformattingQuality&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;internetMediaType&gt;image/jpeg&lt;/internetMediaType&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extent&gt;1  painting&lt;/extent&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;digitalOrigin&gt;born  digital&lt;/digitalOrigin&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;note  type=&quot;description&quot;&gt;carrier pigeon&lt;/note&gt;<br>
+      &lt;/physicalDescription&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;physicalForm  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;oil  paint&lt;/physicalForm&gt;<br>
+      &lt;physicalForm xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;painting&lt;/physicalForm&gt;<br>
+      &lt;reformattingQuality  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;access&lt;/reformattingQuality&gt;<br>
+      &lt;mediaType  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;image/jpeg&lt;/mediaType&gt;<br>
+      &lt;physicalExtent  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;1 painting&lt;/physicalExtent&gt;<br>
+      &lt;digitalOrigin  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;born  digital&lt;/digitalOrigin&gt;<br>
+      &lt;!--  note - Physical Description--&gt;<br>
+      &lt;modsrdf:noteGroup&gt;<br>
+      &lt;modsrdf:NoteGroup&gt;<br>
+      &lt;modsrdf:noteGroupType&gt;Physical  Description&lt;/modsrdf:noteGroupType&gt;<br>
+      &lt;modsrdf:noteGroupValue&gt;carrier  pigeon&lt;/modsrdf:noteGroupValue&gt;<br>
+      &lt;/modsrdf:NoteGroup&gt;<br>
+      &lt;/modsrdf:noteGroup&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3>MODS &lt;recordInfo<a name="recordInfo"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&lt;recordInfo&gt;<br>
+      &nbsp;&nbsp;&nbsp;      &lt;recordCreationDate  encoding=&quot;marc&quot;&gt;030211&lt;/recordCreationDate&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;recordCreationDate&gt;October  8, 2002&lt;/recordCreationDate&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;recordOrigin&gt;machine  generated&lt;/recordOrigin&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;recordContentSource  authority=&quot;marcorg&quot;&gt;CStmoGRI&lt;/recordContentSource&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;descriptionStandard  authority=&quot;marcdescription&quot;&gt;cco&lt;/descriptionStandard&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;recordIdentifier  source=&quot;dlc&quot;&gt;85753651&lt;/recordIdentifier&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;recordChangeDate  encoding=&quot;iso8601&quot;&gt;20020311&lt;/recordChangeDate&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;recordCreationDate  encoding=&quot;w3cdtf&quot;&gt;2001-07-12&lt;/recordCreationDate&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;languageOfCataloging  authority=&quot;iso639-2b&quot;&gt;fre&lt;/languageOfCataloging&gt;<br>
+      &lt;/recordInfo&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="529" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="519" height="69"><p class="style4">&lt;hasAdministrativeMedatata  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;AdministrativeMedatata  xmlns=&quot;http://id.loc.gov/ontologies/RecordInfo#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;recordCreationDate&gt;030211&lt;/recordCreationDate&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;recordCreationDate rdf:datatype=&quot;xs:string&quot; &gt;October  8, 2002&lt;/recordCreationDate&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;recordOrigin&gt;machine  generated&lt;/recordOrigin&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;recordContentSource&gt;CStmoGRI&lt;/recordContentSource&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;descriptionStandard&gt;cco&lt;/descriptionStandard&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;recordIdentifier&gt;85753651&lt;/recordIdentifier&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;recordChangeDate&gt;20020311&lt;/recordChangeDate&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;recordCreationDate&gt;2001-07-12&lt;/recordCreationDate&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/AdministrativeMedatata&gt;<br>
+      &lt;/administrativeMedatata&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3>MODS &lt;relatedItem<a name="relatedItem"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&lt;relatedItem  type=&quot;series&quot;&gt;<br>
+      &nbsp;&nbsp; &lt;titleInfo&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;title&gt;Background  paper (United States.  Congress. Office of Technology Assessment)&lt;/title&gt;<br>
+      &nbsp;&nbsp; &lt;/titleInfo&gt;<br>
+      &lt;/relatedItem&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="652" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="642" height="69"><p class="style4">&lt;relatedSeries&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;ModsResource  rdf:about=&quot;http://www.loc.gov/mods/rdf/v1#MODS123456&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;principalTitle  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Title  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdfs:label&gt;Background  paper (United States.  Congress. Office of Technology Assessment)&lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt; 
+      Background  paper (United States.  Congress. Office of Technology Assessment)      &lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Title&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/principalTitle&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/ModsResource&gt;<br>
+      &lt;/relatedSeries&gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3>MODS &lt;subject<a name="subject"></a>&gt;</h3>
+<p>The Following MODS<strong> </strong>subject<strong> </strong>topic:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&nbsp; &lt;subject&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;topic&gt;  Politics and government &lt;/topic&gt;<br>
+      &nbsp; &lt;/subject&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="652" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="642" height="69"><p class="style4">&nbsp;&lt;subjectTopic&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;topic  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdfs:label&gt;  Politics and government &lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;topicElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;  Politics and government &lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/topicElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/topic&gt;<br>
+      &lt;/subjectTopic&gt;</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>The Following MODS<strong> </strong>complex subject:</p>
+<table width="488" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="478" height="45"><p>&nbsp;&lt;subject&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;topic&gt;Public  libraries&lt;/topic&gt;<br>
+      &nbsp; &nbsp;&nbsp;&nbsp; &lt;geographic&gt;United States&lt;/geographic&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;genre&gt;Book  lists&lt;/genre&gt;<br>
+      &nbsp;&lt;/subject&gt; </p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="652" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="642" height="69"><p class="style4">&lt;subjectComplex&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;ComplexSubject  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdfs:label&gt;Public  libraries. United States.  Book lists. &lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;componentList  rdf:parseType=&quot;Collection&quot;&gt;</p>
+        <p class="style4">&lt;!-- --&gt; <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Topic&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Public  libraries&lt;/label&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TopicElement&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Public  libraries&lt;/elementValue&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TopicElement&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Topic&gt;</p>
+      <p class="style4">&lt;!-- --&gt; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Geographic&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdfs:label&gt;United States&lt;/rdfs:label&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;geographicElement&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;United States&lt;/elementValue&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/geographicElement&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Geographic&gt;</p>
+      <p class="style4">&lt;!-- --&gt; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;GenreForm&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Book  lists&lt;/label&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;GenreFormElement&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Book  lists&lt;/elementValue&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/GenreFormElement&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/GenreForm&gt;</p>
+      <p class="style4">&lt;!-- --&gt; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/componentList&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;/ComplexSubject&gt;<br>
+        &lt;/  subjectComplex&gt;</p></td>
+  </tr>
+</table>
+<p></p>
+<hr/>
+<h3>MODS &lt;tableOfContents<a name="tableOfContents"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="657" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="647" height="45"><p>&lt;tableOfContents&gt;1.  Nanook A No No..&nbsp; 2. St. Alphonso's Pancake Breakfast.&nbsp; 3.Father O'blivion 4. Cosmik Debris. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/tableOfContents&gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="652" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="642" height="69"><p class="style4">&lt;tableOfContents&gt;1.  Nanook A No No..&nbsp; 2. St. Alphonso's Pancake Breakfast.&nbsp; 3.Father O'blivion 4. Cosmik Debris. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/tableOfContents&gt;</p></td>
+  </tr>
+</table>
+<h3>&nbsp;</h3>
+<hr/>
+<h3>MODS &lt;targetAudience<a name="targetAudience"></a>&gt;</h3>
+<p>The Following XML:</p>
+<table width="385" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="375" height="45"><p>&lt;targetAudience&gt;  adolescent &lt;/ targetAudience &gt;</p></td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="385" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="375" height="45"><p class="style4">&lt;targetAudience&gt;  adolescent &lt;/ targetAudience &gt;</p></td>
+  </tr>
+</table>
+<hr/>
+<h3>MODS &lt;titleInfo<a name="titleInfo"></a>&gt;</h3>
+<p>The  following MODS title/uniform title pair:</p>
+<table width="550
+" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="375" height="45">&lt;titleInfo&gt;<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title&gt; David O. Selznick's production of Margaret Mitchell's<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gone with the wind: original motion picture soundtrack<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&lt;/title&gt;<br>
+&lt;/titleInfo&gt;<br>
+&lt;titleInfo type=&quot;uniform&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt; Gone with the wind&lt;/title&gt;<br>
+&lt;/titleInfo&gt;</p>
+      </td>
+  </tr>
+</table>
+<p> Results in the following RDF:</p>
+<table width="578" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="568" height="45"><p class="style4">&lt;titlePrincipal&gt;<br>
+      &nbsp;&nbsp; &lt;Title  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; David  O. Selznick's production of Margaret Mitchell's Gone  with the wind: original motion picture soundtrack<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;elementValue&gt;David O. Selznick's  production of Margaret Mitchell's Gone with the wind&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SubTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;elementValue&gt;original  motion picture soundtrack&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SubTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Title&gt;<br>
+      &lt;/titlePrincipal&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- *******uniform  title&nbsp; --&gt;<br>
+      &lt;titleUniform&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;Title  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Gone with the  wind&lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;elementValue&gt;Gone  with the wind&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;/Title&gt;<br>
+      &lt;/titleUniform&gt;</p></td>
+  </tr>
+</table>
+<p>The following MODS uniform title and principal name  combination: </p>
+<table width="385" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="375" height="45"><p>&lt;titleInfo  type=&quot;uniform&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;title&gt;Gone  with the wind&lt;/title&gt;<br>
+      &lt;/titleInfo&gt;<br>
+      &lt;name  type=&quot;personal&quot; usage=&quot;primary&quot;&gt;<br>
+      &nbsp;&nbsp; &lt;namePart&gt;Steiner,  Max&lt;/namePart&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;namePart  type=&quot;date&quot;&gt;1888-1971&lt;/namePart&gt;<br>
+      &lt;/name&gt;</p></td>
+  </tr>
+</table>
+<p>Results in &nbsp;a  NameTitle. The Name is described first, followed by the NameTitle which  included the Name previously described by reference.</p>
+<table width="497" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="487" height="45"><p class="style4">&lt;namePrincipal  xmlns=&quot;http://www.loc.gov/mods/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;PersonalName  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;  rdf:about=&quot;idroot186728552&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Steiner, Max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1888-1971&nbsp; &lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Steiner,  Max 1888-1971&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/FullNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DateNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;1888-1971&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/DateNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/PersonalName&gt;<br>
+      &lt;/namePrincipal&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &lt;!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *******uniform title--&gt;<br>
+      &lt;titleUniform&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;NameTitle  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdfs:label&gt;Steiner,  Max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1888-1971&nbsp;&nbsp; -- Gone with the wind&lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;componentList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Name  rdf:about=&quot;idroot186728552&quot; /&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Title&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label  xmlns=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;Gone with the wind&lt;/label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Gone  with the wind&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Title&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/componentList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/NameTitle&gt;<br>
+      &lt;/titleUniform&gt;</p></td>
+  </tr>
+</table>
+<p>Following  is a combination MODS&nbsp; principal title  and variants.</p>
+<table width="476" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="466" height="45"><p>&lt;titleInfo&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;title&gt;David  O. Selznick's production of Margaret Mitchell's Gone with the  wind&lt;/title&gt;<br>
+      &nbsp;&lt;/titleInfo&gt;<br>
+      &nbsp;&lt;titleInfo  type=&quot;abbreviated&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp; &lt;title&gt;Margaret  Mitchell's Gone with the wind&lt;/title&gt;<br>
+      &nbsp; &lt;/titleInfo&gt;</p></td>
+  </tr>
+</table>
+<p>This  results in the following RDF/XML:</p>
+<table width="574" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="564" height="45"><p class="style4">&lt;/titlePrincipal&gt;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&lt;Title  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdfs:label&gt;David  O. Selznick's production of Margaret Mitchell's Gone with the wind&lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;David O. Selznick's  production of Margaret Mitchell's Gone with the wind&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;abbreviatedVariant&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Title  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;variantLabel&gt;Margaret  Mitchell's Gone with the wind&lt;/variantLabel&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Margaret  Mitchell's Gone with the wind&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;&nbsp;&nbsp;&nbsp;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Title&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/abbreviatedVariant&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/Title&gt;<br>
+      &lt;/titlePrincipal&gt;</p>
+        <p class="style4">&nbsp;</p></td>
+  </tr>
+</table>
+<p>Following  is a fully parsed title, with nonSort, title, subTitle, partNumber, and  partName elements. </p>
+<table width="476" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="466" height="45"><p>&lt;titleInfo&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; &lt;nonSort&gt;The&lt;/nonSort&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;title&gt;Legend  of Zelda&lt;/title&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;subTitle&gt;Twilight  Princess&lt;/subTitle&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;partNumber&gt;Part  3&lt;/partNumber&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;partName&gt;  Forest Temple Walkthrough&lt;/partName&gt;<br>
+      &lt;/titleInfo&gt;</p></td>
+  </tr>
+</table>
+<p>This  results in the following RDF/XML:</p>
+<table width="574" border="1" align="center" bgcolor="#CCCCCC">
+  <tr>
+    <td width="564" height="45"><p class="style4">&lt;titlePrincipal&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;Title  xmlns=&quot;http://www.loc.gov/mads/rdf/v1#&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;rdfs:label&gt;The&nbsp; Legend of Zelda: Twilight Princess - Part  3:&nbsp; Forest Temple  Walkthrough&lt;/rdfs:label&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementList  rdf:parseType=&quot;Collection&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;nonSortElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementvalue&gt;The&lt;/elementvalue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nonSortElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Legend  of Zelda&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mainTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;SubTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Twilight  Princess&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/SubTitleElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;PartNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;  Forest Temple Walkthrough&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/PartNameElement&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;PartNumber&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;elementValue&gt;Part  3&lt;/elementValue&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/PartNumber&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/elementList&gt;<br>
+      &nbsp;&nbsp;&nbsp;&lt;/Title&gt;<br>
+      &lt;/titlePrincipal&gt;</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr/>
+<hr/>
+<h2 align="center">&nbsp;</h2>
+<p>&nbsp;</p>
+</table>
+
+<table align="center" class="footer" cellpadding="0" cellspacing="0" border="0"><tr valign="top"><td width="439"><div class="sitenav"><a href="http://www.loc.gov/">The
+          Library of Congress</a> &gt;&gt; <a href="http://www.loc.gov/standards/">Standards</a> &gt;&gt; <a href="http://www.loc.gov/mods/">MODS</a>&gt;&gt; <a href="index.html">MODS RDF</a></div>
+      &gt;&gt; Primer Part 2 <br>
+  <span class="sitenav">
+  <!-- #BeginDate format:Am1 -->June 4, 2013<!-- #EndDate -->
+  </span></td>
+    <td width="213"><div class="sitenav"><a href="http://www.loc.gov/homepage/legal.html">Legal</a> | <a href="http://www.loc.gov/global/disclaim.html">External Link Disclaimer</a></div></td>
+<td width="108" align="right"><div class="contactus"><a href="mailto:ndmso@loc.gov">Contact Us</a></div></td>
+</tr></table>
+</body>
+</html>

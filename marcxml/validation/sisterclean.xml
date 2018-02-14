@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://www.loc.gov/MARC21/slim" xmlns:xlink="http://www.w3.org/TR/xlink" xmlns:marc="http://www.loc.gov/MARC21/slim">
+	
+   <record type="Bibliographic">
+      <leader>00957cam  22003138a 4500</leader>
+      <controlfield tag="001">691862  </controlfield>
+      <controlfield tag="005">20010313125545.0    </controlfield>
+      <controlfield tag="008">961125s1997    nyu           000 1 eng           </controlfield>
+      <controlfield tag="003">DLC</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+			
+		
+      </datafield>
+      <datafield tag="010" ind1=" " ind2=" ">
+			
+         <subfield code="a">   96037888     </subfield>
+		
+      </datafield>
+      <datafield tag="020" ind1=" " ind2=" ">
+			
+         <subfield code="a">067960250X    </subfield>
+		
+      </datafield>
+      <datafield tag="040" ind1=" " ind2=" ">
+			
+         <subfield code="a">DLC</subfield>
+			
+         <subfield code="c">DLC</subfield>
+			
+         <subfield code="d">OCoLC</subfield>
+			
+         <subfield code="d">DLC      </subfield>
+		
+      </datafield>
+      <datafield tag="043" ind1=" " ind2=" ">
+			
+         <subfield code="a">n-us-il</subfield>
+			
+         <subfield code="a">n-us-ny     </subfield>
+		
+      </datafield>
+      <datafield tag="050" ind1="1" ind2="0">
+			
+         <subfield code="a">PS3507.R55</subfield>
+			
+         <subfield code="b">S5 1997      </subfield>
+		
+      </datafield>
+      <datafield tag="082" ind1="0" ind2="0">
+			
+         <subfield code="a">813/.52</subfield>
+			
+         <subfield code="2">21    </subfield>
+		
+      </datafield>
+      <datafield tag="100" ind1="1" ind2=" ">
+			
+         <subfield code="a">Dreiser, Theodore,</subfield>
+			
+         <subfield code="d">1871-1945.        </subfield>
+		
+      </datafield>
+      <datafield tag="245" ind1="1" ind2="0">
+			
+         <subfield code="a">Sister Carrie /</subfield>
+			
+         <subfield code="c">Theodore Dreiser.         </subfield>
+		
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+			
+         <subfield code="a">New York :</subfield>
+			
+         <subfield code="b">Modern Library,</subfield>
+			
+         <subfield code="c">1997.         </subfield>
+		
+      </datafield>
+      <datafield tag="250" ind1=" " ind2=" ">
+			
+         <subfield code="a">Modern Library ed.</subfield>
+		
+      </datafield>
+      <datafield tag="263" ind1=" " ind2=" ">
+			
+         <subfield code="a">9708   </subfield>
+		
+      </datafield>
+      <datafield tag="300" ind1=" " ind2=" ">
+			
+         <subfield code="a">xvii, 659 p. ; </subfield>
+			
+         <subfield code="c">20cm.</subfield>
+		
+      </datafield>
+      <datafield tag="650" ind1=" " ind2="0">
+			
+         <subfield code="a">Young women</subfield>
+			
+         <subfield code="x">Fiction.      </subfield>
+		
+      </datafield>
+      <datafield tag="650" ind1=" " ind2="0">
+			
+         <subfield code="a">Mistresses</subfield>
+			
+         <subfield code="x">Fiction.      </subfield>
+		
+      </datafield>
+      <datafield tag="651" ind1=" " ind2="0">
+			
+         <subfield code="a">New York (N.Y.)</subfield>
+			
+         <subfield code="x">Fiction.       </subfield>
+		
+      </datafield>
+      <datafield tag="651" ind1=" " ind2="0">
+			
+         <subfield code="a">Chicago (Ill.)</subfield>
+			
+         <subfield code="x">Fiction.       </subfield>
+		
+      </datafield>
+      <datafield tag="655" ind1=" " ind2="7">
+			
+         <subfield code="a">Didactic fiction.</subfield>
+			
+         <subfield code="2">gsafd       </subfield>
+		
+      </datafield>
+   </record>
+	
+   <record type="Bibliographic">
+      <leader>01052cam  2200313 i 4500</leader>
+      <controlfield tag="001">2300110   </controlfield>
+      <controlfield tag="005">20010313125533.0    </controlfield>
+      <controlfield tag="008">801010s1981    paua     b    000 1 eng           </controlfield>
+      <controlfield tag="003">DLC</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+			
+		
+      </datafield>
+      <datafield tag="010" ind1=" " ind2=" ">
+			
+         <subfield code="a">   80050691     </subfield>
+		
+      </datafield>
+      <datafield tag="020" ind1=" " ind2=" ">
+			
+         <subfield code="a">0812277848    </subfield>
+		
+      </datafield>
+      <datafield tag="020" ind1=" " ind2=" ">
+			
+         <subfield code="a">0812211103 (pbk.)     </subfield>
+		
+      </datafield>
+      <datafield tag="040" ind1=" " ind2=" ">
+			
+         <subfield code="a">DLC</subfield>
+			
+         <subfield code="c">DLC</subfield>
+			
+         <subfield code="d">DLC     </subfield>
+		
+      </datafield>
+      <datafield tag="050" ind1="0" ind2="0">
+			
+         <subfield code="a">PS3507.R55</subfield>
+			
+         <subfield code="b">S5 1981      </subfield>
+		
+      </datafield>
+      <datafield tag="082" ind1="0" ind2="0">
+			
+         <subfield code="a">813/.52</subfield>
+			
+         <subfield code="2">19    </subfield>
+		
+      </datafield>
+      <datafield tag="100" ind1="1" ind2=" ">
+			
+         <subfield code="a">Dreiser, Theodore,</subfield>
+			
+         <subfield code="d">1871-1945.        </subfield>
+		
+      </datafield>
+      <datafield tag="245" ind1="1" ind2="0">
+			
+         <subfield code="a">Sister Carrie /</subfield>
+			
+         <subfield code="c">Theodore Dreiser.         </subfield>
+		
+      </datafield>
+      <datafield tag="250" ind1=" " ind2=" ">
+			
+         <subfield code="a">The Pennsylvania ed.      </subfield>
+		
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+			
+         <subfield code="a">[Philadelphia, Pa.] :</subfield>
+			
+         <subfield code="b">University of Pennsylvania Press,</subfield>
+			
+         <subfield code="c">1981.               </subfield>
+		
+      </datafield>
+      <datafield tag="300" ind1=" " ind2=" ">
+			
+         <subfield code="a">xi, 679 p. :</subfield>
+			
+         <subfield code="b">ill. ;</subfield>
+			
+         <subfield code="c">24 cm.        </subfield>
+		
+      </datafield>
+      <datafield tag="504" ind1=" " ind2=" ">
+			
+         <subfield code="a">Includes bibliographical references.         </subfield>
+		
+      </datafield>
+      <datafield tag="650" ind1=" " ind2="0">
+			
+         <subfield code="a">Young women</subfield>
+			
+         <subfield code="x">Fiction.      </subfield>
+		
+      </datafield>
+      <datafield tag="650" ind1=" " ind2="0">
+			
+         <subfield code="a">Mistresses</subfield>
+			
+         <subfield code="x">Fiction.      </subfield>
+		
+      </datafield>
+      <datafield tag="651" ind1=" " ind2="0">
+			
+         <subfield code="a">New York (N.Y.)</subfield>
+			
+         <subfield code="x">Fiction.       </subfield>
+		
+      </datafield>
+      <datafield tag="651" ind1=" " ind2="0">
+			
+         <subfield code="a">Chicago (Ill.)</subfield>
+			
+         <subfield code="x">Fiction.       </subfield>
+		
+      </datafield>
+      <datafield tag="655" ind1=" " ind2="7">
+			
+         <subfield code="a">Didactic fiction.</subfield>
+			
+         <subfield code="2">gsafd       </subfield>
+		
+      </datafield>
+      <datafield tag="600" ind1="1" ind2="0">
+			
+         <subfield code="a">Dreiser, Theodore,</subfield>
+			
+         <subfield code="d">1871-1945.</subfield>
+			
+         <subfield code="t">Sister Carrie.           </subfield>
+		
+      </datafield>
+   </record>
+	
+   <record type="Bibliographic">
+      <leader>00973cam  2200289   4500</leader>
+      <controlfield tag="001">2649689   </controlfield>
+      <controlfield tag="005">20010313124850.0    </controlfield>
+      <controlfield tag="008">690714r1969    nyu           000 1 eng           </controlfield>
+      <controlfield tag="003">DLC</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+			
+		
+      </datafield>
+      <datafield tag="010" ind1=" " ind2=" ">
+			
+         <subfield code="a">   68054227     </subfield>
+		
+      </datafield>
+      <datafield tag="040" ind1=" " ind2=" ">
+			
+         <subfield code="a">DLC</subfield>
+			
+         <subfield code="c">DLC</subfield>
+			
+         <subfield code="d">DLC     </subfield>
+		
+      </datafield>
+      <datafield tag="050" ind1="0" ind2="0">
+			
+         <subfield code="a">PZ3.D814</subfield>
+			
+         <subfield code="b">S39</subfield>
+			
+         <subfield code="a">PS3507.R55       </subfield>
+		
+      </datafield>
+      <datafield tag="082" ind1="0" ind2="0">
+			
+         <subfield code="a">813/.5/2    </subfield>
+		
+      </datafield>
+      <datafield tag="100" ind1="1" ind2=" ">
+			
+         <subfield code="a">Dreiser, Theodore,</subfield>
+			
+         <subfield code="d">1871-1945.        </subfield>
+		
+      </datafield>
+      <datafield tag="245" ind1="1" ind2="0">
+			
+         <subfield code="a">Sister Carrie.     </subfield>
+		
+      </datafield>
+      <datafield tag="250" ind1=" " ind2=" ">
+			
+         <subfield code="a">An abridged ed.</subfield>
+			
+         <subfield code="b">by Theodore Dreiser and Arthur Henry. With a new introd. by Jack Salzman.                    </subfield>
+		
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+			
+         <subfield code="a">New York,</subfield>
+			
+         <subfield code="b">Johnson Reprint Corp.,</subfield>
+			
+         <subfield code="c">1969.          </subfield>
+		
+      </datafield>
+      <datafield tag="300" ind1=" " ind2=" ">
+			
+         <subfield code="a">x, 357 p.</subfield>
+			
+         <subfield code="c">21 cm.     </subfield>
+		
+      </datafield>
+      <datafield tag="490" ind1="0" ind2=" ">
+			
+         <subfield code="a">Belles lettres in English       </subfield>
+		
+      </datafield>
+      <datafield tag="650" ind1=" " ind2="0">
+			
+         <subfield code="a">Young women</subfield>
+			
+         <subfield code="x">Fiction.      </subfield>
+		
+      </datafield>
+      <datafield tag="650" ind1=" " ind2="0">
+			
+         <subfield code="a">Mistresses</subfield>
+			
+         <subfield code="x">Fiction.      </subfield>
+		
+      </datafield>
+      <datafield tag="651" ind1=" " ind2="0">
+			
+         <subfield code="a">New York (N.Y.)</subfield>
+			
+         <subfield code="x">Fiction.       </subfield>
+		
+      </datafield>
+      <datafield tag="651" ind1=" " ind2="0">
+			
+         <subfield code="a">Chicago (Ill.)</subfield>
+			
+         <subfield code="x">Fiction.       </subfield>
+		
+      </datafield>
+      <datafield tag="655" ind1=" " ind2="7">
+			
+         <subfield code="a">Didactic fiction.</subfield>
+			
+         <subfield code="2">gsafd       </subfield>
+		
+      </datafield>
+      <datafield tag="700" ind1="1" ind2=" ">
+			
+         <subfield code="a">Henry, Arthur,</subfield>
+			
+         <subfield code="d">1867-1934.       </subfield>
+		
+      </datafield>
+   </record>
+	
+   <record type="Bibliographic">
+      <leader>01260cim  22003491  4500</leader>
+      <controlfield tag="001">12045511   </controlfield>
+      <controlfield tag="005">20001006095103.0    </controlfield>
+      <controlfield tag="007">ssu-msnna-----    </controlfield>
+      <controlfield tag="007">st|oundmbunnue    </controlfield>
+      <controlfield tag="008">780315s19uu    flu  n         l    eng           </controlfield>
+      <controlfield tag="003">DLC</controlfield>
+      <datafield tag="035" ind1=" " ind2=" ">
+			
+         <subfield code="a">(OCoLC)ocm03719351      </subfield>
+		
+      </datafield>
+      <datafield tag="010" ind1=" " ind2=" ">
+			
+         <subfield code="a">   99568173     </subfield>
+		
+      </datafield>
+      <datafield tag="028" ind1="0" ind2="2">
+			
+         <subfield code="a">105</subfield>
+			
+         <subfield code="b">Everett/Edwards,      </subfield>
+		
+      </datafield>
+      <datafield tag="040" ind1=" " ind2=" ">
+			
+         <subfield code="a">DLC</subfield>
+			
+         <subfield code="c">IU</subfield>
+			
+         <subfield code="d">DLC    </subfield>
+		
+      </datafield>
+      <datafield tag="042" ind1=" " ind2=" ">
+			
+         <subfield code="a">lcderive    </subfield>
+		
+      </datafield>
+      <datafield tag="050" ind1="0" ind2="0">
+			
+         <subfield code="a">RYC 1776    </subfield>
+		
+      </datafield>
+      <datafield tag="050" ind1="0" ind2="0">
+			
+         <subfield code="a">LWO 12316 r11 A3;B1 (preservation master)          </subfield>
+		
+      </datafield>
+      <datafield tag="100" ind1="1" ind2=" ">
+			
+         <subfield code="a">Grebstein, Sheldon Norman.       </subfield>
+		
+      </datafield>
+      <datafield tag="245" ind1="0" ind2="0">
+			
+         <subfield code="a">Sister Carrie (Theodore Dreiser).</subfield>
+			
+         <subfield code="h">[Sound recording]</subfield>
+			
+         <subfield code="c">Lecturer, Sheldon Grebstein.                  </subfield>
+		
+      </datafield>
+      <datafield tag="260" ind1=" " ind2=" ">
+			
+         <subfield code="a">Deland, Fla.,</subfield>
+			
+         <subfield code="b">Everett/Edwards,</subfield>
+			
+         <subfield code="c">p1970.          </subfield>
+		
+      </datafield>
+      <datafield tag="300" ind1=" " ind2=" ">
+			
+         <subfield code="a">1 cassette.</subfield>
+			
+         <subfield code="b">1/2 track.</subfield>
+			
+         <subfield code="c">mono.        </subfield>
+		
+      </datafield>
+      <datafield tag="306" ind1=" " ind2=" ">
+			
+         <subfield code="a">003500   </subfield>
+		
+      </datafield>
+      <datafield tag="440" ind1=" " ind2="0">
+			
+         <subfield code="a">20th century American novel       </subfield>
+		
+      </datafield>
+      <datafield tag="490" ind1="0" ind2=" ">
+			
+         <subfield code="a">Cassette curriculum      </subfield>
+		
+      </datafield>
+      <datafield tag="500" ind1=" " ind2=" ">
+			
+         <subfield code="a">Duration : 35 min.      </subfield>
+		
+      </datafield>
+      <datafield tag="533" ind1=" " ind2=" ">
+			
+         <subfield code="a">Preservation master</subfield>
+			
+         <subfield code="b">Washington, D.C.</subfield>
+			
+         <subfield code="c">Library of Congress Magnetic Recording Laboratory.</subfield>
+			
+         <subfield code="d">1978.</subfield>
+			
+         <subfield code="e">On 1 sound tape reel : analog, 7 1/2 ips, 2 track, mono. ; 10 in.                                   </subfield>
+		
+      </datafield>
+      <datafield tag="590" ind1=" " ind2=" ">
+			
+         <subfield code="a">262 conversion.     </subfield>
+		
+      </datafield>
+      <datafield tag="590" ind1=" " ind2=" ">
+			
+         <subfield code="a">305 conversion.     </subfield>
+		
+      </datafield>
+      <datafield tag="600" ind1="1" ind2="0">
+			
+         <subfield code="a">Dreiser, Theodore,</subfield>
+			
+         <subfield code="d">1871-1945.</subfield>
+			
+         <subfield code="t">Sister Carrie.           </subfield>
+		
+      </datafield>
+      <datafield tag="740" ind1="0" ind2=" ">
+			
+         <subfield code="a">Sister Carrie (Theodore Dreiser).         </subfield>
+		
+      </datafield>
+   </record>
+
+</collection>

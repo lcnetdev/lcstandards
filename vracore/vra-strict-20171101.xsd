@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<!-- VRA (Visual Resources Association) Core 4 XML Schema, version 0.42
+     This schema implements the final VRA Core 4.0 guidelines, 2007-04-09.
+
+     This is the restricted version of the schema.  It extends the unrestricted
+     schema by limiting the values many attributes to enumerated lists, and
+     restricting dates to ISO 8601 format.
+
+     Developed by Esme Cowles (UC San Diego) with input from:
+
+       Howard Batchelor (UCLA)
+       Rick Beaubien (UC Berkeley)
+       Matt Benzing (RPI)
+       Karim Boughida (Getty Research Institute)
+       Sherman Clarke (NYU)
+       Jan Eklund (UC Berkeley)
+       Mary Elings (UC Berkeley)
+       Fae Hamilton (RLG)
+       Ben Kessler
+       Oleg Kreymer (Metropolitan Museum of Art)
+       Emerson Morgan (ARTStor)
+       Merrilee Proffitt (RLG)
+       Trish Rose (UC San Diego)
+       Eric Stedfeld (NYU)
+       Guenter Waibel (RLG)
+       Robin Wendler (Harvard)
+       Brad Westbrook (UC San Diego)
+       Ann Whiteside (Univ. of Virginia)
+-->
+<xsd:schema targetNamespace="http://www.vraweb.org/vracore4.htm"
+    version="4.0.42" xmlns="http://www.vraweb.org/vracore4.htm"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="en"
+    elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xsd:annotation>
+    <xsd:documentation>
+      This schema is an implementation of the VRA Core Categories, Version 4.0.
+      It defines a wrapper element (vra), which can hold any number of
+      record-level elements (collection, work, image).  These elements can be
+      nested to indicate collection-work-image hierarchies.
+
+      This schema extends the VRA 4.0 unrestricted schema to provide
+      restrictions to improve interoperability.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <!-- include the unrestricted schema -->
+  <xsd:redefine
+    schemaLocation="http://www.loc.gov/standards/vracore/vra.xsd">
+
+    <!--== Controlled Value Lists ==========================================-->
+
+    <xsd:simpleType name="agentDateTypeType">
+      <xsd:restriction base="agentDateTypeType">
+        <xsd:enumeration value="activity"/>
+        <xsd:enumeration value="life"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="agentNameTypeType">
+      <xsd:restriction base="agentNameTypeType">
+        <xsd:enumeration value="personal"/>
+        <xsd:enumeration value="corporate"/>
+        <xsd:enumeration value="family"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="dateTypeType">
+      <xsd:restriction base="dateTypeType">
+        <xsd:enumeration value="alteration"/>
+        <xsd:enumeration value="broadcast"/>
+        <xsd:enumeration value="bulk"/>
+        <xsd:enumeration value="commission"/>
+        <xsd:enumeration value="creation"/>
+        <xsd:enumeration value="design"/>
+        <xsd:enumeration value="destruction"/>
+        <xsd:enumeration value="discovery"/>
+        <xsd:enumeration value="exhibition"/>
+        <xsd:enumeration value="inclusive"/>
+        <xsd:enumeration value="performance"/>
+        <xsd:enumeration value="publication"/>
+        <xsd:enumeration value="restoration"/>
+        <xsd:enumeration value="view"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="inscriptionTextTypeType">
+      <xsd:restriction base="inscriptionTextTypeType">
+        <xsd:enumeration value="signature"/>
+        <xsd:enumeration value="mark"/>
+        <xsd:enumeration value="caption"/>
+        <xsd:enumeration value="date"/>
+        <xsd:enumeration value="text"/>
+        <xsd:enumeration value="translation"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="locationTypeType">
+      <xsd:restriction base="locationTypeType">
+        <xsd:enumeration value="creation"/>
+        <xsd:enumeration value="discovery"/>
+        <xsd:enumeration value="exhibition"/>
+        <xsd:enumeration value="formerOwner"/>
+        <xsd:enumeration value="formerRepository"/>
+        <xsd:enumeration value="formerSite"/>
+        <xsd:enumeration value="installation"/>
+        <xsd:enumeration value="intended"/>
+        <xsd:enumeration value="owner"/>
+        <xsd:enumeration value="performance"/>
+        <xsd:enumeration value="publication"/>
+        <xsd:enumeration value="repository"/>
+        <xsd:enumeration value="site"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="locationNameTypeType">
+      <xsd:restriction base="locationNameTypeType">
+        <xsd:enumeration value="corporate"/>
+        <xsd:enumeration value="geographic"/>
+        <xsd:enumeration value="personal"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="locationRefidTypeType">
+      <xsd:restriction base="locationRefidTypeType">
+        <xsd:enumeration value="accession"/>
+        <xsd:enumeration value="barcode"/>
+        <xsd:enumeration value="shelfList"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="materialTypeType">
+      <xsd:restriction base="materialTypeType">
+        <xsd:enumeration value="medium"/>
+        <xsd:enumeration value="support"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="measurementsTypeType">
+      <xsd:restriction base="measurementsTypeType">
+        <xsd:enumeration value="area"/>
+        <xsd:enumeration value="base"/>
+        <xsd:enumeration value="bitDepth"/>
+        <xsd:enumeration value="circumfrence"/>
+        <xsd:enumeration value="count"/>
+        <xsd:enumeration value="depth"/>
+        <xsd:enumeration value="diameter"/>
+        <xsd:enumeration value="distanceBetween"/>
+        <xsd:enumeration value="duration"/>
+        <xsd:enumeration value="fileSize"/>
+        <xsd:enumeration value="height"/>
+        <xsd:enumeration value="length"/>
+        <xsd:enumeration value="resolution"/>
+        <xsd:enumeration value="runningTime"/>
+        <xsd:enumeration value="scale"/>
+        <xsd:enumeration value="size"/>
+        <xsd:enumeration value="target"/>
+        <xsd:enumeration value="weight"/>
+        <xsd:enumeration value="width"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="relationTypeType">
+      <xsd:restriction base="relationTypeType">
+        <xsd:enumeration value="cartoonFor"/>
+        <xsd:enumeration value="cartoonIs"/>
+        <xsd:enumeration value="componentOf"/>
+        <xsd:enumeration value="componentIs"/>
+        <xsd:enumeration value="copyAfter"/>
+        <xsd:enumeration value="copyIs"/>
+        <xsd:enumeration value="counterProofFor"/>
+        <xsd:enumeration value="counterProofIs"/>
+        <xsd:enumeration value="depicts"/>
+        <xsd:enumeration value="depictedIn"/>
+        <xsd:enumeration value="derivedFrom"/>
+        <xsd:enumeration value="sourceFor"/>
+        <xsd:enumeration value="designedFor"/>
+        <xsd:enumeration value="contextIs"/>
+        <xsd:enumeration value="exhibitedAt"/>
+        <xsd:enumeration value="venueFor"/>
+        <xsd:enumeration value="facsimileOf"/>
+        <xsd:enumeration value="facsimileIs"/>
+        <xsd:enumeration value="formerlyPartOf"/>
+        <xsd:enumeration value="formerlyLargerContextFor"/>
+        <xsd:enumeration value="imageOf"/>
+        <xsd:enumeration value="imageIs"/>
+        <xsd:enumeration value="mateOf"/>
+        <xsd:enumeration value="modelFor"/>
+        <xsd:enumeration value="modelIs"/>
+        <xsd:enumeration value="partOf"/>
+        <xsd:enumeration value="largerContextFor"/>
+        <xsd:enumeration value="partnerInSetWith"/>
+        <xsd:enumeration value="pendantOf"/>
+        <xsd:enumeration value="planFor"/>
+        <xsd:enumeration value="planIs"/>
+        <xsd:enumeration value="prepatoryFor"/>
+        <xsd:enumeration value="basedOn"/>
+        <xsd:enumeration value="printingPlateFor"/>
+        <xsd:enumeration value="printingPlateIs"/>
+        <xsd:enumeration value="prototypeFor"/>
+        <xsd:enumeration value="prototypeIs"/>
+        <xsd:enumeration value="relatedTo"/>
+        <xsd:enumeration value="reliefFor"/>
+        <xsd:enumeration value="impressionIs"/>
+        <xsd:enumeration value="replicaOf"/>
+        <xsd:enumeration value="replicaIs"/>
+        <xsd:enumeration value="studyFor"/>
+        <xsd:enumeration value="studyIs"/>
+        <xsd:enumeration value="versionOf"/>
+        <xsd:enumeration value="versionIs"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="rightsStatusTypeType">
+      <xsd:restriction base="rightsStatusTypeType">
+        <xsd:enumeration value="copyrighted"/>
+        <xsd:enumeration value="publicDomain"/>
+        <xsd:enumeration value="undetermined"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="sourceNameTypeType">
+      <xsd:restriction base="sourceNameTypeType">
+        <xsd:enumeration value="book"/>
+        <xsd:enumeration value="donor"/>
+        <xsd:enumeration value="electronic"/>
+        <xsd:enumeration value="serial"/>
+        <xsd:enumeration value="vendor"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="sourceRefidTypeType">
+      <xsd:restriction base="sourceRefidTypeType">
+        <xsd:enumeration value="citation"/>
+        <xsd:enumeration value="ISBN"/>
+        <xsd:enumeration value="ISSN"/>
+        <xsd:enumeration value="openURL"/>
+        <xsd:enumeration value="URI"/>
+        <xsd:enumeration value="vendor"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="stateEditionTypeType">
+      <xsd:restriction base="stateEditionTypeType">
+        <xsd:enumeration value="edition"/>
+        <xsd:enumeration value="impression"/>
+        <xsd:enumeration value="state"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="subjectTermTypeType">
+      <xsd:restriction base="subjectTermTypeType">
+        <xsd:enumeration value="conceptTopic"/>
+        <xsd:enumeration value="descriptiveTopic"/>
+        <xsd:enumeration value="iconographicTopic"/>
+        <xsd:enumeration value="otherTopic"/>
+        <xsd:enumeration value="builtworkPlace"/>
+        <xsd:enumeration value="geographicPlace"/>
+        <xsd:enumeration value="otherPlace"/>
+        <xsd:enumeration value="corporateName"/>
+        <xsd:enumeration value="familyName"/>
+        <xsd:enumeration value="personalName"/>
+        <xsd:enumeration value="scientificName"/>
+        <xsd:enumeration value="otherName"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="textrefNameTypeType">
+      <xsd:restriction base="textrefNameTypeType">
+        <xsd:enumeration value="book"/>
+        <xsd:enumeration value="catalog"/>
+        <xsd:enumeration value="corpus"/>
+        <xsd:enumeration value="electronic"/>
+        <xsd:enumeration value="serial"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="textrefRefidTypeType">
+      <xsd:restriction base="textrefRefidTypeType">
+        <xsd:enumeration value="citation"/>
+        <xsd:enumeration value="ISBN"/>
+        <xsd:enumeration value="ISSN"/>
+        <xsd:enumeration value="openURL"/>
+        <xsd:enumeration value="URI"/>
+        <xsd:enumeration value="vendor"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  
+    <xsd:simpleType name="titleTypeType">
+      <xsd:restriction base="titleTypeType">
+        <xsd:enumeration value="brandName"/>
+        <xsd:enumeration value="cited"/>
+        <xsd:enumeration value="creator"/>
+        <xsd:enumeration value="descriptive"/>
+        <xsd:enumeration value="former"/>
+        <xsd:enumeration value="generalView"/>
+        <xsd:enumeration value="inscribed"/>
+        <xsd:enumeration value="owner"/>
+        <xsd:enumeration value="partialView"/>
+        <xsd:enumeration value="popular"/>
+        <xsd:enumeration value="repository"/>
+        <xsd:enumeration value="translated"/>
+        <xsd:enumeration value="other"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+
+
+    <!--== Date Formats ====================================================-->
+
+    <xsd:simpleType name="dateValueType">
+      <xsd:annotation>
+       <xsd:documentation source="http://www.cl.cam.ac.uk/~mgk25/iso-time.html">
+          Defines a date which follows the ISO 8601 date format, and allows
+          right truncation (unlike the XML Schema date datatype). This datatype
+          does not allow for time or time zone information.
+
+          In brief, the following formats are allowed:
+            present
+            2006            (2006)
+            2006-12         (December, 2006)
+            2006-12-31      (31 December 2006)
+            -44             (44 BCE)
+            -44-03          (March, 44 BCE)
+            -44-03-15       (15 March, 44 BCE)
+            -10000000       (10 Million Years Ago)
+            -100000000000   (100 Billion Years Ago)
+        </xsd:documentation>
+      </xsd:annotation>
+        <xsd:restriction base="dateValueType">
+          <xsd:pattern value="present|(-)*[0-9]{1,12}(-[0-9]{2}(-[0-9]{2})*)*"/>
+        </xsd:restriction>
+     </xsd:simpleType>
+
+  </xsd:redefine>
+</xsd:schema>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+        xmlns="http://www.loc.gov/premis/v3" 
+        targetNamespace="http://www.loc.gov/premis/v3" 
+        elementFormDefault="qualified" 
+        attributeFormDefault="unqualified">
+   
+<!--
+   This definition of element >mdSec> was removed from PREMIS as of version 3.0, and made into a 
+   standalone schema (using the PREMIS namespace). It may be referenced as an extension from PREMIS.
+    
+    Editor:  Ray Denenberg, Library of Congress, rden@loc.gov
+
+
+         *********************************************************************************************
+         *********************************************************************************************
+         *                                                                                                                  *
+         *                                          <mdSec> element                                             *
+         *                                                                                                                  *
+         *                                                                                                                  *
+         *********************************************************************************************
+         *********************************************************************************************                        
+-->
+<xs:element name="mdSec" type="mdSecDefinition"/>
+<!--
+    
+************ mdSecDefinition
+
+<mdSec> is a generalization of several METS metadata type elements: <dmdSec>, <amdSec>, etc. all of METS 
+type "mdSecType".  PREMIS generalized these into a single element. 
+
+<mdSec>  includes one or both of <mdRef> and <mdWrap>, a reference to external metadata and a wrapper of 
+internal metadata, respectively. <mdRef> is an empty element with a link (an attribute) to external metadata.  
+<mdWrap> includes the metadata, either as <xmlData> or <binData>.
+
+-->
+<xs:complexType name="mdSecDefinition">
+    <xs:all>
+        <xs:element ref="mdRef" minOccurs="0"/>
+        <xs:element ref="mdWrap" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+    <xs:attribute name="GROUPID" type="xs:string"/>
+    <xs:attribute name="ADMID" type="xs:IDREFS"/>
+    <xs:attribute name="CREATED" type="xs:string"/>
+    <xs:attribute name="STATUS" type="xs:string"/>
+</xs:complexType>
+<!--
+    
+************ mdRefDefinition
+<mdRef> (metadata reference)  is an empty element providing pointers
+(via xlink and XPTR attributes) to metadata outside the PREMIS document.  
+-->
+<xs:complexType name="mdRefDefinition">
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="LOCTYPE" type="LOCTYPEDefinition" use="required"/>
+    <xs:attribute name="OTHERLOCTYPE" type="xs:string"/>
+    <xs:attribute  name="simpleLink" type="xs:anyURI"/>
+    <xs:attributeGroup ref="metadataAttributeGroup"/>
+    <xs:attributeGroup ref="filecoreAttributeGroup"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <xs:attribute name="XPTR" type="xs:string"/>
+    <!-- -->
+    <!-- 
+         <LOCTYPE> must be supplied, and its value may be "other"
+         in which case <OTHERLOCTYPE> should be supplied.
+-->
+</xs:complexType>
+<!-- 
+********* mdWrapDefinition
+-->
+<xs:complexType name="mdWrapDefinition">
+    <xs:choice>
+        <xs:element ref="binData" minOccurs="0"/>
+        <xs:element ref="xmlData" minOccurs="0"/>
+    </xs:choice>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attributeGroup ref="metadataAttributeGroup"/>
+    <xs:attributeGroup ref="filecoreAttributeGroup"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <!--
+<mdWrap> (metadata wrapper) wraps metadata in one of the following forms:
+
+1) XML-encoded (belonging to any namespace) wrapped in an <xmlData>  element. 
+2) Arbitrary Base64 encoded  wrapped in a <binData>  element. 
+-->
+</xs:complexType>
+<!-- 
+xmlDataDefinition 
+-->
+<xs:complexType name="xmlDataDefinition">
+    <xs:sequence>
+        <xs:any namespace="##any" processContents="lax" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+<!-- 
+MDTYPEDefinition
+-->
+<xs:simpleType name="MDTYPEDefinition">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="MIX"/>
+        <xs:enumeration value="LC-VIDEO"/>
+        <xs:enumeration value="LC-AUDIO"/>
+        <xs:enumeration value="TEXTMD"/>
+        <xs:enumeration value="METSRIGHTS"/>
+        <xs:enumeration value="CDLCopyright"/>
+        <xs:enumeration value="XMLSignature"/>
+        <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+    <!-- this list of values differs from the list in METS -->
+</xs:simpleType>
+<!--
+LOCTYPEDefinition
+-->
+<xs:simpleType name="LOCTYPEDefinition">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="ARK"/>
+        <xs:enumeration value="URN"/>
+        <xs:enumeration value="URL"/>
+        <xs:enumeration value="PURL"/>
+        <xs:enumeration value="HANDLE"/>
+        <xs:enumeration value="DOI"/>
+        <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+</xs:simpleType>
+<!--
+CHECKSUMTYPEDefinition
+-->
+<xs:simpleType name="CHECKSUMTYPEDefinition">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="Adler-32"/>
+        <xs:enumeration value="CRC32"/>
+        <xs:enumeration value="HAVAL"/>
+        <xs:enumeration value="MD5"/>
+        <xs:enumeration value="MNP"/>
+        <xs:enumeration value="SHA-1"/>
+        <xs:enumeration value="SHA-256"/>
+        <xs:enumeration value="SHA-384"/>
+        <xs:enumeration value="SHA-512"/>
+        <xs:enumeration value="TIGER"/>
+        <xs:enumeration value="WHIRLPOOL"/>
+    </xs:restriction>
+</xs:simpleType>
+<!--
+*************** attribute group definitions
+-->
+<!--
+    
+**** metadataAttributeGroup
+-->
+<xs:attributeGroup name="metadataAttributeGroup">
+    <xs:attribute name="MDTYPE" type="MDTYPEDefinition" use="required"/>
+    <xs:attribute name="OTHERMDTYPE" type="xs:string"/>
+    <xs:attribute name="MDTYPEVERSION" type="xs:string"/>
+</xs:attributeGroup>
+<!--
+    
+**** filecoreAttributeGroup
+-->
+<xs:attributeGroup name="filecoreAttributeGroup">
+    <xs:attribute name="MIMETYPE" type="xs:string"/>
+    <xs:attribute name="SIZE" type="xs:long"/>
+    <xs:attribute name="CREATED" type="xs:string"/>
+    <xs:attribute name="CHECKSUM" type="xs:string"/>
+    <xs:attribute name="CHECKSUMTYPE" type="CHECKSUMTYPEDefinition"/>
+</xs:attributeGroup>
+<!-- 
+Element Declarations 
+-->
+<xs:element name="binData" type="xs:base64Binary"/>
+<xs:element name="mdRef" type="mdRefDefinition"/>
+<xs:element name="mdWrap" type="mdWrapDefinition"/>
+<xs:element name="xmlData" type="xmlDataDefinition"/>
+
+    </xs:schema>
+

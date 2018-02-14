@@ -1,0 +1,4328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>MODS/RDFNamespace Document</title>
+		<link href="modsrdf-style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="container">
+			<a name="link_top"></a>
+			<center>
+				<h1>MODS/RDFNamespace Document</h1>
+				<p><span class="emphasis">Status: </span>DRAFT</p>
+				<p><span class="emphasis">Updated: </span>2012-06-19T16:49:50-04:00</p>
+			</center>
+			<a name="link_classList"></a>
+			<h2>Class List</h2>
+			<h4>(Sorted according to their labels)</h4>
+			<table class="pORcTable">
+				<tr>
+					<td><a href="#AdminMetadata" class="cORp">ri:AdminMetadata</a>     <a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>     <a href="#Cartographics" class="cORp">modsrdf:Cartographics</a>     <a href="#ClassificationGroup" class="cORp">modsrdf:ClassificationGroup</a>     <a href="#IdentifierGroup" class="cORp">modsrdf:IdentifierGroup</a>     <a href="#Location" class="cORp">modsrdf:Location</a>     <a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>     <a href="#NoteGroup" class="cORp">modsrdf:NoteGroup</a>     <a href="#Part" class="cORp">modsrdf:Part</a>     <a href="#RoleRelationship" class="cORp">modsrdf:RoleRelationship</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<a name="link_propList"></a>
+			<h2>Property List</h2>
+			<table class="pORcTable">
+				<tr>
+					<td><a href="#" class="cORp"></a>     <a href="#" class="cORp"></a>     <a href="#" class="cORp"></a>     <a href="#abstract" class="cORp">abstract</a>     <a href="#accessCondition" class="cORp">accessCondition</a>     <a href="#adminMetadata" class="cORp">adminMetadata</a>     <a href="#cartographics" class="cORp">cartographics</a>     <a href="#cartographicsCoordinates" class="cORp">cartographicsCoordinates</a>     <a href="#cartographicsProjection" class="cORp">cartographicsProjection</a>     <a href="#cartographicsScale" class="cORp">cartographicsScale</a>     <a href="#classification" class="cORp">classification</a>     <a href="#classificationGroup" class="cORp">classificationGroup</a>     <a href="#classificationGroupScheme" class="cORp">classificationGroupScheme</a>     <a href="#classificationGroupValue" class="cORp">classificationGroupValue</a>     <a href="#dateCaptured" class="cORp">dateCaptured</a>     <a href="#dateCapturedEnd" class="cORp">dateCapturedEnd</a>     <a href="#dateCapturedStart" class="cORp">dateCapturedStart</a>     <a href="#dateCreated" class="cORp">dateCreated</a>     <a href="#dateCreatedEnd" class="cORp">dateCreatedEnd</a>     <a href="#dateCreatedStart" class="cORp">dateCreatedStart</a>     <a href="#dateModified" class="cORp">dateModified</a>     <a href="#dateModifiedEnd" class="cORp">dateModifiedEnd</a>     <a href="#dateModifiedStart" class="cORp">dateModifiedStart</a>     <a href="#dateOfCopyright" class="cORp">dateOfCopyright</a>     <a href="#dateOfCopyrightEnd" class="cORp">dateOfCopyrightEnd</a>     <a href="#dateOfCopyrightStart" class="cORp">dateOfCopyrightStart</a>     <a href="#dateValid" class="cORp">dateValid</a>     <a href="#dateValidEnd" class="cORp">dateValidEnd</a>     <a href="#dateValidStart" class="cORp">dateValidStart</a>     <a href="#digitalOrigin" class="cORp">digitalOrigin</a>     <a href="#edition" class="cORp">edition</a>     <a href="#frequency" class="cORp">frequency</a>     <a href="#genre" class="cORp">genre</a>     <a href="#identifier" class="cORp">identifier</a>     <a href="#identifierGroup" class="cORp">identifierGroup</a>     <a href="#identifierGroupType" class="cORp">identifierGroupType</a>     <a href="#identifierGroupValue" class="cORp">identifierGroupValue</a>     <a href="#identifierValue" class="cORp">identifierValue</a>     <a href="#issuance" class="cORp">issuance</a>     <a href="#languageOfResource" class="cORp">languageOfResource</a>     <a href="#locationCopy" class="cORp">locationCopy</a>     <a href="#locationCopyElectronicLocator" class="cORp">locationCopyElectronicLocator</a>     <a href="#locationCopyEnumerationAndChronology" class="cORp">locationCopyEnumerationAndChronology</a>     <a href="#locationCopyEnumerationAndChronologyBasic" class="cORp">locationCopyEnumerationAndChronologyBasic</a>     <a href="#locationCopyEnumerationAndChronologyIndex" class="cORp">locationCopyEnumerationAndChronologyIndex</a>     <a href="#locationCopyEnumerationAndChronologySupplement" class="cORp">locationCopyEnumerationAndChronologySupplement</a>     <a href="#locationCopyForm" class="cORp">locationCopyForm</a>     <a href="#locationCopyNote" class="cORp">locationCopyNote</a>     <a href="#locationCopyShelfLocator" class="cORp">locationCopyShelfLocator</a>     <a href="#locationCopySublocation" class="cORp">locationCopySublocation</a>     <a href="#locationOfResource" class="cORp">locationOfResource</a>     <a href="#locationPhysical" class="cORp">locationPhysical</a>     <a href="#locationShelfLocator" class="cORp">locationShelfLocator</a>     <a href="#locationUrl" class="cORp">locationUrl</a>     <a href="#mediaType" class="cORp">mediaType</a>     <a href="#name" class="cORp">name</a>     <a href="#namePrincipal" class="cORp">namePrincipal</a>     <a href="#note" class="cORp">note</a>     <a href="#noteGroup" class="cORp">noteGroup</a>     <a href="#noteGroupType" class="cORp">noteGroupType</a>     <a href="#noteGroupValue" class="cORp">noteGroupValue</a>     <a href="#part" class="cORp">part</a>     <a href="#partDate" class="cORp">partDate</a>     <a href="#partDetailType" class="cORp">partDetailType</a>     <a href="#partEnd" class="cORp">partEnd</a>     <a href="#partLevel" class="cORp">partLevel</a>     <a href="#partList" class="cORp">partList</a>     <a href="#partName" class="cORp">partName</a>     <a href="#partNumber" class="cORp">partNumber</a>     <a href="#partOrder" class="cORp">partOrder</a>     <a href="#partStart" class="cORp">partStart</a>     <a href="#partTotal" class="cORp">partTotal</a>     <a href="#partType" class="cORp">partType</a>     <a href="#partUnit" class="cORp">partUnit</a>     <a href="#physicalExtent" class="cORp">physicalExtent</a>     <a href="#physicalForm" class="cORp">physicalForm</a>     <a href="#placeOfOrigin" class="cORp">placeOfOrigin</a>     <a href="#publisher" class="cORp">publisher</a>     <a href="#recordContentSource" class="cORp">recordContentSource</a>     <a href="#recordDescriptionStandard" class="cORp">recordDescriptionStandard</a>     <a href="#recordIdentifier" class="cORp">recordIdentifier</a>     <a href="#recordOrigin" class="cORp">recordOrigin</a>     <a href="#reformattingQuality" class="cORp">reformattingQuality</a>     <a href="#relatedConstituent" class="cORp">relatedConstituent</a>     <a href="#relatedFormat" class="cORp">relatedFormat</a>     <a href="#relatedHost" class="cORp">relatedHost</a>     <a href="#relatedInstantiation" class="cORp">relatedInstantiation</a>     <a href="#relatedItem" class="cORp">relatedItem</a>     <a href="#relatedOriginal" class="cORp">relatedOriginal</a>     <a href="#relatedPreceding" class="cORp">relatedPreceding</a>     <a href="#relatedReference" class="cORp">relatedReference</a>     <a href="#relatedReferencedBy" class="cORp">relatedReferencedBy</a>     <a href="#relatedReview" class="cORp">relatedReview</a>     <a href="#relatedSeries" class="cORp">relatedSeries</a>     <a href="#relatedSucceeding" class="cORp">relatedSucceeding</a>     <a href="#relatedVersion" class="cORp">relatedVersion</a>     <a href="#role" class="cORp">role</a>     <a href="#roleRelationship" class="cORp">roleRelationship</a>     <a href="#roleRelationshipName" class="cORp">roleRelationshipName</a>     <a href="#roleRelationshipRole" class="cORp">roleRelationshipRole</a>     <a href="#statementOfResponsibility" class="cORp">statementOfResponsibility</a>     <a href="#subject" class="cORp">subject</a>     <a href="#subjectComplex" class="cORp">subjectComplex</a>     <a href="#subjectGenre" class="cORp">subjectGenre</a>     <a href="#subjectGeographic" class="cORp">subjectGeographic</a>     <a href="#subjectGeographicCode" class="cORp">subjectGeographicCode</a>     <a href="#subjectHierarchicalGeographic" class="cORp">subjectHierarchicalGeographic</a>     <a href="#subjectName" class="cORp">subjectName</a>     <a href="#subjectOccupation" class="cORp">subjectOccupation</a>     <a href="#subjectTemporal" class="cORp">subjectTemporal</a>     <a href="#subjectTitle" class="cORp">subjectTitle</a>     <a href="#subjectTopic" class="cORp">subjectTopic</a>     <a href="#tableOfContents" class="cORp">tableOfContents</a>     <a href="#targetAudience" class="cORp">targetAudience</a>     <a href="#title" class="cORp">title</a>     <a href="#titlePrincipal" class="cORp">titlePrincipal</a>     <a href="#titleUniform" class="cORp">titleUniform</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<h2>Classes</h2>
+			<a name="AdminMetadata"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>ri:AdminMetadata<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>Administrative Metadata</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>Administrative metadata for the description <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="ModsResource"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:ModsResource<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - A  MODS Resource</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>
+The resource which is the subject of this description.
+   <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td class="tdleft">Equivalent Class:</td>
+					<td class="tdright">
+						<a href="http://id.loc.gov/vocabulary/resourceTypes/Res" class="cORp">resourceTypes:Res</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#relatedOriginal" class="cORp">modsrdf:relatedOriginal</a>     <a href="#relatedReferencedBy" class="cORp">modsrdf:relatedReferencedBy</a>     <a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>     <a href="#relatedVersion" class="cORp">modsrdf:relatedVersion</a>     <a href="#relatedConstituent" class="cORp">modsrdf:relatedConstituent</a>     <a href="#relatedReview" class="cORp">modsrdf:relatedReview</a>     <a href="#relatedHost" class="cORp">modsrdf:relatedHost</a>     <a href="#relatedSucceeding" class="cORp">modsrdf:relatedSucceeding</a>     <a href="#relatedInstantiation" class="cORp">modsrdf:relatedInstantiation</a>     <a href="#relatedReference" class="cORp">modsrdf:relatedReference</a>     <a href="#relatedFormat" class="cORp">modsrdf:relatedFormat</a>     <a href="#relatedSeries" class="cORp">modsrdf:relatedSeries</a>     <a href="#relatedPreceding" class="cORp">modsrdf:relatedPreceding</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#abstract" class="cORp">modsrdf:abstract</a>     <a href="#accessCondition" class="cORp">modsrdf:accessCondition</a>     <a href="#adminMetadata" class="cORp">modsrdf:adminMetadata</a>     <a href="#cartographics" class="cORp">modsrdf:cartographics</a>     <a href="#classification" class="cORp">modsrdf:classification</a>     <a href="#classificationGroup" class="cORp">modsrdf:classificationGroup</a>     <a href="#dateCapturedStart" class="cORp">modsrdf:dateCapturedStart</a>     <a href="#dateCapturedEnd" class="cORp">modsrdf:dateCapturedEnd</a>     <a href="#dateCreatedStart" class="cORp">modsrdf:dateCreatedStart</a>     <a href="#dateCreatedEnd" class="cORp">modsrdf:dateCreatedEnd</a>     <a href="#dateModifiedStart" class="cORp">modsrdf:dateModifiedStart</a>     <a href="#dateModifiedEnd" class="cORp">modsrdf:dateModifiedEnd</a>     <a href="#dateValidStart" class="cORp">modsrdf:dateValidStart</a>     <a href="#dateValidEnd" class="cORp">modsrdf:dateValidEnd</a>     <a href="#dateOfCopyrightStart" class="cORp">modsrdf:dateOfCopyrightStart</a>     <a href="#dateOfCopyrightEnd" class="cORp">modsrdf:dateOfCopyrightEnd</a>     <a href="#digitalOrigin" class="cORp">modsrdf:digitalOrigin</a>     <a href="#edition" class="cORp">modsrdf:edition</a>     <a href="#frequency" class="cORp">modsrdf:frequency</a>     <a href="#genre" class="cORp">modsrdf:genre</a>     <a href="#identifier" class="cORp">modsrdf:identifier</a>     <a href="#identifierGroup" class="cORp">modsrdf:identifierGroup</a>     <a href="#issuance" class="cORp">modsrdf:issuance</a>     <a href="#languageOfResource" class="cORp">modsrdf:languageOfResource</a>     <a href="#locationOfResource" class="cORp">modsrdf:locationOfResource</a>     <a href="#mediaType" class="cORp">modsrdf:mediaType</a>     <a href="#name" class="cORp">modsrdf:name</a>     <a href="#namePrincipal" class="cORp">modsrdf:namePrincipal</a>     <a href="#note" class="cORp">modsrdf:note</a>     <a href="#noteGroup" class="cORp">modsrdf:noteGroup</a>     <a href="#part" class="cORp">modsrdf:part</a>     <a href="#physicalExtent" class="cORp">modsrdf:physicalExtent</a>     <a href="#physicalForm" class="cORp">modsrdf:physicalForm</a>     <a href="#placeOfOrigin" class="cORp">modsrdf:placeOfOrigin</a>     <a href="#publisher" class="cORp">modsrdf:publisher</a>     <a href="#reformattingQuality" class="cORp">modsrdf:reformattingQuality</a>     <a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>     <a href="#relatedVersion" class="cORp">modsrdf:relatedVersion</a>     <a href="#relatedConstituent" class="cORp">modsrdf:relatedConstituent</a>     <a href="#relatedHost" class="cORp">modsrdf:relatedHost</a>     <a href="#relatedInstantiation" class="cORp">modsrdf:relatedInstantiation</a>     <a href="#relatedOriginal" class="cORp">modsrdf:relatedOriginal</a>     <a href="#relatedFormat" class="cORp">modsrdf:relatedFormat</a>     <a href="#relatedPreceding" class="cORp">modsrdf:relatedPreceding</a>     <a href="#relatedReference" class="cORp">modsrdf:relatedReference</a>     <a href="#relatedReferencedBy" class="cORp">modsrdf:relatedReferencedBy</a>     <a href="#relatedReview" class="cORp">modsrdf:relatedReview</a>     <a href="#relatedSeries" class="cORp">modsrdf:relatedSeries</a>     <a href="#relatedSucceeding" class="cORp">modsrdf:relatedSucceeding</a>     <a href="#role" class="cORp">modsrdf:role</a>     <a href="#roleRelationship" class="cORp">modsrdf:roleRelationship</a>     <a href="#statementOfResponsibility" class="cORp">modsrdf:statementOfResponsibility</a>     <a href="#subject" class="cORp">modsrdf:subject</a>     <a href="#subjectHierarchicalGeographic" class="cORp">modsrdf:subjectHierarchicalGeographic</a>     <a href="#subjectComplex" class="cORp">modsrdf:subjectComplex</a>     <a href="#subjectGenre" class="cORp">modsrdf:subjectGenre</a>     <a href="#subjectGeographic" class="cORp">modsrdf:subjectGeographic</a>     <a href="#subjectGeographicCode" class="cORp">modsrdf:subjectGeographicCode</a>     <a href="#subjectName" class="cORp">modsrdf:subjectName</a>     <a href="#subjectOccupation" class="cORp">modsrdf:subjectOccupation</a>     <a href="#subjectTemporal" class="cORp">modsrdf:subjectTemporal</a>     <a href="#subjectTitle" class="cORp">modsrdf:subjectTitle</a>     <a href="#subjectTopic" class="cORp">modsrdf:subjectTopic</a>     <a href="#tableOfContents" class="cORp">modsrdf:tableOfContents</a>     <a href="#targetAudience" class="cORp">modsrdf:targetAudience</a>     <a href="#title" class="cORp">modsrdf:title</a>     <a href="#titlePrincipal" class="cORp">modsrdf:titlePrincipal</a>     <a href="#titleUniform" class="cORp">modsrdf:titleUniform</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="Cartographics"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:Cartographics<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Cartographic Information</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>Aggregates cartographic properties. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td class="tdleft">SubClass Of: </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Thing" class="cORp">owl:Thing</a>          </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#cartographics" class="cORp">modsrdf:cartographics</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#cartographicsCoordinates" class="cORp">modsrdf:cartographicsCoordinates</a>     <a href="#cartographicsProjection" class="cORp">modsrdf:cartographicsProjection</a>     <a href="#cartographicsScale" class="cORp">modsrdf:cartographicsScale</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="ClassificationGroup"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:ClassificationGroup<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Classification Group</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>For a classification whose scheme is not part of the controlled vocabulary. Bundles together a classification number and scheme. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td class="tdleft">SubClass Of: </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Thing" class="cORp">owl:Thing</a>          </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#classificationGroup" class="cORp">modsrdf:classificationGroup</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#classificationGroupScheme" class="cORp">modsrdf:classificationGroupScheme</a>     <a href="#classificationGroupValue" class="cORp">modsrdf:classificationGroupValue</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="IdentifierGroup"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:IdentifierGroup<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Identifier - Typed</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>Used when the identifier type is not from the controlled list. Bundles together an identifier and its type. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td class="tdleft">SubClass Of: </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Thing" class="cORp">owl:Thing</a>          </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#identifierGroup" class="cORp">modsrdf:identifierGroup</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#identifierValue" class="cORp">modsrdf:identifierValue</a>     <a href="#identifierGroupType" class="cORp">modsrdf:identifierGroupType</a>     <a href="#identifierGroupValue" class="cORp">modsrdf:identifierGroupValue</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="Location"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:Location<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Location</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>An aggregator for location properties. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#locationOfResource" class="cORp">modsrdf:locationOfResource</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#locationCopy" class="cORp">modsrdf:locationCopy</a>     <a href="#locationPhysical" class="cORp">modsrdf:locationPhysical</a>     <a href="#locationShelfLocator" class="cORp">modsrdf:locationShelfLocator</a>     <a href="#locationUrl" class="cORp">modsrdf:locationUrl</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="LocationCopy"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:LocationCopy<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Location - Copy</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td> An aggregator for copy properties. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#locationCopy" class="cORp">modsrdf:locationCopy</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#locationCopyEnumerationAndChronology" class="cORp">modsrdf:locationCopyEnumerationAndChronology</a>     <a href="#locationCopyEnumerationAndChronologyBasic" class="cORp">modsrdf:locationCopyEnumerationAndChronologyBasic</a>     <a href="#locationCopyEnumerationAndChronologyIndex" class="cORp">modsrdf:locationCopyEnumerationAndChronologyIndex</a>     <a href="#locationCopyEnumerationAndChronologySupplement" class="cORp">modsrdf:locationCopyEnumerationAndChronologySupplement</a>     <a href="#locationCopyElectronicLocator" class="cORp">modsrdf:locationCopyElectronicLocator</a>     <a href="#locationCopyForm" class="cORp">modsrdf:locationCopyForm</a>     <a href="#locationCopyNote" class="cORp">modsrdf:locationCopyNote</a>     <a href="#locationCopyShelfLocator" class="cORp">modsrdf:locationCopyShelfLocator</a>     <a href="#locationCopySublocation" class="cORp">modsrdf:locationCopySublocation</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="NoteGroup"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:NoteGroup<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Note Typed</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>Aggregates a note with its type.   <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#noteGroup" class="cORp">modsrdf:noteGroup</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#noteGroupType" class="cORp">modsrdf:noteGroupType</a>     <a href="#noteGroupValue" class="cORp">modsrdf:noteGroupValue</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="Part"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:Part<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Part</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>An aggregator for part properties. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#part" class="cORp">modsrdf:part</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#partDetailType" class="cORp">modsrdf:partDetailType</a>     <a href="#partEnd" class="cORp">modsrdf:partEnd</a>     <a href="#partLevel" class="cORp">modsrdf:partLevel</a>     <a href="#partList" class="cORp">modsrdf:partList</a>     <a href="#partName" class="cORp">modsrdf:partName</a>     <a href="#partNumber" class="cORp">modsrdf:partNumber</a>     <a href="#partOrder" class="cORp">modsrdf:partOrder</a>     <a href="#partStart" class="cORp">modsrdf:partStart</a>     <a href="#partTotal" class="cORp">modsrdf:partTotal</a>     <a href="#partType" class="cORp">modsrdf:partType</a>     <a href="#partUnit" class="cORp">modsrdf:partUnit</a>     <a href="#partDate" class="cORp">modsrdf:partDate</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="RoleRelationship"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td class="tdleft">
+                    Class:
+                </td>
+					<td>modsrdf:RoleRelationship<br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Label: </td>
+					<td>MODS - Role Relationship</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Comment: </td>
+					<td>Aggregates a name with its role.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#Class" class="cORp">owl:Class</a>     </td>
+				</tr>
+				<tr>
+					<td>Used With: </td>
+					<td><a href="#roleRelationship" class="cORp">modsrdf:roleRelationship</a>     </td>
+				</tr>
+				<tr>
+					<td>Properties Include: </td>
+					<td><a href="#roleRelationshipRole" class="cORp">modsrdf:roleRelationshipRole</a>     <a href="#roleRelationshipName" class="cORp">modsrdf:roleRelationshipName</a>     </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<h2>Properties</h2>
+			<a name="abstract"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:abstract</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Abstract</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A summary of the content of the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="accessCondition"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:accessCondition</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Access Condition</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Information about restrictions imposed on access to  the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="adminMetadata"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:adminMetadata</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Administrative Metadata</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Administrative metadata for the MODS description, corresponds to recordInfo (MODS XML) which is, minimimally, a Class defined outside of the MADS/RDF namespace. The RecordInfo Class from the RecordInfo ontology is recommended. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://id.loc.gov/ontologies/RecordInfo#AdminMetadata" class="cORp">ri:AdminMetadata</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="cartographics"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:cartographics</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Cartographics </td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A geographic entity expressed in cartographic terms. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#Cartographics" class="cORp">modsrdf:Cartographics</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="cartographicsCoordinates"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:cartographicsCoordinates</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Cartographics - Coordinates</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" class="cORp">rdf:Property</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Cartographics" class="cORp">modsrdf:Cartographics</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="cartographicsProjection"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:cartographicsProjection</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Cartographics - Projection</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" class="cORp">rdf:Property</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Cartographics" class="cORp">modsrdf:Cartographics</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="cartographicsScale"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:cartographicsScale</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Cartographics - Scale</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Cartographics" class="cORp">modsrdf:Cartographics</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="classification"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:classification</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Classification</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A designation applied to the resource that indicates the subject by applying a formal system of coding and organizing resources according to subject areas. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td class="tdleft">Equivalent Property:</td>
+					<td class="tdright">
+						<a href="http://id.loc.gov/vocabulary/classSchemes/classification" class="cORp">classSchemes:classification</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="classificationGroup"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:classificationGroup</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Classification Group</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Used when classification scheme is not in controlled vocabulary. Bundles together the classification number with its scheme. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ClassificationGroup" class="cORp">modsrdf:ClassificationGroup</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="classificationGroupScheme"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:classificationGroupScheme</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Classification Group - Scheme</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The classification scheme <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ClassificationGroup" class="cORp">modsrdf:ClassificationGroup</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="classificationGroupValue"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:classificationGroupValue</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Classification Group - Value</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The classification value <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ClassificationGroup" class="cORp">modsrdf:ClassificationGroup</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateCaptured"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateCaptured</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Captured</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Date that the resource  was digitized or a subsequent snapshot was taken. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateCapturedEnd"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateCapturedEnd</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Captured - End</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When there is both a start and end for the capture date this is the end  date. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateCaptured" class="cORp">modsrdf:dateCaptured</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateCapturedStart"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateCapturedStart</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Captured -  Start</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When there is both a start and end for the capture date this is the start date. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateCaptured" class="cORp">modsrdf:dateCaptured</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateCreated"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateCreated</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td> Date Created</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The resource's creation date. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#date" class="cORp">modsrdf:date</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateCreatedEnd"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateCreatedEnd</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Created - End</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When there is both a start and end for the creation date this is the end date. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateCreated" class="cORp">modsrdf:dateCreated</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateCreatedStart"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateCreatedStart</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Created -  Start</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When there is both a start and end for the creation date this is the start date. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateCreated" class="cORp">modsrdf:dateCreated</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateModified"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateModified</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Modified</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Date when resource was modified. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#date" class="cORp">modsrdf:date</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateModifiedEnd"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateModifiedEnd</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Modified - End</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When there is both a start and end for the modification date this is the end date. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateModified" class="cORp">modsrdf:dateModified</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateModifiedStart"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateModifiedStart</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Modified -  Start</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When there is both a start and end for the modification date this is the start date. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateModified" class="cORp">modsrdf:dateModified</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateOfCopyright"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateOfCopyright</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date of Copyright</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Date when resource was copyrighted. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#date" class="cORp">modsrdf:date</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateOfCopyrightEnd"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateOfCopyrightEnd</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date of Copyright - End</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateOfCopyright" class="cORp">modsrdf:dateOfCopyright</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateOfCopyrightStart"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateOfCopyrightStart</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date of Copyright -  Start</td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateOfCopyright" class="cORp">modsrdf:dateOfCopyright</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateValid"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateValid</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Valid</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A date when resource was valid. (Not necessarily the first or last date, but this is an assertion that on that given date the information was valid.) <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#date" class="cORp">modsrdf:date</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateValidEnd"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateValidEnd</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Valid - End</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When the resource is valid over an interval with a start and end date, this is the end date. (When start and end date are given, it is an assertion that the information was valid over the course of this interval.  It does not necessarily assert that is was not valid before the start or after the end of the interval.) <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateValid" class="cORp">modsrdf:dateValid</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="dateValidStart"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:dateValidStart</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Date Valid -  Start</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>When the resource is valid over an interval with a start and end date, this is the start date. (When start and end date are given, it is an assertion that the information was valid over the course of this interval.  It does not necessarily assert that is was not valid before the start or after the end of the interval.) <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#dateValid" class="cORp">modsrdf:dateValid</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="digitalOrigin"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:digitalOrigin</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Digital Origin</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>a designation of the source of a digital file important to its creation, use and management. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="edition"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:edition</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Edition</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Version of the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="frequency"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:frequency</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Frequency</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>publication frequency <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="genre"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:genre</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Genre</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The genre (or one of several genres) of the resource. Represented in the MADS namespace.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#GenreForm" class="cORp">madsrdf:GenreForm</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="identifier"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:identifier</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Identifier</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>identifier is a property for which all terms in the "identifier" vocabulary become subproperties.  Thus for example <a href="#isbn'" class="cORp">'identifer:isbn'</a> is a subproperty saying in effect "has this ISBN" where 'isbn' is a term within that vocabulary. (The prefix <a href="#'" class="cORp">'identifier:'</a> is used to denote the namespace for the "identifier" vocabulary. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td class="tdleft">Equivalent Property:</td>
+					<td class="tdright">
+						<a href="http://id.loc.gov/vocabulary/identifiers/id" class="cORp">identifiers:id</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="identifierGroup"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:identifierGroup</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Identifier Group</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Used when identifier type is not in controlled vocabulary. Bundles together the identifier with its type. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#IdentifierGroup" class="cORp">modsrdf:IdentifierGroup</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="identifierGroupType"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:identifierGroupType</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Identifier Group - Type</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The identifier type. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#IdentifierGroup" class="cORp">modsrdf:IdentifierGroup</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="identifierGroupValue"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:identifierGroupValue</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Identifier Group - Value</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The identifier value	. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#IdentifierGroup" class="cORp">modsrdf:IdentifierGroup</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="identifierValue"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:identifierValue</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Identifier - Value</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Used in conjuction with identifierType, when the type is not from the controlled vocabulary. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#IdentifierGroup" class="cORp">modsrdf:IdentifierGroup</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="issuance"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:issuance</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Issuance</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Describes the issuance of the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="languageOfResource"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:languageOfResource</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Language of Resource</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The language (or one of several languages) of the resource.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopy"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopy</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Information about a specific tangible instance of a bibliographic resource or set which comprises one or more pieces via indication of sublocation and/or locator. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Location" class="cORp">modsrdf:Location</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyElectronicLocator"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyElectronicLocator</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy -- Electronic Locator</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>URI of the copy of the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyEnumerationAndChronology"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyEnumerationAndChronology</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy  - Enumeration And Chronology</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A summary holdings statement for the copy. A string with information including volume or issue, date of publication or date of issue of a component of a multi-part resource, distinguishing it from other components of the same resource.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyEnumerationAndChronologyBasic"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyEnumerationAndChronologyBasic</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy  - Enumeration And Chronology -- Basic</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>One of three levels of <a href="#" class="cORp">enumerationAndChronology:</a> 'basic' <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#locationCopyEnumerationAndChronology" class="cORp">modsrdf:locationCopyEnumerationAndChronology</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyEnumerationAndChronologyIndex"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyEnumerationAndChronologyIndex</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy  - Enumeration And Chronology -- Index</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>One of three levels of <a href="#'index'" class="cORp">enumerationAndChronology:'index'</a> <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#locationCopyEnumerationAndChronology" class="cORp">modsrdf:locationCopyEnumerationAndChronology</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyEnumerationAndChronologySupplement"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyEnumerationAndChronologySupplement</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy  - Enumeration And Chronology -- Supplement</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>One of three levels  of <a href="#'supplement'" class="cORp">enumerationAndChronology:'supplement'</a> <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#locationCopyEnumerationAndChronology" class="cORp">modsrdf:locationCopyEnumerationAndChronology</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyForm"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyForm</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy -- Form</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The form of a particular copy may be indicated when the general description refers to multiple forms and there is different detailed holdings information associated with different forms. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyNote"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyNote</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy -- Note</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A note pertaining to a specific copy. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopyShelfLocator"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopyShelfLocator</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy -- Shelf Locator</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Shelfmark or other shelving designation that indicates the location identifier for a copy. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationCopySublocation"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationCopySublocation</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Copy -- Sublocation</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Department, division, or section of an institution holding a copy of the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#LocationCopy" class="cORp">modsrdf:LocationCopy</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationOfResource"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationOfResource</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The location (or one of several locations) at which the resource resides. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#Location" class="cORp">modsrdf:Location</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationPhysical"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationPhysical</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Physical Location</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The institution or repository that holds the resource, or where it is available. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Location" class="cORp">modsrdf:Location</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationShelfLocator"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationShelfLocator</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - Shelf Locator</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Shelfmark or other shelving designation <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Location" class="cORp">modsrdf:Location</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="locationUrl"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:locationUrl</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Location - URL</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Location of the resource (a URL) <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Location" class="cORp">modsrdf:Location</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="mediaType"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:mediaType</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Media Type</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>An Internet Media (MIME) type e.g. text/html.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="name"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:name</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Name</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A name  - personal, corporate, conference, or family - associated with the resource. Represented in the MADS namespace.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Name" class="cORp">madsrdf:Name</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="namePrincipal"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:namePrincipal</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Name -  Principle</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A name that has been distinguished as the principal name associated with the resource. There should be no more than one name principal name. (The rule for determining the principal name is as <a href="#" class="cORp">follows:</a> If the role associated with the name is 'creator' AND if it is the only name whose role is 'creator' then it is the principal name. Thus if there are more than one name, or no name, whose role is 'creator', then there is no principal name.) If there is a principal name, and if there is a uniform title, then that name and title are to be combined into a nameTitle.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#name" class="cORp">modsrdf:name</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Name" class="cORp">madsrdf:Name</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="note"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:note</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Note</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Textual information about the resource. This property is used when no type is specified. (In contrast to hasTypedNote, whose object is an aggregator that includes both the type and note.) <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="noteGroup"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:noteGroup</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Note  Group</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Used for a note with a type (other than "statement of responsibility") <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#NoteGroup" class="cORp">modsrdf:NoteGroup</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="noteGroupType"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:noteGroupType</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>NoteGroup - Type</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A property of NoteGroup - used when a type is supplied for the note.  The type. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#NoteGroup" class="cORp">modsrdf:NoteGroup</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="noteGroupValue"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:noteGroupValue</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>NoteGroup - Value</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A property of noteGroup - used when a type is supplied for the note. The text of the note. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#NoteGroup" class="cORp">modsrdf:NoteGroup</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="part"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:part</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Information about a physical part of the resource, including the part number, its caption and title, and dimensions.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partDate"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partDate</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part Date</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Date associated with a part. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#AnnotationProperty" class="cORp">owl:AnnotationProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#date" class="cORp">modsrdf:date</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partDetailType"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partDetailType</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Detail Type</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The type of the resource part, e.g. volume, issue, page. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partEnd"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partEnd</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - End</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The value of the end of a part. For example, if unit of the part has value 'page', this is the number of the last page.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partLevel"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partLevel</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Level</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A property of a part - the level of numbering in the host/parent item. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#positiveInteger" class="cORp">xsd:positiveInteger</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partList"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partList</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - List</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A property of a part - a textual listing of the units within the part. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partName"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partName</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Name</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A string that designates the part name. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partNumber"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partNumber</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Number</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A string that designates the part number. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partOrder"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partOrder</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Order</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>An integer that designates the sequence of parts <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#integer" class="cORp">xsd:integer</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partStart"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partStart</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Start</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The beginning unit of the part. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partTotal"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partTotal</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Total</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The total number of units within a part. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#positiveInteger" class="cORp">xsd:positiveInteger</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partType"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partType</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Type</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The segment type of a part. (When parts are included, the resource is ususally a document, so the part type would be the segment type of the document.) <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="partUnit"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:partUnit</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Part - Unit</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>the unit -- e.g. page, chapter -- applying to the start, end, and total values. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#Part" class="cORp">modsrdf:Part</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="physicalExtent"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:physicalExtent</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Physical Extent</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>a statement of the number and specific material of the units of the resource that express physical extent. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="physicalForm"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:physicalForm</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Physical Form</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A particular physical presentation of the resource, including the physical form or medium of material for a resource. <a href="#" class="cORp">Example:</a> oil paint <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="placeOfOrigin"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:placeOfOrigin</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Place</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Place of publication/origin. Used in connection with the origin of a resource, i.e., creation, publication, issuance, etc.  Represented as a MADS Geographic. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Geographic" class="cORp">madsrdf:Geographic</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="publisher"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:publisher</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Publisher</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The name of the entity that published, printed, distributed, released, issued, or produced the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Name" class="cORp">madsrdf:Name</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="recordContentSource"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:recordContentSource</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Record Content Source</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The code or name of the organization that either created the original description or modified it. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="http://id.loc.gov/ontologies/RecordInfo#AdminMetadata" class="cORp">ri:AdminMetadata</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="recordDescriptionStandard"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:recordDescriptionStandard</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Record Description Standard</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Part of administrative metadata. The standard  which designates the rules used for the content of the description. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="http://id.loc.gov/ontologies/RecordInfo#AdminMetadata" class="cORp">ri:AdminMetadata</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="recordIdentifier"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:recordIdentifier</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Record Identifier</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The system control number assigned by the organization creating, using, or distributing the description. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="http://id.loc.gov/ontologies/RecordInfo#AdminMetadata" class="cORp">ri:AdminMetadata</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="recordOrigin"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:recordOrigin</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Record Origin</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Describes the origin or provenance of the description. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="http://id.loc.gov/ontologies/RecordInfo#AdminMetadata" class="cORp">ri:AdminMetadata</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="reformattingQuality"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:reformattingQuality</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Reformatting Quality</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The reformatting quality;  e.g. access, preservation,  replacement. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedConstituent"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedConstituent</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Constituent</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another MODS resource which is a constituent of the described resource.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedFormat"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedFormat</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Other Format</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to a similar MODS resource of a different format. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedHost"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedHost</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Host</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another MODS resource which is a host of the described resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedInstantiation"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedInstantiation</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Instantiation</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described resource to a another MODS resource with different origination information. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedItem"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedItem</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related Item</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another, related MODS resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedOriginal"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedOriginal</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Original</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another MODS resource which is an original of the described resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedPreceding"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedPreceding</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Preceding</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to a MODS resource which preceded the described resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedReference"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedReference</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Reference</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another MODS resource which the described resource references. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedReferencedBy"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedReferencedBy</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Referenced By</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another MODS resource which references the described resource.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedReview"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedReview</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Review</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another MODS resource which is review of the described resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedSeries"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedSeries</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Series</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described resource to a another MODS resource which is a series of which the described resource is a part. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedSucceeding"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedSucceeding</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related item - Suceeding</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described resource to a another MODS resource which suceeded it. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="relatedVersion"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:relatedVersion</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Related Item - Other Version</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Relates the described MODS resource to another MODS resource which is a different version of the described resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#relatedItem" class="cORp">modsrdf:relatedItem</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="role"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:role</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Role (unbound)</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>role is an abstract property, for which all terms in the relator vocabulary of roles become subproperties.  Thus for example <a href="#artist'" class="cORp">'relator:artist'</a> refers to the role 'artist' within that vocabulary. (The prefix <a href="#'" class="cORp">'relator:'</a> is used to denote the namespace for the "relator" vocabulary. 
+
+The property <a href="#artist'" class="cORp">'relator:artist'</a> relates the resource to an artist associated with the resource, represented as a mads name. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td class="tdleft">Equivalent Property:</td>
+					<td class="tdright">
+						<a href="http://id.loc.gov/vocabulary/relators/role" class="cORp">relators:role</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="roleRelationship"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:roleRelationship</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Role Relationship</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Binds a name to the role that the named entity played for the resource.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="#RoleRelationship" class="cORp">modsrdf:RoleRelationship</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="roleRelationshipName"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:roleRelationshipName</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Role Relationship - Name</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The name included in a roleRelationship.  The roleRelationship binds an name and a role, where the name is a name associated with the resource and is specified elsewhere via the hasName property.  This mechanism is used when the role is not part of a known vocabulary.  Otherwise, the relationship is expressed by using the role vocabulary term as the property; for example, see <a href="#creator" class="cORp">relator:creator.</a> <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#RoleRelationship" class="cORp">modsrdf:RoleRelationship</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Name" class="cORp">madsrdf:Name</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="roleRelationshipRole"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:roleRelationshipRole</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Role Relationship -  Role</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The role associated with a name, where the name and role are bound together in a roleRelationship. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#RoleRelationship" class="cORp">modsrdf:RoleRelationship</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="statementOfResponsibility"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:statementOfResponsibility</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Statement of Responsibility</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A note, when the note type is "statement of responsibility" <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subject"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subject</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>An abstract property defined for which the various subject catergories (e.g. subjectGenre, subjectTitle) are subproperties. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectComplex"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectComplex</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Complex</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource composed of several component subjects.  <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#ComplexSubject" class="cORp">madsrdf:ComplexSubject</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectGenre"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectGenre</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Genre Subject</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a genre, expressed in terms of a MADS GenreForm. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#GenreForm" class="cORp">madsrdf:GenreForm</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectGeographic"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectGeographic</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Geographic </td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a geographic entity, expressed in terms of a MADS Geographic. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Geographic" class="cORp">madsrdf:Geographic</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectGeographicCode"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectGeographicCode</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Geographic Code </td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a geographic entity, expressed as a geographic code and in terms of a MADS Geographic. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subjectGeographic" class="cORp">modsrdf:subjectGeographic</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Geographic" class="cORp">madsrdf:Geographic</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectHierarchicalGeographic"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectHierarchicalGeographic</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject -  Hierarchical Geographic </td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a hierarchy of geographic entities expressed in terms of a MADS Geographics. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic" class="cORp">madsrdf:HierarchicalGeographic</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectName"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectName</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Name Subject</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a name, expressed in terms of a MADS Name. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Name" class="cORp">madsrdf:Name</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectOccupation"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectOccupation</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Occupation</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is an occupation, expressed in terms of a MADS Occupation. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Occupation" class="cORp">madsrdf:Occupation</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectTemporal"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectTemporal</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Temporal</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a temporal expression, expressed in terms of a MADS Temporal. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Temporal" class="cORp">madsrdf:Temporal</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectTitle"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectTitle</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Title</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a title, expressed in terms of a MADS Title. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Title" class="cORp">madsrdf:Title</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="subjectTopic"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:subjectTopic</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Subject - Topic</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A subject of the resource which is a topic, expressed in terms of a MADS Topic. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#subject" class="cORp">modsrdf:subject</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Topic" class="cORp">madsrdf:Topic</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="tableOfContents"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:tableOfContents</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Table of Contents</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>Description of the contents of the resource. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="targetAudience"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:targetAudience</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Target Audience</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>The target audience of the resource. <a href="#" class="cORp">Examples:</a> adolescent, adult, general, juvenile, preschool,  specialized. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#DatatypeProperty" class="cORp">owl:DatatypeProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.w3.org/2001/XMLSchema#string" class="cORp">xsd:string</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="title"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:title</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Title</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A title for the resource. Represented as a MADS Title. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Title" class="cORp">madsrdf:Title</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="titlePrincipal"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:titlePrincipal</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Title - Principal</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A title which has been distinguished as the principal  title. (This corresponds to a MODS XML titleInfo with  no type attribute.) There should be no more than one principal title. Represented as a MADS Title. <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#title" class="cORp">modsrdf:title</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Title" class="cORp">madsrdf:Title</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<a name="titleUniform"></a>
+			<table class="pORcTable">
+				<tr class="trheading">
+					<td width="200">
+						<b>Property: </b>
+					</td>
+					<td>
+						<b>modsrdf:titleUniform</b>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td>Label: </td>
+					<td>Title - Uniform</td>
+				</tr>
+				<tr>
+					<td>Comment: </td>
+					<td>A title which has been distinguished as a uniform title. (This corresponds to a MODS XML titleInfo with 'type=uniform' attribute.) There should be no more than one uniform title.  Represented as a MADS Title, or, if there is a primary name, it is represented as a MADS NameTitle.   <br /></td>
+				</tr>
+				<tr>
+					<td class="tdleft">Type(s): </td>
+					<td><a href="http://www.w3.org/2002/07/owl#ObjectProperty" class="cORp">owl:ObjectProperty</a>     </td>
+				</tr>
+				<tr>
+					<td>SubProperty Of: </td>
+					<td><a href="#title" class="cORp">modsrdf:title</a>          </td>
+				</tr>
+				<tr>
+					<td>Domain: </td>
+					<td><a href="#ModsResource" class="cORp">modsrdf:ModsResource</a>          </td>
+				</tr>
+				<tr>
+					<td>Range: </td>
+					<td><a href="http://www.loc.gov/mads/rdf/v1#Title" class="cORp">madsrdf:Title</a>          </td>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<br />
+		</div>
+	</body>
+</html>

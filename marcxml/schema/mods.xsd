@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Morgan Cundiff (Library of Congress) -->
+<xsd:schema targetNamespace="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.loc.gov/mods/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="http://www.loc.gov/standards/mods/mods.xsd"/>
+	<xsd:element name="collection">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="mods" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

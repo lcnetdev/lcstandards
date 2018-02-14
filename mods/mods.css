@@ -1,0 +1,410 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	min-height: 100%;
+	border: none;
+	color: #333333;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+table.header {
+	width: 760px;
+	text-align: left;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+table.footer {
+	width: 760px;
+	text-align: left;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+table.layout {
+	width: 760px;
+	padding: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #fff;
+	border: 1px solid #999;
+	color:#333;
+	text-align: left;
+}
+table.layout2 {
+	width: 760px;
+	padding: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #fff;
+	color:#333;
+	border: none !important;
+	text-align: left;
+}
+table table {
+	margin-left: 10px;
+	font:90%/140% Arial, Helvetica, sans-serif;
+}
+table pre {
+	margin-left: 10px;
+	font:80%/140% Arial, Helvetica, sans-serif;
+}
+form {
+	margin-bottom: 0;
+}
+.sitenav {
+	float: left;
+	text-align: left;
+	font: 80% Arial, Helvetica, sans-serif;
+}
+.contactus {
+	float: right;
+	text-align: right;
+	font: 80% Arial, Helvetica, sans-serif;
+}
+#graphic {
+	background: #333399;
+}
+#official {
+	float: right;
+	clear: both;
+	font: 75% Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #66CC33;
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
+#breadcrumbs {
+	float: left;
+	margin-left: 5px;
+	font: 75% Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #66CC33;
+	margin-top: 0px;
+}
+#breadcrumbs-bottom {
+	float: left;
+	margin-left: 5px;
+	font: bold 75% Arial, Helvetica, sans-serif;
+	color: #66CC33;
+	margin-top: 10px;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+#sitesearch {
+	float: right;
+	width: auto;
+}
+h1 {
+	font: bold 16pt Arial, Helvetica, sans-serif;
+	color: #333399;
+	padding: 0px;
+	margin: 10px 0px 0px 0px;
+}
+h1 span {
+	font: bold italic 12pt Georgia, "Times New Roman", Times, serif;
+	color: #6666CC;
+	margin-left: 10px;
+	padding: 0px;
+}
+h2 {
+	font: bold 14pt Arial, Helvetica, sans-serif;
+	/*font-size: 16pt;*/
+
+	color: #6666CC;
+	padding: 0px;
+	margin: 15px 0px 0px 0px;
+}
+h3 {
+	font: bold 12pt Arial, Helvetica, sans-serif;
+	/*font-size: 14pt;*/
+
+	color: #333333;
+	padding: 0px;
+	margin: 10px 0px 0px 0px;
+}
+h4 {
+	font-family: Arial, Helvetica, sans-serif;
+	/*font-size: 13pt;*/
+
+	font-size: 11pt;
+	font-weight: bold;
+	color: #666666;
+	padding: 0px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-style: italic;
+}
+h5 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+	color: #6666CC;
+	margin: 0px;
+	padding: 0px;
+}
+h6 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	font-weight: bold;
+	color: #333333;
+	margin: 0px;
+	padding: 0px;
+}
+.indent {
+	text-indent: 10pt;
+}
+.row {
+	color: #990000;
+}
+.topnav {
+	padding-bottom: 8px;
+	padding-left: 2px;
+	font-size:11pt;
+}
+.bottomnav {
+	padding-left: 2px;
+	font-size: 11pt;
+	padding-top: 8px;
+}
+.background-blue {
+	background-color: #6666cc;
+	background-image: url(images/spacer-blue.gif);
+}
+.selected {
+	font: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000066;
+}
+.redtext {
+	color: #ff0000;
+}
+p.indent1 {
+	padding-left: 3em;
+	margin: 0px;
+}
+p.indent2 {
+	padding-left: 6em;
+	margin: 0px;
+}
+p.indent3 {
+	padding-left: 9em;
+	margin: 0px;
+}
+p.indent4 {
+	padding-left: 12em;
+	margin: 0px;
+}
+p, li, td {
+	font-family: 9pt Verdana, Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+.smaller {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 90%;
+	color: #333333;
+}
+pre {
+	font-family: "Courier New", Courier, mono;
+	font-size: 9pt;
+}
+th {
+	color: #3366CC;
+	text-align: left;
+	font-size: 14px;
+}
+p.homeblurb {
+	font: 70%/140% Arial, Helvetica, sans-serif;
+	text-align: left;
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+}
+a {
+	color: #333399;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+a:link {
+	color: #6666cc;
+	text-decoration: underline;
+}
+a:visited {
+	color: #6666cc;
+	text-decoration: underline;
+}
+a:hover {
+	color: #6666cc;
+	text-decoration: underline;
+	background: #eeeeee;
+}
+a.menu {
+	color: #333399;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight:600;
+	text-decoration: underline;
+}
+a.menu:link {
+	color: #333399;
+	text-decoration: underline;
+}
+a.menu:visited {
+	color: #333399;
+	text-decoration: underline;
+}
+a.menu:hover {
+	color: #333;
+	text-decoration: underline;
+	background: #eeeeee;
+}
+a#skip {
+	position: absolute;
+	top:-100px;
+}
+.command-text {
+	font-family: "Courier New", Courier, mono;
+	font-size: 100%;
+	font-weight: bold;
+	color: #666;
+}
+.box {
+	float: right;
+	width: 35%;
+	border: 2px dashed #6666cc;
+	padding: 0px 10px 5px;
+	background-color: #FEFEF6;
+}
+hr.dashed {
+	border: none 0;
+	border-top: 2px dashed #333399;/*the border*/
+	width: 100%;
+	height: 2px;/*whatever the total width of the border-top and border-bottom equal*/
+}
+div.goldtop {
+	background: #6666cc;
+	height: 10px;
+	width: 100%;
+	line-height: 1px;
+	font-size: 1px;/*these two lines override a default in IE*/
+}
+div.space {
+	height: 15px;
+	width: 100%;
+	line-height: 1px;
+	font-size: 1px;/*these two lines override a default in IE*/
+}
+div.clear {
+	clear: both;
+}
+div.gold {
+	background: #6666cc;
+	height: 4px;
+	width: 100%;
+	line-height: 1px;
+	font-size: 1px;/*these two lines override a default in IE*/
+}
+div.green {
+	background: #333399;
+	height: 8px;
+	width: 100%;
+	line-height: 1px;
+	font-size: 1px;/*these two lines override a default in IE*/
+}
+div.clear {
+	clear: both;
+}
+.pdf {
+	font: 70% Arial, Helvetica, sans-serif;
+}
+.selected {
+	font: Verdana, Arial, Helvetica, sans-serif;
+	color: #333399;
+	font-weight:600;
+}
+p.home-indent {
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+	font: 90% Arial, Helvetica, sans-serif;
+}
+.center {
+	text-align: center;
+}
+.redtext {
+	color: #cc0000;
+}
+ul li {
+	font: 8pt Verdana, Arial, Helvetica, sans-serif;
+	line-height: 20px;
+}
+table.elements {
+	width: 95%;
+	border: solid 1px #666666;
+	align: left;
+	margin: 10px;
+}
+table.elements th {
+	font: bold 120% Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+	vertical-align: bottom;
+	background-color: #eeeeee;
+	border-bottom: solid 1px #ffffff;
+	padding: 5px;
+}
+table.elements td {
+	font: 110% Verdana, Arial, Helvetica, sans-serif;
+	text-align: left;
+	vertical-align: top;
+	background-color: #ffffff;
+	border-bottom: dotted 1px #999999;
+	padding: 5px;
+}
+table.elements td.noborder, table.elements th.noborder {
+	border-bottom: none 0px;
+}
+table.layout p.top-menu {
+	margin: 0px 0px 10px 10px;
+	padding: 0px;
+	border: 0px;
+}
+table.layout p {
+	font: 8pt/15pt Verdana, Arial, Helvetica, sans-serif;
+	margin: 10px 10px 5px 10px;
+	padding-top: 0px;
+}
+table.layout tr td div.example {
+	margin: 10px 10px 10px 5px;
+	padding: 0px;
+}
+table.layout tr td div.indent1 {
+	margin: 0px 0px 5px 25px;
+}
+table.layout tr td div.indent2 {
+	margin: 0px 0px 5px 40px;
+}
+table.layout tr td div.indent2 ul {
+	margin: 0px 0px 0px 20px;
+	padding: 0px;
+}
+table.layout tr td div.example div.indent1 {
+	margin: 0px 0px 0px 25px;
+}
+table.layout tr td div.example div.indent2 {
+	margin: 0px 0px 0px 40px;
+}
+
+.external2  {
+	background: transparent url(http://www.loc.gov/images/icon-ext2.gif) 100% 100% no-repeat;
+	padding: 0 5px 0 3px;
+	width:8px;
+	height:10px;
+	text-decoration:none;
+}

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Ray Denenberg (LIBRARY OF CONGRESS) -->
+<!-- MADS, an XML schema based on  the MARC Authorities Format 
+*******************
+Originally, April 21, 2005 
+
+Updated June 29, 2005
+1.  Changed  the mods reference from "mods-for-mads.xsd" to "m.xsd"
+2.changed <xsd:complexType name="descriptor">
+		<xsd:choice>
+to
+<xsd:complexType name="descriptor">
+		<xsd:choice maxOccurs="unbounded">
+(This was an error.)
+
+Updated April 23, 2010
+Replaced previous broken links for authorities. Lines 293 through 298.
+
+***************************
+
+***********************************************************************************************************************************************
+*                        MADS 1.0   April 21, 2005 (updated June 29, 2005, and April 23, 2010, as noted above, with no version change)
+*                                                                                  *
+This is version 1.0 and is the original version of MADS. This note is added March 19, 2010 in order to clarify version questions. 
+As of March 19, 2010 this is the only version of MADS that has ever been officially released. 
+
+***********************************************************************************************************************************************
+
+
+
+
+
+-->
+<xsd:schema xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/mads/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mods="http://www.loc.gov/mods/v3" targetNamespace="http://www.loc.gov/mads/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.loc.gov/standards/mods/xlink.xsd"/>
+	<xsd:import namespace="http://www.loc.gov/mods/v3" schemaLocation="http://www.loc.gov/standards/mods/v3/mods-3-1.xsd"/>
+	<!-- 
+	Root Elements:
+	
+	(1)  a single MADS record: 
+-->
+	<xsd:element name="mads" type="madsType"/>
+	<!--
+	
+	(2) a collection of MADS records 
+-->
+	<xsd:element name="madsCollection">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="mads" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--
+***************** End Root elements ****************************
+	
+	
+ Definition of a single MADS record
+ 
+A MADS record includes one or more items.  (The term "item" is used for 
+vocabulary convenience and is not present in the xml schema or instance.)  
+An item is an <authority>, <related>, or <variant> element. 
+There must be exactly one <authority> and there may be any 
+number of <related> and/or <variant> items.  The items are 
+followed by miscellaneous additional elements.  
+
+Each item has one or more descriptors; each descriptor is 
+one  of the following elements: 
+<name>, <titleInfo>, <topic>, <temporal>, <genre>, <geographic>, 
+<hierarchicalGeographic> or <occupation> 
+
+Example mads record:  
+<mads>
+ <authority>   ....... first item
+  <geographic>United States </geographic> .....  first  descriptor for this item
+  <topic>Foreign relations</topic>  .....  second  descriptor for this item
+  <temporal>1775-1783</temporal> .....  third descriptor for this item
+ </authority>
+ <related type="narrower">.. first related/second  item
+     ********** types for related: earlier | later | parentorg | broader | narrower | equivalent | other
+  <geographic>Massachusetts</geographic> .....  first  descriptor for this item
+  <topic>Foreign relations</topic>   .....  second descriptor for this item
+  <temporal>1775-1783</temporal> .....  third descriptor for this item
+ </related>
+ <variant type="translation" xml:lang="fr">  ..... first variant/third item  
+  <geographic> États-Unis</geographic>  .....  first  descriptor for this item
+  <topic>Relations extérieures</topic>      .....  second descriptor for this item
+  <temporal>1775-1783</temporal> .....  third descriptor for this item
+ </variant>                     		
+ <variant type="other">  ..... second variant/fourth item  
+       ******* types for variant: acronym | abbreviation | translation | expansion | other
+  <geographic>United States</geographic> .....  first  descriptor for this item
+  <topic>Foreign relations</topic>  .....  second descriptor for this item
+  <temporal>Revolution, 1775-1783</temporal>  .....  third descriptor for this item
+  <topic>Diplomacy</topic> .....  fourth  descriptor for this item
+ </variant>
+..... ************* miscellaneous additional elements for this record:
+ <note>....
+ <affiliation> ....    - etc.
+</mads>
+(Note: this is a partially fictitious example. The authorized heading is real,
+ the two variants are real  and are real variants of the authorized heading;
+ however, the related, though a real heading, is not a related heading.)
+
+
+Basic high-level structure -->
+	<xsd:complexType name="madsType">
+		<xsd:sequence>
+			<xsd:element name="authority" type="descriptor"/>
+			<xsd:element name="related" type="relatedType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="variant" type="variantType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:group ref="additionalElement" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional"/>
+		<xsd:attribute name="version">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="1.0"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<!--
+		END definition of basic high-level structure.
+
+		********* data structures for items *********
+
+***** descriptor
+
+ This definition is used by <authority>, <related>, and <variant>. 
+<authority>  is defined (above) *as* type "descriptor"; <related> and <variant> 
+are each defined *as an extension of* "descriptor". 
+		-->
+	<xsd:complexType name="descriptor">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="name" type="nameType"/>
+			<xsd:element name="titleInfo" type="mods:baseTitleInfoType"/>
+			<xsd:element name="topic" type="stringPlusAuthority"/>
+			<xsd:element name="temporal" type="dateType"/>
+			<xsd:element name="genre" type="stringPlusAuthority"/>
+			<xsd:element name="geographic" type="stringPlusAuthority"/>
+			<xsd:element name="hierarchicalGeographic" type="hierarchicalGeographicType"/>
+			<xsd:element name="occupation" type="stringPlusAuthority"/>
+		</xsd:choice>
+		<xsd:attributeGroup ref="xlink:simpleLink"/>
+		<xsd:attributeGroup ref="mods:language"/>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional"/>
+	</xsd:complexType>
+	<!-- end descriptor definition
+
+******  relatedType 
+-->
+	<xsd:complexType name="relatedType">
+		<xsd:complexContent>
+			<xsd:extension base="descriptor">
+				<xsd:attribute name="type">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="earlier"/>
+							<xsd:enumeration value="later"/>
+							<xsd:enumeration value="parentOrg"/>
+							<xsd:enumeration value="broader"/>
+							<xsd:enumeration value="narrower"/>
+							<xsd:enumeration value="equivalent">
+								<xsd:annotation>
+									<xsd:documentation>
+							Used for an authoritative term that is the equivalent of another in
+another authority system/thesaurus. Examples are a subject heading in a
+different thesaurus that is equivalent to the one being described or a
+name used in another language-based authority file.
+							</xsd:documentation>
+								</xsd:annotation>
+							</xsd:enumeration>
+							<xsd:enumeration value="other"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- 
+******variantType
+-->
+	<xsd:complexType name="variantType">
+		<xsd:complexContent>
+			<xsd:extension base="descriptor">
+				<xsd:attribute name="type">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="acronym"/>
+							<xsd:enumeration value="abbreviation"/>
+							<xsd:enumeration value="translation"/>
+							<xsd:enumeration value="expansion"/>
+							<xsd:enumeration value="other"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- 
+******Additional Elements	
+	-->
+	<xsd:group name="additionalElement">
+		<xsd:choice>
+			<xsd:element name="note" type="mods:unstructuredText"/>
+			<xsd:element name="affiliation" type="affiliationType"/>
+			<xsd:element name="url" type="mods:urlType"/>
+			<!--A URL associated with the entity. For example,  an organization's web site or a personal home page.-->
+			<xsd:element name="identifier" type="mods:identifierType"/>
+			<!-- An identifier for the entity. For example, it might be an International Standard Text Code (ISTC) for a work. -->
+			<xsd:element name="fieldOfActivity" type="mods:unstructuredText"/>
+			<xsd:element name="extension" type="mods:extensionType"/>
+			<xsd:element name="recordInfo" type="mods:recordInfoType"/>
+		</xsd:choice>
+	</xsd:group>
+	<!--
+		END definition of item structures.
+
+		BEGIN definition of  auxiliary data types: name,  affiliation, 
+address, hierarchicalGeographic, Date, stringPlusAuthority
+		
+ ******* nameType 
+-->
+	<xsd:complexType name="nameType">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="namePart" type="mods:namePartType"/>
+				<xsd:element name="description" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:choice>
+		<xsd:attribute name="type" type="mods:nameTypeAttribute" use="optional"/>
+		<xsd:attribute name="authority" use="optional"/>
+		<!-- Value is from the list at  
+http:/www.loc.gov/marc/sourcecode/authorityfile/authorityfilesource.html		 -->
+	</xsd:complexType>
+	<!--		
+
+	 *********** affiliationType
+-->
+	<xsd:complexType name="affiliationType">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="organization"/>
+			<xsd:element name="position"/>
+			<xsd:element name="address" type="addressType"/>
+			<xsd:element name="email"/>
+			<xsd:element name="phone"/>
+			<xsd:element name="fax"/>
+			<xsd:element name="hours"/>
+			<xsd:element name="dateValid" type="mods:baseDateType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<!--
+ **********addressType -->
+	<xsd:complexType name="addressType">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="street"/>
+			<xsd:element name="city"/>
+			<xsd:element name="state"/>
+			<xsd:element name="country"/>
+			<xsd:element name="postcode"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<!--	
+******* dateType -->
+	<xsd:complexType name="dateType">
+		<xsd:simpleContent>
+			<xsd:extension base="mods:dateType">
+				<xsd:attribute name="authority" use="optional"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!--	
+******* hierarchicalGeographicType -->
+	<xsd:complexType name="hierarchicalGeographicType">
+		<xsd:complexContent>
+			<xsd:extension base="mods:hierarchicalGeographicType">
+				<xsd:attribute name="authority" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--	
+******* stringPlusAuthority-->
+	<xsd:complexType name="stringPlusAuthority">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="authority" use="optional"/>
+			</xsd:extension>
+			<!-- 
+
+******* The following three three references replace previous, broken references, as of April 23, 2010*****
+
+For genre: Value is from the list at 		
+http://www.loc.gov/standards/sourcelist/genre-form.html
+For geographic: Value is from the list at 		
+http://www.loc.gov/standards/sourcelist/name-title.html 
+For topic: Value is from the list at
+http://www.loc.gov/standards/sourcelist/subject.html 
+-->
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

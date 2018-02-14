@@ -1,0 +1,919 @@
+<http://www.loc.gov/mads/rdf/v1#Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Address> <http://www.w3.org/2000/01/rdf-schema#label> "Address"@en .
+<http://www.loc.gov/mads/rdf/v1#Affiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Affiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Affiliation> <http://www.w3.org/2000/01/rdf-schema#comment> "A resource that describes an individual's affiliation with an\n      organization or group, such as the nature of the affiliation and the active\n      dates."@en .
+<http://www.loc.gov/mads/rdf/v1#Affiliation> <http://www.w3.org/2000/01/rdf-schema#label> "Affiliation"@en .
+<http://www.loc.gov/mads/rdf/v1#Area> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Area> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Area> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is a non-jurisdictional geographic entity."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Area> <http://www.w3.org/2000/01/rdf-schema#label> "Area Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Area> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2000/01/rdf-schema#comment> "A concept with a controlled\n      label."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2000/01/rdf-schema#label> "Authority"@en .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#Authority> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#Variant> .
+<http://www.loc.gov/mads/rdf/v1#City> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#City> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#City> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is an inhabited place incorporated as a city, town, etc."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#City> <http://www.w3.org/2000/01/rdf-schema#label> "City Type"@en .
+<http://www.loc.gov/mads/rdf/v1#City> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#CitySection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#CitySection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#CitySection> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is a smaller unit within a populated place, e.g., a neighborhood, park, or\n      street."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#CitySection> <http://www.w3.org/2000/01/rdf-schema#label> "City Section Type"@en .
+<http://www.loc.gov/mads/rdf/v1#CitySection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#ComplexSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ComplexSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ComplexSubject> <http://www.w3.org/2000/01/rdf-schema#comment> "The label of a madsrdf:ComplexSubject is the concatenation of labels\n      from two or more madsrdf:SimpleType descriptions, except that the combination of\n      madsrdf:SimpleType labels for the madsrdf:ComplexSubject does not meet the conditions to be\n      the label of a madsrdf:NameTitle resource or madsrdf:HierarchicalGeographic\n      resource."@en .
+<http://www.loc.gov/mads/rdf/v1#ComplexSubject> <http://www.w3.org/2000/01/rdf-schema#label> "Complex Subject Type"@en .
+<http://www.loc.gov/mads/rdf/v1#ComplexSubject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#ComplexType> .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/2000/01/rdf-schema#comment> "madsrdf:ComplexType is a resource whose label is the concatenation\n      of labels from two or more Authority descriptions or two or more Variant descriptions or some\n      combination of Authority and Variant descriptions, each of a\n      madsrdf:SimpleType."@en .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/2000/01/rdf-schema#label> "Complex Type"@en .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#MADSType> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#ComplexSubject> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#NameTitle> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid3 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:genid1 .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid4 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid4 <http://www.w3.org/2002/07/owl#onProperty> <http://www.loc.gov/mads/rdf/v1#componentList> .
+<http://www.loc.gov/mads/rdf/v1#ComplexType> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid4 .
+<http://www.loc.gov/mads/rdf/v1#ConferenceName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ConferenceName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ConferenceName> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label represents a conference name."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#ConferenceName> <http://www.w3.org/2000/01/rdf-schema#label> "Conference Name Type"@en .
+<http://www.loc.gov/mads/rdf/v1#ConferenceName> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Name> .
+<http://www.loc.gov/mads/rdf/v1#Continent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Continent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Continent> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is one of seven large landmasses on Earth. These are: Asia, Africa, Europe, North\n      America, South America, Australia, and Antarctica."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Continent> <http://www.w3.org/2000/01/rdf-schema#label> "Continent Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Continent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#CorporateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#CorporateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#CorporateName> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is the name of a corporate entity, which may include political or ecclesiastical\n      entities."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#CorporateName> <http://www.w3.org/2000/01/rdf-schema#label> "Corporate Name Type"@en .
+<http://www.loc.gov/mads/rdf/v1#CorporateName> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Name> .
+<http://www.loc.gov/mads/rdf/v1#Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Country> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is a country, i.e. a political entity considered a country. "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Country> <http://www.w3.org/2000/01/rdf-schema#label> "Country Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Country> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#County> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#County> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#County> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is the largest local administrative unit, e.g. Warwickshire, in a country, e.g.\n      England."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#County> <http://www.w3.org/2000/01/rdf-schema#label> "County Type"@en .
+<http://www.loc.gov/mads/rdf/v1#County> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#DateNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#DateNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#DateNameElement> <http://www.w3.org/2000/01/rdf-schema#label> "Date Name\n      Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#DateNameElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#NameElement> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "A former\n      Authority."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Deprecated\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#Element> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Element> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Element> <http://www.w3.org/2000/01/rdf-schema#comment> "madsrdf:Element types\n      describe the various parts of labels."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Element> <http://www.w3.org/2000/01/rdf-schema#label> "Element"@en .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid5 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid5 <http://www.w3.org/2002/07/owl#onProperty> <http://www.loc.gov/mads/rdf/v1#elementValue> .
+<http://www.loc.gov/mads/rdf/v1#Element> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid5 .
+<http://www.loc.gov/mads/rdf/v1#ExtraterrestrialArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ExtraterrestrialArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#ExtraterrestrialArea> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is any extraterrestrial entity or space, including a solar system, a galaxy, a star\n      system, and a planet, including a geographic feature of an individual planet."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#ExtraterrestrialArea> <http://www.w3.org/2000/01/rdf-schema#label> "Extraterrestrial Area Type"@en .
+<http://www.loc.gov/mads/rdf/v1#ExtraterrestrialArea> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#FamilyName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#FamilyName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#FamilyName> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label represents a family name."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#FamilyName> <http://www.w3.org/2000/01/rdf-schema#label> "Family Name Type"@en .
+<http://www.loc.gov/mads/rdf/v1#FamilyName> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Name> .
+<http://www.loc.gov/mads/rdf/v1#FamilyNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#FamilyNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#FamilyNameElement> <http://www.w3.org/2000/01/rdf-schema#label> "Family Name\n      Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#FamilyNameElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#NameElement> .
+<http://www.loc.gov/mads/rdf/v1#FullNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#FullNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#FullNameElement> <http://www.w3.org/2000/01/rdf-schema#label> "Fullname Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#FullNameElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#NameElement> .
+<http://www.loc.gov/mads/rdf/v1#GenreForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GenreForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GenreForm> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose label is a genre or form term. Genre\n      terms for textual materials designate specific kinds of materials distinguished by the style\n      or technique of their intellectual contents; for example, biographies, catechisms, essays,\n      hymns, or reviews. Form terms designate historically and functionally specific kinds of\n      materials as distinguished by an examination of their physical character, characteristics of\n      their intellectual content, or the order of information within them; for example, daybooks,\n      diaries, directories, journals, memoranda, questionnaires, syllabi, or time sheets. In the\n      context of graphic materials, genre headings denote categories of material distinguished by\n      vantage point, intended purpose, characteristics of the creator, publication status, or method\n      of representation."@en .
+<http://www.loc.gov/mads/rdf/v1#GenreForm> <http://www.w3.org/2000/01/rdf-schema#label> "Genre/Form Type"@en .
+<http://www.loc.gov/mads/rdf/v1#GenreForm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#GenreFormElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GenreFormElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GenreFormElement> <http://www.w3.org/2000/01/rdf-schema#label> "Genre/Form Element"@en .
+<http://www.loc.gov/mads/rdf/v1#GenreFormElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#Geographic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Geographic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Geographic> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose label represents a geographic place or\n      feature, especially when a more precise geographic determination (City, Country, Region, etc.)\n      cannot be made."@en .
+<http://www.loc.gov/mads/rdf/v1#Geographic> <http://www.w3.org/2000/01/rdf-schema#label> "Geographic Authority"@en .
+<http://www.loc.gov/mads/rdf/v1#Geographic> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#GeographicElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GeographicElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GeographicElement> <http://www.w3.org/2000/01/rdf-schema#label> "Geographic Element"@en .
+<http://www.loc.gov/mads/rdf/v1#GeographicElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#GivenNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GivenNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#GivenNameElement> <http://www.w3.org/2000/01/rdf-schema#label> "Given Name\n      Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#GivenNameElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#NameElement> .
+<http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic> <http://www.w3.org/2000/01/rdf-schema#comment> "A madsrdf:HierarchicalGeographic indicates that its label is the\n      concatenation of labels from a sequence of madsrdf:Geographic types taken from one of the\n      madsrdf:Geographic sub-classes such as madsrdf:City, madsrdf:Country, madsrdf:State,\n      madsrdf:Region, madsrdf:Area, etc. The madsrdf:Geographic resources that constitute the\n      madsrdf:HierarchicalGeographic should have a broader to narrower hierarchical relationship\n      between them."@en .
+<http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic> <http://www.w3.org/2000/01/rdf-schema#label> "Hierarchical Geographic Type"@en .
+<http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#ComplexType> .
+<http://www.loc.gov/mads/rdf/v1#Identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Identifier> <http://www.w3.org/2000/01/rdf-schema#comment> "A madsrdf:Identifier\n      resource describes an identifier by associating the identifier value with its type. To be used\n      to record identifiers for a resource in the absence of URIs."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Identifier> <http://www.w3.org/2000/01/rdf-schema#label> "Other Identifier"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Island> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Island> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Island> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is a tract of land surrounded by water and smaller than a continent but is not itself a\n      separate country. "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Island> <http://www.w3.org/2000/01/rdf-schema#label> "Island Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Island> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#Language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Language> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose label represents a\n      language."@en .
+<http://www.loc.gov/mads/rdf/v1#Language> <http://www.w3.org/2000/01/rdf-schema#label> "Language Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Language> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#Language> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/dc/terms/LinguisticSystem> .
+<http://www.loc.gov/mads/rdf/v1#LanguageElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#LanguageElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#LanguageElement> <http://www.w3.org/2000/01/rdf-schema#label> "Language Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#LanguageElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/2000/01/rdf-schema#comment> "A madsrdf:Collection is an\n      organizational unit, members of which will have some form of intellectually unifying theme but\n      not to the extent that it defines an independent knowledge organization system. It aggregates\n      madsrdf:Authority descriptions or other madsrdf:MADSCollection resources."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/2000/01/rdf-schema#label> "MADS Collection"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Collection> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#MADSCollection> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#Variant> .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/2000/01/rdf-schema#comment> "MADS Scheme is an organizational unit that describes a knowledge\n      organization system. It aggregates madsrdf:Authority descriptions and/or\n      madsrdf:MADSCollection resources included in the knowledge organization system. Including a\n      madsrdf:MADSCollection within a madsrdf:MADSScheme should be done with care; when a\n      madsrdf:MADSCollection is part of a madsrdf:MADSScheme, then any madsrdf:Authority within that\n      madsrdf:MADSCollection is effectively also in the madsrdf:MADSScheme."@en .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/2000/01/rdf-schema#label> "MADS Scheme"@en .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#MADSScheme> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#Variant> .
+<http://www.loc.gov/mads/rdf/v1#MADSType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MADSType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MADSType> <http://www.w3.org/2000/01/rdf-schema#label> "MADS Type"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#MADSType> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#MADSType> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#MainTitleElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MainTitleElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#MainTitleElement> <http://www.w3.org/2000/01/rdf-schema#label> "Main Title\n      Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#MainTitleElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#TitleElement> .
+<http://www.loc.gov/mads/rdf/v1#Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Name> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose label represents a name, especially when\n      a more precise Name type (madsrdf:ConferenceName, masdrdf:FamilyName, etc.) cannot be\n      identified."@en .
+<http://www.loc.gov/mads/rdf/v1#Name> <http://www.w3.org/2000/01/rdf-schema#label> "Name Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Name> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#NameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#NameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#NameElement> <http://www.w3.org/2000/01/rdf-schema#label> "Name Element"@en .
+<http://www.loc.gov/mads/rdf/v1#NameElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#NameTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#NameTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#NameTitle> <http://www.w3.org/2000/01/rdf-schema#comment> "The label of a madsrdf:NameTitle resource is the concatenation of a\n      label of a madsrdf:Name description and the label of a madsrdf:Title description. Both\n      description types (madsrdf:Name and madsrdf:Title) are of madsrdf:SimpleType\n      types."@en .
+<http://www.loc.gov/mads/rdf/v1#NameTitle> <http://www.w3.org/2000/01/rdf-schema#label> "Name/Title Type"@en .
+<http://www.loc.gov/mads/rdf/v1#NameTitle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#ComplexType> .
+<http://www.loc.gov/mads/rdf/v1#NonSortElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#NonSortElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#NonSortElement> <http://www.w3.org/2000/01/rdf-schema#label> "Non-sort Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#NonSortElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#TitleElement> .
+<http://www.loc.gov/mads/rdf/v1#Occupation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Occupation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Occupation> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label represents an occcupation."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Occupation> <http://www.w3.org/2000/01/rdf-schema#label> "Occupation Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Occupation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#PartNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#PartNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#PartNameElement> <http://www.w3.org/2000/01/rdf-schema#label> "Part Name\n      Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#PartNameElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#TitleElement> .
+<http://www.loc.gov/mads/rdf/v1#PartNumberElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#PartNumberElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#PartNumberElement> <http://www.w3.org/2000/01/rdf-schema#label> "Part Number\n      Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#PartNumberElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#TitleElement> .
+<http://www.loc.gov/mads/rdf/v1#PersonalName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#PersonalName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#PersonalName> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label represents a personal name."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#PersonalName> <http://www.w3.org/2000/01/rdf-schema#label> "Personal Name Type"@en .
+<http://www.loc.gov/mads/rdf/v1#PersonalName> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Name> .
+<http://www.loc.gov/mads/rdf/v1#Province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Province> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is a first order political division, e.g. Ontario, within a country, e.g. Canada. "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Province> <http://www.w3.org/2000/01/rdf-schema#label> "Province Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Province> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#RWO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#RWO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#RWO> <http://www.w3.org/2000/01/rdf-schema#comment> "A madsrdf:RWO is an\n      abstract entity and identifies a Real World Object (RWO) identified by the label of a\n      madsrdf:Authority or madsrdf:DeprecatedAuthority."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#RWO> <http://www.w3.org/2000/01/rdf-schema#label> "Real World\n      Object"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#RWO> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.loc.gov/mads/rdf/v1#Region> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Region> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Region> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is an area that has the status of a jurisdiction, usually incorporating more than one\n      first level jurisdiction. "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Region> <http://www.w3.org/2000/01/rdf-schema#label> "Region Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Region> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#SimpleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#SimpleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#SimpleType> <http://www.w3.org/2000/01/rdf-schema#comment> "madsrdf:SimpleType is a resource with a label constituting a single\n      word or phrase."@en .
+<http://www.loc.gov/mads/rdf/v1#SimpleType> <http://www.w3.org/2000/01/rdf-schema#label> "Simple Type"@en .
+<http://www.loc.gov/mads/rdf/v1#SimpleType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#MADSType> .
+<http://www.loc.gov/mads/rdf/v1#Source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Source> <http://www.w3.org/2000/01/rdf-schema#comment> "A resource that represents\n      the source of information about another resource. madsrdf:Source is a type of\n      citation."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Source> <http://www.w3.org/2000/01/rdf-schema#label> "Source"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#State> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#State> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#State> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is a first order political division, e.g. Montana, within a country, e.g.\n      U.S."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#State> <http://www.w3.org/2000/01/rdf-schema#label> "State Type"@en .
+<http://www.loc.gov/mads/rdf/v1#State> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#SubTitleElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#SubTitleElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#SubTitleElement> <http://www.w3.org/2000/01/rdf-schema#label> "Subtitle Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#SubTitleElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#TitleElement> .
+<http://www.loc.gov/mads/rdf/v1#Temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Temporal> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label represents a time-based notion."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Temporal Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Temporal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#TemporalElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TemporalElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TemporalElement> <http://www.w3.org/2000/01/rdf-schema#label> "Temporal Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#TemporalElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#TermsOfAddressNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TermsOfAddressNameElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TermsOfAddressNameElement> <http://www.w3.org/2000/01/rdf-schema#label> "Terms of Address\n      Element"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#TermsOfAddressNameElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#NameElement> .
+<http://www.loc.gov/mads/rdf/v1#Territory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Territory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Territory> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label is a geographical area belonging to or under the jurisdiction of a governmental\n      authority. "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Territory> <http://www.w3.org/2000/01/rdf-schema#label> "Territory Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Territory> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#Title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Title> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label represents a title."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Title> <http://www.w3.org/2000/01/rdf-schema#label> "Title Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Title> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#TitleElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TitleElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TitleElement> <http://www.w3.org/2000/01/rdf-schema#label> "Title Element"@en .
+<http://www.loc.gov/mads/rdf/v1#TitleElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#Topic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Topic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Topic> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a resource whose\n      label represents a topic."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#Topic> <http://www.w3.org/2000/01/rdf-schema#label> "Topic Type"@en .
+<http://www.loc.gov/mads/rdf/v1#Topic> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#SimpleType> .
+<http://www.loc.gov/mads/rdf/v1#TopicElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TopicElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#TopicElement> <http://www.w3.org/2000/01/rdf-schema#label> "Topic Element"@en .
+<http://www.loc.gov/mads/rdf/v1#TopicElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/2000/01/rdf-schema#comment> "A resource whose label is the alternate form of an Authority or\n      Deprecated Authority."@en .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/2000/01/rdf-schema#label> "Variant"@en .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2008/05/skos-xl#Label> .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#Variant> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#adminMetadata> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#adminMetadata> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#adminMetadata> <http://www.w3.org/2000/01/rdf-schema#comment> "This relates an Authority or Variant to its administrative metadata,\n      which is, minimimally, a Class defined outside of the MADS/RDF namespace. The RecordInfo Class\n      from the RecordInfo ontology is recommended."@en .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Variant> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid9 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
+_:genid6 <http://www.w3.org/2002/07/owl#unionOf> _:genid7 .
+<http://www.loc.gov/mads/rdf/v1#adminMetadata> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid6 .
+<http://www.loc.gov/mads/rdf/v1#adminMetadata> <http://www.w3.org/2000/01/rdf-schema#label> "Administrative Metadata"@en .
+<http://www.loc.gov/mads/rdf/v1#activityEndDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#activityEndDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#activityEndDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Latest date in a period of activity.\n    "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#activityEndDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#activityEndDate> <http://www.w3.org/2000/01/rdf-schema#label> "Activity End"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#activityStartDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#activityStartDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#activityStartDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Earliest date in a period of activity.\n    "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#activityStartDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#activityStartDate> <http://www.w3.org/2000/01/rdf-schema#label> "Activity Start"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#affiliationEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#affiliationEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#affiliationEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "The date an individual\n      ceased to be affiliated with an organization."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#affiliationEnd> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#affiliationEnd> <http://www.w3.org/2000/01/rdf-schema#label> "Affiliation\n      Ended"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#affiliationEnd> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.loc.gov/mads/rdf/v1#affiliationStart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#affiliationStart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#affiliationStart> <http://www.w3.org/2000/01/rdf-schema#comment> "The date an individual\n      established an affiliation with an organization."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#affiliationStart> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#affiliationStart> <http://www.w3.org/2000/01/rdf-schema#label> "Affiliation\n      Started"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#affiliationStart> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.loc.gov/mads/rdf/v1#associatedLanguage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#associatedLanguage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#associatedLanguage> <http://www.w3.org/2000/01/rdf-schema#comment> "Language that a person,\n      organization, or family uses for publication, communication, etc., or in which a work is\n      expressed. "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#associatedLanguage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#associatedLanguage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Language> .
+<http://www.loc.gov/mads/rdf/v1#associatedLanguage> <http://www.w3.org/2000/01/rdf-schema#label> "Associated\n      Language"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#associatedLocale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#associatedLocale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#associatedLocale> <http://www.w3.org/2000/01/rdf-schema#comment> "A town, city, province,\n      state, and/or country associated with persons, corporate bodies, families, works, and\n      expressions."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#associatedLocale> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#associatedLocale> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#associatedLocale> <http://www.w3.org/2000/01/rdf-schema#label> "Associated Locale"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#authoritativeLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#authoritativeLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#authoritativeLabel> <http://www.w3.org/2000/01/rdf-schema#comment> "A lexical string representing a controlled, curated label for the\n      Authority."@en .
+<http://www.loc.gov/mads/rdf/v1#authoritativeLabel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#authoritativeLabel> <http://www.w3.org/2000/01/rdf-schema#label> "Authoritative Label"@en .
+<http://www.loc.gov/mads/rdf/v1#authoritativeLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#label> .
+<http://www.loc.gov/mads/rdf/v1#authoritativeLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#prefLabel> .
+<http://www.loc.gov/mads/rdf/v1#birthDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#birthDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#birthDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The year a person was born.\n      Date of birth may also include the month and day of the person\u2019s birth. (RDA\n      9.3.2.1)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#birthDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#birthDate> <http://www.w3.org/2000/01/rdf-schema#label> "Birth Date"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#birthPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#birthPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#birthPlace> <http://www.w3.org/2000/01/rdf-schema#comment> "The town, city, province,\n      state, and/or country in which a person was born."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#birthPlace> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#birthPlace> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#birthPlace> <http://www.w3.org/2000/01/rdf-schema#label> "Place of Birth"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#changeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#changeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#changeNote> <http://www.w3.org/2000/01/rdf-schema#comment> "A note detailing a modification to an Authority or\n      Variant."@en .
+<http://www.loc.gov/mads/rdf/v1#changeNote> <http://www.w3.org/2000/01/rdf-schema#label> "Change Note"@en .
+<http://www.loc.gov/mads/rdf/v1#changeNote> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#note> .
+<http://www.loc.gov/mads/rdf/v1#changeNote> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2004/02/skos/core#changeNote> .
+<http://www.loc.gov/mads/rdf/v1#citationNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#citationNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#citationNote> <http://www.w3.org/2000/01/rdf-schema#comment> "A note about how the madsrdf:Source relates to the resource about\n      which the madsrdf:Source is the information source."@en .
+<http://www.loc.gov/mads/rdf/v1#citationNote> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Source> .
+<http://www.loc.gov/mads/rdf/v1#citationNote> <http://www.w3.org/2000/01/rdf-schema#label> "Citation Note"@en .
+<http://www.loc.gov/mads/rdf/v1#citationSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#citationSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#citationSource> <http://www.w3.org/2000/01/rdf-schema#comment> "The cited resource."@en .
+<http://www.loc.gov/mads/rdf/v1#citationSource> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Source> .
+<http://www.loc.gov/mads/rdf/v1#citationSource> <http://www.w3.org/2000/01/rdf-schema#label> "Citation Source"@en .
+<http://www.loc.gov/mads/rdf/v1#citationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#citationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#citationStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "Should use a standard term - such as 'found' or 'not found' - to\n      indicate whether the cited resource yielded information about the resource related to the\n      madsrdf:Source."@en .
+<http://www.loc.gov/mads/rdf/v1#citationStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Source> .
+<http://www.loc.gov/mads/rdf/v1#citationStatus> <http://www.w3.org/2000/01/rdf-schema#label> "Citation Status"@en .
+<http://www.loc.gov/mads/rdf/v1#citationStatus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#city> <http://www.w3.org/2000/01/rdf-schema#comment> "The city component of an address."@en .
+<http://www.loc.gov/mads/rdf/v1#city> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Address> .
+<http://www.loc.gov/mads/rdf/v1#city> <http://www.w3.org/2000/01/rdf-schema#label> "City"@en .
+<http://www.loc.gov/mads/rdf/v1#classification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#classification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#classification> <http://www.w3.org/2000/01/rdf-schema#comment> "The classification code associated with a\n      madsrdf:Authority."@en .
+<http://www.loc.gov/mads/rdf/v1#classification> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#classification> <http://www.w3.org/2000/01/rdf-schema#label> "Classification"@en .
+<http://www.loc.gov/mads/rdf/v1#classification> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#semanticRelation> .
+<http://www.loc.gov/mads/rdf/v1#code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#code> <http://www.w3.org/2000/01/rdf-schema#comment> "A code is a string of\n      characters associated with a the authoritative or deprecated label. It may record an\n      historical notation once used to uniquely identify a concept."^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid12 .
+_:genid10 <http://www.w3.org/2002/07/owl#unionOf> _:genid11 .
+<http://www.loc.gov/mads/rdf/v1#code> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid10 .
+<http://www.loc.gov/mads/rdf/v1#code> <http://www.w3.org/2000/01/rdf-schema#label> "Code"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#code> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#notation> .
+<http://www.loc.gov/mads/rdf/v1#componentList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#componentList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#componentList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#componentList> <http://www.w3.org/2000/01/rdf-schema#comment> "madsrdf:componentList\n      organizes the madsrdf:SimpleType resources whose labels are represented in the label of the\n      associated madsrdf:ComplexType resource."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#componentList> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#ComplexType> .
+<http://www.loc.gov/mads/rdf/v1#componentList> <http://www.w3.org/2000/01/rdf-schema#label> "Component List"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid15 .
+_:genid13 <http://www.w3.org/2002/07/owl#unionOf> _:genid14 .
+<http://www.loc.gov/mads/rdf/v1#componentList> <http://www.w3.org/2000/01/rdf-schema#range> _:genid13 .
+<http://www.loc.gov/mads/rdf/v1#country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#country> <http://www.w3.org/2000/01/rdf-schema#comment> "Country associated with an\n      address."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#country> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Address> .
+<http://www.loc.gov/mads/rdf/v1#country> <http://www.w3.org/2000/01/rdf-schema#label> "Country"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#creationDateEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#creationDateEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#creationDateEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "Ending date of the date range for which the beginning date is recorded in madsrdf:creationDateStart."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#creationDateEnd> <http://www.w3.org/2000/01/rdf-schema#label> ""^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#creationDateStart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#creationDateStart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#creationDateStart> <http://www.w3.org/2000/01/rdf-schema#comment> "For a work, earliest date (normally the year) associated with a work; that date may be the date the work was created or first published or released. For an expression, the earliest date (normally the year) associated with an expression; that date may be the date of the earliest known manifestation of that expression. In both cases the date may be the starting date of a range or a single date."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#creationDateStart> <http://www.w3.org/2000/01/rdf-schema#label> "Work begun"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deathDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#deathDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#deathDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The year a person died.\n      Date of death may also include the month and day of the person\u2019s death. (RDA\n      9.3.3.1)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deathDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#deathDate> <http://www.w3.org/2000/01/rdf-schema#label> "Death Date"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deathPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#deathPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#deathPlace> <http://www.w3.org/2000/01/rdf-schema#comment> "The town, city, province,\n      state, and/or country in which a person died."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deathPlace> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#deathPlace> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#deathPlace> <http://www.w3.org/2000/01/rdf-schema#label> "Place of Death"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#definitionNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#definitionNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#definitionNote> <http://www.w3.org/2000/01/rdf-schema#comment> "An explanation of the meaning of an Authority, DeprecatedAuthority,\n      or Variant description."@en .
+<http://www.loc.gov/mads/rdf/v1#definitionNote> <http://www.w3.org/2000/01/rdf-schema#label> "Definition Note"@en .
+<http://www.loc.gov/mads/rdf/v1#definitionNote> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#note> .
+<http://www.loc.gov/mads/rdf/v1#definitionNote> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2004/02/skos/core#definition> .
+<http://www.loc.gov/mads/rdf/v1#deletionNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#deletionNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#deletionNote> <http://www.w3.org/2000/01/rdf-schema#comment> "A note pertaining to the\n      deletion of a resource."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deletionNote> <http://www.w3.org/2000/01/rdf-schema#label> "Deletion Note"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deletionNote> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#changeNote> .
+<http://www.loc.gov/mads/rdf/v1#deprecatedLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#deprecatedLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#deprecatedLabel> <http://www.w3.org/2000/01/rdf-schema#comment> "A label once considered\n      authoritative (controlled and curated) but which is no longer."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deprecatedLabel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#deprecatedLabel> <http://www.w3.org/2000/01/rdf-schema#label> "Deprecated Label"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#deprecatedLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#label> .
+<http://www.loc.gov/mads/rdf/v1#deprecatedLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#hiddenLabel> .
+<http://www.loc.gov/mads/rdf/v1#editorialNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#editorialNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#editorialNote> <http://www.w3.org/2000/01/rdf-schema#comment> "A note pertaining to the\n      management of the label associated with the resource."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#editorialNote> <http://www.w3.org/2000/01/rdf-schema#label> "Editorial Note"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#editorialNote> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#note> .
+<http://www.loc.gov/mads/rdf/v1#editorialNote> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2004/02/skos/core#editorialNote> .
+<http://www.loc.gov/mads/rdf/v1#elementList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#elementList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#elementList> <http://www.w3.org/2000/01/rdf-schema#comment> "The madsrdf:elementList property is used to organize the various\n      parts of labels."@en .
+<http://www.loc.gov/mads/rdf/v1#elementList> <http://www.w3.org/2000/01/rdf-schema#label> "Element List"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid18 .
+_:genid16 <http://www.w3.org/2002/07/owl#unionOf> _:genid17 .
+<http://www.loc.gov/mads/rdf/v1#elementList> <http://www.w3.org/2000/01/rdf-schema#range> _:genid16 .
+<http://www.loc.gov/mads/rdf/v1#elementValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#elementValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#elementValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#elementValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Element> .
+<http://www.loc.gov/mads/rdf/v1#elementValue> <http://www.w3.org/2000/01/rdf-schema#label> "Element Value"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#elementValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#email> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#email> <http://www.w3.org/2000/01/rdf-schema#label> "Email"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#entityDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#entityDescriptor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#entityDescriptor> <http://www.w3.org/2000/01/rdf-schema#comment> "Any attribute that serves\n      to characterize a person, family or corporate body or that may be needed for differentiation\n      from other persons. families or corporate bodies and for which separate content designation is\n      not already defined.Or "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#entityDescriptor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#entityDescriptor> <http://www.w3.org/2000/01/rdf-schema#label> "Entity\n      Descriptor"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#establishDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#establishDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#establishDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The year a corporate body was established. Date of establishment may also include the month and day of the corporate body\u2019s establishment.\n    "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#establishDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#establishDate> <http://www.w3.org/2000/01/rdf-schema#label> "Established"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#exampleNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#exampleNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#exampleNote> <http://www.w3.org/2000/01/rdf-schema#comment> "A example of how the\n      resource might be used."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#exampleNote> <http://www.w3.org/2000/01/rdf-schema#label> "Example Note"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#exampleNote> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#note> .
+<http://www.loc.gov/mads/rdf/v1#exampleNote> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2004/02/skos/core#example> .
+<http://www.loc.gov/mads/rdf/v1#extendedAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#extendedAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#extendedAddress> <http://www.w3.org/2000/01/rdf-schema#comment> "The second address line, if\n      needed."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#extendedAddress> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Address> .
+<http://www.loc.gov/mads/rdf/v1#extendedAddress> <http://www.w3.org/2000/01/rdf-schema#label> "Extended Address"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#extension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#extension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#extension> <http://www.w3.org/2000/01/rdf-schema#label> "Extension"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#fax> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#fax> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#fax> <http://www.w3.org/2000/01/rdf-schema#comment> "Fax number"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#fax> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#fax> <http://www.w3.org/2000/01/rdf-schema#label> "Fax"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#fieldOfActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#fieldOfActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#fieldOfActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "The field of activity\n      associated with an individual."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#fieldOfActivity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#fieldOfActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Field of\n      Activity"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#fullerName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#fullerName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#fullerName> <http://www.w3.org/2000/01/rdf-schema#comment> "Full form of name needed to\n      distinguish a person from another person with the same preferred name."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#fullerName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#PersonalName> .
+<http://www.loc.gov/mads/rdf/v1#fullerName> <http://www.w3.org/2000/01/rdf-schema#label> "Fuller Name"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DataTypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#gender> <http://www.w3.org/2000/01/rdf-schema#comment> "The gender with which a\n      person identifies. "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#gender> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#gender> <http://www.w3.org/2000/01/rdf-schema#label> "Gender"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasAbbreviationVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasAbbreviationVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasAbbreviationVariant> <http://www.w3.org/2000/01/rdf-schema#label> "Has Abbreviation\n      Variant"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasAbbreviationVariant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasVariant> .
+<http://www.loc.gov/mads/rdf/v1#hasAcronymVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasAcronymVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasAcronymVariant> <http://www.w3.org/2000/01/rdf-schema#label> "Has Acronym\n      Variant"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasAcronymVariant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasVariant> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#comment> "Property to associate an\n      individual, such as a foaf:Agent, to a group or organization with which an individual is or\n      has been affiliated."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#label> "Has Affiliation"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliationAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliationAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliationAddress> <http://www.w3.org/2000/01/rdf-schema#comment> "The address of the group or\n      organization with which an individual is associated."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliationAddress> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliationAddress> <http://www.w3.org/2000/01/rdf-schema#label> "Has Affiliation\n      Address"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasAffiliationAddress> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Address> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Broader\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#broader> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Creates a direct\n      relationship between an Authority and a more broadly defined Authority from a different MADS\n      Scheme."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Broader External\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasBroaderExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#broadMatch> .
+<http://www.loc.gov/mads/rdf/v1#hasChararacteristic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasChararacteristic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasChararacteristic> <http://www.w3.org/2000/01/rdf-schema#comment> "A term that specifies a characteristic that differentiates a work or expression from another one.\n    "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasChararacteristic> <http://www.w3.org/2000/01/rdf-schema#label> "Other characteristic"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Records a relationship\n      between an Authority and one that is closely related from a different MADS\n      Scheme."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Close External\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#closeMatch> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishes a relationship\n      between a CorporateName Authority and one of the same that is more broadly\n      defined."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#CorporateName> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Parent\n      Organization"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#CorporateName> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishes a relationship\n      between a CorporateName Authority and one of the same that is more narrowly\n      defined."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#CorporateName> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Is Parent Organization\n      Of"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#CorporateName> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasCorporateSubsidiaryAuthority> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasCorporateParentAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> <http://www.w3.org/2000/01/rdf-schema#comment> "Used to reference a resource that was an earlier form. This is\n      Related type='earlier' in MADS XML."@en .
+<http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> <http://www.w3.org/2000/01/rdf-schema#label> "Has Earlier Established\n      Form"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#see> .
+<http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasLaterEstablishedForm> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Records a relationship\n      between an Authority and one to which it matches exactly but from a different MADS\n      Scheme."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Exact External\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasCloseExternalAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasExactExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#exactMatch> .
+<http://www.loc.gov/mads/rdf/v1#hasExpansionVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasExpansionVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasExpansionVariant> <http://www.w3.org/2000/01/rdf-schema#label> "Has Expansion\n      Variant"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasExpansionVariant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasVariant> .
+<http://www.loc.gov/mads/rdf/v1#hasHiddenVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasHiddenVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasHiddenVariant> <http://www.w3.org/2000/01/rdf-schema#comment> "Use for variants that are searchable, but not necessarily for\n      display."@en .
+<http://www.loc.gov/mads/rdf/v1#hasHiddenVariant> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#hasHiddenVariant> <http://www.w3.org/2000/01/rdf-schema#label> "Has Hidden Variant"@en .
+<http://www.loc.gov/mads/rdf/v1#hasHiddenVariant> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Variant> .
+<http://www.loc.gov/mads/rdf/v1#hasHiddenVariant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2008/05/skos-xl#hiddenLabel> .
+<http://www.loc.gov/mads/rdf/v1#hasIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a resource with\n      a madsrdf:Identifier."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#label> "Has Identifier"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Identifier> .
+<http://www.loc.gov/mads/rdf/v1#hasLaterEstablishedForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasLaterEstablishedForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasLaterEstablishedForm> <http://www.w3.org/2000/01/rdf-schema#comment> "Use to reference the later form of a resource. This is Related\n      type='later' in MADS XML."@en .
+<http://www.loc.gov/mads/rdf/v1#hasLaterEstablishedForm> <http://www.w3.org/2000/01/rdf-schema#label> "Has Later Established\n      Form"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasLaterEstablishedForm> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#see> .
+<http://www.loc.gov/mads/rdf/v1#hasLaterEstablishedForm> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasEarlierEstablishedForm> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Authority or other Collection with a\n      madsrdf:MADSCollection."@en .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/2000/01/rdf-schema#label> "Has MADSCollection Member"@en .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid21 .
+_:genid19 <http://www.w3.org/2002/07/owl#unionOf> _:genid20 .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/2000/01/rdf-schema#range> _:genid19 .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#member> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Authority or Collection with a\n      madsrdf:MADSScheme."@en .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/2000/01/rdf-schema#label> "Has MADS Scheme\n      Member"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid24 .
+_:genid22 <http://www.w3.org/2002/07/owl#unionOf> _:genid23 .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/2000/01/rdf-schema#range> _:genid22 .
+<http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Creates a direct\n      relationship between an Authority and one that is more narrowly defined."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Narrower\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#narrower> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasBroaderAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Creates a direct\n      relationship between an Authority and a more narrowly defined Authority from a different MADS\n      Scheme."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Narrower External\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasNarrowerAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasNarrowerExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#narrowMatch> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishes a relationship between two Authority resources. It is\n      reciprocal, so the relationship must be shared. This is Related type='equivalent' in MADS\n      XML."@en .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Reciprocal\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#related> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalExternalAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Establishes a relationship\n      between an Authority and one from a different MADS Scheme. It is reciprocal, so the\n      relationship must be shared."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Reciprocal External\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasReciprocalAuthority> .
+<http://www.loc.gov/mads/rdf/v1#hasReciprocalExternalAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#relatedMatch> .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Unless the relationship can be more specifically identified, use\n      'hasRelatedAuthority.'"@en .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Has Related Authority"@en .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#hasRelatedAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#semanticRelation> .
+<http://www.loc.gov/mads/rdf/v1#hasSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a resource description with its Source."@en .
+<http://www.loc.gov/mads/rdf/v1#hasSource> <http://www.w3.org/2000/01/rdf-schema#label> "Has Source"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasSource> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Source> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#comment> "Identifies an Authority\n      that is at the top of the hierarchy of authorities within the MADS Scheme."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#label> "Has Top Member of MADS\n      Scheme"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> .
+<http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#hasTopConcept> .
+<http://www.loc.gov/mads/rdf/v1#hasTranslationVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasTranslationVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasTranslationVariant> <http://www.w3.org/2000/01/rdf-schema#comment> "A Variant whose label\n      represents a translation of that of the authoritative label."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasTranslationVariant> <http://www.w3.org/2000/01/rdf-schema#label> "Has Translation\n      Variant"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasTranslationVariant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#hasVariant> .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a Variant with an Authority or Deprecrated Authority.\n      Unless the variant type can be more specifically identified, use 'hasVariant.'"@en .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/2000/01/rdf-schema#label> "Has Variant"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Variant> .
+<http://www.loc.gov/mads/rdf/v1#hasVariant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2008/05/skos-xl#altLabel> .
+<http://www.loc.gov/mads/rdf/v1#hiddenLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hiddenLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#hiddenLabel> <http://www.w3.org/2000/01/rdf-schema#comment> "A label entered for\n      discovery purposes but not shown."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hiddenLabel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Variant> .
+<http://www.loc.gov/mads/rdf/v1#hiddenLabel> <http://www.w3.org/2000/01/rdf-schema#label> "Hidden Label"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hiddenLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2008/05/skos-xl#literalForm> .
+<http://www.loc.gov/mads/rdf/v1#historyNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#historyNote> <http://www.w3.org/2000/01/rdf-schema#comment> "A note pertaining to the\n      history of the resource."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#historyNote> <http://www.w3.org/2000/01/rdf-schema#label> "History Note"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#historyNote> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#note> .
+<http://www.loc.gov/mads/rdf/v1#historyNote> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2004/02/skos/core#historyNote> .
+<http://www.loc.gov/mads/rdf/v1#honoraryTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#honoraryTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#honoraryTitle> <http://www.w3.org/2000/01/rdf-schema#comment> "Designation indicative of\n      royalty, nobility, or ecclesiastical rank or office, or a term of address for a person of\n      religious vocation."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#honoraryTitle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#honoraryTitle> <http://www.w3.org/2000/01/rdf-schema#label> "Honorary Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#hours> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#hours> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#hours> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#hours> <http://www.w3.org/2000/01/rdf-schema#label> "Hours"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#idScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#idScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#idScheme> <http://www.w3.org/2000/01/rdf-schema#comment> "The scheme associated with\n      the identifier. For example, \"LCCN\" would be used when the Identifier Value (madsrdf:idValue)\n      is a LC Control Number."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#idScheme> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Identifier> .
+<http://www.loc.gov/mads/rdf/v1#idScheme> <http://www.w3.org/2000/01/rdf-schema#label> "Identifier\n      Scheme"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#idValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#idValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#idValue> <http://www.w3.org/2000/01/rdf-schema#comment> "The value of the identifier\n      conforming to the Identifier Scheme syntax."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#idValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Identifier> .
+<http://www.loc.gov/mads/rdf/v1#idValue> <http://www.w3.org/2000/01/rdf-schema#label> "Identifier Value"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#idValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a\n      madsrdf:Authority with the Real World Object that is the subject of the authority's\n      label."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/2000/01/rdf-schema#label> "Identifies RWO"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/focus> .
+<http://www.loc.gov/mads/rdf/v1#identifiesRWO> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> .
+<http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a Real World\n      Object with its Authority description."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Is Identified By\n      Authority"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Authority> .
+<http://www.loc.gov/mads/rdf/v1#isIdentifiedByAuthority> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#identifiesRWO> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a Collection with a madsrdf:Authority or another\n      madsrdf:MADSCollection."@en .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid27 .
+_:genid25 <http://www.w3.org/2002/07/owl#unionOf> _:genid26 .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid25 .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> <http://www.w3.org/2000/01/rdf-schema#label> "Is Member Of MADSCollection"@en .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSCollection> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasMADSCollectionMember> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid30 .
+_:genid28 <http://www.w3.org/2002/07/owl#unionOf> _:genid29 .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid28 .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#label> "Is Member of MADS\n      Scheme"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#inScheme> .
+<http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember> .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#comment> "Identifies a MADS Scheme in\n      which the Authority is at the top of the hierarchy."^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#MADSCollection> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid33 .
+_:genid31 <http://www.w3.org/2002/07/owl#unionOf> _:genid32 .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid31 .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#label> "Is Top Member of MADS\n      Scheme"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#MADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2004/02/skos/core#topConceptOf> .
+<http://www.loc.gov/mads/rdf/v1#isTopMemberOfMADSScheme> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#hasTopMemberOfMADSScheme> .
+<http://www.loc.gov/mads/rdf/v1#natureOfAffiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#natureOfAffiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#natureOfAffiliation> <http://www.w3.org/2000/01/rdf-schema#comment> "Records the individual's\n      role or position in the organization with which the individual is affiliated. A \"job title\"\n      might be appropriate."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#natureOfAffiliation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#natureOfAffiliation> <http://www.w3.org/2000/01/rdf-schema#label> "Nature of\n      Affiliation"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#note> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#note> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#note> <http://www.w3.org/2000/01/rdf-schema#comment> "A note about the\n      resource."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#note> <http://www.w3.org/2000/01/rdf-schema#label> "Note"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#note> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2004/02/skos/core#note> .
+<http://www.loc.gov/mads/rdf/v1#occupation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#occupation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#occupation> <http://www.w3.org/2000/01/rdf-schema#comment> "A profession or occupation\n      in which the person works or has worked."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#occupation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#occupation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Occupation> .
+<http://www.loc.gov/mads/rdf/v1#occupation> <http://www.w3.org/2000/01/rdf-schema#label> "Occupation"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#organization> <http://www.w3.org/2000/01/rdf-schema#comment> "The group or organization\n      with which an individual is associated."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#organization> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization or\n      Group"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#phone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#phone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#phone> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Affiliation> .
+<http://www.loc.gov/mads/rdf/v1#phone> <http://www.w3.org/2000/01/rdf-schema#label> "Phone"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#postcode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#postcode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#postcode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Address> .
+<http://www.loc.gov/mads/rdf/v1#postcode> <http://www.w3.org/2000/01/rdf-schema#label> "Post Code / Zip\n      Code"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#prominentFamilyMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#prominentFamilyMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#prominentFamilyMember> <http://www.w3.org/2000/01/rdf-schema#comment> "A well-known individual who\n      is a member of the family."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#prominentFamilyMember> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#prominentFamilyMember> <http://www.w3.org/2000/01/rdf-schema#label> "Prominent Family\n      Member"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#scopeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#scopeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#scopeNote> <http://www.w3.org/2000/01/rdf-schema#label> "Scope Note"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#scopeNote> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#note> .
+<http://www.loc.gov/mads/rdf/v1#scopeNote> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2004/02/skos/core#scopeNote> .
+<http://www.loc.gov/mads/rdf/v1#see> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#see> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#see> <http://www.w3.org/2000/01/rdf-schema#comment> "Denotes a relationship\n      between an Authority and/or DeprecatedAuthority. The relationship may or may or may not be\n      reciprocated and there is no certainty that the related resource will further illuminate the\n      original resource."^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid34 <http://www.w3.org/2002/07/owl#unionOf> _:genid35 .
+<http://www.loc.gov/mads/rdf/v1#see> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid34 .
+<http://www.loc.gov/mads/rdf/v1#see> <http://www.w3.org/2000/01/rdf-schema#label> "See Also"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#Authority> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.loc.gov/mads/rdf/v1#DeprecatedAuthority> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid39 .
+_:genid37 <http://www.w3.org/2002/07/owl#unionOf> _:genid38 .
+<http://www.loc.gov/mads/rdf/v1#see> <http://www.w3.org/2000/01/rdf-schema#range> _:genid37 .
+<http://www.loc.gov/mads/rdf/v1#see> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> .
+<http://www.loc.gov/mads/rdf/v1#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.loc.gov/mads/rdf/v1#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#state> <http://www.w3.org/2000/01/rdf-schema#comment> "The state associated with\n      an address."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#state> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Address> .
+<http://www.loc.gov/mads/rdf/v1#state> <http://www.w3.org/2000/01/rdf-schema#label> "State"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#streetAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#streetAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#streetAddress> <http://www.w3.org/2000/01/rdf-schema#comment> "First line of address. For\n      second line, use madsrdf:extendedAddress."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#streetAddress> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Address> .
+<http://www.loc.gov/mads/rdf/v1#streetAddress> <http://www.w3.org/2000/01/rdf-schema#label> "Street Address"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#terminateDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#terminateDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#terminateDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The year a corporate body was terminated. Date of termination may also include the month and day of the corporate body\u2019s termination. \n    "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#terminateDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#RWO> .
+<http://www.loc.gov/mads/rdf/v1#terminateDate> <http://www.w3.org/2000/01/rdf-schema#label> "Terminated"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#useFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#useFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#useFor> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Use [This Resource] For.\"\n      Traditional \"USE FOR\" reference."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#useFor> <http://www.w3.org/2000/01/rdf-schema#label> "Use For"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#useFor> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#see> .
+<http://www.loc.gov/mads/rdf/v1#useFor> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.loc.gov/mads/rdf/v1#useInstead> .
+<http://www.loc.gov/mads/rdf/v1#useInstead> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#useInstead> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#useInstead> <http://www.w3.org/2000/01/rdf-schema#comment> "\"Use [This Other Resource]\n      Instead.\" Traditional \"USE\" reference."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#useInstead> <http://www.w3.org/2000/01/rdf-schema#label> "Use Instead"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#useInstead> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.loc.gov/mads/rdf/v1#see> .
+<http://www.loc.gov/mads/rdf/v1#variantLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.loc.gov/mads/rdf/v1#variantLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#variantLabel> <http://www.w3.org/2000/01/rdf-schema#comment> "The lexical, variant form\n      of an authoritative label."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#variantLabel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.loc.gov/mads/rdf/v1#Variant> .
+<http://www.loc.gov/mads/rdf/v1#variantLabel> <http://www.w3.org/2000/01/rdf-schema#label> "Variant Label"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#variantLabel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2008/05/skos-xl#literalForm> .
+<http://www.loc.gov/mads/rdf/v1#workOrigin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.loc.gov/mads/rdf/v1#workOrigin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.loc.gov/mads/rdf/v1#workOrigin> <http://www.w3.org/2000/01/rdf-schema#comment> "The country or other territorial jurisdiction from which a work originated."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/mads/rdf/v1#workOrigin> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.loc.gov/mads/rdf/v1#Geographic> .
+<http://www.loc.gov/mads/rdf/v1#workOrigin> <http://www.w3.org/2000/01/rdf-schema#label> "Work locale"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.loc.gov/standards/mads/rdf/v1.rdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.loc.gov/standards/mads/rdf/v1.rdf> <http://www.w3.org/2000/01/rdf-schema#comment> "Updated: 10 May 2012 - Added Language Class; componentList and\n      elementList now has the union of rdf:List or rdf:Seq for a range."@en .
+<http://www.w3.org/2000/01/rdf-schema#comment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/2000/01/rdf-schema#label> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .

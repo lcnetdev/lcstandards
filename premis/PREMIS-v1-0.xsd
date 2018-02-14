@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright © 2005 OCLC Online Computer Library Center and RLG Research Libraries Group -->
+<!-- PREMIS Preservation Metadata Schema: Object  -->
+<!-- Version 1.0, May 17, 2005 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.loc.gov/standards/premis" xmlns="http://www.loc.gov/standards/premis" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:include schemaLocation="Object-v1-0.xsd"></xs:include>
+    <xs:include schemaLocation="Event-v1-0.xsd"></xs:include>
+    <xs:include schemaLocation="Agent-v1-0.xsd"></xs:include>
+    <xs:include schemaLocation="Rights-v1-0.xsd"></xs:include>
+    <xs:element name="premis">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="object" minOccurs="1" maxOccurs="unbounded"></xs:element>
+                <xs:element ref="event" minOccurs="0" maxOccurs="unbounded"></xs:element>
+                <xs:element ref="agent" minOccurs="0" maxOccurs="unbounded"></xs:element>
+                <xs:element ref="rights" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
