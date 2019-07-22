@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.loc.gov/mods/review" targetNamespace="http://www.loc.gov/mods/review" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- this is a schema used to illustrate the MODS Extension element, allowing the inclusion of a review of the MODS resource. The review includes a name, score (1 thru 5) and review text.  Created 3/5/2019 by Ray Denenberg-->
+	<xs:element name="mods-review">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- -->
+			<xs:element name="name" type="xs:string"/>
+				<!-- -->
+				<xs:element name="score">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:minInclusive value="1"/>
+					<xs:maxInclusive value="5"/>
+				</xs:restriction>
+		   </xs:simpleType>
+		</xs:element>
+				<!-- -->
+		<xs:element name="review-text" type="xs:string"/>
+				<!-- -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	</xs:schema>
