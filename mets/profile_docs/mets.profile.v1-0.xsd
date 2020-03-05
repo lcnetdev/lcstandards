@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by Jerome McDonough (private) -->
+<!--  METS Profile Schema Version 1.0 -->
+<!-- Copyright © 2003, Digital Library Federation -->
+<!-- Prepared for the Digital Library Federation by Jerome McDonough, New York University,
+with the assistance of Michael Alexander (British Library), Rick Beaubien (University of California), Morgan Cundiff (Library of Congress), Susan Dahl (University of Alberta), Markus Enders (State and University Library, Göttingen),  Richard Gartner (Bodleian Library at Oxford), Nancy Hoebelheirich (Stanford University), Mark Kornbluh (Michigan State University), Cecilia Preston (Preston & Lynch), Merrilee Proffitt (Research Libraries Group), Richard Rinehart (Berkeley Art Museum/Pacific Film Archive), Mackenzie Smith (Massachusetts Institute of Technology), Taylor Surface (OCLC), Brian Tingle (California Digital Library) and Robin Wendler (Harvard University). -->
+<!--
+The METS Profile schema defines a document format for creating profiles of
+a class of METS documents.  METS Profiles are intended to allow an individual
+or organization to specify limitations and restrictions on the creation of METS
+instance documents in order to define a document class.  METS instance 
+documents which abide by those limitations and restrictions are said to conform to the profile.
+
+METS profiles may serve a variety of purposes, but their primary purpose is
+to promote interoperability and exchange of METS documents.  By allowing
+any given institution to specify and publicize its practices with regards to creation
+and use of METS documents, it can assist others both in creating METS
+instances to be submitted to that institution and in processing METS documents
+created by that institution.
+
+Institutions wishing to make their profiles widely available may wish to consider
+formally registering them through the METS Editorial Board with the Library of Congress.
+Instructions on registering a profile may be found at the METS website (http://www.loc.gov/mets/).
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="METS_Profile">
+		<xs:annotation>
+			<xs:documentation>Root element for a METS Profile</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="URI">
+					<xs:annotation>
+						<xs:documentation>A unique URI for this profile to be assigned by the creating institution.  A URI must not duplicate the URI of any registered profile.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:anyURI">
+								<xs:attribute name="LOCTYPE" use="required">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="URN"/>
+											<xs:enumeration value="URL"/>
+											<xs:enumeration value="PURL"/>
+											<xs:enumeration value="HANDLE"/>
+											<xs:enumeration value="DOI"/>
+											<xs:enumeration value="OTHER"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+								<xs:attribute name="OTHERLOCTYPE" type="xs:string" use="optional"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="title">
+					<xs:annotation>
+						<xs:documentation>A short title to describe the class of object being profiled.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="256"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="abstract">
+					<xs:annotation>
+						<xs:documentation>A one paragraph description of the profile's nature and purpose. </xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="2048"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="date" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation>The date and time the profile was created.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="contact">
+					<xs:annotation>
+						<xs:documentation>Contact information for those  seeking further information regarding the profile and its use.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The name of an individual who may be contacted regarding the profile.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="institution" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The name of an institution which may be contacted regarding the profile.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="address">
+								<xs:annotation>
+									<xs:documentation>The address for the individual and/or institution which may be contacted regarding the profile.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string"/>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="phone" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>A phone number which people may call for information regarding the profile. </xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="email" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>An e-mail address which people may contact for information regarding the profile.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="registration_info" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The date the profile was registered with the Library of Congress Network and MARC Standards office, and the URI for obtaining the profile from the Library.  This information in this element will be supplied by Library of Congress and should not be completed by those creating a profile for registration.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="regDate" type="xs:dateTime" use="required"/>
+						<xs:attribute name="regURI" type="xs:anyURI" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="related_profile" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>This element may be used to indicate the relationship of this profile to any other registered profile.  The URI of the related profile and the nature of the relationship of this profile to the related profile must be recorded in the supplied attributes.  If this element is used to indicate that the current profile supersedes a previously registered profile it should specify a RELATIONSHIP of 'supersedes' and provide the URI of the superceded profile.  If there are no related profiles, this element should contain statement to that effect and leave the URI and RELATIONSHIP attributes blank.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="URI" type="xs:anyURI" use="optional"/>
+								<xs:attribute name="RELATIONSHIP" type="xs:string" use="optional"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="extension_schema" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>A profile which will be registered with the Network Development and MARC Standards Office must identify all extension schema which may be used in constructing a METS document conformant with the profile.  Extension schema for registered profiles MUST be publicly available.  The schema must be identified in sufficient detail to allow a document author previously unfamiliar with the schema to unambiguously identify and retrieve it.  Those registering profiles with the Network Development and MARC Standards Office are strongly encouraged to include a URI for each identified extension schema which may be used to retrieve that schema from any Internet workstation and to include the full text of all identified extension schema as an appendix to their profile registration.  
+Registered schema should also use the context subelement to name the elements within a conforming METS instance where the extension schema may be used.  If a profile does not dictate the use of any extension schema, it should contain a single &lt;extension_schema&gt; element with subelement of &lt;note&gt; stating that no extension schema are specified in this profile.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string" minOccurs="0"/>
+							<xs:element name="URI" type="xs:anyURI" minOccurs="0"/>
+							<xs:element name="context" type="xs:string" minOccurs="0"/>
+							<xs:element name="note" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="description_rules" type="textSection">
+					<xs:annotation>
+						<xs:documentation>An institution may choose to employ particular rules of description when encoding text within elements and attributes of a METS document (e.g., AACR2 for a MARCXML document in a descMD section of a METS document.  This element should be used to specify all rules of description to be employed in preparing content for a compliant METS document, and where those rules of description should be employed.  If a profile specifies no rules of description, it should still contain a &lt;description_rules&gt; element with a single &lt;p&gt; subelement stating that the profile specifies no rules of description for conforming documents.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="controlled_vocabularies">
+					<xs:annotation>
+						<xs:documentation>An institution may choose to employ certain controlled vocabularies, such as the Library of Congress Subject Headings or the Getty Thesaurus of Geographic Names, for the content of elements within portions of a METS document.  A profile for that institution's METS objects should unambiguously identify any controlled vocabularies which are to be used in preparing a METS document conformant with that profile, as well as indicating the specific elements and/or attributes where those controlled vocabularies should be used, including any use in portions of a METS document encoded using an extension schema.  If no controlled vocabularies are specified by the profile, it should still contain a &lt;controlled_vocabularies&gt; element with a single &lt;p&gt; subelement stating that no controlled vocabularies are specified by this profile.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="vocabulary" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string" minOccurs="0"/>
+										<xs:element name="maintenance_agency" type="xs:string" minOccurs="0"/>
+										<xs:element name="URI" type="xs:anyURI" minOccurs="0"/>
+										<xs:element name="values" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="context" minOccurs="0">
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="textSection">
+														<xs:attribute name="ID" type="xs:ID" use="optional"/>
+														<xs:attribute name="RELATEDMAT" type="xs:IDREFS" use="optional"/>
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="description" type="textSection" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="structural_requirements">
+					<xs:annotation>
+						<xs:documentation>The structural requirements portion of a METS profile allows an institution to delineate additional restrictions on the structure of a conforming METS document beyond those specified by the METS format itself.  It is permissible to specify restrictions on the structure of a conforming METS document which cannot be validated by standard XML validation tools.  For example, it would be a permissible restriction to state that master still images within a METS document should be contained within a separate file group from derivative images.  Possible issues to address in this section include:
+Are there any restrictions on the number of occurrences of elements or attributes set forth in the METS schema beyond those specified by the METS schema itself (e.g., there should only be one occurrence of a dmdSec, every conforming document must include a metsHdr element, etc.)?
+Are there any restrictions on the number of occurrences of elements or attributes set forth in extension schema beyond those specified by those schema?
+May extension schema only be used within a particular portion of a METS document (e.g., you may wish to specify that a particular extension schema may be used within a &lt;mdWrap&gt; element within a &lt;techMD&gt; section, but that it should not be used within a &lt;sourceMD&gt; section).
+Should the structural map conform to a particular model?  For instance, a profile for monographs might specify that the root &lt;div&gt; element must have a TYPE attribute of “book”, that all immediately subsidiary &lt;div&gt;s have a TYPE attribute of “chapter”.  Alternatively, it might specify that there be a root &lt;div&gt; with a TYPE attribute of “text” with subsidiary &lt;div&gt;s having a TYPE attribute of “page”. Structural metadata is the heart of a METS document, and those creating profiles should try to be as explicit and precise as possible in specifying how structural maps should be created, and may wish to include examples within an appendix to the profile.
+Should document authors include metadata within a METS document using mdWrap, or reference it using mdRef?  Or are both allowable?
+Should content files be included within a METS document using Fcontent, or referenced using Flocat?  Or are both allowable?  If a profile specifies no structural requirements, it should still contain this element with a single &lt;p&gt; subelement stating that this profile dictates no structural requirements for conforming METS documents.
+There are several subelements within the structural_requirements element, one
+for each major division within the METS document format, and a final subelement
+called multiSection.  Structural requirements should be listed within the subelement
+identifying the portion of the METS format to which they pertain (e.g., a specification
+that documents must use Flocat and not FContent to identify data files should
+appear in the fileSec subelement within structural_requirements).  Requirements
+which span METS documents sections should appear in the multiSection
+subelement.
+Every subelement within the structural_requirements section is composed
+of a sequence of individual requirement elements.  The requirement element
+has two attributes: 1. an XML ID attribute, and 2. an IDREFS attributed called
+RELATEDMAT, which you may use to indicate other portions of the
+profile document where this particular requirement is relevant.  Requirement
+elements are in turn composed of a sequence of paragraph (p) elements.
+</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="metsHdr" type="reqs" minOccurs="0"/>
+							<xs:element name="dmdSec" type="reqs" minOccurs="0"/>
+							<xs:element name="amdSec" type="reqs" minOccurs="0"/>
+							<xs:element name="fileSec" type="reqs" minOccurs="0"/>
+							<xs:element name="structMap" type="reqs" minOccurs="0"/>
+							<xs:element name="structLink" type="reqs" minOccurs="0"/>
+							<xs:element name="behaviorSec" type="reqs" minOccurs="0"/>
+							<xs:element name="multiSection" type="reqs" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="technical_requirements">
+					<xs:annotation>
+						<xs:documentation>A METS document may reference a variety of external files, including the content files for the METS object (via &lt;Flocat&gt; elements), executable behaviors (via the &lt;mechanism&gt; element), and external metadata files (via &lt;mdRef&gt; elements).  Institutions may wish to place restrictions on the types of files which may be referenced, such as insisting that all image files be in the TIFF 6.0 format and have a bit-depth between 16 and 32 bits, or that references to external metadata identified as being of type “MARC” via the MDTYPE attribute will point to MARC records conforming to the MARC 21 standard (or alternatively, to an HTML display of a MARC 21 record).
+
+The Technical Requirements section of a profile allows institutions to set forth the full set of restrictions on the technical nature of files which may be referenced from a conformant METS document.  It should be subdivided into sections for restrictions on content files, restrictions on behavior files, and restrictions on external metadata files.  Profile authors should bear in mind that one of the primary purposes of the Technical Requirements section is to allow software developers to anticipate what types of content will be accessible via links from the METS objects, and hence what software is needed to process that content.  If a profile specifies no technical requirements, it should still contain a &lt;technical_requirements&gt; section and the three major subsections, each specifying that the profile imposes no requirements on conforming documents.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="content_files" type="reqs" minOccurs="0"/>
+							<xs:element name="behavior_files" type="reqs" minOccurs="0"/>
+							<xs:element name="metadata_files" type="reqs" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="tool" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>A profile should provide a description of any affiliated tools, including validators, stylesheets, authoring tools, rendering applications, which can or should be used with METS documents conforming to the profile.  The description should provide a name, description, and URI for each tool.  If there are no associated tools, the profile should still contain a single &lt;tool&gt; element with a single &lt;note&gt; subelement stating there are no associated tools for conforming documents.
+</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string" minOccurs="0"/>
+							<xs:element name="agency" type="xs:string" minOccurs="0"/>
+							<xs:element name="URI" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="description" type="textSection" minOccurs="0"/>
+							<xs:element name="note" type="textSection" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Appendix" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>A METS profile may contain one or more appendices.  Every profile must contain at least one appendix containing an example METS document which conforms to the profile, and this example document should always be contained in the first appendix to the profile.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:any namespace="##any" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="NUMBER" type="xs:integer" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="textSection">
+		<xs:annotation>
+			<xs:documentation>Complex type for elements with extensive textual material</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="p" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="ID" type="xs:ID" use="optional"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="reqs">
+		<xs:sequence>
+			<xs:element name="requirement" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="textSection">
+							<xs:attribute name="ID" type="xs:ID" use="optional"/>
+							<xs:attribute name="RELATEDMAT" type="xs:IDREFS" use="optional"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile REGISTRATION="registered" STATUS="final"  
+	xmlns="http://www.loc.gov/METS_Profile/v2" 
+	xmlns:mets="http://www.loc.gov/METS/" 
+	xmlns:premis="info:lc/xmlns/premis-v2" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:dcterms="http://purl.org/dc/terms/" 
+	xmlns:spar_dc="http://bibnum.bnf.fr/ns/spar_dc" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+	xmlns:iso="http://purl.oclc.org/dsdl/schematron" 
+	xsi:schemaLocation="
+	http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd
+	http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd
+	info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/premis.xsd
+	http://bibnum.bnf.fr/ns/spar_dc http://bibnum.bnf.fr/ns/spar_dc.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<URI ASSIGNEDBY="local" LOCTYPE="URL">http://bibnum.bnf.fr/mets/profile_SIP_global_20120822.xml</URI>
+	<URI ASSIGNEDBY="metsboard" LOCTYPE="URL">http://www.loc.gov/standards/mets/profiles/00000039.xml</URI>
+	<title xml:lang="en">Generic METS profile for the SPAR system (SIP)</title>
+	<title xml:lang="fr">Profil METS générique du système SPAR (SIP)</title>
+	<abstract xml:lang="en">This profile specifies base requirements for SIP METS manifests in SPAR, the French national library's digital preservation repository. 
+		This profile is meant to be refined in dedicated METS profiles for each particular type of objects to be ingested in SPAR.
+		For further information about SPAR, see http://www.bnf.fr/fr/professionals/preservation_spar/s.preservation_SPAR_presentation.html (basic characteristics of the system).
+		All MUST, MUST NOT, SHOULD, SHOULD NOT and MAY terms are used according to the meaning defined in RFC 2119 (http://www.ietf.org/rfc/rfc2119.txt)
+	</abstract>
+	<abstract xml:lang="fr">Ce profil donne les exigences de base de SPAR, entrepôt numérique de la Bibliothèque nationale de France, en matière de manifestes METS pour ses paquets d'information.
+	Ce profil a vocation à être précisé pour chaque type particulier d'objets devant être versés dans SPAR.
+	Pour plus d'informations sur SPAR, cf.http://www.bnf.fr/fr/professionnels/conserver_spar.html (présentation rapide) and http://bibnum.bnf.fr/spar/index.html (caractéristiques de base du système).
+	Les degrés d'exigence sont exprimés selon la RFC 2119 (http://www.ietf.org/rfc/rfc2119.txt) en utilisant la traduction suivante : MUST=DOIT, MUST NOT=NE DOIT PAS, SHOULD= IL EST RECOMMANDE QUE, SHOULD NOT=IL EST DECONSEILLE QUE, MAY=PEUT.
+	</abstract>
+	<date>2011-09-08T20:00:00</date>
+	<contact ROLE="creator">
+		<name>BnF Digital Repository Team</name>
+		<institution>Bibliothèque nationale de France</institution>
+		<address>
+		Quai François Mauriac
+		75706 PARIS cedex 13
+		FRANCE
+		</address>
+		<phone>+(33) 1 53 79 45 90</phone>
+		<email>sebastien.peyrard@bnf.fr</email>
+	</contact>
+	<contact ROLE="maintenance agency">
+		<institution>Bibliothèque nationale de France</institution>
+		<address>
+		Quai François Mauriac
+		75706 PARIS cedex 13
+		FRANCE
+		</address>
+	</contact>
+	<related_profile RELATIONSHIP="isImplementedIn" URI="http://bibnum.bnf.fr/mets/profile_SIP_global_20120822.sch">Corresponding actionable Schematron profile</related_profile>
+	<related_profile>Specific profiles that inherit from this profile will refer to this profile.</related_profile>
+	<profile_context>
+		<resource_model>
+			<xhtml:p xml:lang="fr">Ce profil est destiné aux SIP soumis à SPAR.</xhtml:p>
+			<xhtml:p xml:lang="en">This profile is intended for an OAIS SIP submitted to SPAR.</xhtml:p>
+		</resource_model>
+	</profile_context>
+	<external_schema>
+		<name>Dublin Core Elements XML Schema, version 1.1</name>
+		<URL TARGETNAMESPACE="http://purl.org/dc/elements/1.1/">http://dublincore.org/schemas/xmls/qdc/dc.xsd</URL>
+		<context>/mets/dmdSec/mdWrap/xmlData</context>
+		<context>/mets/amdSec/sourceMD/mdWrap/xmlData</context>
+	</external_schema>
+	<external_schema>
+		<name>Dublin Core terms</name>
+		<URL TARGETNAMESPACE="http://purl.org/dc/terms/">http://dublincore.org/schemas/xmls/qdc/dcterms.xsd</URL>
+		<context>/mets/dmdSec/mdWrap/xmlData</context>
+		<context>/mets/amdSec/sourceMD/mdWrap/xmlData</context>
+	</external_schema>
+	<external_schema>
+		<name>Qualified Dublin Core for SPAR packages</name>
+		<URL TARGETNAMESPACE="http://bibnum.bnf.fr/ns/spar_dc">http://bibnum.bnf.fr/ns/spar_dc.xsd</URL>
+		<context>/mets/dmdSec/mdWrap/xmlData</context>
+		<context>/mets/amdSec/sourceMd/mdWrap/xmlData</context>
+		<note>
+			<xhtml:p xml:lang="en">This schema inherits all Dublin Core elements and terms, with some additional qualifications (sequential designations, pagination types or bar codes, for example)</xhtml:p>
+			<xhtml:p xml:lang="fr">Ce schéma hérite de tout Dublin Core elements et Dublin Core terms, avec quelques qualificatifs supplémentaires (volumaisons, types de pagination ou codes barre, par exemple)</xhtml:p>
+		</note>
+	</external_schema>
+	<external_schema>
+		<name>PREMIS Preservation metadata, version 2</name>
+		<URL TARGETNAMESPACE="info:lc/xmlns/premis-v2">http://www.loc.gov/standards/premis/v2/premis-v2-1.xsd</URL>
+		<context>/mets/amdSec/digiprovMD/mdWrap/xmlData</context>
+	</external_schema>
+	<description_rules>
+		<xhtml:p xml:lang="en">When a dmdSec is used, any Dublin Core Element used in it SHOULD conform to BnF's Dublin Core implementation guidelines (http://bibnum.bnf.fr/oai/GuideOAI_2008_09_08.pdf), except for the dc:type that uses a repository-specific controlled vocabulary. The cardinalities of these elements are repository-specific</xhtml:p>
+		<xhtml:p xml:lang="fr">Lorsqu'une dmdSec est utilisée, il est RECOMMANDE que tous les éléments issus du Dublin Core simple et qualifié soient conformes au Guide d'utilisation du Dublin Core à la BnF (http://bibnum.bnf.fr/oai/GuideOAI_2008_09_08.pdf), sauf pour le dc:type qui utilise une liste de valeurs contrôlées propre au système de préservation. La cardinalité de ces éléments est propre à l'entrepôt.</xhtml:p>
+	</description_rules>
+	<controlled_vocabularies/>
+	<structural_requirements>
+		<metsHdr>
+			<requirement REQLEVEL="MUST NOT" ID="RULE.1">
+				<description>
+					<xhtml:p xml:lang="en">A METS XML file conforming to this profile MUST NOT contain a &lt;metsHdr&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un fichier METS conforme à ce profil NE DOIT PAS contenir d'élément &lt;metsHdr&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets">
+									<iso:assert test="count(mets:metsHdr)=0"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement REQLEVEL="MUST" ID="RULE.2">
+				<description>
+					<xhtml:p xml:lang="en">A &lt;dmdSec&gt; section, if any, MUST be identified by an ID attribute and the value of this attribute MUST begin with a 'DMD.' character string.</xhtml:p>
+					<xhtml:p xml:lang="fr">Le cas échéant, une section &lt;dmdSec&gt; DOIT être identifiée par un attribut ID, et la valeur de cet attribut doit commencer par la chaîne de caractères 'DMD.'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:dmdSec">
+									<iso:assert test="@ID"/>
+									<iso:assert test="starts-with(@ID, 'DMD.')"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement REQLEVEL="MUST" ID="RULE.3">
+				<description>
+					<xhtml:p xml:lang="en">A METS XML file conforming to this profile MUST contain one and only one &lt;amdSec&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un fichier METS conforme à ce profil DOIT contenir un et un seul élement &lt;amdSec&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets">
+									<iso:assert test="count(mets:amdSec)=1"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST NOT" ID="RULE.4">
+				<description>
+					<xhtml:p xml:lang="en">A METS XML file conforming to this profile MUST NOT contain a &lt;rightsMD&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un fichier METS conforme à ce profil NE DOIT PAS contenir d'élement &lt;rightsMD&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:amdSec">
+									<iso:assert test="count(mets:rightsMD)=0"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.5">
+				<description>
+					<xhtml:p xml:lang="en">Each subsection of &lt;amdSec&gt; MUST be identified by an ID attribute and the value of this attribute MUST begin with an 'AMD.' character string.</xhtml:p>
+					<xhtml:p xml:lang="fr">Toute sous-section d'&lt;amdSec&gt; DOIT être identifiée par un attribut ID, et la valeur de cet attribut doit commencer par la chaîne de caractères 'AMD.'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:amdSec/*">
+									<iso:assert test="@ID"/>
+									<iso:assert test="starts-with(@ID, 'AMD.')"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.6">
+				<description>
+					<xhtml:p xml:lang="en">The &lt;amdSec&gt; element MUST contain at least one &lt;digiprovMD&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">L'élément &lt;amdSec&gt; DOIT contenir au moins un élément &lt;digiprovMD&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:amdSec">
+									<iso:assert test="count(mets:digiprovMD)&gt;=1"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.7">
+				<description>
+					<xhtml:p xml:lang="en">A &lt;digiprovMD&gt; element MUST contain a PREMIS Event. Thus, it MUST contain a &lt;mdWrap&gt; element with the MIMETYPE="text/xml" and MDTYPE="PREMIS:EVENT" attributes, with a &lt;premis:event&gt; element within an &lt;xmlData&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un élément &lt;digiprovMD&gt; doit comprendre un événement PREMIS. Il DOIT donc contenir un élément &lt;mdWrap&gt; ayant comme attributs MIMETYPE="text/xml" et MDTYPE="PREMIS:EVENT", et un élément &lt;premis:event&gt; à l'intérieur d'un élément &lt;xmlData&gt;</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:amdSec/mets:digiprovMD">
+									<iso:assert test="mets:mdWrap[@MIMETYPE='text/xml' and @MDTYPE='PREMIS:EVENT']"/>
+									<iso:assert test="mets:mdWrap[@MIMETYPE='text/xml' and @MDTYPE='PREMIS:EVENT']/mets:xmlData/premis:event"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.8">
+				<description>
+					<xhtml:p xml:lang="en">Each PREMIS Event contained in a &lt;digiprovMD&gt; element MUST be identified by a UUID. This MUST be declared in a &lt;premis:eventIdentifierType&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Tout événement PREMIS compris dans un élément &lt;digiprovMD&gt; DOIT être identifié par un UUID. Cela DOIT être déclaré dans un élément &lt;premis:eventIdentifierType&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:amdSec/mets:digiprovMD/mets:mdWrap/mets:xmlData">
+									<iso:assert test="premis:event/premis:eventIdentifier/premis:eventIdentifierType='UUID'"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.9">
+				<description>
+					<xhtml:p xml:lang="en">A UUID identifier MUST contain 36 characters.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un identifiant de type UUID DOIT comporter 36 caractères</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:amdSec/mets:digiprovMD/mets:mdWrap/mets:xmlData/premis:event">
+									<iso:assert test="string-length(premis:eventIdentifier[premis:eventIdentifierType='UUID']/premis:eventIdentifierValue/text())=36"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.10">
+				<description>
+					<xhtml:p xml:lang="en">There MUST be one and only one &lt;digiprovMD&gt; containing a &lt;premis:event&gt; of type "packageCreation".</xhtml:p>
+					<xhtml:p xml:lang="fr">Il DOIT y avoir un et un seul élément &lt;digiprovMD&gt; comprenant un &lt;premis:event&gt; de type 'packageCreation'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:amdSec">
+									<iso:assert test="count(mets:digiprovMD//premis:event[premis:eventType='packageCreation'])=1"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement REQLEVEL="MUST" ID="RULE.11">
+				<description>
+					<xhtml:p xml:lang="en">A METS XML file conforming to this profile MUST contain at most one &lt;filesec&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un fichier METS conforme à ce profil DOIT contenir au plus un élément &lt;filesec&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets">
+									<iso:assert test="count(mets:fileSec)&lt;=1"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.12">
+				<description>
+					<xhtml:p xml:lang="en">A &lt;fileGrp&gt; element, if any, MUST be identified by a USE attribute.</xhtml:p>
+					<xhtml:p xml:lang="fr">Le cas échéant, tout élément &lt;fileGrp&gt; DOIT comprendre un attribut USE.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:fileSec/mets:fileGrp">
+									<iso:assert test="./@USE"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.13">
+				<description>
+					<xhtml:p xml:lang="en">Each &lt;fileGrp&gt; element, if any, MUST be identified by an ID attribute and the value of this attribute MUST begin with a 'GRP.' character string.</xhtml:p>
+					<xhtml:p xml:lang="fr">Le cas échéant, tout élément &lt;fileGrp&gt; DOIT être identifié par un attribut ID, et la valeur de cet attribut DOIT commencer par la chaîne de caractères 'GRP.'</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:fileSec/mets:fileGrp">
+									<iso:assert test="@ID"/>
+									<iso:assert test="starts-with(@ID, 'GRP.')"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.14">
+				<description>
+					<xhtml:p xml:lang="en">Each &lt;file&gt; element, if any, MUST be identified by an ID attribute and the value of this attribute MUST begin with the USE of the &lt;fileGrp&gt; it belongs to.</xhtml:p>
+					<xhtml:p xml:lang="fr">Le cas échéant, tout élément &lt;file&gt; DOIT être identifié par un attribut ID, et la valeur de cet attribut DOIT commencer par le USE du &lt;fileGrp&gt; auquel il appartient.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:fileSec/mets:fileGrp/mets:file">
+									<iso:let name="use" value="ancestor::mets:fileGrp[1]/@USE"/>
+									<iso:assert test="starts-with(@ID,$use)"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.15">
+				<description>
+					<xhtml:p xml:lang="en">Each &lt;file&gt; element, if any, MUST have its own checksum expressed in the CHECKSUM attribute with a CHECKSUMTYPE.</xhtml:p>
+					<xhtml:p xml:lang="fr">Tout élément &lt;file&gt; DOIT avoir une empreinte exprimée dans l'attribut CHECKSUM avec le CHECKSUMTYPE associé.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:fileSec/mets:fileGrp/mets:file">
+									<iso:assert test="@CHECKSUM"/>
+									<iso:assert test="@CHECKSUMTYPE"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.16">
+				<description>
+					<xhtml:p xml:lang="en">Each file in the &lt;fileSec&gt;, if any, MUST be referred to in an &lt;FLocat&gt; element with a 'URL' location type of xlink:type 'simple', with its relative path in the Information Package given as the value of an "xlink:href" attribute.</xhtml:p>
+					<xhtml:p xml:lang="fr">Le cas échéant, tout fichier de la section &lt;fileSec&gt; DOIT être référencé dans un élément &lt;FLocat&gt; avec 'URL' comme type d'emplacement de type 'simple', son chemin relatif au sein du Paquet d'Informations étant donné en valeur d'un attribut 'xlink:href'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:fileSec/mets:fileGrp/mets:file">
+									<iso:assert test="mets:FLocat/@LOCTYPE='URL'"/>
+									<iso:assert test="mets:FLocat/@xlink:type='simple'"/>
+									<iso:assert test="mets:FLocat/@xlink:href"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement REQLEVEL="MUST" ID="RULE.17">
+				<description>
+					<xhtml:p xml:lang="en">All &lt;structMap&gt; elements MUST contain a TYPE attribute.</xhtml:p>
+					<xhtml:p xml:lang="fr">Tout élément &lt;structMap&gt; DOIT comprendre un attribut TYPE.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap">
+									<iso:assert test="@TYPE"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.18">
+				<description>
+					<xhtml:p xml:lang="en">Every &lt;div&gt; element MUST be identified by an ID attribute and its value MUST start with a 'DIV.' character string.</xhtml:p>
+					<xhtml:p xml:lang="fr">Tout élément &lt;div&gt; DOIT être identifié par un attribut ID, dont la valeur DOIT commencer par la chaîne de caractères 'DIV.'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap//mets:div">
+									<iso:assert test="@ID"/>
+									<iso:assert test="starts-with(@ID, 'DIV.')"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.19">
+				<description>
+					<xhtml:p xml:lang="en">The &lt;mets&gt; root element MUST contain one and only one &lt;structMap&gt; element with a TYPE="physical".  It MAY contain other &lt;structMap&gt; elements, but the value of their own TYPE attribute MUST be different from 'physical'.</xhtml:p>
+					<xhtml:p xml:lang="fr">L'élément racine &lt;mets&gt; DOIT contenir un et un seul élément &lt;structMap&gt; de TYPE="physical". Il PEUT comprendre d'autres éléments &lt;structMap&gt; mais la valeur de l'attribut TYPE DOIT être différente de 'physical'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets">
+									<iso:assert test="count(mets:structMap[@TYPE='physical'])=1"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.20">
+				<description>
+					<xhtml:p xml:lang="en">Every &lt;div&gt; element MUST have a TYPE attribute defining its category : either set, group or object</xhtml:p>
+					<xhtml:p xml:lang="fr">Tout élément &lt;div&gt; DOIT comporter un attribut TYPE définissant sa catégorie parmi 'set', 'group' ou 'object'</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap//mets:div">
+									<iso:assert test="@TYPE"/>
+									<iso:assert test="@TYPE='set' or @TYPE='group' or @TYPE='object'"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.21">
+				<description>
+					<xhtml:p xml:lang="en">The physical structural map MUST contain at least three &lt;div&gt;levels with the following hierarchy, from the broader to the narrower: mets:div/@TYPE="set", mets:div/@TYPE="group", mets:div/@TYPE="object".</xhtml:p>
+					<xhtml:p xml:lang="fr">La carte de structure physique DOIT contenir au moins trois niveaux de &lt;div&gt; imbriqués selon la hiérarchie suivante, du plus global au plus précis : mets:div/@TYPE="set", mets:div/@TYPE="group", mets:div/@TYPE="object".</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap[@TYPE='physical']">
+									<iso:assert test=".//mets:div[@TYPE='set']/mets:div[@TYPE='group']/mets:div[@TYPE='object']"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.22">
+				<description>
+					<xhtml:p xml:lang="en">In a physical structural map, every &lt;div&gt; with TYPE='object' MUST reference at least one file with a child &lt;fptr&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Dans une carte de structure physique, tout élément &lt;div&gt; de TYPE='object' DOIT faire référence à au moins un fichier par le biais d'un élement fils &lt;fptr&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap[@TYPE='physical']//mets:div[@TYPE='object']">
+									<iso:assert test="mets:fptr"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.23">
+				<description>
+					<xhtml:p xml:lang="en">In a physical structural map, a &lt;div&gt; with TYPE='group' references the Data Object contained in the Information Package, for instance a monograph, a fasicule of a periodical, a still image, a grouping of still images or a volume of a multivolume monograph.</xhtml:p>
+					<xhtml:p xml:lang="en">Therefore, a physical structural map MUST contain one and only one &lt;div&gt; element with TYPE='group'.</xhtml:p>
+					<xhtml:p xml:lang="fr">Dans une carte de structure physique, un élément &lt;div&gt; de type "group" correspond à l'Objet numérique compris dans le Paquet d'informations, par exemple, une monographie, un fascicule de périodique, une image, un lot d'images ou un volume d'une monographie en plusieurs volumes.</xhtml:p>
+					<xhtml:p xml:lang="fr">Aussi, une carte de structure physique DOIT donc contenir un et un seul élément &lt;div&gt; de TYPE='group'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap[@TYPE='physical']">
+									<iso:assert test="count(.//mets:div[@TYPE='set']/mets:div[@TYPE='group'])=1"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.24">
+				<description>
+					<xhtml:p xml:lang="en">In a physical structural map, a &lt;div&gt; with TYPE='object' references a part of the Digital Object contained in the Information Package, for instance a single image in a grouping of images or a page in a text document.</xhtml:p>
+					<xhtml:p xml:lang="en">Therefore, the physical structural map MUST contain at least one &lt;div&gt; element with TYPE='object'.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un élément &lt;div&gt; de TYPE='object' correspond à un élément de l'Objet numérique, par exemple une image d'un lot ou une page d'un document textuel.</xhtml:p>
+					<xhtml:p xml:lang="fr">Une carte de structure physique DOIT donc contenir au moins un élément &lt;div&gt; de TYPE='object'.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap[@TYPE='physical']">
+									<iso:assert test="count(.//mets:div[@TYPE='set']/mets:div[@TYPE='group']/mets:div[@TYPE='object'])&gt;=1"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+			<requirement REQLEVEL="MUST" ID="RULE.25">
+				<description>
+					<xhtml:p xml:lang="en">In the physical structMap, all &lt;div&gt; elements with TYPE='object' MUST contain an ORDER attribute, expressing the physical order of these elements (for instance, the order of the pages in a text document).</xhtml:p>
+					<xhtml:p xml:lang="fr"> Dans la carte de structure physique, les éléments &lt;div&gt; de type "object" DOIVENT tous contenir un attribut ORDER, qui expriment l'ordre physique de ces éléments (par exemple, l'ordre des pages d'un document textuel).</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets/mets:structMap[@TYPE='physical']//mets:div[@TYPE='object']">
+									<iso:assert test="@ORDER"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</structMap>
+		<structLink>
+			<requirement REQLEVEL="MUST NOT" ID="RULE.26">
+				<description>
+					<xhtml:p xml:lang="en">A METS file conforming to this profile MUST NOT contain a &lt;structLink&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un fichier METS conforme à ce profil NE DOIT PAS contenir d'élément &lt;structLink&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets">
+									<iso:assert test="count(mets:structLink)=0"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</structLink>
+		<behaviorSec>
+			<requirement REQLEVEL="MUST NOT" ID="RULE.27">
+				<description>
+					<xhtml:p xml:lang="en">A METS XML file conforming to this profile MUST NOT contain a &lt;behaviorSec&gt; element.</xhtml:p>
+					<xhtml:p xml:lang="fr">Un fichier METS conforme à ce profil NE DOIT PAS contenir d'élément &lt;behaviorSec&gt;.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets">
+									<iso:assert test="count(mets:behaviorSec)=0"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</behaviorSec>
+		<multiSection>
+			<requirement REQLEVEL="MUST" ID="RULE.28">
+				<description>
+					<xhtml:p xml:lang="en">The number of files referenced by the &lt;fileSec&gt; MUST at least equal the total number of pointers in all structural maps.</xhtml:p>
+					<xhtml:p xml:lang="fr">Le nombre de fichiers définis dans la section des fichiers DOIT être au moins égal au nombre de pointeurs dans toutes les cartes de structure.</xhtml:p>
+				</description>
+				<tests>
+					<test TESTLANGUAGE="Schematron" TESTLANGUAGEVERSION="ISO" TESTLANGUAGEURI="http://purl.oclc.org/dsdl/schematron">
+						<testWrap>
+							<testXML>
+								<iso:rule context="/mets:mets">
+									<iso:assert test="count(mets:fileSec/mets:fileGrp/mets:file) &lt;= count(mets:structMap//mets:fptr)"/>
+								</iso:rule>
+							</testXML>
+						</testWrap>
+					</test>
+				</tests>
+			</requirement>
+		</multiSection>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<description>
+					<xhtml:p xml:lang="en">The allowed file formats in the fileSec depend on the service level agreement the Archive has agreed with the Producer. Therefore, such requirements are out of the scope of this generic METS profile and will be precised in specific METS profiles.</xhtml:p>
+					<xhtml:p xml:lang="fr">Les formats de fichiers autorisés dans la fileSec dépendent de l'accords de qualité de service qui a été négocié avec le Producteur. Ces exigences sont donc hors du périmètre de ce profil METS générique et seront précisées dans les profils METS spécifiques.</xhtml:p>
+				</description>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool>
+		<description>
+			<xhtml:p xml:lang="en">The French national library's digital preservation repository can generate, or accept, SIP METS files that comply with this profile. If not, the system cannot generate an AIP METS file from the SIP.</xhtml:p>
+			<xhtml:p xml:lang="fr">Le système de préservation de la BnF sait générer, ou peut accepter, des fichiers METS de SIP conformes à ce profil. Dans le cas contraire, le système ne peut pas générer de fichier METS d'AIP à partir du SIP.</xhtml:p>
+		</description>
+	</tool>
+	<Appendix NUMBER="1" LABEL="METS Sample" ID="APPENDIX.1">
+		<mets:mets>
+			<mets:dmdSec ID="DMD.1">
+				<mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+					<mets:xmlData>
+						<spar_dc:spar_dc>
+							<dc:title>A Topographical Map of the County of Berks / by John Rocque, topographer to His Majesty ; To His Sacred Majesty George the Third, this Survey of Berkshire... ; S. Wale delin. ; A. Walker sculp. ; L. F. Deharme sculp.t ; Benning Sculp.</dc:title>
+							<dc:title>Carte topographique de le Comté de Berks / par Jean Rocque, topographe de Sa Majesté Britannique</dc:title>
+							<dc:creator>Rocque, John (1704?-1762). Cartographe. Dédicateur</dc:creator>
+							<dc:creator>Georges III (roi de Grande-Bretagne ; 1738-1820). Dédicataire</dc:creator>
+							<dc:creator>Deharme, L.F. (17..-17.. ; graveur). Graveur</dc:creator>
+							<dc:creator>Walker, Anthony (1726-1765). Graveur</dc:creator>
+							<dc:creator>Benning, R. (16..-17.. ; graveur). Graveur</dc:creator>
+							<dc:publisher>J. Rocque (London)</dc:publisher>
+							<dc:date>1761</dc:date>
+							<dc:type>still images</dc:type>
+							<dcterms:provenance>BnF</dcterms:provenance>
+							<dc:language xsi:type="dcterms:ISO639-3">eng</dc:language>
+							<dc:relation xsi:type="spar_dc:ark">ark:/12148/cb405996063</dc:relation>
+						</spar_dc:spar_dc>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DMD.2">
+				<mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+					<mets:xmlData>
+						<spar_dc:spar_dc>
+							<dc:title>A Topographical Map of the County of Berks [GE DD-2987 (2102, 1-3 B)]</dc:title>
+						</spar_dc:spar_dc>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DMD.3">
+				<mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+					<mets:xmlData>
+						<spar_dc:spar_dc>
+							<dc:title>A Topographical Map of the County of Berks [GE DD-2987 (2102, 1-3 B)]</dc:title>
+						</spar_dc:spar_dc>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DMD.4">
+				<mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+					<mets:xmlData>
+						<spar_dc:spar_dc>
+							<dc:title>A Topographical Map of the County of Berks [GE DD-2987 (2102, 1-3 B)]</dc:title>
+						</spar_dc:spar_dc>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:sourceMD ID="AMD.1">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC">
+						<mets:xmlData>
+							<spar_dc:spar_dc>
+								<dc:description xml:lang="fr">Papier en feuille en couleur</dc:description>
+							</spar_dc:spar_dc>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:sourceMD>
+				<mets:digiprovMD ID="AMD.2">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+						<mets:xmlData>
+							<premis:event>
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>10f3ba60-22ce-11df-805c-00144f68e7e0</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>packageCreation</premis:eventType>
+								<premis:eventDateTime>2010-02-26T12:57:08.742+01:00</premis:eventDateTime>
+								<premis:eventDetail>Création d'un paquet compatible avec SPAR</premis:eventDetail>
+								<premis:linkingAgentIdentifier>
+									<premis:linkingAgentIdentifierType>BnFApplication</premis:linkingAgentIdentifierType>
+									<premis:linkingAgentIdentifierValue>info:bnf/spar/agent/preingest_fil_num_cons_a_act_52</premis:linkingAgentIdentifierValue>
+									<premis:linkingAgentRole>performer</premis:linkingAgentRole>
+								</premis:linkingAgentIdentifier>
+								<premis:linkingAgentIdentifier>
+									<premis:linkingAgentIdentifierType>producerIdentifier</premis:linkingAgentIdentifierType>
+									<premis:linkingAgentIdentifierValue>IFN</premis:linkingAgentIdentifierValue>
+									<premis:linkingAgentRole>issuer</premis:linkingAgentRole>
+								</premis:linkingAgentIdentifier>
+								<premis:linkingAgentIdentifier>
+									<premis:linkingAgentIdentifierType>channelIdentifier</premis:linkingAgentIdentifierType>
+									<premis:linkingAgentIdentifierValue>info:bnf/spar/context/fil_num_cons_a</premis:linkingAgentIdentifierValue>
+									<premis:linkingAgentRole>authorizer</premis:linkingAgentRole>
+								</premis:linkingAgentIdentifier>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>productionIdentifier</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>5967034</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="AMD.3">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+						<mets:xmlData>
+							<premis:event>
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>10f3ba61-22ce-11df-805c-00144f68e7e0</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>digitization</premis:eventType>
+								<premis:eventDateTime>2009-03-02T00:00:00.000+01:00</premis:eventDateTime>
+								<premis:eventDetail>manual treatment</premis:eventDetail>
+								<premis:linkingAgentIdentifier>
+									<premis:linkingAgentIdentifierType>producerIdentifier</premis:linkingAgentIdentifierType>
+									<premis:linkingAgentIdentifierValue>44001440</premis:linkingAgentIdentifierValue>
+									<premis:linkingAgentRole>implementer</premis:linkingAgentRole>
+								</premis:linkingAgentIdentifier>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>productionIdentifier</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>5967034</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="AMD.4">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+						<mets:xmlData>
+							<premis:event>
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>10f3e170-22ce-11df-805c-00144f68e7e0</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>preIngest</premis:eventType>
+								<premis:eventDateTime>2010-02-26T12:57:08.743+01:00</premis:eventDateTime>
+								<premis:eventOutcomeInformation>
+									<premis:eventOutcome>arkRetrieval</premis:eventOutcome>
+									<premis:eventOutcomeDetail>
+										<premis:eventOutcomeDetailNote>Récupération de l'identifiant ARK</premis:eventOutcomeDetailNote>
+									</premis:eventOutcomeDetail>
+								</premis:eventOutcomeInformation>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>ark</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>ark:/12148/btv1b59670348</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp USE="master" ID="GRP.1">
+					<mets:file CHECKSUMTYPE="MD5" CHECKSUM="3a6d6cb8820af72ffa2e4f0b77f955f5" ADMID="AMD.1 AMD.3" ID="master.1">
+						<mets:FLocat xlink:type="simple" LOCTYPE="URL" xlink:href="master/T0000001.tif"/>
+					</mets:file>
+					<mets:file CHECKSUMTYPE="MD5" CHECKSUM="1624bca169dbb03199484800be5081d0" ADMID="AMD.1 AMD.3" ID="master.2">
+						<mets:FLocat xlink:type="simple" LOCTYPE="URL" xlink:href="master/T0000002.tif"/>
+					</mets:file>
+					<mets:file CHECKSUMTYPE="MD5" CHECKSUM="339a7b552bf98be3f948bbdecb3b37d3" ADMID="AMD.1 AMD.3" ID="master.3">
+						<mets:FLocat xlink:type="simple" LOCTYPE="URL" xlink:href="master/T0000003.tif"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div TYPE="set" ID="DIV.1">
+					<mets:div TYPE="group" ID="DIV.2" DMDID="DMD.1" ADMID="AMD.2 AMD.4">
+						<mets:div TYPE="object" ORDERLABEL="NP" ORDER="1" ID="DIV.3" DMDID="DMD.2">
+							<mets:fptr FILEID="master.1"/>
+						</mets:div>
+						<mets:div TYPE="object" ORDERLABEL="NP" ORDER="2" ID="DIV.4" DMDID="DMD.3">
+							<mets:fptr FILEID="master.2"/>
+						</mets:div>
+						<mets:div TYPE="object" ORDERLABEL="NP" ORDER="3" ID="DIV.5" DMDID="DMD.4">
+							<mets:fptr FILEID="master.3"/>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>

@@ -1,0 +1,2512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile
+    xmlns="http://www.loc.gov/METS_Profile/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+    <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000024.xml</URI>
+    <title>RLUK 19th Century Pamphlets METS Profile</title>
+    <abstract>
+        
+	This profile specifies the use of METS to provide metadata for the project to digitise 19th Century Pamphlets
+	under Phase 2 of the JISC Digitisation Programme. Further information about the project can be found at:
+	
+	    http://www.southampton.ac.uk/library/bopcris/
+	    http://www.jisc.ac.uk/whatwedo/programmes/programme_digitisation/pamphlets.aspx
+	
+	The materials to be digitised comprise single pamphlets, sometimes bound into a volume, sometimes not.
+	The item level is defined to be a pamphlet. One METS document should be present for each digitised pamphlet.
+	If the pamphlets were bound into a volume, the front and back matter, including tables of contents, of the volume
+	have also been scanned. In such cases, one METS document should also be present for each volume, containing
+	the images of the volume and references to the METS documents for the pamphlets contained within the volume.
+	
+	The digital files for each pamphlet should comprise: master images (TIFF) and OCR full-text in two formats
+	(plain text and word co-ordinated XML). The digital files for each bound volume should comprise master images only.
+	All digital files are packaged together with the METS and extension metadata into a single digital object (TAR)
+	for delivery and storage.
+	
+    </abstract>
+    <date>2008-08-06T00:00:00</date>
+    <contact>
+        <name>Ed Fay</name>
+        <institution>University of Southampton</institution>
+        <address>BOPCRIS Digitisation Centre, Hartley Library, University of Southampton, SO17 1BJ, UK</address>
+        <phone>+44 (0) 23 8059 3575</phone>
+        <email>E.Fay@soton.ac.uk</email>
+    </contact>
+    <related_profile>None</related_profile>
+    <extension_schema ID="MODS">
+        <name>Metadata Object Description Schema (MODS)</name>
+        <URI>http://www.loc.gov/standards/mods/v3/mods-3-2.xsd</URI>
+        <context>mets/dmdSec/mdWrap/xmlData</context>
+        <note>
+            Bibliographic metadata at the item level, supplied in MODS by COPAC (http://www.copac.ac.uk)
+            There will be one instance per pamphlet, and none per bound volume.
+            This metadata will be contained in a dmdSec linked to the top level div in the logical structMap.
+            MODS metadata will conform to version 3.2 of the schema.
+        </note>
+    </extension_schema>
+    <extension_schema ID="MIX">
+        <name>NISO Metadata for Images in XML (NISO MIX)</name>
+        <URI>http://www.loc.gov/standards/mix/mix20/mix20.xsd</URI>
+        <context>mets/amdSec/techMD/mdWrap/xmlData</context>
+        <note>
+	Technical metadata at the file level, extracted from standard file information and TIFF headers.
+	There will be one instance per master image file listed in the fileSec.
+	This metadata will be contained in an amdSec linked to the relevant file element.
+	MIX metadata will conform to version 2.0 of the schema.
+        </note>
+    </extension_schema>
+    <extension_schema ID="PREMIS">
+        <name>PREMIS Data Dictionary for Preservation Metadata</name>
+        <URI>http://www.loc.gov/standards/premis/v2/premis-v2-0.xsd</URI>
+        <context>mets/amdSec/digiProvMD|techMD/mdWrap/xmlData</context>
+        <note>
+	Technical metadata at the file level, extracted from standard file information.
+	There will be one instance per file of any kind listed in the fileSec.
+	This metadata will be contained in an amdSec linked to the relevant file element.
+	The PREMIS components will be contained within seperate METS elements, as suggested by
+	the &quot;Guidelines for using PREMIS within METS&quot; at http://www.loc.gov/standards/premis/premis-mets.html
+	    techMD: premis:object for each file
+	    digiProvMD: premis:event containing information about file derivations
+	    digiProvMD: premis:agent containing information about software packages
+	PREMIS metadata will conform to version 2.0 of the schema.
+        </note>
+    </extension_schema>
+    <extension_schema ID="descriptors">
+        <name>BOPCRIS Descriptors Metadata</name>
+        <URI>http://www.southampton.ac.uk/library/bopcris/xsd/descriptors/bopcris-descriptors-0-2.xsd</URI>
+        <context>mets/dmdSec/mdWrap/xmlData</context>
+        <note>
+	Descriptive metadata at the page level, recorded by scanner operators at the point of scanning.
+	This schema indicates attributes of a page, for example that it contains text in a certain language,
+	imagery or tabular data. There are 12 such attributes enumerated within the schema.
+	There will be one instance per item page, indicating language as a minimum.
+	Language information uses the controlled vocabulary ISO 639.2.
+	This metadata will be contained in a dmdSec linked to the page level div in the logical structMap.
+	BOPCRIS Descriptors metadata will confrom to version 0.2 of the schema.
+        </note>
+    </extension_schema>
+    <extension_schema ID="provenance">
+        <name>BOPCRIS Provenance Metadata</name>
+        <URI>http://www.southampton.ac.uk/library/bopcris/xsd/provenance/bopcris-provenance-0-1.xsd</URI>
+        <context>mets/amdSec/digiProvMD/mdWrap/xmlData</context>
+        <note>
+	Administrative metadata at the object level, indicating the provenance of the item. This schema
+	contains information about the source library, collection and shelfmark of the original item.
+	There will be one instance per pamphlet, none per bound volume.
+	This metadata will be contained in an amdSec linked to the top level div in the logical structMap.
+	BOPCRIS Provenance metadata will conform to version 0.1 of the schema.
+        </note>
+    </extension_schema>
+    <extension_schema ID="rights">
+        <name>BOPCRIS Rights Metadata</name>
+        <URI>http://www.southampton.ac.uk/library/bopcris/xsd/rights/bopcris-rights-0-1.xsd</URI>
+        <context>mets/amdSec/rightsMD/mdWrap/xmlData</context>
+        <note>
+	Administrative metadata at the item level, indicating the copyright status of the item.
+	For a full explanation of the copyright status, see the project documentation.
+	There will be one instance per pamphlet, none per bound volume.
+	This metadata will be contained in an amdSec linked to the top level div in the logical structMap.
+	BOPCRIS Rights metadata will conform to version 0.1 of the schema.
+        </note>
+    </extension_schema>
+    <description_rules>
+        <p>Bibliographic records will conform to the descriptive specifications of COPAC at the time of export (2007).</p>
+        <p>For further information consult COPAC: http://www.copac.ac.uk/</p>
+    </description_rules>
+    <controlled_vocabularies>
+        <vocabulary ID="ISO_639_2">
+            <name>ISO 639.2 Codes for the representation of names of languages-- Part 2: alpha-3 code</name>
+            <maintenance_agency>Library of Congress</maintenance_agency>
+            <URI>http://www.loc.gov/standards/iso639-2/</URI>
+            <context>
+                <p>BOPCRIS Descriptors metadata uses ISO 639.2 language codes to indicate the presence of text
+                       in a certain language on a page.</p>
+            </context>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsRootElement>
+            <requirement ID="OBJID">
+                <p>OBJID must contain a project specific ID.</p>
+                <p>BOPCRIS generated a unique ID for each pamphlet based on: the local holding ID from the bibliographic record,
+                       library identifier, volume identifier (if applicable, otherwise the default value 000 was used), and another number
+                       to indicate whether the pamphlet is a duplicate item.</p>
+                <p>Bound volume identifiers are generated from library identifer and volume identifier only.</p>
+                <p>Library identifiers are identical to the institution codes used to identify libraries within the COPAC database.
+                       Volume identifiers are derived from the information about the volume available within the bibliographic record,
+                       in most instances, or from another source, such as a barcode, where necessary.</p>
+                <p>Pamphlet ID form:
+                           holdingID_library-volume-duplicate
+                       Examples:
+                           1234567890_tst-000-1
+                           27000123456_bri-1800-2
+                           19B39982X_liv-531-1
+                </p>
+                <p>Bound volume ID form:
+                           library-volume
+                       Examples:
+                           liv-531
+                           ucl-A70
+                </p>
+            </requirement>
+        </metsRootElement>
+        <metsHdr>
+            <requirement ID="metsHdr">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>metsHdr must be present, indicating creation and modification dates.
+                       At the point of delivery these will be identical, as METS documents are generated as an export at the end
+                       of the creation process for a digital object, and are not subject to ongoing revision.</p>
+                <p>Sub-element agent (role=&quot;CREATOR&quot;) will indicate the source of the object at BOPCRIS.</p>
+            </requirement>
+        </metsHdr>
+        <dmdSec>
+            <requirement ID="dmdSec_Biblio">
+                <head>Applies to: pamphlet METS documents only.</head>
+                <p>A dmdSec with attribute ID=&quot;dmdSec_Biblio&quot; will be present containing the bibliographic record of the item.</p>
+                <p>The bibliographic record will be in XML (MIMETYPE=&quot;text/xml&quot;) and MODS format (MDTYPE=&quot;MODS&quot;).</p>
+                <p>The record will be contained within the METS document using mdWrap.</p>
+            </requirement>
+            <requirement ID="dmdSec_page">
+                <head>Applies to: pamphlet METS documents only.</head>
+                <p>dmdSecs, one per physical page, will be present, containing descriptive metadata at the page level.
+                       attribute ID will be &quot;dmdSec&quot; + &quot;_&quot; + physical page identifier (see requirement ID=&quot;file_naming&quot;).
+                       Examples:
+                           dmdSec_00000001
+                           dmdSec_00000007
+                           dmdSec_00000017
+                </p>
+                <p>Metadata at this level will be in XML (MIMETYPE=&quot;text/xml&quot;) and BOPCRIS Descriptors Metadata format
+                       (MDTYPE=&quot;OTHER&quot;)</p>
+                <p>This metadata will be contained within the METS document using mdWrap.</p>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement ID="amdSec_Object">
+                <head>Applies to: pamphlet METS documents only.</head>
+                <p>An amdSec with attribute ID=&quot;amdSec_Object&quot; will be present containing administrative metadata at the item level.</p>
+                <p>This metadata will include:
+                           rightsMD ID=&quot;rightsMD_Object&quot;            containing rights metadata for the item in XML
+                                                                                                                    (MIMETYPE=&quot;text/xml&quot;)
+                                                                                                                    and BOPCRIS Rights Metadata format (MDTYPE=&quot;OTHER&quot;).
+                           digiProvMD ID=&quot;digiprovMD_Object&quot;   containing provenance metadata for the digital object in XML
+                                                                                                                    (MIMETYPE=&quot;text/xml&quot;)
+                                                                                                                    and BOPCRIS Provenance Metadata format (MDTYPE=&quot;OTHER&quot;).
+                </p>
+                <p>These metadata will be contained within the METS document using mdWrap.</p>
+            </requirement>
+            <requirement ID="amdSec_PREMIS-AGENTS">
+                <head>Applies to: pamphlet METS documents only.</head>
+                <p>An amdSec with attribute ID=&quot;amdSec_PREMIS-AGENTS&quot; will be present.
+                       In cases where post-processing actions have been performed on images, such as cropping and/or OCR,
+                       this section will contain premis:agent elements indicating the agents that performed such actions.</p>
+            </requirement>
+            <requirement ID="amdSec_file">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>amdSecs, one per file, will be present, containing technical information encoded in multiple extension schemata.</p>
+                <p>The attribute ID will be constructed from &quot;amdSec&quot; + &quot;_&quot; + file ID  (see requirement ID=&quot;file&quot;).
+                       Examples (pamphlet item):
+                           amdSec_MASTER_00000001
+                           amdSec_TXT_00000007
+                           amdSec_IDX_00000017
+                       Examples (bound volume):
+                           amdSec_MASTER-volume-front-00000001
+                           amdSec_MASTER-volume-back-00000001
+                </p>
+                <p>amdSecs for every file will contain PREMIS metadata:
+                           All files will have a premis:object element.
+                           In cases where files are the parent or child of another (due to OCR processing), this will be indicated in the premis:object.
+                           The event of derivation will be recorded in a premis:event element, linked to a premis:agent.</p>
+                <p>The premis:object for each file will indicate the format, and should indicate a registry providing format information when available.</p>
+                <p>amdSecs for master image files will additionally contain MIX metadata.</p>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement ID="fileSec">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>There will be one file group per file type. fileGrp attribute ID will indicate the relevance.
+                           Master Images                              MASTER
+                           Plain text OCR                               TXT
+                           Word co-ordinated XML OCR     IDX
+                </p>
+                <p>Pamphlet items will contain all three file groups, bound volumes will contain only master images.</p>
+            </requirement>
+            <requirement ID="file">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>There will be one file element per file, referencing the file location using FLocat .
+                       FLocat elements will be LOCTYPE=&quot;URL&quot; and use xlink:href to point to files.
+                       File locations will be given relative to the path of the METS document.</p>
+                <p>As the digital object is packaged into a single TAR file for delivery, relative paths allow the TAR package to be unpacked
+                       anywhere and, providing the directory structure is maintained on unpacking, all paths should remain accurate.</p>
+                <p>file ID will be constructed from fileGrp ID + &quot;_&quot; + physical page identifier (see requirement ID=&quot;file_naming&quot;).
+                       Examples (pamphlet item):
+                            MASTER_00000001
+                            TXT_00000007
+                            IDX_00000017
+                        Examples (bound volume):
+                            MASTER_volume-front-00000001
+                            MASTER_volume-back-00000001
+                </p>
+                <p>file GROUPID will be identical to the physical page identifier (see requirement ID=&quot;file_naming&quot;).
+                       Example (pamphlet item):
+                           00000001
+                       Example (bound volume):
+                           volume-front-00000001
+                           volume-back-00000001
+                </p>
+                <p>file AMDID will link to the amdSec containing the technical metadata for the file, as indicated in
+                       requirement ID=&quot;amdSec_file&quot;.</p>
+                <p>file CHECKSUM and CHECKSUMTYPE will be present. Checksums will be calculated using MD5.</p>
+                <p>file MIMETYPE will be present.</p>
+            </requirement>
+        </fileSec>
+        <structMap>
+            <requirement ID="structMaps">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>There will be a logical and physical structure map.</p>
+                <p>In the case of pamphlet items:
+                           The logical and physical structure maps will be identical, except the logical structure map will also contain ID linkages
+                           to relevant metadata sections.</p>
+                <p>In the case of bound volumes:
+                           The physical structure map will contain only the image files comprising the covers.
+                           The logical structure map will also contain pointers to the METS documents of pamphlets contained within that volume.</p>
+            </requirement>
+            <requirement ID="structMap_logical">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>In all cases, the following attributes will be present:
+                           ID=&quot;structMap_logical&quot;
+                           TYPE=&quot;logical&quot;</p>
+                <p>In the case of pamphlet items:
+                           Top level will contain one div: ID=&quot;logical_root&quot;
+                           This div will be linked to dmdSec_BIBLIO and amdSec_OBJECT.
+                           This div will contain page level divs (see requirement ID=&quot;div_page&quot;).
+                </p>
+                <p>In the case of bound volumes:
+                           The top level will contain one div: ID=&quot;logical_root&quot;
+                           This div will contain further divs: TYPE=&quot;section&quot;
+                           These divs will contain, either:
+                               Page level divs (see requirement ID=&quot;div_page&quot;)
+                               Or: mptr elements, pointing to the pamphlets contained within the volume.
+                </p>
+            </requirement>
+            <requirement ID="structMap_physical">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>In all cases, the following attributes will be present:
+                           ID=&quot;structMap_physical&quot;
+                           structMap TYPE=&quot;physical&quot;</p>
+                <p>The top level will contain one div. This div will contain page level divs (see requirement ID=&quot;div_page&quot;).</p>
+            </requirement>
+            <requirement ID="div_page">
+                <head>Applies to: pamphlet and bound volume METS documents.</head>
+                <p>Page level divs represent a physical item page.</p>
+                <p>Page level divs contain a single fptr element for each file that constitutes a representation of that page, in all formats.
+                       There will be one fptr present for the file of each type that represents that page.
+                       A page level div will contain a mets:fptr for every equivalent file of each type that is a representation of that page.</p>
+                <p>div TYPE=&quot;page&quot;</p>
+                <p>ORDER and ORDERLABEL will be present, equal to the physical order of the page.
+                       In the case of pamphlet METS documents, this will be equal to the sequential page number.
+                       In the case of bound volume METS documents, this will be equal to a sequential number beginning at 00000001.</p>
+            </requirement>
+        </structMap>
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement ID="file_naming">
+                <p>METS documents will be named by the OBJID + &quot;.xml&quot;</p>
+                <p>There will be one file per file group per physical page.</p>
+                <p>Files will be referenced from within METS documents using their path relative to the location of the METS document.</p>
+                <p>Filenames will be 8 characters in length, plus extension.</p>
+                <p>Files will be sequentially numbered, starting at 00000001.</p>
+                <p>In the case of pamphlet items:
+                       Content files will be arranged by sub-directory according to file group.
+                       Examples:
+                           ./master/00000001.tif
+                           ./txt/00000007.txt
+                           ./idx/00000017.idx
+                </p>
+                <p>In the case of bound volumes:
+                       Content files will be arranged by sub-directory according to their relevance to the volume.
+                       Examples:
+                           ./volume/front/00000001.tif
+                           ./volume/back/00000001.tif
+                </p>
+                <p>The physical page identifier is constructed from components of the relative path and filename (minus extension).
+                       Example (pamphlet item):
+                           00000001
+                           00000007
+                           00000017
+                       Examples (bound volume):
+                           volume-front-00000001
+                           volume-back-00000001
+                       The physical page identifier will be used in construction of METS element IDs for those elements
+                       relating to files or their metadata. See requirement ID=&quot;file&quot; for example.</p>
+            </requirement>
+            <requirement ID="master_image_files">
+                <p>Master image files will be in TIFF 6.0 format.</p>
+                <p>TIFF files will be compressed using LZW.</p>
+            </requirement>
+            <requirement ID="OCR_files">
+                <p>OCR output will be present in plain text and word co-ordinated XML format.</p>
+                <p>Word co-ordinated XML is in IDX format. This is a derivative of Abbyy FineReader SDK XML output,
+                       generated by the OCR workflow software: Agora (SRZ Berlin).</p>
+                <p>IDX XML files contain:
+                           A &lt;milestone unit&gt; indicating the dimensions (width and height, in pixels) of the source image.
+                           Individual word locations &lt;w&gt; given in pixels relative to the dimensions of the source image.
+                           Word locations contain co-ordinates of: left (l), top (t), width (w) and height (h).
+                           Individual words are contained within sentences &lt;s&gt;. Sentences are contained within paragraphs &lt;p&gt;.
+                           Sentences and paragraphs themselves do not contain co-ordinates.</p>
+            </requirement>
+        </content_files>
+    </technical_requirements>
+    <tool>
+        <agency>BOPCRIS</agency>
+        <note>
+            <p>
+               The digitization workflow at BOPCRIS is co-ordinated by a relational database. This database is also used
+               by scanner operators to capture metadata for mapping to BOPCRIS Descriptors format. METS documents
+               are generated as the product of a combination of:
+                   An export from this database
+                   Extraction of technical metadata from digital files (standard file information, and TIFF headers)
+                   The bibliographic record for the item.
+            </p>
+            <p>These tools are currently for internal use only.</p>
+        </note>
+    </tool>
+    <Appendix NUMBER="0" ID="EXAMPLE_PAMPHLET" LABEL="Example Pamphlet METS Document">
+<mets:mets OBJID="19B14906016_liv-531-1" xmlns:mets="http://www.loc.gov/METS/" xmlns:mix="http://www.loc.gov/mix/v20" xmlns:premis="info:lc/xmlns/premis-v2" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:bopcris-p="http://www.southampton.ac.uk/library/bopcris/xsd/provenance/" xmlns:bopcris-r="http://www.southampton.ac.uk/library/bopcris/xsd/rights/" xmlns:bopcris-d="http://www.southampton.ac.uk/library/bopcris/xsd/descriptors/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/version17/mets.v1-7.xsd http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/v2/premis-v2-0.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.southampton.ac.uk/library/bopcris/xsd/provenance/ http://www.southampton.ac.uk/library/bopcris/xsd/provenance/bopcris-provenance-0-1.xsd http://www.southampton.ac.uk/library/bopcris/xsd/rights/ http://www.southampton.ac.uk/library/bopcris/xsd/rights/bopcris-rights-0-1.xsd http://www.southampton.ac.uk/library/bopcris/xsd/descriptors/ http://www.southampton.ac.uk/library/bopcris/xsd/descriptors/bopcris-descriptors-0-2.xsd">
+  <mets:metsHdr CREATEDATE="2008-07-31T10:15:43" LASTMODDATE="2008-07-31T10:15:43" RECORDSTATUS="in progress">
+    <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+      <mets:name>BOPCRIS, Hartley Library, University of Southampton</mets:name>
+      <mets:note>http://www.southampton.ac.uk/library/bopcris/</mets:note>
+    </mets:agent>
+  </mets:metsHdr>
+  <mets:dmdSec ID="dmdSec_BIBLIO">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS">
+      <mets:xmlData>
+        <mods:mods>
+          <mods:recordInfo>
+            <mods:recordIdentifier source="copac">19B14906016</mods:recordIdentifier>
+          </mods:recordInfo>
+          <mods:typeOfResource>text</mods:typeOfResource>
+          <mods:originInfo>
+            <mods:dateIssued encoding="marc">1851</mods:dateIssued>
+          </mods:originInfo>
+          <mods:originInfo>
+            <mods:place>
+              <mods:placeTerm type="text">London :</mods:placeTerm>
+            </mods:place>
+            <mods:publisher>Simpkin, Marshall,</mods:publisher>
+            <mods:dateIssued>1851.</mods:dateIssued>
+          </mods:originInfo>
+          <mods:titleInfo>
+            <mods:title>An essay on Church reform</mods:title>
+          </mods:titleInfo>
+          <mods:note type="statement of responsibility">[by Alexander Alison].</mods:note>
+          <mods:name type="personal">
+            <mods:namePart>Alison, Alexander.</mods:namePart>
+            <mods:role>
+              <mods:roleTerm type="text">creator</mods:roleTerm>
+            </mods:role>
+          </mods:name>
+          <mods:subject authority="lcsh">
+            <mods:name type="corporate">
+              <mods:namePart>ROMAN CATHOLIC CHURCH.</mods:namePart>
+            </mods:name>
+          </mods:subject>
+          <mods:subject authority="lcsh">
+            <mods:name type="corporate">
+              <mods:namePart>Church renewal</mods:namePart>
+            </mods:name>
+            <mods:topic>Church of England.</mods:topic>
+          </mods:subject>
+          <mods:language>
+            <mods:languageTerm type="text">English</mods:languageTerm>
+          </mods:language>
+          <mods:physicalDescription>
+            <mods:extent>88 p. ; 22 cm.</mods:extent>
+          </mods:physicalDescription>
+          <mods:extension>
+            <h:localHolds xmlns:h="http://copac.ac.uk/schemas/holdings/v1">
+              <h:org type="CURL" displayName="Liverpool">Liv</h:org>
+              <h:objId>19B14906016</h:objId>
+              <h:holds>
+                <h:item>
+                  <h:loc displayName="Sydney Jones Library Special Collections (check locally for hours of opening)">sca</h:loc>
+                  <h:shelfmark>SPEC Knows. pamph 531(4)</h:shelfmark>
+                </h:item>
+              </h:holds>
+              <h:localNote>
+                <mods:note>Bound with other material, with title on spine: Pamphlets &amp; c. Church questions.</mods:note>
+              </h:localNote>
+            </h:localHolds>
+          </mods:extension>
+        </mods:mods>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmdSec_00000001">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER">
+      <mets:xmlData>
+        <bopcris-d:attributeDescriptors>
+          <bopcris-d:annotation />
+          <bopcris-d:language encoding="ISO 639.2" engName="English">eng</bopcris-d:language>
+        </bopcris-d:attributeDescriptors>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmdSec_00000002">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER">
+      <mets:xmlData>
+        <bopcris-d:attributeDescriptors>
+          <bopcris-d:language encoding="ISO 639.2" engName="English">eng</bopcris-d:language>
+        </bopcris-d:attributeDescriptors>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:dmdSec ID="dmdSec_00000003">
+    <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER">
+      <mets:xmlData>
+        <bopcris-d:attributeDescriptors>
+          <bopcris-d:language encoding="ISO 639.2" engName="English">eng</bopcris-d:language>
+        </bopcris-d:attributeDescriptors>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:amdSec ID="amdSec_OBJECT">
+    <mets:rightsMD ID="rightsMD_OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER">
+        <mets:xmlData>
+          <bopcris-r:rights>
+            <bopcris-r:statement>The copyright status was determined by the Partner Libraries for material scanned within the 19C Pamphlet Project and carries either:
+
+Class 1 - Out of copyright
+Class 2 - Copyright uncertain
+
+Material is considered out of copyright (Class 1) if any of the following criteria are met:
+
+a. At least 70 years have elapsed after publication if the author is not known or discoverable through reasonable enquiry 
+b. At least  70 years have elapsed after the death of the last author, if the year of  their death is known
+c. At least  150 years have elapsed after the date of publication if the author is known, but not the date of their death
+d. At least 50 years have elapsed after the date of publication if the work is Crown or Parliamentary copyright
+
+If none of the criteria (a-d) are met, material is considered to have a copyright uncertain (Class 2) status.
+</bopcris-r:statement>
+            <bopcris-r:status>Class 1 - out of copyright</bopcris-r:status>
+          </bopcris-r:rights>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:rightsMD>
+    <mets:digiprovMD ID="digiprovMD_OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER">
+        <mets:xmlData>
+          <bopcris-p:provenance>
+            <bopcris-p:project>CURL</bopcris-p:project>
+            <bopcris-p:sourceLibrary>
+              <bopcris-p:sourceLibraryIdentifier authority="CURL" fullName="Liverpool">Liv</bopcris-p:sourceLibraryIdentifier>
+              <bopcris-p:sourceLibraryIdentifier authority="MARC" fullName="Liverpool">ukliu</bopcris-p:sourceLibraryIdentifier>
+              <bopcris-p:sourceLibraryLocation>Sydney Jones Library Special Collections (check locally for hours of opening)</bopcris-p:sourceLibraryLocation>
+              <bopcris-p:sourceLibraryShelfmark>SPEC Knows. pamph 531(4)</bopcris-p:sourceLibraryShelfmark>
+              <bopcris-p:sourceLibraryNotes type="general">Bound with other material, with title on spine: Pamphlets &amp; c. Church questions.</bopcris-p:sourceLibraryNotes>
+            </bopcris-p:sourceLibrary>
+          </bopcris-p:provenance>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_PREMIS-AGENTS_">  <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+    <mets:digiprovMD ID="digiprovMD_PREMIS-AGENTS">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:AGENT">
+        <mets:xmlData>
+          <premis:agent>
+            <premis:agentIdentifier>
+              <premis:agentIdentifierType>BOPCRIS</premis:agentIdentifierType>
+              <premis:agentIdentifierValue>OCR_Engine</premis:agentIdentifierValue>
+            </premis:agentIdentifier>
+            <premis:agentName>Abbyy FineReader 8.0.1.138</premis:agentName>
+            <premis:agentType>software</premis:agentType>
+          </premis:agent>
+          <premis:agent>
+            <premis:agentIdentifier>
+              <premis:agentIdentifierType>BOPCRIS</premis:agentIdentifierType>
+              <premis:agentIdentifierValue>Image_Derivation</premis:agentIdentifierValue>
+            </premis:agentIdentifier>
+            <premis:agentName>ImageGear 15.2.1</premis:agentName>
+            <premis:agentType>software</premis:agentType>
+          </premis:agent>
+          <premis:agent>
+            <premis:agentIdentifier>
+              <premis:agentIdentifierType>BOPCRIS</premis:agentIdentifierType>
+              <premis:agentIdentifierValue>Image_Crop</premis:agentIdentifierValue>
+            </premis:agentIdentifier>
+            <premis:agentName>Image_Crop</premis:agentName>
+            <premis:agentType>PageImprover 2.2.3042.20587</premis:agentType>
+          </premis:agent>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_00000001">
+    <mets:techMD ID="techMD_MASTER_00000001_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>4144512</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>b6d1ea2990a79748acad91432f343377</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>2031</mix:imageWidth>
+                <mix:imageHeight>3328</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>PaletteColor</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-07-31T10:16:15</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>
+                </mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>
+                  </mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>
+                  </mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>1</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_00000001_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>b6d1ea2990a79748acad91432f343377</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>4144512</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>
+                </premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-31T10:16:15</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./master/00000001.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is parent of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/IDX</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000001/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is parent of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/TXT</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000001/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_MASTER_00000001_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000001/Image_Crop</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Image Crop</premis:eventType>
+            <premis:eventDateTime>2008-07-31T10:16:15</premis:eventDateTime>
+            <premis:eventOutcomeInformation>
+              <premis:eventOutcomeDetail>
+                <premis:eventOutcomeDetailNote />
+              </premis:eventOutcomeDetail>
+            </premis:eventOutcomeInformation>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>Image_Crop</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_00000002">
+    <mets:techMD ID="techMD_MASTER_00000002_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>5047378</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>a7623d3397c7b5b5467a22cf3743b142</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>2077</mix:imageWidth>
+                <mix:imageHeight>3324</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>PaletteColor</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-07-31T10:16:16</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>
+                </mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>
+                  </mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>
+                  </mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>1</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_00000002_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>a7623d3397c7b5b5467a22cf3743b142</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>5047378</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>
+                </premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-31T10:16:16</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./master/00000002.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is parent of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/IDX</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000002/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is parent of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/TXT</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000002/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_MASTER_00000002_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000002/Image_Crop</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Image Crop</premis:eventType>
+            <premis:eventDateTime>2008-07-31T10:16:16</premis:eventDateTime>
+            <premis:eventOutcomeInformation>
+              <premis:eventOutcomeDetail>
+                <premis:eventOutcomeDetailNote />
+              </premis:eventOutcomeDetail>
+            </premis:eventOutcomeInformation>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>Image_Crop</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_00000003">
+    <mets:techMD ID="techMD_MASTER_00000003_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>4267384</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>2adce5c701c4929e4a995773279ed9cf</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>2044</mix:imageWidth>
+                <mix:imageHeight>3346</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>PaletteColor</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-07-31T10:16:17</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>
+                </mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>
+                  </mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>
+                  </mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>1</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_00000003_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>2adce5c701c4929e4a995773279ed9cf</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>4267384</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>
+                </premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-31T10:16:17</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./master/00000003.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is parent of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/IDX</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000003/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is parent of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/TXT</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000003/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_MASTER_00000003_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000003/Image_Crop</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Image Crop</premis:eventType>
+            <premis:eventDateTime>2008-07-31T10:16:17</premis:eventDateTime>
+            <premis:eventOutcomeInformation>
+              <premis:eventOutcomeDetail>
+                <premis:eventOutcomeDetailNote />
+              </premis:eventOutcomeDetail>
+            </premis:eventOutcomeInformation>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>Image_Crop</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_IDX_00000001">
+    <mets:techMD ID="techMD_IDX_00000001_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/IDX</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>0bdb1b7e8d4b4a7cf4e6e97ae59f3f5a</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>2964</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>text/xml</premis:formatName>
+                  <premis:formatVersion>
+                  </premis:formatVersion>
+                </premis:formatDesignation>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>Abbyy FineReader</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>8.0.1.138</premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-18T10:27:08</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./idx/00000001.idx</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is child of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/MASTER</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000001/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_IDX_00000001_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000001/OCR_Engine</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Optical Character Recognition</premis:eventType>
+            <premis:eventDateTime>2008-07-18T10:27:08</premis:eventDateTime>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>OCR_Engine</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_IDX_00000002">
+    <mets:techMD ID="techMD_IDX_00000002_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/IDX</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>06ac0377dd92c11426b227c0b2ed7ea5</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>1526</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>text/xml</premis:formatName>
+                  <premis:formatVersion>
+                  </premis:formatVersion>
+                </premis:formatDesignation>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>Abbyy FineReader</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>8.0.1.138</premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-18T10:27:07</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./idx/00000002.idx</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is child of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/MASTER</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000002/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_IDX_00000002_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000002/OCR_Engine</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Optical Character Recognition</premis:eventType>
+            <premis:eventDateTime>2008-07-18T10:27:07</premis:eventDateTime>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>OCR_Engine</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_IDX_00000003">
+    <mets:techMD ID="techMD_IDX_00000003_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/IDX</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>6c8f7a5167925878d6edff997086ba8b</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>6062</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>text/xml</premis:formatName>
+                  <premis:formatVersion>
+                  </premis:formatVersion>
+                </premis:formatDesignation>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>Abbyy FineReader</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>8.0.1.138</premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-18T10:27:11</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./idx/00000003.idx</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is child of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/MASTER</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000003/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_IDX_00000003_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000003/OCR_Engine</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Optical Character Recognition</premis:eventType>
+            <premis:eventDateTime>2008-07-18T10:27:11</premis:eventDateTime>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>OCR_Engine</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_TXT_00000001">
+    <mets:techMD ID="techMD_TXT_00000001_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/TXT</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>1ee48f2fd7e0c85b14f076290898b4c3</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>179</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>text/plain</premis:formatName>
+                  <premis:formatVersion>
+                  </premis:formatVersion>
+                </premis:formatDesignation>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>Abbyy FineReader</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>8.0.1.138</premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-18T10:27:08</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./txt/00000001.txt</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is child of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000001/MASTER</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000001/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_TXT_00000001_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000001/OCR_Engine</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Optical Character Recognition</premis:eventType>
+            <premis:eventDateTime>2008-07-18T10:27:08</premis:eventDateTime>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>OCR_Engine</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_TXT_00000002">
+    <mets:techMD ID="techMD_TXT_00000002_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/TXT</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>ed030913a897fe29b500f9ef4fda663e</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>69</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>text/plain</premis:formatName>
+                  <premis:formatVersion>
+                  </premis:formatVersion>
+                </premis:formatDesignation>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>Abbyy FineReader</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>8.0.1.138</premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-18T10:27:07</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./txt/00000002.txt</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is child of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000002/MASTER</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000002/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_TXT_00000002_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000002/OCR_Engine</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Optical Character Recognition</premis:eventType>
+            <premis:eventDateTime>2008-07-18T10:27:07</premis:eventDateTime>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>OCR_Engine</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_TXT_00000003">
+    <mets:techMD ID="techMD_TXT_00000003_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/TXT</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>d10310f02c3d5080bccf3b4963681d5b</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>346</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>text/plain</premis:formatName>
+                  <premis:formatVersion>
+                  </premis:formatVersion>
+                </premis:formatDesignation>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>Abbyy FineReader</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>8.0.1.138</premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-07-18T10:27:11</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./txt/00000003.txt</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+            <premis:relationship>
+              <premis:relationshipType>derivation</premis:relationshipType>
+              <premis:relationshipSubType>is child of</premis:relationshipSubType>
+              <premis:relatedObjectIdentification>
+                <premis:relatedObjectIdentifierType>BOPCRIS</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>CURL/19B14906016_liv-531-1/00000003/MASTER</premis:relatedObjectIdentifierValue>
+                <premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+              </premis:relatedObjectIdentification>
+              <premis:relatedEventIdentification>
+                <premis:relatedEventIdentifierType>BOPCRIS</premis:relatedEventIdentifierType>
+                <premis:relatedEventIdentifierValue>CURL/19B14906016_liv-531-1/00000003/OCR_Engine</premis:relatedEventIdentifierValue>
+                <premis:relatedEventSequence>0</premis:relatedEventSequence>
+              </premis:relatedEventIdentification>
+            </premis:relationship>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:digiprovMD ID="digiprovMD_TXT_00000003_PREMIS-EVENT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT">
+        <mets:xmlData>
+          <premis:event>
+            <premis:eventIdentifier>
+              <premis:eventIdentifierType>BOPCRIS</premis:eventIdentifierType>
+              <premis:eventIdentifierValue>CURL/19B14906016_liv-531-1/00000003/OCR_Engine</premis:eventIdentifierValue>
+            </premis:eventIdentifier>
+            <premis:eventType>Optical Character Recognition</premis:eventType>
+            <premis:eventDateTime>2008-07-18T10:27:11</premis:eventDateTime>
+            <premis:linkingAgentIdentifier>
+              <premis:linkingAgentIdentifierType>BOPCRIS</premis:linkingAgentIdentifierType>
+              <premis:linkingAgentIdentifierValue>OCR_Engine</premis:linkingAgentIdentifierValue>
+            </premis:linkingAgentIdentifier>
+          </premis:event>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:fileSec ID="fileSec_"> <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+    <mets:fileGrp ID="MASTER">
+      <mets:file ID="MASTER_00000001" GROUPID="00000001" ADMID="amdSec_MASTER_00000001" CHECKSUM="b6d1ea2990a79748acad91432f343377" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./master/00000001.tif" />
+      </mets:file>
+      <mets:file ID="MASTER_00000002" GROUPID="00000002" ADMID="amdSec_MASTER_00000002" CHECKSUM="a7623d3397c7b5b5467a22cf3743b142" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./master/00000002.tif" />
+      </mets:file>
+      <mets:file ID="MASTER_00000003" GROUPID="00000003" ADMID="amdSec_MASTER_00000003" CHECKSUM="2adce5c701c4929e4a995773279ed9cf" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./master/00000003.tif" />
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp ID="IDX">
+      <mets:file ID="IDX_00000001" GROUPID="00000001" ADMID="amdSec_IDX_00000001" CHECKSUM="0bdb1b7e8d4b4a7cf4e6e97ae59f3f5a" CHECKSUMTYPE="MD5" MIMETYPE="text/xml">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./idx/00000001.idx" />
+      </mets:file>
+      <mets:file ID="IDX_00000002" GROUPID="00000002" ADMID="amdSec_IDX_00000002" CHECKSUM="06ac0377dd92c11426b227c0b2ed7ea5" CHECKSUMTYPE="MD5" MIMETYPE="text/xml">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./idx/00000002.idx" />
+      </mets:file>
+      <mets:file ID="IDX_00000003" GROUPID="00000003" ADMID="amdSec_IDX_00000003" CHECKSUM="6c8f7a5167925878d6edff997086ba8b" CHECKSUMTYPE="MD5" MIMETYPE="text/xml">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./idx/00000003.idx" />
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp ID="TXT">
+      <mets:file ID="TXT_00000001" GROUPID="00000001" ADMID="amdSec_TXT_00000001" CHECKSUM="1ee48f2fd7e0c85b14f076290898b4c3" CHECKSUMTYPE="MD5" MIMETYPE="text/plain">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./txt/00000001.txt" />
+      </mets:file>
+      <mets:file ID="TXT_00000002" GROUPID="00000002" ADMID="amdSec_TXT_00000002" CHECKSUM="ed030913a897fe29b500f9ef4fda663e" CHECKSUMTYPE="MD5" MIMETYPE="text/plain">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./txt/00000002.txt" />
+      </mets:file>
+      <mets:file ID="TXT_00000003" GROUPID="00000003" ADMID="amdSec_TXT_00000003" CHECKSUM="d10310f02c3d5080bccf3b4963681d5b" CHECKSUMTYPE="MD5" MIMETYPE="text/plain">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./txt/00000003.txt" />
+      </mets:file>
+    </mets:fileGrp>
+  </mets:fileSec>
+  <mets:structMap ID="structMap_logical_" TYPE="logical">  <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+    <mets:div ID="logical_root" DMDID="dmdSec_BIBLIO" ADMID="amdSec_OBJECT" LABEL="19B14906016_liv-531-1">
+      <mets:div TYPE="page" ORDER="1" ORDERLABEL="1" DMDID="dmdSec_00000001">
+        <mets:fptr FILEID="MASTER_00000001" />
+        <mets:fptr FILEID="IDX_00000001" />
+        <mets:fptr FILEID="TXT_00000001" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="2" ORDERLABEL="2" DMDID="dmdSec_00000002">
+        <mets:fptr FILEID="MASTER_00000002" />
+        <mets:fptr FILEID="IDX_00000002" />
+        <mets:fptr FILEID="TXT_00000002" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="3" ORDERLABEL="3" DMDID="dmdSec_00000003">
+        <mets:fptr FILEID="MASTER_00000003" />
+        <mets:fptr FILEID="IDX_00000003" />
+        <mets:fptr FILEID="TXT_00000003" />
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+  <mets:structMap ID="structMap_physical_" TYPE="physical">  <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+    <mets:div>
+      <mets:div TYPE="page" ORDER="1" ORDERLABEL="1">
+        <mets:fptr FILEID="MASTER_00000001" />
+        <mets:fptr FILEID="IDX_00000001" />
+        <mets:fptr FILEID="TXT_00000001" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="2" ORDERLABEL="2">
+        <mets:fptr FILEID="MASTER_00000002" />
+        <mets:fptr FILEID="IDX_00000002" />
+        <mets:fptr FILEID="TXT_00000002" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="3" ORDERLABEL="3">
+        <mets:fptr FILEID="MASTER_00000003" />
+        <mets:fptr FILEID="IDX_00000003" />
+        <mets:fptr FILEID="TXT_00000003" />
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>
+    </Appendix>
+    <Appendix NUMBER="1" ID="EXAMPLE_BOUND_VOLUME" LABEL="Example Bound Volume METS Document">
+<mets:mets OBJID="liv-531" xmlns:mets="http://www.loc.gov/METS/" xmlns:mix="http://www.loc.gov/mix/v20" xmlns:premis="info:lc/xmlns/premis-v2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/version17/mets.v1-7.xsd http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/v2/premis-v2-0.xsd">
+  <mets:metsHdr CREATEDATE="2008-08-04T12:44:52" LASTMODDATE="2008-08-04T12:44:52" RECORDSTATUS="in progress">
+    <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+      <mets:name>BOPCRIS, Hartley Library, University of Southampton</mets:name>
+      <mets:note>http://www.southampton.ac.uk/library/bopcris/</mets:note>
+    </mets:agent>
+  </mets:metsHdr>
+  <mets:amdSec ID="amdSec_MASTER_volume-front-00000001">
+    <mets:techMD ID="techMD_MASTER_volume-front-00000001_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/liv-531/volume-front-00000001/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>8556868</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>91639eac27a5346d4c0b0054f0fdd628</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>1031</mix:imageWidth>
+                <mix:imageHeight>3142</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>RGB</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-08-04T12:44:33</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>i2S CopiBook Scanner</mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>CopiBook</mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>2.6.3</mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>3</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_volume-front-00000001_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/liv-531/volume-front-00000001/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>91639eac27a5346d4c0b0054f0fdd628</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>8556868</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>2.6.3</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-08-04T12:44:33</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./volume/front/00000001.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_volume-front-00000002">
+    <mets:techMD ID="techMD_MASTER_volume-front-00000002_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/liv-531/volume-front-00000002/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>23137010</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>e681f62a190c7f669e91ecc4f8304457</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>2164</mix:imageWidth>
+                <mix:imageHeight>3027</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>RGB</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-08-04T12:44:41</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>i2S CopiBook Scanner</mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>CopiBook</mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>2.6.3</mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>3</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_volume-front-00000002_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/liv-531/volume-front-00000002/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>e681f62a190c7f669e91ecc4f8304457</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>23137010</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>2.6.3</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-08-04T12:44:41</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./volume/front/00000002.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_volume-front-00000003">
+    <mets:techMD ID="techMD_MASTER_volume-front-00000003_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/liv-531/volume-front-00000003/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>14051120</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>c0a8f17054579a4b01d4192551a95c32</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>2042</mix:imageWidth>
+                <mix:imageHeight>2857</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>RGB</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-08-04T12:44:46</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>i2S CopiBook Scanner</mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>CopiBook</mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>2.6.3</mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>3</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_volume-front-00000003_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/liv-531/volume-front-00000003/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>c0a8f17054579a4b01d4192551a95c32</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>14051120</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>2.6.3</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-08-04T12:44:46</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./volume/front/00000003.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_volume-back-00000001">
+    <mets:techMD ID="techMD_MASTER_volume-back-00000001_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/liv-531/volume-back-00000001/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>5335164</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>7d746dee70bab3db9f8d4c891cef48e6</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>1989</mix:imageWidth>
+                <mix:imageHeight>2946</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>PaletteColor</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-08-04T12:45:11</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>i2S CopiBook Scanner</mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>CopiBook</mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>2.6.3</mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>1</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_volume-back-00000001_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/liv-531/volume-back-00000001/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>7d746dee70bab3db9f8d4c891cef48e6</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>5335164</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>2.6.3</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-08-04T12:45:11</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./volume/back/00000001.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_volume-back-00000002">
+    <mets:techMD ID="techMD_MASTER_volume-back-00000002_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/liv-531/volume-back-00000002/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>5480158</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>04faf3559b2c7863bc0079f5f6595cc3</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>2049</mix:imageWidth>
+                <mix:imageHeight>2939</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>PaletteColor</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-08-04T12:45:13</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>i2S CopiBook Scanner</mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>CopiBook</mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>2.6.3</mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>300</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>1</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_volume-back-00000002_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/liv-531/volume-back-00000002/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>04faf3559b2c7863bc0079f5f6595cc3</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>5480158</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>2.6.3</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-08-04T12:45:13</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./volume/back/00000002.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+  </mets:amdSec>
+  <mets:amdSec ID="amdSec_MASTER_volume-back-00000003">
+    <mets:techMD ID="techMD_MASTER_volume-back-00000003_NISOIMG">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="NISOIMG">
+        <mets:xmlData>
+          <mix:mix>
+            <mix:BasicDigitalObjectInformation>
+              <mix:ObjectIdentifier>
+                <mix:objectIdentifierType>BOPCRIS</mix:objectIdentifierType>
+                <mix:objectIdentifierValue>CURL/liv-531/volume-back-00000003/MASTER</mix:objectIdentifierValue>
+              </mix:ObjectIdentifier>
+              <mix:fileSize>5611706</mix:fileSize>
+              <mix:FormatDesignation>
+                <mix:formatName>image/tiff</mix:formatName>
+              </mix:FormatDesignation>
+              <mix:byteOrder>little endian</mix:byteOrder>
+              <mix:Compression>
+                <mix:compressionScheme>LZW</mix:compressionScheme>
+              </mix:Compression>
+              <mix:Fixity>
+                <mix:messageDigestAlgorithm>MD5</mix:messageDigestAlgorithm>
+                <mix:messageDigest>5263ef7e15a701f18e453fac3d41fd60</mix:messageDigest>
+                <mix:messageDigestOriginator>BOPCRIS</mix:messageDigestOriginator>
+              </mix:Fixity>
+            </mix:BasicDigitalObjectInformation>
+            <mix:BasicImageInformation>
+              <mix:BasicImageCharacteristics>
+                <mix:imageWidth>2459</mix:imageWidth>
+                <mix:imageHeight>3688</mix:imageHeight>
+                <mix:PhotometricInterpretation>
+                  <mix:colorSpace>PaletteColor</mix:colorSpace>
+                </mix:PhotometricInterpretation>
+              </mix:BasicImageCharacteristics>
+            </mix:BasicImageInformation>
+            <mix:ImageCaptureMetadata>
+              <mix:GeneralCaptureInformation>
+                <mix:dateTimeCreated>2008-08-04T12:45:18</mix:dateTimeCreated>
+                <mix:imageProducer>BOPCRIS</mix:imageProducer>
+                <mix:captureDevice>digital still camera</mix:captureDevice>
+              </mix:GeneralCaptureInformation>
+              <mix:ScannerCapture>
+                <mix:scannerManufacturer>
+                </mix:scannerManufacturer>
+                <mix:ScannerModel>
+                  <mix:scannerModelName>
+                  </mix:scannerModelName>
+                  <mix:scannerModelNumber>
+                  </mix:scannerModelNumber>
+                </mix:ScannerModel>
+                <mix:ScanningSystemSoftware>
+                  <mix:scanningSoftwareName>SRZ ProScan V3.3</mix:scanningSoftwareName>
+                  <mix:scanningSoftwareVersionNo>
+                  </mix:scanningSoftwareVersionNo>
+                </mix:ScanningSystemSoftware>
+              </mix:ScannerCapture>
+              <mix:orientation>normal*</mix:orientation>
+            </mix:ImageCaptureMetadata>
+            <mix:ImageAssessmentMetadata>
+              <mix:SpatialMetrics>
+                <mix:samplingFrequencyUnit>in.</mix:samplingFrequencyUnit>
+                <mix:xSamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:xSamplingFrequency>
+                <mix:ySamplingFrequency>
+                  <mix:numerator>400</mix:numerator>
+                </mix:ySamplingFrequency>
+              </mix:SpatialMetrics>
+              <mix:ImageColorEncoding>
+                <mix:BitsPerSample>
+                  <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                  <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                </mix:BitsPerSample>
+                <mix:samplesPerPixel>1</mix:samplesPerPixel>
+              </mix:ImageColorEncoding>
+            </mix:ImageAssessmentMetadata>
+          </mix:mix>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+    <mets:techMD ID="techMD_MASTER_volume-back-00000003_PREMIS-OBJECT">
+      <mets:mdWrap MIMETYPE="text/xml" MDTYPE="PREMIS:OBJECT">
+        <mets:xmlData>
+          <premis:object xsi:type="premis:file">
+            <premis:objectIdentifier>
+              <premis:objectIdentifierType>BOPCRIS</premis:objectIdentifierType>
+              <premis:objectIdentifierValue>CURL/liv-531/volume-back-00000003/MASTER</premis:objectIdentifierValue>
+            </premis:objectIdentifier>
+            <premis:preservationLevel>
+              <premis:preservationLevelValue>full</premis:preservationLevelValue>
+            </premis:preservationLevel>
+            <premis:objectCharacteristics>
+              <premis:compositionLevel>0</premis:compositionLevel>
+              <premis:fixity>
+                <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                <premis:messageDigest>5263ef7e15a701f18e453fac3d41fd60</premis:messageDigest>
+                <premis:messageDigestOriginator>BOPCRIS</premis:messageDigestOriginator>
+              </premis:fixity>
+              <premis:size>5611706</premis:size>
+              <premis:format>
+                <premis:formatDesignation>
+                  <premis:formatName>image/tiff</premis:formatName>
+                  <premis:formatVersion>6.0</premis:formatVersion>
+                </premis:formatDesignation>
+                <premis:formatRegistry>
+                  <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+                  <premis:formatRegistryKey>fmt/10</premis:formatRegistryKey>
+                  <premis:formatRegistryRole>specification</premis:formatRegistryRole>
+                </premis:formatRegistry>
+              </premis:format>
+              <premis:creatingApplication>
+                <premis:creatingApplicationName>SRZ ProScan V3.3</premis:creatingApplicationName>
+                <premis:creatingApplicationVersion>
+                </premis:creatingApplicationVersion>
+                <premis:dateCreatedByApplication>2008-08-04T12:45:18</premis:dateCreatedByApplication>
+              </premis:creatingApplication>
+            </premis:objectCharacteristics>
+            <premis:storage>
+              <premis:contentLocation>
+                <premis:contentLocationType>filepath</premis:contentLocationType>
+                <premis:contentLocationValue>./volume/back/00000003.tif</premis:contentLocationValue>
+              </premis:contentLocation>
+              <premis:storageMedium>disk</premis:storageMedium>
+            </premis:storage>
+          </premis:object>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:techMD>
+  </mets:amdSec>
+  <mets:fileSec ID="fileSec__"> <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+    <mets:fileGrp ID="MASTER_"> <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+      <mets:file ID="MASTER_volume-front-00000001" GROUPID="volume-front-00000001" ADMID="amdSec_MASTER_volume-front-00000001" CHECKSUM="91639eac27a5346d4c0b0054f0fdd628" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./volume/front/00000001.tif" />
+      </mets:file>
+      <mets:file ID="MASTER_volume-front-00000002" GROUPID="volume-front-00000002" ADMID="amdSec_MASTER_volume-front-00000002" CHECKSUM="e681f62a190c7f669e91ecc4f8304457" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./volume/front/00000002.tif" />
+      </mets:file>
+      <mets:file ID="MASTER_volume-front-00000003" GROUPID="volume-front-00000003" ADMID="amdSec_MASTER_volume-front-00000003" CHECKSUM="c0a8f17054579a4b01d4192551a95c32" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./volume/front/00000003.tif" />
+      </mets:file>
+      <mets:file ID="MASTER_volume-back-00000001" GROUPID="volume-back-00000001" ADMID="amdSec_MASTER_volume-back-00000001" CHECKSUM="7d746dee70bab3db9f8d4c891cef48e6" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./volume/back/00000001.tif" />
+      </mets:file>
+      <mets:file ID="MASTER_volume-back-00000002" GROUPID="volume-back-00000002" ADMID="amdSec_MASTER_volume-back-00000002" CHECKSUM="04faf3559b2c7863bc0079f5f6595cc3" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./volume/back/00000002.tif" />
+      </mets:file>
+      <mets:file ID="MASTER_volume-back-00000003" GROUPID="volume-back-00000003" ADMID="amdSec_MASTER_volume-back-00000003" CHECKSUM="5263ef7e15a701f18e453fac3d41fd60" CHECKSUMTYPE="MD5" MIMETYPE="image/tiff">
+        <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="file://./volume/back/00000003.tif" />
+      </mets:file>
+    </mets:fileGrp>
+  </mets:fileSec>
+  <mets:structMap ID="structMap_logical__" TYPE="logical"> <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+    <mets:div ID="logical_root_" LABEL="liv-531"> <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+      <mets:div TYPE="section" LABEL="front_board_and_matter">
+        <mets:div TYPE="page" ORDER="1" ORDERLABEL="1">
+          <mets:fptr FILEID="MASTER_volume-front-00000001" />
+        </mets:div>
+        <mets:div TYPE="page" ORDER="2" ORDERLABEL="2">
+          <mets:fptr FILEID="MASTER_volume-front-00000002" />
+        </mets:div>
+        <mets:div TYPE="page" ORDER="3" ORDERLABEL="3">
+          <mets:fptr FILEID="MASTER_volume-front-00000003" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B18265704_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B18265704_liv-531-1/19B18265704_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B14906077_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B14906077_liv-531-1/19B14906077_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B14906089_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B14906089_liv-531-1/19B14906089_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B18265789_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B18265789_liv-531-1/19B18265789_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B18265819_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B18265819_liv-531-1/19B18265819_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B14906016_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B14906016_liv-531-1/19B14906016_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B14906028_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B14906028_liv-531-1/19B14906028_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B18266265_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B18266265_liv-531-1/19B18266265_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B18266253_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B18266253_liv-531-1/19B18266253_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B18266277_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B18266277_liv-531-1/19B18266277_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="19B14906065_liv-531-1">
+        <mets:div TYPE="section" ORDER="1" ORDERLABEL="1">
+          <mets:mptr LOCTYPE="URL" xlink:href="file://./19B14906065_liv-531-1/19B14906065_liv-531-1.xml" />
+        </mets:div>
+      </mets:div>
+      <mets:div TYPE="section" LABEL="back_matter_and_board">
+        <mets:div TYPE="page" ORDER="1" ORDERLABEL="1">
+          <mets:fptr FILEID="MASTER_volume-back-00000001" />
+        </mets:div>
+        <mets:div TYPE="page" ORDER="2" ORDERLABEL="2">
+          <mets:fptr FILEID="MASTER_volume-back-00000002" />
+        </mets:div>
+        <mets:div TYPE="page" ORDER="3" ORDERLABEL="3">
+          <mets:fptr FILEID="MASTER_volume-back-00000003" />
+        </mets:div>
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+  <mets:structMap ID="structMap_physical__" TYPE="physical"> <!-- THIS ID HAS BEEN ALTERED FOR INCLUSION IN THE METS PROFILE -->
+    <mets:div>
+      <mets:div TYPE="page" ORDER="1" ORDERLABEL="1">
+        <mets:fptr FILEID="MASTER_volume-front-00000001" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="2" ORDERLABEL="2">
+        <mets:fptr FILEID="MASTER_volume-front-00000002" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="3" ORDERLABEL="3">
+        <mets:fptr FILEID="MASTER_volume-front-00000003" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="10" ORDERLABEL="10">
+        <mets:fptr FILEID="MASTER_volume-back-00000001" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="11" ORDERLABEL="11">
+        <mets:fptr FILEID="MASTER_volume-back-00000002" />
+      </mets:div>
+      <mets:div TYPE="page" ORDER="12" ORDERLABEL="12">
+        <mets:fptr FILEID="MASTER_volume-back-00000003" />
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>
+    </Appendix>
+</METS_Profile>

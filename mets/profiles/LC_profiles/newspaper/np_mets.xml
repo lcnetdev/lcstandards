@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mix="http://www.loc.gov/mix/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd
+		    http://www.loc.gov/mix/ http://www.loc.gov/standards/mix/mix.xsd
+		    http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd"
+>
+
+  <!--  http://www.w3.org/2001/XMLSchema-instance http://www.w3.org/2001/XMLSchema-instance.xsd -->
+
+  <!-- Note: Using draft version of MODS v3.2 -->
+
+  <!--
+      <mets:dmdSec ID="dmdTitlePrint">
+      <mets:mdRef xlink:href="http://www.loc.gov/z39voy%3Foperation=searchRetrieve%26version=1.1%26query=bath.lccn=96706855%26recordSchema=marcxml%26startRecord=1%26maximumRecords=10" LOCTYPE="URL" MDTYPE="OTHER">
+      </mets:mdRef>
+      </mets:dmdSec>
+
+
+<mets:dmdSec ID="dmdTitleElectronic">
+<mets:mdRef xlink:href="http://www.loc.gov/z39voy%3Foperation=searchRetrieve%26version=1.1%26query=bath.lccn=96706855%26recordSchema=marcxml%26startRecord=1%26maximumRecords=10" LOCTYPE="URL" MDTYPE="OTHER">
+</mets:mdRef>
+</mets:dmdSec>
+  -->
+
+  <mets:dmdSec ID="DMD">
+    <mets:mdWrap MDTYPE="MODS">
+      <mets:xmlData>
+	<mods:mods ID="DMD_issue">
+	  <mods:titleInfo>
+	    <mods:title>Montags Zeitung</mods:title>
+	  </mods:titleInfo>
+	  <mods:originInfo>
+	    <mods:dateCreated encoding="w3cdtf" point="start" keyDate="yes" qualifier="approximate">2005-09-29</mods:dateCreated>
+	  </mods:originInfo>
+	  <mods:language>
+	    <mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	  </mods:language>
+	  <mods:identifier type="local">mtz</mods:identifier>
+	  <mods:relatedItem ID="DMD_article01" type="constituent">
+	    <mods:titleInfo>
+	      <mods:title>Wien, 10. Mai.</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="DMD_article02" type="constituent">
+	    <mods:titleInfo>
+	      <mods:title>Neueste Nachrichten.</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="DMD_article03" type="constituent">
+	    <mods:titleInfo>
+	      <mods:title>Notizen.</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="DMD_article04" type="constituent">
+	    <mods:titleInfo>
+	      <mods:title>Sport. Trabfaßren in Wien.</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="DMD_article05" type="constituent">
+	    <mods:titleInfo>
+	      <mods:title>Theater.</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="DMD_article06" type="constituent">
+	    <mods:titleInfo>
+	      <mods:title>Volkswirthschaftliches.</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="DMD_article07" type="constituent">
+	    <mods:titleInfo>
+	      <mods:title></mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	</mods:mods>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+
+
+
+  <mets:fileSec>
+    <mets:fileGrp>
+      <mets:file ID="IMG00001" MIMETYPE="image/tif">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-IMG/ISSUE0001_0001.TIF"/>
+      </mets:file>
+
+      <mets:file ID="IMG00002" MIMETYPE="image/tif">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-IMG/ISSUE0001_0002.TIF"/>
+      </mets:file>
+
+      <mets:file ID="IMG00003" MIMETYPE="image/tif">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-IMG/ISSUE0001_0003.TIF"/>
+      </mets:file>
+
+      <mets:file ID="IMG00004" MIMETYPE="image/tif">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-IMG/ISSUE0001_0004.TIF"/>
+      </mets:file>
+    </mets:fileGrp>
+
+    <mets:fileGrp>
+      <mets:file ID="ALT00001" MIMETYPE="text/xml">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-ALTO/ISSUE0001-ALTO00001.xml"/>
+      </mets:file>
+
+      <mets:file ID="ALT00002" MIMETYPE="text/xml">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-ALTO/ISSUE0001-ALTO00002.xml"/>
+      </mets:file>
+
+      <mets:file ID="ALT00003" MIMETYPE="text/xml">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-ALTO/ISSUE0001-ALTO00003.xml"/>
+      </mets:file>
+
+      <mets:file ID="ALT00004" MIMETYPE="text/xml">
+	<mets:FLocat LOCTYPE="URL" xlink:href="file://./ISSUE0001-ALTO/ISSUE0001-ALTO00004.xml"/>
+      </mets:file>
+    </mets:fileGrp>
+
+
+  </mets:fileSec>
+
+
+  <mets:structMap>
+    <mets:div TYPE="ndnp:issue" DMDID="DMD_issue">
+
+      <mets:div TYPE="ndnp:page">
+	<mets:div TYPE="ndnp:image">
+	  <mets:fptr FILEID="IMG00001"/>
+	</mets:div>
+	<mets:div TYPE="ndnp:text">
+	  <mets:fptr FILEID="ALT00001"/>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article01">
+	  <mets:fptr>
+	    <!-- points to alto text block containing article title "Wein, 10. Mai."  -->
+	    <mets:area FILEID="ALT00001" BEGIN="P1_TB00005"/>
+	  </mets:fptr>
+	</mets:div>
+      </mets:div>
+
+      <mets:div TYPE="ndnp:page">
+	<mets:div TYPE="ndnp:image">
+	  <mets:fptr FILEID="IMG00002"/>
+	</mets:div>
+	<mets:div TYPE="ndnp:text">
+	  <mets:fptr FILEID="ALT00002"/>
+	</mets:div>
+
+	<mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article02">
+	  <mets:fptr>
+	    <!-- points to alto text block containing article title "Neueste Nachrichten."  -->
+	    <mets:area FILEID="ALT00002" BEGIN="P2_TB00018"/>
+	  </mets:fptr>
+	</mets:div>
+
+	<mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article03">
+	  <mets:fptr>
+	    <!-- points to alto text block containing article title "Notizen."  -->
+	    <mets:area FILEID="ALT00002" BEGIN="P2_TB00024"/>
+	  </mets:fptr>
+	</mets:div>
+
+	<mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article04">
+	  <mets:fptr>
+	    <!-- points to alto text block containing article title "Sport. Trabfaßren in Wien."  -->
+	    <mets:area FILEID="ALT00002" BEGIN="P2_TB00004"/>
+	  </mets:fptr>
+	</mets:div>
+
+	<mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article05">
+	  <mets:fptr>
+	    <!-- points to alto text block containing article title "Theater."  -->
+	    <mets:area FILEID="ALT00002" BEGIN="P2_TB00014"/>
+	  </mets:fptr>
+	</mets:div>
+      </mets:div>
+
+      <mets:div TYPE="ndnp:page">
+	<mets:div TYPE="ndnp:image">
+	  <mets:fptr FILEID="IMG00003"/>
+	</mets:div>
+	<mets:div TYPE="ndnp:text">
+	  <mets:fptr FILEID="ALT00003"/>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing article title "Volkswirthschaftliches."  -->
+	    <mets:area FILEID="ALT00003" BEGIN="P3_TB00003"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00003" BEGIN="P3_TB00006"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00003" BEGIN="P3_TB00005"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00003" BEGIN="P3_TB00007"/>
+	  </mets:fptr>
+	</mets:div>
+      </mets:div>
+
+
+      <mets:div TYPE="ndnp:page">
+	<mets:div TYPE="ndnp:image">
+	  <mets:fptr FILEID="IMG00004"/>
+	</mets:div>
+	<mets:div TYPE="ndnp:text">
+	  <mets:fptr FILEID="ALT00004"/>
+	</mets:div>
+
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00007"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00015"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00002"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00011"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00012"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00008"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00001"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00017"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00014"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00013"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00016"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00004"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00003"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00010"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00009"/>
+	  </mets:fptr>
+	</mets:div>
+	<mets:div TYPE="ndnp:pageRegion">
+	  <mets:fptr>
+	    <!-- points to alto text block containing Advertisement   -->
+	    <mets:area FILEID="ALT00004" BEGIN="P4_TB00018"/>
+	  </mets:fptr>
+	</mets:div>
+      </mets:div>
+
+
+
+
+
+    </mets:div>
+  </mets:structMap>
+</mets:mets>

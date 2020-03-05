@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile
+  xmlns="http://www.loc.gov/METS_Profile/v2"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd" 
+  STATUS="final" REGISTRATION="registered">
+
+  <URI LOCTYPE="URL" ASSIGNEDBY="local">http://purl.fcla.edu/fcla/rxp-profile</URI>
+  <URI LOCTYPE="URL" ASSIGNEDBY="metsboard" REGDATE="2010-07-28">http://www.loc.gov/standards/mets/profiles/00000033.xml</URI>	
+  <title>TIPR rxp.xml</title>
+
+  <abstract>
+    METS descriptor outlining the sender, rights, and representations of the RXP
+
+    RFC 2119 (http://www.ietf.org/rfc/rfc2119.txt) defines the meanings of terms MUST, SHOULD, etc.
+  </abstract>
+
+  <date>2010-07-06T15:41:29-04:00</date>
+
+  <contact>
+    <name>Francesco Lazzarino</name>
+    <institution>Florida Center for Library Automation</institution>
+    <address>
+      The Florida Center for Library Automation
+      5830 NW 39th Ave
+      Gainesville, FL 32606
+    </address>
+    <email>flaz@ufl.edu</email>
+  </contact>
+	
+  <registration_info regDate="2010-07-28T00:00:00" regURI="http://www.loc.gov/standards/mets/profiles/00000033.xml"/>
+
+  <related_profile URI="http://purl.fcla.edu/fcla/rxp-base-profile" RELATIONSHIP="extends">
+    TIPR base METS profile
+  </related_profile>
+
+  <profile_context>
+    <resource_model>
+      <xhtml:p>
+        The Repository Exchange Package (RXP) is a hierarchical packaging
+        format designed to facilitate the exchange of Archival Information
+        Packages (AIPs) between digital repositories.  The RXP employs METS and
+        PREMIS metadata documents to encode AIP preservation and structural
+        metadata at the root level. All other data are stored in the files
+        subdirectory.
+      </xhtml:p>
+      <xhtml:p>
+        link to RXP Specification: http://wiki.fcla.edu:8000/TIPR/21
+      </xhtml:p>
+    </resource_model>
+  </profile_context>
+
+  <external_schema/>
+
+  <description_rules>
+    <xhtml:p>None</xhtml:p>
+  </description_rules>
+
+  <controlled_vocabularies/>
+
+  <structural_requirements>
+    <amdSec>
+
+      <requirement ID="amdSec-elements">
+        <description>
+          <xhtml:p>
+            The amdSec SHOULD have a rightsMD and MUST have a digiprovMD
+          </xhtml:p>
+        </description>
+      </requirement>
+
+      <requirement ID="amdSec-rights-reference">
+        <description>
+          <xhtml:p>
+            The rightsMD MUST reference 'rxp-rights.xml' via mdRef
+          </xhtml:p>
+        </description>
+      </requirement>
+
+      <requirement ID="amdSec-digiprov-reference">
+        <description>
+          <xhtml:p>
+            The digiprovMD MUST reference 'rxp-digiprov.xml' via mdRef
+          </xhtml:p>
+        </description>
+      </requirement>
+
+    </amdSec>
+
+    <structMap>
+
+      <requirement ID="structMap-order">
+        <description>
+          <xhtml:p>
+            Each inner div in the structMap SHOULD have a distinct ORDER=m,
+            where m is some integer greater than or equal to 1. Repositories
+            MAY choose to use ORDER to indicate representation versioning.
+            Note: It is NOT REQUIRED that the value of ORDER match the number n
+            in the rxp-rep-n.xml
+          </xhtml:p>
+        </description>
+      </requirement>
+
+      <requirement ID="structMap-active">
+        <description>
+          <xhtml:p>
+            Exactly one inner div in the structMap MUST have attribute LABEL='ACTIVE'
+          </xhtml:p>
+        </description>
+      </requirement>
+
+    </structMap>
+
+  </structural_requirements>
+
+  <technical_requirements>
+
+    <content_files>
+      <requirement>
+        <description>
+          <xhtml:p>
+            All FLocats in the fileSec MUST reference only metadata files at
+            the TIPR level and MUST NOT reference files within the files/
+            directory
+          </xhtml:p>
+
+          <xhtml:p>
+            All local files referenced by FLocats int he fileSec MUST be named
+            rxp-rep-<xhtml:i>n</xhtml:i>.xml where <xhtml:i>n</xhtml:i> is an
+            integer greater than or equal to 1.
+          </xhtml:p>
+        </description>
+      </requirement>
+    </content_files>
+
+  </technical_requirements>
+
+  <tool>
+    <description>
+      <xhtml:p>No tools are associated with this profile</xhtml:p>
+    </description>
+  </tool>
+
+  <Appendix NUMBER="1">
+
+    <mets OBJID='daitss-test://E00001996_NQF0Z3' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.loc.gov/METS/'
+    	xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+      <metsHdr CREATEDATE='2010-06-16T16:32:25-04:00'>
+        <agent ROLE='DISSEMINATOR' TYPE='ORGANIZATION'>
+          <name>FCLA</name>
+          <note>rxp-0.96</note>
+        </agent>
+      </metsHdr>
+      <amdSec>
+        <rightsMD ID='rights-1'>
+          <mdRef LOCTYPE='URL' MDTYPE='PREMIS' xlink:href='rxp-rights.xml' />
+        </rightsMD>
+        <digiprovMD ID='digiprov-1'>
+          <mdRef LOCTYPE='URL' MDTYPE='PREMIS' xlink:href='rxp-digiprov.xml' />
+        </digiprovMD>
+      </amdSec>
+      <fileSec>
+        <fileGrp USE='METADATA'>
+          <file CHECKSUM='e1835b460806cf9dc3575471938cd50de39296be' CHECKSUMTYPE='SHA-1' ID='rxp-digiprov' SIZE='1726'>
+            <FLocat LOCTYPE='URL' xlink:href='rxp-digiprov.xml' />
+          </file>
+          <file CHECKSUM='da39a3ee5e6b4b0d3255bfef95601890afd80709' CHECKSUMTYPE='SHA-1' ID='rxp-rights' SIZE='1024'>
+            <FLocat LOCTYPE='URL' xlink:href='rxp-rights.xml' />
+          </file>
+        </fileGrp>
+        <fileGrp>
+          <file CHECKSUM='b544e0022fddf7959b71060536e23a556849b901' CHECKSUMTYPE='SHA-1' ID='file-1' SIZE='1426'>
+            <FLocat LOCTYPE='URL' xlink:href='rxp-rep-1.xml' />
+          </file>
+          <file CHECKSUM='858cd79ae960d5f9d1763c28b108617befae0c87' CHECKSUMTYPE='SHA-1' ID='file-2' SIZE='1437'>
+            <FLocat LOCTYPE='URL' xlink:href='rxp-rep-2.xml' />
+          </file>
+          <file CHECKSUM='6870100849b3ca938cfd3168ff92e315dafe4687' CHECKSUMTYPE='SHA-1' ID='file-3' SIZE='1426'>
+            <FLocat LOCTYPE='URL' xlink:href='rxp-rep-3.xml' />
+          </file>
+        </fileGrp>
+      </fileSec>
+      <structMap>
+        <div>
+          <div ORDER='1'>
+            <fptr FILEID='file-1' />
+          </div>
+          <div ORDER='2'>
+            <fptr FILEID='file-2' />
+          </div>
+          <div LABEL='ACTIVE' ORDER='3'>
+            <fptr FILEID='file-3' />
+          </div>
+        </div>
+      </structMap>
+    </mets>
+  </Appendix>
+
+
+</METS_Profile>

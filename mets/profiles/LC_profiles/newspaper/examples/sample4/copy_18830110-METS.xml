@@ -1,0 +1,2053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/" xsi:schemaLocation="http://www.loc.gov/METS/ http://schema.ccs-gmbh.com/metae/mets-metae.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:MODS="http://www.loc.gov/mods/v3" xmlns:mix="http://www.loc.gov/mix/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" TYPE="Newspaper" LABEL="Unknown no. 75 10.01.1883">
+  <metsHdr CREATEDATE="2006-02-21T13:05:53" LASTMODDATE="2006-02-21T13:05:53">
+    <agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
+      <name>CCS docWORKS/METAe Version 6.0-4</name>
+    </agent>
+  </metsHdr>
+  <dmdSec ID="MODSMD_PRINT">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of the printed version">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_PRINT_TI1" xml:lang="fi">
+	    <MODS:title>Unknown</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	  <MODS:identifier type="local">MF_61871</MODS:identifier>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ELEC">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of the electronic version">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:originInfo>
+	    <MODS:dateCreated encoding="w3cdtf" point="start" keyDate="yes" qualifier="approximate">2006-02-21</MODS:dateCreated>
+	  </MODS:originInfo>
+	  <MODS:titleInfo ID="MODSMD_ELEC_TI1" xml:lang="fi">
+	    <MODS:title>Unknown</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	  <MODS:identifier type="local">MF_61871</MODS:identifier>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ISSUE1">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of Issue">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ISSUE1_TI1" xml:lang="fi">
+	    <MODS:title>Unknown</MODS:title>
+	    <MODS:partNumber>75</MODS:partNumber>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	  <MODS:originInfo>
+	    <MODS:dateIssued encoding="w3cdtf" point="start" keyDate="yes" qualifier="approximate">10.01.1883</MODS:dateIssued>
+	  </MODS:originInfo>
+	  <MODS:identifier type="local">MF_61871</MODS:identifier>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_SECTION1">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of section">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE1">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE2">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE2_TI1" xml:lang="fi">
+	    <MODS:title>Peltowerot ja wuokramatsot kaupungin sls ja ultopuolella olemasta</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE3">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE3_TI2" xml:lang="fi">
+	    <MODS:title>tilastotieto turun Vaiwaishuoneesta.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE4">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE4_TI3" xml:lang="fi">
+	    <MODS:title>Turun helvosen kengitystenluita laskettiin wume kuluneen joulu</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE5">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE5_TI4" xml:lang="fi">
+	    <MODS:title>Kilpllajot omat mrtyt pi</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE6">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE6_TI5" xml:lang="fi">
+	    <MODS:title>Hupainen joulu. Naiden pi</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE7">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE7_TI6" xml:lang="fi">
+	    <MODS:title>Petos. T. k.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE8">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE8_TI7" xml:lang="fi">
+	    <MODS:title>"ExpreH"</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE9">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE9_TI8" xml:lang="fi">
+	    <MODS:title>HiVuloisuus kaupungissa jouluk. 22 p:ot 29 p:n 1889.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_PICT1">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of table">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_PICT1_TI1" xml:lang="fi">
+	    <MODS:title>Untitled</MODS:title>
+	  </MODS:titleInfo>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE10">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE10_TI9" xml:lang="fi">
+	    <MODS:title>Iuutalaitaste.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE11">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE11_TI10" xml:lang="fi">
+	    <MODS:title>Matka</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE12">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE12_TI11" xml:lang="fi">
+	    <MODS:title>Nahalla hukkua</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE13">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE13_TI12" xml:lang="fi">
+	    <MODS:title>Ilma uutena Vuonna</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE14">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE14_TI13" xml:lang="fi">
+	    <MODS:title>Rylvys ja ihmisrkkyS.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE15">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE15_TI14" xml:lang="fi">
+	    <MODS:title>Uudisrakennus.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE16">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE16_TI15" xml:lang="fi">
+	    <MODS:title>Aliovisto. Alkaman kemtlu</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE17">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE17_TI16" xml:lang="fi">
+	    <MODS:title>Karjalan rata.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE18">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE18_TI17" xml:lang="fi">
+	    <MODS:title>Uudet mitat.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE19">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE19_TI18" xml:lang="fi">
+	    <MODS:title>Uusi aikakauskirja.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE20">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE20_TI19" xml:lang="fi">
+	    <MODS:title>Merimiespapikfi San Fran siscoon on, tiet Finl.. merimieslhe</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE21">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE21_TI20" xml:lang="fi">
+	    <MODS:title>Pidelk warowaSti</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE22">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE22_TI21" xml:lang="fi">
+	    <MODS:title>"Piwn Uutlset"</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE23">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE23_TI22" xml:lang="fi">
+	    <MODS:title>Kaksi kurkia</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE24">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE24_TI23" xml:lang="fi">
+	    <MODS:title>Ruolewaisuns Turun laupuglsa ajalla j,uluk.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_PICT2">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of table">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_PICT2_TI2" xml:lang="fi">
+	    <MODS:title>Untitled</MODS:title>
+	  </MODS:titleInfo>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_SECTION2">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of section">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_SECTION2_TI1" xml:lang="fi">
+	    <MODS:title>Ulkomaalta.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE25">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE25_TI24" xml:lang="fi">
+	    <MODS:title>Englannin pankki.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE26">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE26_TI25" xml:lang="fi">
+	    <MODS:title>Suolamonopoli Serbiassa.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE27">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE27_TI26" xml:lang="fi">
+	    <MODS:title>Lontoosta,</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE28">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE28_TI27" xml:lang="fi">
+	    <MODS:title>Stanleyn matka Afrikan sydnmaissa.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE29">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE29_TI28" xml:lang="fi">
+	    <MODS:title>Madakuvssi</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_PICT3">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of table">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_PICT3_TI3" xml:lang="fi">
+	    <MODS:title>Untitled</MODS:title>
+	  </MODS:titleInfo>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE30">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE30_TI29" xml:lang="fi">
+	    <MODS:title>Laiwalista.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE31">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE31_TI30" xml:lang="fi">
+	    <MODS:title>Maekustajia.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_SECTION3">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of section">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_SECTION3_TI2" xml:lang="fi">
+	    <MODS:title>Raittius-osasto.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE32">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE32_TI31" xml:lang="fi">
+	    <MODS:title>Juoppous meidn pivinmme.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_ARTICLE33">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of article">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_ARTICLE33_TI32" xml:lang="fi">
+	    <MODS:title>Edistyyhan se raittius kouluissakin.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_SECTION4">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of section">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_SECTION5">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of section">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_SECTION5_TI3" xml:lang="fi">
+	    <MODS:title>Huutokauppa.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <dmdSec ID="MODSMD_SECTION6">
+    <mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of section">
+      <xmlData>
+	<MODS:mods>
+	  <MODS:titleInfo ID="MODSMD_SECTION6_TI4" xml:lang="fi">
+	    <MODS:title>Huutokauppoja.</MODS:title>
+	  </MODS:titleInfo>
+	  <MODS:language>
+	    <MODS:languageTerm type="code" authority="rfc3066">fi</MODS:languageTerm>
+	  </MODS:language>
+	</MODS:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <amdSec ID="IMGPARAM00001">
+    <techMD ID="IMGPARAM00001TECHMD">
+      <mdWrap MDTYPE="NISOIMG">
+	<xmlData>
+	  <mix:mix>
+	    <mix:BasicImageParameters>
+	      <mix:Format>
+		<mix:MIMEType>image/tiff</mix:MIMEType>
+		<mix:ByteOrder>little-endian</mix:ByteOrder>
+		<mix:Compression>
+		  <mix:CompressionScheme>4</mix:CompressionScheme>
+		</mix:Compression>
+		<mix:PhotometricInterpretation>
+		  <mix:ColorSpace>1</mix:ColorSpace>
+		</mix:PhotometricInterpretation>
+	      </mix:Format>
+	      <mix:File>
+		<mix:ImageIdentifier imageIdentifierLocation="D:/LWM/docworks/METAe/METAe-60/EXPORT/MF_61871">188301100001.tif.tif</mix:ImageIdentifier>
+		<mix:FileSize>332832</mix:FileSize>
+		<mix:Orientation>1</mix:Orientation>
+		<mix:DisplayOrientation>1</mix:DisplayOrientation>
+	      </mix:File>
+	    </mix:BasicImageParameters>
+	    <mix:ImageCreation>
+	      <mix:SourceType>Newspaper</mix:SourceType>
+	      <mix:SourceID></mix:SourceID>
+	      <mix:ImageProducer></mix:ImageProducer>
+	      <mix:Host>
+		<mix:HostComputer>RT-NB</mix:HostComputer>
+		<mix:OperatingSystem>windows</mix:OperatingSystem>
+		<mix:OSVersion>5.1 Service Pack 2</mix:OSVersion>
+	      </mix:Host>
+	      <mix:DeviceSource></mix:DeviceSource>
+	      <mix:ScanningSystemCapture>
+		<mix:ScanningSystemHardware>
+		  <mix:ScannerManufacturer></mix:ScannerManufacturer>
+		  <mix:ScannerModel>
+		    <mix:ScannerModelName></mix:ScannerModelName>
+		    <mix:ScannerModelNumber></mix:ScannerModelNumber>
+		    <mix:ScannerModelSerialNo></mix:ScannerModelSerialNo>
+		  </mix:ScannerModel>
+		</mix:ScanningSystemHardware>
+		<mix:ScanningSystemSoftware>
+		  <mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+		  <mix:ScanningSoftwareVersionNo></mix:ScanningSoftwareVersionNo>
+		</mix:ScanningSystemSoftware>
+		<mix:ScannerCaptureSettings>
+		  <mix:PixelSize>0.0635000</mix:PixelSize>
+		  <mix:PhysScanResolution>
+		    <mix:XphysScanResolution>400</mix:XphysScanResolution>
+		    <mix:YphysScanResolution>400</mix:YphysScanResolution>
+		  </mix:PhysScanResolution>
+		</mix:ScannerCaptureSettings>
+	      </mix:ScanningSystemCapture>
+	    </mix:ImageCreation>
+	    <mix:ImagingPerformanceAssessment>
+	      <mix:SpatialMetrics>
+		<mix:ImageWidth>5597</mix:ImageWidth>
+		<mix:ImageLength>6976</mix:ImageLength>
+	      </mix:SpatialMetrics>
+	    </mix:ImagingPerformanceAssessment>
+	  </mix:mix>
+	</xmlData>
+      </mdWrap>
+    </techMD>
+  </amdSec>
+  <amdSec ID="IMGPARAM00002">
+    <techMD ID="IMGPARAM00002TECHMD">
+      <mdWrap MDTYPE="NISOIMG">
+	<xmlData>
+	  <mix:mix>
+	    <mix:BasicImageParameters>
+	      <mix:Format>
+		<mix:MIMEType>image/tiff</mix:MIMEType>
+		<mix:ByteOrder>little-endian</mix:ByteOrder>
+		<mix:Compression>
+		  <mix:CompressionScheme>4</mix:CompressionScheme>
+		</mix:Compression>
+		<mix:PhotometricInterpretation>
+		  <mix:ColorSpace>1</mix:ColorSpace>
+		</mix:PhotometricInterpretation>
+	      </mix:Format>
+	      <mix:File>
+		<mix:ImageIdentifier imageIdentifierLocation="D:/LWM/docworks/METAe/METAe-60/EXPORT/MF_61871">188301100002.tif.tif</mix:ImageIdentifier>
+		<mix:FileSize>403424</mix:FileSize>
+		<mix:Orientation>1</mix:Orientation>
+		<mix:DisplayOrientation>1</mix:DisplayOrientation>
+	      </mix:File>
+	    </mix:BasicImageParameters>
+	    <mix:ImageCreation>
+	      <mix:SourceType>Newspaper</mix:SourceType>
+	      <mix:SourceID></mix:SourceID>
+	      <mix:ImageProducer></mix:ImageProducer>
+	      <mix:Host>
+		<mix:HostComputer>RT-NB</mix:HostComputer>
+		<mix:OperatingSystem>windows</mix:OperatingSystem>
+		<mix:OSVersion>5.1 Service Pack 2</mix:OSVersion>
+	      </mix:Host>
+	      <mix:DeviceSource></mix:DeviceSource>
+	      <mix:ScanningSystemCapture>
+		<mix:ScanningSystemHardware>
+		  <mix:ScannerManufacturer></mix:ScannerManufacturer>
+		  <mix:ScannerModel>
+		    <mix:ScannerModelName></mix:ScannerModelName>
+		    <mix:ScannerModelNumber></mix:ScannerModelNumber>
+		    <mix:ScannerModelSerialNo></mix:ScannerModelSerialNo>
+		  </mix:ScannerModel>
+		</mix:ScanningSystemHardware>
+		<mix:ScanningSystemSoftware>
+		  <mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+		  <mix:ScanningSoftwareVersionNo></mix:ScanningSoftwareVersionNo>
+		</mix:ScanningSystemSoftware>
+		<mix:ScannerCaptureSettings>
+		  <mix:PixelSize>0.0635000</mix:PixelSize>
+		  <mix:PhysScanResolution>
+		    <mix:XphysScanResolution>400</mix:XphysScanResolution>
+		    <mix:YphysScanResolution>400</mix:YphysScanResolution>
+		  </mix:PhysScanResolution>
+		</mix:ScannerCaptureSettings>
+	      </mix:ScanningSystemCapture>
+	    </mix:ImageCreation>
+	    <mix:ImagingPerformanceAssessment>
+	      <mix:SpatialMetrics>
+		<mix:ImageWidth>5597</mix:ImageWidth>
+		<mix:ImageLength>6976</mix:ImageLength>
+	      </mix:SpatialMetrics>
+	    </mix:ImagingPerformanceAssessment>
+	  </mix:mix>
+	</xmlData>
+      </mdWrap>
+    </techMD>
+  </amdSec>
+  <amdSec ID="IMGPARAM00003">
+    <techMD ID="IMGPARAM00003TECHMD">
+      <mdWrap MDTYPE="NISOIMG">
+	<xmlData>
+	  <mix:mix>
+	    <mix:BasicImageParameters>
+	      <mix:Format>
+		<mix:MIMEType>image/tiff</mix:MIMEType>
+		<mix:ByteOrder>little-endian</mix:ByteOrder>
+		<mix:Compression>
+		  <mix:CompressionScheme>4</mix:CompressionScheme>
+		</mix:Compression>
+		<mix:PhotometricInterpretation>
+		  <mix:ColorSpace>1</mix:ColorSpace>
+		</mix:PhotometricInterpretation>
+	      </mix:Format>
+	      <mix:File>
+		<mix:ImageIdentifier imageIdentifierLocation="D:/LWM/docworks/METAe/METAe-60/EXPORT/MF_61871">188301100003.tif.tif</mix:ImageIdentifier>
+		<mix:FileSize>416136</mix:FileSize>
+		<mix:Orientation>1</mix:Orientation>
+		<mix:DisplayOrientation>1</mix:DisplayOrientation>
+	      </mix:File>
+	    </mix:BasicImageParameters>
+	    <mix:ImageCreation>
+	      <mix:SourceType>Newspaper</mix:SourceType>
+	      <mix:SourceID></mix:SourceID>
+	      <mix:ImageProducer></mix:ImageProducer>
+	      <mix:Host>
+		<mix:HostComputer>RT-NB</mix:HostComputer>
+		<mix:OperatingSystem>windows</mix:OperatingSystem>
+		<mix:OSVersion>5.1 Service Pack 2</mix:OSVersion>
+	      </mix:Host>
+	      <mix:DeviceSource></mix:DeviceSource>
+	      <mix:ScanningSystemCapture>
+		<mix:ScanningSystemHardware>
+		  <mix:ScannerManufacturer></mix:ScannerManufacturer>
+		  <mix:ScannerModel>
+		    <mix:ScannerModelName></mix:ScannerModelName>
+		    <mix:ScannerModelNumber></mix:ScannerModelNumber>
+		    <mix:ScannerModelSerialNo></mix:ScannerModelSerialNo>
+		  </mix:ScannerModel>
+		</mix:ScanningSystemHardware>
+		<mix:ScanningSystemSoftware>
+		  <mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+		  <mix:ScanningSoftwareVersionNo></mix:ScanningSoftwareVersionNo>
+		</mix:ScanningSystemSoftware>
+		<mix:ScannerCaptureSettings>
+		  <mix:PixelSize>0.0635000</mix:PixelSize>
+		  <mix:PhysScanResolution>
+		    <mix:XphysScanResolution>400</mix:XphysScanResolution>
+		    <mix:YphysScanResolution>400</mix:YphysScanResolution>
+		  </mix:PhysScanResolution>
+		</mix:ScannerCaptureSettings>
+	      </mix:ScanningSystemCapture>
+	    </mix:ImageCreation>
+	    <mix:ImagingPerformanceAssessment>
+	      <mix:SpatialMetrics>
+		<mix:ImageWidth>5597</mix:ImageWidth>
+		<mix:ImageLength>6976</mix:ImageLength>
+	      </mix:SpatialMetrics>
+	    </mix:ImagingPerformanceAssessment>
+	  </mix:mix>
+	</xmlData>
+      </mdWrap>
+    </techMD>
+  </amdSec>
+  <fileSec>
+    <fileGrp ID="IMGGRP" USE="Images">
+      <file ID="IMG00001" CREATED="2006-02-21T13:05:46" ADMID="IMGPARAM00001" MIMETYPE="image/tif" SEQ="1" CHECKSUM="8828f6ee9f3a97a1db215380fbdbd279" CHECKSUMTYPE="MD5" SIZE="332832">
+	<FLocat LOCTYPE="URL" xlink:href="file://./188301100001.TIF.TIF"/>
+      </file>
+      <file ID="IMG00002" CREATED="2006-02-21T13:05:46" ADMID="IMGPARAM00002" MIMETYPE="image/tif" SEQ="2" CHECKSUM="c2a325db68e5b2392503e45bd2b2b593" CHECKSUMTYPE="MD5" SIZE="403424">
+	<FLocat LOCTYPE="URL" xlink:href="file://./188301100002.TIF.TIF"/>
+      </file>
+      <file ID="IMG00003" CREATED="2006-02-21T13:05:47" ADMID="IMGPARAM00003" MIMETYPE="image/tif" SEQ="3" CHECKSUM="0cca0f957b4ca0615a056b3c8d7924af" CHECKSUMTYPE="MD5" SIZE="416136">
+	<FLocat LOCTYPE="URL" xlink:href="file://./188301100003.TIF.TIF"/>
+      </file>
+    </fileGrp>
+    <fileGrp ID="ALTOGRP" USE="Text">
+      <file ID="ALTO0001" MIMETYPE="text/xml" CHECKSUM="f4a7ca0abd4070fa13fd4a2a102237a7" CHECKSUMTYPE="MD5" SIZE="457075">
+	<FLocat LOCTYPE="URL" xlink:href="file://./188301100001.TIF.XML"/>
+      </file>
+      <file ID="ALTO0002" MIMETYPE="text/xml" CHECKSUM="c2af4857fc6e9786f855f852fd3d6bef" CHECKSUMTYPE="MD5" SIZE="479677">
+	<FLocat LOCTYPE="URL" xlink:href="file://./188301100002.TIF.XML"/>
+      </file>
+      <file ID="ALTO0003" MIMETYPE="text/xml" CHECKSUM="c9d29e93e8ba96354dc00740a3a3f87d" CHECKSUMTYPE="MD5" SIZE="430222">
+	<FLocat LOCTYPE="URL" xlink:href="file://./188301100003.TIF.XML"/>
+      </file>
+    </fileGrp>
+    <fileGrp ID="PARTIALIMGGRP" USE="Partial images"/>
+    <fileGrp ID="TARGETIMGGRP" USE="Target images"/>
+    <fileGrp ID="RETAINEDIMGGRP" USE="Retained images"/>
+  </fileSec>
+  <structMap LABEL="Physical Structure" TYPE="PHYSICAL">
+    <div ID="DIVP1" DMDID="MODSMD_ELEC MODSMD_PRINT" LABEL="Unknown" TYPE="Newspaper">
+      <div ID="DIVP2" ORDER="1" TYPE="PAGE">
+	<fptr>
+	  <par>
+	    <area FILEID="IMG00001"/>
+	    <area FILEID="ALTO0001" BETYPE="IDREF" BEGIN="P1"/>
+	  </par>
+	</fptr>
+      </div>
+      <div ID="DIVP3" ORDER="2" TYPE="PAGE">
+	<fptr>
+	  <par>
+	    <area FILEID="IMG00002"/>
+	    <area FILEID="ALTO0002" BETYPE="IDREF" BEGIN="P2"/>
+	  </par>
+	</fptr>
+      </div>
+      <div ID="DIVP4" ORDER="3" TYPE="PAGE">
+	<fptr>
+	  <par>
+	    <area FILEID="IMG00003"/>
+	    <area FILEID="ALTO0003" BETYPE="IDREF" BEGIN="P3"/>
+	  </par>
+	</fptr>
+      </div>
+    </div>
+  </structMap>
+  <structMap LABEL="Logical Structure" TYPE="LOGICAL">
+    <div ID="DIVL1" TYPE="Newspaper" LABEL="Unknown no. 75 10.01.1883">
+      <div ID="DIVL2" TYPE="VOLUME" DMDID="MODSMD_PRINT MODSMD_ELEC" LABEL="Unknown no. 75 10.01.1883">
+	<div ID="DIVL3" TYPE="ISSUE" DMDID="MODSMD_ISSUE1" LABEL="Unknown no. 75 10.01.1883">
+	  <div ID="DIVL4" TYPE="CONTENT">
+	    <div ID="DIVL5" TYPE="SECTION" DMDID="MODSMD_SECTION1">
+	      <div ID="DIVL6" TYPE="ARTICLE" ORDER="1" DMDID="MODSMD_ARTICLE1">
+		<div ID="DIVL7" TYPE="BODY">
+		  <div ID="DIVL8" TYPE="BODY_CONTENT">
+		    <div ID="DIVL9" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL10" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00041"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL11" TYPE="ARTICLE" ORDER="2" DMDID="MODSMD_ARTICLE2" LABEL="Peltowerot ja wuokramatsot kaupungin sls ja ultopuolella olemasta">
+		<div ID="DIVL12" TYPE="HEADING">
+		  <div ID="DIVL13" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00042"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL14" TYPE="BODY">
+		  <div ID="DIVL15" TYPE="BODY_CONTENT">
+		    <div ID="DIVL16" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL17" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00043"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL18" TYPE="ARTICLE" ORDER="3" DMDID="MODSMD_ARTICLE3" LABEL="tilastotieto turun Vaiwaishuoneesta.">
+		<div ID="DIVL19" TYPE="HEADING">
+		  <div ID="DIVL20" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00044"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL21" TYPE="BODY">
+		  <div ID="DIVL22" TYPE="BODY_CONTENT">
+		    <div ID="DIVL23" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL24" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00045"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL25" TYPE="PARAGRAPH" ORDER="2">
+		      <div ID="DIVL26" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00046"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL27" TYPE="ARTICLE" ORDER="4" DMDID="MODSMD_ARTICLE4" LABEL="Turun helvosen kengitystenluita laskettiin wume kuluneen joulu">
+		<div ID="DIVL28" TYPE="HEADING">
+		  <div ID="DIVL29" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00047"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL30" TYPE="BODY">
+		  <div ID="DIVL31" TYPE="BODY_CONTENT">
+		    <div ID="DIVL32" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL33" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00048"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL34" TYPE="ARTICLE" ORDER="5" DMDID="MODSMD_ARTICLE5" LABEL="Kilpllajot omat mrtyt pi">
+		<div ID="DIVL35" TYPE="HEADING">
+		  <div ID="DIVL36" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00049"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL37" TYPE="BODY">
+		  <div ID="DIVL38" TYPE="BODY_CONTENT">
+		    <div ID="DIVL39" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL40" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00050"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL41" TYPE="ARTICLE" ORDER="6" DMDID="MODSMD_ARTICLE6" LABEL="Hupainen joulu. Naiden pi">
+		<div ID="DIVL42" TYPE="HEADING">
+		  <div ID="DIVL43" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00051"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL44" TYPE="BODY">
+		  <div ID="DIVL45" TYPE="BODY_CONTENT">
+		    <div ID="DIVL46" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL47" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00052"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL48" TYPE="ARTICLE" ORDER="7" DMDID="MODSMD_ARTICLE7" LABEL="Petos. T. k.">
+		<div ID="DIVL49" TYPE="HEADING">
+		  <div ID="DIVL50" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00053"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL51" TYPE="BODY">
+		  <div ID="DIVL52" TYPE="BODY_CONTENT">
+		    <div ID="DIVL53" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL54" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00054"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL55" TYPE="ARTICLE" ORDER="8" DMDID="MODSMD_ARTICLE8" LABEL='"ExpreH"'>
+		<div ID="DIVL56" TYPE="HEADING">
+		  <div ID="DIVL57" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00055"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL58" TYPE="BODY">
+		  <div ID="DIVL59" TYPE="BODY_CONTENT">
+		    <div ID="DIVL60" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL61" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00056"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL62" TYPE="ARTICLE" ORDER="9" DMDID="MODSMD_ARTICLE9" LABEL="HiVuloisuus kaupungissa jouluk. 22 p:ot 29 p:n 1889.">
+		<div ID="DIVL63" TYPE="HEADING">
+		  <div ID="DIVL64" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00057"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL65" TYPE="BODY">
+		  <div ID="DIVL66" TYPE="BODY_CONTENT">
+		    <div ID="DIVL67" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL68" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00058"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL69" TYPE="PARAGRAPH" ORDER="2">
+		      <div ID="DIVL70" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00059"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		  <div ID="DIVL71" TYPE="TABLE" ORDER="1" DMDID="MODSMD_PICT1" LABEL="Untitled">
+		    <div ID="DIVL72" TYPE="IMAGE">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00002"/>
+		      </fptr>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL73" TYPE="ARTICLE" ORDER="10" DMDID="MODSMD_ARTICLE10" LABEL="Iuutalaitaste.">
+		<div ID="DIVL74" TYPE="HEADING">
+		  <div ID="DIVL75" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00009"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL76" TYPE="BODY">
+		  <div ID="DIVL77" TYPE="BODY_CONTENT">
+		    <div ID="DIVL78" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL79" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00010"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL80" TYPE="ARTICLE" ORDER="11" DMDID="MODSMD_ARTICLE11" LABEL="Matka">
+		<div ID="DIVL81" TYPE="HEADING">
+		  <div ID="DIVL82" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00011"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL83" TYPE="BODY">
+		  <div ID="DIVL84" TYPE="BODY_CONTENT">
+		    <div ID="DIVL85" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL86" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00012"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL87" TYPE="ARTICLE" ORDER="12" DMDID="MODSMD_ARTICLE12" LABEL="Nahalla hukkua">
+		<div ID="DIVL88" TYPE="HEADING">
+		  <div ID="DIVL89" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00013"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL90" TYPE="BODY">
+		  <div ID="DIVL91" TYPE="BODY_CONTENT">
+		    <div ID="DIVL92" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL93" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00014"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL94" TYPE="ARTICLE" ORDER="13" DMDID="MODSMD_ARTICLE13" LABEL="Ilma uutena Vuonna">
+		<div ID="DIVL95" TYPE="HEADING">
+		  <div ID="DIVL96" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00015"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL97" TYPE="BODY">
+		  <div ID="DIVL98" TYPE="BODY_CONTENT">
+		    <div ID="DIVL99" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL100" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00016"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL101" TYPE="ARTICLE" ORDER="14" DMDID="MODSMD_ARTICLE14" LABEL="Rylvys ja ihmisrkkyS.">
+		<div ID="DIVL102" TYPE="HEADING">
+		  <div ID="DIVL103" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00017"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL104" TYPE="BODY">
+		  <div ID="DIVL105" TYPE="BODY_CONTENT">
+		    <div ID="DIVL106" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL107" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00018"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL108" TYPE="ARTICLE" ORDER="15" DMDID="MODSMD_ARTICLE15" LABEL="Uudisrakennus.">
+		<div ID="DIVL109" TYPE="HEADING">
+		  <div ID="DIVL110" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00019"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL111" TYPE="BODY">
+		  <div ID="DIVL112" TYPE="BODY_CONTENT">
+		    <div ID="DIVL113" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL114" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00020"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL115" TYPE="ARTICLE" ORDER="16" DMDID="MODSMD_ARTICLE16" LABEL="Aliovisto. Alkaman kemtlu">
+		<div ID="DIVL116" TYPE="HEADING">
+		  <div ID="DIVL117" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00021"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL118" TYPE="BODY">
+		  <div ID="DIVL119" TYPE="BODY_CONTENT">
+		    <div ID="DIVL120" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL121" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00022"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL122" TYPE="ARTICLE" ORDER="17" DMDID="MODSMD_ARTICLE17" LABEL="Karjalan rata.">
+		<div ID="DIVL123" TYPE="HEADING">
+		  <div ID="DIVL124" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00023"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL125" TYPE="BODY">
+		  <div ID="DIVL126" TYPE="BODY_CONTENT">
+		    <div ID="DIVL127" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL128" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00008"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL129" TYPE="PARAGRAPH" ORDER="2">
+		      <div ID="DIVL130" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00027"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL131" TYPE="PARAGRAPH" ORDER="3">
+		      <div ID="DIVL132" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00028"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL133" TYPE="PARAGRAPH" ORDER="4">
+		      <div ID="DIVL134" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00029"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL135" TYPE="PARAGRAPH" ORDER="5">
+		      <div ID="DIVL136" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00030"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL137" TYPE="PARAGRAPH" ORDER="6">
+		      <div ID="DIVL138" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00024"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL139" TYPE="ARTICLE" ORDER="18" DMDID="MODSMD_ARTICLE18" LABEL="Uudet mitat.">
+		<div ID="DIVL140" TYPE="HEADING">
+		  <div ID="DIVL141" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00031"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL142" TYPE="BODY">
+		  <div ID="DIVL143" TYPE="BODY_CONTENT">
+		    <div ID="DIVL144" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL145" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00032"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL146" TYPE="ARTICLE" ORDER="19" DMDID="MODSMD_ARTICLE19" LABEL="Uusi aikakauskirja.">
+		<div ID="DIVL147" TYPE="HEADING">
+		  <div ID="DIVL148" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00033"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL149" TYPE="BODY">
+		  <div ID="DIVL150" TYPE="BODY_CONTENT">
+		    <div ID="DIVL151" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL152" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00034"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL153" TYPE="ARTICLE" ORDER="20" DMDID="MODSMD_ARTICLE20" LABEL="Merimiespapikfi San Fran siscoon on, tiet Finl.. merimieslhe">
+		<div ID="DIVL154" TYPE="HEADING">
+		  <div ID="DIVL155" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00035"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL156" TYPE="BODY">
+		  <div ID="DIVL157" TYPE="BODY_CONTENT">
+		    <div ID="DIVL158" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL159" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00036"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL160" TYPE="ARTICLE" ORDER="21" DMDID="MODSMD_ARTICLE21" LABEL="Pidelk warowaSti">
+		<div ID="DIVL161" TYPE="HEADING">
+		  <div ID="DIVL162" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00037"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL163" TYPE="BODY">
+		  <div ID="DIVL164" TYPE="BODY_CONTENT">
+		    <div ID="DIVL165" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL166" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00038"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL167" TYPE="PARAGRAPH" ORDER="2">
+		      <div ID="DIVL168" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00060"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL169" TYPE="ARTICLE" ORDER="22" DMDID="MODSMD_ARTICLE22" LABEL='"Piwn Uutlset"'>
+		<div ID="DIVL170" TYPE="HEADING">
+		  <div ID="DIVL171" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00061"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL172" TYPE="BODY">
+		  <div ID="DIVL173" TYPE="BODY_CONTENT">
+		    <div ID="DIVL174" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL175" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00062"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL176" TYPE="PARAGRAPH" ORDER="2">
+		      <div ID="DIVL177" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00063"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL178" TYPE="PARAGRAPH" ORDER="3">
+		      <div ID="DIVL179" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00064"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL180" TYPE="ARTICLE" ORDER="23" DMDID="MODSMD_ARTICLE23" LABEL="Kaksi kurkia">
+		<div ID="DIVL181" TYPE="HEADING">
+		  <div ID="DIVL182" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00065"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL183" TYPE="BODY">
+		  <div ID="DIVL184" TYPE="BODY_CONTENT">
+		    <div ID="DIVL185" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL186" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00066"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL187" TYPE="ARTICLE" ORDER="24" DMDID="MODSMD_ARTICLE24" LABEL="Ruolewaisuns Turun laupuglsa ajalla j,uluk.">
+		<div ID="DIVL188" TYPE="HEADING">
+		  <div ID="DIVL189" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00025"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL190" TYPE="BODY">
+		  <div ID="DIVL191" TYPE="BODY_CONTENT">
+		    <div ID="DIVL192" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL193" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00026"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		  <div ID="DIVL194" TYPE="TABLE" ORDER="1" DMDID="MODSMD_PICT2" LABEL="Untitled">
+		    <div ID="DIVL195" TYPE="IMAGE">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00001"/>
+		      </fptr>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL196" TYPE="SECTION" DMDID="MODSMD_SECTION2" LABEL="Ulkomaalta.">
+	      <div ID="DIVL197" TYPE="HEADING">
+		<div ID="DIVL198" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00001"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL199" TYPE="ARTICLE" ORDER="1" DMDID="MODSMD_ARTICLE25" LABEL="Englannin pankki.">
+		<div ID="DIVL200" TYPE="HEADING">
+		  <div ID="DIVL201" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00002"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL202" TYPE="BODY">
+		  <div ID="DIVL203" TYPE="BODY_CONTENT">
+		    <div ID="DIVL204" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL205" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00003"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL206" TYPE="ARTICLE" ORDER="2" DMDID="MODSMD_ARTICLE26" LABEL="Suolamonopoli Serbiassa.">
+		<div ID="DIVL207" TYPE="HEADING">
+		  <div ID="DIVL208" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00004"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL209" TYPE="BODY">
+		  <div ID="DIVL210" TYPE="BODY_CONTENT">
+		    <div ID="DIVL211" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL212" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00005"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL213" TYPE="ARTICLE" ORDER="3" DMDID="MODSMD_ARTICLE27" LABEL="Lontoosta,">
+		<div ID="DIVL214" TYPE="HEADING">
+		  <div ID="DIVL215" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00006"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL216" TYPE="BODY">
+		  <div ID="DIVL217" TYPE="BODY_CONTENT">
+		    <div ID="DIVL218" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL219" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00007"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL220" TYPE="ARTICLE" DMDID="MODSMD_ARTICLE28" LABEL="Stanleyn matka Afrikan sydnmaissa.">
+	      <div ID="DIVL221" TYPE="HEADING">
+		<div ID="DIVL222" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00039"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL223" TYPE="BODY">
+		<div ID="DIVL224" TYPE="BODY_CONTENT">
+		  <div ID="DIVL225" TYPE="PARAGRAPH" ORDER="1">
+		    <div ID="DIVL226" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00040"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL227" TYPE="PARAGRAPH" ORDER="2">
+		    <div ID="DIVL228" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00017"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL229" TYPE="PARAGRAPH" ORDER="3">
+		    <div ID="DIVL230" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00018"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL231" TYPE="PARAGRAPH" ORDER="4">
+		    <div ID="DIVL232" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00019"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL233" TYPE="PARAGRAPH" ORDER="5">
+		    <div ID="DIVL234" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00020"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL235" TYPE="PARAGRAPH" ORDER="6">
+		    <div ID="DIVL236" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00021"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL237" TYPE="PARAGRAPH" ORDER="7">
+		    <div ID="DIVL238" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00030"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL239" TYPE="PARAGRAPH" ORDER="8">
+		    <div ID="DIVL240" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00031"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL241" TYPE="PARAGRAPH" ORDER="9">
+		    <div ID="DIVL242" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00032"/>
+		      </fptr>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL243" TYPE="ARTICLE" DMDID="MODSMD_ARTICLE29" LABEL="Madakuvssi">
+	      <div ID="DIVL244" TYPE="HEADING">
+		<div ID="DIVL245" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00022"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL246" TYPE="BODY">
+		<div ID="DIVL247" TYPE="TABLE" ORDER="1" DMDID="MODSMD_PICT3" LABEL="Untitled">
+		  <div ID="DIVL248" TYPE="IMAGE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_CB00001"/>
+		    </fptr>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL249" TYPE="ARTICLE" DMDID="MODSMD_ARTICLE30" LABEL="Laiwalista.">
+	      <div ID="DIVL250" TYPE="HEADING">
+		<div ID="DIVL251" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00001"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL252" TYPE="BODY">
+		<div ID="DIVL253" TYPE="BODY_CONTENT">
+		  <div ID="DIVL254" TYPE="PARAGRAPH" ORDER="1">
+		    <div ID="DIVL255" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00002"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL256" TYPE="PARAGRAPH" ORDER="2">
+		    <div ID="DIVL257" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00003"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL258" TYPE="PARAGRAPH" ORDER="3">
+		    <div ID="DIVL259" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00004"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL260" TYPE="PARAGRAPH" ORDER="4">
+		    <div ID="DIVL261" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00005"/>
+		      </fptr>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL262" TYPE="ARTICLE" DMDID="MODSMD_ARTICLE31" LABEL="Maekustajia.">
+	      <div ID="DIVL263" TYPE="HEADING">
+		<div ID="DIVL264" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00008"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL265" TYPE="BODY">
+		<div ID="DIVL266" TYPE="BODY_CONTENT">
+		  <div ID="DIVL267" TYPE="PARAGRAPH" ORDER="1">
+		    <div ID="DIVL268" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00009"/>
+		      </fptr>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL269" TYPE="SECTION" DMDID="MODSMD_SECTION3" LABEL="Raittius-osasto.">
+	      <div ID="DIVL270" TYPE="HEADING">
+		<div ID="DIVL271" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00033"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL272" TYPE="ARTICLE" ORDER="1" DMDID="MODSMD_ARTICLE32" LABEL="Juoppous meidn pivinmme.">
+		<div ID="DIVL273" TYPE="HEADING">
+		  <div ID="DIVL274" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00027"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL275" TYPE="BODY">
+		  <div ID="DIVL276" TYPE="BODY_CONTENT">
+		    <div ID="DIVL277" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL278" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00028"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL279" TYPE="PARAGRAPH" ORDER="2">
+		      <div ID="DIVL280" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00029"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL281" TYPE="PARAGRAPH" ORDER="3">
+		      <div ID="DIVL282" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00023"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL283" TYPE="PARAGRAPH" ORDER="4">
+		      <div ID="DIVL284" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00024"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL285" TYPE="PARAGRAPH" ORDER="5">
+		      <div ID="DIVL286" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00025"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL287" TYPE="PARAGRAPH" ORDER="6">
+		      <div ID="DIVL288" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00026"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL289" TYPE="PARAGRAPH" ORDER="7">
+		      <div ID="DIVL290" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00016"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	      <div ID="DIVL291" TYPE="ARTICLE" ORDER="2" DMDID="MODSMD_ARTICLE33" LABEL="Edistyyhan se raittius kouluissakin.">
+		<div ID="DIVL292" TYPE="HEADING">
+		  <div ID="DIVL293" TYPE="TITLE">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00027"/>
+		    </fptr>
+		  </div>
+		</div>
+		<div ID="DIVL294" TYPE="BODY">
+		  <div ID="DIVL295" TYPE="BODY_CONTENT">
+		    <div ID="DIVL296" TYPE="PARAGRAPH" ORDER="1">
+		      <div ID="DIVL297" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00028"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL298" TYPE="PARAGRAPH" ORDER="2">
+		      <div ID="DIVL299" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00029"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL300" TYPE="PARAGRAPH" ORDER="3">
+		      <div ID="DIVL301" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00020"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL302" TYPE="PARAGRAPH" ORDER="4">
+		      <div ID="DIVL303" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00021"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL304" TYPE="PARAGRAPH" ORDER="5">
+		      <div ID="DIVL305" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00008"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL306" TYPE="PARAGRAPH" ORDER="6">
+		      <div ID="DIVL307" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00009"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL308" TYPE="PARAGRAPH" ORDER="7">
+		      <div ID="DIVL309" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00010"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL310" TYPE="PARAGRAPH" ORDER="8">
+		      <div ID="DIVL311" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00011"/>
+			</fptr>
+		      </div>
+		    </div>
+		    <div ID="DIVL312" TYPE="PARAGRAPH" ORDER="9">
+		      <div ID="DIVL313" TYPE="TEXT">
+			<fptr>
+			  <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00012"/>
+			</fptr>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL314" TYPE="SECTION" DMDID="MODSMD_SECTION4">
+	      <div ID="DIVL315" TYPE="BODY">
+		<div ID="DIVL316" TYPE="BODY_CONTENT">
+		  <div ID="DIVL317" TYPE="PARAGRAPH" ORDER="1">
+		    <div ID="DIVL318" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00011"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL319" TYPE="PARAGRAPH" ORDER="2">
+		    <div ID="DIVL320" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00012"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL321" TYPE="PARAGRAPH" ORDER="3">
+		    <div ID="DIVL322" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00013"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL323" TYPE="PARAGRAPH" ORDER="4">
+		    <div ID="DIVL324" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00010"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL325" TYPE="PARAGRAPH" ORDER="5">
+		    <div ID="DIVL326" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00014"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL327" TYPE="PARAGRAPH" ORDER="6">
+		    <div ID="DIVL328" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00015"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL329" TYPE="PARAGRAPH" ORDER="7">
+		    <div ID="DIVL330" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00016"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL331" TYPE="PARAGRAPH" ORDER="8">
+		    <div ID="DIVL332" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00017"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL333" TYPE="PARAGRAPH" ORDER="9">
+		    <div ID="DIVL334" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00001"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL335" TYPE="PARAGRAPH" ORDER="10">
+		    <div ID="DIVL336" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00002"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL337" TYPE="PARAGRAPH" ORDER="11">
+		    <div ID="DIVL338" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00019"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL339" TYPE="PARAGRAPH" ORDER="12">
+		    <div ID="DIVL340" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00003"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL341" TYPE="PARAGRAPH" ORDER="13">
+		    <div ID="DIVL342" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00004"/>
+		      </fptr>
+		    </div>
+		  </div>
+		  <div ID="DIVL343" TYPE="PARAGRAPH" ORDER="14">
+		    <div ID="DIVL344" TYPE="TEXT">
+		      <fptr>
+			<area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00005"/>
+		      </fptr>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL345" TYPE="SECTION" DMDID="MODSMD_SECTION5" LABEL="Huutokauppa.">
+	      <div ID="DIVL346" TYPE="HEADING">
+		<div ID="DIVL347" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00006"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL348" TYPE="BODY">
+		<div ID="DIVL349" TYPE="BODY_CONTENT">
+		  <div ID="DIVL350" TYPE="ADVERTISEMENT" ORDER="1">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00007"/>
+		    </fptr>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    <div ID="DIVL351" TYPE="SECTION" DMDID="MODSMD_SECTION6" LABEL="Huutokauppoja.">
+	      <div ID="DIVL352" TYPE="HEADING">
+		<div ID="DIVL353" TYPE="TITLE">
+		  <fptr>
+		    <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00013"/>
+		  </fptr>
+		</div>
+	      </div>
+	      <div ID="DIVL354" TYPE="BODY">
+		<div ID="DIVL355" TYPE="BODY_CONTENT">
+		  <div ID="DIVL356" TYPE="ADVERTISEMENT" ORDER="1">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00031"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL357" TYPE="ADVERTISEMENT" ORDER="2">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00032"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL358" TYPE="ADVERTISEMENT" ORDER="3">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00033"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL359" TYPE="ADVERTISEMENT" ORDER="4">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00034"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL360" TYPE="ADVERTISEMENT" ORDER="5">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00035"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL361" TYPE="ADVERTISEMENT" ORDER="6">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00036"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL362" TYPE="ADVERTISEMENT" ORDER="7">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00037"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL363" TYPE="ADVERTISEMENT" ORDER="8">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00038"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL364" TYPE="ADVERTISEMENT" ORDER="9">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00018"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL365" TYPE="ADVERTISEMENT" ORDER="10">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00014"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL366" TYPE="ADVERTISEMENT" ORDER="11">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00030"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL367" TYPE="ADVERTISEMENT" ORDER="12">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00006"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL368" TYPE="ADVERTISEMENT" ORDER="13">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00007"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL369" TYPE="ADVERTISEMENT" ORDER="14">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00022"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL370" TYPE="ADVERTISEMENT" ORDER="15">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00023"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL371" TYPE="ADVERTISEMENT" ORDER="16">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00024"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL372" TYPE="ADVERTISEMENT" ORDER="17">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00025"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL373" TYPE="ADVERTISEMENT" ORDER="18">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00026"/>
+		    </fptr>
+		  </div>
+		  <div ID="DIVL374" TYPE="ADVERTISEMENT" ORDER="19">
+		    <fptr>
+		      <area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00015"/>
+		    </fptr>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </structMap>
+</mets>

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		      xmlns:mets="http://www.loc.gov/METS/"
+		      xmlns:mods="http://www.loc.gov/mods/v3"
+		      xmlns:xlink="http://www.w3.org/1999/xlink"
+		      xmlns:premis="http://www.loc.gov/standards/premis"
+		      xmlns:profile="http://www.loc.gov/METS_Profile/"
+		      xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd">
+  <profile:URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000020.xml</profile:URI>
+  <profile:title>Library of Congress METS Profile for Bibliographic Records [Draft]</profile:title>
+  <profile:abstract>The Library of Congress METS Profile for Bibliographic Records specifies how METS documents representing bibliographic records within Library of  Congress digital library projects should be encoded. This profile is intended to be used in cases where there is a need to include bibliographic records for items that have not yet been digitized in a digital library project. The profile may also be used in cases where there is a need to associate a partially digitized item with the bibliographic data. The profile provides for three cases of partially digitized items, 1) a bibliographic record with an associated "illustrative" digital image (e.g. an image of a book cover), 2) a bibliographic record with a digital version (either images or text) of a table of contents, or 3) a bibliographic record with any other digitized segment of the item.  In addition, the profile may be used in cases where there is a bibliographic record with a digitized version of corresponding catalog cards. It is interesting to note that this METS Profile makes it possible to combine records for non-digitized documents or partially digitized documents into the same XML datastore with digitized documents, using METS as a common data structure.</profile:abstract>
+  <profile:date>2008-01-04T10:31:05.676-05:00</profile:date>
+  <profile:contact>
+    <profile:name>Morgan Cundiff</profile:name>
+    <profile:institution>Network Development and MARC Standards Office, Library of Congress</profile:institution>
+    <profile:address>101 Independence Avenue, Washington DC, 20540</profile:address>
+  </profile:contact>
+  <profile:registration_info ID="id" regDate="2008-01-04T10:16:19.676-05:00" regURI="uri"/>
+  <profile:related_profile>No related profiles.</profile:related_profile>
+  <profile:extension_schema>
+    <profile:name>Metadata Object Description Schema (MODS)</profile:name>
+    <profile:URI>http://www.loc.gov/mods/v3/</profile:URI>
+  </profile:extension_schema>
+  <profile:description_rules>
+    <profile:p>It is recommended that the content data used in the MODS section of a METS document conform to AACR2 to the extent that it applies.</profile:p>
+  </profile:description_rules>
+  <profile:controlled_vocabularies>
+    <profile:vocabulary>
+      <profile:name>Library of Congress Subject Headings</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:context>
+	<profile:p>Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress Subject Headings (LCSH).</profile:p>
+      </profile:context>
+    </profile:vocabulary>
+    <profile:vocabulary>
+      <profile:name>Library of Congress Classification</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:URI>http://www.loc.gov/catdir/cpso/lcc.html</profile:URI>
+    </profile:vocabulary>
+    <profile:vocabulary>
+      <profile:name>NACO Authority File</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:URI>http://authorities.loc.gov/</profile:URI>
+      <profile:context>
+	<profile:p>Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority File.</profile:p>
+      </profile:context>
+    </profile:vocabulary>
+    <profile:vocabulary>
+      <profile:name>MARC Country Codes</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:URI>http://www.loc.gov/marc/countries/</profile:URI>
+      <profile:context>
+	<profile:p>Country codes used in the MODS section of a METS document must use MARC country code list.</profile:p>
+      </profile:context>
+    </profile:vocabulary>
+    <profile:vocabulary>
+      <profile:name>ISO 639-2 Language Codes</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:URI>http://www.loc.gov/standards/iso639-2/</profile:URI>
+      <profile:context>
+	<profile:p>Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.</profile:p>
+      </profile:context>
+    </profile:vocabulary>
+    <profile:vocabulary>
+      <profile:name>MARC Relator Codes</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:URI>http://www.loc.gov/marc/relators/</profile:URI>
+      <profile:context>
+	<profile:p>Relator codes or terms used in the MODS section of a METS document must use MARC relator list.</profile:p>
+      </profile:context>
+    </profile:vocabulary>
+    <profile:vocabulary>
+      <profile:name>Target Audience Codes</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:URI>http://www.loc.gov/marc/sourcecode/target/</profile:URI>
+      <profile:context>
+	<profile:p>Terms used in the MODS section of a METS document must use the MARC target audience list.</profile:p>
+      </profile:context>
+    </profile:vocabulary>
+    <profile:vocabulary>
+      <profile:name>MARC Code List for Organizations</profile:name>
+      <profile:maintenance_agency>Library of Congress</profile:maintenance_agency>
+      <profile:URI>http://www.loc.gov/marc/organizations/</profile:URI>
+      <profile:context>
+	<profile:p>Source codes used in the MODS section of a METS document must use MARC organization list.</profile:p>
+      </profile:context>
+    </profile:vocabulary>
+  </profile:controlled_vocabularies>
+  <profile:structural_requirements>
+    <profile:dmdSec>
+      <profile:requirement ID="dr01" RELATEDMAT="ex01">
+	<profile:p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</profile:p>
+      </profile:requirement>
+      <profile:requirement ID="dr02" RELATEDMAT="ex02">
+	<profile:p>The mods record may contain one or more relatedItem type="constituent" child elements which describes a sub-part or excerpt (e.g. the table of contents from a book) of the item. Note that the structMap contains a div TYPE="bib:toc" element that points to the corresponding relatedItem type="constituent" element.</profile:p>
+      </profile:requirement>
+    </profile:dmdSec>
+    <profile:fileSec>
+      <profile:requirement ID="fs01" RELATEDMAT="ex03">
+	<profile:p>In cases where there are no associated digital files (for an illustrative image, a table of contents, or for digitaized catalog cards, etc.) there will be no fileSec.</profile:p>
+	<profile:p>In cases where there are associated digital files, those files should be represented in the fileSec as in the following example. Note that master files and service (or derivative files) are placed in separate fileGrp sections which have an attribute USE="MASTER" or USE="SERVICE". Note also that the fptr elements in the structMap have FILEID attributes that point to the corresponding file elements in the fileSec.</profile:p>
+      </profile:requirement>
+    </profile:fileSec>
+    <profile:structMap>
+      <profile:requirement ID="st01" RELATEDMAT="ex04">
+	<profile:p>The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="bib:bibRecord" child element. The div TYPE="bib:bibRecord" element of the structMap will have a DMDID attribute that points to the mods element.</profile:p>
+      </profile:requirement>
+      <profile:requirement ID="st02" RELATEDMAT="ex05">
+	<profile:p>The profile provides for three cases of partially digitized items, 1) a bibliographic record with an associated "illustrative" digital image (e.g. an image of a book cover), 2) a bibliographic record with a digital version (either images or text) of a table of contents, and 3) a bibliographic record with any other digitized segment of the item. In the first case, an illustrative image will be represented in the structMap as a div TYPE="bib:illustration" element. In the second case, a digitized table of contents will be represented as a div TYPE="bib:toc" elements. In the third case, some other digitized segment will be represented as a div TYPE="bib:other". It is recommended, in this case, that the LABEL attribute be used to supply information about the nature of the digitized segment. The profile also provides for cases where there is a bibliographic record with a digitized version of corresponding catalog cards. In all cases where there are digital files the structMap will contain a div TYPE="lc:image" or div TYPE="lc:text" element as needed. Each div TYPE="lc:image" or div TYPE="lc:text" element will have a child fptr element with a FILEID attribute pointing to the corresponding file element in the fileSec. This is illustrated above in Example 3.</profile:p>
+      </profile:requirement>
+    </profile:structMap>
+
+  </profile:structural_requirements>
+  <profile:technical_requirements>
+    <profile:content_files>
+      <profile:requirement>
+	<profile:head>Still Image Files</profile:head>
+	<profile:p>The master image files referenced by conforming documents must be in TIFF Revision 6.0 format. See Digital Formats for Library of Congress Collections: TIFF, Revision 6.0 at http://www.digitalpreservation.gov/formats/fdd/fdd000022.shtml.</profile:p>
+      </profile:requirement>
+      <profile:requirement>
+	<profile:head>Text Files</profile:head>
+	<profile:p>Master text files referenced by conforming documents must be in XML format. See Digital Formats for Library of Congress Collections: XML (Extensible Markup Language) at http://www.digitalpreservation.gov/formats/fdd/fdd000075.shtml.</profile:p>
+      </profile:requirement>
+    </profile:content_files>
+  </profile:technical_requirements>
+  <profile:tool>
+    <profile:note>
+      <profile:p>No related tools.</profile:p>
+    </profile:note>
+  </profile:tool>
+  <profile:Appendix ID="a1" NUMBER="0" LABEL="appendix1">
+    <mets:mets xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:bib="http://www.loc.gov/mets/profiles/bibRecord"
+	       OBJID="loc.afc.afc9999005.5623"
+	       xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd"
+	       PROFILE="lc:bibRecord">
+      <mets:dmdSec ID="dmd1">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>I'm going back to Georgia</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Hibbitt, George Whiting, 1895-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm type="text">Recording engineer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:name type="personal">
+		<mods:namePart>Greet, William Cabell, 1901-1972</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm type="text">Recording engineer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:name type="personal">
+		<mods:namePart>Lunsford, Bascom Lamar</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm type="text">Performer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="text">New York, New York</mods:placeTerm>
+		</mods:place>
+		<mods:dateCaptured encoding="iso8601">19350200</mods:dateCaptured>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code">eng</mods:languageTerm>
+	      </mods:language>
+	      <mods:physicalDescription>
+		<mods:form authority="gmd">sound recording</mods:form>
+	      </mods:physicalDescription>
+	      <mods:note type="statement of responsibility">Sung by Bascom Lamar Lunsford with banjo.</mods:note>
+	      <mods:note>Singer from Asheville, N.C.</mods:note>
+	      <mods:note type="instrument"/>
+	      <mods:note type="instrument">Banjo</mods:note>
+	      <mods:subject>
+		<mods:hierarchicalGeographic>
+		  <mods:country>United States</mods:country>
+		  <mods:state>New York</mods:state>
+		  <mods:city>New York</mods:city>
+		</mods:hierarchicalGeographic>
+	      </mods:subject>
+	      <mods:identifier type="AFS Number">AFS 01785 B02</mods:identifier>
+	      <mods:identifier type="index">afc9999005</mods:identifier>
+	      <mods:location>
+		<mods:physicalLocation>American Folklife Center, Library of Congress</mods:physicalLocation>
+	      </mods:location>
+	      <mods:location>
+		<mods:physicalLocation authority="marcorg">DLC</mods:physicalLocation>
+	      </mods:location>
+	      <mods:recordInfo>
+		<mods:recordContentSource>IHAS</mods:recordContentSource>
+		<mods:recordChangeDate encoding="marc">071109</mods:recordChangeDate>
+		<mods:recordIdentifier source="IHAS">loc.afc.afc9999005.5623</mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:fileSec>
+	<mets:fileGrp USE="MASTER">
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G1" ID="f0850m">
+	    <mets:FLocat LOCTYPE="URL"
+			 xlink:href="http://lcweb4.loc.gov/natlib/ihas/warehouse/afc9999005/AFS_1500_A-1839_B3/0850.tif"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G1" ID="f0850s">
+	    <mets:FLocat LOCTYPE="URL"
+			 xlink:href="http://lcweb4.loc.gov/natlib/ihas/service/afc9999005/AFS_1500_A-1839_B3/0850v.jpg"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+      <mets:structMap>
+	<mets:div DMDID="mods1" TYPE="bib:bibRecord">
+	  <mets:div TYPE="bib:card">
+	    <mets:div TYPE="lc:image">
+	      <mets:fptr FILEID="f0850m"/>
+	      <mets:fptr FILEID="f0850s"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </profile:Appendix>
+  <profile:Appendix ID="ex01" NUMBER="1">
+    <mets:mets>
+      <mets:dmdSec ID="dmd01_ex01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex01">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>musical languages of Elliott Carter</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Rosen, Charles</mods:namePart>
+		<mods:namePart type="date">1927-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:genre authority="marc">bibliography</mods:genre>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="code" authority="marccountry">dcu</mods:placeTerm>
+		</mods:place>
+		<mods:place>
+		  <mods:placeTerm type="text">Washington, [D.C.]</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>Music Division, Research Services, Library of Congress</mods:publisher>
+		<mods:publisher>For sale by the Supt. of Docs., U.S. G.P.O.</mods:publisher>
+		<mods:dateIssued>1984</mods:dateIssued>
+		<mods:dateIssued encoding="marc">1985</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+	      </mods:language>
+	      <mods:physicalDescription>
+		<mods:form authority="marcform">print</mods:form>
+		<mods:extent>viii, 87 p. : music, port. ; 24 cm.</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:note type="statement of responsibility">by Charles Rosen.</mods:note>
+	      <mods:note>Includes: A guide to Elliott Carter research materials at the Library of Congress Music Division / by Morgan Cundiff.</mods:note>
+	      <mods:note>Bibliography: p. 73-86.</mods:note>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+		<mods:topic>Bibliography</mods:topic>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="corporate">
+		  <mods:namePart>Library of Congress.</mods:namePart>
+		  <mods:namePart>Music Division</mods:namePart>
+		</mods:name>
+		<mods:topic>Catalogs</mods:topic>
+	      </mods:subject>
+	      <mods:classification authority="lcc">ML410.C3293 R7 1984</mods:classification>
+	      <mods:classification authority="ddc" edition="19">780/.92/4</mods:classification>
+	      <mods:relatedItem type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Guide to Elliott Carter research materials at the Library of Congress Music Division. 1984</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Cundiff, Morgan.</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:identifier type="isbn">0844404497</mods:identifier>
+	      <mods:identifier type="lccn">84003851</mods:identifier>
+	      <mods:recordInfo>
+		<mods:recordContentSource authority="marcorg">DLC</mods:recordContentSource>
+		<mods:recordCreationDate encoding="marc">840217</mods:recordCreationDate>
+		<mods:recordChangeDate encoding="iso8601">19850430000000.0  </mods:recordChangeDate>
+		<mods:recordIdentifier>2367614  </mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div DMDID="mods1_ex01" TYPE="bib:bibRecord"/>
+      </mets:structMap>
+    </mets:mets>
+  </profile:Appendix>
+  <profile:Appendix ID="ex02" NUMBER="2">
+    <mets:mets>
+      <mets:dmdSec ID="dmd01_ex02">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex02">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>musical languages of Elliott Carter</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Rosen, Charles</mods:namePart>
+		<mods:namePart type="date">1927-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:relatedItem ID="con01_ex02" type="constituent">
+		<mods:titleInfo>
+		  <mods:partName>Table of Contents</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div TYPE="bib:bibRecord" DMDID="mods1_ex02">
+	  <mets:div TYPE="bib:toc" DMDID="con01_ex02">
+	    <mets:div TYPE="lc:text">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </profile:Appendix>
+  <profile:Appendix ID="ex03" NUMBER="3">
+    <mets:mets xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:bib="http://www.loc.gov/mets/profiles/bibRecord"
+	       xmlns="http://www.loc.gov/METS/"
+	       PROFILE="lc:bibRecord">
+
+      <mets:dmdSec ID="dmd01_ex03">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex03">
+	      <mods:titleInfo>
+		<mods:title>I'm going back to Georgia</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:fileSec>
+	<mets:fileGrp USE="MASTER">
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G1" ID="f_ex03m">
+	    <mets:FLocat LOCTYPE="URL"
+			 xlink:href="http://lcweb4.loc.gov/natlib/ihas/warehouse/afc9999005/AFS_1500_A-1839_B3/0850.tif"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G1" ID="f_ex03s">
+	    <mets:FLocat LOCTYPE="URL"
+			 xlink:href="http://lcweb4.loc.gov/natlib/ihas/service/afc9999005/AFS_1500_A-1839_B3/0850v.jpg"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+      <mets:structMap>
+	<mets:div DMDID="mods1_ex03" TYPE="bib:bibRecord">
+	  <mets:div TYPE="bib:card">
+	    <mets:div TYPE="lc:image">
+	      <mets:fptr FILEID="f_ex03m"/>
+	      <mets:fptr FILEID="f_ex03s"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </profile:Appendix>
+  <profile:Appendix ID="ex04" NUMBER="4">
+    <mets:mets xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:bib="http://www.loc.gov/mets/profiles/bibRecord"
+	       xmlns="http://www.loc.gov/METS/"
+	       PROFILE="lc:bibRecord">
+
+      <mets:dmdSec ID="dmd01_ex04">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex04">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>musical languages of Elliott Carter</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Rosen, Charles</mods:namePart>
+		<mods:namePart type="date">1927-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:genre authority="marc">bibliography</mods:genre>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="code" authority="marccountry">dcu</mods:placeTerm>
+		</mods:place>
+		<mods:place>
+		  <mods:placeTerm type="text">Washington, [D.C.]</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>Music Division, Research Services, Library of Congress</mods:publisher>
+		<mods:publisher>For sale by the Supt. of Docs., U.S. G.P.O.</mods:publisher>
+		<mods:dateIssued>1984</mods:dateIssued>
+		<mods:dateIssued encoding="marc">1985</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+	      </mods:language>
+	      <mods:physicalDescription>
+		<mods:form authority="marcform">print</mods:form>
+		<mods:extent>viii, 87 p. : music, port. ; 24 cm.</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:note type="statement of responsibility">by Charles Rosen.</mods:note>
+	      <mods:note>Includes: A guide to Elliott Carter research materials at the Library of Congress Music Division / by Morgan Cundiff.</mods:note>
+	      <mods:note>Bibliography: p. 73-86.</mods:note>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+		<mods:topic>Bibliography</mods:topic>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="corporate">
+		  <mods:namePart>Library of Congress.</mods:namePart>
+		  <mods:namePart>Music Division</mods:namePart>
+		</mods:name>
+		<mods:topic>Catalogs</mods:topic>
+	      </mods:subject>
+	      <mods:classification authority="lcc">ML410.C3293 R7 1984</mods:classification>
+	      <mods:classification authority="ddc" edition="19">780/.92/4</mods:classification>
+	      <mods:relatedItem type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Guide to Elliott Carter research materials at the Library of Congress Music Division. 1984</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Cundiff, Morgan.</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:identifier type="isbn">0844404497</mods:identifier>
+	      <mods:identifier type="lccn">84003851</mods:identifier>
+	      <mods:recordInfo>
+		<mods:recordContentSource authority="marcorg">DLC</mods:recordContentSource>
+		<mods:recordCreationDate encoding="marc">840217</mods:recordCreationDate>
+		<mods:recordChangeDate encoding="iso8601">19850430000000.0  </mods:recordChangeDate>
+		<mods:recordIdentifier>2367614  </mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="bib:bibRecord" DMDID="mods1_ex04"> 
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </profile:Appendix>
+  <profile:Appendix ID="ex05" NUMBER="5">
+    <mets:mets>
+      <mets:dmdSec ID="dmd01_ex05">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex05">
+	      <mods:titleInfo>
+		<mods:title>Title</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div TYPE="bib:bibRecord" DMDID="mods1_ex05">
+	  <mets:div TYPE="bib:illustration">
+	    <mets:div TYPE="lc:image">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="bib:toc">
+	    <mets:div TYPE="lc:image">
+	      <mets:fptr/>
+	    </mets:div>
+	    <mets:div TYPE="lc:image">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="bib:toc">
+	    <mets:div TYPE="lc:text">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="bib:other" LABEL="index">
+	    <mets:div TYPE="lc:image">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </profile:Appendix>
+</profile:METS_Profile>

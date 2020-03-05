@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile 
+    xmlns="http://www.loc.gov/METS_Profile/v2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"  
+    xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd" STATUS="final" REGISTRATION="registered">
+    <URI LOCTYPE="URL" ASSIGNEDBY="local">http://www.lib.utexas.edu/schema/UTAudioMETS.xml</URI>
+    <URI LOCTYPE="URL" ASSIGNEDBY="metsboard">http://www.loc.gov/standards/mets/profiles/00000037.xml</URI>
+    <title>UTAudio METS Profile</title>
+    <abstract>This profile describes the rules and requirements for using METS as an Archival
+        Information Package for digital audio objects. Digital audio objects may contain raw,
+        master, and derivative audio files, as well as text transcripts and/or translations.
+        Developed by the Human Rights Documentation Initiative at the University of Texas Libraries,
+        this profile is intended for any audio object collected by the Libraries.</abstract>
+    <date>2011-07-19T15:32:00</date>
+    <contact>
+        <name>Amy Rushing</name>
+        <institution>University of Texas Libraries</institution>
+        <address>P.O. Box P, PCL 2.330, S5453, Austin, Texas 78713-8916</address>
+        <phone>(512)495-4355</phone>
+        <email>a.rushing@austin.utexas.edu</email>
+    </contact>
+    <related_profile/>
+    <profile_context/>
+    <external_schema>
+        <name>Metadata Object Description Schema (MODS)</name>
+        <URL>http://www.loc.gov/standards/mods/mods.xsd</URL>
+    </external_schema>
+    <external_schema>
+        <name>audioMD</name>
+        <URL>http://www.loc.gov/standards/amdvmd/audioMD.xsd</URL>
+    </external_schema>
+    <external_schema>
+        <name>PREMIS Preservation Metadata Schema:Event</name>
+        <URL>http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd</URL>
+    </external_schema>
+    <description_rules><xhtml:p>All metadata must adhere to the "University of Texas Libraries Human Rights Documentation Initiative Metadata Guidelines for Audio"</xhtml:p></description_rules>
+    <controlled_vocabularies>
+        <vocabulary ID="vocab1">
+            <name>USE Attribute Values for METS fileSec, fileGrp element</name>
+            <values>
+                <value>raw</value>
+                <value>master</value>
+                <value>derivative</value>
+            </values>
+            <description>
+            	<xhtml:p>This profile specifies the required vocabulary for the USE attribute value on the fileGrp element. It is required that this attribute appear. These values should distinguish the relationship between digital audio files.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="vocab2">
+            <name>METS structMap/div TYPE attribute values</name>
+            <values>
+                <value>video</value>
+                <value>transcript</value>
+            </values>
+            <description>
+            	<xhtml:p>This profile specifies the required vocabulary for the TYPE attribute value on the second level div element of the structMap. It is required that this attribute appear at this level. These values distinguish by class the digital objects described by the METS document.
+            	</xhtml:p>
+            </description>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsRootElement>
+            <requirement ID="metsRoot1">
+                <description><xhtml:p>The root METS element must include a PROFILE attribute value.</xhtml:p></description>
+            </requirement>
+            <requirement ID="metsRoot2">
+                <description> <xhtml:p>The root METS element must include a TYPE attribute with a value of "digital audio".</xhtml:p></description>
+            </requirement>            
+        </metsRootElement>
+        <metsHdr>
+            <requirement ID="metsHdr1">
+                <description><xhtml:p>The metsHdr element must contain the CREATEDATE and LASTMODDATE attributes.</xhtml:p></description>
+            </requirement>
+            <requirement ID="metsHdr2">
+                <description><xhtml:p>The metsHdr element must contain an agent element with the ROLE attribute value "CUSTODIAN," TYPE attribute value "ORGANIZATION," and name element with value
+                    "University of Texas Libraries."</xhtml:p></description>
+            </requirement>            
+        </metsHdr>
+        <dmdSec ID="dmdSec1">
+            <requirement>
+                <description><xhtml:p>Conforming METS documents must contain one or more dmdSec elements. Each dmdSec must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="dmdSec2">
+                <description><xhtml:p>Each mdRef element must point to an external document that conforms to the MODS schema.The location of the MODS compliant metadata must be recorded in the
+                    xlink:href attribute of each mdRef element. </xhtml:p></description>
+            </requirement>            
+        </dmdSec>
+        <amdSec ID="amdSec1">
+            <requirement>
+                <description><xhtml:p>Conforming METS documents must contain only one amdSec element. This section must contain one or more of each of the following elements: techMD, sourceMD, and digiprovMD.</xhtml:p></description>
+            </requirement>
+            <requirement ID="techMD1">
+                <description><xhtml:p>Conforming METS documents must contain one or more techMD elements. Each techMD element must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="techMD2">
+                <description><xhtml:p>Each mdRef element must point to an external document that conforms to the audioMD schema. The location of this document must be recorded in the xlink:href attribute.</xhtml:p></description>
+            </requirement>
+            <requirement ID="rightsMD1">
+                <description><xhtml:p>Information regarding rights is covered by the MODS descriptive metadata element "accessCondition." No additional external rights schema is necessary.</xhtml:p></description>
+            </requirement>
+            <requirement ID="sourceMD1">
+                <description><xhtml:p>Conforming METS documents must contain one or more sourceMD elements. Each sourceMD element must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="sourceMD2">
+                <description><xhtml:p>Each mdRef element in this section must use the xlink:href attribute to point to the URL of an external document that conforms to the audioMD schema. The location of the audioMD compliant metadata must be recorded in the
+                    xlink:href attribute of each mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="digiprovMD1">
+                <description><xhtml:p>Conforming METS documents must contain one or more digiprovMD elements. Each digiprovMD element must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="digiprovMD2">
+                <description><xhtml:p>Each mdRef element in this section must use the xlink:href attribute to point to the URL of an external document that conforms to the PREMIS:event schema. The location of the PREMIS:event compliant metadata must be recorded in the
+                    xlink:href attribute of each mdRef element. </xhtml:p></description>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement ID="fileSec1" RELATEDMAT="vocab1">
+                <description><xhtml:p>Conforming METS documents for this profile must contain a fileSec. Each file represented in the fileSec must have an associated USE attribute. The USE attribute is expressed in conjunction with the fileGrp that is the immediate
+                    parent of a file element so that it pertains to all file elements in the fileGrp. The fileGrp USE attribute values must be drawn from the controlled vocabulary for fileGrp USE Attribute Values contained within this profile.</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec2">
+                <description><xhtml:p>Each file element must contain an FLocat element which specifies the external location of the content file in an xlink:href attribute.The FLocat element must contain an xlink:href attribute, as well as a LOCTYPE attribute indicating the
+                    type of href being provided. In most cases, the LOCTYPE for digital audio objects will be URL.</xhtml:p></description>
+            </requirement>            
+        </fileSec>
+        <structMap>
+            <requirement ID="structMap1">
+                <description><xhtml:p>A conforming METS document must contain one and only one structMap.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap2">
+                <description><xhtml:p>A conforming structMap must contain a ID attribute as well as a TYPE attribute with the value "Logical."</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap3" RELATEDMAT="vocab2">
+                <description><xhtml:p>The structMap will be organized by three nested div elements. Each lowest level div element contains one or more fptr elements, whose FILEID attribute points to the fileGrp of the referenced item in the fileSec. The next level div contains a
+                    TYPE attribute with a value from vc2 above. This level div also contains a DMDID that points to the descriptive Metadata shared by the TYPE group. The ADMID attribute is contained by the top level div and references any metadata shared
+                    by all files.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap4">
+                <description><xhtml:p>The mptr element is not supported, instead a fptr element must directly point to a file element via its FILEID attribute. METS documents implementing this profile must not use the area, par, or seq elements. </xhtml:p></description>
+            </requirement>
+        </structMap>        
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement>
+                <description><xhtml:p>Archival Sound (audio) Files:
+                    It is recommended that:
+                    Archival Audio Files are WAV (Waveform Audio File Format)--
+                    48 kHz 24 bit PCM digital audio.
+                </xhtml:p></description>
+            </requirement>
+        </content_files>        
+    </technical_requirements>
+    <tool>
+        <name>MediaInfo</name>
+        <URI>http://mediainfo.sourceforge.net/en</URI>
+        <description><xhtml:p>MediaInfo will be used for generating technical metadata on each raw and production master digital audio file that comprises the audio object.  The xml output from MediaInfo will be transformed to conform to the audioMD schema.</xhtml:p></description>
+    </tool>
+    <Appendix NUMBER="1">
+        <mets xmlns="http://www.loc.gov/METS/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/mods.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mods/xlink.xsd http://www.loc.gov/audioMD/ http://www.loc.gov/standards/amdvmd/audioMD.xsd"
+            PROFILE="UTAudioMETS" TYPE="digital audio">
+            <metsHdr CREATEDATE="2011-07-19T07:13:18Z">
+                <agent ROLE="CUSTODIAN" TYPE="ORGANIZATION">
+                    <name>University of Texas Libraries</name>
+                </agent>
+            </metsHdr>
+            <dmdSec ID="dmd_1">
+                <mdRef xlink:href="file://mupi_rv_0001/mup_rv_0001.mods.xml" MIMETYPE="text/xml" MDTYPE="MODS"
+                    LOCTYPE="URL"/>
+            </dmdSec>
+            <amdSec ID="amd_1">
+                <techMD ID="audio1raw-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://mupi_rv_0001/mupi_rv_0001_a-audio1raw-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="audioMD"/>
+                </techMD>
+                <techMD ID="audio2raw-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://mupi_rv_0001/mupi_rv_0001_b-audio2raw-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="audioMD"/>
+                </techMD>
+                <sourceMD ID="audio1-src">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="audioMD"
+                        xlink:href="file://mupi_rv_0001/mupi_rv_0001_a-audio1-src.xml"/>
+                </sourceMD>
+                <sourceMD ID="audio2-src">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="audioMD"
+                        xlink:href="file://mupi_rv_0001/mupi_rv_0001_b-audio2-src.xml"/>
+                </sourceMD>
+                <digiprovMD ID="PREMIS_1">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://mupi_rv_0001/mupi_rv_0001_a-audio1raw_premis.xml"/>
+                </digiprovMD>
+                <digiprovMD ID="PREMIS_2">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://mupi_rv_0001/mupi_rv_0001_b-audio2raw_premis"/>
+                </digiprovMD>
+            </amdSec>
+            <fileSec>
+                <fileGrp USE="raw">
+                    <file ID="FID1" MIMETYPE="audio/wav" SIZE="11895564117"
+                        ADMID="audio1raw-tech PREMIS_1 audio1-src">
+                        <FLocat LOCTYPE="URL" xlink:href="file://mupi_rv_0001/mupi_rv_0001_a.wav"/>
+                    </file>
+                    <file ID="FID2" MIMETYPE="audio/wav" SIZE="11895564215"
+                        ADMID="audio2raw-tech PREMIS_2 audio2-src">
+                        <FLocat LOCTYPE="URL" xlink:href="file://mupi_rv_0001/mupi_rv_0001_b.wav"/>
+                    </file>
+                </fileGrp>
+                <fileGrp>
+                <file ID="FID3" MIMETYPE="application/msword" SIZE="149" CHECKSUM="557e7efb27c11c535e925aff51cced92"
+                        CHECKSUMTYPE="MD5">
+                <FLocat LOCTYPE="URL" xlink:href="file://mupi_rv_0001/mup_rv_0001_trans.doc"/>
+                    </file>
+                </fileGrp>
+                <fileGrp USE="derivative">
+                    <file ID="FID4" MIMETYPE="audio/mpeg3" SIZE="347223" CHECKSUM="388d8b77848751181757db5ea4a6c2ed"
+                        CHECKSUMTYPE="MD5">
+                        <FLocat LOCTYPE="URL" xlink:href="file://mupi_rv_0001/mupi_rv_0001_a.mp3"/>
+                    </file>
+                    <file ID="FID5" MIMETYPE="audio/mpeg3" SIZE="351837" CHECKSUM="99e2d1b5ea4284cf504532e2fa7a8a54"
+                        CHECKSUMTYPE="MD5">
+                        <FLocat LOCTYPE="URL" xlink:href="file://mupi_rv_0001/mupi_rv_0001_b.mp3"/>
+                    </file>
+               </fileGrp>
+            </fileSec>
+            <structMap ID="smap_1" TYPE="Logical">
+                <div>
+                    <div TYPE="audio" DMDID="dmd_1">
+                        <div ORDER="1">
+                            <fptr FILEID="FID1"/>
+                            <fptr FILEID="FID4"/>
+                            </div>
+                        <div ORDER="2">
+                            <fptr FILEID="FID2"/>
+                            <fptr FILEID="FID5"/>
+                            </div>
+                   <div TYPE="transcript">
+                        <fptr FILEID="FID3"/>
+                   </div>
+                    </div>
+                    </div>
+               </structMap>
+        </mets>
+    </Appendix>    
+</METS_Profile>

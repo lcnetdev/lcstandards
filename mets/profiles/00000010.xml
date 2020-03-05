@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile 
+	xmlns="http://www.loc.gov/METS_Profile/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mets="http://www.loc.gov/METS/"
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+	xsi:schemaLocation="	http://www.loc.gov/METS_Profile/
+				http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd
+				http://purl.org/dc/elements/1.1/
+				http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd
+				http://purl.org/dc/terms/
+				http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd
+				http://www.loc.gov/METS/     
+				http://www.loc.gov/standards/mets/mets.xsd
+				http://cosimo.stanford.edu/sdr/metsrights/
+				http://cosimo.stanford.edu/sdr/metsrights.xsd">
+	<URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000010.xml</URI>
+	<title>CDL 7train Profile - CONTENTdm Simple and Complex Objects</title>
+	<abstract>The California Digital Library (CDL) - http://www.cdlib.org - has created and uses this profile to 
+		ingest and manage METS objects produced via the CONTENTdm software application (see http://contentdm.com/).  
+		CDL has designed a transformation process to produce METS instances from CONTENTdm's Standard XML 
+		export.  This profile was designed to accommodate objects produced as part of the Local History Digital 
+		Resources Project, a project supported by the U.S. Institute of Museum and Library Services under the 
+		provisions of the Library Service and Technology Act (LSTA), administered by the California State Librarian.  
+		This profile may be used by other organizations that also use CONTENTdm and wish to submit objects to 
+		the CDL.  The objects described by this profile are primarily imaged objects, including imaged text
+		objects.  In the case of imaged text objects, the objects may also contain associated text transcriptions, 
+		formatted as raw ASCII text. The principle goal of this documentation is to describe the salient features of 
+		the profile and how it is used for the management of objects in CDL's systems.</abstract>
+	<date>2006-05-01T13:46:00</date>
+	<contact>
+		<name>Paul Fogel</name>
+		<address>415 20th Street - 4th Floor, Oakland, CA,  94612</address>
+		<phone>510.987.0680</phone>
+		<email>paul.fogel@ucop.edu</email>
+	</contact>
+	<related_profile>No related profiles</related_profile>
+	<extension_schema>
+		<name>Qualified Dublin Core: Elements</name>
+	 	<URI>http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd</URI>
+    		<context>Used as the primary schema for descriptive metadata in the METS:dmdSec element.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Qualified Dublin Core: Terms</name>
+		<URI>http://dublincore.org/schemas/xmls/qdc/2003/04/02/dcterms.xsd</URI>
+		<context>Used for some elements of descriptive metadata in the METS:dmdSec element.</context>
+	</extension_schema>
+	<description_rules>
+		<p>All applications of the Dublin Core schema in conforming METS documents follow the Guidelines for 
+			Implementing Dublin Core in XML published by the Dublin Core Metadata Initiative.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>7train Profile &lt;fileGrp&gt; and &lt;file&gt; USE attribute values</name>
+			<values>
+				<value>archive image</value>
+				<value>reference image</value>
+				<value>thumbnail image</value>
+				<value>transcription</value>
+			</values>
+			<context ID="vc1" RELATEDMAT="fileSec4">
+				<p>mets/fileSec/fileGrp/@USE</p>
+				<p>mets/fileSec/fileGrp/file/@USE</p>
+			</context>
+			<description>
+				<p>These are the supported values for &lt;file&gt; and
+					&lt;fileGrp&gt; USE attributes in METS documents conforming to this
+					profile.</p>
+				<p>&quot;archive image&quot;, &quot;reference image&quot; and
+					&quot;thumbnail image&quot; are appropriate values to describe the USE
+					of image content files. &quot;archive image&quot; designates image
+					masters; &quot;thumbnail image&quot; reduced size images or thumbnails;
+					and &quot;reference image&quot; any intermediate resolutions intended for
+					reference or display purposes.</p>
+				<p>&quot;transcription&quot; is an appropriate value to describe text files 
+					transcribed from imaged documents.  This content must be formatted as 
+					raw, unstructured ASCII text.</p>
+				<p>A given segment of the source material could be represented by more than one
+					content file of a particular USE; for example, multiple reference images of 
+					different resolutions.</p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>7train Profile &lt;mets&gt; TYPE attribute values</name>
+			<values>
+				<value>image</value>
+				<value>facsimile text</value>
+			</values>
+			<context ID="vc2" RELATEDMAT="metsRoot3">
+				<p>mets@TYPE</p>
+			</context>
+			<description>
+				<p>These are the supported values for the mets root element TYPE attribute in METS 
+					documents conforming to this profile.</p>
+				<p>&quot;image&quot; and &quot;facsimile text&quot; are appropriate values to 
+					denote the type of object the METS describes.  &quot;image&quot; designates 
+					an object that is composed of graphical materials; &quot;facsimile text&quot; 
+					designates an object that is a text represented by graphical materials 
+					(e.g. scanned documents).</p>
+			</description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="metsRoot1">
+				<p>The root &lt;mets&gt; element must include an OBJID attribute value
+					that contains a valid ARK and that uniquely identifies the object.</p>
+			</requirement>
+			<requirement ID="metsRoot2">
+				<p>The root &lt;mets&gt;element must include a LABEL attribute value.</p>
+			</requirement>
+			<requirement ID="metsRoot3" RELATEDMAT="vc2">
+				<p>The root &lt;mets&gt;element must include a TYPE attribute value.  This value must
+					conform to the list given in the controlled vocabularies section above.</p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement ID="metsHdr1">
+				<p>METS documents of this profile must contain a metsHdr element.</p>
+			</requirement>
+			<requirement ID="metsHdr2">
+				<p>The &lt;metsHdr&gt; element must include a CREATEDATE attribute value.
+					It should, but is not required to, include a LASTMODDATE attribute value 
+					when this differs from the CREATEDATE value.</p>
+			</requirement>
+			<requirement ID="metsHdr3">
+				<p>The &lt;metsHdr&gt; element must include a child &lt;agent&gt;
+					element identifying the person or institution responsible for creating the METS
+					object.</p>
+			</requirement>
+			<requirement ID="metsHdr4">
+				<p>The &lt;metsHdr&gt; element must include a child &lt;altRecordID&gt; element 
+					that contains the identifier used by the institution submitting this	object to CDL, but
+					only when that value is not a valid ARK.  If an institution uses the ARK identifier scheme
+					for their identifiers, the altRecordID may be omitted.</p>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement ID="dmdSec1">
+				<p>METS documents must contain a one or more &lt;dmdSec&gt; elements. Each 
+					&lt;dmdSec&gt; may in turn contain a &lt;mdRef&gt; or a &lt;mdWrap&gt;.</p>
+			</requirement>
+			<requirement ID="dmdSec2">
+				<p>The primary descriptive metadata section - which will appear sequentially as the 
+					first &lt;dmdSec&gt; - must use &lt;mdWrap&gt; to encompass a record that conforms 
+					to Dublin Core schema specifications.  This record will describe the complete object, 
+					rather than a component part.  Other descriptive metadata sections may appear; 
+					it is recommended, though not required, that they conform to a descriptive 
+					metadata schema endorsed by the METS Editorial Board.</p>
+			</requirement>
+			<requirement ID="dmdSec3">
+				<p>The primary &lt;dmdSec&gt; element must have an ID attribute with the value "DC".  
+					The &lt;mdWrap&gt; element must have a MIMETYPE, LABEL and MDTYPE attribute value, 
+					with the LABEL and MDTYPE attribute value being "DC".</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement ID="amdSec1">
+				<p>METS documents may but need not contain oand and only one &lt;amdSec&gt;
+					element. This &lt;amdSec&gt; may but need not contain one or more
+					&lt;techMD&gt; elements, &lt;sourceMD&gt; elements,
+					&lt;rightsMD&gt; elements and/or &lt;digiprovMD&gt; elements.
+				</p>
+			</requirement>
+			<requirement ID="amdSec2">
+				<p>It is recommended, though not required, that &lt;rightsMD&gt;, &lt;techMD&gt;, 
+					&lt;sourceMD&gt; and &lt;digiprovMD&gt; sections employ a schema endorsed by 
+					the METS Editorial Board, such as	METSRights.</p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement ID="fileSec1">
+				<p>METS documents must contain a &lt;fileSec&gt; element.</p>
+			</requirement>
+			<requirement ID="fileSec2">
+				<p>The &lt;fileSec&gt; of a conforming METS document must contain a parent
+					&lt;fileGrp&gt; for each file format/use represented by the content
+					files. Each of these &lt;fileGrp&gt; elements may but need not
+					contain subsidiary &lt;fileGrp&gt; elements representing subgroups of
+					the content files.</p>
+			</requirement>
+			<requirement ID="fileSec3">
+				<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an ID attribute value 
+					that is unique within the METS instance for use in linking from the &lt;structMap&gt;.</p>
+			</requirement>
+			<requirement ID="fileSec4" RELATEDMAT="vc1">
+				<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an
+					associated USE attribute. The USE attribute may be expressed directly at the
+					&lt;file&gt; element level. Alternately, however, the USE attribute may
+					be expressed in conjunction with the &lt;fileGrp&gt; that is the
+					immediate parent of a &lt;file&gt; element; in this case it is taken to
+					pertain to all &lt;file&gt; elements in the &lt;fileGrp&gt;.  The value must conform
+					to the list given in the controlled vocabularies sections above.</p>
+			</requirement>
+			<requirement ID="fileSec5">
+				<p>If a &lt;fileGrp&gt; contains more than one &lt;file&gt; element, it is recommended, 
+					but not required that each &lt;file&gt; have an associated GROUPID attribute.  In cases 
+					where there is only one &lt;file&gt; contained in a &lt;fileGrp&gt;, the GROUPID attribute 
+					is not necessary.</p>
+			</requirement>
+			<requirement ID="fileSec6">
+				<p>If a raw ASCII text transcription file exists for a scanned document, it must be included 
+					within the &lt;fileSec&gt; using &lt;file&gt;&lt;FContent&gt;&lt;xmlData&gt; and must have 
+					the element &lt;transcription&gt; as the wrapping element for the content.</p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement ID="structMap1">
+				<p>A conforming METS document must contain one and only one &lt;structMap&gt;.</p>
+			</requirement>
+			<requirement ID="structMap2">
+				<p>It is recommended that each &lt;div&gt; element have an associated ID attribute .</p>
+			</requirement>
+			<requirement ID="structMap3">
+				<p>A &lt;structMap&gt; must have a top-level &lt;div&gt; element that represents the 
+					object as a whole.</p>
+			</requirement>
+			<requirement ID="structMap4">
+				<p>A &lt;div&gt; element may but need not directly contain one and only one &lt;fptr&gt; 
+					elements. (In other words, a &lt;div&gt; may or may not have content files directly associated
+					with it.)   If a &lt;div&gt; does not directly govern an &lt;fptr&gt; element, then it must contain
+					at least 1 descendant &lt;div&gt; element with associated content.</p>
+			</requirement>
+			<requirement ID="structMap5">
+				<p>A &lt;div&gt; can have at most one content file directly associated with it - and hence at most
+					one child &lt;fptr&gt; element.  If multiple manifestations of the same content are available (for
+					example, a thumbnail image and two service images of different resolutions), each of these
+					manifestations must be represented by a discrete &lt;div&gt; element.</p>				
+			</requirement>
+			<requirement ID="structMap6">
+				<p>A &lt;div&gt; element cannot directly contain both a &lt;div&gt; element and an &lt;fptr&gt; 
+					element as immediate children.  A &lt;div&gt; element may have one or more &lt;div&gt; 
+					elements as immediate children; or it may have a single &lt;fptr&gt; element as an immediate
+					child element.</p>
+			</requirement>
+			<requirement ID="structMap7">
+				<p>Each &lt;div&gt; that does not directly contain a &lt;fptr&gt; element must include a 
+					LABEL attribute value.</p>
+			</requirement>
+			<requirement ID="structMap8">
+				<p>If a &lt;div&gt; directly contains a &lt;fptr&gt;, it must have an 
+					associated TYPE attribute and must not have associated LABEL or ORDER attributes.</p>
+			</requirement>
+		</structMap>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement ID="content1">
+				<p>Image content files referenced from or included in conforming METS documents must
+					be of one of the following types: GIF, JPG, JP2, PNG or TIFF.  Please consult the CDL Guidelines 
+					for Digital Images (http://www.cdlib.org/inside/diglib/guidelines/bpgimages/) for more 
+					information about profiles, resolution, encoding, and other format issues.</p>
+			</requirement>
+			<requirement ID="content2">
+				<p>Text transcriptions, if they appear, must be raw, unstructured ASCII text.</p>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool>
+		<agency>California Digital Library</agency>
+		<URI>http://sourceforge.net/projects/seventrain</URI>
+		<description><p>This XSL-based transformation package converts CONTENTdm XML exports into METS
+			objects conforming to this profile.</p></description>
+	</tool>
+	<Appendix ID="Ex1" NUMBER="1" LABEL="7train METS Profile Example 1">
+		<mets:mets 
+		    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		    xmlns:dc="http://purl.org/dc/elements/1.1/" 
+		    xmlns:mets="http://www.loc.gov/METS/"
+		    xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+		    xmlns:xlink="http://www.w3.org/1999/xlink"
+		    xsi:schemaLocation="	http://www.loc.gov/METS/ 
+						http://www.loc.gov/standards/mets/mets.xsd" 
+		    OBJID="ark:/13030/pf0z00zz00"
+		    LABEL="Male performer in female dress, dancing on stage, San Quentin Little Olympics Field Meet" 
+		    TYPE="image" 
+		    PROFILE="http://ark.cdlib.org/mets/profiles/7trainProfile.xml">
+			<mets:metsHdr CREATEDATE="2006-02-06T15:25:06.723-08:00" 
+				LASTMODDATE="2006-04-12T08:35:51.731-06:50" RECORDSTATUS="NEW" ID="d314">
+				<mets:agent ROLE="EDITOR" TYPE="ORGANIZATION">
+					<mets:name>California Digital Library</mets:name>
+					<mets:note>Record created by conversion of CONTENTdm XML metadata</mets:note>
+					<mets:note>Created using 7train</mets:note>
+				</mets:agent>
+				<mets:altRecordID>csrcl_005</mets:altRecordID>
+			</mets:metsHdr>
+			<mets:dmdSec ID="DC" CREATED="2006-02-06T15:25:06.723-08:00">
+				<mets:mdWrap MIMETYPE="text/xml" MDTYPE="DC" LABEL="DC">
+					<mets:xmlData>
+						<dc:identifier>csrcl_005</dc:identifier>
+						<dc:title>Male performer in female dress, dancing on stage, San Quentin Little 
+							Olympics Field Meet, 1930 [photograph]</dc:title>
+						<dc:creator>Unknown</dc:creator>
+						<dc:subject>California State Prison at San Quentin</dc:subject>
+						<dc:subject>Marin County (Calif.)</dc:subject>
+						<dc:subject>Track and field</dc:subject>
+						<dc:subject>Athletics</dc:subject>
+						<dc:subject>Prisoners 1910-1940</dc:subject>
+						<dc:subject>Olympic Club (San Francisco, Calif.)</dc:subject>
+						<dc:subject>Recreation -- California -- Marin County</dc:subject>
+						<dc:subject>Cross-dressers</dc:subject>
+						<dc:subject>Musicians</dc:subject>
+						<dc:subject>Male dancers</dc:subject>
+						<dc:type>Image</dc:type>
+						<dc:type>Photographs</dc:type>
+						<dc:format>1 photographic print, b&amp;w ; 11 x 16 cm.</dc:format>
+						<dc:publisher>Marin County Free Library.  Anne T. Kent California Room</dc:publisher>
+						<dc:rights>unknown</dc:rights>
+						<dc:subject>Stanley, Leo L. (Leo Leonidas), 1886-1976</dc:subject>
+						<dc:subject>Olympic Club (San Francisco, Calif.)</dc:subject>
+						<dc:subject>California State Prison at San Quentin</dc:subject>
+						<dc:subject>California State Prison at San Quentin--Little Olympics</dc:subject>
+						<dc:subject>Holohan, James B.</dc:subject>
+						<dc:subject>Johnston, James A., 1874-</dc:subject>
+						<dc:language>eng</dc:language>
+						<dc:identifier>A.1925.001.004</dc:identifier>
+						<dc:description>Beginning in 1913, an annual track and field meet know as the "Little Olympics" 
+							was held at San Quentin Prison on a holiday such as Thanksgiving Day or Admission Day, 
+							under the auspices of the San Francisco Olympic Club. This was a day when prison rules 
+							were suspended and prisoners were allowed to participate in athletic and stage events, 
+							cheered on by their fellow inmates. The meet was the brainchild of reformist warden, 
+							James A. Johnston, who was a member of the Olympic Club. After Olympic Club 
+							sponsorship ended, athletic events and field meets inspired by the "Little Olympics" 
+							continued to form part of prison life.  In addition to traditional track and field events, 
+							the "Little Olympics" also included such non-traditional activities as a tug-of-war between 
+							teams recruited from the San Quentin mill and shops, a pie-eating contest, sack races, 
+							clowns, and musical and stage entertainment.  This photograph is from the 17th annual 
+							field meet held at San Quentin in 1930 when James B. Holohan was the acting warden. 
+							Olympic Club member, Frank G. O'Kane, was Master of Ceremonies. The 
+							entertainers depicted are San Quentin inmates; the cross-dressers were a popular 
+							attraction.</dc:description>
+						<dc:contributor>Stanley, Leo L. (Leo Leonidas), 1886-1976</dc:contributor>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:dmdSec ID="ead">
+				<mets:mdRef LOCTYPE="URL" MDTYPE="EAD" ID="pfnullxxxx" LABEL="EAD Label" xlink:href="http://www.oac.cdlib.org/findaid/ark:/13030/pfnullxxxx"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="repo">
+				<mets:mdWrap MDTYPE="DC" MIMETYPE="text/xml" LABEL="Repository">
+					<mets:xmlData>
+						<dc:title>Marin County Free Library</dc:title>
+						<dc:identifier>non-ark:/13030/pfnullnull</dc:identifier>
+						<dc:identifier>http://www.co.marin.ca.us/library/</dc:identifier>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec ID="d287">
+				<mets:rightsMD ID="d298">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+						<mets:xmlData>
+							<rts:RightsDeclarationMD RIGHTSCATEGORY="OTHER" OTHERCATEGORYTYPE="UNKNOWN">
+								<rts:RightsDeclaration>Rights status unknown</rts:RightsDeclaration>
+								<rts:RightsHolder>
+									<rts:RightsHolderName>unknown</rts:RightsHolderName>
+								</rts:RightsHolder>
+								<rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+									<rts:Constraints CONSTRAINTTYPE="RE-USE">
+										<rts:ConstraintDescription>For uses of text or images from this document 
+											which extend beyond fair use (such as publication or inclusion in 
+											commercial online resources), requests for permission must be 
+											submitted in writing to: Marin County Free Library, San Rafael, CA  94903</rts:ConstraintDescription>
+									</rts:Constraints>
+								</rts:Context>
+							</rts:RightsDeclarationMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec ID="d317">
+				<mets:fileGrp USE="thumbnail image">
+					<mets:file ID="d3e2926" GROUPID="front">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://content.cdlib.org/images/thumbnails/pf0z00zz00_img01.gif"/>
+					</mets:file>
+					<mets:file ID="d3e2929" GROUPID="back">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://content.cdlib.org/images/thumbnails/pf0z00zz00_img02.gif"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="reference image">
+					<mets:file ID="d3e2936" GROUPID="front">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://content.cdlib.org/images/reference/pf0z00zz00_img01.jpg"/>
+					</mets:file>
+					<mets:file ID="d3e2939" GROUPID="back">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://content.cdlib.org/images/reference/pf0z00zz00_img02.jpg"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="archive image">
+					<mets:file ID="d3e2946" GROUPID="front">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://content.cdlib.org/dpr/pf0z00zz00_img01.tif"/>
+					</mets:file>
+					<mets:file ID="d3e2949" GROUPID="back">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://content.cdlib.org/dpr/pf0z00zz00_img02.tif"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="transcription">
+					<mets:file ID="d3e2951" GROUPID="front">
+						<mets:FContent>
+							<mets:xmlData>
+								<transcription>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+									euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+									quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+									Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+									dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+									praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum
+									soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim
+									assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</transcription>
+							</mets:xmlData>
+						</mets:FContent>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div ID="d411" LABEL="Male performer in female dress, dancing on stage, San Quentin Little Olympics Field Meet" DMDID="DC">
+					<mets:div ID="d415" LABEL="front">
+						<mets:div ID="d417" TYPE="thumbnail image">
+							<mets:fptr FILEID="d3e2926"/>
+						</mets:div>
+						<mets:div ID="d419" TYPE="reference image">
+							<mets:fptr FILEID="d3e2936"/>
+						</mets:div>
+						<mets:div ID="d421" TYPE="archive image">
+							<mets:fptr FILEID="d3e2946"/>
+						</mets:div>
+						<mets:div ID="d423" TYPE="transcription">
+							<mets:fptr FILEID="d3e2951"/>
+						</mets:div>
+					</mets:div>
+					<mets:div ID="d426" LABEL="back">
+						<mets:div ID="d427" TYPE="thumbnail image">
+							<mets:fptr FILEID="d3e2929"/>
+						</mets:div>
+						<mets:div ID="d429" TYPE="reference image">
+							<mets:fptr FILEID="d3e2939"/>
+						</mets:div>
+						<mets:div ID="d431" TYPE="archive image">
+							<mets:fptr FILEID="d3e2949"/>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>

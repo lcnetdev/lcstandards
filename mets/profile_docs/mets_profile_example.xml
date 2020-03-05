@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by Jerome McDonough (private) -->
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="mets.profile.v1-0.xsd">
+	<URI LOCTYPE="URN">urn:x-nyu:dlprof0001</URI>
+	<title>NYU Digital Library Primary Text Resource [Simple]</title>
+	<abstract>This profile specifies how METS documents representing
+	textual primary source documents for use within the NYU Digital Library
+	should be encoded.  This profile should only be used for digitized versions of
+	primary sources, and it is not intended for use in creating METS documents
+	representing digital versions of secondary scholarly literature.</abstract>
+	<date>2002-12-25T17:31:00</date>
+	<contact>
+		<name>Jerome McDonough</name>
+		<address>Elmer Bobst Library, New York University, 70 Washington Square South, New York, NY 10012</address>
+		<phone>(212) 998-2425</phone>
+		<email>jerome.mcdonough@nyu.edu</email>
+	</contact>
+	<related_profile>There are no related profiles.</related_profile>
+	<extension_schema>
+		<name>The NYU Technical Metadata for Text XML Schema</name>
+		<URI>http://dlib.nyu.edu/METS/textmd.xsd</URI>
+	</extension_schema>
+	<extension_schema>
+		<name>The Simple DC XML Schema, version 2002-12-12</name>
+		<URI>http://dublincore.org/schemas/xmls/simpledc20021212.xsd</URI>
+	</extension_schema>
+	<extension_schema>
+		<name>The MIX Technical Metadata for Still Images XML Schema</name>
+		<URI>http://www.loc.gov/standards/mix/mix.xsd</URI>
+	</extension_schema>
+	<description_rules>
+		<p>Date information recorded within the portion of a conforming METS document defined using the Simple DC XML Schema must conform to ISO 8601 format.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>ISO 639-2</name>
+			<maintenance_agency>International Standard Organization</maintenance_agency>
+			<URI>http://www.iso.ch/</URI>
+			<context>
+				<p>All information recorded within the portion of a conforming METS document defined using the Simple DC XML Schema must be employ ISO 639-2 language codes within the 'language' element.</p>
+			</context>
+			<description>
+				<p>ISO language codes.</p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>MARC Country Codes</name>
+			<maintenance_agency>Library of Congress Network Development &amp; MARC Standards Office</maintenance_agency>
+			<URI>http://www.loc.gov/marc</URI>
+			<context>
+				<p>All information recorded within the portion of a conforming METS document defined using the Simple DC XML Schema must be employ MARC Country codes within the 'coverage' element.</p>
+			</context>
+			<description>
+				<p>MARC Country codes.</p>
+			</description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<dmdSec>
+			<requirement>
+				<p>A conforming METS document must contain a  single dmdSec containing either:</p>
+				<p>1. a &lt;mdRef&gt; to an Encoded Archival Description finding aid; or</p>
+				<p>2. a &lt;mdWrap&gt; containing a Simple Dublin Core XML record.</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement>
+				<p>A conforming METS document must not contain a &lt;rightsMD&gt; element, a &lt;sourceMD&gt; element, nor a &lt;digiprovMD&gt; element.</p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement>
+				<p>If a conforming METS document contains references to page image files for a primary text, then it must contain three file groups as follows:</p>
+				<p>1. a file group for master images;</p>
+				<p>2. a file group for web viewable derivative images;</p>
+				<p>3. a file group for thumbnail images.</p>
+				<p>These file groups must be in the order listed.</p>
+			</requirement>
+			<requirement>
+				<p>If a conforming METS document contains references to text transcription files, all of those files much be contained in a single file group.</p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement>
+				<p>A conforming METS document must contain only one structural map.  Leaf &lt;div&gt; elements within the structural map must have a TYPE attribute of "page" and contain an fptr to all matching page image files and to the matching section of any digital text version of the primary source.</p>
+			</requirement>
+		</structMap>
+		<structLink>
+			<requirement>
+				<p>A conforming METS document must not contain a &lt;structLink&gt; element.</p>
+			</requirement>
+		</structLink>
+		<behaviorSec>
+			<requirement>
+				<p>A conforming METS document must not contain a &lt;behaviorSec&gt; element.</p>
+			</requirement>
+		</behaviorSec>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>All master images referenced by a conforming METS document must be in TIFF 6.0 format with a bit-depth of 24 and employing the CIELAB colorspace.  The TIFF images must contain a TIFF header element containing a copyright statement.  The master images must not employ watermarking technology.</p>
+			</requirement>
+			<requirement>
+				<p>All web viewable derivative images referenced by a conforming METS document must be in the Portable Network Graphics version 1.2 format with a bit-depth of 16 and employing the sRGB color space.  The graphic must contain a tEXt chunk containing a copyright statement.</p>
+			</requirement>
+			<requirement>
+				<p>All thumbnail images referenced by a conforming METS document must be in the Portable Network Graphics version 1.2 format with a bit-depth between 8 and 16 and employing the sRGB color space and a maximum resolution of 150 pixels on either the X or Y axis.  The graphic must contain a tEXt chunk containing a copyright statement.</p>
+			</requirement>
+			<requirement>
+				<p>All text files must be encoded in XML format using and validating against the Text Encoding Initiative P4 DTDs.</p>
+			</requirement>
+		</content_files>
+		<behavior_files>
+			<requirement>
+				<p>There must not be any behaviors associated with a conforming document.</p>
+			</requirement>
+		</behavior_files>
+		<metadata_files>
+			<requirement>
+				<p>Any EAD file referenced by a dmdSec must validate against the EAD Version 2 XML DTD.</p>
+			</requirement>
+		</metadata_files>
+	</technical_requirements>
+	<tool>
+		<name>NYU Page Turner XSLT Stylesheet</name>
+		<agency>New York University</agency>
+		<URI>http://dlib.nyu.edu/metstools/resources/SimpleMETSViewer.xsl</URI>
+		<description>
+			<p>The NYU Page Turner XSLT stylesheet provides a stylesheet which may be used with any METS document conforming to this profile to transform the METS document into a frames-based HTML version for display to end users.  It has been tested with the Saxon XSLT servlet engine.</p>
+		</description>
+	</tool>
+	<Appendix NUMBER="1">
+		<METS:mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:METS="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/TR/xlink" xmlns:mix="http://www.loc.gov/mix/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mix/ http://www.loc.gov/standards/mix/mix02.xsd  http://purl.org/dc/elements/1.1/ http://dublincore.org/schemas/xmls/simpledc20021212.xsd" OBJID="TT-1" TYPE="document" LABEL="Judgment on the Common Indictment and the Application for Restitution and Reparation. The Women's International War Crimes Tribunal for the Trial of Japan's Military Sexual Slavery">
+			<METS:metsHdr CREATEDATE="2002-08-29T14:09:11" LASTMODDATE="2002-09-10T10:49:55">
+				<METS:agent ROLE="CREATOR">
+					<METS:name>Leslie Myrick</METS:name>
+				</METS:agent>
+				<METS:agent ROLE="EDITOR">
+					<METS:name>Jerome McDonough</METS:name>
+				</METS:agent>
+			</METS:metsHdr>
+			<METS:dmdSec ID="DM01">
+				<METS:mdWrap MDTYPE="OTHER">
+					<METS:xmlData>
+						<dc:title>The prosecutors and the peoples of the Asia-Pacific region v. Hirohito Emperor Showa,  Ando Rikichi,Hata Shunroku, Itagaki Seishiro, Kobayashi Seizo, Matsui Iwane, Umezu  Yoshijiro, Terauchi Hisaichi, Tojo Hideki, Yamashita Tomoyuki and the Government of Japan &#x003A; judgement</dc:title>
+						<dc:title>The Women's International War Crimes Tribunal for the Trial of Japan's Military Sexual Slavery &#x003A; judgement on the common indictment and the application for restitution and reparation; before&#x003A; Judge Gabrielle Kirk McDonald, presiding, Judge Carmen Argibay, Judge Christine Chinkin, Judge Willy Mutunga; delivered&#x003A; 4 December 2001, The Hague, The Netherlands</dc:title>
+						<dc:creator>Judge Gabrielle Kirk McDonald, Presiding</dc:creator>
+						<dc:creator>Judge Carmen Argibay</dc:creator>
+						<dc:creator>Judge Christine Chinkin</dc:creator>
+						<dc:creator>Judge Willy Mutunga</dc:creator>
+						<dc:contributor>Patricia Viseur Sellers</dc:contributor>
+						<dc:contributor>Ustinia Dolgopol</dc:contributor>
+						<dc:coverage>ja</dc:coverage>
+						<dc:coverage>cc</dc:coverage>
+						<dc:coverage>em</dc:coverage>
+						<dc:coverage>io</dc:coverage>
+						<dc:coverage>ne</dc:coverage>
+						<dc:coverage>kn</dc:coverage>
+						<dc:coverage>ko</dc:coverage>
+						<dc:coverage>my</dc:coverage>
+						<dc:coverage>ph</dc:coverage>
+						<dc:coverage>ch</dc:coverage>
+						<dc:date>2001-12-04</dc:date>
+						<dc:date>2002-01-31 [corrected]</dc:date>
+						<dc:format>image/jpeg</dc:format>
+						<dc:format>x-application/METS</dc:format>
+						<dc:identifier>Case No. PT-2000-1-T</dc:identifier>
+						<dc:language>eng</dc:language>
+						<dc:publisher>The Women's International War Crimes Tribunal</dc:publisher>
+						<dc:rights>(c) 2001 International Organising Committee for the Women's International War Crimes Tribunal</dc:rights>
+						<dc:type>text</dc:type>
+					</METS:xmlData>
+				</METS:mdWrap>
+			</METS:dmdSec>
+			<METS:amdSec ID="AMD01">
+				<METS:techMD ID="TMD01" CREATED="2003-05-11T16:45:00">
+					<METS:mdWrap MDTYPE="NISOIMG" LABEL="Master Image Technical Metadata">
+						<METS:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType>image/tiff</mix:MIMEType>
+										<mix:ByteOrder>big-endian</mix:ByteOrder>
+										<mix:Compression>
+											<mix:CompressionScheme>1</mix:CompressionScheme>
+										</mix:Compression>
+										<mix:PhotometricInterpretation>
+											<mix:ColorSpace>8</mix:ColorSpace>
+										</mix:PhotometricInterpretation>
+									</mix:Format>
+								</mix:BasicImageParameters>
+								<mix:ImageCreation>
+									<mix:SourceType>rag paper</mix:SourceType>
+									<mix:SourceID>TT-1</mix:SourceID>
+									<mix:ImageProducer>New York University: Studio for Digital Projects &amp; Research</mix:ImageProducer>
+									<mix:Host>
+										<mix:HostComputer>Apple MacIntosh G4</mix:HostComputer>
+										<mix:OperatingSystem>Mac OS</mix:OperatingSystem>
+										<mix:OSVersion>9</mix:OSVersion>
+									</mix:Host>
+									<mix:DeviceSource>reflection scanner</mix:DeviceSource>
+									<mix:ScanningSystemCapture>
+										<mix:ScanningSystemHardware>
+											<mix:ScannerManufacturer>Umax</mix:ScannerManufacturer>
+											<mix:ScannerModel>
+												<mix:ScannerModelName>PowerLook</mix:ScannerModelName>
+												<mix:ScannerModelNumber>2100XL</mix:ScannerModelNumber>
+											</mix:ScannerModel>
+										</mix:ScanningSystemHardware>
+										<mix:ScanningSystemSoftware>
+											<mix:ScanningSoftware>Adobe Photoshop</mix:ScanningSoftware>
+											<mix:ScanningSoftwareVersionNo>6.0</mix:ScanningSoftwareVersionNo>
+										</mix:ScanningSystemSoftware>
+									</mix:ScanningSystemCapture>
+								</mix:ImageCreation>
+								<mix:ImagingPerformanceAssessment>
+									<mix:Energetics>
+										<mix:BitsPerSample>16,16,16</mix:BitsPerSample>
+										<mix:SamplesPerPixel>3</mix:SamplesPerPixel>
+									</mix:Energetics>
+									<mix:TargetData>
+										<mix:TargetType>1</mix:TargetType>
+										<mix:TargetID>
+											<mix:TargetIDManufacturer>Eastman Kodak</mix:TargetIDManufacturer>
+											<mix:TargetIDName>Q-14</mix:TargetIDName>
+											<mix:TargetIDNo/>
+											<mix:TargetIDMedia/>
+										</mix:TargetID>
+									</mix:TargetData>
+								</mix:ImagingPerformanceAssessment>
+							</mix:mix>
+						</METS:xmlData>
+					</METS:mdWrap>
+				</METS:techMD>
+				<METS:techMD ID="TMD02" CREATED="2003-05-11T16:55:00">
+					<METS:mdWrap MDTYPE="NISOIMG" LABEL="Service Copy Technical Metadata">
+						<METS:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType>image/png</mix:MIMEType>
+										<mix:ByteOrder>big-endian</mix:ByteOrder>
+										<mix:PhotometricInterpretation>
+											<mix:ColorSpace>2</mix:ColorSpace>
+										</mix:PhotometricInterpretation>
+									</mix:Format>
+								</mix:BasicImageParameters>
+								<mix:ImageCreation>
+									<mix:SourceType>rag paper</mix:SourceType>
+									<mix:SourceID>TT-1</mix:SourceID>
+									<mix:ImageProducer>New York University: Studio for Digital Projects &amp; Research</mix:ImageProducer>
+									<mix:Host>
+										<mix:HostComputer>Apple MacIntosh G4</mix:HostComputer>
+										<mix:OperatingSystem>Mac OS</mix:OperatingSystem>
+										<mix:OSVersion>9</mix:OSVersion>
+									</mix:Host>
+									<mix:DeviceSource>reflection scanner</mix:DeviceSource>
+									<mix:ScanningSystemCapture>
+										<mix:ScanningSystemHardware>
+											<mix:ScannerManufacturer>Umax</mix:ScannerManufacturer>
+											<mix:ScannerModel>
+												<mix:ScannerModelName>PowerLook</mix:ScannerModelName>
+												<mix:ScannerModelNumber>2100XL</mix:ScannerModelNumber>
+											</mix:ScannerModel>
+										</mix:ScanningSystemHardware>
+										<mix:ScanningSystemSoftware>
+											<mix:ScanningSoftware>Adobe Photoshop</mix:ScanningSoftware>
+											<mix:ScanningSoftwareVersionNo>6.0</mix:ScanningSoftwareVersionNo>
+										</mix:ScanningSystemSoftware>
+									</mix:ScanningSystemCapture>
+								</mix:ImageCreation>
+								<mix:ImagingPerformanceAssessment>
+									<mix:Energetics>
+										<mix:BitsPerSample>8,8,8</mix:BitsPerSample>
+										<mix:SamplesPerPixel>3</mix:SamplesPerPixel>
+									</mix:Energetics>
+									<mix:TargetData>
+										<mix:TargetType>1</mix:TargetType>
+										<mix:TargetID>
+											<mix:TargetIDManufacturer>Eastman Kodak</mix:TargetIDManufacturer>
+											<mix:TargetIDName>Q-14</mix:TargetIDName>
+											<mix:TargetIDNo/>
+											<mix:TargetIDMedia/>
+										</mix:TargetID>
+									</mix:TargetData>
+								</mix:ImagingPerformanceAssessment>
+							</mix:mix>
+						</METS:xmlData>
+					</METS:mdWrap>
+				</METS:techMD>
+				<METS:techMD ID="TMD03" CREATED="2003-05-11T17:00:00">
+					<METS:mdWrap MDTYPE="NISOIMG" LABEL="Thumbnail Technical Metadata">
+						<METS:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType>image/png</mix:MIMEType>
+										<mix:ByteOrder>big-endian</mix:ByteOrder>
+										<mix:PhotometricInterpretation>
+											<mix:ColorSpace>2</mix:ColorSpace>
+										</mix:PhotometricInterpretation>
+									</mix:Format>
+								</mix:BasicImageParameters>
+								<mix:ImageCreation>
+									<mix:SourceType>rag paper</mix:SourceType>
+									<mix:SourceID>TT-1</mix:SourceID>
+									<mix:ImageProducer>New York University: Studio for Digital Projects &amp; Research</mix:ImageProducer>
+									<mix:Host>
+										<mix:HostComputer>Apple MacIntosh G4</mix:HostComputer>
+										<mix:OperatingSystem>Mac OS</mix:OperatingSystem>
+										<mix:OSVersion>9</mix:OSVersion>
+									</mix:Host>
+									<mix:DeviceSource>reflection scanner</mix:DeviceSource>
+									<mix:ScanningSystemCapture>
+										<mix:ScanningSystemHardware>
+											<mix:ScannerManufacturer>Umax</mix:ScannerManufacturer>
+											<mix:ScannerModel>
+												<mix:ScannerModelName>PowerLook</mix:ScannerModelName>
+												<mix:ScannerModelNumber>2100XL</mix:ScannerModelNumber>
+											</mix:ScannerModel>
+										</mix:ScanningSystemHardware>
+										<mix:ScanningSystemSoftware>
+											<mix:ScanningSoftware>Adobe Photoshop</mix:ScanningSoftware>
+											<mix:ScanningSoftwareVersionNo>6.0</mix:ScanningSoftwareVersionNo>
+										</mix:ScanningSystemSoftware>
+									</mix:ScanningSystemCapture>
+								</mix:ImageCreation>
+								<mix:ImagingPerformanceAssessment>
+									<mix:Energetics>
+										<mix:BitsPerSample>8,8,8</mix:BitsPerSample>
+										<mix:SamplesPerPixel>3</mix:SamplesPerPixel>
+									</mix:Energetics>
+									<mix:TargetData>
+										<mix:TargetType>1</mix:TargetType>
+										<mix:TargetID>
+											<mix:TargetIDManufacturer>Eastman Kodak</mix:TargetIDManufacturer>
+											<mix:TargetIDName>Q-14</mix:TargetIDName>
+											<mix:TargetIDNo/>
+											<mix:TargetIDMedia/>
+										</mix:TargetID>
+									</mix:TargetData>
+								</mix:ImagingPerformanceAssessment>
+							</mix:mix>
+						</METS:xmlData>
+					</METS:mdWrap>
+				</METS:techMD>
+			</METS:amdSec>
+			<METS:fileSec>
+				<METS:fileGrp VERSDATE="2002-07-29T14:09:11">
+					<METS:file ID="FIDM1" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="1" CREATED="2002-08-14T11:14:00" GROUPID="GID1">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.1.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM2" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="2" CREATED="2002-08-14T11:14:00" GROUPID="GID2">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.2.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM3" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="3" CREATED="2002-08-14T11:14:00" GROUPID="GID3">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.3.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM4" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="4" CREATED="2002-08-14T11:14:00" GROUPID="GID4">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.4.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM5" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="5" CREATED="2002-08-14T11:14:00" GROUPID="GID5">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.5.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM6" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="6" CREATED="2002-08-14T11:14:00" GROUPID="GID6">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.6.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM7" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="7" CREATED="2002-08-14T11:14:00" GROUPID="GID7">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.7.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM8" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="8" CREATED="2002-08-14T11:14:00" GROUPID="GID8">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.8.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM9" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="9" CREATED="2002-08-14T11:14:00" GROUPID="GID9">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.9.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM10" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="10" CREATED="2002-08-14T11:14:00" GROUPID="GID10">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.10.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM11" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="11" CREATED="2002-08-14T11:14:00" GROUPID="GID11">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.11.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM12" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="12" CREATED="2002-08-14T11:14:00" GROUPID="GID12">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.12.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM13" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="13" CREATED="2002-08-14T11:14:00" GROUPID="GID13">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.13.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM14" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="14" CREATED="2002-08-14T11:14:00" GROUPID="GID14">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.14.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM15" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="15" CREATED="2002-08-14T11:14:00" GROUPID="GID15">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.15.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM16" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="16" CREATED="2002-08-14T11:14:00" GROUPID="GID16">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.16.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM17" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="17" CREATED="2002-08-14T11:14:00" GROUPID="GID17">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.17.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM18" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="18" CREATED="2002-08-14T11:14:00" GROUPID="GID18">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.18.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM19" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="19" CREATED="2002-08-14T11:14:00" GROUPID="GID19">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.19.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM20" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="20" CREATED="2002-08-14T11:14:00" GROUPID="GID20">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.20.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM21" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="21" CREATED="2002-08-14T11:14:00" GROUPID="GID21">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.21.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM22" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="22" CREATED="2002-08-14T11:14:00" GROUPID="GID22">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.22.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM23" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="23" CREATED="2002-08-14T11:14:00" GROUPID="GID23">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.23.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM24" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="24" CREATED="2002-08-14T11:14:00" GROUPID="GID24">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.24.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM25" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="25" CREATED="2002-08-14T11:14:00" GROUPID="GID25">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.25.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM26" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="26" CREATED="2002-08-14T11:14:00" GROUPID="GID26">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.26.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM27" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="27" CREATED="2002-08-14T11:14:00" GROUPID="GID27">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.27.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM28" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="28" CREATED="2002-08-14T11:14:00" GROUPID="GID28">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.28.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM29" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="29" CREATED="2002-08-14T11:14:00" GROUPID="GID29">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.29.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM30" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="30" CREATED="2002-08-14T11:14:00" GROUPID="GID30">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.30.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM31" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="31" CREATED="2002-08-14T11:14:00" GROUPID="GID31">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.31.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM32" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="32" CREATED="2002-08-14T11:14:00" GROUPID="GID32">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.32.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM33" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="33" CREATED="2002-08-14T11:14:00" GROUPID="GID33">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.33.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM34" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="34" CREATED="2002-08-14T11:14:00" GROUPID="GID34">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.34.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM35" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="35" CREATED="2002-08-14T11:14:00" GROUPID="GID35">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.35.tif"/>
+					</METS:file>
+					<METS:file ID="FIDM36" ADMID="TMD01" MIMETYPE="image/tiff" SEQ="36" CREATED="2002-08-14T11:14:00" GROUPID="GID36">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-M.36.tif"/>
+					</METS:file>
+				</METS:fileGrp>
+				<METS:fileGrp VERSDATE="2002-07-29T14:09:11">
+					<METS:file ID="FIDW1" ADMID="TMD02" MIMETYPE="image/png" SEQ="1" CREATED="2002-08-14T11:14:00" GROUPID="GID1">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.1.png"/>
+					</METS:file>
+					<METS:file ID="FIDW2" ADMID="TMD02" MIMETYPE="image/png" SEQ="2" CREATED="2002-08-14T11:14:00" GROUPID="GID2">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.2.png"/>
+					</METS:file>
+					<METS:file ID="FIDW3" ADMID="TMD02" MIMETYPE="image/png" SEQ="3" CREATED="2002-08-14T11:14:00" GROUPID="GID3">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.3.png"/>
+					</METS:file>
+					<METS:file ID="FIDW4" ADMID="TMD02" MIMETYPE="image/png" SEQ="4" CREATED="2002-08-14T11:14:00" GROUPID="GID4">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.4.png"/>
+					</METS:file>
+					<METS:file ID="FIDW5" ADMID="TMD02" MIMETYPE="image/png" SEQ="5" CREATED="2002-08-14T11:14:00" GROUPID="GID5">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.5.png"/>
+					</METS:file>
+					<METS:file ID="FIDW6" ADMID="TMD02" MIMETYPE="image/png" SEQ="6" CREATED="2002-08-14T11:14:00" GROUPID="GID6">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.6.png"/>
+					</METS:file>
+					<METS:file ID="FIDW7" ADMID="TMD02" MIMETYPE="image/png" SEQ="7" CREATED="2002-08-14T11:14:00" GROUPID="GID7">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.7.png"/>
+					</METS:file>
+					<METS:file ID="FIDW8" ADMID="TMD02" MIMETYPE="image/png" SEQ="8" CREATED="2002-08-14T11:14:00" GROUPID="GID8">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.8.png"/>
+					</METS:file>
+					<METS:file ID="FIDW9" ADMID="TMD02" MIMETYPE="image/png" SEQ="9" CREATED="2002-08-14T11:14:00" GROUPID="GID9">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.9.png"/>
+					</METS:file>
+					<METS:file ID="FIDW10" ADMID="TMD02" MIMETYPE="image/png" SEQ="10" CREATED="2002-08-14T11:14:00" GROUPID="GID10">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.10.png"/>
+					</METS:file>
+					<METS:file ID="FIDW11" ADMID="TMD02" MIMETYPE="image/png" SEQ="11" CREATED="2002-08-14T11:14:00" GROUPID="GID11">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.11.png"/>
+					</METS:file>
+					<METS:file ID="FIDW12" ADMID="TMD02" MIMETYPE="image/png" SEQ="12" CREATED="2002-08-14T11:14:00" GROUPID="GID12">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.12.png"/>
+					</METS:file>
+					<METS:file ID="FIDW13" ADMID="TMD02" MIMETYPE="image/png" SEQ="13" CREATED="2002-08-14T11:14:00" GROUPID="GID13">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.13.png"/>
+					</METS:file>
+					<METS:file ID="FIDW14" ADMID="TMD02" MIMETYPE="image/png" SEQ="14" CREATED="2002-08-14T11:14:00" GROUPID="GID14">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.14.png"/>
+					</METS:file>
+					<METS:file ID="FIDW15" ADMID="TMD02" MIMETYPE="image/png" SEQ="15" CREATED="2002-08-14T11:14:00" GROUPID="GID15">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.15.png"/>
+					</METS:file>
+					<METS:file ID="FIDW16" ADMID="TMD02" MIMETYPE="image/png" SEQ="16" CREATED="2002-08-14T11:14:00" GROUPID="GID16">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.16.png"/>
+					</METS:file>
+					<METS:file ID="FIDW17" ADMID="TMD02" MIMETYPE="image/png" SEQ="17" CREATED="2002-08-14T11:14:00" GROUPID="GID17">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.17.png"/>
+					</METS:file>
+					<METS:file ID="FIDW18" ADMID="TMD02" MIMETYPE="image/png" SEQ="18" CREATED="2002-08-14T11:14:00" GROUPID="GID18">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.18.png"/>
+					</METS:file>
+					<METS:file ID="FIDW19" ADMID="TMD02" MIMETYPE="image/png" SEQ="19" CREATED="2002-08-14T11:14:00" GROUPID="GID19">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.19.png"/>
+					</METS:file>
+					<METS:file ID="FIDW20" ADMID="TMD02" MIMETYPE="image/png" SEQ="20" CREATED="2002-08-14T11:14:00" GROUPID="GID20">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.20.png"/>
+					</METS:file>
+					<METS:file ID="FIDW21" ADMID="TMD02" MIMETYPE="image/png" SEQ="21" CREATED="2002-08-14T11:14:00" GROUPID="GID21">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.21.png"/>
+					</METS:file>
+					<METS:file ID="FIDW22" ADMID="TMD02" MIMETYPE="image/png" SEQ="22" CREATED="2002-08-14T11:14:00" GROUPID="GID22">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.22.png"/>
+					</METS:file>
+					<METS:file ID="FIDW23" ADMID="TMD02" MIMETYPE="image/png" SEQ="23" CREATED="2002-08-14T11:14:00" GROUPID="GID23">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.23.png"/>
+					</METS:file>
+					<METS:file ID="FIDW24" ADMID="TMD02" MIMETYPE="image/png" SEQ="24" CREATED="2002-08-14T11:14:00" GROUPID="GID24">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.24.png"/>
+					</METS:file>
+					<METS:file ID="FIDW25" ADMID="TMD02" MIMETYPE="image/png" SEQ="25" CREATED="2002-08-14T11:14:00" GROUPID="GID25">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.25.png"/>
+					</METS:file>
+					<METS:file ID="FIDW26" ADMID="TMD02" MIMETYPE="image/png" SEQ="26" CREATED="2002-08-14T11:14:00" GROUPID="GID26">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.26.png"/>
+					</METS:file>
+					<METS:file ID="FIDW27" ADMID="TMD02" MIMETYPE="image/png" SEQ="27" CREATED="2002-08-14T11:14:00" GROUPID="GID27">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.27.png"/>
+					</METS:file>
+					<METS:file ID="FIDW28" ADMID="TMD02" MIMETYPE="image/png" SEQ="28" CREATED="2002-08-14T11:14:00" GROUPID="GID28">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.28.png"/>
+					</METS:file>
+					<METS:file ID="FIDW29" ADMID="TMD02" MIMETYPE="image/png" SEQ="29" CREATED="2002-08-14T11:14:00" GROUPID="GID29">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.29.png"/>
+					</METS:file>
+					<METS:file ID="FIDW30" ADMID="TMD02" MIMETYPE="image/png" SEQ="30" CREATED="2002-08-14T11:14:00" GROUPID="GID30">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.30.png"/>
+					</METS:file>
+					<METS:file ID="FIDW31" ADMID="TMD02" MIMETYPE="image/png" SEQ="31" CREATED="2002-08-14T11:14:00" GROUPID="GID31">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.31.png"/>
+					</METS:file>
+					<METS:file ID="FIDW32" ADMID="TMD02" MIMETYPE="image/png" SEQ="32" CREATED="2002-08-14T11:14:00" GROUPID="GID32">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.32.png"/>
+					</METS:file>
+					<METS:file ID="FIDW33" ADMID="TMD02" MIMETYPE="image/png" SEQ="33" CREATED="2002-08-14T11:14:00" GROUPID="GID33">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.33.png"/>
+					</METS:file>
+					<METS:file ID="FIDW34" ADMID="TMD02" MIMETYPE="image/png" SEQ="34" CREATED="2002-08-14T11:14:00" GROUPID="GID34">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.34.png"/>
+					</METS:file>
+					<METS:file ID="FIDW35" ADMID="TMD02" MIMETYPE="image/png" SEQ="35" CREATED="2002-08-14T11:14:00" GROUPID="GID35">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.35.png"/>
+					</METS:file>
+					<METS:file ID="FIDW36" ADMID="TMD02" MIMETYPE="image/png" SEQ="36" CREATED="2002-08-14T11:14:00" GROUPID="GID36">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-W.36.png"/>
+					</METS:file>
+				</METS:fileGrp>
+				<METS:fileGrp VERSDATE="2002-07-29T14:09:11">
+					<METS:file ID="FIDT1" ADMID="TMD03" MIMETYPE="image/png" SEQ="1" CREATED="2002-08-14T11:14:00" GROUPID="GID1">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.1.png"/>
+					</METS:file>
+					<METS:file ID="FIDT2" ADMID="TMD03" MIMETYPE="image/png" SEQ="2" CREATED="2002-08-14T11:14:00" GROUPID="GID2">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.2.png"/>
+					</METS:file>
+					<METS:file ID="FIDT3" ADMID="TMD03" MIMETYPE="image/png" SEQ="3" CREATED="2002-08-14T11:14:00" GROUPID="GID3">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.3.png"/>
+					</METS:file>
+					<METS:file ID="FIDT4" ADMID="TMD03" MIMETYPE="image/png" SEQ="4" CREATED="2002-08-14T11:14:00" GROUPID="GID4">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.4.png"/>
+					</METS:file>
+					<METS:file ID="FIDT5" ADMID="TMD03" MIMETYPE="image/png" SEQ="5" CREATED="2002-08-14T11:14:00" GROUPID="GID5">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.5.png"/>
+					</METS:file>
+					<METS:file ID="FIDT6" ADMID="TMD03" MIMETYPE="image/png" SEQ="6" CREATED="2002-08-14T11:14:00" GROUPID="GID6">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.6.png"/>
+					</METS:file>
+					<METS:file ID="FIDT7" ADMID="TMD03" MIMETYPE="image/png" SEQ="7" CREATED="2002-08-14T11:14:00" GROUPID="GID7">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.7.png"/>
+					</METS:file>
+					<METS:file ID="FIDT8" ADMID="TMD03" MIMETYPE="image/png" SEQ="8" CREATED="2002-08-14T11:14:00" GROUPID="GID8">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.8.png"/>
+					</METS:file>
+					<METS:file ID="FIDT9" ADMID="TMD03" MIMETYPE="image/png" SEQ="9" CREATED="2002-08-14T11:14:00" GROUPID="GID9">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.9.png"/>
+					</METS:file>
+					<METS:file ID="FIDT10" ADMID="TMD03" MIMETYPE="image/png" SEQ="10" CREATED="2002-08-14T11:14:00" GROUPID="GID10">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.10.png"/>
+					</METS:file>
+					<METS:file ID="FIDT11" ADMID="TMD03" MIMETYPE="image/png" SEQ="11" CREATED="2002-08-14T11:14:00" GROUPID="GID11">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.11.png"/>
+					</METS:file>
+					<METS:file ID="FIDT12" ADMID="TMD03" MIMETYPE="image/png" SEQ="12" CREATED="2002-08-14T11:14:00" GROUPID="GID12">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.12.png"/>
+					</METS:file>
+					<METS:file ID="FIDT13" ADMID="TMD03" MIMETYPE="image/png" SEQ="13" CREATED="2002-08-14T11:14:00" GROUPID="GID13">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.13.png"/>
+					</METS:file>
+					<METS:file ID="FIDT14" ADMID="TMD03" MIMETYPE="image/png" SEQ="14" CREATED="2002-08-14T11:14:00" GROUPID="GID14">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.14.png"/>
+					</METS:file>
+					<METS:file ID="FIDT15" ADMID="TMD03" MIMETYPE="image/png" SEQ="15" CREATED="2002-08-14T11:14:00" GROUPID="GID15">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.15.png"/>
+					</METS:file>
+					<METS:file ID="FIDT16" ADMID="TMD03" MIMETYPE="image/png" SEQ="16" CREATED="2002-08-14T11:14:00" GROUPID="GID16">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.16.png"/>
+					</METS:file>
+					<METS:file ID="FIDT17" ADMID="TMD03" MIMETYPE="image/png" SEQ="17" CREATED="2002-08-14T11:14:00" GROUPID="GID17">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.17.png"/>
+					</METS:file>
+					<METS:file ID="FIDT18" ADMID="TMD03" MIMETYPE="image/png" SEQ="18" CREATED="2002-08-14T11:14:00" GROUPID="GID18">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.18.png"/>
+					</METS:file>
+					<METS:file ID="FIDT19" ADMID="TMD03" MIMETYPE="image/png" SEQ="19" CREATED="2002-08-14T11:14:00" GROUPID="GID19">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.19.png"/>
+					</METS:file>
+					<METS:file ID="FIDT20" ADMID="TMD03" MIMETYPE="image/png" SEQ="20" CREATED="2002-08-14T11:14:00" GROUPID="GID20">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.20.png"/>
+					</METS:file>
+					<METS:file ID="FIDT21" ADMID="TMD03" MIMETYPE="image/png" SEQ="21" CREATED="2002-08-14T11:14:00" GROUPID="GID21">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.21.png"/>
+					</METS:file>
+					<METS:file ID="FIDT22" ADMID="TMD03" MIMETYPE="image/png" SEQ="22" CREATED="2002-08-14T11:14:00" GROUPID="GID22">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.22.png"/>
+					</METS:file>
+					<METS:file ID="FIDT23" ADMID="TMD03" MIMETYPE="image/png" SEQ="23" CREATED="2002-08-14T11:14:00" GROUPID="GID23">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.23.png"/>
+					</METS:file>
+					<METS:file ID="FIDT24" ADMID="TMD03" MIMETYPE="image/png" SEQ="24" CREATED="2002-08-14T11:14:00" GROUPID="GID24">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.24.png"/>
+					</METS:file>
+					<METS:file ID="FIDT25" ADMID="TMD03" MIMETYPE="image/png" SEQ="25" CREATED="2002-08-14T11:14:00" GROUPID="GID25">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.25.png"/>
+					</METS:file>
+					<METS:file ID="FIDT26" ADMID="TMD03" MIMETYPE="image/png" SEQ="26" CREATED="2002-08-14T11:14:00" GROUPID="GID26">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.26.png"/>
+					</METS:file>
+					<METS:file ID="FIDT27" ADMID="TMD03" MIMETYPE="image/png" SEQ="27" CREATED="2002-08-14T11:14:00" GROUPID="GID27">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.27.png"/>
+					</METS:file>
+					<METS:file ID="FIDT28" ADMID="TMD03" MIMETYPE="image/png" SEQ="28" CREATED="2002-08-14T11:14:00" GROUPID="GID28">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.28.png"/>
+					</METS:file>
+					<METS:file ID="FIDT29" ADMID="TMD03" MIMETYPE="image/png" SEQ="29" CREATED="2002-08-14T11:14:00" GROUPID="GID29">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.29.png"/>
+					</METS:file>
+					<METS:file ID="FIDT30" ADMID="TMD03" MIMETYPE="image/png" SEQ="30" CREATED="2002-08-14T11:14:00" GROUPID="GID30">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.30.png"/>
+					</METS:file>
+					<METS:file ID="FIDT31" ADMID="TMD03" MIMETYPE="image/png" SEQ="31" CREATED="2002-08-14T11:14:00" GROUPID="GID31">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.31.png"/>
+					</METS:file>
+					<METS:file ID="FIDT32" ADMID="TMD03" MIMETYPE="image/png" SEQ="32" CREATED="2002-08-14T11:14:00" GROUPID="GID32">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.32.png"/>
+					</METS:file>
+					<METS:file ID="FIDT33" ADMID="TMD03" MIMETYPE="image/png" SEQ="33" CREATED="2002-08-14T11:14:00" GROUPID="GID33">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.33.png"/>
+					</METS:file>
+					<METS:file ID="FIDT34" ADMID="TMD03" MIMETYPE="image/png" SEQ="34" CREATED="2002-08-14T11:14:00" GROUPID="GID34">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.34.png"/>
+					</METS:file>
+					<METS:file ID="FIDT35" ADMID="TMD03" MIMETYPE="image/png" SEQ="35" CREATED="2002-08-14T11:14:00" GROUPID="GID35">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.35.png"/>
+					</METS:file>
+					<METS:file ID="FIDT36" ADMID="TMD03" MIMETYPE="image/png" SEQ="36" CREATED="2002-08-14T11:14:00" GROUPID="GID36">
+						<METS:FLocat LOCTYPE="URL" xlink:href="http://dlib.nyu.edu/tokyotest/PT-2000-1-T.36.png"/>
+					</METS:file>
+				</METS:fileGrp>
+			</METS:fileSec>
+			<METS:structMap>
+				<METS:div ORDER="1" TYPE="document" LABEL="Judgment on the Common Indictment and the Application for Restitution and Reparation." DMDID="DM01">
+					<METS:fptr FILEID="FIDM1"/>
+					<METS:div ORDER="1" TYPE="page" LABEL="[ Front Cover ]">
+						<METS:fptr FILEID="FIDM1"/>
+						<METS:fptr FILEID="FIDW1"/>
+						<METS:fptr FILEID="FIDT1"/>
+					</METS:div>
+					<METS:div ORDER="2" TYPE="page" LABEL="[ Inside Front Cover ]">
+						<METS:fptr FILEID="FIDM2"/>
+						<METS:fptr FILEID="FIDW2"/>
+						<METS:fptr FILEID="FIDT2"/>
+					</METS:div>
+					<METS:div ORDER="3" TYPE="page" LABEL="[ Title Page ]">
+						<METS:fptr FILEID="FIDM3"/>
+						<METS:fptr FILEID="FIDW3"/>
+						<METS:fptr FILEID="FIDT3"/>
+					</METS:div>
+					<METS:div ORDER="4" TYPE="toc" LABEL="[Table of Contents">
+						<METS:div ORDER="1" TYPE="page" LABEL="[ Page i ]">
+							<METS:fptr FILEID="FIDM4"/>
+							<METS:fptr FILEID="FIDW4"/>
+							<METS:fptr FILEID="FIDT4"/>
+						</METS:div>
+						<METS:div ORDER="2" TYPE="page" LABEL="[ Page ii ]">
+							<METS:fptr FILEID="FIDM5"/>
+							<METS:fptr FILEID="FIDW5"/>
+							<METS:fptr FILEID="FIDT5"/>
+						</METS:div>
+						<METS:div ORDER="3" TYPE="page" LABEL="[ Page iii ]">
+							<METS:fptr FILEID="FIDM6"/>
+							<METS:fptr FILEID="FIDW6"/>
+							<METS:fptr FILEID="FIDT6"/>
+						</METS:div>
+						<METS:div ORDER="4" TYPE="page" LABEL="[ Page iv ]">
+							<METS:fptr FILEID="FIDM7"/>
+							<METS:fptr FILEID="FIDW7"/>
+							<METS:fptr FILEID="FIDT7"/>
+						</METS:div>
+						<METS:div ORDER="5" TYPE="page" LABEL="[ Page v ]">
+							<METS:fptr FILEID="FIDM8"/>
+							<METS:fptr FILEID="FIDW8"/>
+							<METS:fptr FILEID="FIDT8"/>
+						</METS:div>
+						<METS:div ORDER="6" TYPE="page" LABEL="[ Page vi ]">
+							<METS:fptr FILEID="FIDM9"/>
+							<METS:fptr FILEID="FIDW9"/>
+							<METS:fptr FILEID="FIDT9"/>
+						</METS:div>
+						<METS:div ORDER="7" TYPE="page" LABEL="[ Page vii ]">
+							<METS:fptr FILEID="FIDM10"/>
+							<METS:fptr FILEID="FIDW10"/>
+							<METS:fptr FILEID="FIDT10"/>
+						</METS:div>
+						<METS:div ORDER="8" TYPE="page" LABEL="[ Page viii ]">
+							<METS:fptr FILEID="FIDM11"/>
+							<METS:fptr FILEID="FIDW11"/>
+							<METS:fptr FILEID="FIDT11"/>
+						</METS:div>
+						<METS:div ORDER="9" TYPE="page" LABEL="[ Page ix ]">
+							<METS:fptr FILEID="FIDM12"/>
+							<METS:fptr FILEID="FIDW12"/>
+							<METS:fptr FILEID="FIDT12"/>
+						</METS:div>
+						<METS:div ORDER="10" TYPE="page" LABEL="[ Page x ]">
+							<METS:fptr FILEID="FIDM13"/>
+							<METS:fptr FILEID="FIDW13"/>
+							<METS:fptr FILEID="FIDT13"/>
+						</METS:div>
+						<METS:div ORDER="11" TYPE="page" LABEL="[ Page xi ]">
+							<METS:fptr FILEID="FIDM14"/>
+							<METS:fptr FILEID="FIDW14"/>
+							<METS:fptr FILEID="FIDT14"/>
+						</METS:div>
+						<METS:div ORDER="12" TYPE="page" LABEL="[ Page xii ]">
+							<METS:fptr FILEID="FIDM15"/>
+							<METS:fptr FILEID="FIDW15"/>
+							<METS:fptr FILEID="FIDT15"/>
+						</METS:div>
+					</METS:div>
+					<METS:div ORDER="5" TYPE="part" LABEL="[ Part I -- Introduction and Background of the Proceedings ]">
+						<METS:div ORDER="1" TYPE="page" LABEL="[ Page 1 ]">
+							<METS:fptr FILEID="FIDM16"/>
+							<METS:fptr FILEID="FIDW16"/>
+							<METS:fptr FILEID="FIDT16"/>
+						</METS:div>
+						<METS:div ORDER="2" TYPE="page" LABEL="[ Page 2 ]">
+							<METS:fptr FILEID="FIDM17"/>
+							<METS:fptr FILEID="FIDW17"/>
+							<METS:fptr FILEID="FIDT17"/>
+						</METS:div>
+						<METS:div ORDER="3" TYPE="page" LABEL="[ Page 3 ]">
+							<METS:fptr FILEID="FIDM18"/>
+							<METS:fptr FILEID="FIDW18"/>
+							<METS:fptr FILEID="FIDT18"/>
+						</METS:div>
+						<METS:div ORDER="4" TYPE="page" LABEL="[ Page 4 ]">
+							<METS:fptr FILEID="FIDM19"/>
+							<METS:fptr FILEID="FIDW19"/>
+							<METS:fptr FILEID="FIDT19"/>
+						</METS:div>
+						<METS:div ORDER="5" TYPE="page" LABEL="[ Page 5 ]">
+							<METS:fptr FILEID="FIDM20"/>
+							<METS:fptr FILEID="FIDW20"/>
+							<METS:fptr FILEID="FIDT20"/>
+						</METS:div>
+						<METS:div ORDER="6" TYPE="page" LABEL="[ Page 6 ]">
+							<METS:fptr FILEID="FIDM21"/>
+							<METS:fptr FILEID="FIDW21"/>
+							<METS:fptr FILEID="FIDT21"/>
+						</METS:div>
+						<METS:div ORDER="7" TYPE="page" LABEL="[ Page 7 ]">
+							<METS:fptr FILEID="FIDM22"/>
+							<METS:fptr FILEID="FIDW22"/>
+							<METS:fptr FILEID="FIDT22"/>
+						</METS:div>
+						<METS:div ORDER="8" TYPE="page" LABEL="[ Page 8 ]">
+							<METS:fptr FILEID="FIDM23"/>
+							<METS:fptr FILEID="FIDW23"/>
+							<METS:fptr FILEID="FIDT23"/>
+						</METS:div>
+						<METS:div ORDER="9" TYPE="page" LABEL="[ Page 9 ]">
+							<METS:fptr FILEID="FIDM24"/>
+							<METS:fptr FILEID="FIDW24"/>
+							<METS:fptr FILEID="FIDT24"/>
+						</METS:div>
+						<METS:div ORDER="10" TYPE="page" LABEL="[ Page 10 ]">
+							<METS:fptr FILEID="FIDM25"/>
+							<METS:fptr FILEID="FIDW25"/>
+							<METS:fptr FILEID="FIDT25"/>
+						</METS:div>
+						<METS:div ORDER="11" TYPE="page" LABEL="[ Page 11 ]">
+							<METS:fptr FILEID="FIDM26"/>
+							<METS:fptr FILEID="FIDW26"/>
+							<METS:fptr FILEID="FIDT26"/>
+						</METS:div>
+						<METS:div ORDER="12" TYPE="page" LABEL="[ Page 12 ]">
+							<METS:fptr FILEID="FIDM27"/>
+							<METS:fptr FILEID="FIDW27"/>
+							<METS:fptr FILEID="FIDT27"/>
+						</METS:div>
+						<METS:div ORDER="13" TYPE="page" LABEL="[ Page 13 ]">
+							<METS:fptr FILEID="FIDM28"/>
+							<METS:fptr FILEID="FIDW28"/>
+							<METS:fptr FILEID="FIDT28"/>
+						</METS:div>
+						<METS:div ORDER="14" TYPE="page" LABEL="[ Page 14 ]">
+							<METS:fptr FILEID="FIDM29"/>
+							<METS:fptr FILEID="FIDW29"/>
+							<METS:fptr FILEID="FIDT29"/>
+						</METS:div>
+						<METS:div ORDER="15" TYPE="page" LABEL="[ Page 15 ]">
+							<METS:fptr FILEID="FIDM30"/>
+							<METS:fptr FILEID="FIDW30"/>
+							<METS:fptr FILEID="FIDT30"/>
+						</METS:div>
+						<METS:div ORDER="16" TYPE="page" LABEL="[ Page 16 ]">
+							<METS:fptr FILEID="FIDM31"/>
+							<METS:fptr FILEID="FIDW31"/>
+							<METS:fptr FILEID="FIDT32"/>
+						</METS:div>
+						<METS:div ORDER="17" TYPE="page" LABEL="[ Page 17 ]">
+							<METS:fptr FILEID="FIDM32"/>
+							<METS:fptr FILEID="FIDW32"/>
+							<METS:fptr FILEID="FIDT32"/>
+						</METS:div>
+						<METS:div ORDER="18" TYPE="page" LABEL="[ Page 18 ]">
+							<METS:fptr FILEID="FIDM33"/>
+							<METS:fptr FILEID="FIDW33"/>
+							<METS:fptr FILEID="FIDT33"/>
+						</METS:div>
+						<METS:div ORDER="19" TYPE="page" LABEL="[ Page 19 ]">
+							<METS:fptr FILEID="FIDM34"/>
+							<METS:fptr FILEID="FIDW34"/>
+							<METS:fptr FILEID="FIDT34"/>
+						</METS:div>
+						<METS:div ORDER="20" TYPE="page" LABEL="[ Page 20 ]">
+							<METS:fptr FILEID="FIDM35"/>
+							<METS:fptr FILEID="FIDW35"/>
+							<METS:fptr FILEID="FIDT35"/>
+						</METS:div>
+						<METS:div ORDER="21" TYPE="page" LABEL="[ Page 21 ]">
+							<METS:fptr FILEID="FIDM36"/>
+							<METS:fptr FILEID="FIDW36"/>
+							<METS:fptr FILEID="FIDT36"/>
+						</METS:div>
+					</METS:div>
+				</METS:div>
+			</METS:structMap>
+		</METS:mets>
+	</Appendix>
+</METS_Profile>

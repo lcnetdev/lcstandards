@@ -1,0 +1,311 @@
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/METS_Profile/" xmlns:premis="http://www.loc.gov/standards/premis"
+
+
+xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd 
+		    http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd
+		    http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd"
+
+
+>
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/bibRecord/000000011.xml</URI>
+  <title>Library of Congress METS Profile for Bibliographic Records [Draft]</title>
+  <abstract>The Library of Congress METS Profile for Bibliographic Records specifies how METS documents representing bibliographic records within Library of  Congress digital library projects should be encoded. This profile is intended to be used in cases where there is a need to include bibliographic records for items that have not yet been digitized in a digital library project. The profile can also be used in cases where there is a need to associate a partially digitized item with the bibliographic data (e.g. a bibliographic record for a book where the just the pages to the table of contents have been digitized).</abstract>
+  <date>2004-09-08T17:31:00</date>
+  <contact>
+    <name>Morgan Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri"/>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+  </extension_schema>
+  <description_rules></description_rules>
+  <controlled_vocabularies></controlled_vocabularies>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p>The mods record may contain one or more relatedItem type="constituent" child elements which describes a sub-part or excerpt (e.g. the table of contents from a book) of the item.</p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex03">
+	<p>The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="bib:bibRecordObject" child element. The div TYPE="bib:bibRecordObject" element of the structMap will have a DMDID attribute that points to the mods element.</p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex04">
+	<p>A bibRecordObject may have one or more associated digital image sets. Two types of image sets are possible: an illustrative image set (this will typically be a single image of a book cover, a compact disc cover, etc), and an image set for a scanned table of contents. The image sets will be represented in the structMap as a div TYPE = "bib:illustrativeImageSet" or as a div TYPE = "bib:toc" element. Either of both of these can occur as a child of the div TYPE="bib:bibRecordObject" element. Each of these elements will contain one or more div TYPE="bib:image" child element for each image in the image set.</p>
+      </requirement>
+    </structMap>
+
+  </structural_requirements>
+  <technical_requirements></technical_requirements>
+  <tool></tool>
+  <Appendix ID="a1" NUMBER="0" LABEL="appendix1">
+    <mets:mets>
+      <mets:structMap>
+	<mets:div>
+
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:mets>
+      <mets:dmdSec ID="dmd01_ex01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex01">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>musical languages of Elliott Carter</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Rosen, Charles</mods:namePart>
+		<mods:namePart type="date">1927-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:genre authority="marc">bibliography</mods:genre>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="code" authority="marccountry">dcu</mods:placeTerm>
+		</mods:place>
+		<mods:place>
+		  <mods:placeTerm type="text">Washington, [D.C.]</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>Music Division, Research Services, Library of Congress</mods:publisher>
+		<mods:publisher>For sale by the Supt. of Docs., U.S. G.P.O.</mods:publisher>
+		<mods:dateIssued>1984</mods:dateIssued>
+		<mods:dateIssued encoding="marc">1985</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+	      </mods:language>
+	      <mods:physicalDescription>
+		<mods:form authority="marcform">print</mods:form>
+		<mods:extent>viii, 87 p. : music, port. ; 24 cm.</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:note type="statement of responsibility">by Charles Rosen.</mods:note>
+	      <mods:note>Includes: A guide to Elliott Carter research materials at the Library of Congress Music Division / by Morgan Cundiff.</mods:note>
+	      <mods:note>Bibliography: p. 73-86.</mods:note>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+		<mods:topic>Bibliography</mods:topic>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="corporate">
+		  <mods:namePart>Library of Congress.</mods:namePart>
+		  <mods:namePart>Music Division</mods:namePart>
+		</mods:name>
+		<mods:topic>Catalogs</mods:topic>
+	      </mods:subject>
+	      <mods:classification authority="lcc">ML410.C3293 R7 1984</mods:classification>
+	      <mods:classification authority="ddc" edition="19">780/.92/4</mods:classification>
+	      <mods:relatedItem type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Guide to Elliott Carter research materials at the Library of Congress Music Division. 1984</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Cundiff, Morgan.</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:identifier type="isbn">0844404497</mods:identifier>
+	      <mods:identifier type="lccn">84003851</mods:identifier>
+	      <mods:recordInfo>
+		<mods:recordContentSource authority="marcorg">DLC</mods:recordContentSource>
+		<mods:recordCreationDate encoding="marc">840217</mods:recordCreationDate>
+		<mods:recordChangeDate encoding="iso8601">19850430000000.0  </mods:recordChangeDate>
+		<mods:recordIdentifier>2367614  </mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div>
+
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:mets>
+      <mets:dmdSec ID="dmd01_ex02">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex02">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>musical languages of Elliott Carter</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Rosen, Charles</mods:namePart>
+		<mods:namePart type="date">1927-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:relatedItem ID="con1" type="constituent">
+		<mods:titleInfo>
+		  <mods:partName>Table of Contents</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div>
+
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:bib="http://www.loc.gov/mets/profiles/bibRecord"
+	       PROFILE="lc:bibRecord" xmlns="http://www.loc.gov/METS/"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex03">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex03">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>musical languages of Elliott Carter</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Rosen, Charles</mods:namePart>
+		<mods:namePart type="date">1927-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:genre authority="marc">bibliography</mods:genre>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="code" authority="marccountry">dcu</mods:placeTerm>
+		</mods:place>
+		<mods:place>
+		  <mods:placeTerm type="text">Washington, [D.C.]</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>Music Division, Research Services, Library of Congress</mods:publisher>
+		<mods:publisher>For sale by the Supt. of Docs., U.S. G.P.O.</mods:publisher>
+		<mods:dateIssued>1984</mods:dateIssued>
+		<mods:dateIssued encoding="marc">1985</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+	      </mods:language>
+	      <mods:physicalDescription>
+		<mods:form authority="marcform">print</mods:form>
+		<mods:extent>viii, 87 p. : music, port. ; 24 cm.</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:note type="statement of responsibility">by Charles Rosen.</mods:note>
+	      <mods:note>Includes: A guide to Elliott Carter research materials at the Library of Congress Music Division / by Morgan Cundiff.</mods:note>
+	      <mods:note>Bibliography: p. 73-86.</mods:note>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="personal">
+		  <mods:namePart>Carter, Elliott</mods:namePart>
+		  <mods:namePart type="date">1908-</mods:namePart>
+		</mods:name>
+		<mods:topic>Bibliography</mods:topic>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:name type="corporate">
+		  <mods:namePart>Library of Congress.</mods:namePart>
+		  <mods:namePart>Music Division</mods:namePart>
+		</mods:name>
+		<mods:topic>Catalogs</mods:topic>
+	      </mods:subject>
+	      <mods:classification authority="lcc">ML410.C3293 R7 1984</mods:classification>
+	      <mods:classification authority="ddc" edition="19">780/.92/4</mods:classification>
+	      <mods:relatedItem type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Guide to Elliott Carter research materials at the Library of Congress Music Division. 1984</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Cundiff, Morgan.</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:identifier type="isbn">0844404497</mods:identifier>
+	      <mods:identifier type="lccn">84003851</mods:identifier>
+	      <mods:recordInfo>
+		<mods:recordContentSource authority="marcorg">DLC</mods:recordContentSource>
+		<mods:recordCreationDate encoding="marc">840217</mods:recordCreationDate>
+		<mods:recordChangeDate encoding="iso8601">19850430000000.0  </mods:recordChangeDate>
+		<mods:recordIdentifier>2367614  </mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="bib:bibRecordObject" DMDID="mods1_ex03"> 
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:mets>
+      <mets:dmdSec ID="dmd01_ex04">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex04">
+	      <mods:titleInfo>
+		<mods:title>Title</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div TYPE="bib:illustration" DMDID="mods1_ex04">
+	  <mets:div TYPE="bib:image">
+	    <mets:fptr/>
+	  </mets:div>
+	  <mets:div TYPE="bib:toc">
+	    <mets:div TYPE="bib:image">
+	      <mets:fptr/>
+	    </mets:div>
+	    <mets:div TYPE="bib:image">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

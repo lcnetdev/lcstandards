@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="echoProfile2html.xsl" ?>
+
+<!-- 
+    ********************************************************************************
+    MasterMETSProfile.xml
+    
+    Author:
+    Bill Ingram (UIUC)
+    
+    **********************************************************************************
+-->
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+
+	<URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000029.xml</URI>
+
+	<title>ECHO Dep METS Profile for Master METS Documents</title>
+
+	<abstract>The primary focus of this profile is to enable the preservation of digital content as
+		it is moved in and out of digital repositories. Its purpose is to specify how to encode an
+		ECHODep "Master METS" document used for aggregating subordinate ECHODep METS documents,
+		which capture the state of a digital preservation package before and after it is submitted
+		into, and later disseminated out of, a digital repository. Master METS documents that
+		conform to this profile will reference their subordinate METS documents via the METS Pointer
+		(mptr) element in the METS structMap. Conforming ECHODep preservation packages will contain
+		exactly one Master METS document and at least one other subordinate METS document. Each time
+		a package is ingested into and later disseminated out of a repository, a new subordinate
+		METS document will be created that reflects the current state of the preservation package,
+		and a new mptr to that document will be added to the structMap section of the Master METS
+		document. </abstract>
+
+	<date>2009-11-17T10:00:00Z</date>
+
+	<contact>
+		<name>Bill Ingram</name>
+		<institution>University of Illinois at Urbana-Champaign, Grainger Engineering Library
+			Information Center </institution>
+		<address>1301 W. Springfield Ave., Urbana, IL, 61801</address>
+		<phone>(217) 244-7809</phone>
+		<email>wingram2@uiuc.edu</email>
+	</contact>
+	
+	<related_profile URI="http://www.loc.gov/standards/mets/profiles/00000015.html" RELATIONSHIP="References"
+		>ECHO Dep Generic METS Profile for Preservation and Digital Repository
+		Interoperability</related_profile>
+
+	<extension_schema>
+		<name>PREMIS Preservation Metadata Schema: Object</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd</URI>
+		<context>PREMIS Object elements occur embedded in the techMD section. Each file or bitstream
+			which occurs in the file section must have a corresponding PREMIS Object in a techMD
+			section. METS sections which correspond to PREMIS representations, such as a structMap
+			element or the METS file overall, may also have an associated PREMIS object
+			element.</context>
+	</extension_schema>
+
+	<description_rules>
+		<head>Purpose of this Profile</head>
+		<p>The purpose of an ECHODep "Master METS" document is to aggregate subordinate ECHODep METS
+			documents, each of which represents a digital preservation package at a single point in
+			time. A digital preservation package will typically be made up of a set of files that
+			represents a single intellectual entity as defined by the community of practice for
+			which the intellectual entity applies. For example, in one community of practice the
+			intellectual entity of interest may be a web site, but in a different community of
+			practice the intellectual entity of interest may be an individual web page. Preservation
+			of these packages may refer to short-term interoperability as the digital package is
+			moved between two different repositories, or long-term preservation of the package and
+			its history as it exists in various repositories for long periods of time and undergoes
+			various "preservation actions" such as fixity checks, normalizations, or format
+			migrations. Each time the package is moved between repositories, a new subordinate METS
+			document should be generated that represents the state of the package at that point in
+			time. The Master METS document serves to collect this succession of subordinate ECHODep
+			METS files in order to capture the history of the digital preservation package
+			throughout its life-cycle. </p>
+
+		<head>Potential Usage Scenario</head>
+		<p>A potential usage scenario might be a digital preservation package that is to be ingested
+			into DSpace. Before the package is submitted to the repository, assuming this is the
+			beginning of the package life-cycle, the Master METS document will reference a single
+			subordinate METS file representing the package in its original state. Once ingested, the
+			package will exist in DSpace for some period of time during which changes to the
+			preservation package might occur. These changes could range in consequence from simple
+			revisions to the descriptive metadata, such as the addition of new subject terms or the
+			addition of an abstract, to more severe modifications, such as the addition, deletion,
+			or renaming of the package's content files or bitstreams. If the package's content files
+			are renamed or deleted while under the custody of DSpace, the references to these files
+			from the original subordinate ECHODep METS document will be broken. Likewise, if
+			additional files are added to the package while in DSpace, the original subordinate
+			ECHODep METS file will not make reference to these newly created files. To reflect the
+			changes to the preservation package contents that might have occurred while inside the
+			repository, a new subordinate ECHODep METS file will need to be generated once the
+			package is exported from DSpace, and a pointer to the new subordinate ECHODep METS file
+			added to the package's Master METS document. </p>
+		<p>After the package is exported from DSpace, it may go on to be ingested into an EPrints or
+			Fedora repository, in which case another subordinate ECHODep METS file will be created,
+			and a new pointer added to the Master METS file before and after it is submitted into,
+			and later disseminated out of, the next repository. At any time throughout the
+			life-cycle of the preservation package, the Master METS document may be consulted by
+			human or computer applications interested in the history of the package, in addition to
+			its current representation. If used in conjunction with the ECHODep Hub and Spoke
+			Framework Tool Suite, it will be expected that the Master METS document will contain a
+			pointer to at least one subordinate ECHODep METS file, and will likewise expect the METS
+			pointer with the most recent timestamp to represent the preservation package in its most
+			recently-observed state. When changes are made to the package via our tool suite, they
+			will be reflected automatically in the Master METS document. </p>
+
+		<head>METS Identifier</head>
+		<p>Each Master METS document must be assigned a persistent and globally unique identifier.
+			The only requirement for these identifiers is that they should conform to a
+			widely-accepted standard identifier scheme, and they must be locally resolvable; that
+			is, the local system must be able to retrieve its local representation of the package
+			using only this identifier. It is desirable that these identifiers also be globally
+			resolvable. However, global resolution is not defined. Acceptable identifier schemes
+			include: OCLC Purls, CNRI Handles, DOIs, and others. </p>
+		<p>As this unique identifier is assumed to be the primary identifier for the METS instance,
+			it must be recorded in the OBJID attribute of the mets element. It is assumed that the
+			OBJID will be assigned at the time the METS file is completed and therefore the
+			CREATEDATE attribute must be the date on which the unique identifier was assigned to the
+			object. </p>
+
+		<head>PREMIS Identifiers</head>
+		<p>All PREMIS object identifiers must be assigned the relative URL of the file to which they
+			refer. This URL value will be the same as the href attribute for the mptr element that
+			references that same subordinate ECHODep METS file from the Master METS structural map. </p>
+
+		<head>Descriptive Metadata</head>
+		<p>This profile assumes that all descriptive metadata for the preservation package will be
+			contained in subordinate ECHODep METS documents. As changes in the descriptive metadata
+			occur during the life-cycle of the package, they will be reflected in new generations of
+			the subordinate METS documents. </p>
+
+		<head>Structural Map</head>
+		<p>All Master METS documents will have a simple structMap element that lists the subordinate
+			ECHODep METS files for the preservation package. Each subordinate ECHODep METS file is
+			referenced via an mptr element with the relative URL to the subordinate file as its href
+			attribute. </p>
+
+		<head>Rules for the XML</head>
+		<p> Every METS XML file conforming to this profile must be UTF-8 encoded Unicode. </p>
+		<p> Every METS XML file conforming to this profile must begin with the standard XML
+			declaration: </p>
+		<p> &lt;?xml version="1.0" encoding="UTF-8"?&gt;. </p>
+
+		<head>Date Values</head>
+		<p>Unless otherwise specified (or constrained by the XML Schema) all date values must
+			conform to the W3C-DTF format with a granularity of at least days, such as YYYY-MM-DD.
+			Finer granularities are acceptable, such as YYYY-MM-DDTHH:MM:SS, but lesser
+			granularities are not acceptable, such as YYYY-MM or YYYY. Note that all date attributes
+			specified in the METS profile itself require the xsd:dateTime format which is
+			YYYY-MM-DDTHH:MM:SS with an optional time zone indicator.</p>
+	</description_rules>
+
+	<controlled_vocabularies>
+		<vocabulary>
+			<description><p>None</p></description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement>
+				<head>OBJID</head>
+				<p>The OBJID attribute must be the primary, persistent, and globally unique
+					identifier for the file. This attribute is required; all METS files which are
+					conformant to this profile must have a persistent and globally unique
+					identifier, unless they are Submission Information Packages that will be
+					assigned an identifier upon ingestion. </p>
+				<p>The identifier for a Master METS document will always be the same as the
+					identifier for its most current subordinate ECHODep METS file. When a new
+					subordinate ECHODep METS file is created for the package, the primary identifier
+					for the Master METS document will be need to be reassigned accordingly, and the
+					old identifier must be listed as an altRecordID in the metsHdr. </p>
+			</requirement>
+			<requirement>
+				<head>LABEL</head>
+				<p>The LABEL attribute must contain a human-readable title string that would be
+					suitable for distinguishing the METS document from others when a person is
+					browsing through a list of METS documents. This value could be a title element
+					or variation thereof taken from the dmdSec. This attribute is required. </p>
+				<p>As with OBJIDs, the LABEL for a Master METS document will always be the same as
+					the LABEL for its most current subordinate ECHODep METS file. When a new
+					subordinate ECHODep METS file is created for the package, the LABEL attribute
+					for the Master METS document will need to be reassigned accordingly. </p>
+			</requirement>
+			<requirement>
+				<head>PROFILE</head>
+				<p> The PROFILE attribute must contain the URI assigned to this profile when it was
+					registered with the Library or Congress. The value is
+					&lt;http://www.loc.gov/mets/profiles/00000???.xml&gt;. This attribute is
+					required. </p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement>
+				<head>CREATEDATE</head>
+				<p> This date must be the date on which the METS document was assigned its first
+					persistent, globally unique identifier, even if the actual file itself was
+					created prior to this date, or even if the file was not yet created when the
+					identifier was coined. This attribute is required. Once it is assigned it must
+					not be changed, even if the OBJID is changed. </p>
+				<p> Computing systems which process files conformant to this profile must preserve
+					this date through any transformations, submissions, disseminations, archiving,
+					or other operations on the file. </p>
+			</requirement>
+			<requirement>
+				<head>LASTMODDATE</head>
+				<p> This date must reflect the date on which any changes to the METS document itself
+					occur. This attribute is required, even for newly created METS documents, in
+					which case the CREATEDATE and the LASTMODDATE should match. Subsequently, the
+					LASTMODDATE must always be after the CREATEDATE. </p>
+			</requirement>
+			<requirement>
+				<head>altRecordID</head>
+				<p>When the primary identifier of the METS document as recorded in the OBJID element
+					of the mets root element changes due to the creation of a new ECHODep METS file
+					for the package, the previous identifier must be recorded as an alternate
+					identifier in the altRecordID element. </p>
+			</requirement>
+		</metsHdr>
+
+		<dmdSec>
+			<requirement>
+				<p>Conforming Master METS documents may not contain descriptive metadata
+					elements.</p>
+			</requirement>
+		</dmdSec>
+
+		<amdSec>
+			<requirement>
+				<head>General Requirements for Administrative Metadata</head>
+				<p>This profile requires a single amdSec element for the entire METS document. The
+					only allowable sub-element beneath the amdSec is techMD. The arrangement of
+					sub-elements is not significant and can be at the convenience of the original
+					creator of the file so long as the result conforms to the METS XML schema. The
+					reason being that this profile requires all ADMID attributes (of type IDREFS) to
+					point directly to techMD elements via those elements' ID attributes. An ADMID
+					attribute must not point to the enclosing amdSec, but directly to the relevant
+					sub-element. </p>
+			</requirement>
+
+			<requirement>
+				<head>General Requirements for the Use of PREMIS</head>
+				<p> PREMIS object elements are used inside techMD elements. However, the PREMIS
+					container element premis is never used. Furthermore, only a single PREMIS object
+					element may ever be embedded within a single techMD element. Linkages between
+					METS div sections and PREMIS object are made via the METS ID attribute of the
+					techMD element containing the PREMIS entity and ADMID attribute of the div. </p>
+			</requirement>
+
+			<requirement>
+				<head> Technical Metadata for subordinate ECHODep METS files.</head>
+				<p> Each subordinate ECHODep METS referenced by a Master METS document must have a
+					corresponding techMD section, the content of which must be a PREMIS object
+					element embedded in the techMD via the mdWrap element. The PREMIS object element
+					must conform to the XML Schema of PREMIS. </p>
+				<p> The PREMIS objectCategory element must have a value of 'FILE'. </p>
+				<p>The objectCharacteristics element must have at least one fixity sub-element which
+					has a messageDigestAlgorithm of 'SHA-1'. The objectCharacteristics element must
+					also have a size sub-element; the value of which must be a positive integer
+					number representing the size in bytes of the referent file. </p>
+				<p> The objectCharacteristics element must have a format sub-element, which has a
+					formatDesignation child element, which in turn has a formatName child element.
+					The value of the formatName element must be the MIME-type value of the referent
+					file.</p>
+			</requirement>
+		</amdSec>
+
+		<fileSec>
+			<requirement>
+				<p>Conforming Master METS documents may not contain fileSec elements.</p>
+			</requirement>
+		</fileSec>
+
+		<structMap>
+			<requirement>
+				<head>Primary Structural Map</head>
+				<p>This profile requires exactly one structural map, which contains exactly one
+					sub-element div. This main div element will contain at least one, but
+					potentially several second-level div elements beneath it. Each of these
+					second-level div elements must in turn contain exactly one mptr element, which
+					references a subordinate ECHODep METS document for the preservation package. </p>
+
+				<head>Second-level div Elements</head>
+				<p>Each second-level div element must contain an ADMID and an ORDER attribute. As
+					mentioned above in the section on Administrative Metadata, each div must be
+					linked to a PREMIS object via the METS ID attribute of the techMD element
+					containing the PREMIS entity and ADMID attribute of the div.</p>
+				<p>The ORDER attribute is used to record the chronological order in which each
+					second-level div was added to the structMap (i.e., the order in which each
+					subordinate ECHODep METS file was created). </p>
+
+				<head>METS Pointer Elements (mptrs)</head>
+				<p>As described above, each ECHODep METS document for the preservation package is
+					referenced from the Master METS document via an mptr element. Each mptr element
+					must contain a LOCTYPE attribute with a value of 'URL'. The relative location of
+					the ECHODep METS file pointed to must be stored in the element's xlink:href
+					attribute. </p>
+
+				<p>For example, when a preservation package is first created the Master METS
+					document will reference exactly one subordinate ECHODep METS file for the
+					package. The Master METS structMap will contain a top-level div and just one
+					second-level div. This second-level div will contain an ADMID that corresponds
+					to the METS ID of a techMD section in the amdSec. It will also contain a ORDER
+					attribute of '1', since it is the one and only second-level div element so far.
+					Finally, it will contain exactly one mptr element that records the location of
+					the referent ECHODep METS file. </p>
+				<p>When an event triggers the creation of a new ECHODep METS file for the package, a
+					new second-level div element containing an mptr will be created as well. This
+					div will contain an ADMID that corresponds to the METS ID of a techMD section in
+					the amdSec for the newly-created ECHODep METS file, and will have an ORDER
+					attribute of '2'. </p>
+			</requirement>
+		</structMap>
+
+		<structLink>
+			<requirement>
+				<p>Conforming Master METS documents may not contain structLink elements.</p>
+			</requirement>
+		</structLink>
+
+		<behaviorSec>
+			<requirement>
+				<p>Conforming Master METS documents may not contain behaviorSec elements.</p>
+			</requirement>
+		</behaviorSec>
+	</structural_requirements>
+
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>Conforming Master METS documents may not reference external content files via
+					FLocat elements.</p>
+			</requirement>
+		</content_files>
+
+		<behavior_files>
+			<requirement>
+				<p>Conforming Master METS documents may not reference executable behaviors via the
+					mechanism element.</p>
+			</requirement>
+		</behavior_files>
+
+		<metadata_files>
+			<requirement>
+				<p>Conforming Master METS documents may not reference external metadata files via
+					mdRef elements.</p>
+			</requirement>
+		</metadata_files>
+
+	</technical_requirements>
+
+	<tool>
+		<name>Inherited Tools</name>
+		<description>
+			<p>METS documents which conform to this profile should be compatible with all of the
+				tools which are also compatible with the "ECHODep Generic METS Profile for
+				Preservation and Digital Repository Interoperability" parent profile.</p>
+		</description>
+	</tool>
+
+	<Appendix NUMBER="1"
+		LABEL="Small Example of a Master METS File Associated with Two EchoDEP METS Files">
+		<mets xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:mods="http://www.loc.gov/mods/"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+			http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd 
+			http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+			PROFILE="http://www.loc.gov/mets/profiles/00000???.xml" LABEL="Sunday Verification"
+			OBJID="hdl:123456789/1">
+			<metsHdr LASTMODDATE="2008-09-02T19:12:18.458-05:00"
+				CREATEDATE="2008-09-02T15:47:00.411-05:00">
+				<altRecordID>hdl:123456789/1</altRecordID>
+			</metsHdr>
+			<amdSec>
+				<techMD ID="ID1" CREATED="2008-09-02T20:47:10.380Z">
+					<mdWrap MDTYPE="PREMIS" MIMETYPE="text/xml">
+						<xmlData>
+							<object type="file" version="1.1"
+								xmlns="http://www.loc.gov/standards/premis/v1">
+								<objectIdentifier>
+									<objectIdentifierType>URL</objectIdentifierType>
+									<objectIdentifierValue>echodepmets_0.xml</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>FILE</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>fe679dd91c68b04d33afb6dff5e2fedc9efc046c</messageDigest>
+									</fixity>
+									<fixity>
+										<messageDigestAlgorithm>MD5</messageDigestAlgorithm>
+										<messageDigest>07373efeaa013e2fb60ce4050cb4f887</messageDigest>
+									</fixity>
+									<size>4536</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/xml</formatName>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="ID2" CREATED="2008-09-03T00:12:18.427Z">
+					<mdWrap MDTYPE="PREMIS" MIMETYPE="text/xml">
+						<xmlData>
+							<object type="file" version="1.1"
+								xmlns="http://www.loc.gov/standards/premis/v1">
+								<objectIdentifier>
+									<objectIdentifierType>URL</objectIdentifierType>
+									<objectIdentifierValue>echodepmets_1.xml</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>FILE</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>79fdc481156f3f1434de562ef7b160b5269110de</messageDigest>
+									</fixity>
+									<fixity>
+										<messageDigestAlgorithm>MD5</messageDigestAlgorithm>
+										<messageDigest>431c73696acebe1e605183e2a32b1597</messageDigest>
+									</fixity>
+									<size>25252</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/xml</formatName>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+			</amdSec>
+			<structMap TYPE="PRIMARY_STRUCTMAP">
+				<div>
+					<div ADMID="ID1" ORDER="1">
+						<mptr LOCTYPE="URL" xlin:href="echodepmets_0.xml"
+							xmlns:xlin="http://www.w3.org/1999/xlink"/>
+					</div>
+					<div ADMID="ID2" ORDER="2">
+						<mptr LOCTYPE="URL" xlin:href="echodepmets_1.xml"
+							xmlns:xlin="http://www.w3.org/1999/xlink"/>
+					</div>
+				</div>
+			</structMap>
+		</mets>
+
+	</Appendix>
+</METS_Profile>

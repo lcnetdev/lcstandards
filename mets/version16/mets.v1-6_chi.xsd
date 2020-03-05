@@ -1,0 +1,1417 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- METS: 元数据编码和传输标准(Metadata Encoding and Transmission Standard) -->
+<!-- Copyright © 2001, 2002, 2003, 2004, 2005, 2006 美国数字图书馆联盟(Digital Library Federation) -->
+<!-- 为美国数字图书馆联盟制定，作者纽约大学Jerome McDonough, 协作者Michael Alexander (British Library), Rick Beaubien (University of California), Morgan Cundiff (Library of Congress), Susan Dahl (University of Alberta), Markus Enders (State and University Library, Göttingen),  Richard Gartner (Bodleian Library at Oxford), Nancy Hoebelheirich (Stanford University), Mark Kornbluh (Michigan State University), Cecilia Preston (Preston & Lynch), Merrilee Proffitt (Research Libraries Group), Richard Rinehart (Berkeley Art Museum/Pacific Film Archive), Mackenzie Smith (Massachusetts Institute of Technology), Taylor Surface (OCLC), Brian Tingle (California Digital Library) and Robin Wendler (Harvard University).
+-->
+<!-- 中文版本于2008年7月由中国北京中科软件有限公司经DLF授权完成,译者李春晓,欢迎指正。 -->
+<!-- 2006年十月 -->
+<!-- 版本 1.6 -->
+<!-- 修订历史 -->
+<!-- 2001/4/23: Alpha 版完成 -->
+<!-- 2001/6/7: Beta 版完成 -->
+<!-- 2001/6/7: Beta 版修订: 
+	1. 同 TCF 一样，把 'Time' 也作为一种可能的时间代码值。
+	2. 将 dmdSec 的 ID 属性设为必备；将 MDRef/MDWrap 的 ID 属性值设为可选。
+	3. 为 StructMap 增加了'Label'属性， 'Type'属性原来已有。
+	4. 为元数据模式（metadata schemes）的枚举类型增加了两种：DDI 和 FGDC 。
+	5. 使 MDWrap/MDRef （和 枚举类型值中有'other' 值的其他元素）可用 "otherMDtype" 属性 。
+	6. 为 METS 元素增加了 "profile" 属性。
+	7. 修订了 mptr 声明使之类似 FLocat/MDRef （而非类似 XLink）。
+	8. 扩充了 <area> 属性的内部说明文档。
+	9. 为 LOCTYPE 的可选集合增加了 "other" （译者：即增加了LOCTYPE 的一个可选值为"other"）。
+	10. 把  FileGrp 的 ADMIDS 改为了 ADMID 。
+	11. 把  <div> 元素的 "N" 改为了"Order" 。
+	12. 把  <div> 元素的 "Number" 改为了"order label" 。
+	13. 为 METS 元素增加了 createdate 和 lastmoddate 属性。 
+	14. 允许 <div> 和‘<area> 元素链接到管理型元数据节。
+	15. 规范化了文件元素和（译者：'和'可能应该去掉？）mdRef 的属性指向方式。 （原文：Normalize attribute pointing facilities for file element and mdRef.）
+	16. 为外部文件指向时的 LOCTYPE 提供了一个 "other" 选项和 一个 "otherloctype" 属性。
+	17. 从 LOCTYPES 的枚举项中去掉了PDI 。
+	18. 将 mdRef 和 mdWrap 中的 MDTYPE 设为必备。
+	19. 将 preservationMD 更名为 digiprovMD。
+	20. 为 FContent 元素增加了可选的属性 CHECKSUM 。
+	21. 将  fileGrpType 和 mdSecType 的属性和枚举项模块化，以便维护。
+	22. 为 structMap 增加了 TYPE 属性。
+	23. 用 structMapType 声明 structMap 元素，而不用直接声明。
+	24. 为 <div> 增加了一种可能的子元素  area ，  par 和 seq 元素原来已有。
+	25. 将 mdSec 模式变为 ALL, 使 mdRef/mdWrap 元素能够支持不同的情形。
+	26. 为 <par> and <seq> 元素补充了说明内容。
+ -->
+<!-- 2001/10/22: Gamma 版完成 -->
+<!-- 2001/10/22 Gamma 版修订:
+ 	1. 在 METS 根元素下增加了fileSec 元素,以便容纳文件组。
+ 	2. 为 XLink 属性创建了一个子 schema 文件 xlink.xsd ，恢复了 mptr 元素的 XLink 属性，并为 mdRef 和 FLocat 增加了 XLink 支持。
+ 	3. 创建了新元素 metsHdr 以便处理关于 METS 文档本身的元数据 （类似 TEI 头）。将 CREATEDATE 和 LASTMODDATE 属性转移到 metsHdr，并增加了新的 RECORDSTATUS 属性。 为 metsHdr 增加了新的子元素 agent 和 altRecordID 。
+ 	4. 将 CREATEDATE 和 LASTMODDATE 属性类型变为 xsd:dateTime ，以便更精确地记录工作时间。
+ 	5. 将所有使用 xsd:binary 数据类型之处均改为 xsd:base64Binary ，以便符合最终的 W3C schema 推荐。
+ 	6. 整理了注释和文档。
+ -->
+<!-- 2001/12/19: Epsilon 和 PROTOFINAL 版本完成-->
+<!-- 12/19/2001 Epsilon 版修订:
+ 	1. 修改了 StructMap 的顺序操作符， 只允许一个根 div 元素。
+	2. 为 agent 元素的 role 属性增加了新的角色，并支持扩展其他角色（ 'other' role）。
+	3. 为 agent 元素的 type 属性增加 'other' ，以支持扩展。
+	4. 整理了文档。
+	5. 把 CHECKSUM 属性的从 FContent 转移到了文件元素。
+	6. 将文件元素的 CREATED 属性和文件组的 VERSDATE 属性改为 xsd:dateTime 型。
+	7. 为了保持一致性，将 div 元素的属性名 DMD 改为 DMDID 。
+	8. 增加了新的 behaviorSec 以便支持从METS对象引用可执行代码。
+ -->
+<!-- 2002/2/8: Zeta 版本，修正错误直至终稿 -->
+<!-- 2002/2/8 Zeta 修订:
+ 
+ 	1. 去除了元数据类型枚举项中冗余的 VRA 。
+ 	2. 改变了 mdWrap 内容模型, 增加了 xmlData 元素，去除了不明确的内容模型。
+ -->
+<!-- 2002/6/3: 版本 1.1 -->
+<!-- 2002/6/3 v1.1 修订:
+ 
+  	1. 增加新的 structLink 节，以便记录结构图节点所表示的媒体之间的超链接。
+	2. 允许 <par> 元素内含 <seq> 元素。 
+-->
+<!-- 2002/12/27: 版本 1.2 -->
+<!-- 2002/12/27 v1.2 修订:
+1. 为 FileGrp, File, FLocat 和 FContent增加 “USE” 属性;
+2. 使 FLocat 可重复;
+3. FContent 仿照 mdWrap 的方式，使用单独的  binData/xmlData 节;
+4. 增加了版权声明;
+5. 允许在一个文件元素中同时存在 FLocat 和 Fcontent ;
+6. 允许 behaviorSec 元素通过 GROUPID 属性划分成组 ;
+7. 允许描述型和管理型元数据节通过 GROUPID 属性划分成组 ;
+8. 允许 <file> 元素通过 DMDID 属性指向描述型元数据 ;
+9. 允许描述型元数据和所有形式的管理型元数据通过 ADMID 属性指向管理型元数据 ; 
+10. 为所有描述型元数据节和管理型元数据节增加 CREATED 和 STATUS 属性 ; 并且
+11. 整理了元素文档以反映实际。
+-->
+<!-- 2003/5/8: 版本 1.3 -->
+<!-- 2003/05/05 v1.3 修订:
+
+1. 将 “2. OBJID: 赋予原始资源文档的主要标识符” 改为 “2. OBJID: 赋予METS对象的主要标识符”。
+2. 给 MDTYPE 增加 MODS 。
+3. 修改 <file> 属性，在 CHECKSUM 基础上增加了 CHECKSUMTYPE,  而 CHECKSUMTYPE 则来自于以下的受控词表:
+     HAVAL, MD5, SHA-1, SHA-256, SHA-384, SHA-512, TIGER, WHIRLPOOL
+4. 修改 BehaviorSec 允许递归, 并且增加了一个新的 behavior 元素用来封装  mechanism 和 interfaceDef 元素。
+-->
+<!-- 2004/05/01: 版本 1.4 -->
+<!-- 2004/05/01 v1.4 修订:
+
+1. 将属性文档移出元素文档(感谢 Brian Tingle)。
+2. 为 div, fptr, mptr 和 area 元素增加了新的 CONTENTIDS 属性 (和 URIs simpleType)  ，以便对应 MPEG21 DII 标识符值。
+3. XLink 名称空间 URI 变成符合 XLink 推荐的方式。
+4. 为 FContent 增加了 ID 属性。
+5. 为 structLink 增加了 ID 属性。
+6. 为 smLink 增加了 ID 属性。
+7. 将"LOM" 新增为一种元数据类型。
+ -->
+ <!-- 2005/4/12: 版本 1.5 -->
+ <!-- 2005/4/12 v1.5 修订:
+ 
+ 1. 允许 file 元素递归以适应 PREMIS  洋葱层次模型（PREMIS Onion Layer model ）并支持 XFDU-ish 解包规范。
+ 2. 在 <file> 之下增加 <stream> 元素，允许元数据链接到子文件结构。
+ 3. 修改 structLink 的 TO 和 FROM 属性，将其置于 XLink 名称空间。
+ 4. 将所有 xsd:any 元素的 processContents 置为 "lax" 。
+ -->
+ <!-- 2006/10/18: 版本 1.6 -->
+ <!-- 2006/10/18 v1.6 修订:
+ 	
+ 1. 为 stream 和 transformFile 增加 ID  
+ 2. 为 metsHdr 和 ADMID 增加 ID   
+ 3. 使 smLink/@xlink:to 和 smLink/@xlink:from 必备
+ -->
+<xsd:schema targetNamespace="http://www.loc.gov/METS/" xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.loc.gov/standards/mets/xlink.xsd"/>
+	
+	<xsd:element name="mets">
+		<xsd:annotation>
+			<xsd:documentation> 元数据编码和传输标准(Metadata Encoding and Transmission Standard).
+METS致力于提供一个标准化的XML格式，用于系统之间传输复杂的数字对象（digital library objects）。在这一点上，它类似于那些在OAIS（Open Archival Information System，开放文档信息系统）参考模型中定义的SIP（Submission Information Package，提交信息包），AIP（Archival Information Package，存档信息包），DIP（Dissemination Information Package，传输信息包）。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="metsType"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="metsType">
+		<xsd:annotation>
+			<xsd:documentation>mets复杂类型（mets Complex Type）。一个METS文档由七个子节（sections）构成：metsHdr（METS文档头），dmdSec（描述型元数据节），amdSec（管理型元数据节），fileGrp（文件组），structLink（结构图链接），structMap（结构图）和behaviorSec（行为节）。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="metsHdr" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>metsHdr: METS 头. 类似于TEI头，METS头元素记录的是关于METS文档本身的元数据（而不是METS文档所编码的数字对象）。它可以包含两个子元素：agent（文档代理）和altRecordID（其它记录ID）。
+			</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="agent" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>agent: METS 代理（agent）.agent 元素记录与本METS文档有关的各种团体及其承担的角色。
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="name" type="xsd:string">
+										<xsd:annotation>
+											<xsd:documentation>name:agent的全称。
+											</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+									<xsd:element name="note" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+										<xsd:annotation>
+											<xsd:documentation>note: 与本METS文档有关的agent的活动的补充说明。
+											</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+								</xsd:sequence>
+								<xsd:attribute name="ID" type="xsd:ID" use="optional">
+									<xsd:annotation>
+										<xsd:documentation>ID: 可选，XML ID值。
+										</xsd:documentation>
+									</xsd:annotation>
+								</xsd:attribute>
+								<xsd:attribute name="ROLE" use="required">
+									<xsd:annotation>
+										<xsd:documentation>ROLE: 必备属性，指明与本METS对象有关的团体所担当的角色，ROLE必须是下面七
+个值之一：CREATOR: 负责创建本METS文档的agent(创建者)。EDITOR: 负责编辑本METS文档的agent(编辑者)。ARCHIVIST: 负责存档保管本METS文档的agent，和（或）负责存档保管用来创建本METS对象的原始资源的agent 。PRESERVATION: 负责保存本METS对象的agent，和（或）负责保存用
+来创建本METS对象的原始资源的agent。DISSEMINATOR: 负责分发或出版本METS对象的agent。CUSTODIAN: 负责监管本METS对象的agent。IPOWNER: 拥有本METS对象或其中一部分的知识产权的agent。OTHER: 对本METS对象拥有不属于上述任何一种的其它权利（或负有其它责任）的agent。
+										</xsd:documentation>
+									</xsd:annotation>
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:enumeration value="CREATOR"/>
+											<xsd:enumeration value="EDITOR"/>
+											<xsd:enumeration value="ARCHIVIST"/>
+											<xsd:enumeration value="PRESERVATION"/>
+											<xsd:enumeration value="DISSEMINATOR"/>
+											<xsd:enumeration value="CUSTODIAN"/>
+											<xsd:enumeration value="IPOWNER"/>
+											<xsd:enumeration value="OTHER"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="OTHERROLE" type="xsd:string" use="optional">
+									<xsd:annotation>
+										<xsd:documentation>OTHERROLE:可选属性，字符串，指明agent与本METS对象（或其来源）有关的特殊的角色。当ROLE属性值为OTHER时使用。
+										</xsd:documentation>
+									</xsd:annotation>
+								</xsd:attribute>
+								<xsd:attribute name="TYPE" use="optional">
+									<xsd:annotation>
+										<xsd:documentation>TYPE: 可选属性，指明agent 的自然属性（译者：指类型），可取以下三值之一：
+INDIVIDUAL: 独立自然人代理 ；ORGANIZATION: 集体代理 ； OTHER: 其它形式代理（如：软件代理）。
+										</xsd:documentation>
+									</xsd:annotation>
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:enumeration value="INDIVIDUAL"/>
+											<xsd:enumeration value="ORGANIZATION"/>
+											<xsd:enumeration value="OTHER"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="OTHERTYPE" type="xsd:string" use="optional">
+									<xsd:annotation>
+										<xsd:documentation>OTHERTYPE: 可选，字符串，指明agent的特定类型。当agent 的TYPE属性值为OTHER 时使用。
+										</xsd:documentation>
+									</xsd:annotation>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="altRecordID" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>altRecordID: 其它记录ID（Alternative Record ID）
+除了METS根元素的OBJID属性中存储的主ID（Primary ID）之外，本元素提供本METS文档的其它ID。
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:simpleContent>
+									<xsd:extension base="xsd:string">
+										<xsd:attribute name="ID" type="xsd:ID" use="optional">
+											<xsd:annotation>
+												<xsd:documentation>ID: 可选，XML ID值。
+												</xsd:documentation>
+											</xsd:annotation>
+										</xsd:attribute>
+										<xsd:attribute name="TYPE" type="xsd:string" use="optional">
+											<xsd:annotation>
+												<xsd:documentation>TYPE: 可选，字符串，描述标识符的类型。（如：OCLC #, LCCN 等）
+												</xsd:documentation>
+											</xsd:annotation>
+										</xsd:attribute>
+									</xsd:extension>
+								</xsd:simpleContent>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ADMID: 可选属性，提供本METS文档的管理型元数据节的XML ID值列表（该管理型元数据节位于本METS文档内）。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="CREATEDATE" type="xsd:dateTime" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>CREATEDATE: 可选，时间型，记录本METS文档创建时间。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="LASTMODDATE" type="xsd:dateTime" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>LASTMODDATE: 可选，时间型，记录本METS文档的上次修改时间。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="RECORDSTATUS" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>RECORDSTATUS: 可选，字符串，指示本METS文档的状态（多用于内部处理）。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="dmdSec" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>dmdSec: 描述型元数据节（Description Metadata Section.）
+本节记录METS对象内全部项目的所有描述型元数据，包括结构图部分的描述型元数据以及数据文件的描述型元数据。元数据以 Warwick 框架的方式,既可以被包含在 METS文档中（即mdWrap方式），也可以通过其标识符（或指示器）引用（即mdRef方式）。为了记录METS对象的每个独立项目的描述型元数据，允许dmd Sec元素重复。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="amdSec" type="amdSecType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>amdSec: 管理型元数据节（Administrative Metadata Section.）
+本节记录METS对象所有条目的全部管理型元数据（包括结构图部分 ，数据文件，描述型元数据节以及管理型元数据节本身）。它分作四个子节：techMD（技术元数据）righteMD（知识产权元数据）、sourceMD（模拟/数字资源元数据）和digiprocMD（数字起源元数据）。 每个子节为mdSecType类型，以mdWrap方式包含在METS中心文档中，或以 mdRef 指示其标识符（指示器）。 techMD、rightsMD、sourceMD、digiprocMD可以重复，以便记录METS对象的每一个条目的管理型元数据。
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="fileSec" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>fileSec: 内容文件节（Content File Section.）。本节记录组成此数字对象的所有数据文件的信息。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="fileGrp" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>fileGrp: 文件组（File Group）本元素将多个文件如划为一组（如，某作品的所有图像，或某页面的所有图像等）。
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:complexContent>
+									<xsd:extension base="fileGrpType"/>
+								</xsd:complexContent>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="structMap" type="structMapType" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>structMap: 结构图（Structural Map.）。
+结构图是METS文档的核心，它定义了被数字化的源文档的层次结构。该层次利用“div”元素形成树结构。任一给定的“div”，可以通过“mptr”元素，指向另一个METS文档；也可以通过”fptr” 和子元素，指向一个或一组文件、若干文件片断或文件组。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="structLink" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>structLink: 结构图链接节（Structural Map Linking.）。结构图链接节，描述了结构图所示的METS结构内不同组件之间的超链接规范。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="structLinkType"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="behaviorSec" type="behaviorSecType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>behaviorSec: 行为节。本节记录了与METS对象内容关联的可执行操作（行为）。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="OBJID" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>OBJID: 可选属性，记录METS文档的主标识符。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>LABEL: 可选属性，为用户提供文档的标题（或标识文本）。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="TYPE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>TYPE: 字符串，可选属性，描述对象的类型。如：图书、杂志、三维图等。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="PROFILE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>PROFILE: 可选属性，提供本METS文档遵循的profile文件的URI或其它标识符。
+			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="amdSecType">
+		<xsd:annotation>
+			<xsd:documentation>amdSecType: 管理型元数据的复杂类型（Complex Type for Administrative Metadata）。
+管理型元数据节可以包含以下四个子节：techMD（文本/图象/音频/视频文件的技术元数据）、rightsMD（知识产权元数据）、sourceMD（模拟/数字资源元数据）和digiprovMD（数字起源元数据，即把数字对象从原始获取/编码文件进行移植/转换的历史）。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="techMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>techMD: 技术元数据（technical metadata.） techM元素为普通元数据节封装了一层元数据，即关于一个或多个文件的技术元数据。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="rightsMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>rightsMD: 知识产权元数据(intellectual property rights metadata.) 。
+rightsMD元素为普通元数据节封装了一层元数据，即包含知识产权的元数据。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="sourceMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>sourceMD: 来源元数据（source metadata.）。 
+sourceMD元素为普通元数据节封装了一层元数据，即关于该METS对象的原始资源（由此原始资源生成了该METS对象）的描述型或管理型元数据。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="digiprovMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>digiprovMD: 数字起源元数据（digital provenance metadata.）。
+digiprovMD元素给普通元数据包装了这样一层元数据，它包含了一个数字对象的最初起源信息及其当前元素的衍生信息。它包含很多情形，也许表示同一对象的不同文件之间存在着主从关系或衍生关系，也许表示经过数字化后的数字对象的组成文件又经过了转换或迁移，也许表示原生数字资源文件的创建。简言之，digiprovMD的目的，是使所记录的信息反映出数字对象生命周期中都经历过哪些变化，以便档案管理人员、图书馆工作人员和学者们能够判断出这种变化过程对原始作品反映的真实程度可能带来的影响或损失。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="fileGrpType">
+		<xsd:annotation>
+			<xsd:documentation>fileGrp: 文件组（File Group）。
+文件组把构成一个数字对象的所有文件按层次关系聚合在一起（fileGrp通过递归定义构建层次关系），文件组可以包含零个或多个文件元素。文件元素则依次包含一个或多个FLocat元素（指向该对象内容的文件指针）和/或FContent元素（以XML或Base64编码的文件内容）。
+				</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice>
+			<xsd:element name="fileGrp" type="fileGrpType" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- file element originally here -->
+			<xsd:element name="file" minOccurs="0" maxOccurs="unbounded" type="fileType" />
+		</xsd:choice>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: an optional XML ID value.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="VERSDATE" type="xsd:dateTime" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>VERSDATE: 可选，时间型属性，指明数字对象的此版本/文件组的创建时间。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ADMID: 可选属性，指明该METS 文档中此文件组内所有文件对应的管理型元数据节的 XML ID值列表。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="USE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>USE: 可选，字符串属性，指明本文件组内所有文件的用途（如图像的主文件，参考文件或缩略图等）。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="structMapType">
+		<xsd:annotation>
+			<xsd:documentation>结构图复杂类型（structMap Complex Type）。
+结构图（structMap）使用一系列嵌套的DIV元素，勾划出被编码原始对象的层次结构。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="div" type="divType">
+				<xsd:annotation>
+					<xsd:documentation>div: 区（Division.） 
+METS标准用一串嵌套的div元素使文档结构化，形成层次。例如，书由章节组成，章节由子章节组成，子章节由文本组成。结构图层次结构中的每一个div节点，都可以通过子元素mptr或子元素fptr，关联其对应的内容文件。 
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="TYPE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>TYPE: 可选，字符串属性。指明结构图的类型，典型值是“PHYSICAL”和“LOGICAL”。PHYSICAL描述了原始作品的物理组成，如：一篇论文的连续页；而LOGICAL则描述了作品的知识结构，如：一篇论文有目录，前言、章节、索引等。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>LABEL: 可选，字符串属性。用于为用户描述stuctMap。类似物理结构图和逻辑结构图同时存在的情况，当一个对象有多个stuctMap（结构图）时很有用。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="divType">
+		<xsd:annotation>
+			<xsd:documentation>
+Div复杂类型（Div Complex Type）
+METS标准用一串嵌套的div元素使文档结构化，形成层次。例如，书由章节组成，章节由子章节组成，子章节由文本组成。结构图层次结构中的每一个div节点，都可以通过子元素mptr或子元素fptr，关联其对应的内容文件。
+关于DIV属性值的特别提示：
+为了区分div 元素中ORDER、ORDERLABEL和LABEL属性含义，举个例子。假如有一个文本，10页由罗马数字标识，10页由阿拉伯数字标识，页码为 iii 的ORDER值为“3”，ORDERLABEL为“iii”，LABEL为“Page iii”，而页码为3的ORDER值为“13”，ORDERLABEL为“3”，LABEL为“PAGE 3” 。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="mptr" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>mptr: METS指针（METS Pointer.） 
+mptr元素允许div关联另一个METS文档中，与该div相应的内容则存在那个METS文档中，而不是让mptr元素指向内部文件或文件组。一种典型的情形如连续出版的期刊的METS文档，每一个div元素表示一个卷期，div元素则分别指向独立的卷期METS文档，而不是把每卷的文件和文件组都编码在一个大文档中。 注意：mptr是空元素，能指向的资源位置必须存放在xlink:href属性中。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attributeGroup ref="LOCATION"/>
+					<xsd:attributeGroup ref="xlink:simpleLink"/>
+				    <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+			            <xsd:annotation>
+				            <xsd:documentation>CONTENTIDS: 该div 的内容ID列表Content IDs（相当于DIDL DII）。
+				            </xsd:documentation>
+			            </xsd:annotation>
+               	    </xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="fptr" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>fptr: 文件指针(File Pointer. )
+fptr元素连接div元素及其对应的内容文件。它既可以通过FILEID属性直接指向文件本身，也可以通过子元素area、par和seq进行更复杂的链接。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:choice>
+						<xsd:element name="par" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>par: 并行文件(Parallel files.) 
+par元素将div指向一组需要同步播放给用户的文件，比如播放音频文件的同时显示解说词。par元素有两个子元素，分别应用于不同的情形。如果需要同步播放的每一个字节流，都分别可以容纳在一个文件中，就可以用&lt;area&gt;子元素分别指向那些文件，再把它们都放在par元素中。但有时需要同步播放的某字节流太大，一个文件容纳不下（比如高质量多音道的音频或视频），就要用到&lt;seq&gt;元素了——让每个&lt;seq&gt;里面的文件按照播放次序组成最后的字节流。例如，你有一段录音，必须分割成三个顺序音频文件和一个解说文件，就需要用一个par元素包含两个seq元素，第一个seq元素包括三个area元素，每个area元素内一个音频文件;而第二个seq元素则包含一个存有那个文本解说文件的area元素。
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:choice>
+									<xsd:element name="area" type="areaType" maxOccurs="unbounded"/>
+									<xsd:element name="seq" type="seqType" maxOccurs="unbounded"/>
+								</xsd:choice>
+								<xsd:attribute name="ID" type="xsd:ID" use="optional">
+									<xsd:annotation>
+										<xsd:documentation>ID: 可选，XML ID值。
+										</xsd:documentation>
+									</xsd:annotation>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="seq" type="seqType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>seq: 文件序列（Sequence of files.） 
+seq元素用于把一个div与一组内容文件联系起来，而且这些文件应该顺序地传送给用户，参见seqType文档中的详细说明。
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="area" type="areaType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>area: 文件区域（file area）
+area元素可为div元素及其对应的内容文件（文本，图象，音频，视频文件）之间建立比较复杂的链接。area元素可以把div链接到文件的某一个点，既可以是文件的一维片段（如：文本屏、直线图象，音/视频剪辑），也可以是文件的二维片段（如：图象子区域、视频文件的一部分）。参见areaType文档的详细说明。
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID:可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="FILEID" type="xsd:IDREF" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>FILEID: IDREF型，指向包含此ftpr的div对应的文件元素。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				    <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+			            <xsd:annotation>
+				            <xsd:documentation>CONTENTIDS: 该div 的内容ID列表Content IDs（相当于DIDL DII）。
+				            </xsd:documentation>
+			            </xsd:annotation>
+               	    </xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="div" type="divType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ORDER" type="xsd:integer" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ORDER: 可选，整型，表示div在其家族成员中的序号（比如，序列号）。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ORDERLABEL" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ORDERLABEL: 可选字符串，表示div在其家族成员中的次序（如：“xii”）。可以不是整型数据，还可以是某种本地序数系统的序号。但是ORDERLABEL应该可被机读操作（比如：支持支持页码的“go to”定位功能）。它不可以替代LABEL属性。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>LABEL: 可选，字符串标签，为浏览该文档的最终用户描述该div，作为目录。（注意：div标签应该专门对应它在结构图中的层次。以一本多章节的书为例，书的div LABEL应该是书的标题，章节的div LABEL应该是章节标题，而不是书的标题加上章节标题。）
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="DMDID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>DMDID: 可选属性，为XML ID值列表，指向此 div在METS文档内的描述型元数据。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ADMID: 可选属性，为XML ID值列表，指向此 div在METS文档内的管理型元数据。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="TYPE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>TYPE: 可选,字符串属性，指明div的类型（如章节、文章、页等）。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	    <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CONTENTIDS: 此division的ContentID（等同于DIDL DII）。
+				</xsd:documentation>
+			</xsd:annotation>
+	    </xsd:attribute>
+		<xsd:attribute ref="xlink:label">
+			<xsd:annotation>
+				<xsd:documentation>xlink:label - 被smLink元素引用的xlink label。</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="seqType">
+		<xsd:annotation>
+			<xsd:documentation>seq: 文件顺序（Sequence of files）。
+元素用于把一个div与一组内容文件联系起来，而且这些文件应该顺序地传送给用户。seq 元素中的 area 子元素则提供到文件或其中某部分的链接。
+				</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="area" type="areaType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="areaType">
+		<xsd:annotation>
+			<xsd:documentation>areaType: Complex Type for Area linking.
+area元素可为div元素及其对应的内容文件（文本，图象，音频，视频文件）之间建立比较复杂的链接。area元素可以把div链接到文件的某一个点，既可以是文件的一维片段（如：文本屏、直线图象，音/视频剪辑），也可以是文件的二维片段（如：图象子区域、视频文件的一部分）。area元素没有内容，所有信息均记录在各种属性中。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="FILEID" type="xsd:IDREF" use="required">
+			<xsd:annotation>
+				<xsd:documentation>FILEID: 该div所指文件元素的强制IDREF。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="SHAPE" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>SHAPE: 可选，字符串属性，它定义了一个二维区域的形状，此区域在一个被链接的内容文件中被引用。它必须是下列值之一：
+RECT: 长方形区域
+CIRCLE: 圆形区域
+POLY: 不规则多边形.
+SHAPE属性的使用方式应该类似于HTML4中的用法。
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="RECT"/>
+					<xsd:enumeration value="CIRCLE"/>
+					<xsd:enumeration value="POLY"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="COORDS" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>COORDS: 可选，字符串属性，列出图象（静态图象或视频帧）的一组可视坐标，COORDS属性的使用方式应该类似HTML4中的用法。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="BEGIN" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>BEGIN: 可选，字符串属性，标明被引用文件中某部分的起始位置，与END属性配对使用。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="END" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>END: 可选，字符串属性，标明被引用文件中某部分的结束位置，与BEGIN属性配对使用。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="BETYPE" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>BETYPE: 起始/结束类型（Begin/End Type.）
+可选属性，指明BEGIN和END属性值的语法，必取下值之一：
+BYTE: 字节偏移量
+IDREF: 内容文件中某元素的XML ID值
+SMIL: SMIL格式的时间值
+MIDI: MIDI格式的时间值
+SMPTE-25: 每秒25帧素材的SMPTE时间码。
+SMPTE-24: 每秒24帧素材的SMPTE时间码。
+SMPTE-DF30: 每秒30帧丢帧素材的SMPTE时间码。
+SMPTE-NDF30: 每秒30帧非丢帧素材的SMPTE时间码。
+SMPTE-DF29.97: 每秒29.97帧丢帧素材的SMPTE时间码。
+SMPTE-NDF29.97: 每秒29.97帧非丢帧素材的SMPTE时间码。
+TIME: 简单时间代码，形如 HH:MM:SS。
+TCF: 时间码字符格式值。
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="BYTE"/>
+					<xsd:enumeration value="IDREF"/>
+					<xsd:enumeration value="SMIL"/>
+					<xsd:enumeration value="MIDI"/>
+					<xsd:enumeration value="SMPTE-25"/>
+					<xsd:enumeration value="SMPTE-24"/>
+					<xsd:enumeration value="SMPTE-DF30"/>
+					<xsd:enumeration value="SMPTE-NDF30"/>
+					<xsd:enumeration value="SMPTE-DF29.97"/>
+					<xsd:enumeration value="SMPTE-NDF29.97"/>
+					<xsd:enumeration value="TIME"/>
+					<xsd:enumeration value="TCF"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="EXTENT" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>EXTENT: 可选，字符串属性，标明area元素所指向片断的时长。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="EXTTYPE" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>EXTTYPE: 扩展类型（Extent Type）
+可选属性，指明EXTENT属性值的语法，参见BETYPE的取值描述部分。
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="BYTE"/>
+					<xsd:enumeration value="SMIL"/>
+					<xsd:enumeration value="MIDI"/>
+					<xsd:enumeration value="SMPTE-25"/>
+					<xsd:enumeration value="SMPTE-24"/>
+					<xsd:enumeration value="SMPTE-DF30"/>
+					<xsd:enumeration value="SMPTE-NDF30"/>
+					<xsd:enumeration value="SMPTE-DF29.97"/>
+					<xsd:enumeration value="SMPTE-NDF29.97"/>
+					<xsd:enumeration value="TIME"/>
+					<xsd:enumeration value="TCF"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ADMID: 可选属性，为XMD ID值 的列表，指向本METS文档中与此AREA相关的所有管理型元数据节。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	    <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CONTENTIDS: 此division的ContentID（等同于DIDL DII）。
+				</xsd:documentation>
+			</xsd:annotation>
+	    </xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="structLinkType">
+		<xsd:annotation>
+			<xsd:documentation>structLink: 结构图链接（Structural Map Linking）。
+结构图链接节，描述了结构图所示的METS结构内不同组件之间的超链接规范。structLink只包含一个可重复元素smLink。每个structLink元素可表示结构图的两个节点之间存在一个超链接。smLink内的结构图节点用其XML ID属性值标识。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="smLink" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>smLink: 结构图链接(structural map Link)。
+本元素用于连接结构图中的两个元素，用于表示在这两个结构图节点所示的两个METS组件（component）之间存在着超链接。例如，你可以这样使用smlink——用它记录web页面之间的链接，当然前提是如果你希望在METS内记录这些链接的话。
+				</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute ref="xlink:arcrole" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>
+								 xlink:arcrole - 根据xlink规范，指link的角色。参见http://www.w3.org/TR/xlink/
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute ref="xlink:title" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>
+								xlink:title - 根据xlink规范，指link的标题（如果需要的话）。参见http://www.w3.org/TR/xlink/
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute ref="xlink:show" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>
+								xlink:show - 参见xlink规范，见http://www.w3.org/TR/xlink/
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute ref="xlink:actuate" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>
+								xlink:actuate - 参见xlink规范，见 http://www.w3.org/TR/xlink/
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute ref="xlink:to" use="required">
+						<xsd:annotation>
+							<xsd:documentation>
+								xlink:to - strucMap中链接目标元素的label值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute ref="xlink:from" use="required">
+						<xsd:annotation>
+							<xsd:documentation>
+								xlink:from - strucMap中链接发起元素的label值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="behaviorSecType">
+		<xsd:annotation>
+			<xsd:documentation>behaviorSecType: 行为节（Behaviors Section）
+行为（Behaviors）是可执行代码，可与METS对象的某部分相关联。behaviorSec元素用于把某种层次内的一个个行为划分成组。当行为需要按群族归类或者特定行为之间存在某种关系时，上述分组的方式就会发挥作用。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="behaviorSec" type="behaviorSecType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="behavior" type="behaviorType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CREATED: 可选，时间型属性，指明behaviorSec的创建时间。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>LABEL: 可选，字符串型属性，提供behaviorSec的文字描述。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="behaviorType">
+		<xsd:annotation>
+			<xsd:documentation>behaviorType: 行为复杂类型（Complex Type for Behaviors）。 
+behavior用来把可执行的行为与其METS对象内容进行关联。behavior元素有一个接口定义元素，它抽象定义了一系列行为，并用一个特定的行为（behavior）表示。behavior元素还有一个行为机制模块（behavior mechanism），它是可执行代码模块，可执行接口定义中已抽象定义的行为（behavior）。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="interfaceDef" type="objectType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>interfaceDef: 接口定义对象（interface definition object.） 
+接口定义元素包含指向一组相关行为（behaviors）的抽象定义的指针，这些抽象行为可以关联METS的内容。接口定义元素是指向另一对象（接口定义对象）的指针。接口定义对象可以是另一个METS对象或其他实体（如，WSDL文件）。理想情况下，接口定义对象应该包含描述一组行为（behavior）或方法（method）的元数据，也可以包含描述行为（behavior）用途的文件，可能还有该接口定义用其它方式表述的文件。interfaceDef元素是可选的，因为有时接口定义可以从behavior的mechamism元素中得到（参见behaviorSec的mechanism元素）。			
+			</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mechanism" type="objectType">
+				<xsd:annotation>
+					<xsd:documentation>mechanism: 可执行机制（executable mechanism.） 
+mechanism元素包含一个指针，此指针指向接口定义中行为的实现代码模块。mechanism元素可能是指向另一对象（mechanism对象）的指针。mechanism对象可以是另一个METS对象或其它实体（如，WSDL文件）。mechanism对象应该包括可执行代码，可执行代码指针，或网络服务（如，web服务）。
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="required">
+			<xsd:annotation>
+				<xsd:documentation>ID: 必备，元素的XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="STRUCTID" type="xsd:IDREFS" use="required">
+			<xsd:annotation>
+				<xsd:documentation>STRUCTID: 结构图标识符列表（Structural Map IDS）
+是指向METS文档structMap中的某些节（sections）或部分（divs）的IDREF列表。 STRUCTID属性所指向的内容，被作为可执行行为（在behavior中定义）的“输入”。 
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="BTYPE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>BTYPE: 行为类型（Behavior Type）
+可选，字符串属性，提供指定的一系列相关行为的标识符。
+ 					</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CREATED: 可选，时间型属性，指明behavior的创建日期。 
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>LABEL: 可选，字符串属性，提供behavior的描述。 
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="GROUPID" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>GROUPID: 可选，字符串属性，提供一个标识符，用来建立behavior之间的联系。典型情形如表示behavior的版本情况。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ADMID: 可选属性，列出METS文档中关于该behavior的所有管理型元数据的XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="objectType">
+		<xsd:attribute name="ID" type="xsd:ID" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ID: 可选，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>LABEL: 可选，字符串属性，提供被链接的对象的描述。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attributeGroup ref="LOCATION"/>
+		<xsd:attributeGroup ref="xlink:simpleLink"/>
+	</xsd:complexType>
+	<xsd:complexType name="mdSecType">
+		<xsd:annotation>
+			<xsd:documentation>元数据节复杂类型 （mdSec Complex Type）
+METS文档里指向/包含元数据的通用框架（以 Warwick 框架的方式）。
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:all>
+			<xsd:element name="mdRef" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>mdRef: 元数据引用（metadata reference.） 
+mdRef是METS schema的通用元素，用来提供指向METS文档之外的某元数据的指针。注意：mdRef是空元素。元数据的位置必须记录在xlink：href属性中，如需要则辅以XPTR属性。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attributeGroup ref="LOCATION"/>
+					<xsd:attributeGroup ref="xlink:simpleLink"/>
+					<xsd:attributeGroup ref="METADATA"/>
+					<xsd:attribute name="MIMETYPE" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>MIMETYPE: 可选，字符串属性，提供被指向元数据的MIME类型。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>LABEL: 可选，字符串属性，为METS文档浏览者提供此元数据的标签。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="XPTR" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>XPTR: 可选，字符串属性，提供mdRef元素所指向的文件的某内部位置的xptr指针。必要时使用。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mdWrap" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>mdWrap: 元数据包装器（metadata wrapper）。 
+mdWrap元素是贯穿METS schema的通用元素，以便在METS文档内允许编码器内置任何符合其它标准或schema的元数据。内置的元数据既可以用XML编码直接放在mdWrap元素内，也可以用Base64编码后放在子元素binData内。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:choice>
+						<xsd:element name="binData" type="xsd:base64Binary" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>binData:用以包容BASE64编码的元数据的包装器。												</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="xmlData" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>xmlData:用以包容XML编码的元数据的包装器。												</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:any namespace="##any" maxOccurs="unbounded" processContents="lax"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:choice>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="MIMETYPE" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>MIMETYPE: 可选，字符串属性，提供本元素包含的元数据的MIME类型。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attributeGroup ref="METADATA"/>
+					<xsd:attribute name="LABEL" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>LABEL: 可选，字符串属性，为METS文档浏览者提供此元数据的标签。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:all>
+		<xsd:attribute name="ID" type="xsd:ID" use="required">
+			<xsd:annotation>
+				<xsd:documentation>ID: 必备，XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="GROUPID" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>GROUPID: 可选字符串属性，为组的标识符，用于表示不同的元数据节同属一个组。两个GROUPID值相同的元数据节同属一组。比如，把同一个元数据的不同版本划为一组，即可将元数据的早期版本记录在文件中，从而跟踪其变化情况。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ADMID: 可选属性，记录该描述型元数据（或管理型元数据）的管理型元数据的XML ID值。典型用法是指向该元数据的保存元数据。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CREATED: 可选，时间型属性，指明创建该元数据的日期和时间。 
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="STATUS" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>STATUS: 可选，字符串属性，指明该元数据的状态（如过期、正在使用等）。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="fileType">
+		<xsd:annotation>
+			<xsd:documentation>file: 文件元素（File element）。
+file元素为METS对象存取内容文件。一个文件元素可能包含一个或多个FLocat元素（内容文件指针）和/或一个FContent元素（该文件的编码版本）。注意：同一个文件所有的FLocat和FContent元素应该标识/包含那个文件的同一个拷贝。
+			</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:sequence>
+			<xsd:element name="FLocat" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>FLocat: 文件位置（File Location）。 
+FLocat元素提供提向内容文件某位置的指针。它使用XLink语法，提供指向内容文件实际位置的链接信息，同时还有一些附加属性，附加说明链接信息。注意：FLocat是空元素，资源指向的位置必须存放在XLINK：HREF元素中。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attributeGroup ref="LOCATION"/>
+					<xsd:attribute name="USE" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>USE: 可选字符串，指明该引用文件的用途。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attributeGroup ref="xlink:simpleLink"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>FContent: 文件内容（file content）。 
+FContent元素能把内容文件（a content file）放在METS文件内部。内容文件必须是BASE64编码（用binData包装器子元素）或者XML形式的（用xmlData包装器子元素）。
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:choice>
+						<xsd:element name="binData" type="xsd:base64Binary" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>binData: 用以包容BASE64编码的元数据的包装器。
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="xmlData" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>xmlData: 用以包容XML编码的元数据的包装器。
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:any namespace="##any" maxOccurs="unbounded" processContents="lax"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:choice>
+					<xsd:attribute name="ID" type="xsd:ID" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>ID: 可选，XML ID值。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="USE" type="xsd:string" use="optional">
+						<xsd:annotation>
+							<xsd:documentation>USE: 可选字符串，指明内嵌文件的用途，比如图象文件的用途可能是“主文件”，“参考文件”或“缩略图”。
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>			
+			<xsd:element name="stream" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>stream: 字节流（component byte stream）。
+一个文件可以由一个或多个子字节流组成。比如，一个MPEG4文件，可能包含独立的音频字节流和视频字节流，而每一个字节流都有与其关联的技术元数据。
+</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:restriction base="xsd:anyType">
+							<xsd:attribute name="ID" type="xsd:ID" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>ID: 可选，XML ID值。
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="streamType" type="xsd:string" use="optional"></xsd:attribute>
+							<xsd:attribute name="OWNERID" type="xsd:string" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>OWNERID: 可选,字符串属性，可用来提供文件的唯一标识符（包括URI在内），但可以与检索用的URI相异。
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>ADMID: 可选属性，为XML ID属性值列表，对应于该文件在METS文档中的管理型元数据。
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="DMDID" type="xsd:IDREFS" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>DMDID: 可选属性，为XML ID属性值列表，对应于该文件在METS文档中的描述型元数据。
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>							
+						</xsd:restriction>
+					</xsd:complexContent>
+				</xsd:complexType>				
+			</xsd:element>
+			<xsd:element name="transformFile" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation></xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:restriction base="xsd:anyType">
+							<xsd:attribute name="ID" type="xsd:ID" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>ID: 可选，XML ID值。
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="TRANSFORMTYPE" use="required">
+								<xsd:annotation>
+									<xsd:documentation>TRANSFORMTYPE: 文件转换的类型（该文件转换使文件易用，包括解压文件为多个文件/字节流）。 </xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="decompression"></xsd:enumeration>
+										<xsd:enumeration value="decryption"></xsd:enumeration>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute name="TRANSFORMALGORITHM" type="xsd:string" use="required">
+								<xsd:annotation>
+									<xsd:documentation>TRANSFORMALGORITHM: 字符串，描述对该文件解压或解密的例程。</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="TRANSFORMKEY" type="xsd:string" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>TRANSFORMKEY: 对文件内容进行转换的算法中使用的键。</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="TRANSFORMBEHAVIOR" type="xsd:IDREF" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>TRANSFORMBEHAVIOR: 指向该转换的behavior元素的IDREF。</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="TRANSFORMORDER" type="xsd:positiveInteger" use="required"></xsd:attribute>
+						</xsd:restriction>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="file" type="fileType" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="required">
+			<xsd:annotation>
+				<xsd:documentation>ID: XML ID值。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="MIMETYPE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>MIMETYPE: 可选字符串属性，提供文件的MIME类型。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="SEQ" type="xsd:int" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>SEQ: 可选，整型，指明本文件在其文件组中的序号。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="SIZE" type="xsd:long" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>SIZE: 可选，长整型，指明文件的长度（字节数）。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CREATED: 可选，时间型，指明文件的创建时间。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CHECKSUM" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CHECKSUM: 可选，字符串属性，提供内含文件的校验码。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CHECKSUMTYPE" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>CHECKSUMTYPE: 可选属性，指明产生CHECHSNM校验值的校验算法。CHECHTYPE必为下述值之一：
+HAVAL
+MD5
+SHA-1
+SHA-256
+SHA-384
+SHA-512
+TIGER
+WHIRLPOOL
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="HAVAL"/>
+					<xsd:enumeration value="MD5"/>
+					<xsd:enumeration value="SHA-1"/>
+					<xsd:enumeration value="SHA-256"/>
+					<xsd:enumeration value="SHA-384"/>
+					<xsd:enumeration value="SHA-512"/>
+					<xsd:enumeration value="TIGER"/>
+					<xsd:enumeration value="WHIRLPOOL"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="OWNERID" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>OWNERID: 可选，字符串属性，为文件提供唯一标识符（包括URI），可以与用于检索该文件的URI不相同。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>ADMID: 可选属性，是本METS文档中与该文件相关的管理型元数据的XML ID值的列表。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="DMDID" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>DMDID: 是本METS文档中与该文件相关的描述型元数据的XML ID值的列表。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="GROUPID" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>GROUPID: 可选，字符串属性。是一个标识符，用于在本文件与其他文件组中的文件建立联系。比如，某文件组的主图像文件和第二个文件组中的引用副本文件，并和第三个文件组中的缩略图文件可以具有同一个GROUPID。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="USE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>USE: 可选，字符串属性，指明该文件的用途（如图像文件的“主文件”，“引用”，“缩略图”等）
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+	</xsd:complexType>
+	<xsd:simpleType name="URIs">
+	    <xsd:list itemType="xsd:anyURI"/>
+    </xsd:simpleType>
+	<xsd:attributeGroup name="METADATA">
+		<xsd:attribute name="MDTYPE" use="required">
+			<xsd:annotation>
+				<xsd:documentation>MDTYPE: 必备属性，指明所指的元数据类型（如MARC，EAD等），它必须是下值之一：
+MARC: 任何形式的MARC记录
+MODS:美国国会图书馆的MODS元数据格式
+EAD: Encoded Archival Description(编码档案描述) finding aid
+DC: 都柏林核(Dublin Core)
+NISOIMG: NISO数字静止图象的技术元数据(NISO Technical Metadata for Digital Still Images)
+LC-AV: 美国国会图书馆“A/V原形系统”中定义的技术元数据
+VRA: 可视资源协会核(Visual Resources Association Core)
+TEIHDR:TEI头( Text Encoding Initiative Header)
+DDI: Data Documentation Initiative
+FGDC: 联邦地理数据委员会元数据(Federal Geographic Data Committee metadata)
+OTHER: 以上未涉及的元数据。
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="MARC"/>
+					<xsd:enumeration value="MODS"/>
+					<xsd:enumeration value="EAD"/>
+					<xsd:enumeration value="DC"/>
+					<xsd:enumeration value="NISOIMG"/>
+					<xsd:enumeration value="LC-AV"/>
+					<xsd:enumeration value="VRA"/>
+					<xsd:enumeration value="TEIHDR"/>
+					<xsd:enumeration value="DDI"/>
+					<xsd:enumeration value="FGDC"/>
+				    <xsd:enumeration value="LOM"/>
+					<xsd:enumeration value="PREMIS"/>
+					<xsd:enumeration value="OTHER"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="OTHERMDTYPE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>OTHERMDTYPE: 其它元数据类型（Other Metadata Type）
+可选字符串，记录此元素引用的特殊的元数据格式，当MDTYPE取值为“OTHER”时使用。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="LOCATION">
+		<xsd:attribute name="LOCTYPE" use="required">
+			<xsd:annotation>
+				<xsd:documentation>LOCTYPE: 定位器类型（Location Type）
+定位器的类型，指向某文件，必为下值之一：
+URN: 统一资源名称（Uniform Resource Name）
+URL: 统一资源定位器（Uniform Resource Locator）
+PURL: 永久URL（Persistent URL）
+HANDLE: 一个CNRI句柄 （CNRI Handle）
+DOI: DOI标识符（数字对象标识符，A Digital Object Identifier）
+OTHER: 上述不包括的其它类型指示器。
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="ARK"/>
+					<xsd:enumeration value="URN"/>
+					<xsd:enumeration value="URL"/>
+					<xsd:enumeration value="PURL"/>
+					<xsd:enumeration value="HANDLE"/>
+					<xsd:enumeration value="DOI"/>
+					<xsd:enumeration value="OTHER"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="OTHERLOCTYPE" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>OTHERLOCTYPE: 可选，字符串属性，当LOCTYPE取值“OTHER”时，用于指明LOCTYPE的类型。
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+</xsd:schema>

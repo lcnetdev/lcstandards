@@ -1,0 +1,42 @@
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink">
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/collection</URI>
+  <title>Library of Congress METS Profile for Collections [Draft]</title>
+  <abstract>The Library of Congress METS Profile for collections specifies how a METS document representing a collection of digital library objects (which are in turn represented as METS instances) should be encoded for inclusion in a Library of Congress digital library project. This profile is useful for aggregating any arbitrary group of documents into a digital library collection. The profile uses an "explicit" method of aggregation (rather than "implicit" or "rule-based" method) in that it provides an explicit list of the items to be included in the collection.</abstract>
+  <date>2004-09-08T17:31:00</date>
+  <contact>
+    <name>Morgan Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri">
+  </registration_info>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+</extension_schema>
+  <description_rules></description_rules>
+  <controlled_vocabularies></controlled_vocabularies>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute. This MODS record provided a collection-level description to a group of documents.</p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex0X">
+	<p>The physical structure of the collection will be represented in the Structure Map (structMap) section of the METS instance. The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="coll:collectionObject" child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.</p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex0X">
+	<p></p>
+      </requirement>
+      <requirement ID="st03" RELATEDMAT="ex0X">
+	<p></p>
+      </requirement>
+    </structMap>
+
+  </structural_requirements>
+  <technical_requirements></technical_requirements>
+  <tool></tool>
+  <Appendix ID="a1" NUMBER="1" LABEL="appendix1"></Appendix>
+</METS_Profile>

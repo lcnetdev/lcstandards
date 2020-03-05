@@ -1,0 +1,623 @@
+<?xml version="1.0"?>
+<!-- Draft METS Profile for Historical Newspapers, Feb 6, 2006, version 0.001 -->
+<!-- Editor, Morgan Cundiff, Network Development and MARC Standards Office, Library of Congress -->
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/METS_Profile/"
+
+
+xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd 
+		    http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2a.xsd
+		    http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd"
+>
+
+
+
+
+  <URI LOCTYPE="URL">http://www.loc.gov/standards/mets/profiles/LC_profiles/newspaper/00000010.xml</URI>
+  <!-- uri once endorsed by METS Board
+  <URI LOCTYPE="URL">http://www.loc.gov/standards/mets/profiles/00000010.xml</URI>
+  -->
+
+
+  <title>METS Profile for Historical Newspapers [Draft]</title>
+  <abstract>The METS Profile for Historical Newspapers specifies how METS documents representing digitized historical newpapers should be encoded. Note that the profile is to be used to represent a single issue of a newspaper.</abstract>
+  <date>2006-02-06T17:31:00</date>
+  <contact>
+    <name>Morgan V. Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri"/>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+  </extension_schema>
+  <extension_schema>
+    <name>Premis</name>
+    <URI>http://www.loc.gov/standards/premis</URI>
+  </extension_schema>
+  <description_rules>
+    <p>It is recommended that the content data used in the MODS section of a METS document conform to AACR2 to the extent that it applies.</p>
+  </description_rules>
+  <controlled_vocabularies>
+    <vocabulary>
+      <name>Library of Congress Subject Headings</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>No URI established.</URI>
+      <context>
+	<p>Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress Subject Headings (LCSH).</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Library of Congress Classification</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/catdir/cpso/lcc.html</URI>
+    </vocabulary>
+    <vocabulary>
+      <name>NACO Authority File</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://authorities.loc.gov/</URI>
+      <context>
+	<p>Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority File.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Country Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/countries/</URI>
+      <context>
+	<p>Country codes used in the MODS section of a METS document must use MARC country code list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>ISO 639-2 Language Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/standards/iso639-2/</URI>
+      <context>
+	<p>Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Relator Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/relators/</URI>
+      <context>
+	<p>Relator codes or terms used in the MODS section of a METS document must use MARC relator list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Target Audience Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/sourcecode/target/</URI>
+      <context>
+	<p>Terms used in the MODS section of a METS document must use the MARC target audience list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Code List for Organizations</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/organizations/</URI>
+      <context>
+	<p>Source codes used in the MODS section of a METS document must use MARC organization list.</p>
+      </context>
+    </vocabulary>
+  </controlled_vocabularies>
+
+
+  <!-- structural requirements -->
+  <structural_requirements>
+
+    <!-- METS root element -->
+    <metsRootElement>
+      <requirement ID="rt01" RELATEDMAT="rt_ex01">
+	<p>The METS root element must have an attribute PROFILE="http://www.loc.gov/mets/profiles/00000010.xml". </p>
+      </requirement>
+    </metsRootElement>
+
+
+    <!-- METS metsHdr element -->
+    <metsHdr>
+      <requirement ID="hd01" RELATEDMAT="hd_ex01">
+	<p>A METS document must contain a METS Header (metsHdr) element that specifies the creation date of the METS document, the date of last modification if applicable, the agent responsible for the creation of the document (whether an individual, an organization, or a piece of software), and the name of the agent.</p>
+      </requirement>
+    </metsHdr>
+    
+
+    <!-- descriptive metadata requirements -->
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="dmd_ex01">
+	<p>A document must contain three Descriptive Metadata Sections (dmdSec). Each dmdSec element must have an ID attribute. The first dmdSec element will contain a reference (mdref) to a bibliographic record in an external system for the printed version of the newspaper. An mdRef element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="dmd_ex02">
+	<p>The second dmdSec element will contain a reference (mdref) to a bibliographic record in an external system for the digital version of the newspaper.</p>
+      </requirement>
+
+      <requirement ID="dr03" RELATEDMAT="dmd_ex03">
+	<p>The third dmdSec contains a wrapped (mdWrap) MODS record for the digitized issue of the newspaper. The MODS record must contain the title, issue date, genre (with value "newspaper") and language. The mods element must have an ID attribute.</p>
+      </requirement>
+
+      <requirement ID="dr04" RELATEDMAT="dmd_ex04">
+	<p>The MODS record may optionally describe the logical entities contained in a given issue of a newspaper. Logical entities include the following: issue section (issueSection), article, article section (articleSection), photograph, illustration, and advertisement. The logical entities are defined in Newspaper Genre Terms. [under construction]</p>
+	<p>Each logical entity will be described in the MODS record as a Related Item (relatedItem type="constituent"). Each relatedItem type="constituent" element must have an ID attribute. Each relatedItem type="constituent" element must have a genre child element with appropriate value (e.g. "article").</p>
+      </requirement>
+
+      <requirement ID="dr05" RELATEDMAT="dmd_ex05">
+	<p>Each logical entity (i.e. each relatedItem type="constituent" element) may in turn contain structural subparts. These subparts include: paragraph.  These subparts are expressed as part elements with type attribute of value "subPartType". The subpart types are also defined in Newspaper Genre Terms. [under construction]. In the following example, the relatedItem element (for an article) contains part child elements for each paragraphs in the article. Each part element must have an ID attribute.</p>
+      </requirement>
+      
+    </dmdSec>
+
+    <!-- administrative metadata requirements -->
+    <amdSec>
+      <requirement ID="am01" RELATEDMAT="amd_ex01">
+	<p>[Example of how to use PREMIS needs work]. A METS document may optionally contain preservation-related metadata that is expressed using the PREMIS schemas. PREMIS data can be associated with either the entire object (i.e. data that is applicable to all component files), which is, in PREMIS terms, considered to be at the level of the object category "representation", or PREMIS data may associated with individual files. The following brief example shows a possible encoding for the date of a preservation "event" (i.e. the date of digitization) for an audio file. Note that (as of this writing) PREMIS is still very new, and that best practices for its use with METS have not yet emerged.</p>
+      </requirement>
+    </amdSec>
+
+    <!-- file section requirements -->
+    <fileSec>
+      <requirement ID="fs01">
+	<head>File Section</head>
+	<p>The content files referenced by the fptr elements (in the structMap) must point to the appropriate files in the File Section (fileSec). The profile makes no further requirements regarding the fileSec element. The example document in Appendix 1 provides an example of Library of Congress practice.</p>
+      </requirement>
+    </fileSec>
+
+    <!-- structMap requirements -->
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="st_ex01">
+	<p>The physical structure of the newspaper will be represented in the Structure Map (structMap) section of the METS document. The document must have one and only one structMap. There are three physical entities that are expressed in the structMap. They are: issue, page, and page region (pageRegion). These entities are expressed as a heirarchy of typed Division (div) elements (div TYPE="ndnp:issue", div TYPE="ndnp:page", and div TYPE="ndnp:pageRegion".</p>
+	<p>The structMap element must contain one and only one div TYPE="ndnp:issue" child element. The div TYPE="ndnp:issue" element must have a DMDID attribute that points to the mods element for the issue. The div TYPE="ndnp:issue" element will contain one div TYPE="ndnp:page" child element for each page in the newspaper issue. The following example shows an issue that consists of four pages. Note that the div TYPE="ndnp:page" elements do require a DMDID attribute as the physical entity "page" does not directly correspond to a logical entity in the bibliographic description.</p>
+      </requirement>
+
+      <requirement ID="st02" RELATEDMAT="st_ex02">
+	<p>Each div TYPE="ndnp:page" element may contain a child div element for each form of digitized content that represents the page. The three possibilities are: an image of the page (mets:div TYPE="ndnp:image"), an alto file (mets:div TYPE="ndnp:alto") for the page, or a text version of the page (mets:div TYPE="ndnp:text"). The following example shows two pages, each with a corresonding image file and alto file. Note that the mets:div TYPE="ndnp:image" elements and the mets:div TYPE="ndnp:alto" elements each contain File Pointer (fptr) elements that point to the corresponding file elements in the File Section (fileSec).</p>
+      </requirement>
+
+      <requirement ID="st03" RELATEDMAT="st_ex03">
+	<p>A div TYPE="ndnp:page" element may contain one or more div TYPE="ndnp:pageRegion elements. A "pageRegion" is a portion of a page file that corresponds to a particular logical entity (e.g. a newspaper article). In the example below the issue has two pages with three articles. Each div TYPE="ndnp:pageRegion element must contain a mets:div TYPE="ndnp:alto" child element with an fptr element. The fptr element must contain an area child element with FILEID and BEGIN attributes that point to the corresponding alto file and the ID attribute within the alto file that identifies the pageRegion.</p>
+      </requirement> 
+
+      <requirement ID="st04" RELATEDMAT="st_ex04">
+	<p>It is possible, using div TYPE="ndnp:pageRegion elements to provide any level of access to the contents of a particular newpapaer page. The previous example provides what might be called "article level" access. The following example provides what might be called "article and paragraph level access". </p>
+      </requirement>
+
+
+    </structMap>
+  </structural_requirements>
+
+  <technical_requirements>
+    <content_files>
+      <requirement>
+	<head>Still Image Files</head>
+	<p>The master image files referenced by conforming documents must be in TIFF Revision 6.0 format. See Digital Formats for Library of Congress Collections: TIFF, Revision 6.0 at http://www.digitalpreservation.gov/formats/fdd/fdd000022.shtml.</p>
+      </requirement>
+      <requirement>
+	<head>Text Files</head>
+	<p>Master text files referenced by conforming documents must be in XML format. See Digital Formats for Library of Congress Collections: XML (Extensible Markup Language) at http://www.digitalpreservation.gov/formats/fdd/fdd000075.shtml.</p>
+      </requirement>
+    </content_files>
+  </technical_requirements>
+
+  <tool></tool>
+
+  <!-- complete example document -->
+  <Appendix ID="a1" NUMBER="0">
+    <mets:mets>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <!-- METS root element -->
+  <Appendix ID="rt_ex01" NUMBER="1">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <!-- METS metsHdr element -->
+  <Appendix ID="hd_ex01" NUMBER="2">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:metsHdr CREATEDATE="2005-01-12T17:31:00" LASTMODDATE="2006-01-12T17:31:00">
+	<mets:agent ROLE="CREATOR" TYPE="INDIVIDUAL">
+	  <mets:name>Morgan Cundiff</mets:name>
+	</mets:agent>
+      </mets:metsHdr>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+
+
+  <!-- METS  dmdSection element -->
+  <Appendix ID="dmd_ex01" NUMBER="3">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd01">
+	<mets:mdRef xlink:href="path/to/record" LOCTYPE="URL" MDTYPE="MODS" ID="mods_print"/>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="dmd_ex02" NUMBER="4">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03">
+	<mets:mdRef xlink:href="path/to/record" LOCTYPE="URL" MDTYPE="MODS" ID="mods_digital"/>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="dmd_ex03" NUMBER="5">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03a">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="DMD_issue_ex05">
+	      <mods:titleInfo>
+		<mods:title>Montags Zeitung</mods:title>
+	      </mods:titleInfo>
+	      <mods:genre>newspaper</mods:genre>
+	      <mods:originInfo>
+		<mods:dateIssued encoding="w3cdtf">11/05/1908</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	      </mods:language>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <!-- relatedItem (for article) -->
+  <Appendix ID="dmd_ex04" NUMBER="6">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03b">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="DMD_issue_ex06">
+	      <mods:titleInfo>
+		<mods:title>Montags Zeitung</mods:title>
+	      </mods:titleInfo>
+	      <mods:genre>newspaper</mods:genre>
+	      <mods:originInfo>
+		<mods:dateIssued encoding="w3cdtf">11/05/1908</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	      </mods:language>
+	      <mods:relatedItem ID="DMD_article01_ex06" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Wien, 10. mai.</mods:title>
+		</mods:titleInfo>
+		<mods:genre>article</mods:genre>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <!-- parts -->
+  <Appendix ID="dmd_ex05" NUMBER="7">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03c">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="DMD_issue_ex07">
+	      <mods:titleInfo>
+		<mods:title>Montags Zeitung</mods:title>
+	      </mods:titleInfo>
+	      <mods:genre>newspaper</mods:genre>
+	      <mods:originInfo>
+		<mods:dateIssued encoding="w3cdtf">11/05/1908</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	      </mods:language>
+	      <mods:relatedItem ID="DMD_article01_ex07" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Wien, 10. mai.</mods:title>
+		</mods:titleInfo>
+		<mods:genre>article</mods:genre>
+		<mods:part ID="DMD_article01_para01_ex07" type="paragraph">
+		  <mods:text/>
+		</mods:part>
+		<mods:part ID="DMD_article01_para02_ex07" type="paragraph">
+		  <mods:text/>
+		</mods:part>
+		<mods:part ID="DMD_article01_para03_ex07" type="paragraph">
+		  <mods:text/>
+		</mods:part>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+
+  <!-- METS  amdSection element -->
+  <Appendix ID="amd_ex01" NUMBER="8">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <!-- METS structMap element  ex01 -->
+  <Appendix ID="st_ex01" NUMBER="9">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03d">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="DMD_issue_ex09">
+	      <mods:titleInfo>
+		<mods:title>Montags Zeitung</mods:title>
+	      </mods:titleInfo>
+	      <mods:genre>newspaper</mods:genre>
+	      <mods:originInfo>
+		<mods:dateIssued encoding="w3cdtf">11/05/1908</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	      </mods:language>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div TYPE="ndnp:issue" DMDID="DMD_issue_ex09">
+	  <mets:div TYPE="ndnp:page">
+	  </mets:div>
+	  <mets:div TYPE="ndnp:page">
+	  </mets:div>
+	  <mets:div TYPE="ndnp:page">
+	  </mets:div>
+	  <mets:div TYPE="ndnp:page">
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <!-- METS structMap element  ex02 page to image/alto files -->
+  <Appendix ID="st_ex02" NUMBER="10">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03e">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="DMD_issue_ex10">
+	      <mods:titleInfo>
+		<mods:title>Montags Zeitung</mods:title>
+	      </mods:titleInfo>
+	      <mods:genre>newspaper</mods:genre>
+	      <mods:originInfo>
+		<mods:dateIssued encoding="w3cdtf">11/05/1908</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	      </mods:language>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:fileSec>
+	<mets:fileGrp>
+	  <mets:file ID="IMG00001_ex10" MIMETYPE="image/tif">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-img/issue0001_0001.tif"/>
+	  </mets:file>
+	  <mets:file ID="IMG00002_ex10" MIMETYPE="image/tif">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-img/issue0001_0002.tif"/>
+	  </mets:file>
+	</mets:fileGrp>
+
+	<mets:fileGrp>
+	  <mets:file ID="ALT00001_ex10" MIMETYPE="text/xml">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-alto/issue0001-alto00001.xml"/>
+	  </mets:file>
+	  <mets:file ID="ALT00002_ex10" MIMETYPE="text/xml">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-alto/issue0001-alto00002.xml"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+
+      <mets:structMap>
+	<mets:div TYPE="ndnp:issue" DMDID="DMD_issue_ex10">
+	  <mets:div TYPE="ndnp:page">
+	    <mets:div TYPE="ndnp:image">
+	      <mets:fptr FILEID="IMG00001_ex10"/>
+	    </mets:div>
+	    <mets:div TYPE="ndnp:alto">
+	      <mets:fptr FILEID="ALT00001_ex10"/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="ndnp:page">
+	    <mets:div TYPE="ndnp:image">
+	      <mets:fptr FILEID="IMG00002_ex10"/>
+	    </mets:div>
+	    <mets:div TYPE="ndnp:alto">
+	      <mets:fptr FILEID="ALT00002_ex10"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+
+
+  <!-- METS structMap element  ex03 (ndnp:pageRegion to logical entities -->
+  <Appendix ID="st_ex03" NUMBER="11">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03f">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="DMD_issue_ex11">
+	      <mods:titleInfo>
+		<mods:title>Montags Zeitung</mods:title>
+	      </mods:titleInfo>
+	      <mods:genre>newspaper</mods:genre>
+	      <mods:originInfo>
+		<mods:dateIssued encoding="w3cdtf">11/05/1908</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	      </mods:language>
+	      <mods:relatedItem ID="DMD_article01_ex11" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Wien, 10. mai.</mods:title>
+		</mods:titleInfo>
+		<mods:genre>article</mods:genre>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="DMD_article02_ex11" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Neueste nachrichten</mods:title>
+		</mods:titleInfo>
+		<mods:genre>article</mods:genre>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="DMD_article03_ex11" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Neueste nachrichten</mods:title>
+		</mods:titleInfo>
+		<mods:genre>article</mods:genre>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:fileSec>
+	<mets:fileGrp>
+	  <mets:file ID="IMG00001_ex11" MIMETYPE="image/tif">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-img/issue0001_0001.tif"/>
+	  </mets:file>
+	  <mets:file ID="IMG00002_ex11" MIMETYPE="image/tif">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-img/issue0001_0002.tif"/>
+	  </mets:file>
+	</mets:fileGrp>
+
+	<mets:fileGrp>
+	  <mets:file ID="ALT00001_ex11" MIMETYPE="text/xml">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-alto/issue0001-alto00001.xml"/>
+	  </mets:file>
+	  <mets:file ID="ALT00002_ex11" MIMETYPE="text/xml">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="file://./issue0001-alto/issue0001-alto00002.xml"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+
+      <mets:structMap>
+	<mets:div TYPE="ndnp:issue" DMDID="DMD_article01_ex11">
+	  <mets:div TYPE="ndnp:page">
+	    <!-- article 1 title: "Wein, 10. Mai."  -->
+	    <mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article01_ex11">
+	      <mets:div TYPE="ndnp:alto">
+		<mets:fptr>
+		  <mets:area FILEID="ALT00001_ex11" BEGIN="P1_TB00005"/>
+		</mets:fptr>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="ndnp:page">
+	    <!-- article 2 title: "Neueste Nachrichten."  -->
+	    <mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article02_ex11">
+	      <mets:div TYPE="ndnp:alto">
+		<mets:fptr>
+		  <mets:area FILEID="ALT00002_ex11" BEGIN="P2_TB00018"/>
+		</mets:fptr>
+	      </mets:div>
+	    </mets:div>
+	    <!-- article 3 title: "Notizen."  -->
+	    <mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article03_ex11">
+	      <mets:div TYPE="ndnp:alto">
+		<mets:fptr>
+		  <mets:area FILEID="ALT00002_ex11" BEGIN="P2_TB00024"/>
+		</mets:fptr>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <!-- METS structMap element  ex04 (ndnp:pageRegion to article -->
+  <Appendix ID="st_ex04" NUMBER="12">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000010.xml">
+      <mets:dmdSec ID="dmd03g">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="DMD_issue_ex12">
+	      <mods:titleInfo>
+		<mods:title>Montags Zeitung</mods:title>
+	      </mods:titleInfo>
+	      <mods:genre>newspaper</mods:genre>
+	      <mods:originInfo>
+		<mods:dateIssued encoding="w3cdtf">11/05/1908</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm type="code" authority="rfc3066">de</mods:languageTerm>
+	      </mods:language>
+	      <mods:relatedItem ID="DMD_article01_ex12" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Wien, 10. mai.</mods:title>
+		</mods:titleInfo>
+		<mods:genre>article</mods:genre>
+		<mods:part ID="DMD_article01_para01_ex12" type="paragraph">
+		  <mods:text/>
+		</mods:part>
+		<mods:part ID="DMD_article01_para02_ex12" type="paragraph">
+		  <mods:text/>
+		</mods:part>
+		<mods:part ID="DMD_article01_para03_ex12" type="paragraph">
+		  <mods:text/>
+		</mods:part>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div TYPE="ndnp:issue" DMDID="DMD_issue_ex12">
+	  <mets:div TYPE="ndnp:page">
+	    <mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article01_ex12">
+	    </mets:div>
+	    <mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article01_para01_ex12">
+	    </mets:div>
+	    <mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article01_para01_ex12">
+	    </mets:div>
+	    <mets:div TYPE="ndnp:pageRegion" DMDID="DMD_article01_para01_ex12">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+</METS_Profile>

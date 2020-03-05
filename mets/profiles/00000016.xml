@@ -1,0 +1,2115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="echoProfile2html.xsl" ?>
+<!-- 
+    ********************************************************************************
+    $Header: /ECHODEP/METS/WebMETSProfile.xml 4     11/28/06 1:28p Thabing $
+    
+    Authors/Contributors/Reviewers:
+    Janet Eke (UIUC)
+    Jay Goodkin (OCLC)
+    Jerome McDonough (UIUC)
+    Leah Houser (OCLC)
+    Morgan Cundiff (LOC)
+    Rebecca Guenther (LOC)
+    Richard Urban (UIUC)
+    Shifra Raffel (UCOP)
+    Shweta Rani (OCLC)
+    Tom Habing (UIUC)
+    Tracy Seneca (UCOP)
+    
+    **********************************************************************************
+-->
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+    <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000016.xml</URI>
+    <title> ECHO Dep METS Profile for Web Site Captures</title>
+    <abstract> The primary focus of this profile is to enable transfer and digital preservation of
+        Web capture content between repositories. This profile inherits much of its content from the
+        "ECHO Dep Generic METS Profile for Preservation and Digital Repository Interoperability."
+        Unless otherwise noted below this profile must conform to the same rules as the parent
+        profile. </abstract>
+    <date>2006-10-18T00:00:00Z</date>
+    <contact>
+        <name>Thomas G. Habing</name>
+        <institution> University of Illinois at Urbana-Champaign, Grainger Engineering Library
+            Information Center </institution>
+        <address>1301 W. Springfield Ave., Urbana, IL, 61801</address>
+        <phone>(217) 244-4425</phone>
+        <email>thabing@uiuc.edu</email>
+    </contact>
+    <related_profile RELATIONSHIP="Inherits from" URI="BaseMETSProfile.xml"> ECHO Dep Generic METS
+        Profile for Preservation and Digital Repository Interoperability</related_profile>
+    <extension_schema>
+        <note>METS documents which conform to this profile may use all of the same extension schema
+            as the "ECHO Dep Generic METS Profile for Preservation and Digital Repository
+            Interoperability" parent profile.</note>
+    </extension_schema>
+    <description_rules>
+        <head>Inherited Description Rules</head>
+        <p>METS documents which conform to this profile must follow all of the same description
+            rules as the "ECHO Dep Generic METS Profile for Preservation and Digital Repository
+            Interoperability" parent profile.</p>
+    </description_rules>
+    <controlled_vocabularies>
+        <vocabulary>
+            <name>Inherited Controlled Vocabularies</name>
+            <description>
+                <p>METS documents which conform to this profile may use all of the same controlled
+                    vocabularies as the "ECHO Dep Generic METS Profile for Preservation and Digital
+                    Repository Interoperability" parent profile.</p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Web Capture Divisions</name>
+            <values>
+                <value>WEB_CAPTURE</value>
+                <value>WEB_RESOURCE</value>
+                <value>DEPENDENT_WEB_RESOURCE</value>
+            </values>
+            <context>
+                <p>Used with the TYPE attribute of div elements for web captures.</p>
+            </context>
+        </vocabulary>
+    	<vocabulary>
+    		<name>ARC File Decomposition</name>
+    		<values>
+    			<value>ARC = the file is an ARC file</value>
+    			<value>ARC-URL-RECORD = the file represents a document contained in an ARC file</value>
+    		</values>
+    		<context>
+    			<p>Used with the USE attribute of file elements for web captures.</p>
+    		</context>
+    	</vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsRootElement>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the METS Root Element as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>
+            </requirement>
+        </metsRootElement>
+        <metsHdr>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the METS Header as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>
+            </requirement>
+        </metsHdr>
+        <dmdSec>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the Description Metadata Section as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the Administrative Metadata Section as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the Content File Section as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile, except as indicated below.</p>
+            </requirement>
+            <requirement>
+                <head>Exceptions to the Inherited Requirements</head>
+                <p> Unlike the ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile, this profile supports two different file packaging mechanisms. 1) All the files
+                    which comprise the package must exists in the same location as the METS document
+                    itself or in subdirectories under the location where the METS document resides (the same as the parent profile).
+                    2) All the files which comprise the package must be contained in one or more ARC
+                    (http://www.archive.org/web/researcher/ArcFileFormat.php) files which are in the
+                    same directory or subdirectories below where the METS document resides. In both
+                    cases these files are referenced via the Flocat element.</p>
+               <p>Files contained in an ARC file (see below), are not required to be extracted from the ARC file before they are referenced in documents
+                    that conform to this profile.</p>
+                <p> For the MIMETYPE attribute, if the file is an ARC file the value of "application/octet-stream" must
+                    be used. If an official MIME type is ever registered for ARC files we will use
+                    that value instead.</p>             
+                <p> The OWNERID may  be used to identify components of an ARC file (see below).</p>
+                </requirement>
+             <requirement>
+                <head>Specific Requirements for when the files are contained in an ARC</head>
+                <p> Multiple ARC files may be referenced. </p>
+                <p> The file elements representing the ARC files must contain an FLocat element
+                    which points to the ARC file. The FLocat must have a LOCTYPE attribute with a
+                    value of 'URL'. It must also have an xlink:href attribute which contains the URL
+                    which points to the file. The URL should be a relative URI which is relative to
+                    the location of the METS document itself.</p>
+                <p> Each file element representing an ARC file must have USE attribute with a value
+                    of 'ARC'.</p>
+                <p> Each file element representing a ARC file must still conform to the previous
+                    requirements for all file elements, including attributes such as SIZE, MIMETYPE,
+                    etc.</p>
+                <p> Technical metadata pertaining to the web crawl or other process that generated
+                    the ARC, for example, the logs associated with a run of Heretrix, should be
+                    associated with the ARC file via an ADMID attribute attached to the file element
+                    which represent the whole ARC file.  </p>
+                <p> Nested under each of the file elements which represents an ARC should be
+                    subordinate file elements which represent the individual documents contained in
+                    the ARC file which are relevant to the package. For submission information
+                    packages (SIPs) where every document contained in the ARC file is relevant to
+                    the intellectual entity represented by the METS package, the subordinate file
+                    list is optional but recommended. The preservation system to which the package
+                    is being submitted should decompose the ARC file and add file elements for all
+                    of the documents contained in the ARC.</p>
+                <p> Not every document contained in the ARC file must be listed, but the documents
+                    which are considered to be significant to the representation of the intellectual
+                    entity must be listed. One reason that some documents may be omitted is that the
+                    ARC file may contain insignificant documents which are not considered part of
+                    the representation of the entity, such as HTTP 404 Not Found responses; those
+                    documents should not be listed here unless they are intended to be part of the
+                    intellectual entity represented by the package. </p>
+                <p>Another case where documents may be omitted is if the ARC file or files contains
+                    documents which cross multiple intellectual entities. In this case only the
+                    documents which are part of the intellectual entity represented by the current
+                    METS file should be listed. The same ARC file may be referenced in different
+                    METS packages with different documents. In general the relationship between the
+                    documents contained in an ARC file and the files which comprise an intellectual
+                    entity is many-to-many: the files comprising a single intellectual entity may be
+                    spread across multiple ARC files, and a single ARC file may contain documents
+                    relevant to multiple intellectual entities. Although this type of situation is
+                    not recommended, it can be accommodated by this profile. However, in complex
+                    cases like this, the relevant subordinate files must always be listed nested
+                    beneath the ARC file element. In general, if no subordinate files are listed
+                    below the file representing the ARC file the assumption is that all documents
+                    contained in the ARC file are required for the representation of the
+                    intellectual entity. Likewise, if subordinate files are listed beneath the ARC
+                    file element, the assumption is that only those files listed are relevant to the
+                    representation of the intellectual entity, even if there are additional
+                    documents contained in the ARC. </p>
+                <p> The reason that the nested file elements are required by this profile,
+                    especially when the METS file is an AIP, is that if there are descriptive,
+                    technical, or provenance metadata which are tied to specific documents contained
+                    in the ARC file, the nested file elements are what link back to the dmdSec,
+                    techMD, or digiprovMD elements via the nested file elements' DMDID and ADMID
+                    attributes. Because of this it is recommended that a preservation system to
+                    which ARC files are being submitted decompose the ARC file into its constituent
+                    files and manage these files as individual objects. </p>
+                <p> The nested file elements must have a USE attribute with a value of
+                    'ARC-URL-RECORD'. They must also have an OWNERID attribute which contains the
+                    exact URL-record line corresponding to the document as it occurs in the ARC
+                    file, such as:</p>
+                <p> &#160;&#160;&#160;&#160;http://www.dryswamp.edu:80/index.html
+                    127.10.100.2 19961104142103 text/html 202 </p>
+                <p> &#160;&#160;&#160;&#160;http://www.dryswamp.edu:80/index.html
+                    127.10.100.2 19961104142103 text/html 200 fac069150613fe55599cc7fa88aa089d - 209
+                    IA-001102.arc 202</p>
+                <p> The OWNERID values should be sufficient to identify and extract any document
+                    from the ARC.</p>
+                <p> Nested file elements which represent documents contained in an ARC file must also
+                    still conform to the previous requirements for all file elements, including
+                    attributes such as SIZE, MIMETYPE, etc.</p>
+            </requirement>
+        </fileSec>
+        <structMap>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the Structural Map section as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile, except as indicated below.</p>
+            </requirement>
+            <requirement>
+                <head>Referencing Documents in an ARC File from the Structural Map</head>
+                <p> Documents which are contained in an ARC file must be referenced from the
+                    structMap via the area element beneath an fptr element. The area element must
+                    have a FILEID attribute that references the ARC file containing the document. It
+                    must also have a BEGIN attribute which contains the offset to the beginning of
+                    the document in bytes. This is the same as the offset value in the URL-record
+                    line in the ARC file. The area element must also have an EXTENT attribute with
+                    contains the length of the document in the ARC file. This is the same as the
+                    length value in the URL-record line in the ARC file. The BETYPE and EXTTYPE
+                    attributes must both have a value of 'BYTE'. </p>
+            </requirement>
+            <requirement RELATEDMAT="APP3_METS_WEBSITE_SAMPLE_1">
+                <head>Primary Structural Map for Web Captures</head>
+                <p> We will describe a preferred structural map for web captures. What we
+                    mean by a web capture is a collection of resources which have been harvested
+                    using the HTTP protocol usually by a single run of a web harvesting system, such
+                    as Heritrix. The web capture must have a specific starting and ending time. In
+                    this profile, different captures of the same web resources which occur at
+                    different times are treated as separate intellectual entities each having its
+                    own METS document. However, subsequent web captures should be related to
+                    previous versions via the relatedItem type='preceding' element in the primary
+                    MODS dmdSec. The metadata contained in the relatedItem metadata should contain
+                    enough information to allow a known-item search of the previous web capture.
+                    This will usually be an identifier element referring the OBJID of the previous
+                    METS document. In this profile the web capture is the primary object being
+                    represented by the METS file. Therefore, there must be a unifying theme
+                    associated with the web capture which can be described via the primary MODS
+                    metadata associated with the web capture object. This could be a single web site
+                    or multiple web sites which are related by a common subject. </p>
+                <p> The root div element immediately below the structMap element represents the
+                    whole web capture. It must have a TYPE attribute of "WEB_CAPTURE". The LABEL
+                    attribute may optionally contain the title of the web site being captured.</p>
+                <p> Each resource retrieved as part of the web capture (the body of each HTTP GET or
+                    POST response) should be represented by a second-level div below the root div.
+                    This should include everything that was retrieved as part of the capture, such
+                    as HTML web pages, images, PDF documents, MS Word documents, CSS and XSLT style
+                    sheets, Javascript files, Java Applets, etc. Responses which represent HTTP
+                    errors, such as 404 Not Found, may be omitted. Second-level div elements must
+                    have a TYPE attribute of "WEB_RESOURCE". If a structLink section is used to
+                    represent links between these second-level div elements then an xlink:label
+                    attribute must be present so that it can be used in the xlink:from and xlink:to
+                    attributes of the smLink element. Even though the xlink:label attribute is not
+                    an ID-type, it must still follow some of the rules for attributes with a type of
+                    ID, namely each xlink:label value must be unique within the METS document. </p>
+                <p> Dependent resources, such as images embedded in an HTML web page, may be
+                    represented by one or more third-level div elements nested below the
+                    second-level div. There must be one third-level div for each dependent resource.
+                    For HTML web pages typical dependent objects include images embedded via an IMG
+                    or INPUT element or the BODY element's background attribute. It also includes
+                    FRAME and IFRAME elements for embedded web pages. It includes SCRIPT referenced
+                    via the src attribute and style sheets referenced via the LINK element's href
+                    attribute. Dependent resources could also include long descriptions for images
+                    or frames referenced via the longdesc attribute. They may also include OBJECT
+                    and APPLET elements. In general these should be dependent resources that are
+                    required for an accurate representation of the primary resource. Resources which
+                    are linked to or from this resource, but which are not required in order to
+                    represent the resource, should not be listed in these third-level div elements,
+                    but instead may be represented in the structLink section. These third-level div
+                    elements must have a TYPE attribute of "DEPENDENT_WEB_RESOURCE". </p>
+                <p> Dependent resources may in turn have their own dependencies. This is
+                    particularly true for frames which may be arbitrarily nested. If this is the
+                    case, additional nested div elements may be used to any level required. These
+                    nested div elements must follow the same rules as already outlined for dependent
+                    resources, and must have a TYPE attribute with a value of
+                    "DEPENDENT_WEB_RESOURCE". Note, that it is likely that resources which are
+                    listed as "DEPENDENT_WEB_RESOURCE" will also occur as "WEB_RESOURCE" elsewhere
+                    in the same structMap. </p>
+                <p> In case there are web resources or dependent web resources which have their own
+                    descriptive metadata, the DMDID attribute of the div element which represents
+                    that resource may point to the corresponding relatedItem type="constituent"
+                    elements in the primary MODS record. Thus, descriptive metadata such as title is
+                    included in the primary MODS dmdSec, linked from the structMap to the particular
+                    relatedItem type="constituent" using the DMDID and ID attributes. Optionally,
+                    web resources which have a title may also have that title represented by the
+                    LABEL attribute of the div element. </p>
+            </requirement>
+        </structMap>
+        <structLink>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the Structural Map linking section as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>
+            </requirement>
+        </structLink>
+        <behaviorSec>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the Behavior Section as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>
+            </requirement>
+        </behaviorSec>
+        <multiSection>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the structural
+                    requirements for the Multiple Sections as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile, except as defined below:</p>
+            </requirement>
+            <requirement>
+                <head>Content Files</head>
+                 <p> &#160;&#160;&#160;&#160; file[@USE='ARC']/@ADMID -&gt;&gt; techMD[***
+                    Heritrix Config and Log Files *** ]/@ID</p>
+            </requirement>
+        </multiSection>
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the technical
+                    requirements for Content Files as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile, except as defined below:</p>
+            </requirement>
+            <requirement>
+                <head>ARC Files</head>
+                    <p>When documents that conform to this profile are used for submission or
+                        dissemination packages, one or more ARC files may be used to contain the files or bitstreams without first extracting the
+                    files from the ARC.  For details refer to the Structural Requirements given above.  This differs from the technical requirements
+                        given in the "ECHO Dep Generic METS Profile for
+                        Preservation and Digital Repository Interoperability" parent profile which requires that files contained in other archive files, like Zip or TAR,
+                        must be extracted before being referenced in the METS document.</p>
+                    <p>However, this profile does strongly recommend that  if the METS document is being used as an archival information package (AIP) that the 
+                    files be extracted from the ARC and referenced directly.</p>
+            </requirement>
+        </content_files>
+        <behavior_files>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the technical
+                    requirements for Behavior Files as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>
+            </requirement>
+        </behavior_files>
+        <metadata_files>
+            <requirement>
+                <head>Inherited Requirements</head>
+                <p>METS documents which conform to this profile must follow all of the technical
+                    requirements for Metadata Files as the "ECHO Dep Generic METS Profile for
+                    Preservation and Digital Repository Interoperability" parent profile.</p>          
+            </requirement>
+        </metadata_files>
+    </technical_requirements>
+    
+    <tool>
+        <name>Inherited Tools</name>
+        <description>
+            <p>METS documents which conform to this profile should be compatible with all of the tools which are also compatible with the
+                "ECHO Dep Generic METS Profile for Preservation and Digital
+                Repository Interoperability" parent profile.</p>
+        </description>
+    </tool>
+    
+    <tool>
+        <name>Web Archivists Workbench (WAW)</name>
+        <agency>OCLC</agency>
+        <URI>http://ndiipp.uiuc.edu/index.php?option=com_content&amp;task=view&amp;id=19&amp;Itemid=46l</URI>
+        <description>
+            <p>The WAW tool from OCLC will produce submission information packages that are conformant to this profile.</p>
+        </description>
+        <note/>
+    </tool>
+    
+         	<Appendix NUMBER="1"
+		LABEL="Complete Example of a Web Capture Where the Files are Contained in an ARC File">
+		<mets ID="APP2_METS_ARC_WEBSITE_SAMPLE_1" OBJID="2135.85756"
+			LABEL="The Richmond National Parks quarterly newsletter : Richmond National Battlefield Park, Maggie L. Walker National Historic Site"
+			PROFILE="http://www.loc.gov/mets/profiles/00000016.xml"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/ http://www.loc.gov/standards/mods/v3/mods-3-2.xsd"
+			xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:mods="http://www.loc.gov/mods/"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<metsHdr ID="APP2_METS_ARC_WEBSITE_SAMPLE_2" CREATEDATE="2006-08-23T15:12:53"
+				LASTMODDATE="2006-08-24T11:36:00">
+				<agent ROLE="CUSTODIAN" TYPE="ORGANIZATION">
+					<name>OCLC Inc</name>
+				</agent>
+				<altRecordID TYPE="HANDLE">2135.85756</altRecordID>
+			</metsHdr>
+			<dmdSec ID="APP2_DM1" STATUS="PRIMARY_DMDSEC" CREATED="2006-08-23T14:43:02Z">
+				<mdWrap MDTYPE="MODS">
+					<xmlData>
+						<mods
+							xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.loc.gov/mods/v3"
+							xmlns:dc="http://purl.org/dc/elements/1.1/">
+							<titleInfo>
+								<title>The Richmond National Parks quarterly newsletter : Richmond
+									National Battlefield Park, Maggie L. Walker National Historic
+									Site </title>
+							</titleInfo>
+							<originInfo>
+								<publisher>National Park Service Unites States</publisher>
+								<dateOther>Harvested: 2006-08-22</dateOther>
+							</originInfo>
+							<language>
+								<languageTerm type="text">en_US</languageTerm>
+							</language>
+						</mods>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<amdSec ID="APP2_AMD1">
+				<techMD ID="APP2_TMD1PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>4ea7325ecef266792a03e5f82ce67762970e14a9</messageDigest>
+									</fixity>
+									<size>31264</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD2PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p2.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>7fd5675ecef266792a03e5f82ce67762970e14a9</messageDigest>
+									</fixity>
+									<size>31555</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD3PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p3.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>9fd5675sdhg345792a03e5f82ce67762970e14a9</messageDigest>
+									</fixity>
+									<size>23555</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD4PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p4.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>1sd5675sdhg345792a03e5f82ce67762970effd5</messageDigest>
+									</fixity>
+									<size>12535</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD5PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p5.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2ff6675shhg345892a03e5f82ce67762970effd5</messageDigest>
+									</fixity>
+									<size>62459</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD6PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p6.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>5uf2454shhg345892a03e5f82ce67762970effd5</messageDigest>
+									</fixity>
+									<size>33659</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD7PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fallp7.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>3fg3489shhg345892a03e5f82ce67762970dfgd5</messageDigest>
+									</fixity>
+									<size>37899</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD8PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p8.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2hj6789shhg345892a08e5f82ce67762970fghj7</messageDigest>
+									</fixity>
+									<size>45989</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD9PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/inspect.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>3hj6789dety345892a08e5f82ce67762970fghj7</messageDigest>
+									</fixity>
+									<size>4598</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD10PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/jim.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>5th2222dety345892a08e5f82ce67762970fghj7</messageDigest>
+									</fixity>
+									<size>3768</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD11PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/pat.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2jr6464dety345892a08e5f82ce67762974rghj7</messageDigest>
+									</fixity>
+									<size>4289</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD12PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/Frame002.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>4th8923dety345892a08e5f82ce67762974rghj7</messageDigest>
+									</fixity>
+									<size>1456</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD13PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/Parso002.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2df9834dety345892a08e5f82ce67743674rghj9</messageDigest>
+									</fixity>
+									<size>8345</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD14PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/Trede005.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>7yh9877dety345892a08e5f82ce67743674rgh2e</messageDigest>
+									</fixity>
+									<size>7823</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD15PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/arrow2.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>9ok3456dety345892a08e5f82ce67743674rgr5u</messageDigest>
+									</fixity>
+									<size>2678</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP2_TMD16PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/earthgirl.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2yh8976dety345892a08e5f82ce67743674rgt6p</messageDigest>
+									</fixity>
+									<size>4678</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+			</amdSec>
+			<fileSec>
+				<fileGrp>
+					<file ID="APP2_FID1" USE="ARC" SIZE="318125"
+						CHECKSUM="4638bc65c5b9715557d09ad373eefd147382ecbf" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="application/octet-stream" CREATED="2006-08-22T14:26:40-06:00">
+						<FLocat LOCTYPE="URL" xlink:href="./Richmond.arc"/>
+						<file ID="APP2_FID2" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fall99.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="31264" CHECKSUM="4ea7325ecef266792a03e5f82ce67762970e14a9"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD1PREMIS"/>
+						<file ID="APP2_FID3" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fall99p2.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="31555" CHECKSUM="7fd5675ecef266792a03e5f82ce67762970e14a9"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD2PREMIS"/>
+						<file ID="APP2_FID4" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fall99p3.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="23555" CHECKSUM="9fd5675sdhg345792a03e5f82ce67762970e14a9"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD3PREMIS"/>
+						<file ID="APP2_FID5" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fall99p4.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="12535" CHECKSUM="1sd5675sdhg345792a03e5f82ce67762970effd5"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD4PREMIS"/>
+						<file ID="APP2_FID6" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fall99p5.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="62459" CHECKSUM="2ff6675shhg345892a03e5f82ce67762970effd5"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD5PREMIS"/>
+						<file ID="APP2_FID7" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fall99p6.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="33659" CHECKSUM="5uf2454shhg345892a03e5f82ce67762970effd5"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD6PREMIS"/>
+						<file ID="APP2_FID8" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fallp7.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="37899" CHECKSUM="3fg3489shhg345892a03e5f82ce67762970dfgd5"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD7PREMIS"/>
+						<file ID="APP2_FID9" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/fall99p8.html 132.174.1.212 20060822190611 text/html 20255"
+							SIZE="45989" CHECKSUM="2hj6789shhg345892a08e5f82ce67762970fghj7"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="text/html"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD8PREMIS"/>
+						<file ID="APP2_FID10" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/inspect.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="4598" CHECKSUM="3hj6789dety345892a08e5f82ce67762970fghj7"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD9PREMIS"/>
+						<file ID="APP2_FID11" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/jim.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="3768" CHECKSUM="5th2222dety345892a08e5f82ce67762970fghj7"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD10PREMIS"/>
+						<file ID="APP2_FID12" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/pat.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="4289" CHECKSUM="2jr6464dety345892a08e5f82ce67762974rghj7"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD11PREMIS"/>
+						<file ID="APP2_FID13" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/Frame002.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="1456" CHECKSUM="4th8923dety345892a08e5f82ce67762974rghj7"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD12PREMIS"/>
+						<file ID="APP2_FID14" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/Parso002.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="8345" CHECKSUM="2df9834dety345892a08e5f82ce67743674rghj9"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD13PREMIS"/>
+						<file ID="APP2_FID15" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/Trede005.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="7823" CHECKSUM="7yh9877dety345892a08e5f82ce67743674rgh2e"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD14PREMIS"/>
+						<file ID="APP2_FID16" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/arrow2.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="2678" CHECKSUM="9ok3456dety345892a08e5f82ce67743674rgr5u"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD15PREMIS"/>
+						<file ID="APP2_FID17" USE="ARC-URL-RECORD"
+							OWNERID="http://www.nps.gov/rich/earthgirl.jpg 132.174.1.212 20060822190611image/jpeg 20255"
+							SIZE="4678" CHECKSUM="2yh8976dety345892a08e5f82ce67743674rgt6p"
+							CHECKSUMTYPE="SHA-1" MIMETYPE="image/jpeg"
+							CREATED="2006-08-22T14:26:40-06:00" ADMID="APP2_TMD16PREMIS"/>
+					</file>
+				</fileGrp>
+			</fileSec>
+			<structMap TYPE="PRIMARY_STRUCTMAP">
+				<div TYPE="WEB_CAPTURE"
+					LABEL="The Richmond National Parks quarterly newsletter : Richmond National Battlefield Park, Maggie L. Walker National Historic Site"
+					DMDID="APP2_DM1">
+					<fptr FILEID="APP2_FID1"/>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page1">
+						<fptr FILEID="APP2_FID2">
+							<area FILEID="APP2_FID1" BEGIN="105" EXTENT="31264" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID15">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID16">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+					</div>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page2">
+						<fptr FILEID="APP2_FID3">
+							<area FILEID="APP2_FID1" BEGIN="31474" EXTENT="31555" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID12">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+					</div>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page3">
+						<fptr FILEID="APP2_FID4">
+							<area FILEID="APP2_FID1" BEGIN="63134" EXTENT="23555" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID14">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+					</div>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page4">
+						<fptr FILEID="APP2_FID5">
+							<area FILEID="APP2_FID1" BEGIN="86794" EXTENT="12535" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID11">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+					</div>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page5">
+						<fptr FILEID="APP2_FID6">
+							<area FILEID="APP2_FID1" BEGIN="99434" EXTENT="62459" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID17">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+					</div>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page6">
+						<fptr FILEID="APP2_FID7">
+							<area FILEID="APP2_FID1" BEGIN="161998" EXTENT="33659" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+					</div>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page7">
+						<fptr FILEID="APP2_FID8">
+							<area FILEID="APP2_FID1" BEGIN="195762" EXTENT="37899" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID10">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+					</div>
+					<div TYPE="WEB_RESOURCE" xlink:label="APP2_Page8">
+						<fptr FILEID="APP2_FID9">
+							<area FILEID="APP2_FID1" BEGIN="233766" EXTENT="45989" BETYPE="BYTE"
+								EXTTYPE="BYTE"/>
+						</fptr>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP2_FID13">
+								<area FILEID="APP2_FID1" BEGIN="????" EXTENT="????" BETYPE="BYTE"
+									EXTTYPE="BYTE"/>
+							</fptr>
+						</div>
+					</div>
+				</div>
+			</structMap>
+			<structLink>
+				<smLink xlink:from="APP2_Page1" xlink:to="APP2_Page2"/>
+				<smLink xlink:from="APP2_Page1" xlink:to="APP2_Page3"/>
+				<smLink xlink:from="APP2_Page1" xlink:to="APP2_Page4"/>
+				<smLink xlink:from="APP2_Page1" xlink:to="APP2_Page5"/>
+				<smLink xlink:from="APP2_Page1" xlink:to="APP2_Page6"/>
+				<smLink xlink:from="APP2_Page1" xlink:to="APP2_Page7"/>
+				<smLink xlink:from="APP2_Page1" xlink:to="APP2_Page8"/>
+				<smLink xlink:from="APP2_Page2" xlink:to="APP2_Page1"/>
+				<smLink xlink:from="APP2_Page2" xlink:to="APP2_Page3"/>
+				<smLink xlink:from="APP2_Page2" xlink:to="APP2_Page4"/>
+				<smLink xlink:from="APP2_Page2" xlink:to="APP2_Page5"/>
+				<smLink xlink:from="APP2_Page2" xlink:to="APP2_Page6"/>
+				<smLink xlink:from="APP2_Page2" xlink:to="APP2_Page7"/>
+				<smLink xlink:from="APP2_Page2" xlink:to="APP2_Page8"/>
+				<smLink xlink:from="APP2_Page3" xlink:to="APP2_Page1"/>
+				<smLink xlink:from="APP2_Page3" xlink:to="APP2_Page2"/>
+				<smLink xlink:from="APP2_Page3" xlink:to="APP2_Page4"/>
+				<smLink xlink:from="APP2_Page3" xlink:to="APP2_Page5"/>
+				<smLink xlink:from="APP2_Page3" xlink:to="APP2_Page6"/>
+				<smLink xlink:from="APP2_Page3" xlink:to="APP2_Page7"/>
+				<smLink xlink:from="APP2_Page3" xlink:to="APP2_Page8"/>
+				<smLink xlink:from="APP2_Page4" xlink:to="APP2_Page1"/>
+				<smLink xlink:from="APP2_Page4" xlink:to="APP2_Page2"/>
+				<smLink xlink:from="APP2_Page4" xlink:to="APP2_Page3"/>
+				<smLink xlink:from="APP2_Page4" xlink:to="APP2_Page5"/>
+				<smLink xlink:from="APP2_Page4" xlink:to="APP2_Page6"/>
+				<smLink xlink:from="APP2_Page4" xlink:to="APP2_Page7"/>
+				<smLink xlink:from="APP2_Page4" xlink:to="APP2_Page8"/>
+				<smLink xlink:from="APP2_Page5" xlink:to="APP2_Page1"/>
+				<smLink xlink:from="APP2_Page5" xlink:to="APP2_Page2"/>
+				<smLink xlink:from="APP2_Page5" xlink:to="APP2_Page3"/>
+				<smLink xlink:from="APP2_Page5" xlink:to="APP2_Page4"/>
+				<smLink xlink:from="APP2_Page5" xlink:to="APP2_Page6"/>
+				<smLink xlink:from="APP2_Page5" xlink:to="APP2_Page7"/>
+				<smLink xlink:from="APP2_Page5" xlink:to="APP2_Page8"/>
+				<smLink xlink:from="APP2_Page6" xlink:to="APP2_Page1"/>
+				<smLink xlink:from="APP2_Page6" xlink:to="APP2_Page2"/>
+				<smLink xlink:from="APP2_Page6" xlink:to="APP2_Page3"/>
+				<smLink xlink:from="APP2_Page6" xlink:to="APP2_Page4"/>
+				<smLink xlink:from="APP2_Page6" xlink:to="APP2_Page5"/>
+				<smLink xlink:from="APP2_Page6" xlink:to="APP2_Page7"/>
+				<smLink xlink:from="APP2_Page6" xlink:to="APP2_Page8"/>
+				<smLink xlink:from="APP2_Page7" xlink:to="APP2_Page1"/>
+				<smLink xlink:from="APP2_Page7" xlink:to="APP2_Page2"/>
+				<smLink xlink:from="APP2_Page7" xlink:to="APP2_Page3"/>
+				<smLink xlink:from="APP2_Page7" xlink:to="APP2_Page4"/>
+				<smLink xlink:from="APP2_Page7" xlink:to="APP2_Page5"/>
+				<smLink xlink:from="APP2_Page7" xlink:to="APP2_Page6"/>
+				<smLink xlink:from="APP2_Page7" xlink:to="APP2_Page8"/>
+				<smLink xlink:from="APP2_Page8" xlink:to="APP2_Page1"/>
+				<smLink xlink:from="APP2_Page8" xlink:to="APP2_Page2"/>
+				<smLink xlink:from="APP2_Page8" xlink:to="APP2_Page3"/>
+				<smLink xlink:from="APP2_Page8" xlink:to="APP2_Page4"/>
+				<smLink xlink:from="APP2_Page8" xlink:to="APP2_Page5"/>
+				<smLink xlink:from="APP2_Page8" xlink:to="APP2_Page6"/>
+				<smLink xlink:from="APP2_Page8" xlink:to="APP2_Page7"/>
+			</structLink>
+		</mets>
+
+	</Appendix>
+
+	<Appendix NUMBER="2"
+		LABEL="Complete Example of a Web Capture Where the Files are Stored Relative to the METS File">
+		<mets ID="APP3_METS_WEBSITE_SAMPLE_1" OBJID="2135.85756"
+			LABEL="The Richmond National Parks quarterly newsletter : Richmond National Battlefield Park, Maggie L. Walker National Historic Site"
+			PROFILE="http://www.loc.gov/mets/profiles/00000016.xml"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/ http://www.loc.gov/standards/mods/v3/mods-3-2.xsd"
+			xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:mods="http://www.loc.gov/mods/"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<metsHdr ID="APP3_METS_WEBSITE_SAMPLE_2" CREATEDATE="2006-09-23T14:43:02"
+				LASTMODDATE="2006-08-24T11:36:00">
+				<agent ROLE="CUSTODIAN" TYPE="ORGANIZATION">
+					<name>OCLC Inc</name>
+				</agent>
+				<altRecordID TYPE="HANDLE">2135.85756</altRecordID>
+			</metsHdr>
+			<dmdSec ID="APP3_DM3" STATUS="PRIMARY_DMDSEC" CREATED="2006-09-23T14:43:02Z" ADMID="APP3_PROV3">
+				<mdWrap MDTYPE="MODS">
+					<xmlData>
+						<mods
+							xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.loc.gov/mods/v3"
+							xmlns:dc="http://purl.org/dc/elements/1.1/">
+							<titleInfo>
+								<title>The Richmond National Parks quarterly newsletter : Richmond
+									National Battlefield Park, Maggie L. Walker National Historic
+									Site</title>
+							</titleInfo>
+							<name type="corporate">
+								<namePart>National Park Service</namePart>
+							</name>
+							<genre authority="marcgt">web site</genre>
+							<originInfo>
+								<publisher>National Park Service United States</publisher>
+								<dateIssued>Fall 1999</dateIssued>
+								<dateCaptured encoding="w3cdtf">2006-08-22</dateCaptured>
+							</originInfo>
+							<language>
+								<languageTerm authority="rfc3066" type="code">en-US</languageTerm>
+							</language>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page1">
+								<titleInfo>
+									<title>Freeman Tilden Award Winner at Richmond
+									Battlefield</title>
+								</titleInfo>
+							</relatedItem>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page2">
+								<titleInfo>
+									<title>...</title>
+								</titleInfo>
+							</relatedItem>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page3">
+								<titleInfo>
+									<title>...</title>
+								</titleInfo>
+							</relatedItem>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page4">
+								<titleInfo>
+									<title>...</title>
+								</titleInfo>
+							</relatedItem>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page5">
+								<titleInfo>
+									<title>...</title>
+								</titleInfo>
+							</relatedItem>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page6">
+								<titleInfo>
+									<title>...</title>
+								</titleInfo>
+							</relatedItem>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page7">
+								<titleInfo>
+									<title>...</title>
+								</titleInfo>
+							</relatedItem>
+							<relatedItem type="constituent" ID="APP3_DMD3_Page8">
+								<titleInfo>
+									<title>...</title>
+								</titleInfo>
+							</relatedItem>
+						</mods>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<dmdSec ID="APP3_DM2" STATUS="ALTERNATE_DMDSEC" CREATED="2006-09-23T14:43:02Z"
+				ADMID="APP3_PROV2">
+				<mdWrap MDTYPE="MODS">
+					<xmlData>
+						<mods
+							xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.loc.gov/mods/v3"
+							xmlns:dc="http://purl.org/dc/elements/1.1/">
+							<titleInfo>
+								<title>The Richmond National Parks quarterly newsletter : Richmond
+									National Battlefield Park, Maggie L. Walker National Historic
+									Site</title>
+							</titleInfo>
+							<name type="corporate">
+								<namePart>National Park Service</namePart>
+							</name>
+							<genre authority="marcgt">web site</genre>
+							<originInfo>
+								<publisher>National Park Service United States</publisher>
+								<dateIssued>Fall 1999</dateIssued>
+								<dateCaptured encoding="w3cdtf">2006-08-22</dateCaptured>
+							</originInfo>
+							<language>
+								<languageTerm authority="rfc3066" type="code">en-US</languageTerm>
+							</language>
+						</mods>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<dmdSec ID="APP3_DM1" STATUS="ALTERNATE_DMDSEC" CREATED="2006-09-23T14:43:02Z"
+				ADMID="APP3_PROV1">
+				<mdWrap MDTYPE="MODS">
+					<xmlData>
+						<mods
+							xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.loc.gov/mods/v3"
+							xmlns:dc="http://purl.org/dc/elements/1.1/">
+							<titleInfo>
+								<title>The Richmond National Parks quarterly newsletter : Richmond
+									National Battlefield Park, Maggie L. Walker National Historic
+									Site </title>
+							</titleInfo>
+							<originInfo>
+								<publisher>National Park Service Unites States</publisher>
+								<dateOther>Harvested: 2006-08-22</dateOther>
+							</originInfo>
+							<language>
+								<languageTerm type="text">en_US</languageTerm>
+							</language>
+						</mods>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<amdSec ID="APP3_AMD1">
+				<techMD ID="APP3_TMD1PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>4ea7325ecef266792a03e5f82ce67762970e14a9</messageDigest>
+									</fixity>
+									<size>31264</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD2PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p2.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>7fd5675ecef266792a03e5f82ce67762970e14a9</messageDigest>
+									</fixity>
+									<size>31555</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD3PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p3.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>9fd5675sdhg345792a03e5f82ce67762970e14a9</messageDigest>
+									</fixity>
+									<size>23555</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD4PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p4.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>1sd5675sdhg345792a03e5f82ce67762970effd5</messageDigest>
+									</fixity>
+									<size>12535</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD5PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p5.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2ff6675shhg345892a03e5f82ce67762970effd5</messageDigest>
+									</fixity>
+									<size>62459</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD6PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p6.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>5uf2454shhg345892a03e5f82ce67762970effd5</messageDigest>
+									</fixity>
+									<size>33659</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD7PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fallp7.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>3fg3489shhg345892a03e5f82ce67762970dfgd5</messageDigest>
+									</fixity>
+									<size>37899</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD8PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/fall99p8.html</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2hj6789shhg345892a08e5f82ce67762970fghj7</messageDigest>
+									</fixity>
+									<size>45989</size>
+									<format>
+										<formatDesignation>
+											<formatName>text/html</formatName>
+											<formatVersion>4.0</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD9PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/inspect.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>3hj6789dety345892a08e5f82ce67762970fghj7</messageDigest>
+									</fixity>
+									<size>4598</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD10PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/jim.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>5th2222dety345892a08e5f82ce67762970fghj7</messageDigest>
+									</fixity>
+									<size>3768</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD11PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/pat.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2jr6464dety345892a08e5f82ce67762974rghj7</messageDigest>
+									</fixity>
+									<size>4289</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD12PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/Frame002.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>4th8923dety345892a08e5f82ce67762974rghj7</messageDigest>
+									</fixity>
+									<size>1456</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD13PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/Parso002.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2df9834dety345892a08e5f82ce67743674rghj9</messageDigest>
+									</fixity>
+									<size>8345</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD14PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/Trede005.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>7yh9877dety345892a08e5f82ce67743674rgh2e</messageDigest>
+									</fixity>
+									<size>7823</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD15PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/arrow2.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>9ok3456dety345892a08e5f82ce67743674rgr5u</messageDigest>
+									</fixity>
+									<size>2678</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP3_TMD16PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1                                      http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+								xmlns="http://www.loc.gov/standards/premis/v1"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<objectIdentifier>
+									<objectIdentifierType>URI</objectIdentifierType>
+									<objectIdentifierValue>http://www.nps.gov/rich/earthgirl.jpg</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>file</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>2yh8976dety345892a08e5f82ce67743674rgt6p</messageDigest>
+									</fixity>
+									<size>4678</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>JPEG standard IS10918-1</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<digiprovMD ID="APP3_PROV1">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<event xmlns="http://www.loc.gov/standards/premis/v1">
+								<eventIdentifier>
+									<eventIdentifierType>INTERNAL_XML_ID</eventIdentifierType>
+									<eventIdentifierValue>PROV1</eventIdentifierValue>
+								</eventIdentifier>
+								<eventType>METADATA_CREATION</eventType>
+								<eventDateTime>2006-08-22</eventDateTime>
+								<eventDetail> Descriptive metadata was generated from the OCLC WAW
+									tool on September 21, 2006. </eventDetail>
+								<linkingAgentIdentifier LinkAgentXmlID="APP3_AGENT1">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue> mailto:thabing@uiuc.edu </linkingAgentIdentifierValue>
+									<linkingAgentRole>EVENT_INITIATOR</linkingAgentRole>
+								</linkingAgentIdentifier>
+								<linkingAgentIdentifier LinkAgentXmlID="APP3_AGENT3">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>
+										http://loki.grainger.uiuc.edu:8082/ </linkingAgentIdentifierValue>
+									<linkingAgentRole>METADATA_SOURCE</linkingAgentRole>
+								</linkingAgentIdentifier>
+							</event>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP3_PROV2">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<event xmlns="http://www.loc.gov/standards/premis/v1">
+								<eventIdentifier>
+									<eventIdentifierType>INTERNAL_XML_ID</eventIdentifierType>
+									<eventIdentifierValue>PROV2</eventIdentifierValue>
+								</eventIdentifier>
+								<eventType>METADATA_MODIFICATION</eventType>
+								<eventDateTime>2006-08-22</eventDateTime>
+								<eventDetail> Descriptive metadata was manually modified. </eventDetail>
+								<linkingAgentIdentifier LinkAgentXmlID="APP3_AGENT2">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue> mailto:rgue@loc.gov </linkingAgentIdentifierValue>
+									<linkingAgentRole>EVENT_INITIATOR</linkingAgentRole>
+								</linkingAgentIdentifier>
+							</event>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP3_PROV3">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<event xmlns="http://www.loc.gov/standards/premis/v1">
+								<eventIdentifier>
+									<eventIdentifierType>INTERNAL_XML_ID</eventIdentifierType>
+									<eventIdentifierValue>PROV3</eventIdentifierValue>
+								</eventIdentifier>
+								<eventType>METADATA_MODIFICATION</eventType>
+								<eventDateTime>2006-08-23</eventDateTime>
+								<eventDetail> Descriptive metadata was manually modified to add
+									relatedItem constituent records. </eventDetail>
+								<linkingAgentIdentifier LinkAgentXmlID="APP3_AGENT2">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue> mailto:rgue@loc.gov </linkingAgentIdentifierValue>
+									<linkingAgentRole>EVENT_INITIATOR</linkingAgentRole>
+								</linkingAgentIdentifier>
+							</event>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP3_AGENT1">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<agent xmlns="http://www.loc.gov/standards/premis/v1">
+								<agentIdentifier>
+									<agentIdentifierType>URI</agentIdentifierType>
+									<agentIdentifierValue> mailto:thabing@uiuc.edu
+									</agentIdentifierValue>
+								</agentIdentifier>
+								<agentName>Tom Habing</agentName>
+								<agentType>PERSON</agentType>
+							</agent>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP3_AGENT2">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<agent xmlns="http://www.loc.gov/standards/premis/v1">
+								<agentIdentifier>
+									<agentIdentifierType>URI</agentIdentifierType>
+									<agentIdentifierValue> mailto:rgue@loc.gov
+									</agentIdentifierValue>
+								</agentIdentifier>
+								<agentName>Rebecca S. Guenther</agentName>
+								<agentType>PERSON</agentType>
+							</agent>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP3_AGENT3">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<agent xmlns="http://www.loc.gov/standards/premis/v1">
+								<agentIdentifier>
+									<agentIdentifierType>URI</agentIdentifierType>
+									<agentIdentifierValue> http://ndiipp.uiuc.edu/waw/1.0/
+									</agentIdentifierValue>
+								</agentIdentifier>
+								<agentName> OCLC Web Archivists Workbench (WAW) Version 1.0 </agentName>
+								<agentType>SOFTWARE</agentType>
+							</agent>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+			</amdSec>
+			<fileSec>
+				<fileGrp>
+					<file ID="APP3_FID1" SIZE="31264"
+						CHECKSUM="4ea7325ecef266792a03e5f82ce67762970e14a9" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD1PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fall99.html"/>
+					</file>
+					<file ID="APP3_FID2" SIZE="31555"
+						CHECKSUM="7fd5675ecef266792a03e5f82ce67762970e14a9" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD2PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fall99p2.html"/>
+					</file>
+					<file ID="APP3_FID3" SIZE="23555"
+						CHECKSUM="9fd5675sdhg345792a03e5f82ce67762970e14a9" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD3PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fall99p3.html"/>
+					</file>
+					<file ID="APP3_FID4" SIZE="12535"
+						CHECKSUM="1sd5675sdhg345792a03e5f82ce67762970effd5" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD4PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fall99p4.html"/>
+					</file>
+					<file ID="APP3_FID5" SIZE="62459"
+						CHECKSUM="2ff6675shhg345892a03e5f82ce67762970effd5" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD5PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fall99p5.html"/>
+					</file>
+					<file ID="APP3_FID6" SIZE="33659"
+						CHECKSUM="5uf2454shhg345892a03e5f82ce67762970effd5" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD6PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fall99p6.html"/>
+					</file>
+					<file ID="APP3_FID7" SIZE="37899"
+						CHECKSUM="3fg3489shhg345892a03e5f82ce67762970dfgd5" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD7PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fallp7.html"/>
+					</file>
+					<file ID="APP3_FID8" SIZE="45989"
+						CHECKSUM="2hj6789shhg345892a08e5f82ce67762970fghj7" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="text/html" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD8PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./fall99p8.html"/>
+					</file>
+					<file ID="APP3_FID9" SIZE="4598"
+						CHECKSUM="3hj6789dety345892a08e5f82ce67762970fghj7" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD9PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./inspect.jpg"/>
+					</file>
+					<file ID="APP3_FID10" SIZE="3768"
+						CHECKSUM="5th2222dety345892a08e5f82ce67762970fghj7" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD10PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./jim.jpg"/>
+					</file>
+					<file ID="APP3_FID11" SIZE="4289"
+						CHECKSUM="2jr6464dety345892a08e5f82ce67762974rghj7" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD11PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./pat.jpg"/>
+					</file>
+					<file ID="APP3_FID12" SIZE="1456"
+						CHECKSUM="4th8923dety345892a08e5f82ce67762974rghj7" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD12PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./Frame002.jpg"/>
+					</file>
+					<file ID="APP3_FID13" SIZE="8345"
+						CHECKSUM="2df9834dety345892a08e5f82ce67743674rghj9" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD13PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./Parso002.jpg"/>
+					</file>
+					<file ID="APP3_FID14" SIZE="7823"
+						CHECKSUM="7yh9877dety345892a08e5f82ce67743674rgh2e" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD14PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./Trede005.jpg"/>
+					</file>
+					<file ID="APP3_FID15" SIZE="2678"
+						CHECKSUM="9ok3456dety345892a08e5f82ce67743674rgr5u" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD15PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./arrow2.jpg"/>
+					</file>
+					<file ID="APP3_FID16" SIZE="4678"
+						CHECKSUM="2yh8976dety345892a08e5f82ce67743674rgt6p" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-08-22T14:26:40-06:00"
+						ADMID="APP3_TMD16PREMIS">
+						<FLocat LOCTYPE="URL" xlink:href="./earthgirl.jpg"/>
+					</file>
+				</fileGrp>
+			</fileSec>
+			<structMap TYPE="PRIMARY_STRUCTMAP">
+				<div TYPE="WEB_CAPTURE"
+					LABEL="The Richmond National Parks quarterly newsletter : Richmond National Battlefield Park, Maggie L. Walker National Historic Site"
+					DMDID="APP3_DM3 APP3_DM2 APP3_DM1">
+					<div DMDID="APP3_DMD3_Page1" xlink:label="APP3_Page1" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID1"/>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID14"/>
+						</div>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID15"/>
+						</div>
+					</div>
+					<div DMDID="APP3_DMD3_Page2" xlink:label="APP3_Page2" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID2"/>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID11"/>
+						</div>
+					</div>
+					<div DMDID="APP3_DMD3_Page3" xlink:label="APP3_Page3" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID3"/>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID13"/>
+						</div>
+					</div>
+					<div DMDID="APP3_DMD3_Page4" xlink:label="APP3_Page4" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID4"/>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID10"/>
+						</div>
+					</div>
+					<div DMDID="APP3_DMD3_Page5" xlink:label="APP3_Page5" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID5"/>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID16"/>
+						</div>
+					</div>
+					<div DMDID="APP3_DMD3_Page6" xlink:label="APP3_Page6" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID6"/>
+					</div>
+					<div DMDID="APP3_DMD3_Page7" xlink:label="APP3_Page7" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID7"/>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID9"/>
+						</div>
+					</div>
+					<div DMDID="APP3_DMD3_Page8" xlink:label="APP3_Page8" TYPE="WEB_RESOURCE">
+						<fptr FILEID="APP3_FID8"/>
+						<div TYPE="DEPENDENT_WEB_RESOURCE">
+							<fptr FILEID="APP3_FID12"/>
+						</div>
+					</div>
+				</div>
+			</structMap>
+			<structLink>
+				<smLink xlink:from="APP3_Page1" xlink:to="APP3_Page2"/>
+				<smLink xlink:from="APP3_Page1" xlink:to="APP3_Page3"/>
+				<smLink xlink:from="APP3_Page1" xlink:to="APP3_Page4"/>
+				<smLink xlink:from="APP3_Page1" xlink:to="APP3_Page5"/>
+				<smLink xlink:from="APP3_Page1" xlink:to="APP3_Page6"/>
+				<smLink xlink:from="APP3_Page1" xlink:to="APP3_Page7"/>
+				<smLink xlink:from="APP3_Page1" xlink:to="APP3_Page8"/>
+				<smLink xlink:from="APP3_Page2" xlink:to="APP3_Page1"/>
+				<smLink xlink:from="APP3_Page2" xlink:to="APP3_Page3"/>
+				<smLink xlink:from="APP3_Page2" xlink:to="APP3_Page4"/>
+				<smLink xlink:from="APP3_Page2" xlink:to="APP3_Page5"/>
+				<smLink xlink:from="APP3_Page2" xlink:to="APP3_Page6"/>
+				<smLink xlink:from="APP3_Page2" xlink:to="APP3_Page7"/>
+				<smLink xlink:from="APP3_Page2" xlink:to="APP3_Page8"/>
+				<smLink xlink:from="APP3_Page3" xlink:to="APP3_Page1"/>
+				<smLink xlink:from="APP3_Page3" xlink:to="APP3_Page2"/>
+				<smLink xlink:from="APP3_Page3" xlink:to="APP3_Page4"/>
+				<smLink xlink:from="APP3_Page3" xlink:to="APP3_Page5"/>
+				<smLink xlink:from="APP3_Page3" xlink:to="APP3_Page6"/>
+				<smLink xlink:from="APP3_Page3" xlink:to="APP3_Page7"/>
+				<smLink xlink:from="APP3_Page3" xlink:to="APP3_Page8"/>
+				<smLink xlink:from="APP3_Page4" xlink:to="APP3_Page1"/>
+				<smLink xlink:from="APP3_Page4" xlink:to="APP3_Page2"/>
+				<smLink xlink:from="APP3_Page4" xlink:to="APP3_Page3"/>
+				<smLink xlink:from="APP3_Page4" xlink:to="APP3_Page5"/>
+				<smLink xlink:from="APP3_Page4" xlink:to="APP3_Page6"/>
+				<smLink xlink:from="APP3_Page4" xlink:to="APP3_Page7"/>
+				<smLink xlink:from="APP3_Page4" xlink:to="APP3_Page8"/>
+				<smLink xlink:from="APP3_Page5" xlink:to="APP3_Page1"/>
+				<smLink xlink:from="APP3_Page5" xlink:to="APP3_Page2"/>
+				<smLink xlink:from="APP3_Page5" xlink:to="APP3_Page3"/>
+				<smLink xlink:from="APP3_Page5" xlink:to="APP3_Page4"/>
+				<smLink xlink:from="APP3_Page5" xlink:to="APP3_Page6"/>
+				<smLink xlink:from="APP3_Page5" xlink:to="APP3_Page7"/>
+				<smLink xlink:from="APP3_Page5" xlink:to="APP3_Page8"/>
+				<smLink xlink:from="APP3_Page6" xlink:to="APP3_Page1"/>
+				<smLink xlink:from="APP3_Page6" xlink:to="APP3_Page2"/>
+				<smLink xlink:from="APP3_Page6" xlink:to="APP3_Page3"/>
+				<smLink xlink:from="APP3_Page6" xlink:to="APP3_Page4"/>
+				<smLink xlink:from="APP3_Page6" xlink:to="APP3_Page5"/>
+				<smLink xlink:from="APP3_Page6" xlink:to="APP3_Page7"/>
+				<smLink xlink:from="APP3_Page6" xlink:to="APP3_Page8"/>
+				<smLink xlink:from="APP3_Page7" xlink:to="APP3_Page1"/>
+				<smLink xlink:from="APP3_Page7" xlink:to="APP3_Page2"/>
+				<smLink xlink:from="APP3_Page7" xlink:to="APP3_Page3"/>
+				<smLink xlink:from="APP3_Page7" xlink:to="APP3_Page4"/>
+				<smLink xlink:from="APP3_Page7" xlink:to="APP3_Page5"/>
+				<smLink xlink:from="APP3_Page7" xlink:to="APP3_Page6"/>
+				<smLink xlink:from="APP3_Page7" xlink:to="APP3_Page8"/>
+				<smLink xlink:from="APP3_Page8" xlink:to="APP3_Page1"/>
+				<smLink xlink:from="APP3_Page8" xlink:to="APP3_Page2"/>
+				<smLink xlink:from="APP3_Page8" xlink:to="APP3_Page3"/>
+				<smLink xlink:from="APP3_Page8" xlink:to="APP3_Page4"/>
+				<smLink xlink:from="APP3_Page8" xlink:to="APP3_Page5"/>
+				<smLink xlink:from="APP3_Page8" xlink:to="APP3_Page6"/>
+				<smLink xlink:from="APP3_Page8" xlink:to="APP3_Page7"/>
+			</structLink>
+		</mets>
+
+	</Appendix>
+</METS_Profile>

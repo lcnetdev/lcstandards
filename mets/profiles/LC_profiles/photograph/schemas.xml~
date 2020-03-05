@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
+  <uri resource="profile.xml" uri="../../../../../emacs212/nxml-lisp/schema/mets.profile.rnc"/>
+  <uri resource="profile.xml" uri="../../../../../emacs212/nxml-lisp/schema/mets.rnc"/>
+  <uri resource="ex3.xml" uri="../../../../../emacs212/nxml-lisp/schema/mets.rnc"/>
+  <uri resource="photo_structure.xml" uri="../../../../../emacs212/nxml-lisp/schema/mets.rnc"/>
+</locatingRules>

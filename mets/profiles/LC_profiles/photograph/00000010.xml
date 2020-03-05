@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/METS_Profile/"
+
+
+      xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd 
+      http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+      http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd
+      http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd"
+>
+
+  <!-- Created by Morgan Cundiff using Emacs -->
+  <!-- xsi:noNamespaceSchemaLocation="C:\mets_profiles\mets.profile.v1-1.xsd" -->
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/photograph/00000010.xml</URI>
+  <title>Library of Congress METS Profile for a Digital Photograph [Draft]</title>
+  <abstract>The Library of Congress METS Profile for Photographs specifies how METS documents representing single photographs within Library of Congress digital library projects should be encoded. The profile applies to both photographs and other pictorial items.</abstract>
+  <date>2006-04-01T17:31:00</date>
+  <contact>
+    <name>Network Development and MARC Standards Office</name>
+    <institution>Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+    <context/>
+  </extension_schema>
+  <description_rules/>
+  <controlled_vocabularies/>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A METS photoObject document must contain one and only one Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p>If there is only one version of the photograph to be digitized (and thus to be considered as part of the photoObject) then the MODS record will contain no relatedItem TYPE="constituent" elements. The term "version" here is used to refer to the various possible manifestations of a photograph such as an original negative, a copy negative, a print, a cropped print, a contact sheet, and the like. This is not to be confused with multiple digital images for a particular version (different digital image file formats, resolutions, etc.).</p>
+      </requirement>
+      <requirement ID="dr03" RELATEDMAT="ex03">
+	<p>If the photoObject does consist of multiple versions, then the MODS record will have one relatedItem  element for each version. Each of these relatedItems must have a TYPE="constituent" attribute and an ID attribute.</p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex04">
+	<p>The physical structure of the photoObject will be represented in the Structure Map (structMap) section of the METS instance. The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="photo:photoObject" child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.</p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex05">
+	<p>The div TYPE="photo:photoObject" element will have one or more div TYPE="photo:version" child elements. When there is only one version of the photograph (see dmdSec Requirement 3) there will be one div TYPE="photo:version" element. The div TYPE="photo:photoObject" element must have a DMDID pointing to the mods element.</p>
+      </requirement>
+      <requirement ID="st03" RELATEDMAT="ex06">
+	<p>In the cases where there is more than one version of the photograph (see dmdSec Requirement 3), there will be one corresponding div TYPE="photo:version" element for each relatedItem TYPE="constituent" contained in the mods element. Each div TYPE="photo:version" element must have a DMDID pointing to the corresponding relatedItem element. Note that the relatedItem type="constituent" elements and the div TYPE="photo:version" elements correspond according to their document order.</p>
+      </requirement>
+      <requirement ID="st04" RELATEDMAT="ex07">
+	<p>In the case where a particuluar version of the photograph is comprised of two images (usually one for the front of a print and one for the back of a print), the div TYPE="photo:version element will contain two div TYPE="photo:image child elements. The typical example of this is the case where a photo print contains useful information about the photograph (names, date, location, photographer, etc.) inscribed on the back side. The first div TYPE="photo:image element must be for the front side of the print and second div TYPE="photo:image element must be for the back side of the print. The div TYPE="photo:image element may optionally use the LABEL attribute to supply clarifying structural information, for example div TYPE="photo:image LABEL="Front".</p>
+      </requirement>
+
+    </structMap>
+  </structural_requirements>
+
+  <technical_requirements>
+  </technical_requirements>
+
+  
+  <tool/>
+  <Appendix ID="a1" NUMBER="0">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+      <mets:dmdSec ID="dmd1_ex01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex01">
+	      <mods:titleInfo>
+		<mods:title>Title</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+      <mets:dmdSec ID="dmd1_ex02">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex02">
+	      <mods:titleInfo>
+		<mods:title>[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+
+  </Appendix>
+
+
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+      <mets:dmdSec ID="dmd1_ex03">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex03">
+	      <mods:titleInfo>
+		<mods:title>[Portrait of Tyree Glenn, New York, N.Y., ca. July 1947]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="ver01_ex03" type="constituent">
+		<mods:location>
+		  <mods:physicalLocation displayLabel="contents of subfield">negative</mods:physicalLocation>
+		</mods:location>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="ver02_ex03" type="constituent">
+		<mods:location>
+		  <mods:physicalLocation displayLabel="contents of subfield">contact print with annotations</mods:physicalLocation>
+		</mods:location>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="ver03_ex03" type="constituent">
+		<mods:location>
+		  <mods:physicalLocation displayLabel="contents of subfield">published print (The Golden Age of Jazz, Pomegranate Artbooks)</mods:physicalLocation>
+		</mods:location>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+      <mets:dmdSec ID="dmd1_ex04">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex04">
+	      <mods:titleInfo>
+		<mods:title>[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="photo:photoObject" DMDID="mods1_ex04">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex05" NUMBER="5">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd1_ex05">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex05">
+	      <mods:titleInfo>
+		<mods:title>[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="photo:photoObject" DMDID="mods1_ex05">
+	  <mets:div TYPE="photo:version">
+	    <mets:div TYPE="photo:image">
+	      <mets:fptr/>
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex06" NUMBER="6">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+      <mets:dmdSec ID="dmd1_ex06">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex06">
+	      <mods:titleInfo>
+		<mods:title>[Portrait of Tyree Glenn, New York, N.Y., ca. July 1947]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="ver01_ex06" type="constituent">
+		<mods:location>
+		  <mods:physicalLocation displayLabel="contents of subfield">negative</mods:physicalLocation>
+		</mods:location>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="ver02_ex06" type="constituent">
+		<mods:location>
+		  <mods:physicalLocation displayLabel="contents of subfield">contact print with annotations</mods:physicalLocation>
+		</mods:location>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="ver03_ex06" type="constituent">
+		<mods:location>
+		  <mods:physicalLocation displayLabel="contents of subfield">published print (The Golden Age of Jazz, Pomegranate Artbooks)</mods:physicalLocation>
+		</mods:location>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="photo:photoObject" DMDID="mods1_ex06">
+	  <mets:div TYPE="photo:version" DMDID="ver01_ex06">
+	    <mets:div TYPE="photo:image">
+	      <mets:fptr/>
+	      <mets:fptr/>
+	    </mets:div>
+	    <mets:div TYPE="photo:version" DMDID="ver02_ex06">
+	      <mets:div TYPE="photo:image">
+		<mets:fptr/>
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="photo:version" DMDID="ver03_ex06">
+	      <mets:div TYPE="photo:image">
+		<mets:fptr/>
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex07" NUMBER="7">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/photograph"
+	       PROFILE="photo:photograph"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+      <mets:structMap>
+	<mets:div TYPE="photo:photoObject" DMDID="mods1_ex06">
+	  <mets:div TYPE="photo:version" LABEL="Print">
+	    <mets:div TYPE="photo:image" LABEL="Front">
+	      <mets:fptr/>
+	      <mets:fptr/>
+	    </mets:div>
+	    <mets:div TYPE="photo:image" LABEL="Back">
+	      <mets:fptr/>
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix> 
+
+
+</METS_Profile>

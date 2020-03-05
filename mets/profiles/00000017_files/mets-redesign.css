@@ -1,0 +1,51 @@
+BODY {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; PADDING-LEFT: 0px; FONT-SIZE: 10pt; MIN-HEIGHT: 100%; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: medium none; COLOR: #333333; PADDING-TOP: 0px; BORDER-BOTTOM: medium none; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; HEIGHT: 100%
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #339966; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+H2 {
+	FONT-WEIGHT: bolder; FONT-SIZE: 15pt; COLOR: #336666; FONT-STYLE: normal; FONT-FAMILY: Georgia, "Times New Roman", Times, serif
+}
+P {
+	FONT-SIZE: 10pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TD {
+	FONT-SIZE: 10pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+LI {
+	FONT-SIZE: 9pt; COLOR: #333333; LINE-HEIGHT: 18px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+UL {
+	LIST-STYLE-TYPE: square
+}
+UL UL {
+	LIST-STYLE-TYPE: disc
+}
+UL UL UL {
+	LIST-STYLE-TYPE: circle
+}
+.menu {
+	FONT-SIZE: 9pt; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.selected {
+	FONT-WEIGHT: bold; COLOR: #006633
+}
+TD {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.smaller {
+	FONT-SIZE: 8pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+PRE {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: "Courier New", Courier, mono
+}
+DIV.gx {
+	BORDER-RIGHT: #ccc 1px dashed; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px dashed; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #ccc 1px dashed; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px dashed
+}
+.background-green {
+	BACKGROUND-IMAGE: url(images/spacer-green.gif); BACKGROUND-COLOR: #339966
+}
+.background-gray {
+	BACKGROUND-IMAGE: url(images/spacer-gray.gif); BACKGROUND-COLOR: #dddddd
+}

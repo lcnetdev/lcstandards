@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:mods="http://www.loc.gov/mods/v3"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2b.xsd">
+   <mets:dmdSec ID="DMD">
+      <mets:mdWrap MDTYPE="MODS">
+         <mets:xmlData>
+            <mods:mods ID="MODSMD_ISSUE1">
+               <mods:titleInfo>
+                  <mods:title>HÄMÄLÄINEN no. 78 01.01.1887</mods:title>
+               </mods:titleInfo>
+               <mods:genre>newspaper</mods:genre>
+               <mods:originInfo>
+                  <mods:dateCreated encoding="w3cdtf" point="start" keyDate="yes" qualifier="approximate"/>
+               </mods:originInfo>
+               <mods:language>
+                  <mods:languageTerm type="code" authority="rfc3066"/>
+               </mods:language>
+               <mods:note ID="DIVL6" type="title area">From title area: .</mods:note>
+               <mods:note ID="DIVL7" type="title area">From title area: W7.</mods:note>
+               <mods:note ID="DIVL8" type="title area">From title area: lAnnetaan jota leelllrulto jal (laumantai ja jaetaan Hä«&gt; mälälsen llrlapa&gt;no«sa. 1</mods:note>
+               <mods:note ID="DIVL9" type="title area">From title area: lHmta 3 mrt. 20 pen. 1010 l &lt;»uosil«ira«t», paitsi po«t»-&gt; s maksoja.</mods:note>
+               <mods:note ID="DIVL10" type="title area">From title area: Lauumntaina Lokakuun 1 päiwanä.</mods:note>
+               <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE1">
+                  <mods:titleInfo>
+                     <mods:title/>
+                  </mods:titleInfo>
+                  <mods:genre>article</mods:genre>
+                  <mods:part ID="DIVL15" type="paragraph" order="1"/>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE2">
+                  <mods:titleInfo>
+                     <mods:title>Bäiwälista.</mods:title>
+                  </mods:titleInfo>
+                  <mods:genre>article</mods:genre>
+                  <mods:part ID="DIVL22" type="paragraph" order="1"/>
+                  <mods:part ID="DIVL24" type="paragraph" order="2"/>
+                  <mods:part ID="DIVL26" type="paragraph" order="3"/>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_SECTION1">
+                  <mods:titleInfo>
+                     <mods:title>Ilmoituksia.</mods:title>
+                  </mods:titleInfo>
+                  <mods:genre>section</mods:genre>
+                  <mods:relatedItem type="constituent" ID="DIVL33">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 1 Page 0</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL34">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 2 Page 0</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL35">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 3 Page 0</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL36">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 4 Page 0</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL37">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 5 Page 0</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_SECTION2">
+                  <mods:titleInfo>
+                     <mods:title>Hämeenlinnasta.</mods:title>
+                  </mods:titleInfo>
+                  <mods:genre>section</mods:genre>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE3">
+                     <mods:titleInfo>
+                        <mods:title>— Laulajaisissa</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL46" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE4">
+                     <mods:titleInfo>
+                        <mods:title>— Kaupungin ivaltuusmiehitfi</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL53" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE5">
+                     <mods:titleInfo>
+                        <mods:title>— Wirkawapautta</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL60" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE6">
+                     <mods:titleInfo>
+                        <mods:title>— Konkurssi</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL67" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE7">
+                     <mods:titleInfo>
+                        <mods:title>— Ernestine ja Elmire Voneher</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL74" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE8">
+                     <mods:titleInfo>
+                        <mods:title>— Waltiowiisautta.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL81" type="paragraph" order="1"/>
+                     <mods:part ID="DIVL83" type="paragraph" order="2"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE9">
+                     <mods:titleInfo>
+                        <mods:title>— Keinoja kuin keksitään.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL90" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE10">
+                     <mods:titleInfo>
+                        <mods:title>– Waltivftäiwä miehilfi</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL97" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE11">
+                     <mods:titleInfo>
+                        <mods:title>– Kirjallisuutta.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL104" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE12">
+                     <mods:titleInfo>
+                        <mods:title>— Waltiopäiwämieswaalit pappis» säädyssä.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL111" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE13">
+                     <mods:titleInfo>
+                        <mods:title>— Naalikiihto Tampereen waltiopäiwämieswaalin</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL118" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE14">
+                     <mods:titleInfo>
+                        <mods:title>— Lainwal«istelukunta</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL125" type="paragraph" order="1"/>
+                     <mods:part ID="DIVL127" type="paragraph" order="2"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE15">
+                     <mods:titleInfo>
+                        <mods:title>— Tuomen sotalväki.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL134" type="paragraph" order="1"/>
+                     <mods:part ID="DIVL136" type="paragraph" order="2"/>
+                     <mods:part ID="DIVL138" type="paragraph" order="3"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE16">
+                     <mods:titleInfo>
+                        <mods:title>— Kappalaisenlvaalissa</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL145" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE17">
+                     <mods:titleInfo>
+                        <mods:title>— Kappalaisen maalissa Ristiinan pitäjässä</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL152" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE18">
+                     <mods:titleInfo>
+                        <mods:title>— Kirkkoherran vaalissa Pusulan uudessa kirkkoherrakunnassa</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL159" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE19">
+                     <mods:titleInfo>
+                        <mods:title>— Sörnääfin Vankilan saarnaajaksi</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL166" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE20">
+                     <mods:titleInfo>
+                        <mods:title>— Hunnialahja.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL173" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE21">
+                     <mods:titleInfo>
+                        <mods:title>— 1000 markkaa kadonnut.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL180" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE22">
+                     <mods:titleInfo>
+                        <mods:title>— Taskuvaras vangittu.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL187" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE23">
+                     <mods:titleInfo>
+                        <mods:title>— Helsingin kulkupvörättubi</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL194" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE24">
+                     <mods:titleInfo>
+                        <mods:title>— Lapsi palanut.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL201" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE25">
+                     <mods:titleInfo>
+                        <mods:title>— Hippak. sanomia.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL208" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE26">
+                     <mods:titleInfo>
+                        <mods:title>— Pelastus merihädästä.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL215" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE27">
+                     <mods:titleInfo>
+                        <mods:title>— Kiteen uusi kivikirkko,</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL222" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE28">
+                     <mods:titleInfo>
+                        <mods:title>— Kultalöydöt Ivalossa:</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL229" type="paragraph" order="1"/>
+                     <mods:part ID="DIVL231" type="paragraph" order="2"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE29">
+                     <mods:titleInfo>
+                        <mods:title>— Naisia lihantarkastajoina.</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL238" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE30">
+                     <mods:titleInfo>
+                        <mods:title/>
+                     </mods:titleInfo>
+                     <mods:genre>article</mods:genre>
+                     <mods:part ID="DIVL243" type="paragraph" order="1"/>
+                  </mods:relatedItem>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_SECTION3">
+                  <mods:titleInfo>
+                     <mods:title/>
+                  </mods:titleInfo>
+                  <mods:genre>section</mods:genre>
+                  <mods:relatedItem type="constituent" ID="DIVL248">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 1 Page 0</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL249">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 2 Page 0</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE31">
+                  <mods:titleInfo>
+                     <mods:title>Tulipalusta Haminaska</mods:title>
+                  </mods:titleInfo>
+                  <mods:genre>article</mods:genre>
+                  <mods:part ID="DIVL255" type="paragraph" order="1"/>
+                  <mods:part ID="DIVL257" type="paragraph" order="2"/>
+                  <mods:part ID="DIVL259" type="paragraph" order="3"/>
+                  <mods:part ID="DIVL261" type="paragraph" order="4"/>
+                  <mods:part ID="DIVL263" type="paragraph" order="5"/>
+                  <mods:part ID="DIVL265" type="paragraph" order="6"/>
+                  <mods:part ID="DIVL267" type="paragraph" order="7"/>
+                  <mods:part ID="DIVL269" type="paragraph" order="8"/>
+                  <mods:part ID="DIVL271" type="paragraph" order="9"/>
+                  <mods:part ID="DIVL273" type="paragraph" order="10"/>
+                  <mods:part ID="DIVL275" type="paragraph" order="11"/>
+                  <mods:part ID="DIVL277" type="paragraph" order="12"/>
+                  <mods:part ID="DIVL279" type="paragraph" order="13"/>
+                  <mods:part ID="DIVL281" type="paragraph" order="14"/>
+                  <mods:part ID="DIVL283" type="paragraph" order="15"/>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE32">
+                  <mods:titleInfo>
+                     <mods:title>Onneton huwiretki.</mods:title>
+                  </mods:titleInfo>
+                  <mods:genre>article</mods:genre>
+                  <mods:part ID="DIVL290" type="paragraph" order="1"/>
+                  <mods:part ID="DIVL292" type="paragraph" order="2"/>
+                  <mods:part ID="DIVL294" type="paragraph" order="3"/>
+                  <mods:part ID="DIVL296" type="paragraph" order="4"/>
+                  <mods:part ID="DIVL298" type="paragraph" order="5"/>
+                  <mods:part ID="DIVL300" type="paragraph" order="6"/>
+                  <mods:part ID="DIVL302" type="paragraph" order="7"/>
+                  <mods:part ID="DIVL304" type="paragraph" order="8"/>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_ARTICLE33">
+                  <mods:titleInfo>
+                     <mods:title>Kaikenlaista.</mods:title>
+                  </mods:titleInfo>
+                  <mods:genre>article</mods:genre>
+                  <mods:part ID="DIVL311" type="paragraph" order="1"/>
+                  <mods:part ID="DIVL313" type="paragraph" order="2"/>
+                  <mods:part ID="DIVL315" type="paragraph" order="3"/>
+                  <mods:part ID="DIVL317" type="paragraph" order="4"/>
+                  <mods:part ID="DIVL319" type="paragraph" order="5"/>
+                  <mods:part ID="DIVL321" type="paragraph" order="6"/>
+               </mods:relatedItem>
+               <mods:relatedItem type="constituent" ID="MODSMD_SECTION4">
+                  <mods:titleInfo>
+                     <mods:title/>
+                  </mods:titleInfo>
+                  <mods:genre>section</mods:genre>
+                  <mods:relatedItem type="constituent" ID="DIVL326">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 1 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL327">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 2 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL328">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 3 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL329">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 4 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL330">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 5 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL331">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 6 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL332">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 7 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL333">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 8 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL334">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 9 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL335">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 10 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL336">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 11 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL337">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 12 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL338">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 13 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL339">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 14 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL340">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 15 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL341">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 16 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+                  <mods:relatedItem type="constituent" ID="DIVL342">
+                     <mods:titleInfo>
+                        <mods:title>Adv. 17 Page 2</mods:title>
+                     </mods:titleInfo>
+                     <mods:genre>advertisement</mods:genre>
+                  </mods:relatedItem>
+               </mods:relatedItem>
+            </mods:mods>
+         </mets:xmlData>
+      </mets:mdWrap>
+   </mets:dmdSec>
+   <mets:amdSec ID="IMGPARAM00001"/>
+   <mets:amdSec ID="IMGPARAM00002"/>
+   <mets:amdSec ID="IMGPARAM00003"/>
+   <mets:fileSec>
+      <mets:fileGrp ID="IMGGRP" USE="Images">
+         <mets:file ID="IMG00001" CREATED="2006-02-21T11:35:44" ADMID="IMGPARAM00001"
+                    MIMETYPE="image/tif"
+                    SEQ="1"
+                    CHECKSUM="d6f3ca72d419652d482d2f694d1c15ed"
+                    CHECKSUMTYPE="MD5"
+                    SIZE="238869">
+            <mets:FLocat LOCTYPE="URL" xlink:href="file://./188701010001.tif"/>
+         </mets:file>
+         <mets:file ID="IMG00002" CREATED="2006-02-21T11:35:44" ADMID="IMGPARAM00002"
+                    MIMETYPE="image/tif"
+                    SEQ="2"
+                    CHECKSUM="c05ecd1d3ff930b63fbb1a53e4fc4d47"
+                    CHECKSUMTYPE="MD5"
+                    SIZE="289748">
+            <mets:FLocat LOCTYPE="URL" xlink:href="file://./188701010002.tif"/>
+         </mets:file>
+         <mets:file ID="IMG00003" CREATED="2006-02-21T11:35:45" ADMID="IMGPARAM00003"
+                    MIMETYPE="image/tif"
+                    SEQ="3"
+                    CHECKSUM="8421bd28ab2c3a29b7b22598c21141ef"
+                    CHECKSUMTYPE="MD5"
+                    SIZE="232845">
+            <mets:FLocat LOCTYPE="URL" xlink:href="file://./188701010003.tif"/>
+         </mets:file>
+      </mets:fileGrp>
+      <mets:fileGrp ID="ALTOGRP" USE="Text">
+         <mets:file ID="ALTO0001" MIMETYPE="text/xml" CHECKSUM="bccad2fd74f3c45a64c00c06dfc0269a"
+                    CHECKSUMTYPE="MD5"
+                    SIZE="232261">
+            <mets:FLocat LOCTYPE="URL" xlink:href="188701010001.xml"/>
+         </mets:file>
+         <mets:file ID="ALTO0002" MIMETYPE="text/xml" CHECKSUM="a15955083b12e8d8fcc6c0d5464bf313"
+                    CHECKSUMTYPE="MD5"
+                    SIZE="331738">
+            <mets:FLocat LOCTYPE="URL" xlink:href="188701010002.xml"/>
+         </mets:file>
+         <mets:file ID="ALTO0003" MIMETYPE="text/xml" CHECKSUM="6e832b210dac74b688b3e0ab4345b4ce"
+                    CHECKSUMTYPE="MD5"
+                    SIZE="195970">
+            <mets:FLocat LOCTYPE="URL" xlink:href="188701010003.xml"/>
+         </mets:file>
+      </mets:fileGrp>
+   </mets:fileSec>
+   <mets:structMap>
+      <mets:div TYPE="ndnp:issue" DMDID="MODSMD_ISSUE1">
+         <mets:div TYPE="ndnp:page">
+            <mets:div TYPE="ndnp:image">
+               <mets:fptr FILEID="IMG00001"/>
+            </mets:div>
+            <mets:div TYPE="ndnp:alto">
+               <mets:fptr FILEID="ALTO0001"/>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL6">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00055"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL7">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00057"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL8">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00034"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL9">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00036"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL10">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00035"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE1">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00013"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL15">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00013"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE2">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00014"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL22">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00015"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL24">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00016"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL26">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00017"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_SECTION1">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00001"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL33">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00002"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL34">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00007"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL35">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00001"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL36">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00004"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL37">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00005"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_SECTION2">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00002"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE3">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00003"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL46">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00004"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE4">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00005"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL53">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00006"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE5">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00007"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL60">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00008"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE6">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00009"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL67">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00010"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE7">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00011"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL74">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00012"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE8">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00018"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL81">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00019"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL83">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00020"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE9">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00021"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL90">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00022"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE10">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00023"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL97">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00024"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE11">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00025"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL104">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00026"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE12">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00027"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL111">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00028"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE13">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00029"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL118">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00030"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE14">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00031"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL125">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00032"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL127">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00033"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE15">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00037"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL134">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00038"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL136">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00039"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL138">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00040"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE16">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00041"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL145">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00042"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE17">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00043"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL152">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00044"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE18">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00045"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL159">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00046"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE19">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00047"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL166">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00048"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE20">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00049"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL173">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00050"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE21">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00051"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL180">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00052"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE22">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00053"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL187">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_TB00054"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL248">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00006"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL249">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0001" BEGIN="P1_CB00003"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+         </mets:div>
+         <mets:div TYPE="ndnp:page">
+            <mets:div TYPE="ndnp:image">
+               <mets:fptr FILEID="IMG00002"/>
+            </mets:div>
+            <mets:div TYPE="ndnp:alto">
+               <mets:fptr FILEID="ALTO0002"/>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL187">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00025"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE23">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00026"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL194">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00027"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE24">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00028"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL201">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00029"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE25">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00030"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL208">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00031"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL208">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00032"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE26">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00033"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL215">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00034"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE27">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00035"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL222">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00036"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE28">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00037"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL229">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00038"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL231">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00010"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE29">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00013"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL238">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00014"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE30">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00015"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL243">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00015"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE31">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00017"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL255">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00018"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL257">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00020"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL259">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00011"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL261">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00012"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL263">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00016"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL265">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00019"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL267">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00021"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE32">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00001"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL290">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00002"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL292">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00003"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL294">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00004"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL294">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00022"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL296">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00023"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL298">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00024"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL298">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00005"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL298">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00006"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL300">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00007"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL302">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00008"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL304">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0002" BEGIN="P2_TB00009"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+         </mets:div>
+         <mets:div TYPE="ndnp:page">
+            <mets:div TYPE="ndnp:image">
+               <mets:fptr FILEID="IMG00003"/>
+            </mets:div>
+            <mets:div TYPE="ndnp:alto">
+               <mets:fptr FILEID="ALTO0003"/>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL267">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00008"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL269">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00009"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL271">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00010"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL273">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00011"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL275">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00012"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL277">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00013"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL279">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00014"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL281">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00015"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL283">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00016"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="MODSMD_ARTICLE33">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00001"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL311">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00002"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL313">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00003"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL315">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00004"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL317">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00005"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL319">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00006"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL321">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_TB00007"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL326">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00003"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL327">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00007"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL328">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00006"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL329">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00013"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL330">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00011"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL331">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00010"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL332">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00002"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL333">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00016"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL334">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00017"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL335">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00008"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL336">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00015"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL337">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00014"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL338">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00004"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL339">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00005"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL340">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00012"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL341">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00009"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+            <mets:div TYPE="ndnp:pageRegion" DMDID="DIVL342">
+               <mets:div TYPE="ndnp:alto">
+                  <mets:fptr>
+                     <mets:area BETYPE="IDREF" FILEID="ALTO0003" BEGIN="P3_CB00001"/>
+                  </mets:fptr>
+               </mets:div>
+            </mets:div>
+         </mets:div>
+      </mets:div>
+   </mets:structMap>
+</mets:mets>

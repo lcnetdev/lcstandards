@@ -1,0 +1,1815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="echoProfile2html.xsl" ?>
+
+<!-- 
+********************************************************************************
+$Header: /ECHODEP/METS/BaseMETSProfile.xml 7     11/28/06 1:28p Thabing $
+
+Authors/Contributors/Reviewers:
+  Janet Eke (UIUC)
+  Jay Goodkin (OCLC)
+  Jerome McDonough (UIUC)
+  Leah Houser (OCLC)
+  Morgan Cundiff (LOC)
+  Rebecca Guenther (LOC)
+  Richard Urban (UIUC)
+  Shifra Raffel (UCOP)
+  Shweta Rani (OCLC)
+  Tom Habing (UIUC)
+  Tracy Seneca (UCOP)  
+
+**********************************************************************************
+-->
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.loc.gov/METS_Profile/
+    http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+	<URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000015.xml</URI>
+	<title> ECHO Dep Generic METS Profile for Preservation and Digital Repository Interoperability</title>
+	<abstract> The primary focus of this profile is to enable repository interoperability and
+		digital preservation of repository content.  Because of the strong
+		focus on preservation and not access, this profile is relatively noncommittal regarding file
+		formats or structures. However, special attention has been given to administrative and
+		technical metadata, particularly on integrating the PREMIS data model and schema into METS.
+		Because this profile is agnostic regarding file formats or structures, it is anticipated that this profile may be
+		overlaid on top of or inherited from other profiles which better define these aspects, but require the preservation
+		or interoperability support that this profile can support.  As an example refer to the Related Profiles section below.
+	</abstract>
+	<date>2005-11-27T00:00:00</date>
+	<contact>
+		<name>Thomas G. Habing</name>
+		<institution> University of Illinois at Urbana-Champaign, Grainger Engineering Library
+			Information Center </institution>
+		<address>1301 W. Springfield Ave., Urbana, IL, 61801</address>
+		<phone>(217) 244-4425</phone>
+		<email>thabing@uiuc.edu</email>
+	</contact>
+	<related_profile ID="RELATED_PROFILES" RELATIONSHIP="Inherited by"  URI="WebMETSProfile.xml">ECHO Dep METS Profile for Web Site Captures</related_profile>
+	<extension_schema>
+		<name>Metadata Object Description Schema (MODS)</name>
+		<URI>http://www.loc.gov/standards/mods/</URI>
+		<context>MODS descriptive metadata occur embedded in the dmdSec element. The METS package as
+			a whole must have one primary MODS dmdSec describing the entire package.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Digital Library Federation / Aquifer Implementation Guidelines for Shareable MODS Records</name>
+		<URI>http://www.diglib.org/aquifer/dlfmodsimplementationguidelines_finalnov2006.pdf</URI>
+		<context>The Primary descriptive MODS metadata record must conform to these guidelines.
+		In this case conformance means that all requirements of the Aquifer guidelines which are listed
+		as "REQUIRED" or "REQUIRED IF APPLICABLE" must be adhered to by METS files confromant to this 
+		profile.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS Preservation Metadata Schema: Object</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd</URI>
+		<context>PREMIS Object elements occur embedded in the techMD section. Each file or bitstream
+			which occurs in the file section must have a corresponding PREMIS Object in a techMD
+			section. METS sections which correspond to PREMIS representations, such as structMap
+			element or the METS file overall, may also have an associated PREMIS object
+		element.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS Preservation Metadata Schema: Event</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd</URI>
+		<context>PREMIS Event elements occur embedded in the digiprovMD section. PREMIS Events can
+			be associated with nearly any other METS sections, including descriptive metadata,
+			files, structural maps, and possibly others. See the Structural Requirements sections
+			below for details.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS Preservation Metadata Schema: Agent</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd</URI>
+		<context>PREMIS Agent elements occur embedded in either the digiprovMD section or rightsMD
+			sections depending on whether the Agent is associated with PREMIS Events or PREMIS
+			Rights.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS Preservation Metadata Schema: Rights</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Rights-v1-1.xsd</URI>
+		<context>PREMIS Rights elements occur embedded in the rightsMD section. Rights can be
+			expressed for files or bitstreams or for descriptive metadata.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Text Metadata Schema</name>
+		<URI>http://dlib.nyu.edu/METS/textmd.xsd</URI>
+		<context>Any textMD element may be embedded within the administrative techMD
+		element.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>NISO Data Dictionary: Technical Metadata for Digital Still Images (MIX)</name>
+		<URI>http://www.loc.gov/standards/mix/mix.xsd</URI>
+		<context>Any MIX element may be embedded within the administrative techMD element.</context>
+	</extension_schema>
+	<extension_schema>
+		<name>VIDEOMD: Video Technical Metadata Extension Schema</name>
+		<URI>http://lcweb2.loc.gov/mets/Schemas/VMD.xsd</URI>
+		<context>The VIDEOMD element may be embedded within the administrative techMD
+			element. The VIDEOMD element should include the  file_data  and physical_data elements, 
+			but may include other child elements as well.
+		</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Audio Technical Metadata Extension Schema </name>
+		<URI>http://lcweb2.loc.gov/mets/Schemas/AMD.xsd</URI>
+		<context>The AUDIOMD element may be embedded within the administrative techMD
+			element. The AUDIOMD element should include the  file_data  and physical_data elements, 
+			but may include other child elements as well.
+		</context>
+	</extension_schema>
+	<extension_schema>
+		<name>JHOVE XML Handler Output Schema</name>
+		<URI>http://hul.harvard.edu/ois/xml/xsd/jhove/jhove.xsd</URI>
+		<context>JHoVE XML output may be included within the administrative techMD element.</context>
+		<note>For details on JHOVE see http://hul.harvard.edu/jhove/.</note>
+	</extension_schema>
+	<description_rules>
+		<head>Purpose of this Profile</head>
+		<p> This profile is generally not concerned with rendering or making accessible any
+			particular representation of an object, but it is concerned with preserving the object
+			and its representations, including the history of how those have changed over periods of
+			time. In this context preservation refers to both short-term interoperability,
+			preserving the representations and metadata as a digital package is moved between two
+			different repositories, but it also refers to the long-term preservation of the package
+			and its history as it exists in various repositories for long periods of time and
+			undergoes various "preservation actions" such as fixity checks, normalizations, or
+			format migrations. </p>
+		<p> In general this profile is agnostic about almost all aspects of a digital object's
+			representation. We have made some pragmatic concessions, such as mandating at least MODS
+			for the dmdSec, but otherwise don't have many requirements for these sections. However,
+			this profile is very prescriptive when it comes to administrative metadata which can be
+			associated with almost all of the sections that make up the representation, particularly
+			technical and provenance metadata because we feel that those are important to
+			preservation. </p>
+
+		<head>Definitions/Assumptions</head>
+		<p> This profile draws on many of the concepts from the PREMIS data model. In particular,
+			METS documents that conform to this profile are assumed to be "representations" of
+			"intellectual entities." In addition to the overall "representation" that is the METS
+			document itself, there may be subordinate "representations" that correspond to specific
+			structural maps contained in the METS document. In general, the "representation" of an
+			"intellectual entity" is taken to be the combination of the structural maps (structMap),
+			structural map linkings (structLink), descriptive metadata (dmdSec), content files or
+			bitstreams (fileSec), and behaviors (behaviorSec) encapsulated by the METS document. If
+			a METS document contains multiple structural maps, each of those structural maps and
+			associated structural map linkings, descriptive metadata, content files or bitstreams,
+			and behaviors is treated as an alternate representation of the intellectual entity. The
+			administrative metadata (amdSec), including the METS header (metsHdr), is not considered
+			part of the actual representation; however, these sections are critical for interpreting
+			and utilizing the sections that are considered part of the representation. In general,
+			this profile treats data embedded in or referenced from the following METS elements as
+			comprising the representation of the object being preserved: dmdSec, fileSec, structMap,
+			structLink, and behaviorSec. This implies that any of these sections may have associated
+			administrative metadata, particularly entities from PREMIS or one of the technical
+			metadata standards called out in this profile. </p>
+		<p> The definition of  intellectual entities is left for different communities of
+			practice, and will vary across those communities. </p>
+		<p> One ECHODEP METS document represents a single intellectual entity as defined by the
+			community of practice for which the intellectual entity applies. For example, for one
+			community of practice the intellectual entity of interest may be a web site, but for a
+			different community of practice the intellectual entity of interest may be individual
+			web pages. This profile can be used for either.</p>
+		<p> Omission of a particular METS section or attribute in this profile does not imply that
+			the section is prohibited by this profile. However, it does imply that the section or
+			attribute may be ignored by a METS processor that claims to conform to this profile. In
+			general, processors that act on METS documents that conform to this profile should
+			attempt to preserve any undefined sections or attributes during any operations performed
+			on the files, such as transformations, submissions, disseminations, or archiving.
+			However, this profile makes no guarantees regarding these undefined sections or
+			attributes. </p>
+
+		<head ID="DESCR_ID">METS Identifier</head>
+		<p> Each METS document must be assigned a persistent and globally unique identifier. The
+			only requirement for these identifiers is that they should conform to a widely accepted
+			standard identifier scheme, and they must be locally resolvable, that is the local
+			system must be able to retrieve its local representation of the package using only this
+			identifier. It is desirable that these identifiers also be globally resolvable. However,
+			global resolution is not defined. Acceptable identifier schemes include: OCLC Purls,
+			CNRI Handles, DOIs, and others. </p>
+		<p> If the METS document is being used as a Submission Information Package (SIP), the
+			identifier is optional. It is assumed that the repository to which the package is being
+			submitted will assign its own identifier. Even if the SIP does have its own identifier,
+			the repository to which it is being submitted may assign a new identifier in which case
+			the SIPs original identifier must be listed as an alternate identifier in the
+			altRecordID section of the header. </p>
+		<p> As this unique identifier is assumed to be the primary identifier for the METS instance,
+			it must be recorded in the OBJID attribute of the mets element. It is assumed that the
+			OBJID will be assigned at the time the METS file is completed and therefore the
+			CREATEDATE attribute must be the date on which the unique identifier was assigned to the
+			object. </p>
+		<p> The primary identifier and identifier scheme must also be included in a PREMIS object
+			element as a representation-level description of the entire set of files that are part
+			of the METs object. This PREMIS object element is recorded in a special techMD section
+			with a status of PRIMARY_REPRESENTATION. This techMD section must be referenced via the
+			root div element of the PRIMARY_STRUCTMAP structural map.</p>
+
+		<head>PREMIS Identifiers</head>
+		<p> PREMIS identifiers, namely objectIdentifier, eventIdentifier, agentIdentifier, and
+			permissionStatementIdentifier, may be assigned persistent and globally unique identifier
+			values which conform to a widely accepted standard identifier scheme, similar to the
+			requirement for the METS Identifier. However, there is no requirement that these
+			identifiers be resolvable either globally or by the local system. It is recognized that
+			many systems will not be capable of authoritatively tracking and assigning identifiers
+			to all of the PREMIS entities. Therefore, the only absolute requirement for these
+			identifiers within this profile is that they be consistent within a single METS
+			document, similar to the Rules for XML Identifiers which are described below. If a
+			system is capable of assigning globally unique and persistent identifiers for some
+			PREMIS entities, for example if it maintains an authority file for agents, it should use
+			those identifiers, but this is not a requirement. </p>
+		<p> Similar to the METS Identifier, an individual repository may reassign its own local
+			identifiers to certain PREMIS entities. If this occurs the original identifier of the
+			entity must be preserved for PREMIS object and agent entities. Both of these entities
+			support multiple identifiers. PREMIS rights and event entities support only a single
+			identifier. Therefore, identifiers which are preassigned to these entities should not be
+			changed. </p>
+
+		<head>Descriptive Metadata</head>
+		<p> This profile makes several assumptions about the descriptive metadata. 1) The most
+			significant assumption is that the descriptive metadata about the entity represented by
+			the METS document are part of the representation of the intellectual entity and not just
+			metadata about the representation. 2) It is also assumed that the descriptive metadata
+			standards supported by different repositories will vary and that preservation of
+			descriptive metadata can help establish the provenance of the METS object. 3) We also
+			assume that the descriptive metadata will change during the life-cycle of the object. </p>
+		<p> Because of the above assumptions, this profile supports multiple descriptive metadata
+			sections, as well as provenance metadata about each of those sections. However, to
+			facilitate interoperability, this profile requires one primary MODS metadata section. </p>
+		<p> A potential usage scenario might be a digital object whose original source descriptive
+			metadata is in the MARCXML format. Because this profile requires MODS as the primary
+			descriptive metadata, the MARCXML will be transformed into MODS, and the MODS will be
+			stored in the METS document along with a provenance statement with some details about
+			the transformation, especially identifying the source metadata format. However, because
+			descriptive metadata are considered to be a significant part of the representation of
+			an entity and because transformations between metadata formats are often imperfect, the
+			original MARCXML format is also stored in the METS document as an alternate metadata
+			format. Now assume that the digital object is to be ingested into DSpace. However,
+			DSpace does not have native support for the MODS metadata format; therefore, as part of
+			the ingest process the MODS must be transformed into the idiosyncratic Dublin Core
+			metadata format that is supported by DSpace. This metadata format is also added as
+			another alternate descriptive metadata format to the METS documents, along with a
+			provenance statement describing how this new DC format was derived from the primary MODS
+			format. Now imagine that the object exists in DSpace for some period of time during
+			which the descriptive metadata undergoes some revision, such as the addition of new
+			subject terms or the addition of an abstract. Also imagine that the object is being
+			disseminated from DSpace for ingest into some new repository. This could trigger the
+			addition of another alternate descriptive metadata section to the METS document. This
+			alternate format would conform to the idiosyncratic DSpace Dublin Core format, but the
+			provenance statement would specify that this DC format represents a newer version of the
+			descriptive metadata than was originally ingested into DSpace. The above scenario would
+			produce a chain of descriptive metadata formats, such as MARCXML (original) -&gt; MODS
+			(primary) -&gt; DC (version 1) -&gt; DC (version 2), with the provenance statements adequate
+			to determine the sequence of events that led to this chain. As part of this profile we
+			also envision future processes that might reconcile later metadata revisions and merge
+			those revisions back into a new primary MODS descriptive metadata section. </p>
+		<p> It must be noted that even though this profile can accommodate multiple different
+			versions of the same descriptive metadata, it does not mandate that every change to the
+			descriptive metadata must be preserved as an alternate version. The tools that we are
+			developing (the Hub and Spoke) will take advantage of this feature especially for the
+			descriptive metadata which our tool may transform in significant ways. Just as you would
+			probably not delete a source content file after doing a format migration to a more
+			'preservable' format (say from TIF to JPEG2000), we also assume that you will not delete
+			descriptive metadata or a structural map just because you have migrated to a new format
+			or version (say MARC to MODS or even from MODS to MODS with a new revised abstract). </p>
+		<p> It will be up to a particular system developer and/or collection curator as to what
+			extent to implement this. In general, you would not want to preserve an old version of
+			the descriptive metadata every time a new subject term was added or a spelling mistake
+			was corrected, but if the descriptive metadata was substantially rewritten because of
+			new scholarly discoveries about the object, this probably would require preserving the
+			old metadata along with a provenance statement describing the rational for the changes
+			in the new metadata. Likewise, a transformation into an entirely new metadata format
+			should require a new alternate metadata version with the original also preserved for
+			posterity.</p>
+		<p> Part of the assumptions of this profile is that the objects being packaged are in some
+			sort of "preservation state" -- a deliberate decision was made by some agent to put the
+			object into that state, and the object is not expected to be undergoing frequent
+			changes. </p>
+		<p> For more details see the structural requirements section for descriptive metadata below. </p>
+
+		<head ID="STRUCT_MAP">Structural Map </head>
+		<p> This profile also makes assumptions about the structural maps which are similar to the
+			assumptions about descriptive metadata. 1) The structural maps of the object represented
+			by the METS document are also considered a significant parts of the representation
+			itself. 2) In addition, the level of support for complex structural maps can vary
+			greatly across different repositories, meaning that complex structural maps will often
+			need to be transformed or simplified in order to ingest the object into a specific
+			repository. 3) To a lesser extent, we also assume that structural maps can change over
+			time. </p>
+		<p> Just as with the descriptive metadata, this implies that this profile must support
+			multiple structural maps along with provenance metadata about each of those structural
+			maps. Unlike the descriptive metadata, we cannot specify a single interoperable standard
+			that a primary structural map must follow. This is because there are currently no
+			standards for structural maps which are rich enough to represent all possible structures
+			to which an object might conform. Because of this,and also because access and rendering
+			are not a primary focus for this profile, we are deliberately vague with respect to
+			structural maps (Other profiles which inherit from this profile may be more prescriptive with regard to 
+			structural maps.  See the Related Profiles section above for an example.). In general we cannot be any more
+			prescriptive about structural maps than we can be for content files. </p>
+		<p> As an example, if a digital object representation requires the Indiana METS Navigator
+			that would be the structural map it should use; alternately it could require the Harvard
+			Page Delivery Service (PDS), or it might have a separate structural map for each
+			application. At some future point a new and better page turning application may emerge
+			that requires a new structural map. Now the METS document would contain both the old
+			structural map and the new with appropriate technical and provenance metadata, so that a
+			future curator could make informed decisions about the object and its possible
+			representations. </p>
+		<p> However, this profile does still specify that there must be one structural map which is
+			considered the primary structural map for the object. This primary structural map is
+			defined to be that structure that provides the best representation for the digital
+			object as determined by the original creator of the structural map. If the METS document
+			contains multiple structural maps, a processing system may choose amongst the various
+			structural maps that best meets its needs; however, preference should be given to the
+			primary structMap if no other clearly meets the requirements of the system. The primary
+			structural map should also have a reference to every file in the file section.</p>
+		<p> Since our profile is not so concerned with the actual structural map, but with how that
+			structural map can be described for preservation, thus unlike many other profiles, we
+			recommend that structural maps have associated administrative metadata, both technical
+			and provenance, to facilitate the long term preservation of the structural map,
+			regardless of what the structure actually is. </p>
+
+		<head>Structural Map Linking</head>
+		<p> Because this profile interprets structural maps as representations of intellectual
+			entities, and multiple structural maps in the same METS document as alternate
+			representations of the same entity, we have imposed a restriction that structural map
+			linking must only link divisions within a single structural map. Using structural map
+			linking to link divisions across different structural maps is forbidden. This allows a
+			single structural map linking section to be associated with a single representation and
+			by extension any administrative metadata associated with a structural map is assumed to
+			also apply to the associated structural map linking section. </p>
+
+		<head>Rules for the XML</head>
+		<p> Every METS XML file conforming to this profile must be UTF-8 encoded Unicode. </p>
+		<p> Every METS XML file conforming to this profile must begin with the standard XML
+			declaration: </p>
+		<p> &lt;?xml version="1.0" encoding="UTF-8"?&gt;. </p>
+
+		<head ID="XML_IDS_RULE">Rules for XML Identifiers</head>
+		<p> By XML identifiers we mean any XML attribute of type ID and by extension attributes of
+			type IDREF or IDREFS. This includes those attributes which occur in the METS namespace
+			itself and any other extension schema that may be used within the METS document. This
+			profile makes no requirements for those types of identifiers beyond the requirements
+			that are already specified by the XML specification itself. All values of ID-type
+			attributes must be unique within the METS document. However, they may be reused in
+			different METS documents, i.e. they need not be globally unique. They might also be
+			different in different instances of the METS document for the same object, i.e. they
+			need not be globally persistent. In other words, attributes of type ID (also IDREF and
+			IDREFS) have no meaning outside the METS document. </p>
+		<p> Also, the syntax used for those identifiers is not specified beyond what is already
+			required by the XML specification. It may be convenient for systems that are creating
+			METS documents to adopt naming standards for ID-type attributes, such as all amdSec ID
+			attributes must begin with "AMD_" followed by a sequential number. However, this is not
+			a requirement of this profile, and systems which are processing METS documents based on
+			this profile should make no assumptions in this regard. </p>
+		<p> Finally, the schema for METS specifies that certain ID attributes are required on
+			certain elements, and those requirements must be followed. However, in general this
+			profile only requires an ID-type attribute on an element if that element is referred to
+			via an IDREF or IDREFS-type attribute elsewhere in the file. </p>
+
+		<head>Date Values</head>
+		<p>Unless otherwise specified (or constrained by the XML Schema) all date values must
+			conform to the W3C-DTF format with a granularity of at least days, such as YYYY-MM-DD.
+			Finer granularities are acceptable, such as YYYY-MM-DDTHH:MM:SS, but lesser
+			granularities are not acceptable, such as YYYY-MM or YYYY. Note that all date attributes
+			specified in the METS profile itself require the xsd:dateTime format which is
+			YYYY-MM-DDTHH:MM:SS with an optional time zone indicator.</p>
+
+		<head ID="LINK_VS_EMBED">Linking Versus Embedding</head>
+		<p> In general this profile encourages metadata to be embedded within the METS document via
+			the mdWrap element. However, in some cases, if there is a good reason, for example if
+			the metadata is too large to conveniently embed, it may be referenced via an mdRef. If
+			mdRef is used the xlink:href must be a relative URL which is relative to the location of
+			the METS document itself. The same metadata must not be both embedded and referenced.
+			Each metadata section must have either an mdWrap or an mdRef but not both.</p>
+		<p> Conversely, this profile encourages content to be referenced via the FLocat element. The
+			FLocat xlink:href must be a relative URL which is relative to the location of the METS
+			document itself. However, if embedding the content would make the package easier to move
+			around and share and would not cause the METS document to become too large then it may
+			be embedded via the FContent element. The same content may not be both embedded and
+			referenced. Each file element must have either an FLocat or an FContent but not
+		both.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<!-- TODO:  Should all controlled vocabulary terms should be assigned URI values, possibly in the info: namespace? -->
+		<vocabulary>
+			<name>PREMIS Suggested Event Types</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/standards/premis/</URI>
+			<values>
+				<value>CAPTURE = the process whereby a repository actively obtains an object</value>
+				<value>COMPRESSION = the process of coding data to save storage space or
+					transmission time</value>
+				<value>DEACCESSION = the process of removing an object from the inventory of a
+					repository</value>
+				<value>DECOMPRESSION = the process of reversing the effects of compression</value>
+				<value>DECRYPTION = the process of converting encrypted data to plain text</value>
+				<value>DELETION = the process of removing an object from repository storage</value>
+				<value>DIGITAL_SIGNATURE_VALIDATION = the process of determining that a decrypted
+					digital signature matches an expected value</value>
+				<value>DISSEMINATION = the process of retrieving an object from repository storage
+					and making it available to users</value>
+				<value>FIXITY_CHECK = the process of verifying that an object has not been changed
+					in a given period</value>
+				<value>INGESTION = the process of adding objects to a preservation repository</value>
+				<value>MESSAGE_DIGEST CALCULATION = the process by which a message digest ("hash")
+					is created</value>
+				<value>MIGRATION = a transformation of an object creating a version in a more
+					contemporary format</value>
+				<value>NORMALIZATION = a transformation of an object creating a version more
+					conducive to preservation</value>
+				<value>REPLICATION = the process of creating a copy of an object that is, bit-wise,
+					identical to the original</value>
+				<value>VALIDATION = the process of comparing an object with a standard and noting
+					compliance or exceptions</value>
+				<value>VIRUS_CHECK = the process of scanning a file for malicious programs</value>
+			</values>
+			<context>
+				<p>PREMIS Suggested Event Types are used as values for the eventType element which
+					is used for the METS digiprovMD sections.</p>
+			</context>
+		</vocabulary>
+		<vocabulary>
+			<name>Event Types for Descriptive Metadata</name>
+			<maintenance_agency>The ECHO DEPository Project</maintenance_agency>
+			<URI>http://www.ndiipp.uiuc.edu/...</URI>
+			<values>
+				<value>METADATA_TRANSFORMATION = the transformation of one metadata format into
+					another</value>
+				<value>METADATA_CREATION = the creation of a new metadata record</value>
+				<value>METADATA_MODIFICATION = the modification of a metadata record that does not
+					change the format</value>
+				<value>METADATA_DELETION = the deletion of a metadata record </value>
+			</values>
+			<context>
+				<p>Event types which are used for describing actions performed on the descriptive
+					metadata of a package.</p>
+			</context>
+		</vocabulary>
+		<vocabulary>
+			<name>Event Types for Structural Maps</name>
+			<maintenance_agency>The ECHO DEPository Project</maintenance_agency>
+			<URI>http://www.ndiipp.uiuc.edu/...</URI>
+			<values>
+				<value>STRUCTMAP_TRANSFORMATION = changes to a structural map which effect the
+					compatibility with processing systems</value>
+				<value>STRUCTMAP_CREATION = the creation of a new structural map</value>
+				<value>STRUCTMAP_MODIFICATION = changes to a structural map which do not effect the
+					compatibility with processing systems</value>
+				<value>STRUCTMAP_DELETION = the deletion of a structural map</value>
+			</values>
+			<context>
+				<p>Event types which are used for describing actions performed on the structural map
+					of a package.</p>
+			</context>
+			<description>
+				<p> The difference between STRUCTMAP_TRANSFORMATION and STRUCTMAP_MODIFICATION is
+					dependent on the system which will process the structural map. Changes that do
+					not effect the ability of systems that could process the old version to process
+					this version should be given an eventType of STRUCTMAP_MODIFICATION. However,
+					changes that make the structural map no longer compatible with systems which
+					were able to process the original structural map should be given an eventType of
+					STRUCTMAP_TRANSFORMATION. </p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>PREMIS Suggested Object Categories</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/standards/premis/</URI>
+			<values>
+				<value>REPRESENTATION</value>
+				<value>FILE</value>
+				<value>BITSTREAM</value>
+			</values>
+			<context>
+				<p>PREMIS Suggested Object Categories are used as values for the objectCategory
+					element which is used for the METS techMD sections.</p>
+			</context>
+		</vocabulary>
+		<vocabulary>
+			<name>PREMIS Suggested Agent Types</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/standards/premis/</URI>
+			<values>
+				<value>PERSON</value>
+				<value>ORGANIZATION</value>
+				<value>SOFTWARE</value>
+			</values>
+			<context>
+				<p>PREMIS Suggested Agent Types are used as values for the PREMIS agent/agentType
+					element which is used for either METS digiprovMD or rightsMD sections.</p>
+			</context>
+		</vocabulary>
+		<vocabulary>
+			<name>Descriptive Metadata Status</name>
+			<values>
+				<value>PRIMARY_DMDSEC</value>
+				<value>ALTERNATE_DMDSEC</value>
+			</values>
+			<context>
+				<p>Used with the STATUS attribute of dmdSec elements. There must be only one dmdSec
+					element with a STATUS of PRIMARY_DMDSEC, but there can be any number of dmdSec elements
+					with a STATUS of ALTERNATE_DMDSEC.</p>
+			</context>
+		</vocabulary>
+		<vocabulary>
+			<name>Structural Map Type</name>
+			<values>
+				<value>PRIMARY_STRUCTMAP</value>
+			</values>
+			<context>
+				<p>Used with the TYPE attribute of structMap element to indicate that this structMap
+					should be considered the primary structural map for the METS file. There must be
+					only one structMap element with a TYPE of PRIMARY_STRUCTMAP.</p>
+			</context>
+		</vocabulary>
+		<vocabulary ID="PRIMARY_REPRESENTATION">
+			<name>Technical Metadata Status</name>
+			<values>
+				<value>PRIMARY_REPRESENTATION</value>
+			</values>
+			<context>
+				<p>Used with the STATUS attribute of techMD elements. Used to indicate that a techMD
+					section contains a PREMIS object element which describes the entire METS
+					document as a whole. There should only be one techMD with this status, and it
+					must contain a PREMIS object element which describes a representation.</p>
+			</context>
+		</vocabulary>
+		<vocabulary>
+			<name>PREMIS Identifier Types</name>
+			<values>
+				<value>LOCAL</value>
+				<value>ARK</value>
+				<value>URN</value>
+				<value>URL</value>
+				<value>PURL</value>
+				<value>HANDLE</value>
+				<value>DOI </value>
+			</values>
+			<context>
+				<p>These values should be used for any PREMIS *IdentifierType. The value LOCAL
+					should be used whenever the corresponding *IdentifierValue contains an
+					identifier which is local to just this METS file, usually this value will be the
+					same as the XML ID attribute value. These values do not constitute an exhaustive
+					list, but they correspond to the METS LOCTYPE attribute values and should be
+					used whenever applicable. The value OTHER should not be used; instead just name
+					the other type.</p>
+			</context>
+		</vocabulary>
+		<vocabulary>
+			<name>PREMIS linkingAgentRole Values</name>
+			<values>
+				<value>EVENT_INITIATOR = the agent who requested or initiated the event</value>
+				<value>SOFTWARE_USED = the software system used to carry out the event</value>
+				<value>DATA_SOURCE = the source of the data or metadata used by the event</value>
+				<value>DATA_DESTINATION = where the data or metadata resides after the event
+					completes</value>
+			</values>
+			<context>
+				<p>These values do not constitute an exhaustive list but should be used when they
+					apply. Other values may be used if a value given above does not seem to
+				apply.</p>
+			</context>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="ROOT_OBJID" RELATEDMAT="DESCR_ID APP1_METS_SAMPLE_1">
+				<head>OBJID</head>
+				<p> As previously described, the OBJID attribute must be the primary, persistent,
+					and globally unique identifier for the file. This attribute is required; all
+					METS files which are conformant to this profile must have a persistent and
+					globally unique identifier, unless they are Submission Information Packages that
+					will be assigned an identifier upon ingestion. </p>
+				<p> Computing systems which process files conformant to this profile must preserve
+					this identifier through any transformations, submissions, disseminations,
+					archiving, or other operations on the file. If a system does reassign a new
+					primary identifier to the METS document, the old identifier must be listed as an
+					altRecordID in the metsHdr. The alternate identifiers must also be recorded in
+					the PRIMARY_REPRESENTATION techMD section.</p>
+			</requirement>
+			<requirement>
+				<head>LABEL</head>
+				<p> The LABEL attribute must contain a human-readable title string that would be
+					suitable for distinguishing the METS document from others when a person is
+					browsing through a list of METS documents. This value could be a title element
+					or variation thereof taken from the dmdSec. This attribute is required. </p>
+			</requirement>
+			<requirement>
+				<head>PROFILE</head>
+				<p> The PROFILE attribute must contain the URI assigned to this profile when it was
+					registered with the Library or Congress. The value is 'http://www.loc.gov/mets/profiles/00000015.xml'. This attribute is
+					required. </p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement RELATEDMAT="DESCR_ID APP1_METS_SAMPLE_2">
+				<head>CREATEDATE</head>
+				<p> This date must be the date on which the METS document was assigned its first
+					persistent, globally unique identifier, even if the actual file itself was
+					created prior to this date, or even if the file was not yet created when the
+					identifier was coined. This attribute is required. Once it is assigned it must
+					not be changed, even if the OBJID is changed. </p>
+				<p> Computing systems which process files conformant to this profile must preserve
+					this date through any transformations, submissions, disseminations, archiving,
+					or other operations on the file. </p>
+			</requirement>
+			<requirement>
+				<head>LASTMODDATE</head>
+				<p> This date must reflect the date on which any changes to the METS document itself
+					occur. This attribute is required, even for newly created METS documents, in
+					which case the CREATEDATE and the LASTMODDATE should match. Subsequently, the
+					LASTMODDATE must always be after the CREATEDATE. </p>
+			</requirement>
+			<requirement RELATEDMAT="DESCR_ID ROOT_OBJID">
+				<head>altRecordID</head>
+				<p> There can be altRecordID elements. If the primary identifier of the METS
+					document as recorded in the OBJID element of the mets root element ever changes
+					for any reason, the previous identifier must be recorded as an alternate
+					identifier in the altRecordID element. </p>
+				<p> Computing systems which process files conformant to this profile must preserve
+					all altRecordID elements through any transformations, submissions,
+					disseminations, archiving, or other operations on the file. </p>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement RELATEDMAT="DMD_DIGIPROV LINK_VS_EMBED">
+				<head>All Descriptive Metadata</head>
+				<p> All descriptive metadata should be embedded in the dmdSec via the mdWrap
+					element, but may be referenced via the mdRef if it is too large to conveniently
+					embed. The same metadata must not be both embedded and referenced.</p>
+				<p> Each dmdSec, including the primary MODS dmdSec, must have a CREATED attribute
+					which reflects the date on which description was created. </p>
+				<p> Each dmdSec, including the primary one, must have an ADMID attribute that
+					references a digiprovMD section. See the requirements for the amdSec for
+					details. Additional administrative metadata sections may be referenced, but the
+					digiprovMD reference is required. </p>
+				<p> The STATUS attributes defined by this profile are 'PRIMARY_DMDSEC' or 'ALTERNATE_DMDSEC'.
+					There must be one and only one dmdSec with a STATUS='PRIMARY_DMDSEC'. There may be zero
+					or more dmdSec elements with a STATUS='ALTERNATE_DMDSEC'.</p>
+				<p> All dmdSec elements with a STATUS of PRIMARY_DMDSEC or ALTERNATE_DMDSEC must be considered
+					descriptive of the entire intellectual entity represented by the METS document.
+					The first div child in all structMap elements must have a DMDID attribute that
+					references all the PRIMARY_DMDSEC and ALTERNATE_DMDSEC dmdSec elements.</p>
+				<p> Computing systems which process files conformant to this profile must preserve
+					the PRIMARY_DMDSEC and ALTERNATE_DMDSEC dmdSec through any transformations, submissions,
+					disseminations, archiving, or other operations on the file. Although, the
+					PRIMARY_DMDSEC dmdSec may be modified so long as previous states are preserved in
+					alternate dmdSec elements along with appropriate provenance metadata.</p>
+				<p> There may be other dmdSec elements with STATUS values other than PRIMARY_DMDSEC or
+					ALTERNATE_DMDSEC; however, these are undefined by this profile. Computing systems which
+					process files conformant to this profile should preserve these dmdSec through
+					any transformations, submissions, disseminations, archiving, or other operations
+					on the file, but this behavior is not guaranteed. </p>
+			</requirement>
+
+			<requirement>
+				<head>Primary Descriptive Metadata</head>
+				<p> Every METS document must contain exactly one dmdSec with a STATUS attribute of  'PRIMARY_DMDSEC'. This 
+					primary dmdSec must have an embedded MODS XML
+					metadata record. The MODS must be embedded via mdWrap and xmlData elements. The
+					primary MODS metadata must not be referenced via an mdRef.</p>
+				<p> The primary dmdSec describes the entire intellectual entity represented by the
+					METS document.</p>
+				<p> The primary MODS descriptive metadata must
+					conform to the Digital Library Federation / Aquifer Implementation Guidelines for Shareable MODS Records.
+					[http://www.diglib.org/aquifer/dlfmodsimplementationguidelines_finalnov2006.pdf].  All requirements
+					in the Aquifer guidelines listed as "REQUIRED" or "REQUIRED IF APPLICABLE" must be adhered to by 
+					METS files confromant to this profile.</p>
+				<p> Computing systems which process files conformant to this profile must be able to
+					process the MODS descriptive metadata in the primary dmdSec. The primary dmdSec
+					should be a processing system's first source for any required descriptive
+					metadata about the object. However, if a processing system is able to determine
+					that for its purposes more suitable descriptive metadata is available from one
+					of the alternate dmdSec elements it may use that instead. </p>
+				<p> The primary descriptive metadata about an object is expected to change over time
+					as objects are submitted, subsequently transformed, or disseminated by different
+					repositories. However, anytime that the primary descriptive metadata for a
+					repository is changed or replaced with new data, the original primary dmdSec
+					should be preserved and its STATUS changed to 'ALTERNATE_DMDSEC', and the
+					newer version should be given a STATUS of 'PRIMARY_DMDSEC'.  In other words,
+					at any one time there must be exactly one primary dmdSec element with embedded MODS.  However,
+					there may be any number of alternate dmdSec elements with embedded MODS which may represent
+					earlier versions of the descriptive metadata.  See the following section on Alternate Descriptive Metadata
+					for more details on alternate dmdSec elements.
+				</p>
+				<p> Any time the primary
+					dmdSec is modified the referencing digiprovMD must be modified to describe the
+					the nature of the changes.</p>
+				<p> If the primary object being represented by this METS document contains
+					constituent parts which also must have some level of descriptive metadata, the
+					MODS element should contain relatedItem elements for each subpart. Each
+					relatedItem element must have an ID attribute and a type="constituent"
+					attribute. The relatedItem element must be referenced via a DMDID attribute on
+					the associated structMap div elements which represent the constituent part. A
+					typical use for relatedItem elements might be a web capture where the individual
+					resources making up the web capture each have there own descriptive metadata,
+					such as the title of the web page. </p>
+
+			</requirement>
+
+			<requirement>
+				<head>Alternate Descriptive Metadata</head>
+				<p> A METS document may contain one or more alternate dmdSec. These should be
+					embedded via mdWrap, but may be referenced via mdRef.</p>
+				<p> The STATUS attribute of the alternate dmdSec must be 'ALTERNATE_DMDSEC'. </p>
+				<p> Alternate dmdSec describe the entire intellectual entity represented by the METS
+					document.</p>
+				<p> Alternate dmdSec are intended primarily to provide an historical record of the
+					descriptive metadata for an object. This includes historical versions of the
+					primary MODS metadata, and also historical versions of alternate metadata
+					formats that might exist for the object at different points in time. For
+					example, if the object was originally described using MARCXML, that MARCXML can
+					be transformed into MODS which becomes the primary dmdSec, but the original
+					MARCXML can be preserved in an alternate dmdSec. If the METS document is
+					subsequently ingested and later disseminated from a repository whose native
+					metadata format is Dublin Core, the Dublin Core metadata would be added to the
+					METS document as another alternate dmdSec.</p>
+				<p> Because of how the alternate dmdSec are intended to provide historical versions
+					of the descriptive metadata, computing systems which process files conformant to
+					this profile must preserve the alternate dmdSec through any transformations,
+					submissions, disseminations, archiving, or other operations on the file.</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement>
+				<head>General Requirements for the Organization of Administrative Metadata</head>
+				<p> In general this profile assumes a single amdSec element for the entire METS
+					document. However, this is not an absolute requirement. How techMD, digiprovMD,
+					sourceMD, and rightsMD elements are arranged beneath one or more admSec elements
+					is not significant and can be at the convenience of the original creator of the
+					file so long as the result conforms to the METS XML schema.</p>
+				<p> The reason that the arrangement of sub-elements beneath one or more admSec
+					elements is not significant is that this profile requires all ADMID attributes
+					(of type IDREFS) to point directly to techMD, digiprovMD, sourceMD, or rightsMD
+					elements via those elements' ID attributes. An ADMID attribute must not point to
+					an enclosing admSec, but directly to the relevant sub-element. In addition, if
+					there are relationships between the sub-elements themselves, such as a
+					digiprovMD that contains a PREMIS event and another digiprovMD that contains a
+					PREMIS agent associated with that event, the relationships between those
+					sub-elements must be explicitly defined via identifier and referencing
+					mechanisms explicit in the markup itself, such as the PREMIS event
+					linkingAgentIdentifier and corresponding PREMIS agent agentIdentifier. These
+					relationships cannot be implied merely because of the nesting or sequence of
+					sub-elements beneath one or more amdSec elements. These linking mechanisms will
+					be more fully described in separate sections below. </p>
+			</requirement>
+
+			<requirement>
+				<head>General Requirements for the Use of PREMIS</head>
+				<p> PREMIS object, event, agent, and rights elements may all be used in various
+					different amdSec sub-elements. However, the PREMIS container element &lt;premis&gt; is
+					never used. Furthermore, only a single PREMIS object, event, agent, or rights
+					element may ever be embedded within a single amdSec sub-element. For example,
+					a techMD may only contain a single object element; it may not contain multiple object elements or 
+					an object element and some element like mix.  Even, if a single file needs to reference multiple 
+					technical metadata sections, each of those metadata sections must be wrapped in its own
+					techMD section.  The same applies to other administrative metadata sections.
+					In general,
+					PREMIS object elements are embedded under techMD, PREMIS event elements are
+					embedded under digiprovMD, PREMIS rights elements are embedded under rightsMD,
+					and PREMIS agent elements are embedded under either digiprovMD or rightsMD
+					depending on whether the agent is associated with an event or with rights. If
+					the same agent is associated with multiple events or rights it must occur only
+					once. If the same agent is associated with both an event and a rights element,
+					it may occur under either the digiprovMD or rightsMD section; it does not matter
+					which. </p>
+				<p> The linkage between a METS section, such as file, and a PREMIS entity, such as
+					object, is via the METS ID attribute of the amdSec sub-element, such as techMD,
+					containing the PREMIS entity and ADMID attribute of the section which is linking
+					to the PREMIS entity. For example, a file element which references a PREMIS
+					object entity would have a ADMID attribute containing the ID of the techMD
+					section which contains the PREMIS object entity. </p>
+				<p> The linkages between related PREMIS entities, such as events and agents or
+					rights and agents, must be via the PREMIS IDREF-type (LinkAgentXmlID,
+					GrantAgentXmlID, etc.) attributes and the METS ID of the amdSec sub-element
+					which contains the agent. Specifically, the relationship between an event and
+					the associated agents is made by assigning the value of the ID attribute of the
+					amdSec sub-element containing the agent to the LinkAgentXmlID attribute of the
+					event, and similarly for rights and agents. There are several reasons that these
+					linkages are made via the ID-type and IDREF-type attributes instead of between
+					the identifier elements (objectIdentifier, eventIdentifier, agentIdentifier, and
+					permissionStatementIdentifier) of the various PREMIS entities. One reason is for
+					consistency with the METS way of linking items which relies on ID-type and
+					IDREFS-type attributes. A second reason is that the PREMIS object and agent
+					entities may have more than one identifier which could complicate the processing
+					of the associations. A third reason is that by using the ID-type and IDREF-type
+					attributes you can rely on the XML validation mechanisms to ensure that the
+					usage of the ID-type and IDREF-type attributes are consistent. An XML validator
+					can ensure that each ID-type attribute used within a single XML document is
+					unique, and it can also ensure that each IDREF-type or IDREFS-type attribute
+					value has a corresponding ID-type attribute somewhere in the same XML document.
+				</p>
+			</requirement>
+			<requirement>
+				<head>Technical Metadata (techMD)</head>
+				<p> This profile supports several different types of technical metadata. PREMIS
+					object elements with an objectCategory of FILE or BITSTREAM should be associated
+					with file elements in the fileSec. PREMIS object elements with an objectCategory
+					of REPRESENTATION may be associated with div elements in a structMap. In
+					addition to PREMIS object elements, various format-specific technical metadata
+					schema have been adopted for different formats of files or bitstreams. These
+					should be associated with file elements in the fileSec, depending on the format
+					of the file. Finally, the XML output of JHOVE may be associated with file
+					elements in the fileSec. See the following requirements for more detail. </p>
+			</requirement>
+			<requirement>
+				<head> Technical Metadata for Files and Bitstreams </head>
+				<p> Each file or bitstream which is referenced or embedded in the fileSec must have
+					a corresponding techMD section. </p>
+				<p> The content of the techMD section must be a PREMIS object element embedded in
+					the techMD via the mdWrap element. The PREMIS object element must conform to the
+					XML Schema of PREMIS. </p>
+				<p> The PREMIS objectIdentifier elements must have values that correspond to the
+					OWNERID attribute of the referencing file element. </p>
+				<p> The PREMIS objectCategory element must have a value of 'FILE' or 'BITSTREAM'. </p>
+				<p> One PREMIS objectCharacteristics element is required with a compositionLevel
+					element value of 0. Composed objects must be decomposed prior to being included
+					in packages conforming to this profile. Therefore, compositionLevel elements
+					other than 0 are prohibited. Note that in keeping with recommendations from
+					PREMIS both ARC files and documents contained in ARC files are all described at
+					compositionLevel 0.</p>
+				<p>The objectCharacteristics element must have at least one fixity sub-element which
+					has a messageDigestAlgorithm of 'SHA-1'. The value contained in the
+					messageDigest must match the value of the CHECKSUM attribute of the referencing
+					file element. There may be additional fixity sub-elements with different
+					messageDigestAlgorithm values. </p>
+				<p>The objectCharacteristics element must have a size sub-element. The value of this
+					sub-element must be a positive integer number representing the size in bytes of
+					the file or bitstream. This value must match the SIZE attribute of the
+					referencing file element. </p>
+				<p> The objectCharacteristics element must have a format sub-element which has a
+					formatDesignation child element which in turn has a formatName child element.
+					The value of the formatName element must be the MIME type value of the file or
+					bitstream. It must match the MIMETYPE attribute of the referencing file element
+					and follow the same rules. It is recommended that if there are format registries
+					describing the format of the file or bitstream that the format sub-element may
+					have one or more formatRegistry sub-elements referencing the appropriate
+					registry key. </p>
+				<p> A conforming METS document may contain additional PREMIS object entity elements. </p>
+				<p> Technical metadata for files or bitstreams must conform to the specific
+					technical metadata for its root MIME type specified in MIME Type technical
+					metadata requirements.</p>
+			</requirement>
+			<requirement>
+				<head>Technical Metadata for Files with a Root MIME Type of 'Text'</head>
+				<p> In addition to required elements specified in Technical Metadata for Files and
+					Bitstreams, all files with a root MIME type of 'text' should provide a second
+					techMD section in addition to the PREMIS section previously mentioned. This
+					second techMD section must wrap a textMD description of the file. </p>
+				<p> It is strongly recommended that text MIME types, specifically text/xml, that
+					conform to external schema or DTDs record schema information using PREMIS
+					Dependency elements. </p>
+			</requirement>
+			<requirement>
+				<head>Technical Metadata for Files with a Root MIME Type of 'Image'</head>
+				<p> In addition to required elements specified in Technical Metadata for files and
+					bitstreams, all files with a root MIME type of "image" should provide a second
+					techMD section in addition to the PREMIS section previously mentioned. This
+					second techMD section must wrap a MIX Schema description of the file.</p>
+			</requirement>
+			<requirement>
+				<head>Technical Metadata for Files with a Root MIME Type of 'Audio'</head>
+				<p>In addition to required elements specified in Technical Metadata for files and
+					bitstreams, all files with a root MIME type of 'audio' should provide a second
+					techMD section in addition to the PREMIS section previously mentioned. This
+					second techMD section must wrap a AUDIOMD element from the Library of
+					Congress' Audio Metadata Schema.  The AUDIOMD element must contain a 
+					file_data child element, should contain a physical_data element, 
+					but may contain other elements as well as allowed by the XML schema.</p>
+			</requirement>
+			<requirement>
+				<head>Technical Metadata for Files with a Root MIME Type of 'Video'</head>
+				<p>In addition to required elements specified in Technical Metadata for files and
+					bitstreams, all files with a root MIME type of 'video' should provide a second
+					techMD section in addition to the PREMIS section previously mentioned. This
+					second techMD section must wrap a VIDEOMD element from the Library of Congress
+					Video Metadata Schema.  The VIDEOMD element must contain a 
+					file_data child element, and should contain a physical_data element, 
+					but may contain other elements as well as allowed by the XML schema.</p>
+			</requirement>
+			<requirement>
+				<head>Technical Metadata for Files with a Root MIME Type of 'Application'</head>
+				<p>In addition to required elements specified in Technical Metadata for files and
+					bitstreams, all files with a root MIME type of 'application' must include in the
+					previously described PREMIS techMD section a PREMIS creatingApplication,
+					software and environment elements.</p>
+			</requirement>
+			<requirement>
+				<head>JHOVE</head>
+				<p> As an alternative or in addition to the technical metadata described above which
+					is specific to a file format, the XML output of the JHOVE application may be
+					embedded in a techMD section which is referenced from a file.
+					[http://hul.harvard.edu/jhove/]</p>
+			</requirement>
+			<requirement>
+				<head>Technical Metadata Associated with Representations</head>
+				<p> In addition to the technical metadata associated with files or bitstreams, this
+					profile also allows technical metadata to be associated with representations.
+					This profile considers the entire METS file itself to be one 'super'
+					representation, but it also considers each structMap in the METS file to be a
+					representation as well. A special techMD with a status of PRIMARY_REPRESENTATION
+					must be present in each METS file. This techMD section must embed a PREMIS
+					object element with an objectCategory of REPRESENTATION. This techMD section
+					must be referenced via the root div element of the primary structMap. </p>
+				<p> In addition to the PRIMARY_REPRESENTATION, other representation-level technical
+					metadata sections with embedded PREMIS object elements with an objectCategory of
+					REPRESENTATION may be included and referenced from other structMap div elements.
+					In certain cases it may also be useful to reference these representation-level
+					technical metadata sections from file elements.</p>
+			</requirement>
+			<requirement>
+				<head>Rights Metadata (rightsMD)</head>
+				<p> This profile does not require any particular rights metadata. However, if rights
+					statements are used, it is recommended to use the PREMIS rights element.
+					Regardless of how rights are specified, this profile does require systems
+					processing files which are conformant to this profile to preserve all rights
+					statements and their linkages to other sections during any actions performed on
+					the METS file.</p>
+			</requirement>
+			<requirement>
+				<head>Source Metadata (sourceMD)</head>
+				<p> This profile has no requirements for this section, but processing systems which
+					conform to this profile should preserve any sourceMD elements along with their
+					linkages to other sections during any actions performed on the METS file. </p>
+			</requirement>
+			<requirement>
+				<head>Digital Provenance Metadata (digiprovMD)</head>
+				<p> In general, any element with an ADMID attribute may reference a digiprovMD
+					element. This profile requires provenance for the primary and alternate
+					descriptive metadata sections. It encourages provenance for files and bitstreams
+					and structural maps, and it allows provenance in other sections. All provenance
+					statements must be expressed using the PREMIS event element and possibly
+					associated PREMIS agent elements.</p>
+			</requirement>
+			<requirement ID="DMD_DIGIPROV">
+				<head> Provenance for Descriptive Metadata </head>
+				<p> As previously noted in the structural requirements for dmdSec elements, each
+					dmdSec which has a STATUS of 'PRIMARY_DMDSEC' or 'ALTERNATE_DMDSEC' must have a corresponding
+					digiprovMD section. </p>
+				<p> The content of this digiprovMD must be a PREMIS event element embedded in the
+					digiprovMD via the mdWrap element. The PREMIS event must have an eventType of
+					'METADATA_TRANSFORMATION', 'METADATA_CREATION', 'METADATA_MODIFICATION', or
+					METADATA_DELETION. It should have an eventDetail which describes how the
+					metadata was derived, transformed, or modified and it should have an
+					linkingAgentIdentifier which identifies the agent responsible for the
+					transformation or creation of the descriptive metadata. The PREMIS event and
+					agent elements must conform to the XML Schema of PREMIS.</p>
+				<p> There are two ways to delete descriptive metadata using the METADATA_DELETION
+					eventType. In the first way the metadata is just marked as deleted, but it
+					continues to be maintained in the METS document. This is accomplished by
+					referencing a digiprovMD with a PREMIS event element with an eventType of
+					METADATA_DELETION. Even though the metadata is still contained in the document
+					for all intents and purposes it should be treated as if were deleted -- it would
+					not appear in any disseminations of the entity, except possibly for privileged
+					administrative users. The second way is to actually delete the metadata. In this
+					case just the mdRef or mdWrap elements are deleted from the dmdSec, leaving it
+					empty. The dmdSec element needs to be maintained so that it can reference the
+					digiprovMD with a PREMIS event element with an eventType of METADATA_DELETION.
+					The dmdSec also needs to be maintained to avoid dangling IDREF attributes which
+					may have pointed to the now deleted metadata.  Because of the possibility of
+					deleted metadata, processing systems will need to take care to check any provenance 
+					statements associated with the metadata before disseminating it to users or other 
+					systems.
+				</p>
+			</requirement>
+			<requirement>
+				<head> Provenance for Files and Bitstreams </head>
+				<p> Each file or bitstream which is referenced or embedded in the fileSec may have
+					one or more corresponding digiprovMD sections. </p>
+				<p> The content of this digiprovMD must be a PREMIS event element embedded in the
+					digiprovMD via the mdWrap element. The PREMIS event should use an eventType from
+					the list of PREMIS Suggested Event Types when ever possible. It should have an
+					linkingAgentIdentifier which identifies the agent responsible for the event. The
+					PREMIS event and agent elements must conform to the XML Schema of PREMIS.</p>
+				<p> Just as with descriptive metadata, files may be deleted, and file deletions should be 
+					indicated in the same way as for descriptive metadata.  Files may be kept in the METS
+					document but marked as deleted by referencing a digiprovMD with a PREMIS event 
+					with an eventType of DELETION.  The file may also be deleted by removing all child
+					elements below the file element, but keeping the file element itself so that it can reference
+					a digiprovMD with a PREMIS event element with an eventType of DELETION.
+					In either case, processing systems must take care to check the DELETION status of any
+					files before attempting to disseminate or process them in any way.
+					
+				</p>
+			</requirement>
+			<requirement>
+				<head> Provenance for Structural Maps </head>
+				<p> The first div child element of each structMap should reference a digiprovMD
+					section. </p>
+				<p> The content of this digiprovMD must be a PREMIS event element embedded in the
+					digiprovMD via the mdWrap element. The PREMIS event must have an eventType of
+					'STRUCTMAP_TRANSFORMATION', 'STRUCTMAP_CREATION', 'STRUCTMAP_MODIFICATION', or
+					'STRUCTMAP_DELETION'. It should have an eventDetail which describes how the
+					structural map was derived, transformed, or modified and it should have an
+					linkingAgentIdentifier which identifies the agent responsible for the
+					transformation or creation of the structural map. The PREMIS event and agent
+					elements must conform to the XML Schema of PREMIS.</p>
+				<p> There are two ways to delete a structural map using the METADATA_DELETION
+					eventType. In the first way the structural map is just marked as deleted, but it
+					continues to be maintained in the METS document. This is accomplished by
+					referencing, from the root div element of the structMap, a digiprovMD with a
+					PREMIS event element with an eventType of METADATA_DELETION. Even though the
+					structural map is still contained in the document for all intents and purposes
+					it should be treated as if were deleted -- it would not appear in any
+					disseminations of the entity, except possibly for privileged administrative
+					users. The second way is to actually delete the structural map. In this case all
+					of the div elements below the root div element are removed. The root div element
+					needs to be maintained so that it can reference the digiprovMD with a PREMIS
+					event element with an eventType of METADATA_DELETION. </p>
+			</requirement>
+			<requirement>
+				<head> PREMIS Agent Entities </head>
+				<p> PREMIS Agent entities which are associated with PREMIS Events will be embedded
+					in their own digiprovMD via the mdWrap element. The connection between the event
+					and the agent must be maintained via the ID attribute of the digiprovMD element
+					containing the agent and the LinkAgentXmlID attribute of the
+					linkingAgentIdentifier element in the event element.</p>
+				<p> PREMIS Agent entities which are associated with PREMIS Rights will be embedded
+					in their own rightsMD via the mdWrap element. The connection between the rights
+					and the agent must be maintained via the ID attribute of the digiprovMD element
+					containing the agent and the GrantAgentXmlID attribute of the grantingAgent
+					element in the rights element. </p>
+				<p> If the same Agent is associated with multiple Events or Rights it should still
+					only occur once in the METS document. </p>
+				<p> In the unlikely event that the same PREMIS Agent entity is associated with both
+					an Event entity and a Rights entity, it should still just occur once, and it can
+					be embedded in either a METS digiprovMD or a METS rightsMD section. </p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement>
+				<head>General Rules for File Groups and Files</head>
+				<p> There may be more than one fileGrp element inside the fileSec, and fileGrp
+					elements may be nested. However, similar to the rules for multiple amdSec
+					elements, this profile attaches no meaning to how fileGrp elements are arranged
+					or nested. All linkages between sections are through the file or stream elements
+					and not via the fileGrp elements. This profile essentially treats all file
+					elements as if they were contained inside a single fileGrp. If multiple fileGrp
+					elements are used processors conformant to this profile should preserve them,
+					but this behavior is not guaranteed.</p>
+				<p> The fileGrp elements must contain a file element for each file which comprises
+					the digital object. </p>
+				<p> Even though this profile is mostly concerned with files, individual streams
+					within a file such as separate audio streams and video streams in a movie file
+					may be delineated using the stream element if these individual streams have
+					unique structural requirements which are not inherent in the file itself or if
+					they require their own descriptive or administrative metadata. This profile
+					requires that stream elements and associated metadata are preserved during
+					actions performed on the METS file, but processors aren't required to act on
+					these data. The stream element must not be used to describe what are essentially
+					separate files contained in any kind of archive file such as a Zip or Tar file.
+					</p>
+				<p> All the files
+					which comprise the package must exists in the same location as the METS document
+					itself or in subdirectories under the location where the METS document resides.
+					These files are referenced via the Flocat element.</p>
+			</requirement>
+			<requirement>
+				<head>Requirements for all file elements</head>
+				<p> The MIMETYPE attribute must be included. For text types, this must include the
+					charset portion if available. If the initial type is known to be text, but the
+					subtype is not known, then a value of "text/plain" must be used. If nothing
+					about the MIME Type is known then the value of "application/octet-stream" must
+					be used.</p>
+				<p> The SIZE attribute must be included. This value must match the actual number of
+					bytes in the file. </p>
+				<p> The CREATED attribute must be included. If the actual original creation date of
+					the file is known that value must be used. If the original creation date of the
+					file is not known then the date on which the file was added to the METS package
+					must be used. </p>
+				<p> The CHECKSUM attribute must contain the SHA-1 checksum generated for the file.
+					The checksum must be represented as a 40-digit hexadecimal string. The
+					CHECKSUMTYPE attribute must have a value of 'SHA-1'.</p>
+				<p> The OWNERID attribute may contain a globally unique and persistent identifier
+					that meets the criteria set forth in the parent METS profile for identifiers.
+					</p>
+				<p>The ADMID attribute must be present. It must refer back to any techMD elements
+					containing technical metadata about each file. This includes the required PREMIS
+					techMD section and the additional MIME type specific techMD section. It must
+					also refer back to any digiprovMD sections associated with the file. See the
+					requirements under the amdSec above for details.</p>
+				<p> Each file element represents one file which composes the object. </p>
+				<p> The file element must contain an FLocat element which points to the file. The
+					FLocat must have a LOCTYPE attribute with a value of 'URL'. It must also have an
+					xlink:href attribute which contains the URL which points to the file. The URL
+					should be a relative URI which is relative to the location of the METS document
+					itself. </p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement RELATEDMAT="STRUCT_MAP PRIMARY_REPRESENTATION">
+				<head>Primary Structural Map</head>
+				<p> As already described, this profile allows multiple structural maps. However, one
+					of those structural maps must have a TYPE attribute with a value of 'PRIMARY_STRUCTMAP'.
+					Essentially all this moniker signifies is that this structMap is considered by
+					the person who created this METS document or by a later custodian of the file to
+					be the best one for representing the intellectual entity. This is a subjective
+					judgment which may change over time, so the designation may be moved to
+					different structMap elements during the life of the package. This could be a
+					physical, logical, or some other type of structure. For practical purposes, a
+					processing system which requires a structMap which represents the object should
+					choose this structMap as the starting point for processing, unless there is some
+					other alternate structMap which better meets its requirements. </p>
+				<p> To avoid orphaned files, the primary structMap should reference each file or
+					stream contained in the fileSec.</p>
+				<p> The primary structural map is where the PRIMARY_REPRESENTATION technical
+					metadata is referenced. The ADMID attribute of the first div child of the
+					primary structural map must reference the techMD element which contains the
+					technical metadata for the PRIMARY_REPRESENTATION. </p>
+				<p> The primary structural map is also where the PRIMARY_DMDSEC descriptive metadata is
+					referenced. The DMDID attribute of the first div child of the primary structural
+					map must reference the dmdSec element which contains the primary MODS metadata.
+				</p>
+				<p>If a structLink section is used to
+					represent links between div elements then an xlink:label
+					attribute must be present so that it can be used in the xlink:from and xlink:to
+					attributes of the smLink element. Even though the xlink:label attribute is not
+					an ID-type, it must still follow some of the rules for attributes with a type of
+					ID, namely each xlink:label value must be unique within the METS document. </p>
+			</requirement>
+			<requirement ID="ADMID_STRUCT_MAP">
+				<head>Administrative Metadata for Structural Maps</head>
+				<p> All structMap elements should reference via the ADMID attribute of their first
+					div child, a techMD element containing a PREMIS object element. The referenced
+					PREMIS object element must have an objectCategory of REPRESENTATION. This PREMIS
+					object should include an environment element with enough information for a human
+					to determine the suitability of a particular structural map for a given purpose.</p>
+				<p> All structMap elements should also reference, via the ADMID attribute of their
+					first div child, a digiprovMD element containing a PREMIS event element. The
+					referenced PREMIS event element should have an eventType of either
+					STRUCTMAP_CREATION, STRUCTMAP_TRANSFORMATION, or STRUCTMAP_MODIFICATION. The
+					event should describe who created or transformed the structMap via a referenced
+					linkingAgentIdentifier. The eventDetail should provide some detail about the
+					creation or transformation process such as the type of mapping used for the
+					transformation or other details.</p>
+			</requirement>
+			<requirement>
+				<head>Referencing the Primary and Alternate Descriptive Metadata</head>
+				<p> The first div of each structMap must have a DMDID attribute that references all
+					the primary and alternate dmdSec elements. Remember that the primary and
+					alternate descriptive metadata describes the entire intellectual object
+					represented by the METS document. </p>
+			</requirement>
+			<requirement>
+				<head>Referencing Files from the File Section from the Structural Map</head>
+				<p> Files and bitstreams must be referenced from the structMap via the fptr element.
+					The fptr element must have a FILEID attribute that references the file or
+					bitstream in the file section. </p>
+			</requirement>
+		</structMap>
+		<structLink>
+			<requirement>
+				<head>General Requirements</head>
+				<p> The structLink element is optional in this profile, and systems which process
+					files conformant to this profile may ignore this element. However, any
+					structLink elements must be preserved during any operations performed on the
+					files, such as transformations, submissions, disseminations, or archiving. </p>
+				<p> Even though it is optional and may be ignored by processors, if a structLink
+					element is present it is considered an extension to a given structMap. In other
+					words, a single structLink must be associated with a single structMap: all of
+					the xlink:from and xlink:to attributes contained in a structLink must refer back
+					to xlink:label attributes in the same structMap. However, a given structMap may
+					have multiple associated structLink elements. The many-to-one mapping of
+					structLink elements to a structMap element allows any metadata that is
+					associated with the structMap to also apply to the structLink. In other words
+					the combination of the structMap and structLink make up one representation of
+					the intellectual entity, and thus technical or provenance metadata associated to
+					the structMap, via the root div element, apply equally to the associated
+					structLink elements. </p>
+				<p> Because structLink elements are closely tied to structMap elements,
+					transformations to structural maps can impact structural map links. It is
+					expected that systems which are performing significant transformations to
+					structural maps, such as flattening complex structures for ingest into
+					repositories that only support flat structures, will simply ignore structural
+					map links when creating these derivative structural maps. </p>
+			</requirement>
+		</structLink>
+		<behaviorSec>
+			<requirement>
+				<head>General Requirements</head>
+				<p> The current profile is primarily concerned with the preservation of files and
+					bitstreams which are required for specific (mostly static) representations of
+					intellectual entities, and not with preserving any complex behaviors that are
+					associated with those representations. Therefore, the behaviorSec element is
+					optional in this profile, and systems which process files conformant to this
+					profile may ignore this element. However, any behaviorSec elements should be
+					preserved during any operations performed on the files, such as transformations,
+					submissions, disseminations, or archiving, but this is not guaranteed by this
+					profile. </p>
+			</requirement>
+			<requirement RELATEDMAT="ADMID_STRUCT_MAP">
+				<head>Administrative Metadata for Behaviors</head>
+				<p> Even though the behaviorSec element is optional, this profile considers
+					behaviors to be part of the representation of the intellectual entity.
+					Therefore, in general, behavior elements may be linked to PREMIS administrative
+					metadata similar to Administrative Metadata for Structural Maps. However, at
+					this point systems processing METS files conformant to this profile may ignore
+					these metadata, but they should preserve them in the file. </p>
+			</requirement>
+		</behaviorSec>
+		<multiSection>
+			<requirement>
+				<head>Summary of Possible Linkages Between Sections</head>
+				<p> The following requirements will summarize what types of IDREFS to ID linkages
+					are described in this profile both to and from a particular element. Linkages
+					which are not explicitly described here are allowed, but systems conforming to
+					this profile may ignore those linkages, and in some cases these linkages may be
+					removed during transformations of the METS file. A notation based on the XPath
+					language will be used along with the following arrows to signify cardinality:</p>
+				<p> &#160;&#160;&#160;&#160; &lt;- or -&gt; signifies a zero to one link (an
+					optional link to up to one destination element)</p>
+				<p> &#160;&#160;&#160;&#160; &lt;&lt;- or -&gt;&gt; signifies a zero to many link
+					(an optional link to many destination elements)</p>
+				<p> &#160;&#160;&#160;&#160; &lt;= or =&gt; signifies a one to one link (a
+					required link to exactly one destination element)</p>
+				<p> &#160;&#160;&#160;&#160; &lt;&lt;= or =&gt;&gt; signifies a one to many link (a
+					required link to one or more destination elements)</p>
+			</requirement>
+			<requirement>
+				<head> Descriptive Metadata </head>
+				<p> &#160;&#160;&#160;&#160; dmdSec[@STATUS='PRIMARY_DMDSEC' or
+					@STATUS='ALTERNATE_DMDSEC']/@ADMID =&gt;&gt; digiprovMD[.//premis:event]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; dmdSec[@STATUS='PRIMARY_DMDSEC']/@ID &lt;=
+					structMap/div/@DMDID </p>
+				<p> &#160;&#160;&#160;&#160;
+					dmdSec[@STATUS='PRIMARY_DMDSEC']//mods:relatedItem[@type="constituent"]/@ID &lt;-
+					structMap//div/@DMDID </p>
+				<p> &#160;&#160;&#160;&#160; dmdSec[@STATUS='ALTERNATE_DMDSEC']/@ID &lt;&lt;=
+					structMap/div/@DMDID </p>
+				<p> &#160;&#160;&#160;&#160; dmdSec[@STATUS!='ALTERNATE_DMDSEC' and
+					@STATUS!='PRIMARY_DMDSEC' ]/@ID &lt;&lt;- */@DMDID </p>
+			</requirement>
+			<requirement>
+				<head>Administrative Metadata</head>
+				<head>&#160;&#160;Technical Metadata </head>
+				<head>&#160;&#160;&#160;&#160;Files and Bitstreams</head>
+				<p> &#160;&#160;&#160;&#160; techMD[.//premis:objectCategory =
+					'FILE' ]/@ID &lt;= file/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//premis:objectCategory =
+					'BITSTREAM' ]/@ID &lt;= file/stream/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//textMD]/@ID &lt;-
+					file[starts-with(@MIMETYPE,'text/')]/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//mix:mix]/@ID &lt;-
+					file[starts-with(@MIMETYPE,'image/')]/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//audiomd:*]/@ID &lt;-
+					file[starts-with(@MIMETYPE,'audio/')]/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//videomd:*]/@ID &lt;-
+					file[starts-with(@MIMETYPE,'video/')]/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//premis:creatingApplication
+					and premis:software]/@ID &lt;= file[starts-with(@MIMETYPE,'application/')]/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//jhove:jhove]/@ID &lt;-
+					file/@ADMID </p>
+
+				<head>&#160;&#160;&#160;&#160;Representations</head>
+				<p> &#160;&#160;&#160;&#160; techMD[@STATUS='PRIMARY_REPRESENTATION'
+					and .//premis:objectCategory = 'REPRESENTATION' ]/@ID &lt;=
+					structMap[@TYPE='PRIMARY_STRUCTMAP']/div/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//premis:objectCategory =
+					'REPRESENTATION' ]/@ID &lt;- structMap//div/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; techMD[.//premis:objectCategory =
+					'REPRESENTATION' ]/@ID &lt;- file/@ADMID </p>
+
+				<head>&#160;&#160;Source </head>
+				<p> &#160;&#160;&#160;&#160; sourceMD/@ID &lt;&lt;- */@ADMID </p>
+
+				<head>&#160;&#160;Rights </head>
+				<p> &#160;&#160;&#160;&#160; rightsMD[.//premis:rights]/@ID &lt;&lt;-
+					*/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; rightsMD[.//premis:agent]/@ID &lt;-
+					rightsMD//premis:rights//grantingAgent /@GrantAgentXmlID </p>
+
+				<head>&#160;&#160;Digital Provenance </head>
+				<p> &#160;&#160;&#160;&#160; digiprovMD[.//premis:event]/@ID &lt;&lt;=
+					dmdSec[@STATUS='PRIMARY_DMDSEC']/@ADMID</p>
+				<p> &#160;&#160;&#160;&#160; digiprovMD[.//premis:event]/@ID &lt;&lt;=
+					dmdSec[@STATUS='ALTERNATE_DMDSEC']/@ADMID</p>
+				<p> &#160;&#160;&#160;&#160; digiprovMD[.//premis:event]/@ID &lt;&lt;-
+					file/@ADMID</p>
+				<p> &#160;&#160;&#160;&#160; digiprovMD[.//premis:event]/@ID &lt;&lt;-
+					structMap/div/@ADMID</p>
+				<p> &#160;&#160;&#160;&#160; digiprovMD[.//premis:event]/@ID &lt;&lt;-
+					*/@ADMID </p>
+				<p> &#160;&#160;&#160;&#160; digiprovMD[.//premis:agent]/@ID
+					&lt;-digiprovMD//premis:event/linkingAgentIdentifier/@LinkAgentXmlID </p>
+			</requirement>
+			<requirement>
+				<head>Content Files</head>
+				<p> &#160;&#160;&#160;&#160; file/@ADMID =&gt;
+					techMD[.//premis:objectCategory = 'FILE' ]/@ID</p>
+				<p> &#160;&#160;&#160;&#160; file/stream/@ADMID =&gt;
+					techMD[.//premis:objectCategory = 'BITSTREAM' ]/@ID</p>
+				<p> &#160;&#160;&#160;&#160;
+					file[starts-with(@MIMETYPE,'text/')]/@ADMID -&gt; techMD[.//textMD]/@ID </p>
+				<p> &#160;&#160;&#160;&#160;
+					file[starts-with(@MIMETYPE,'image/')]/@ADMID -&gt; techMD[.//mix:mix]/@ID </p>
+				<p> &#160;&#160;&#160;&#160;
+					file[starts-with(@MIMETYPE,'audio/')]/@ADMID -&gt; techMD[.//audiomd:*]/@ID </p>
+				<p> &#160;&#160;&#160;&#160;
+					file[starts-with(@MIMETYPE,'video/')]/@ADMID -&gt; techMD[.//videomd:*]/@ID </p>
+				<p> &#160;&#160;&#160;&#160;
+					file[starts-with(@MIMETYPE,'application/')]/@ADMID =&gt;
+					techMD[.//premis:creatingApplication and .//premis:software]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; file/@ADMID -&gt;
+					techMD[.//jhove:jhove]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; file/@ID &lt;= structMap//div/fptr/@FILEID</p>
+				<p> &#160;&#160;&#160;&#160; file/@ID &lt;=
+					structMap//div/fptr/area/@FILEID</p>
+			</requirement>
+			<requirement>
+				<head>Structural Maps</head>
+				<p> &#160;&#160;&#160;&#160; structMap/div/@DMDID =&gt;
+					dmdSec[@STATUS='PRIMARY_DMDSEC']/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap//div/@DMDID -&gt;
+					dmdSec[@STATUS='PRIMARY_DMDSEC']//mods:relatedItem[@type="constituent"]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap/div/@DMDID =&gt;&gt;
+					dmdSec[@STATUS='ALTERNATE_DMDSEC']/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap//div/@DMDID -&gt;&gt;
+					dmdSec[@STATUS!='ALTERNATE_DMDSEC' and @STATUS!='PRIMARY_DMDSEC' ]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap[@TYPE='PRIMARY_STRUCTMAP']/div/@ADMID =&gt;
+					techMD[@STATUS='PRIMARY_REPRESENTATION' and .//premis:objectCategory =
+					'REPRESENTATION' ]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap//div/@ADMID -&gt;
+					techMD[.//premis:objectCategory = 'REPRESENTATION' ]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap/div/@ADMID -&gt;&gt;
+					digiprovMD[.//premis:event]/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap//div/fptr/@FILEID =&gt; file/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap//div/fptr/area/@FILEID =&gt;
+					file/@ID </p>
+				<p> &#160;&#160;&#160;&#160; structMap//div/@xlink:label &lt;&lt;-
+					structLink/smLink/@xlink:from </p>
+				<p> &#160;&#160;&#160;&#160; structMap//div/@xlink:label &lt;&lt;-
+					structLink/smLink/@xlink:to </p>
+			</requirement>
+			<requirement>
+				<head>Structural Map Links</head>
+				<p> &#160;&#160;&#160;&#160; structLink/smLink/@xlink:from =&gt;
+					structMap//div/@xlink:label </p>
+				<p> &#160;&#160;&#160;&#160; structLink/smLink/@xlink:to =&gt;
+					structMap//div/@xlink:label </p>
+			</requirement>
+		</multiSection>
+
+	</structural_requirements>
+
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<head>General</head>
+				<p> This profile can support any type of content file. However, this profile does
+					assume that referenced or embedded content files have been normalized to their
+					most primitive composition level, specifically content files must not be
+					compressed or encrypted. This is equivalent to a PREMIS composition level of
+					zero. Also, it is assumes that content files are accessible directly
+					from the URI where they reside without needing to be extracted from any
+					intermediate packaging file, such as a ZIP or TAR archive. Note that an
+					intermediate packaging format such as ZIP or TAR may be used for conveniently
+					transporting a complete package of files including the METS file itself, but any
+					references to files in the METS must refer to the files after the package has
+					been decomposed into its parts. </p>
+			</requirement>
+		</content_files>
+		<behavior_files>
+			<requirement>
+				<head>General</head>
+				<p> This profile has no requirements for behavior files. </p>
+			</requirement>
+		</behavior_files>
+		<metadata_files>
+			<requirement>
+				<head>General</head>
+				<p> All metadata referenced in this profile must be well-formed XML and must
+					validate to the relevant XML Schema. </p>
+			</requirement>
+			<requirement>
+				<head>MODS</head>
+				<p> The MODS descriptive metadata must
+					conform to the Digital Library Federation / Aquifer Implementation Guidelines for Shareable MODS Records.
+					[http://www.diglib.org/aquifer/dlfmodsimplementationguidelines_finalnov2006.pdf]   All requirements
+					in the Aquifer guidelines listed as "REQUIRED" or "REQUIRED IF APPLICABLE" must be adhered to by 
+					METS files conformant to this profile.</p>
+			</requirement>
+		</metadata_files>
+
+	</technical_requirements>
+
+	<tool>
+		<name>ECHODEP Hub and Spoke Interoperability Scripts</name>
+		<agency>University of Illinois at Urbana-Champaign</agency>
+		<URI/>
+		<description/>
+	</tool>
+
+	<Appendix NUMBER="1" LABEL="Example of a Simple Object Consisting of one Scanned Image">
+		<mets xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:mods="http://www.loc.gov/mods/"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="APP1_METS_SAMPLE_1"
+			OBJID="2135.85756" LABEL="Peoria County, Illinois" PROFILE="http://www.loc.gov/mets/profiles/00000015.xml"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/ http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+			<metsHdr ID="APP1_METS_SAMPLE_2" CREATEDATE="2006-05-02T15:12:53"
+				LASTMODDATE="2006-06-08T11:36:00">
+				<agent ROLE="CUSTODIAN" TYPE="ORGANIZATION">
+					<name> ECHO Depository, Grainger Engineering Library, University of Illinois at
+						Urbana-Champaign </name>
+				</agent>
+				<altRecordID TYPE="HANDLE">2135.85756</altRecordID>
+			</metsHdr>
+			<dmdSec ID="APP1_DM0" STATUS="ALTERNATE_DMDSEC" CREATED="2006-02-01T00:00:00Z"
+				ADMID="APP1_DMDEVENT0">
+				<mdRef MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="REPROCESSED_OAI_DC"
+					LOCTYPE="URL"
+					xlink:href="./oai_3Aaerialphotos.grainger.uiuc.edu_3ABXF-2-2-1939.xml"/>
+			</dmdSec>
+			<dmdSec ID="APP1_DM1" STATUS="ALTERNATE_DMDSEC" CREATED="2006-08-17T00:00:00Z"
+				ADMID="APP1_DMDEVENT1">
+				<mdWrap MDTYPE="DC">
+					<xmlData>
+						<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/"
+							xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+							<dc:contributor> Scanning, indexing, and description sponsored by the
+								Illinois State Library and the University of Illinois at
+								Urbana-Champaign Library. Geo-referencing sponsored and performed by
+								the Geographic Modeling Systems Laboratory, University of Illinois
+								at Urbana-Champaign.</dc:contributor>
+							<dc:creator>United States. Agricultural Adjustment Agency.</dc:creator>
+							<dc:creator>Aerial Photographs</dc:creator>
+							<dc:date>Created: 1939-07-11</dc:date>
+							<dc:date>Issued: 1939-01-01</dc:date>
+							<dc:date>Scanned and Processed: 1998-06-01</dc:date>
+							<dc:identifier>http://images.library.uiuc.edu/projects/aerial_photos/searches/view.asp?PhotoID=2919&amp;View_Type=large </dc:identifier>
+							<dc:identifier>BXF-2-2</dc:identifier>
+							<dc:format>image/jpeg</dc:format>
+							<dc:language>en_US</dc:language>
+							<dc:publisher>U.S. Dept. of Agriculture, Agricultural Adjustment Agency,
+								North Central Division, Washington, D.C.</dc:publisher>
+							<dc:rights>Copyright ? 1997-2003 the University of Illinois Board of
+								Trustees. Images cannot be re-distributed in this form for any
+								commercial purpose. </dc:rights>
+							<dc:subject>Counties: Peoria</dc:subject>
+							<dc:subject>Counties: Tazewell</dc:subject>
+							<dc:subject>Counties: Woodford</dc:subject>
+							<dc:subject>Highways: IL 29</dc:subject>
+							<dc:subject>Other Administrative Units: Peoria Country Club</dc:subject>
+							<dc:subject>Other Administrative Units: Sand Ridge Cemetery</dc:subject>
+							<dc:subject>Other Administrative Units: Terrace Park</dc:subject>
+							<dc:subject>Other Administrative Units: Woods Park</dc:subject>
+							<dc:subject>Quadrangles: Peoria East</dc:subject>
+							<dc:subject>Quadrangles: Spring Bay</dc:subject>
+							<dc:subject>Railroads: Chicago, Rock Island, &amp; Pacific</dc:subject>
+							<dc:subject>Towns: Long Shore Park</dc:subject>
+							<dc:subject>Towns: Peoria</dc:subject>
+							<dc:subject>Towns: Peoria Heights</dc:subject>
+							<dc:subject>Water Bodies: Funks Run</dc:subject>
+							<dc:subject>Water Bodies: Peoria Lake</dc:subject>
+							<dc:subject>Water Bodies: Upper Peoria Lake</dc:subject>
+							<dc:title>Peoria County, Illinois</dc:title>
+							<dc:type>image</dc:type>
+						</oai_dc:dc>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<dmdSec ID="APP1_DM2" STATUS="PRIMARY_DMDSEC" CREATED="2006-08-17T14:43:02Z"
+				ADMID="APP1_DMDEVENT2">
+				<mdWrap MDTYPE="MODS">
+					<xmlData>
+						<mods
+							xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xmlns="http://www.loc.gov/mods/v3"
+							xmlns:dc="http://purl.org/dc/elements/1.1/">
+							<titleInfo>
+								<title>Peoria County, Illinois</title>
+							</titleInfo>
+							<name>
+								<namePart>United States. Agricultural Adjustment Agency.</namePart>
+								<role>
+									<roleTerm type="text">creator</roleTerm>
+								</role>
+							</name>
+							<name>
+								<namePart>Aerial Photographs</namePart>
+								<role>
+									<roleTerm type="text">creator</roleTerm>
+								</role>
+							</name>
+							<name>
+								<namePart> Scanning, indexing, and description sponsored by the
+									Illinois State Library and the University of Illinois at
+									Urbana-Champaign Library. Geo-referencing sponsored and
+									performed by the Geographic Modeling Systems Laboratory,
+									University of Illinois at Urbana-Champaign. </namePart>
+								<role>
+									<roleTerm type="text">contributor</roleTerm>
+								</role>
+							</name>
+							<extension>
+								<dc:type>image</dc:type>
+							</extension>
+							<originInfo>
+								<publisher> U.S. Dept. of Agriculture, Agricultural Adjustment
+									Agency, North Central Division, Washington, D.C. </publisher>
+								<dateOther>Created: 1939-07-11</dateOther>
+								<dateOther>Issued: 1939-01-01</dateOther>
+								<dateOther>Scanned and Processed: 1998-06-01</dateOther>
+							</originInfo>
+							<language>
+								<languageTerm type="text">en_US</languageTerm>
+							</language>
+							<physicalDescription>
+								<form>image/jpeg</form>
+							</physicalDescription>
+							<subject>
+								<topic>Counties: Peoria</topic>
+							</subject>
+							<subject>
+								<topic>Counties: Tazewell</topic>
+							</subject>
+							<subject>
+								<topic>Counties: Woodford</topic>
+							</subject>
+							<subject>
+								<topic>Highways: IL 29</topic>
+							</subject>
+							<subject>
+								<topic>Other Administrative Units: Peoria Country Club</topic>
+							</subject>
+							<subject>
+								<topic>Other Administrative Units: Sand Ridge Cemetery</topic>
+							</subject>
+							<subject>
+								<topic>Other Administrative Units: Terrace Park</topic>
+							</subject>
+							<subject>
+								<topic>Other Administrative Units: Woods Park</topic>
+							</subject>
+							<subject>
+								<topic>Quadrangles: Peoria East</topic>
+							</subject>
+							<subject>
+								<topic>Quadrangles: Spring Bay</topic>
+							</subject>
+							<subject>
+								<topic>Railroads: Chicago, Rock Island, &amp; Pacific</topic>
+							</subject>
+							<subject>
+								<topic>Towns: Long Shore Park</topic>
+							</subject>
+							<subject>
+								<topic>Towns: Peoria</topic>
+							</subject>
+							<subject>
+								<topic>Towns: Peoria Heights</topic>
+							</subject>
+							<subject>
+								<topic>Water Bodies: Funks Run</topic>
+							</subject>
+							<subject>
+								<topic>Water Bodies: Peoria Lake</topic>
+							</subject>
+							<subject>
+								<topic>Water Bodies: Upper Peoria Lake</topic>
+							</subject>
+							<identifier>
+								http://images.library.uiuc.edu/projects/aerial_photos/searches/view.asp?PhotoID=2919&amp;View_Type=large </identifier>
+							<identifier>BXF-2-2</identifier>
+							<accessCondition> Copyright © 1997-2003 the University of Illinois Board
+								of Trustees. Images cannot be re-distributed in this form for any
+								commercial purpose. </accessCondition>
+						</mods>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<amdSec ID="APP1_AMD1">
+				<techMD ID="APP1_TMD0PREMIS" STATUS="PRIMARY_REPRESENTATION">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object xmlns="http://www.loc.gov/standards/premis/v1"
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd">
+								<objectIdentifier>
+									<objectIdentifierType>HANDLE</objectIdentifierType>
+									<objectIdentifierValue>2135.85756</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>REPRESENTATION</objectCategory>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP1_TMD1PREMIS">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<object xmlns="http://www.loc.gov/standards/premis/v1"
+								xsi:schemaLocation="http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd">
+								<objectIdentifier>
+									<objectIdentifierType>ECHODEP</objectIdentifierType>
+									<objectIdentifierValue>BXF22.JPG</objectIdentifierValue>
+								</objectIdentifier>
+								<objectCategory>FILE</objectCategory>
+								<objectCharacteristics>
+									<compositionLevel>0</compositionLevel>
+									<fixity>
+										<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+										<messageDigest>4638bc65c5b9715557d09ad373eefd147382ecbf</messageDigest>
+									</fixity>
+									<size>184302</size>
+									<format>
+										<formatDesignation>
+											<formatName>image/jpeg</formatName>
+											<formatVersion>1.02</formatVersion>
+										</formatDesignation>
+									</format>
+								</objectCharacteristics>
+							</object>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="APP1_TMD1MIX">
+					<mdWrap MDTYPE="NISOIMG">
+						<xmlData>
+							<mix
+								xsi:schemaLocation="http://www.loc.gov/mix/ http://www.loc.gov/standards/mix/mix.xsd">
+								<BasicImageParameters>
+									<Format>
+										<MIMEType>image/jpeg</MIMEType>
+										<ByteOrder>big-endian</ByteOrder>
+										<Compression>
+											<CompressionScheme>6</CompressionScheme>
+										</Compression>
+										<PhotometricInterpretation>
+											<ColorSpace>6</ColorSpace>
+										</PhotometricInterpretation>
+									</Format>
+								</BasicImageParameters>
+								<ImageCreation/>
+								<ImagingPerformanceAssessment>
+									<SpatialMetrics>
+										<SamplingFrequencyUnit>2</SamplingFrequencyUnit>
+										<ImageWidth>1024</ImageWidth>
+										<ImageLength>1027</ImageLength>
+									</SpatialMetrics>
+									<Energetics>
+										<BitsPerSample>8</BitsPerSample>
+										<SamplesPerPixel>1</SamplesPerPixel>
+									</Energetics>
+								</ImagingPerformanceAssessment>
+								<ChangeHistory>
+									<ImageProcessing>
+										<DateTimeProcessed>2006-01-07T14:26:40-06:00</DateTimeProcessed>
+										<ProcessingSoftware>
+											<ProcessingSoftwareName>Adobe Photoshop</ProcessingSoftwareName>
+											<ProcessingSoftwareVersion>5.0</ProcessingSoftwareVersion>
+										</ProcessingSoftware>
+									</ImageProcessing>
+								</ChangeHistory>
+							</mix>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<digiprovMD ID="APP1_DMDEVENT0">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<event xmlns="http://www.loc.gov/standards/premis/v1">
+								<eventIdentifier>
+									<eventIdentifierType>LOCAL</eventIdentifierType>
+									<eventIdentifierValue>APP1_DMDEVENT0</eventIdentifierValue>
+								</eventIdentifier>
+								<eventType>METADATA_CREATION</eventType>
+								<eventDateTime>2006-05-02T15:12:53</eventDateTime>
+								<linkingAgentIdentifier>
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>http://aerialphotos.grainger.uiuc.edu/oai.asp?verb=GetRecord&amp;metadataPrefix=uiuc_oai_dc&amp;identifier=oai:aerialphotos.grainger.uiuc.edu:BXF-2-2-1939</linkingAgentIdentifierValue>
+									<linkingAgentRole>DATA_SOURCE</linkingAgentRole>
+								</linkingAgentIdentifier>
+							</event>
+						</xmlData>
+					</mdWrap>
+
+				</digiprovMD>
+				<digiprovMD ID="APP1_DMDEVENT1">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<event xmlns="http://www.loc.gov/standards/premis/v1">
+								<eventIdentifier>
+									<eventIdentifierType>LOCAL</eventIdentifierType>
+									<eventIdentifierValue>APP1_DMDEVENT1</eventIdentifierValue>
+								</eventIdentifier>
+								<eventType>METADATA_TRANSFORMATION</eventType>
+								<eventDateTime>2006-05-02T15:12:53</eventDateTime>
+								<eventDetail>Dublin Core metadata derived from the local variation
+									of OAI DC metadata</eventDetail>
+								<linkingAgentIdentifier LinkAgentXmlID="APP1_AGENT1">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>mailto:thabing@uiuc.edu</linkingAgentIdentifierValue>
+									<linkingAgentRole>EVENT_INITIATOR</linkingAgentRole>
+								</linkingAgentIdentifier>
+								<linkingAgentIdentifier LinkAgentXmlID="APP1_AGENT2">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>http://ndiipp.uiuc.edu/HaS/</linkingAgentIdentifierValue>
+									<linkingAgentRole>SOFTWARE_USED</linkingAgentRole>
+								</linkingAgentIdentifier>
+							</event>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP1_DMDEVENT2">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<event xmlns="http://www.loc.gov/standards/premis/v1">
+								<eventIdentifier>
+									<eventIdentifierType>LOCAL</eventIdentifierType>
+									<eventIdentifierValue>APP1_DMDEVENT2</eventIdentifierValue>
+								</eventIdentifier>
+								<eventType>METADATA_TRANSFORMATION</eventType>
+								<eventDateTime>2006-05-02T15:12:53</eventDateTime>
+								<eventDetail>MODS metadata derived from the DC metadata</eventDetail>
+								<linkingAgentIdentifier LinkAgentXmlID="APP1_AGENT1">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>mailto:thabing@uiuc.edu</linkingAgentIdentifierValue>
+									<linkingAgentRole>EVENT_INITIATOR</linkingAgentRole>
+								</linkingAgentIdentifier>
+								<linkingAgentIdentifier LinkAgentXmlID="APP1_AGENT2">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>http://ndiipp.uiuc.edu/HaS/</linkingAgentIdentifierValue>
+									<linkingAgentRole>SOFTWARE_USED</linkingAgentRole>
+								</linkingAgentIdentifier>
+							</event>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP1_AGENT1">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<agent xmlns="http://www.loc.gov/standards/premis/v1">
+								<agentIdentifier>
+									<agentIdentifierType>URI</agentIdentifierType>
+									<agentIdentifierValue>mailto:thabing@uiuc.edu</agentIdentifierValue>
+								</agentIdentifier>
+								<agentName>Habing, Thomas G.</agentName>
+								<agentType>PERSON</agentType>
+							</agent>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP1_AGENT2">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<agent xmlns="http://www.loc.gov/standards/premis/v1">
+								<agentIdentifier>
+									<agentIdentifierType>URI</agentIdentifierType>
+									<agentIdentifierValue>http://ndiipp.uiuc.edu/HaS/</agentIdentifierValue>
+								</agentIdentifier>
+								<agentName>EchoDep Hub and Spoke, Version 1.0.0</agentName>
+								<agentType>SOFTWARE</agentType>
+							</agent>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+				<digiprovMD ID="APP1_DP1EVENT">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<event xmlns="http://www.loc.gov/standards/premis/v1">
+								<eventIdentifier>
+									<eventIdentifierType>LOCAL</eventIdentifierType>
+									<eventIdentifierValue>APP1_DP1EVENT</eventIdentifierValue>
+								</eventIdentifier>
+								<eventType>INGESTION</eventType>
+								<eventDateTime>2006-05-02T15:12:53</eventDateTime>
+								<linkingAgentIdentifier LinkAgentXmlID="APP1_AGENT1">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>mailto:thabing@uiuc.edu</linkingAgentIdentifierValue>
+									<linkingAgentRole>EVENT_INITIATOR</linkingAgentRole>
+								</linkingAgentIdentifier>
+								<linkingAgentIdentifier>
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>http://images.library.uiuc.edu/projects/aerial_photos/images/large/BXF22.jpg</linkingAgentIdentifierValue>
+									<linkingAgentRole>DATA_SOURCE</linkingAgentRole>
+								</linkingAgentIdentifier>
+								<linkingAgentIdentifier LinkAgentXmlID="APP1_AGENT2">
+									<linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+									<linkingAgentIdentifierValue>http://ndiipp.uiuc.edu/HaS/</linkingAgentIdentifierValue>
+									<linkingAgentRole>SOFTWARE_USED</linkingAgentRole>
+									<linkingAgentRole>DATA_DESTINATION</linkingAgentRole>
+								</linkingAgentIdentifier>
+							</event>
+						</xmlData>
+					</mdWrap>
+				</digiprovMD>
+			</amdSec>
+			<fileSec>
+				<fileGrp>
+					<file ID="APP1_FID1" SIZE="184302"
+						ADMID="APP1_TMD1PREMIS APP1_TMD1MIX APP1_DP1EVENT"
+						CHECKSUM="4638bc65c5b9715557d09ad373eefd147382ecbf" CHECKSUMTYPE="SHA-1"
+						MIMETYPE="image/jpeg" CREATED="2006-01-07T14:26:40-06:00">
+						<FLocat LOCTYPE="OTHER" xlink:href="BXF22.JPG"/>
+					</file>
+				</fileGrp>
+			</fileSec>
+			<structMap TYPE="PRIMARY_STRUCTMAP">
+				<div DMDID="APP1_DM0 APP1_DM1 APP1_DM2" ADMID="APP1_TMD0PREMIS">
+					<fptr FILEID="APP1_FID1"/>
+				</div>
+			</structMap>
+		</mets>
+
+	</Appendix>
+
+
+
+
+</METS_Profile>

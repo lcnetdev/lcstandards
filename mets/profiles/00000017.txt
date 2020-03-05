@@ -1,0 +1,780 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><!-- InstanceBegin template="/Templates/mets-template.dwt" codeOutsideHTMLIsLocked="false" --><HEAD><TITLE>METS Profiles: Metadata Encoding and Transmission Standard (METS) OfficialWeb Site</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8"><!-- InstanceBeginEditable name="doctitle" --><!-- InstanceEndEditable --><!-- InstanceBeginEditable name="head" -->
+<META 
+content="mets metadata encoding transmission standard web site library congress xml schema" 
+name=keywords>
+<META 
+content="METS Profiles: Metadata Encoding and Transmission Standard (METS) Official Web Site.  &#10;The METS schema is a standard for encoding descriptive, administrative, and structural metadata regarding objects within a digital library, expressed using the XML schema language of the World Wide Web Consortium. &#10;The standard is maintained in the Network Development and MARC Standards Office of the Library of Congress, and is being developed as an initiative of the Digital Library Federation." 
+name=description><!-- InstanceEndEditable --><LINK 
+href="../mets-redesign.css" type=text/css rel=stylesheet>
+<SCRIPT src="../triggerParams.js" type=text/javascript></SCRIPT>
+
+<SCRIPT src="../stdLauncher.js" type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>Poll();</SCRIPT>
+
+<META content="MSHTML 6.00.2800.1597" name=GENERATOR></HEAD>
+<BODY text=#333333 vLink=#666666 aLink=#669966 link=#336666 leftMargin=0 
+background=../mets-background2.gif topMargin=0 marginheight="0" 
+marginwidth="0">
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0><!-- top section (header and page content) - valign equals top -->
+  <TBODY>
+  <TR>
+    <TD vAlign=top><!-- 760 wide table for header -->
+      <TABLE cellSpacing=0 cellPadding=0 width=697 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD colSpan=2 height=25><A 
+            href="http://www.loc.gov/standards/mets/profiles/#content" 
+            name=top><IMG height=1 alt="Skip Navigation Links" 
+            src="../images/spacer-gray.gif" width=1 border=0></A> <A 
+            class=white href="http://www.loc.gov/">The Library of Congress</A> 
+            <SPAN class=white-text>&gt;&gt;</SPAN> <A 
+            href="http://www.loc.gov/standards/">Standards</A></TD></TR>
+        <TR>
+          <TD><IMG height=1 alt="" src="../images/spacer-green.gif" 
+            width=349></TD>
+          <TD vAlign=bottom><IMG height=1 alt="" 
+            src="../spacer-green.gif" width=348></TD></TR><!-- title graphic -->
+        <TR>
+          <TD background="" colSpan=2><IMG height=75 
+            alt="Metadata Encoding and Transmission Standard (METS) Official Web Site" 
+            src="../images/mets-bar-new.gif" width=697></TD></TR><!-- spacer row -->
+        <TR>
+          <TD><IMG height=1 alt="" src="" width=349></TD>
+          <TD vAlign=bottom><IMG height=1 alt="" src="" width=348></TD></TR><!-- navigation breadcrumbs and search box -->
+        <TR>
+          <TD background="" bgColor=#eeeeee>
+            <P class=menu>&nbsp; <A 
+            href="http://www.loc.gov/standards/mets/mets-home.html">Home</A> 
+            &gt;&gt; <!-- InstanceBeginEditable name="topbreadcrumb" --><SPAN 
+            class=selected>METS 
+          Profiles</SPAN><!-- InstanceEndEditable --></P></TD>
+          <TD align=right background=../images/spacer-gray.gif 
+          bgColor=#eeeeee>
+            <FORM style="MARGIN-BOTTOM: 0px" name=seek1 accept-charset=utf-8 
+            action=http://search.loc.gov:8765/query.html method=get><INPUT 
+            type=hidden value=loc name=col><INPUT type=hidden value=0 
+            name=sc><INPUT type=hidden value=0 name=ws><INPUT type=hidden 
+            value=en name=la><INPUT type=hidden value=0 name=qm><INPUT 
+            type=hidden value=1 name=st><INPUT type=hidden value=10 
+            name=nh><INPUT type=hidden value=1 name=lk><INPUT type=hidden 
+            value=0 name=rf><INPUT type=hidden name=oq><INPUT type=hidden 
+            value=0 name=si><INPUT type=hidden value=0 name=rq><INPUT 
+            type=hidden name=qc>
+            <TABLE cellSpacing=0 cellPadding=4 border=0>
+              <TBODY>
+              <TR>
+                <TD><SELECT tabIndex=1 name=qp><OPTION 
+                    value=url:/standards/mets selected>METS 
+                    Pages</OPTION><OPTION 
+                    value="url:/standards url:/ead url:/marc">Standards 
+                    Pages</OPTION><OPTION value="">All Library 
+                  Pages</OPTION></SELECT></TD>
+                <TD><SPAN class=drop-box><INPUT id=keyword tabIndex=2 size=18 
+                  name=qt></SPAN></TD>
+                <TD align=left><INPUT id=search_button tabIndex=3 type=image 
+                  alt=search src="../images/search.gif" value=SEARCH 
+                  name=search_button></TD></TR></TBODY></TABLE></FORM></TD></TR><!-- spacer row -->
+        <TR>
+          <TD><IMG height=1 alt="" src="../images/spacer-green.gif" 
+            width=349></TD>
+          <TD vAlign=bottom><IMG height=1 alt="" 
+            src="../images/spacer-green.gif" width=348></TD></TR></TBODY></TABLE><!-- START of 730 wide table for page content --><A 
+      name=content></A>
+      <TABLE cellSpacing=0 cellPadding=8 width=697 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!-- InstanceBeginEditable name="content" -->
+            <DIV class=gx xmlns:tmpl="xslt://template" 
+            xmlns:dcterms="http://purl.org/dc/terms/" 
+            xmlns:dc="http://purl.org/dc/elements/1.1/" 
+            xmlns:cdl="http://ark.cdlib.org/schemas/appqualifieddc/" 
+            xmlns:m="http://www.loc.gov/METS/" 
+            xmlns:xlink="http://www.w3.org/TR/xlink"><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#METS_Profile">METS_Profile:</A> 
+            @xsi:schemaLocation="http://www.loc.gov/METS_Profile/ 
+            http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd" 
+            <BR>
+            <DIV><A 
+            href="http://www.loc.gov/mets/profiles/00000017.xml">http://www.loc.gov/mets/profiles/00000017.xml</A></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#title">title:</A><BR>UCSD 
+            Complex Object Profile</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#abstract">abstract:</A><BR>The 
+            UCSD Libraries uses the UCSD Complex Object profile for composing 
+            METS instances for digital objects in which the primary content of 
+            the digital object is contained in two or more digital files. The 
+            content files may be of any format type, e.g., audio, image, text, 
+            or video, and there can be any combination of formats within a 
+            single complex object. There are no restrictions placed on the type 
+            of logical structure represented in the complex object. The decision 
+            to require a complex object’s structure to be represented by both 
+            physical and logical &lt;structMap&gt;s, as described in the 
+            profile, is influenced by the current requirements of the METS 
+            Navigator application. </DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#date">date:</A><BR>2007-07-30T10:53:31</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#contact">contact:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#name">name:</A><BR>Digital 
+            Library Office</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#address">address:</A><BR>Geisel 
+            Library, UC, San Diego</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#email">email:</A><BR>dlo@ucsd.edu</DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#related_profile">related_profile:</A> 
+            @RELATIONSHIP="Extends" 
+            @URI="http://www.loc.gov/standards/mets/profiles/00000012.xml" 
+            <BR>UCSD Simple Object Profile</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#extension_schema">extension_schema:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#name">name:</A><BR>MODS</DIV>
+            <DIV><A href="http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">: 
+            http://www.loc.gov/standards/mods/v3/mods-3-2.xsd</A></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#context">context:</A><BR>mets/dmdSec/mdWrap/xmlData</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#note">note:</A><BR>Used 
+            for descriptive metadata representing the intellectual 
+            object.</DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#extension_schema">extension_schema:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#name">name:</A><BR>PREMIS</DIV>
+            <DIV><A 
+            href="http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd">: 
+            http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd</A></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#context">context:</A><BR>mets/amdSec/techMD/mdWrap/xmlData</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#note">note:</A><BR>Used 
+            for technical metadata about content files.</DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#extension_schema">extension_schema:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#name">name:</A><BR>METSRights</DIV>
+            <DIV><A href="http://cosimo.stanford.edu/sdr/metsrights.xsd">: 
+            http://cosimo.stanford.edu/sdr/metsrights.xsd</A></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#context">context:</A><BR>mets/amdSec/rightsMD/mdWrap/xmlData</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#note">note:</A><BR>Used 
+            for recording intellectual property rights.</DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#description_rules">description_rules:</A><BR>
+            <P>All applications of MODS in UCSD METS records adhere to the MODS 
+            User Guidelines published by the Library of Congress's Network 
+            Development and MARC Standards Office.</P>
+            <P>MODS usage in UCSD METS records is also informed by The Digital 
+            Library Federation / Aquifer Implementation Guidelines for Shareable 
+            MODS Records.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#controlled_vocabularies">controlled_vocabularies:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#vocabulary">vocabulary:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#name">name:</A><BR>UCSD 
+            file USE attribute values</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#maintenance_agency">maintenance_agency:</A><BR>University 
+            of California, San Diego</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#values">values:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Application-PDF</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Application-PS</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Audio-Master</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Audio-Master-Edited</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Audio-Service</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Audio-Streaming</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Audio-Clip</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Master</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Master-Edited</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Service</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Service-LowRes</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Service-MedRes</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Service-HighRes</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Service-Edited</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Image-Thumbnail</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-OCR-Edited</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-OCR-Unedited</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-TEI-Translated</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-TEI-Transcripted</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-Georeference</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-Data</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-Data 
+            Definition</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Text-Codebook</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Video-Master</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Video-Master-Edited</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Video-Service</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Video-Streaming</DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#value">value:</A><BR>Video-Clip</DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#context">context:</A> 
+            @ID="vc1" @RELATEDMAT="fileSec2" <BR>
+            <P>mets/fileSec/fileGrp/@USE</P>
+            <P>mets/fileSec/fileGrp/file/@USE</P>Each &lt;fileGrp&gt; must 
+            include a file USE attribute, with a value taken from the controlled 
+            vocabulary listed above, representing the intended use of the 
+            referenced file(s). </DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#description">description:</A><BR>
+            <P>These are the values supported for &lt;file&gt; and 
+            &lt;fileGrp&gt; USE attributes for digital objects conforming to 
+            this profile.</P></DIV></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#structural_requirements">structural_requirements:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#metsRootElement">metsRootElement:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsRoot1" <BR>
+            <P>The root &lt;mets&gt; element must include a LABEL attribute 
+            value. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsRoot2" <BR>
+            <P>The root &lt;mets&gt; element must include a PROFILE attribute 
+            value. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsRoot3" <BR>
+            <P>The root &lt;mets&gt; element must include an OBJID attribute 
+            value that uniquely identifies the METS instance in the UCSD digital 
+            repository. The value must be an ARK. .</P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#metsHdr">metsHdr:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsHdr1" <BR>
+            <P>A METS record conforming to this profile must contain a 
+            &lt;metsHdr&gt; element. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsHdr2" <BR>
+            <P>The &lt;metsHdr&gt; element must contain the CREATEDATE 
+            attribute. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsHdr3" <BR>
+            <P>The &lt;metsHdr&gt; element must contain an &lt;agent&gt; with 
+            the ROLE attribute value "CREATOR" and a TYPE attribute value 
+            "ORGANIZATION". </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsHdr4" <BR>
+            <P>The &lt;agent&gt; element must contain the &lt;name&gt; element 
+            with the value "Digital Library Office, Geisel Library, University 
+            of California, San Diego", and a &lt;note&gt; element with the value 
+            "mailto:dlo@ucsd.edu". </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="metsHdr5" <BR>
+            <P>The &lt;metsHdr&gt; element should, but is not required to, 
+            contain a LASTMODDATE attribute reflecting the date of the last 
+            modification to the METS record. </P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#dmdSec">dmdSec:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec1" <BR>
+            <P>A METS record conforming to this profile must contain at least 
+            one &lt;dmdSec&gt; containing a &lt;mdWrap&gt; with &lt;xmlData&gt;. 
+            </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec2" <BR>
+            <P>All &lt;dmdSec&gt; elements must contain an ID 
+            attribute.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec3" <BR>
+            <P>The required dmdSec/mdWrap/xmlData must contain elements from the 
+            Metadata Object Description Schema (MODS) and describe the digital 
+            object as a whole. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec4" <BR>
+            <P>A conforming METS record must contain a mods/titleInfo/title 
+            element. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec5" <BR>
+            <P>A conforming METS record must contain a mods/typeOfResource 
+            element for which the value must be taken from the MODS 
+            typeOfResource values. Type of resource values should be determined 
+            by the materials content not the file format. For example an image 
+            of a page of text should have the value "text".</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec6" <BR>
+            <P>A conforming METS record must contain a mods/identifier element, 
+            with the attribute TYPE="ARK". The element should contain the 
+            actionable URL ARK for the digital object as a whole, not a 
+            constituent file. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec7" <BR>
+            <P>A conforming METS record must contain a mods/note element, with 
+            the attribute displayLabel="Digital object made available by". The 
+            element should name the UCSD Libraries' data provider that is 
+            primarily responsible for making the resource available digitally 
+            with the URL for the provider's main webpage, e.g. Mandeville 
+            Special Collections Library, University of California, San Diego, La 
+            Jolla, CA 92093-0175 (http://orpheus.ucsd.edu/speccoll/)</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec8" <BR>
+            <P>A conforming METS record should, but is not required to, contain 
+            the following descriptive metadata elements when they are 
+            applicable: creator (mods/name/namePart), date of creation 
+            (mods/originInfo/dateCreated), genre (mods/genre), description 
+            (mods/abstract), subject (mods/subject/...), language of the object 
+            (mods/language), publisher (mods/originInfo/publisher), place of 
+            publication (mods/originInfo/place) and the name of the project or 
+            collection to which the object belongs 
+            (mods/relatedItem/titleInfo/title). </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec9" <BR>
+            <P>If present, descriptive metadata for each component part of the 
+            digital object must be placed in a separate &lt;dmdSec&gt; element 
+            and expressed with the MODS metadata schema.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="dmdSec10" <BR>
+            <P>If parallel description, in a schema other than MODS (e.g., 
+            Dublin Core, VRA, FGDC, etc.), is provided for the object or its 
+            components, each parallel description must be placed in a separate 
+            &lt;dmdSec&gt; element. When adding elements from metadata schemas 
+            these should conform to standardized guidelines for the schema. 
+            </P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#amdSec">amdSec:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="amdSec1" <BR>
+            <P>A METS record conforming to this profile must have an 
+            &lt;amdSec&gt; section. The &lt;amdSec&gt; section must contain at 
+            least one techMD/mdWrap/xmlData section for each master file and at 
+            least one rightsMD/mdWrap/xmlData section pertaining to the digital 
+            object as a whole. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="amdSec2" <BR>
+            <P>All &lt;techMD&gt; and &lt;rightsMD&gt; elements must contain an 
+            ID attribute.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD1" <BR>
+            <P>The required &lt;techMD&gt; sections must contain elements from 
+            the PREMIS schema. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD2" <BR>
+            <P>The required &lt;techMD&gt; sections should describe the digital 
+            files of the greatest archival quality. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD3" <BR>
+            <P>A conforming METS record must contain a 
+            pre/object/objectIdentifier/objectIdentifierType element with the 
+            value "ARK", and a pre/object/objectIdentifier/objectIdentifierValue 
+            element with the unique ID. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD4" <BR>
+            <P>A conforming METS record must contain a 
+            pre/object/preservationLevel element. The value should be either 
+            "Full" or "Bit-level". </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD5" <BR>
+            <P>A conforming METS record must contain a pre/object/objectCategory 
+            element. The value should be "File". </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD6" <BR>
+            <P>A conforming METS record must contain a 
+            pre/object/objectCharacteristics/compositionLevel element. The value 
+            should be "0" for uncompressed files.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD7" <BR>
+            <P>A conforming METS record must contain a 
+            pre/object/objectCharacteristics/fixity/messageDigestAlgorithm 
+            element and a pre/object/objectCharacteristics/fixity/messageDigest 
+            element. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD8" <BR>
+            <P>A conforming METS record must contain a 
+            pre/object/objectCharacteristics/size element. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD9" <BR>
+            <P>A conforming METS record must contain a 
+            pre/object/objectCharacteristics/format/formatName element. 
+            </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD10" <BR>
+            <P>A conforming METS record must contain a 
+            pre/object/creatingApplication/dateCreatedByApplication element. 
+            </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD11" <BR>
+            <P>A conforming METS record should, but is not required to, include 
+            the following PREMIS elements: medium on which the object is stored 
+            (pre/object/storage/storageMedium), file format version 
+            (pre/object/objectCharacteristics/formatDesignation/formatVersion), 
+            name of the application that created the file 
+            (pre/object/creatingApplication/creatingApplicationName), and the 
+            original file name (pre/object/originalName) </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD12" <BR>
+            <P>Additional &lt;techMD&gt; sections may, but are not required to, 
+            be used for the description of files other than the master file, or 
+            for inclusion of format specific metadata for any file.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD13" <BR>
+            <P>Additional format specific &lt;techMD&gt; sections for the 
+            description of images must be expressed with the MIX 
+            schema.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD14" <BR>
+            <P>Additional format specific &lt;techMD&gt; sections for the 
+            description of text must be expressed with the TextMD 
+            schema.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD15" <BR>
+            <P>Additional format specific &lt;techMD&gt; sections for the 
+            description of audio or video, should conform to an extension schema 
+            endorsed by the METS Editorial Board (although at this date of 
+            publication extension schemas have not yet been endorsed for audio 
+            or video). </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="techMD16" <BR>
+            <P>Source or provenance metadata expressed as MIX pertaining to 
+            image content files, can be included in a &lt;techMD&gt; section 
+            instead of a separate &lt;sourceMD&gt; section. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="rightsMD1" <BR>
+            <P>The required &lt;rightsMD&gt; must contain elements from the 
+            METSRights schema. The &lt;rightsMD&gt; for the digital object as a 
+            whole will be taken to apply to all component parts unless different 
+            rights are specified for components in additional &lt;rightsMD&gt; 
+            sections. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="rightsMD2" <BR>
+            <P>A conforming METS record must include a rts/RightsDeclarationMD 
+            element with the RIGHTSCATEGORY attribute encoded as either 
+            "COPYRIGHTED", "PUBLIC DOMAIN" or "OTHER". </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="rightsMD3" <BR>
+            <P>A conforming METS record must include a 
+            rts/RightsDeclarationMD/RightsDeclaration from the METSRights Schema 
+            with the value expressed as either "Copyright is held by unnamed 
+            third party" for works for which the copyright holder(s) can not be 
+            identified, "Copyright is held by named third party but not the UC 
+            Regents" for works for which the copyright holder(s) is not the UC 
+            Regents and can be identified, "Copyright held by the UC Regents" 
+            for materials under copyright to the University of California 
+            Regents, "The work is in the public domain" for works known to have 
+            entered the public domain, or "Copyright status has not been 
+            determined by the UCSD Libraries" for works for which the copyright 
+            holder(s) cannot be identified and the work cannot be said to have 
+            entered the public domain. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="rightsMD4" <BR>
+            <P>If necessary, a justification of the rights declaration can be 
+            included in rts/RightsDeclarationMD/RightsDeclaration/ element to 
+            explain the copyright assertion. This is not necessary if the basis 
+            for the assertion is evident in the descriptive metadata for the 
+            object. In cases where this is not evident, a justification 
+            statement may be very useful. Examples of such cases include 1) when 
+            the copyright holder is different than the creator and 2) when an 
+            item has been gifted to the public domain prior to the copyright 
+            expiring. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="rightsMD5" <BR>
+            <P>A conforming METS record must include a 
+            rts/RightsDeclarationMD/Context/Constraints/ConstraintDescription 
+            containing an indication of how the digital asset can be used. See 
+            the UCSD Rights Metadata Strategy for boilerplate text. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="rightsMD6" <BR>
+            <P>A conforming METS record may, but is not required to, include a 
+            rts/RightsHolder/… from the METSRights Schema for those works for 
+            which the copyright holder(s) can be identified. Data can include 
+            the name of the copyright holder(s), their contact information and 
+            any notes relevant to the copyright holder. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="sourceMD1" <BR>
+            <P>If source metadata is recorded, elements in the &lt;sourceMD&gt; 
+            sections should be expressed using an extension schema endorsed by 
+            the METS Editorial Board designed for expressing source metadata 
+            (although at this date of publication an extension schema has not 
+            yet been endorsed for source metadata). </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="digiprovMD1" <BR>
+            <P>If provenance metadata is recorded, elements in the 
+            &lt;digiprovMD&gt; sections should be expressed using an extension 
+            schema endorsed by the METS Editorial Board designed for expressing 
+            provenance metadata (although at this date of publication an 
+            extension schema has not yet been endorsed for provenance metadata). 
+            </P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#fileSec">fileSec:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="fileSec1" <BR>
+            <P>The &lt;fileSec&gt; for a compliant METS record must contain one, 
+            or more, &lt;fileGrp&gt; elements. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="fileSec2" <BR>
+            <P>Each &lt;fileGrp&gt; must include a file USE attribute, with a 
+            value taken from the controlled vocabulary listed above, 
+            representing the intended use of the referenced file(s). </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="fileSec3" <BR>
+            <P>Each &lt;file&gt; element must contain ID and GROUPID attribute 
+            value pairs. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="fileSec4" <BR>
+            <P>Each &lt;file&gt; element must reference pertinent &lt;techMD&gt; 
+            sections by including the relevant ID values in the ADMID attribute. 
+            The ADMID attribute should also reference pertinent &lt;sourceMD&gt; 
+            and &lt;provenanceMD&gt; elements, if present. The &lt;file&gt; 
+            element should only reference ID values at the levels of 
+            &lt;techMD&gt;, &lt;sourceMD&gt;, and &lt;digiprovMD&gt;. 
+            </P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#structMap">structMap:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap1" <BR>
+            <P>A conforming METS record must contain two &lt;structMap&gt; 
+            elements, one with the TYPE attribute value encoded as "logical", a 
+            second with the value encoded as "physical".</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap2" <BR>
+            <P>The physical &lt;structMap&gt; represents a flattened structure 
+            and must only contain two levels of &lt;div&gt; elements with no 
+            further nesting. The top level &lt;div&gt; element required by the 
+            METS schema contains one level of child &lt;div&gt; elements to 
+            represent the linear sequence of the components of the digital 
+            object. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap3" <BR>
+            <P>The logical structMap represents the full hierarchical structure 
+            of the digital object, and so can contain as many levels of nested 
+            &lt;div&gt; elements as required to express the objects full 
+            structure.</P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap4" <BR>
+            <P>All &lt;div&gt; elements within the top level containing 
+            &lt;div&gt; must have an ORDER attribute. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap5" <BR>
+            <P>When applicable, &lt;div&gt; elements must reference pertinent 
+            &lt;dmdSec&gt; sections by including the relevant ID values in the 
+            DMDID attributes. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap6" <BR>
+            <P>When applicable, &lt;div&gt; elements should include a LABEL 
+            attribute with the value derived from, and identical, to the value 
+            encoded in the /mods/titleInfo/title element in the related 
+            &lt;dmdSec&gt;. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap7" <BR>
+            <P>When applicable, &lt;div&gt; elements must reference pertinent 
+            &lt;rightsMD&gt; sections by including the relevant ID values in the 
+            ADMID attributes. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap8" <BR>
+            <P>Each &lt;fptr&gt; element must reference an individual 
+            &lt;file&gt; element representing a version of the file. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap9" <BR>
+            <P>The &lt;fptr&gt; element must use the FILEID attribute to point 
+            directly to a &lt;file&gt; element. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap10" <BR>
+            <P>The &lt;fptr&gt; element may not contain an &lt;area&gt;, 
+            &lt;par&gt;, or &lt;seq&gt; element. These elements are not 
+            supported in objects conforming to this profile. </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structMap11" <BR>
+            <P>The &lt;mptr&gt; element is not supported in this profile. 
+            </P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#structLink">structLink:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="structLink1" <BR>
+            <P>This profile stipulates no requirements for the 
+            &lt;structLink&gt; element. </P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#behaviorSec">behaviorSec:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="behaviorSec1" <BR>
+            <P>This profile stipulates no requirements for the 
+            &lt;behaviorSec&gt; element. </P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#multiSection">multiSection:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="multi1" <BR>
+            <P>Only &lt;file&gt; elements will reference elements in the 
+            &lt;techMD&gt;, &lt;sourceMD&gt;, and &lt;digiprovMD&gt; sections. 
+            </P></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A> 
+            @ID="multi2" <BR>
+            <P>Only the &lt;div&gt; element will reference metadata in the 
+            &lt;dmdSec&gt; and &lt;rightsMD&gt; sections. That is, descriptive 
+            metadata and rights metadata are always and only expressed in 
+            conjunction with division of the &lt;structMap&gt; and not in 
+            conjunction with the content file(s). </P></DIV></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#technical_requirements">technical_requirements:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#content_files">content_files:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A><BR>
+            <P>The profile does not prescribe a format for the file, but it is 
+            strongly recommended that the file format and resolution for at 
+            least one version of the image be of an archival 
+            quality.</P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#behavior_files">behavior_files:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A><BR>
+            <P>The profile does not prescribe association to any 
+            behaviors.</P></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#metadata_files">metadata_files:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#requirement">requirement:</A><BR>
+            <P>This profile does not prescribe referencing of external metadata 
+            records. If an external metadata record is referenced, it is 
+            recommended that the file be valid for the schema in which it is 
+            written, i.e., that it be a valid MARC record.</P></DIV></DIV></DIV>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#tool">tool:</A><BR>
+            <DIV class=gx><A 
+            href="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.html#description">description:</A><BR>
+            <P>Some of the requirements of this profile, especially the 
+            requirement for two &lt;structMap&gt;s, are influenced by the METS 
+            Navigator application as it is currently available. 
+            </P></DIV></DIV></DIV><!-- InstanceEndEditable --></TD></TR></TBODY></TABLE><!-- END of 730 wide table for page content --><!-- bottom section (jump to top, navigation breadcrumbs and footer - valign equals bottom --></TD></TR>
+  <TR>
+    <TD vAlign=bottom><!-- START of 760 wide table for bottom stuff -->
+      <TABLE cellSpacing=0 cellPadding=0 width=697 border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=2 height=35>&nbsp; <A 
+            href="http://www.loc.gov/standards/mets/profiles/#top"><IMG 
+            height=24 alt="Top of Page" src="../images/up-button.gif" 
+            width=24 border=0></A> <A 
+            href="http://www.loc.gov/standards/mets/profiles/#top">Top of 
+            Page</A></TD></TR>
+        <TR>
+          <TD><IMG height=1 alt="" src="../images/spacer-green.gif" 
+            width=349></TD>
+          <TD><IMG height=1 alt="" src="../images/spacer-green.gif" 
+            width=348></TD></TR><!-- navigation breadcrumbs and search box -->
+        <TR>
+          <TD background=../spacer-gray.gif bgColor=#eeeeee>
+            <P class=menu>&nbsp; <A href="http://www.loc.gov/standards/mets/mets-home.html">Home</A> 
+            &gt;&gt; <!-- InstanceBeginEditable name="bottombreadcrumb" --><SPAN 
+            class=selected>METS 
+          Profiles</SPAN><!-- InstanceEndEditable --></P></TD>
+          <TD align=right background=../images/spacer-gray.gif 
+          bgColor=#eeeeee>&nbsp;</TD></TR><!-- spacer row -->
+        <TR>
+          <TD><IMG height=1 alt="" src="../images/spacer-green.gif" 
+            width=349></TD>
+          <TD><IMG height=1 alt="" src="../images/spacer-green.gif" 
+            width=348></TD></TR><!-- footer -->
+        <TR>
+          <TD colSpan=2>
+            <TABLE cellSpacing=0 cellPadding=0 width=697 border=0>
+              <TBODY>
+              <TR>
+                <TD width="75%" height=40>&nbsp; <A class=white 
+                  href="http://www.loc.gov/">The Library of Congress</A> <SPAN 
+                  class=white-text>&gt;&gt;</SPAN> <A 
+                  href="http://www.loc.gov/standards/">Standards</A><BR><span class="white-text">&nbsp;
+                  <!-- #BeginDate format:Am1 -->November 29, 2007<!-- #EndDate -->
+                  </span></td>
+                <TD vAlign=top align=right width="25%" height=40><A 
+                  class=white 
+                  href="http://www.loc.gov/help/help-desk.html">Contact 
+                Us</A>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- END of 760 wide table for bottom stuff --></TD></TR></TBODY></TABLE><!-- END of 760 wide table for bottom stuff -->
+<SCRIPT src="../s_code.js" type=text/javascript></SCRIPT>
+<!-- InstanceEnd --></BODY></HTML>

@@ -1,0 +1,1429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Maria Emilia Masci, LARTTE laboratory, Scuola Normale Superiore, Pisa, IT -->
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/v2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd" STATUS="final" REGISTRATION="registered">
+    <URI LOCTYPE="PURL" ASSIGNEDBY="local" REGDATE="2010-06-22">http://purl.org/pico/mets/mdi-1.0</URI>
+    <URI LOCTYPE="URL" ASSIGNEDBY="metsboard" REGDATE="2010-07-12">http://www.loc.gov/standards/mets/profiles/00000031.xml</URI>
+    <title xml:lang="en">MuseiDItalia METS Profile</title>
+    <title xml:lang="it">Profilo METS MuseiDItalia</title>
+    <abstract xml:lang="en">This profile specifies how METS documents must be encoded for digital objects representing image, audio and video content files within MuseiDItalia.
+        MuseiDItalia is maintained by the Italian Ministry of Cultural Heritage and Activities (MiBAC): it is a Digital Library for the online publishing of born digital objects owned by Italian Museums, or of digital reformatting objects derived from physical objects owned by Italian Museums.
+        Consequently, this METS profile is designed for describing different MIME types of visual and/or audio content files: image, video and/or audio. This profile uses VRA Core embedded into the descriptive metadata section (dmdSec) for describing Works, Collections and Images.
+        This profile has been designed by the Scuola Normale Superiore di Pisa on behalf of MiBAC.</abstract>
+    <abstract xml:lang="it">Questo profilo specifica come devono essere codificati i documenti METS per oggetti digitali che rappresentano file di immagini, audio o video, nella digital library MuseiDItalia.
+        MuseiDItalia è mantenuto dal Ministero italiano per i Beni e le Attività Culturali (MiBAC): è una Digital Library destinata alla pubblicazione online di oggetti born digital posseduti dai musei italiani, o di oggetti digitali non-born digital, derivati da oggetti fisici posseduti dai musei italiani.
+        Conseguentemente, questo profilo METS è progettato per descrivere diversi MIME type di file visuali e/o audio: image, video e/o audio. Questo profilo usa il VRA Core integrato nella sezione dei Metadati Descrittivi (dmdSec) per descrivere Opere, Collezioni e Immagini (Works, Collections e Images).
+        Questo profilo è stato progettato dalla Scuola Normale Superiore di Pisa su commissione del MiBAC.</abstract>
+    <date>2010-06-23T11:15:00</date>
+    <contact>
+        <name>Maria Emilia Masci</name>
+        <institution>Scuola Normale Superiore di Pisa (on behalf of MiBAC - Italian Ministry for Cultural Heritage and Activities)</institution>
+        <address>Piazza dei Cavalieri, 7 - 56126, Pisa, IT</address>
+        <email>e.masci@sns.it</email>
+    </contact>
+    <registration_info regDate="2010-07-12T00:00:00" regURI="http://www.loc.gov/standards/mets/profiles/00000031.xml"/>
+    <related_profile></related_profile>
+    <profile_context>
+        <resource_model>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">This profile is intended for an OAIS SIP for the submission of digital objects to MuseiD-Italia.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Questo profilo è pensato per un OAIS SIP finalizzato a sottoporre un oggetto digitale a MuseiD-Italia.</p>
+        </resource_model>
+    </profile_context>
+    <external_schema ID="VRA">
+        <name>VRA Core, Restricted Version</name>
+        <URL>http://www.vraweb.org/projects/vracore4/vra-4.0-restricted.xsd</URL>
+        <context>mets/dmdSec/mdWrap/xmlData</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Used for Descriptive Metadata about Works, Collections and/or Images represented in the files with a root MIMETYPE="image", "audio" or "video".<br/>
+            VRA Core Restricted metadata MUST always be embedded in the METS:dmdSec section.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Usato per i metadati descrittivi di Opere, Collezioni e/o Immagini (Works, Collections and/or Images) rappresentati nei file con MIMETYPE radice "image", "audio" o "video".<br/>
+            I metadati VRA Core Restricted DEVONO sempre essere integrati nella sezione METS:dmdSec.</p>
+        </note>
+    </external_schema>
+    <external_schema ID="PICO_AP">
+        <name>PICO AP</name>
+        <URL>http://www.culturaitalia.it/pico/schemas/1.0/pico.xsd</URL>
+        <context>mets/dmdSec/mdRef/@xl:href - @LOCTYPE="URL" @MDTYPE="OTHER" @LABEL="Metadati in formato PICO" @ID="PICO".</context>
+        <context>mets/dmdSec/mdWrap/xmlData - Only WHEN VRA metadata are not applicable.</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">PICO is the Dublin Core Application Profile used for harvesting descriptive metadata within www.CulturaItalia.it, the Italian Culture Portal maintained by MiBAC.<br/>
+                WHEN an external PICO metadata record describing the resource does exist, its URL MUST be referenced using an mdRef element within the Descriptive Metadata section (METS:dmdSec).<br/>
+                Only WHEN VRA metadata are not applicable (e.g. for the description of naturalistic resources such as mineral stones or animals), PICO metadata MUST be embedded in the METS:dmdSec section using the mdWrap element.<br/>
+                See http://purl.org/pico/picoap1.0.xml for PICO documentation.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">PICO è il profilo applicativo Dublin Core usato per harvestare metadati descrittivi in www.CulturaItalia.it, il portale italiano della cultura mantenuto dal MiBAC.<br/>
+                QUANDO esiste un record esterno di metadati PICO che descrive la risorsa, la sua URL DEVE essere riferita usando un elemento mdRef nella sezione dei Metadati Descrittivi (METS:dmdSec).<br/>
+                Solamente QUANDO i metadati VRA non sono applicabili (ad es. per la descrizione di beni naturalistici come minerali o animali), i metadati PICO DEVONO essere integrati nella sezione METS:dmdSec usando l’elemento mdWrap.<br/>
+                Per la documentazione su PICO si veda: http://purl.org/pico/picoap1.0.xml</p>
+        </note>
+    </external_schema>
+    <external_schema ID="NISO_MIX">
+        <name>NISO Metadata for Images in XML (NISO MIX)</name>
+        <URL>http://www.loc.gov/standards/mix/mix.xsd</URL>
+        <context>mets/amdSec/techMD/MdWrap/xmlData</context>
+        <context>mets/amdSec/sourceMD/MdWrap/xmlData</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Used for Technical Metadata and Source Metadata about IMAGE content files.<br/>
+            For all files with a root MIMETYPE="image", NISOIMG metadata MUST be embedded in the techMD element within the METS:amdSec section.<br/>
+            WHEN source is a digital file, NISOIMG metadata MAY also be embedded in the sourceMD element, within the METS:amdSec section.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Usato per i Metadati Tecnici e per i Metadati sulla Fonte (Source) relativi a file di tipo IMMAGINE.<br/>
+            Per tutti i file con una root di MIMETYPE="image", i metadati NISOIMG DEVONO essere integrati nell’elemento techMD, all’interno della sezione METS:amdSec.<br/>
+            QUANDO la fonte è un file digitale, i metadati NISOIMG POSSONO anche essere integrati nell’elemento sourceMD, all’interno della sezione METS:amdSec.</p>
+        </note>
+    </external_schema>
+    <external_schema ID="VIDEOMD">
+        <name>VIDEOMD: LC-AV Video Metadata Extension Schema</name>
+        <URL>http://lcweb2.loc.gov/mets/Schemas/VMD.xsd</URL>
+        <context>mets/amdSec/techMD/MdWrap/xmlData</context>
+        <context>mets/amdSec/sourceMD/MdWrap/xmlData</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Used for Technical Metadata and Source Metadata about VIDEO content files.<br/>
+            For all files with a root MIMETYPE="video", VMD metadata MUST be embedded in the techMD element within the METS:amdSec section.<br/>
+            WHEN source is a digital file, VMD metadata MAY also be embedded in the sourceMD element, within the METS:amdSec section (e.g. for including information on video items presented for file-format migration or to be digitized).</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Usato per i Metadati Tecnici e per i Metadati sulla Fonte relativi a file di tipo VIDEO.<br/>
+            Per tutti i file con una root di MIMETYPE="video", i metadati VMD DEVONO essere integrati nell’elemento techMD, all’interno della sezione METS:amdSec.<br/>
+            QUANDO la fonte è un file digitale, i metadati VMD POSSONO anche essere integrati nell’elemento sourceMD, all’interno della sezione METS:amdSec (ad es. per includere informazioni su video da utilizzare per una migrazione di formato o per essere digitalizzati).</p>
+        </note>
+    </external_schema>
+    <external_schema ID="AMD">
+        <name>AMD: LC-AV Audio Metadata Extension Schema</name>
+        <URL>http://lcweb2.loc.gov/mets/Schemas/AMD.xsd</URL>
+        <context>mets/amdSec/techMD/MdWrap/xmlData</context>
+        <context>mets/amdSec/sourceMD/MdWrap/xmlData</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Used for Technical Metadata and Source Metadata about AUDIO content files.<br/>
+            For all files with a root MIMETYPE="audio", AMD metadata MUST be embedded in the techMD element within the METS:amdSec section.<br/>
+            WHEN source is a digital file, AMD metadata MAY also be embedded in the sourceMD element, within the METS:amdSec section.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Usato per i Metadati Tecnici e per i Metadati sulla Fonte relativi a file di tipo AUDIO.<br/>
+            Per tutti i file con una root di MIMETYPE="audio", i metadati AMD DEVONO essere integrati nell’elemento techMD, all’interno della sezione METS:amdSec.<br/>
+            QUANDO la fonte è un file digitale, i metadati AMD POSSONO anche essere integrati nell’elemento sourceMD, all’interno della sezione METS:amdSec.</p>
+        </note>
+    </external_schema>
+    <external_schema ID="PREMIS_Rights">
+        <name>PREMIS Preservation Metadata Schema: Rights</name>
+        <URL>http://www.loc.gov/standards/premis/premis.xsd</URL>
+        <context>mets/amdSec/rightsMD/MdWrap/xmlData</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Used for Rights Metadata.<br/>
+            PREMIS Rights metadata MUST be always embedded in the rightsMD element, within the METS:amdSec section.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Usato per i Metadati sui diritti di proprietà intellettuale.<br/>
+            I metadati PREMIS Rights DEVONO sempre essere integrati nell’elemento rightsMD, all’interno della sezione METS:amdSec.</p>
+        </note>
+    </external_schema>
+    <external_schema ID="PREMIS_Event">
+        <name>PREMIS Preservation Metadata Schema: Event</name>
+        <URL>http://www.loc.gov/standards/premis/premis.xsd</URL>
+        <context>mets/amdSec/digiprovMD/MdWrap/xmlData</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Used for Digital Provenance Metadata.<br/>
+            PREMIS Event metadata MAY be embedded in the digiprovMD element, WHEN it is present, within the METS:amdSec section.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Usato per i Metadati sulla Provenienza digitale.<br/>
+            I metadati PREMIS Event POSSONO essere integrati nell’elemento digiprovMD, QUANDO questo è presente, all’interno della sezione METS:amdSec.</p>
+        </note>
+    </external_schema>
+    <external_schema ID="PREMIS_Agent">
+        <name>PREMIS Preservation Metadata Schema: Agent</name>
+        <URL>http://www.loc.gov/standards/premis/premis.xsd</URL>
+        <context>mets/amdSec/digiprovMD/MdWrap/xmlData</context>
+        <note>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Used for Digital Provenance Metadata.<br/>
+            PREMIS Agent metadata MAY be embedded in the digiprovMD element, WHEN it is present, within the METS:amdSec section, for describing an Agent associated with the Event.</p>
+            <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Usato per I Metadati sulla Provenienza digitale.<br/>
+            I metadati PREMIS Agent POSSONO essere integrati nell’elemento digiprovMD, QUANDO questo è presente, all’interno della sezione METS:amdSec, per descrivere un Agente associato con l’Evento.</p>
+        </note>
+    </external_schema>
+    <description_rules>
+        <head>Purpose of this Profile | Scopo di questo profilo</head>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The "MuseiDItalia METS Profile" is designed for the ingestion and publishing of digital objects within the digital library MuseiDItalia, maintained by the Italian Ministry of Cultural Heritage and Activities (MiBAC).<br/>
+        MuseiDItalia collects and disseminates digital objects pertaining to the domain of Italian Museums. Consequently, this profile is used for describing the following types of digital objects: images, video and/or audio.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Il “Profilo METS MuseiDItalia” è progettato per l’ingestion e la pubblicazione di oggetti digitali nella digital library MuseiDItalia, mantenuta dal Ministero italiano per i Beni e le Attività Culturali (MiBAC).<br/>
+            MuseiDItalia riunisce e divulga oggetti digitali che appartengono al dominio dei musei italiani. Conseguentemente, questo profilo è usato per descrivere i seguenti tipi di oggetti digitali: immagini, video e/o audio.</p>
+        <head>Descriptive metadata: adopted metadata schemas | Metadati Descrittivi: schemi di metadati adottati</head>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Every METS document conforming to this profile MUST contain at least one descriptive metadata record embedded in the METS:dmdSec section as XML, using the mdWrap element.<br/>
+            Descriptive metadata embedded in the METS document MUST be encoded using VRA Core.<br/>
+            Only WHEN VRA is not applicable (e.g. for describing natural resources), embedded descriptive metadata MUST be encoded using PICO.<br/>
+            Moreover, WHEN an external PICO metadata record does exist, this MUST be referenced in the METS:dmdSec section, using the mdRef element.<br/>
+            Embedded VRA Core descriptive metadata MUST be encoded following the guidelines specified for VRA Core Restricted Version by the Visual resources Association (http://www.vraweb.org/projects/vracore4/). The Italian version of the document "VRA Core 4.0 Element Description and Tagging Examples" is available on the VRA website (http://www.vraweb.org/projects/vracore4/pdfs/VRA_Core4_Element_Description_ITA.PDF).<br/>
+            Embedded PICO descriptive metadata MUST be encoded following the schema and guidelines published by the Italian Ministry of Cultural Heritage and Activities (http://purl.org/pico/picoap1.0.xml).<br/>
+            Further guidelines for encoding embedded VRA Core and embedded PICO metadata are here specified within the following two paragraphs.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni documento METS conforme a questo profilo DEVE contenere almeno un record XML di metadati descrittivi integrato nella sezione METS:dmdSec utilizzando l’elemento mdWrap.<br/>
+            I metadati descrittivi integrati nel documento METS DEVONO essere codificati utilizzando VRA Core.<br/>
+            Solo QUANDO VRA Core non è applicabile (ad es. per descrivere beni naturalistici), i metadati descrittivi integrati nel documento METS DEVONO essere codificati utilizzando PICO.<br/>
+            Inoltre, QUANDO esiste un record di metadati PICO esterno, questo DEVE essere riferito nella sezione METS:dmdSec, utilizzando l’elemento mdRef.<br/>
+            I metadati descrittivi VRA Core integrati DEVONO essere codificati seguendo le linee guida specificate per il VRA Core Restricted Version dalla Visual Resources Association (http://www.vraweb.org/projects/vracore4/). La versione italiana del documento "VRA Core 4.0 Element Description and Tagging Examples" è disponibile sul sito web VRA (http://www.vraweb.org/projects/vracore4/pdfs/VRA_Core4_Element_Description_ITA.PDF).<br/>
+            I metadati descrittivi PICO Core DEVONO essere codificati seguendo lo schema e le linee guida pubblicate dal Ministero per i Beni e le Attività Culturali (http://purl.org/pico/picoap1.0.xml).<br/>
+            Ulteriori linee guida per codificare metadati VRA Core integrati e metadati PICO integrati sono qui specificate nei paragrafi che seguono.</p>
+        <head>Descriptive metadata: description rules using embedded VRA Core | Metadati Descrittivi: regole descrittive per metadati VRA Core integrati</head>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Every METS document conforming to this profile MUST include VRA Core metadata embedded using one mdWrap element within the METS:dmdSec section (only WHEN VRA is not applicable, the embedded description MUST be encoded using PICO metadata).<br/>
+            VRA metadata included into the mdWrap element can contain: one vra:work and one or more vra:image OR one vra:collection and one or more vra:image OR one or more vra:image.<br/>
+            One conforming METS document can include the description of one Work OR of one Collection. IT IS NOT POSSIBLE to describe in the same METS document one Work AND one Collection.<br/>
+            The description of a vra:work MUST always include the reference to the related vra:collection within the element vra:relation.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni documento METS conforme a questo profilo deve contenere metadati VRA Core integrati utilizzando l’elemento mdWrap all’interno della sezione METS:dmdSec (soltanto QUANDO VRA non è applicabile, la descrizione integrata può essere codificata utilizzando metadati PICO).<br/>
+            I metadati VRA inclusi nell’elemento mdWrap possono contenere: un vra:work ed una o più vra:image OPPURE una vra:collection ed una o più vra:image OPPURE una o più vra:image.<br/>
+            Un documento METS conforme può includere la descrizione di un’Opera (Work) OPPURE di una Collezione (Collection). NON è POSSIBILE descrivere nello stesso documento METS un’Opera  E una Collezione.<br/>            
+            La descrizione di un’Opera (vra:work) DEVE sempre includere il riferimento alla Collezione in relazione (vra:collection) nell’elemento vra:relation.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">For all elements where it is applicable, specify always the language used, using the attribute "xml:lang".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Per tutti gli elementi in cui è applicabile, occorre sempre specificare la lingua utilizzata con l’attributo "xml:lang".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">@refid - WHEN VRA metadata are derived from a cataloguing chart structured using the Italian cataloguing standards of ICCD-Italian Central Institute for Cataloguing and Documentation, you MUST enter the national identifier NCT into the attribute "refid".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">@refid – QUANDO i metadati VRA sono derivati da una scheda di catalogo strutturata secondo le normative standard italiane ICCD-Istituto Centrale per il Catalogo e la Documentazione, si DEVE inserire l’identificatore nazionale NCT nell’attributo “refid”.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:agentSet/vra:agent/vra:name - WHEN personal or corporate names within the element vra:agent/vra:name are taken from an authority file, you MUST specify the name of the authority file within the attribute "source" (e.g.: @source="iccd_AUT" for personal names taken from the ICCD authority file of Authors).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:agentSet/vra:agent/vra:name – QUANDO i nomi di persona o di enti inseriti nell’elemento vra:agent/vra:name sono derivati da un authority file, si DEVE specificare il nome dell’authority file nell’attributo “source” (es.: @source="iccd_AUT" per nomi di persona derivati dall’authority file ICCD degli Autori).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:locationSet/vra:location @type="repository"/vra:refid @type="accession" @source="..." - WHEN the inventory number is present within the element vra:location and WHEN it is derived from a cataloguing chart structured using ICCD standards, you MUST enter the name of the field from which the inventory number is taken within the attribute "source" (e.g. @source="iccd_INVN").</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:locationSet/vra:location @type="repository"/vra:refid @type="accession" @source="..." - QUANDO il numero di inventario è presente nell’elemento vra:location e QUANDO è derivato da una scheda di catalogo strutturata secondo le normative ICCD, si DEVE inserire nell’attributo “source” il nome del campo da cui è derivato il numero di inventario (es.:@source="iccd_INVN").</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:locationSet/vra:location @type="geographic" @source="ISTAT 2001" OR "ISTAT 1991" @refid="..." - WHEN a location name of City or Town is specified within the element vra:location, you MUST use ISTAT codes 2001 or 1991.<br/>
+            Enter the name of the city or town within the element vra:location and specify attribute "type" = "geographic", attribute "source" = "ISTAT 2001" or "ISTAT 1991". Enter the related ISTAT code within attribute "refid".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:locationSet/vra:location @type="geographic" @source="ISTAT 2001" OR "ISTAT 1991" @refid="..." - QUANDO un nome geografico di città o di località è inserito nell’elemento vra :location, si DEVONO usare i codici ISTAT 2001 o 1991.<br/>
+            Inserire il nome della città o della località nell’elemento vra:location e specificare: attributo “type”=”geographic”, attributo "source" = "ISTAT 2001" o "ISTAT 1991". Inserire il codice ISTAT relativo nell’attributo “refid”.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:materialSet/vra:material @type="other" @source="..." - WHEN material is present within the element vra:material, and WHEN it is derived from a controlled vocabulary, you MUST enter the name of this vocabulary within the attribute "source" (e.g.: @source="iccd_MTC" for terms deriving from the ICCD vocabulary of Materials and Techniques).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:materialSet/vra:material @type="other" @source="..." - QUANDO l’indicazione della materia è presente nell’elemento vra:material e QUANDO questo è derivato da un vocabolario controllato, di DEVE inserire il nome di questo vocabolario nell’attributo “source” (ad es. @source="iccd_MTC" per termini derivati dai vocabolari ICCD di Materia e Tecnica).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:work/vra:relationSet/vra:relation @type="partOf" @href="..." - WHEN VRA metadata describe a Work, you MUST specify its relation with at least one Collection within the element vra:relation.<br/>
+            The name of the xml file describing the collection MUST be specified within the attribute "href".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:work/vra:relationSet/vra:relation @type="partOf" @href="..." - QUANDO imetadati VRA descrivono un’Opera (Work), si DEVE specificare la sua relazione con almeno una Collezione (Collection) nell’elemento vra:relation.<br/>
+            Il nome del file xml che descrive la Collezione DEVE essere specificato nell’attributo “href”.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:relationSet/vra:relation @type="..." @relids="..." - WHEN the mdWrap element contains more than one VRA records (e.g. one vra:work and several vra:image), they MUST be referenced to each-other using the attribute "relids" within the element vra:relation.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:relationSet/vra:relation @type="..." @relids="..." - QUANDO l’elemento mdWrap contiene più di un record VRA (ad es.: un vra:work e varie vra:image), questi record DEVONO essere relazionati l’uno con l’altro utilizzando l’attributo “relids” nell’elemento vra:relation.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:sourceSet/vra:source/vra:name @type="electronic" @source="ICCD_NCT" @refid="..." - WHEN VRA metadata are derived from a cataloguing chart structured using ICCD standards, you MUST enter the national identifier code NCT in the element vra:source/vra:name.<br/>
+            Specify attribute "type"="electronic", attribute "source"="ICCD:NCT" and enter the NCT code within attribute "refid".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:sourceSet/vra:source/vra:name @type="electronic" @source="ICCD_NCT" @refid="..." - QUANDO i metadati VRA sono derivati da una scheda di catalogo strutturata secondo le normative ICCD, si DEVE inserire l’identificatore NCT nell’elemento vra:source/vra:name.<br/>
+            Specificare: attributo "type"="electronic", attributo "source"="ICCD:NCT". Inserire il codice NCT nell’attributo “refid”.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:work/vra:subjectSet/vra:subject/vra:term @type="conceptTopic" @source="PICOThesaurus" @refid="..." - every vra:work record MUST contain at least one term from the PICO Thesaurus within the element vra:subject/vra:term.<br/>
+            Specify attribute "type"="conceptTopic", attribute "source"="PICOThesaurus", enter the URI of the selected term within the attribute "refid" and leave the value empty.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:work/vra:subjectSet/vra:subject/vra:term @type="conceptTopic" @source="PICOThesaurus" @refid="..." - ogni record VRA DEVE contenere almeno un termine dal PICO Thesaurus nell’elemento vra:subject/vra:term.<br/>
+            Specificare: attributo "type"="conceptTopic", attributo "source"="PICOThesaurus". Inserire la URI del termine selezionato nell’attributo “refid” e lasciare vuoto il valore dell’elemento.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:subjectSet/vra:subject/vra:term @type="iconographicTopic" @vocab="Iconclass" @refid="..." - Iconclass codes MAY be referenced within the element vra:subject/vra:term.<br/>
+            Specify attribute "type"="iconographicTopic", attribute "vocab"="Iconclass", enter Iconclass codes within the attribute "refid" and leave the value empty.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:subjectSet/vra:subject/vra:term @type="iconographicTopic" @vocab="Iconclass" @refid="..." - i codici Iconclass POSSONO essere riferiti internamente all’elemento vra:subject/vra:term.<br/>
+            Specificare: attributo "type"="iconographicTopic", attributo "vocab"="Iconclass". Inserire i codici Iconclass nell’attributo “refid” e lasciare vuoto il valore dell’elemento.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:worktypeSet/vra:worktype @source="..." - WHEN work-type is present and WHEN it is derived from a controlled vocabulary, you MUST enter the name of this vocabulary within the attribute "source" (e.g.: @source="iccd_OGTD" for terms deriving from the ICCD vocabulary OGTD).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:worktypeSet/vra:worktype @source="..." - QUANDO è presente il tipo di opera (work-type) e QUANDO questo è derivato da un vocabolario di controllo, si DEVE inserire il nome di questo vocabolario nell’attributo “source” (ad es.: @source="iccd_OGTD" per termini che derivano dai vocabolari ICCD OGTD).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">vra:work/vra:worktypeSet/vra:worktype vocab="DCMIType" @vocab="DCMIType" @refid="..." - every vra:work record MUST contain at least one term from the DCMI Type Vocabulary within the element vra:worktype.<br/>
+            Specify attribute "vocab"="DCMIType", enter the URI of the selected term within the attribute "refid" and enter the term as a value of the element vra:worktype.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">vra:work/vra:worktypeSet/vra:worktype vocab="DCMIType" @vocab="DCMIType" @refid="..." - ogni record VRA che descrive un’Opera (Work) DEVE contenere almeno un termine dal DCMIType Vocabulary nell’elemento vra:worktype.<br/>
+            Specificare: attributo "vocab"="DCMIType". Inserire la URI del termine selezionato nell’attributo “refid” ed inserire il termine come valore dell’elemento vra:worktype.</p>
+        <head>Descriptive metadata: description rules using embedded PICO | Metadati descrittivi: regole descrittive per metadati PICO integrati</head>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Embedded PICO metadata MUST be used in alternative to embedded VRA medatada, ONLY WHEN VRA schema is not applicable (e.g. for describing natural resources).</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati PICO DEVONO essere integrati nel documento METS SOLTANTO QUANDO lo schema VRA non è applicabile (ad es. per descrivere beni naturalistici), in alternativa ai metadati VRA integrati.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">For all elements where it is applicable, specify always the language used, using the attribute "xml:lang".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Per tutti gli elementi in cui è applicabile, occorre sempre specificare la lingua utilizzata con l’attributo "xml:lang".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">pico:record/dc:subject xsi:type="pico:Thesaurus" - every PICO record MUST contain at least one term from the PICO Thesaurus within the element dc:subject.<br/>
+            Specify xsi:type="pico:Thesaurus" and enter the URI of the selected term within the element dc:subject.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">pico:record/dc:subject xsi:type="pico:Thesaurus" - ogni record PICO DEVE contenere almeno un termine dal PICO Thesaurus nell’elemento dc:subject.<br/>
+            Specificare: xsi:type="pico:Thesaurus" e inserire la URI del termine selezionato nell’elemento dc:subject.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">pico:record/dc:type xsi:type="dcterms:DCMIType" - every PICO record MUST contain at least one term from the DCMI Type Vocabulary within the element dc:type.<br/>
+            Specify xsi:type="dcterms:DCMIType" and enter the selected value within the element dc:type.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">pico:record/dc:type xsi:type="dcterms:DCMIType" - ogni record PICO DEVE contenere almeno un termine dal DCMI Type Vocabulary nell’elemento dc:type.<br/>
+            Specificare: xsi:type="dcterms:DCMIType" ed inserire il termine selezionato nell’elemento dc:type.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">pico:record - for the various encoding schemes and syntaxes to be used when metadata of a PICO record are derived from a cataloguing chart structured using ICCD standards, see the mappings between ICCD standard schemes and the PICO AP published at: http://www.iccd.beniculturali.it/index.php?en/183/metadati.<br/>
+            In particular, the national unique identifier code NCT MUST be always entered within the element dc:identifier, with xsi:type="iccd:UID".</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">pico:record - per i vari schemi di codifica e per le sintassi da usare quando i metadati di un record PICO sono derivati da una scheda di catalogo strutturata secondo le normative ICCD, si vedano i mapping fra le normative ICCD ed il PICO AP pubblicate a: http://www.iccd.beniculturali.it/index.php?it/183/metadati.<br/>
+            In particolare, il codice identificativo nazionale NCT DEVE essere sempre inserito nell’elemento dc:identifier, con xsi:type=”iccd:UID”.</p>
+        <head>XML encoding | Codifica XML</head>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Every METS XML file conforming to this profile MUST be UTF-8 encoded Unicode.</p>
+        <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni file XML METS conforme a questo profilo DEVE essere codificato in UTF-8 Unicode.</p>
+    </description_rules>
+    <controlled_vocabularies>
+        <vocabulary ID="mdi_OT">
+            <name>MuseiDItalia_Object_Type</name>
+            <values>
+                <value>A</value>
+                <value>AT</value>
+                <value>BDI</value>
+                <value>BDM</value>
+                <value>BNB</value>
+                <value>BNM</value>
+                <value>BNP</value>
+                <value>BNPE</value>
+                <value>BNPL</value>
+                <value>BNZ</value>
+                <value>D</value>
+                <value>F</value>
+                <value>MA/CA</value>
+                <value>MI</value>
+                <value>NU</value>
+                <value>OA</value>
+                <value>OAC</value>
+                <value>PG</value>
+                <value>PST</value>
+                <value>RA</value>
+                <value>S</value>
+                <value>SI</value>
+                <value>SMO</value>
+                <value>VeAC</value>
+            </values>
+            <context>mets/@TYPE</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Every valid METS record MUST specify the type of the resource. One value from this vocabulary MUST be entered in the attribute TYPE within METS root element.<br/>
+                    The specified values correspond to the different types of objects and of cataloguing schemas adopted by ICCD-Italian Central Institute for Cataloguing and Documentation (http://www.iccd.beniculturali.it/index.php?en/204/normative).<br/>
+                    The abbreviated values correspond to the following object types:<br/>
+                    A = architecture<br/>
+                    AT = anthropological finds<br/>
+                    BDI = intangible demo-anthropological heritage<br/>
+                    BDM = tangible demo-anthropological heritage<br/>
+                    BNB = natural heritage, Botany<br/>
+                    BNM = natural heritage, Mineralogy<br/>
+                    BNP = natural heritage, Paleontology<br/>
+                    BNPE = natural heritage, Petrology<br/>
+                    BNPL = natural heritage, Planetary science<br/>
+                    BNZ = natural heritage, Zoology<br/>
+                    D = drawings<br/>
+                    F = photographs<br/>
+                    MA/CA = archaeological monuments/structures<br/>
+                    MI = printing plates<br/>
+                    NU = numismatics<br/>
+                    OA = artworks<br/>
+                    OAC = contemporary artworks<br/>
+                    PG = parks and gardens<br/>
+                    PST = scientific and technological heritage<br/>
+                    RA = archaeological finds<br/>
+                    S = print<br/>
+                    SI = archaeological sites<br/>
+                    SMO = musical instruments and pipe organs<br/>
+                    VeAC = ancient and contemporary clothing</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni record METS valido DEVE specificare il tipo della risorsa. Un valore tratto da questo vocabolario DEVE essere inserito nell’attributo TYPE all’interno dell’elemento METS root.<br/>
+                    I valori elencati corrispondono a diversi tipi di oggetti e ai relativi tipi di normative catalografiche adottate da ICCD-Istituto Centrale per il Catalogo e la Documentazione (http://www.iccd.beniculturali.it/index.php?it/204/normative).<br/>
+                    I valori abbreviati corrispondono ai seguenti tipi di oggetti e di schede catalografiche:
+                    A = architettura<br/>
+                    AT = reperti antropologici<br/>
+                    BDI = beni demoantropologici immateriali<br/>
+                    BDM = beni demoetnoantropologici materiali<br/>
+                    BNB = beni naturalistici, botanica<br/>
+                    BNM = beni naturalistici, mineralogia<br/>
+                    BNP = beni naturalistici, paleontologia<br/>
+                    BNPE = beni naturalistici, petrologia<br/>
+                    BNPL = beni naturalistici, planetologia<br/>
+                    BNZ = beni naturalistici, zoologia<br/>
+                    D = disegno<br/>
+                    F = fotografia<br/>
+                    MA/CA = monumento archeologico/complesso archeologico<br/>
+                    MI = matrice di incisione<br/>
+                    NU = beni numismatici<br/>
+                    OA = opera e oggetto d'arte<br/>
+                    OAC = opere d’arte contemporanea<br/>
+                    PG = parchi e giardini<br/>
+                    PST = patrimonio scientifico e tecnologico<br/>
+                    RA = reperto archeologico<br/>
+                    S = stampa<br/>
+                    SI = sito archeologico<br/>
+                    SMO = strumenti musicali, organi<br/>
+                    VeAC = vestimenti antichi e contemporanei</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="istat01">
+            <name>ISTAT 2001</name>
+            <maintenance_agency>ISTAT-Istituto Nazionale di Statistica italiano</maintenance_agency>
+            <context>mets/dmdSec/mdWrap/xmlData/vra:work/vra:locationSet/vra:location/vra:name/@type="geographic"</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Standard codes assigned by ISTAT-Istituto Nazionale di Statistica italiano (Italian National Institute for Statistics), which identifies municipalities and inhabited places in the Italian territory.<br/>
+                The list of ISTAT codes 2001 is published at: http://www.istat.it/strumenti/definizioni/comuni/. ISTAT codes must be encoded following the guidelines of the PICO application profile for the pico:ISTAT encoding scheme.</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Codici assegnati dall’ISTAT-Istituto Nazionale di Statistica italiano, che identificano comuni e località nel territorio italiano.<br/>
+                    La lista dei codici ISTAT 2001 è pubblicata a: http://www.istat.it/strumenti/definizioni/comuni/. I codici ISTAT devono essere codificati così come indicato nel PICO application profile, nello schema di codifica pico:ISTAT.</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="istat91">
+            <name>ISTAT 1991</name>
+            <maintenance_agency>ISTAT-Istituto Nazionale di Statistica italiano</maintenance_agency>
+            <context>mets/dmdSec/mdWrap/xmlData/vra:work/vra:locationSet/vra:location/vra:name/@type="geographic"</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Standard codes assigned by ISTAT-Istituto Nazionale di Statistica italiano (Italian National Institute for Statistics), which identifies municipalities and inhabited places in the Italian territory.<br/>
+                The list of ISTAT codes 1991 is published at: http://www.istat.it/strumenti/definizioni/comuni/. ISTAT codes must be encoded following the guidelines of the PICO application profile for the pico:ISTAT encoding scheme.</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Codici assegnati dall’ISTAT-Istituto Nazionale di Statistica italiano, che identificano comuni e località nel territorio italiano.<br/>
+                    La lista dei codici ISTAT 2001 è pubblicata a: http://www.istat.it/strumenti/definizioni/comuni/. I codici ISTAT devono essere codificati così come indicato nel PICO application profile, nello schema di codifica pico:ISTAT.</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="iccd_MTC">
+            <name>iccd_MTC</name>
+            <maintenance_agency>ICCD-Istituto Centrale per il Catalogo e la Documentazione</maintenance_agency>
+            <context>mets/dmdSec/mdWrap/xmlData/vra:work/vra:materialSet/vra:material/@source="iccd_MTC"</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Controlled values for indicating the "material and technique" used in the VRA section of a METS document CAN be taken from the iccd_MTC vocabularies.<br/>
+                    Iccd_MTC controlled vocabularies define values to be used for indicating the "material and technique" within the Italian standard cataloguing schemas. They are published and maintained by ICCD-Italian Central Institute for Cataloguing and Documentation.<br/>
+                    Different MTC vocabularies used in different types of cataloguing charts (depending of the object type) can be downloaded here: http://www.iccd.beniculturali.it/index.php?en/233/vocabolari</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I valori controllati per indicare la “materia e tecnica” nella sezione VRA di un documento METS POSSONO essere presi dai vocabolari iccd_MTC.<br/>
+                    I vocabolari controllati iccd_MTC definiscono valori per indicare la “materia e tecnica” nelle normative catalografiche italiane. Sono pubblicati e mantenuti da ICCD-Istituto Centrale per il Catalogo e la Documentazione.<br/>
+                    Differenti vocabolari MTC utilizzati per i vari tipi di normative catalografiche (a seconda della tipologia di oggetto) possono essere scaricati qui: http://www.iccd.beniculturali.it/index.php?it/233/vocabolari</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="iccd_OGTD">
+            <name>iccd_OGTD</name>
+            <maintenance_agency>ICCD-Istituto Centrale per il Catalogo e la Documentazione</maintenance_agency>
+            <context>mets/dmdSec/mdWrap/xmlData/vra:work/vra:worktypeSet/vra:worktype/@source="iccd_OGTD"</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Controlled values for specifying the "work type" used in the VRA section of a METS document CAN be taken from the iccd_OGTD vocabularies.<br/>
+                    Iccd_OGTD controlled vocabularies define values to be used for indicating the "work type" within the Italian standard cataloguing schemas. They are published and maintained by ICCD-Italian Central Institute for Cataloguing and Documentation.<br/>
+                    Different OGTD vocabularies used in different types of cataloguing charts (depending of the object type) can be downloaded here: http://www.iccd.beniculturali.it/index.php?en/233/vocabolari</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I valori controllati per specificare il tipo di Opera (worktype) nella sezione VRA di un documento METS POSSONO essere presi dai vocabolari iccd_OGTD.<br/>
+                    I vocabolari controllati iccd_OGTD definiscono valori per indicare la “tipologia dell'oggetto” nelle normative catalografiche italiane. Sono pubblicati e mantenuti da ICCD-Istituto Centrale per il Catalogo e la Documentazione.<br/>
+                    Differenti vocabolari OGTD utilizzati per i vari tipi di normative catalografiche (a seconda della tipologia di oggetto) possono essere scaricati qui: http://www.iccd.beniculturali.it/index.php?it/233/vocabolari</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="DCMIType">
+            <name>DCMIType</name>
+            <maintenance_agency>DCMI-Dublin Core Metadata Initiative</maintenance_agency>
+            <URI>http://purl.org/dc/terms/DCMIType</URI>
+            <context>mets/dmdSec/mdWrap/xmlData/vra:work/vra:worktypeSet/vra:worktype/@vocab="DCMIType"</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A list of types used to categorize the nature or genre of the content of the resource.<br/>
+                Controlled values for indicating the "work type" used in the VRA section of a METS document MUST use DCMI Type Vocabulary terms.</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Una lista di tipi usata per categorizzare la natura o il genere del contenuto della risorsa.<br/>
+                I valori controllati per indicare il tipo di Opera (worktype) nella sezione VRA di un documento METS DEVONO utilizzare i termini del DCMI Type Vocabulary.</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="PICOThes">
+            <name>PICOThesaurus</name>
+            <maintenance_agency>MiBAC_Ministero per i Beni e le Attività Culturali</maintenance_agency>
+            <URI>http://purl.org/pico/thesaurus_4.2.0.skos.xml</URI>
+            <context>mets/dmdSec/mdWrap/xmlData/vra:work/vra:subjectSet/vra:subject/vra:term/@type="conceptTopic" @source="PICOThesaurus" @refid=...</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Thesaurus composed by hierarchically structured keywords for indicating the topic of resources included into the Italian Culture Portal (www.CulturaItalia.it). PICO Thesaurus is encoded using SKOS.<br/>
+                    Subject headings for indicating the "concept topic" in the VRA section of a METS document MUST use PICO Thesaurus terms.<br/>
+                    Enter the URI of the selected term within @refid and leave the element vra:term empty.</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Thesaurus composto da parole chiave strutturate gerarchicamente per indicare la categoria delle risorse nel portale italiano della cultura (www.CulturaItalia.it). PICO Thesaurus è codificato in SKOS.<br/> 
+                    Le chiavi di soggetto per indicare il “concept topic” nella sezione VRA di un documento METS DEVONO utilizzare i termini del Thesaurus PICO.<br/>
+                    Inserire la URI del termine selezionato nell’attributo “refid” e lasciare vuoto il valore dell’elemento vra:term.</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="Iconclass">
+            <name>Iconclass</name>
+            <maintenance_agency>Iconclass, RKD</maintenance_agency>
+            <URI>http://www.iconclass.org/</URI>
+            <context>mets/dmdSec/mdWrap/xmlData/vra:work/vra:subjectSet/vra:subject/vra:term/@type="iconographicTopic" @vocab="Iconclass" @refid=...</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Iconclass is a subject-specific classification system. It is a hierarchically ordered collection of definitions of objects, people, events and abstract ideas that serve as the subject of an image.<br/>
+                    Subject headings for indicating the "iconographic topic" in the VRA section of a METS document CAN use Iconclass codes.<br/>
+                    Enter the Iconclass code of the selected term within @refid and leave the element vra:term empty.</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Iconclass è un sistema di soggettazione specifico. È una collezione gerarchicamente strutturata di definizioni di oggetti, persone, eventi ed idee astratte che serve per la soggettazione di immagini.<br/>
+                    Le chiavi di soggetto per indicare un “iconographic topic” nella sezione VRA di un documento METS POSSONO utilizzare i codici Iconclass.<br/>
+                    Inserire il codice Iconclass del termine selezionato nell’attributo “refid” e lasciare vuoto il valore dell’elemento vra:term.</p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="mdi_fileGrp_USE">
+            <name>MuseiDItalia_fileGrp_USE</name>
+            <values>
+                <value>master</value>
+                <value>high</value>
+                <value>medium</value>
+                <value>low</value>
+                <value>preview</value>
+            </values> 
+            <context>mets/fileSec/fileGrp/@USE</context>
+            <description>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Every valid METS record MUST specify one value from this vocabulary in the attribute USE within each fileGrp element.<br/>
+                    The specified values indicate the specific use of files associated into each fileGrp depending of their format and extension.<br/>
+                    Master and high quality files are used for the storage; medium quality, low quality and preview files are used for dissemination and publishing within MuseiDItalia.</p>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni record METS valido DEVE specificare un valore preso da questo vocabolario nell’attributo USE all’interno di ogni elemento fileGrp.<br/>
+                    I valori della lista indicano l’uso specifico dei file che sono associati all’interno di ogni fileGrp, che dipende dal loro formato ed estensione.<br/>
+                    I file master e di alta qualità (high quality) sono usati per la conservazione; i file di media e bassa qualità (medium quality e low quality) e le anteprime (preview) sono usati per la divulgazione e la pubblicazione in MuseiDItalia.</p>
+            </description>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsRootElement>
+            <requirement ID="metsRoot1" REQLEVEL="MAY">
+                <description>
+                    <head>metsRoot @OBJID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The root METS element MAY include an OBJID attribute value that uniquely identifies the METS instance in the MuseiDItalia digital repository.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento METS root PUO' includere un valore nell’attributo OBJID, che identifichi univocamente l’istanza METS nel repository digitale MuseiDItalia.</p>
+                </description>
+            </requirement>
+            <requirement ID="metsRoot2" REQLEVEL="MUST">
+                <description>
+                    <head>metsRoot @LABEL</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The root METS element MUST include a LABEL attribute value.
+                    The value string must be composed as follows:
+                    creator role: creator name (creator date of birth - creator date of death), title - type - start date-end date, generic date.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento METS root DEVE includere un valore nell’attributo LABEL.
+                        La stringa del valore DEVE essere composta come segue:
+                        creator role: creator name (creator date of birth - creator date of death), title - type - start date-end date, generic date.</p>
+                </description>
+            </requirement>
+            <requirement ID="metsRoot3" REQLEVEL="MUST" RELATEDMAT="mdi_OT">
+                <description>
+                    <head>metsRoot @TYPE</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The root METS element MUST include a TYPE attribute value.
+                    Values for the @TYPE MUST be taken from the "MuseiDItalia_Object_Type" Vocabulary.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento METS root DEVE includere un valore nell’attributo TYPE.
+                        I valori per @TYPE DEVONO essere presi dal vocabolario "MuseiDItalia_Object_Type".</p>
+                </description>
+            </requirement>
+        </metsRootElement>
+        <metsHdr>
+            <requirement ID="metsHdr1" REQLEVEL="MUST">
+                <description>
+                    <head>metsHdr</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A METS record conforming to this profile MUST contain a metsHdr element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record METS conforme a questo profilo DEVE contenere un elemento metsHdr.</p>
+                </description>
+            </requirement>
+            <requirement ID="metsHdr2" REQLEVEL="MUST" RELATEDMAT="metsHdr1">
+                <description>
+                    <head>metsHdr @CREATEDATE</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The metsHdr element MUST contain the CREATEDATE attribute.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento metsHdr DEVE contenere l’attributo CREATEDATE.</p>
+                </description>
+            </requirement>
+            <requirement ID="metsHdr3" REQLEVEL="MUST" RELATEDMAT="metsHdr1">
+                <description>
+                    <head>metsHdr/agent @ROLE="CREATOR"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The metsHdr element MUST contain an "agent" element with the ROLE attribute value "CREATOR" and a TYPE attribute value "ORGANIZATION" or "INDIVIDUAL".<br/>
+                    The "name" element and value MUST be included within the "agent" element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento metsHdr DEVE contenere un elemento “agent” con il valore “CREATOR” nell’attributo ROLE ed il valore "ORGANIZATION" o "INDIVIDUAL" nell’attributo TYPE.<br/>
+                        L’elemento “name” ed il valore relativi DEVONO essere inclusi nell’elemento “agent”.</p>
+                </description>
+            </requirement>
+            <requirement ID="metsHdr4" REQLEVEL="MUST" RELATEDMAT="metsHdr1">
+                <description>
+                    <head>metsHdr/agent @ROLE="IPOWNER"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The metsHdr element MUST contain an "agent" element with the ROLE attribute value "IPOWNER" and a TYPE attribute value "ORGANIZATION".
+                    The "name" element and value MUST be included within the "agent" element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento metsHdr DEVE contenere un elemento “agent” con il valore “IPOWNER” nell’attributo ROLE ed il valore “ORGANIZATION” nell’attributo TYPE.
+                        L’elemento “name” ed il valore relativi DEVONO essere inclusi nell’elemento “agent”.</p>
+                </description>
+            </requirement>
+        </metsHdr>
+        <dmdSec>
+            <requirement ID="dmdSec1" REQLEVEL="MUST" RELATEDMAT="VRA">
+                <description>
+                    <head>dmdSec/mdWrap/xmlData</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A METS record conforming to this profile MUST contain only one dmdSec with embedded descriptive metadata, containing one mdWrap element with xmlData.<br/>
+                    The required dmdSec/mdWrap/xmlData MUST contain: VRA Core descriptive metadata OR, when VRA is not applicable (e.g. for natural heritage), PICO descriptive metadata.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record METS conforme a questo profilo DEVE contenere una sola sezione dmdSec con metadati descrittivi integrati (embedded), contenente un elemento mdWrap con xmlData.<br/>
+                    La sezione obbligatoria dmdSec/mdWrap/xmlData DEVE contenere: metadati descrittivi VRA Core OPPURE, quando VRA non è applicabile (ad es. per i beni naturalistici), metadati descrittivi PICO.</p>
+                </description>
+            </requirement>
+            <requirement ID="dmdSec2" REQLEVEL="MAY">
+                <description>
+                    <head>dmdSec/mdRef/xl:href</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A METS record conforming to this profile MAY also contain one or more dmdSec with referenced descriptive metadata, containing one mdRef element with xl:href attribute specifying an URL for the referenced metadata record.<br/>
+                    In particular, WHEN an external PICO metadata record does exist, IT IS STRONGLY RECOMMENDED to reference it in the METS:dmdSec section, using the mdRef element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record mets conforme a questo profilo PUO' contenere anche una o più sezioni dmdSec con metadati descrittivi riferiti (referenced), contenente un elemento mdRef con un attributo xl:href in cui si specifica una URL per indicare il record di metadati riferito.<br/>
+                    In particolare, QUANDO esiste un record di metadati PICO esterno al sistema, E' VIVAMENTE RACCOMANDATO riferirlo nella sezione METS:dmdSec, utilizzando l’elemento mdRef.</p>
+                </description>
+            </requirement>
+            <requirement ID="dmdSec3" RELATEDMAT="VRA dmdSec1" REQLEVEL="MUST">
+                <description>
+                    <head>dmdSec/mdWrap/xmlData | Embedded VRA Core metadata: Work - Collection - Image | Metadati descrittivi VRA integrati: Oggetto - Collezione - Immagine</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">VRA Core metadata embedded into the mdWrap element MUST contain one of the following combinatinations:<br/>
+                        - one vra:work, OR<br/>
+                        - one vra:work and one or more related vra:image, OR<br/>
+                        - one vra:collection and one or more related vra:image, OR<br/>
+                        - one or more vra:image.<br/>
+                        It is not possible to describe in the same METS document one Work and one Collection.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati VRA integrati nell’elemento mdWrap DEVONO contenere una delle seguenti combinazioni:<br/>
+                        - un vra:work, OPPURE<br/>
+                        - un vra:work ed una o più vra:image in relazione, OPPURE<br/>
+                        - una vra:collection ed una o più vra:image in relazione, OPPURE<br/>
+                        - una o più vra:image tra loro in relazione.<br/>
+                        Non è possibile descrivere un’Opera (Work) ed una Collezione (Collection) nello stesso documento METS.</p>
+                </description>
+            </requirement>
+            <requirement ID="dmdSec4" RELATEDMAT="VRA dmdSec1 PICOThes DCMIType" REQLEVEL="MUST">
+                <description>
+                    <head>dmdSec/mdWrap/xmlData | Embedded VRA Core metadata: mandatory VRA elements | Metadati descrittivi VRA integrati: elementi VRA obbligatori</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A METS record conforming to this profile which includes embedded VRA descriptive metadata MUST contain the following elements from VRA Core:<br/>
+                        - Identifier (@id of vra:work or vra:collection or vra/image);<br/>
+                        - Title (vra:title).<br/>
+                        In addition to the abovementioned elements, WHEN the VRA record describes a Work (vra:work), it MUST contain:<br/>
+                        - relation: the reference to the related vra:collection (vra:relation);<br/>
+                        - subject: at least one term from the PICO Thesaurus (vra:subject/vra:term);<br/>
+                        - type: at least one term from the DCMI Type Vocabulary (vra:worktype).</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record METS conforme a questo profilo che contiene metadati descrittivi VRA integrati DEVE includere i seguenti elementi del VRA Core:<br/>
+                        - Identificatore (@id di un vra:work o di una vra:collection o di una vra/image);<br/>
+                        - Titolo (vra:title).<br/>
+                        Oltre agli elementi sopraccitati, QUANDO il record VRA descrive un’Opera (Work), DEVE contenere:<br/>
+                        - Relazione: il riferimento alla vra:collection in relazione (vra:relation);<br/>
+                        - Soggetto: almeno un termine dal Thesaurus PICO (vra:subject/vra:term);<br/>
+                        - Tipo: almeno un termine dal DCMI Type Vocabulary (vra:worktype).</p>
+                </description>
+            </requirement>
+            <requirement ID="dmdSec5" RELATEDMAT="VRA dmdSec1" REQLEVEL="SHOULD">
+                <description>
+                    <head>dmdSec/mdWrap/xmlData | Embedded VRA Core metadata: recommended VRA elements | Metadati descrittivi VRA integrati: elementi VRA raccomandati</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A conforming METS record which includes embedded VRA descriptive metadata SHOULD, but is not required to, contain the following descriptive elements from VRA Core, when they are applicable:<br/>
+                        - vra:agent/vra:name;<br/>
+                        - vra:date @type="creation";<br/>
+                        - vra:location @type="repository/vra:name @type="corporate";<br/>
+                        - vra:location @type="repository/vra:name @type="geographic";<br/>
+                        - vra:relation;<br/>
+                        - vra:subject/vra:term;<br/>
+                        - vra:worktype.<br/>
+                        For more details on how to encode embedded VRA Core metadata, see above: descriptive rules/Descriptive metadata: description rules using embedded VRA Core.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record METS conforme a questo profilo che include metadati descrittivi VRA integrati (embedded) DOVREBBE contenere, ma non è un requisito obbligatorio, i seguenti elementi descrittivi del VRA Core, quando questi sono applicabili:<br/>
+                        - vra:agent/vra:name;<br/>
+                        - vra:date @type="creation";<br/>
+                        - vra:location @type="repository/vra:name @type="corporate";<br/>
+                        - vra:location @type="repository/vra:name @type="geographic";<br/>
+                        - vra:relation;<br/>
+                        - vra:subject/vra:term;<br/>
+                        - vra:worktype.<br/>
+                        Per ulteriori dettagli su come codificare metadati VRA integrati, si veda sopra: Regole descrittive/ Metadati Descrittivi: regole descrittive per metadati VRA Core integrati</p>
+                </description>
+            </requirement>
+            <requirement ID="dmdSec6" RELATEDMAT="VRA dmdSec1 dmdSec3" REQLEVEL="MUST">
+                <description>
+                    <head>dmdSec/mdWrap/xmlData | Embedded VRA Core metadata: mdWrap containing more than one VRA record | Metadati descrittivi VRA integrati: mdWrap contenente più di un record VRA</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">WHEN the mdWrap element contains more than one VRA records (e.g. one vra:work and several vra:image), they MUST be referenced to each-other using @relids within the element vra:relation.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">QUANDO l’elemento mdWrap contiene più di un record VRA (ad es. un vra:work e più vra:images), questi DEVONO essere relazionati l’uno con l’altro usando @relids nell’elemento vra:relation.</p>
+                </description>
+            </requirement>
+            <requirement ID="dmdSec7" RELATEDMAT="PICO_AP dmdSec1 PICOThes DCMIType" REQLEVEL="MUST">
+                <description>
+                    <head>dmdSec/mdWrap/xmlData | Embedded PICO metadata: mandatory PICO elements | Metadati descrittivi PICO integrati: elementi PICO obbligatori</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A METS record conforming to this profile which includes embedded PICO descriptive metadata MUST contain the following elements from the PICO Application Profile:<br/>
+                        - Identifier (dc:identifier);<br/>
+                        - Title (dc:title);<br/>
+                        - Subject: at least one term from the PICO Thesaurus (dc:subject xsi:type="pico:Thesaurus");<br/>
+                        - Type: at least one term from the DCMI Type Vocabulary (dc:type xsi:type="dcterms:DCMIType").</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record METS conforme a questo profilo che include metadati descrittivi PICO integrati DEVE contenere i seguenti elementi del profilo applicativo PICO:<br/>
+                        - Identificatore (dc:identifier);<br/>
+                        - Titolo (dc:title);<br/>
+                        - Soggetto: almeno un termine dal Thesaurus PICO (dc:subject xsi:type="pico:Thesaurus");<br/>
+                        - Tipo: almeno un termine dal DCMI Type Vocabulary (dc:type xsi:type="dcterms:DCMIType").</p>
+                </description>
+            </requirement>
+            <requirement ID="dmdSec8" RELATEDMAT="PICO_AP dmdSec1" REQLEVEL="SHOULD">
+                <description>
+                    <head>dmdSec/mdWrap/xmlData | Embedded PICO Core metadata: recommended PICO elements | Metadati descrittivi PICO integrati: elementi PICO raccomandati</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A conforming METS record which includes embedded PICO descriptive metadata SHOULD, but is not required to, contain the following descriptive elements from the PICO Application Profile, when they are applicable:<br/>
+                        - dc:creator OR pico:author;<br/>
+                        - dc:date OR dcterms:created;<br/>
+                        - dcterms:spatial;<br/>
+                        - dc:relation (and refinements of this element);<br/>
+                        - dc:subject;<br/>
+                        - dc:type.<br/>
+                        For more details on how to encode embedded PICO metadata, see above: descriptive rules/Descriptive metadata: description rules using embedded PICO.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">un record METS conforme a questo profilo che include metadati descrittivi PICO integrati DOVREBBE contenere, ma non è un requisito obbligatorio, i seguenti elementi descrittivi dal profilo applicativo PICO, quando questi sono applicabili:<br/>
+                        - dc:creator OPPURE pico:author;<br/>
+                        - dc:date OPPURE dcterms:created;<br/>
+                        - dcterms:spatial;<br/>
+                        - dc:relation (e refinements di questo elemento);<br/>
+                        - dc:subject;<br/>
+                        - dc:type.<br/>
+                        Per ulteriori dettagli su come codificare metadati PICO integrati (embedded), si veda sopra: Regole descrittive/Metadati descrittivi: regole descrittive per metadati PICO integrati.</p>
+                </description>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement ID="amdSec1" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A METS record conforming to this profile MUST include a single amdSec element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record METS conforme a questo profilo DEVE includere un singolo elemento amdSec.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec2" REQLEVEL="MUST" RELATEDMAT="amdSec1 amdSec4">
+                <description>
+                    <head>amdSec | structure: mandatory sub-elements | struttura: sotto-elementi obbligatori</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The amdSec element MUST contain at least one or more techMD AND one or more rightsMD elements.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento amdSec DEVE contenere almeno uno o più elementi techMD E uno o più elementi rightsMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec3" REQLEVEL="MAY" RELATEDMAT="amdSec1 amdSec4">
+                <description>
+                    <head>amdSec | structure: optional sub-elements | struttura: sotto-elementi opzionali</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The amdSec element MAY also contain, but is not required to, one or more digiprovMD and one or more sourceMD elements, when they are applicable.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento amdSec PUO' anche contenere, ma non è un requisito obbligatorio, uno o più elementi digiprovMD e uno o più elementi sourceMD, quando questi sono applicabili.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec4" REQLEVEL="MUST" RELATEDMAT="amdSec1">
+                <description>
+                    <head>amdSec/mdWrap</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">All administrative metadata MUST be embedded in the amdSec using the mdWrap element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Tutti i metadati amministrativi DEVONO essere integrati (embedded) nell’elemento amdSec con l’elemento mdWrap.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec5" REQLEVEL="MUST" RELATEDMAT="amdSec2 amdSec4">
+                <description>
+                    <head>amdSec/techMD @ADMID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each techMD element (Technical metadata) MUST be related to one or more file or fileGrp elements.<br/>
+                    ADMID attributes of fileSec MUST directly point to the relevant techMD elements.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento techMD DEVE essere posto in relazione con uno o più elementi file o fileGrp.<br/>
+                    Gli attributi ADMID della sezione fileSec devono puntare direttamente all’elemento techMD da porre in relazione.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec6" RELATEDMAT="NISO_MIX amdSec2 amdSec4" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMD - files with a root MIMETYPE="image" | techMD - file con radice MIMETYPE="image"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">For all files with a root MIMETYPE="image", xmldata of NISOIMG type conforming to the MIX schema MUST be embedded within the techMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Per tutti i file con un MIMETYPE la cui prima parte, o radice, è formata da “image”, DEVONO essere integrati nell’elemento techMD dati xml (xmldata) di tipo NISOIMG conformi allo schema MIX.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec7" RELATEDMAT="amdSec6 NISO_MIX" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMd - NISOIMG mandatory elements | techMd - elementi NISOIMG obbligatori</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The NISOIMG metadata MUST contain at least a mix:BasicDigitalObjectInformation element and a mix:BasicImageInformation element.<br/>
+                        They MAY also contain other elements allowed by the MIX schema, when they are applicable.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati NISOIMG DEVONO contenere almeno un elemento mix:BasicDigitalObjectInformation ed un elemento mix:BasicImageInformation.<br/>
+                        POSSONO inoltre contenere altri elementi dello schema MIX, quando sono applicabili.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec8" RELATEDMAT="amdSec6 NISO_MIX amdSec3" REQLEVEL="SHOULD">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMd - NISOIMG optional elements | techMd - elementi NISOIMG opzionali</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Source metadata related to image files SHOULD be included as part of the MIX encoded technical metadata (mix:SourceInformation element) within the techMD element, OR they CAN be included separately within the sourceMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati sulla Fonte (Source Metadata) riferiti a file di immagini DOVREBBERO essere inclusi nell’elemento techMD come parte dei metadati tecnici codificati secondo lo schema MIX (elemento mix:SourceInformation) ma, in alternativa, POSSONO anche essere inclusi separatamente nell’elemento sourceMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec9" RELATEDMAT="VIDEOMD amdSec2 amdSec4" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMD - files with a root MIMETYPE="video" | techMD - file con radice MIMETYPE="video"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">For all files with a root MIMETYPE="video", xmldata encoded using VIDEOMD schema MUST be embedded within the techMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Per tutti i file con un MIMETYPE la cui prima parte, o radice, è formata da “video”, DEVONO essere integrati nell’elemento techMD dati xml (xmldata) codificati secondo lo schema VIDEOMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec10" RELATEDMAT="amdSec9 VIDEOMD" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMd - VIDEOMD mandatory elements | techMd - elementi VIDEOMD obbligatori</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The VIDEOMD metadata MUST contain at least a file_data element.<br/>
+                        They MAY also contain other elements allowed by the VIDEOMD schema, when they are applicable.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati VIDEOMD DEVONO contenere almeno un elemento file_data.<br/>
+                        POSSONO inoltre contenere altri elementi dello schema VIDEOMD, quando sono applicabili.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec11" RELATEDMAT="amdSec9 VIDEOMD amdSec3" REQLEVEL="SHOULD">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMd - VIDEOMD optional elements | techMd - elementi VIDEOMD opzionali</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Source metadata related to video files SHOULD be included as part of the VIDEOMD encoded technical metadata (physical_data element) within the techMD element, OR they CAN be included separately within the sourceMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati sulla Fonte (Source Metadata) riferiti a file video DOVREBBERO essere inclusi nell’elemento techMD come parte dei metadati tecnici codificati secondo lo schema VIDEOMD (elemento physical_data) ma, in alternativa, POSSONO anche essere inclusi separatamente nell’elemento sourceMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec12" RELATEDMAT="AMD amdSec2 amdSec4" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMD - files with a root MIMETYPE="audio" | techMD - file con radice MIMETYPE="audio"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">For all files with a root MIMETYPE="audio", xmldata encoded using AMD schema MUST be embedded in the techMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Per tutti i file con un MIMETYPE la cui prima parte, o radice, è formata da “audio”, DEVONO essere integrati nell’elemento techMD dati xml (xmldata) codificati secondo lo schema AMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec13" RELATEDMAT="amdSec12 AMD" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMd - AMD mandatory elements | techMd - elementi AMD obbligatori</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The AMD metadata MUST contain at least a file_data element.<br/>
+                        They MAY also contain other elements allowed by the AMD schema, when they are applicable.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati AMD DEVONO contenere almeno un elemento file_data.<br/>
+                        POSSONO inoltre contenere altri elementi dello schema AMD, quando sono applicabili.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec14" RELATEDMAT="amdSec12 AMD amdSec3" REQLEVEL="SHOULD">
+                <description>
+                    <head>amdSec/techMD/mdWrap/xmlData | techMd - AMD optional elements | techMd - elementi AMD opzionali</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Source metadata related to audio files SHOULD be included as part of the AMD encoded technical metadata (physical_data element) within the techMD element, OR they CAN be included separately within the sourceMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I metadati sulla Fonte (Source Metadata) riferiti a file audio DOVREBBERO essere inclusi nell’elemento techMD come parte dei metadati tecnici codificati secondo lo schema AMD (elemento physical_data) ma, in alternativa, POSSONO anche essere inclusi separatamente nell’elemento sourceMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec15" RELATEDMAT="amdSec2 amdSec4" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/rightsMD @ADMID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each rightsMD element MUST be related to one or more fileGrp elements, depending of their USE attribute. Anyway IT IS ALSO ALLOWED to relate a rightsMD element to a single file.<br/>
+                    ADMID attributes of fileSec MUST directly point to the relevant rightsMD elements.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento rightsMD DEVE essere posto in relazione con uno o più elementi fileGrp, a seconda del valore del loro attributo USE. E' COMUNQUE CONSENTITO porre in relazione un elemento rightsMD con un singolo elemento file.<br/>
+                    Gli attributi ADMID della sezione fileSec DEVONO puntare direttamente agli elementi rightsMD da porre in relazione.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec16" RELATEDMAT="amdSec15 PREMIS_Rights" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/rightsMD/mdWrap/xmlData - PREMIS Rights</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each rightsMD element MUST include embedded xmldata containing a single premis:rights element from the PREMIS Preservation Metadata Schema version 2.0.<br/>
+                    The premis:rights element MUST be embedded by itself: it is not allowed to wrap it within a premis:container.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento rightsMD DEVE includere dati xml integrati (embedded xmldata) contenenti un singolo elemento premis:rights dallo Schema PREMIS Preservation Metadata versione 2.0.<br/>
+                    L’elemento premis:rights DEVE essere integrato singolarmente: non è consentito inserirlo all’interno di un premis:container.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec17" RELATEDMAT="amdSec3 amdSec4" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/sourceMD @ADMID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each sourceMD element, WHEN it is present, MUST be normally related to one or more techMD element.<br/>
+                    ADMID attributes MUST directly point to the relevant sourceMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento sourceMD, QUANDO è presente, DEVE di norma essere posto in relazione con uno o più elementi techMD.<br/>
+                    Gli attributi ADMID DEVONO puntare direttamente all’elemento sourceMD da porre in relazione.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec18" RELATEDMAT="NISO_MIX amdSec8 amdSec3 amdSec4" REQLEVEL="MAY">
+                <description>
+                    <head>amdSec/sourceMD/mdWrap/xmlData | sourceMD - files with a root MIMETYPE="image" | sourceMD - file con radice MIMETYPE="image"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Even if source metadata related to image files SHOULD be normally included as part of the MIX encoded technical metadata (mix:SourceInformation element) within the techMD element, nevertheless, as an alternative, xmldata of NISOIMG type conforming to the MIX schema MAY be also included separately within the sourceMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Sebbene i metadati sulla fonte che sono riferiti a file di immagini DOVREBBERO di norma essere inclusi nell’elemento techMD come parte dei metadati tecnici codificati secondo lo schema MIX (elemento mix:SourceInformation), tuttavia, in alternativa, dati xml (xmldata) di tipo NISOIMG conformi allo schema MIX POSSONO essere inclusi separatamente nell’elemento SourceMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec19" RELATEDMAT=" VIDEOMD amdSec11 amdSec3 amdSec4" REQLEVEL="MAY">
+                <description>
+                    <head>amdSec/sourceMD/mdWrap/xmlData | sourceMD - files with a root MIMETYPE="video" | sourceMD - file con radice MIMETYPE="video"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Even if source metadata related to video files SHOULD be normally included as part of the VIDEOMD encoded technical metadata (physical_data element) within the techMD element, nevertheless, as an alternative, xmldata encoded using VIDEOMD schema MAY be also included separately within the sourceMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Sebbene i metadati sulla fonte che sono riferiti a file video DOVREBBERO di norma essere inclusi nell’elemento techMD come parte dei metadati tecnici codificati secondo lo schema VIDEOMD (elemento physical_data), tuttavia, in alternativa, dati xml (xmldata) codificati secondo lo schema VIDEOMD POSSONO essere inclusi separatamente nell’elemento SourceMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec20" RELATEDMAT="AMD amdSec14 amdSec3 amdSec4" REQLEVEL="MAY">
+                <description>
+                    <head>amdSec/sourceMD/mdWrap/xmlData | sourceMD - files with a root MIMETYPE="audio" | sourceMD - file con radice MIMETYPE="audio"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Even if source metadata related to audio files SHOULD be normally included as part of the AMD encoded technical metadata (physical_data element) within the techMD element, nevertheless, as an alternative, xmldata encoded using AMD schema MAY be included separately within the sourceMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Sebbene i metadati sulla fonte che sono riferiti a file audio DOVREBBERO di norma essere inclusi nell’elemento techMD come parte dei metadati tecnici codificati secondo lo schema AMD (elemento physical_data), tuttavia, in alternativa, dati xml (xmldata) codificati secondo lo schema AMD POSSONO essere inclusi separatamente nell’elemento SourceMD.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec21" RELATEDMAT="amdSec3 amdSec4" REQLEVEL="MAY">
+                <description>
+                    <head>amdSec/digiprovMD @ADMID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each digiprovMD element MAY be related to one or more techMD element.<br/>
+                    ADMID attributes MUST directly point to the relevant digiprovMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento digiprovMD PUO' essere posto in relazione con uno o più elementi techMD.<br/>
+                        Gli attributi ADMID DEVONO puntare direttamente all’elemento digiprovMD da porre in relazione.</p>
+                </description>
+            </requirement>
+            <requirement ID="amdSec22" RELATEDMAT="PREMIS_Event PREMIS_Agent amdSec3 amdSec4" REQLEVEL="MUST">
+                <description>
+                    <head>amdSec/digiprovMD/mdWrap/xmlData | digiprovMD - PREMIS Event - PREMIS Agent</head>
+                <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each digiprovMD element, WHEN it is present, MUST contain a premis:event element from the PREMIS Preservation Metadata Schema version 2.0.<br/>
+                In addition, for describing one or more Agents associated with the Event, digiprovMD MAY also contain premis:agent elements.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento digiprovMD, QUANDO è presente, DEVE contenere un elemento premis:event dallo Schema PREMIS Preservation Metadata versione 2.0.<br/>
+                    Inoltre, digiprovMD può contenere anche elementi premis:agent per descrivere uno o più Agenti associati all’Evento.</p>
+                </description>
+            </requirement>
+        </amdSec>
+        
+        <fileSec>
+            <requirement ID="fileSec1" REQLEVEL="MUST">
+                <description>
+                    <head>fileSec/fileGrp</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Files MUST be grouped into fileGrp elements according to their quality and use, as it is defined in the USE attribute.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I file DEVONO essere raggruppati in elementi fileGrp secondo la loro qualità ed il loro uso, definito nell’attributo USE.</p>
+                </description>
+            </requirement>
+            <requirement ID="fileSec2" RELATEDMAT="fileSec1 mdi_fileGrp_USE" REQLEVEL="MUST">
+                <description>
+                    <head>fileSec/fileGrp @USE</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each fileGrp MUST include an attribute USE. Values entered within the USE attribute MUST be taken from the "MuseiDItalia_fileGrp_USE" list of terms.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni fileGrp DEVE includere un attributo USE. I valori inseriti nell’attributo USE DEVONO essere presi dalla lista dei termini "MuseiDItalia_fileGrp_USE".</p>
+                </description>
+            </requirement>
+            <requirement ID="fileSec3" RELATEDMAT="fileSec1 amdSec15" REQLEVEL="MUST">
+                <description>
+                    <head>fileSec/fileGrp @ADMID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">All fileGrp MUST reference the related Rights Metadata using ADMID attribute.<br/>
+                    ADMID attributes MUST directly point to the relevant rightsMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Tutti gli elementi fileGrp DEVONO riferire i Metadati sui Diritti che sono in relazione, mediante l’attributo ADMID.<br/>
+                    Gli attributi ADMID DEVONO puntare direttamente all’elemento rightsMD da porre in relazione.</p>
+                </description>
+            </requirement>
+            <requirement ID="fileSec4" RELATEDMAT="fileSec1" REQLEVEL="SHOULD">
+                <description>
+                    <head>fileSec/fileGrp/file/Flocat</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">All content files SHOULD be referenced within a METS document using Flocat element with an attribute value "xl:href" composed as follows: "filename/xx.extension".</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Tutti i file DOVREBBERO essere riferiti in un documento METS usando l’elemento Flocat con l’attributo “xl:href” il cui valore sarà così composto: “nome del file/xx.estensione”.</p>
+                </description>
+            </requirement>
+            <requirement ID="fileSec5" RELATEDMAT="fileSec2" REQLEVEL="MUST">
+                <description>
+                    <head>fileSec/fileGrp @USE="preview"/file</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The File Section (fileSec) MUST contain at least one fileGrp with attribute USE="preview", including at least one file.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">La Sezione File (fileSec) DEVE contenere almeno un fileGrp con attributo USE=”preview”, che includa almeno un file.</p>
+                </description>
+            </requirement>
+            <requirement ID="fileSec6" RELATEDMAT="fileSec1" REQLEVEL="MUST">
+                <description>
+                    <head>fileSec/fileGrp/file @DMDID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">All content files MUST reference the related descriptive metadata using DMDID attribute.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Tutti i file DEVONO riferire i metadati descrittivi che sono in relazione, mediante l’attributo DMDID.</p>
+                </description>
+            </requirement>
+            <requirement ID="fileSec7" RELATEDMAT="fileSec1" REQLEVEL="MUST">
+                <description>
+                    <head>fileSec/fileGrp/file @ADMID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">All content files MUST reference the related Technical Metadata using ADMID attribute.<br/>
+                    ADMID attributed MUST directly point to the relevant techMD element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Tutti i file DEVONO riferire i metadati tecnici che sono in relazione, mediante l’attributo ADMID.<br/>
+                    Gli attributi ADMID DEVONO puntare direttamente all’elemento techMD da porre in relazione.</p>
+                </description>
+            </requirement>
+            <requirement ID="fileSec8" RELATEDMAT="fileSec1" REQLEVEL="MUST">
+                <description>
+                    <head>fileSec/fileGrp/file @MIMETYPE</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">All content files MUST contain a MIMETYPE attribute.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Tutti i file DEVONO contenere un attributo MIMETYPE.</p>
+                </description>
+            </requirement>
+        </fileSec>
+        <structMap>
+            <requirement ID="structMap1" REQLEVEL="MUST">
+                <description>
+                    <head>structMap</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">A METS record conforming to this profile MUST include one and only one structMap element containing a single logical, physical or mixed hierarchy which is encoded as a tree of nested div elements.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Un record METS conforme a questo profilo DEVE includere un ed un solo elemento structMap che contenga una singola gerarchia (logica, fisica o mista), codificato come un albero di elementi div annidati l’uno nell’altro.</p>
+                </description>
+            </requirement>
+            <requirement ID="structMap2" RELATEDMAT="structMap1" REQLEVEL="MUST">
+                <description>
+                    <head>structMap/div | Structural Map: top-level div element | Mappa Strutturale: elemento div di primo livello</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The top-level div element of the structMap MUST have a DMDID attribute that points to the embedded descriptive metadata (VRA metadata OR, when VRA is not applicable, PICO metadata).</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’elemento div di livello più alto (top-level: radice dell’albero) della structMap DEVE avere un attributo DMDID che punta ai metadati descrittivi integrati nel record METS (metadati VRA OPPURE, quando VRA non è applicabile, metadati PICO).</p>
+                </description>
+            </requirement>
+            <requirement ID="structMap3" RELATEDMAT="structMap1" REQLEVEL="MUST">
+                <description>
+                    <head>structMap/div @ID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each div element MUST include an ID attribute encoded using a hierarchical numbering system, as follows: "div.x.x.x.", where "x.x.x" represents the hierarchical arrangement of the divs.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento div DEVE includere un attributo ID codificato secondo un sistema gerarchico di numerazione, come segue: “div.x.x.x.”, dove “x.x.x” rappresenta l’ordinamento gerarchico dei div.</p>
+                </description>
+            </requirement>
+            <requirement ID="structMap4" RELATEDMAT="structMap1" REQLEVEL="MAY">
+                <description>
+                    <head>structMap/div @TYPE</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">This profile doesn't require to use attribute TYPE for div elements, even if the use of attribute TYPE within div elements is RECOMMENDED for semantic purposes.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">L’attributo TYPE dell’elemento div non è obbligatorio per questo profilo. Tuttavia l’uso dell’attributo TYPE negli elementi div è RACCOMANDATO per la sua utilità semantica.</p>
+                </description>
+            </requirement>
+            <requirement ID="structMap5" RELATEDMAT="structMap1" REQLEVEL="MUST">
+                <description>
+                    <head>structMap/div @ORDER</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each div element MUST include an ORDER attribute which clearly defines the numeric sequence of the divs.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento div DEVE includere un attributo ORDER il cui valore definisca chiaramente la sequenza numerica dei div.</p>
+                </description>
+            </requirement>
+            <requirement ID="structMap6" RELATEDMAT="structMap1" REQLEVEL="MUST">
+                <description>
+                    <head>structMap/div/fptr</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each lowest level div element MUST contain at least a fptr element.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento div di livello più basso (lowest level: foglia dell’albero) DEVE contenere almeno un elemento fptr.</p>
+                </description>
+            </requirement>
+            <requirement ID="structMap7" RELATEDMAT="structMap6" REQLEVEL="MUST">
+                <description>
+                    <head>structMap/div/fptr @FILEID</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Each fptr element MUST contain a FILEID attribute that points to file elements.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">Ogni elemento fptr DEVE contenere un attributo FILED che punta agli elementi file.</p>
+                </description>
+            </requirement>
+        </structMap>
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement ID="content_files1" RELATEDMAT="amdSec6 fileSec8" REQLEVEL="MUST">
+                <description>
+                    <head>Supported formats - files with a root MIMETYPE="image" | Formati supportati: file con radice MIMETYPE="image"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Supported formats for content files with a root MIMETYPE="image" are:<br/>
+                    - TIFF_LZW<br/>
+                    - TIFF_G4<br/>
+                    - TIFF_UNC<br/>
+                    - PNG<br/>
+                    - JPEG_DCT<br/>
+                    - JP2_C</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I formati supportati per i file con MIMETYPE la cui prima parte, o radice, è formata da “image” sono i seguenti:<br/>
+                    - TIFF_LZW<br/>
+                    - TIFF_G4<br/>
+                    - TIFF_UNC<br/>
+                    - PNG<br/>
+                    - JPEG_DCT<br/>
+                    - JP2_C</p> 
+                </description>
+            </requirement>
+            <requirement ID="content_files2" RELATEDMAT="amdSec9 fileSec8" REQLEVEL="MUST">
+                <description>
+                    <head>Supported formats - files with a root MIMETYPE="video" | Formati supportati: file con radice MIMETYPE="video"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Supported formats for content files with a root MIMETYPE="video" are:<br/>
+                    - AVI_MJPEG<br/>
+                    - DV<br/>
+                    - MPEG-1<br/>
+                    - MPEG-2 PS<br/>
+                    - MP4_FF_2_V</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I formati supportati per i file con MIMETYPE la cui prima parte, o radice, è formata da “video” sono i seguenti:<br/>
+                    - AVI_MJPEG<br/>
+                    - DV<br/>
+                    - MPEG-1<br/>
+                    - MPEG-2 PS<br/>
+                    - MP4_FF_2_V</p>
+                </description>
+            </requirement>
+            <requirement ID="content_files3" RELATEDMAT="amdSec12 fileSec8" REQLEVEL="MUST">
+                <description>
+                    <head>Supported formats - files with a root MIMETYPE="audio" | Formati supportati: file con radice MIMETYPE="audio"</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">Supported formats for content files with a root MIMETYPE="audio" are:<br/>
+                    - WAVE_LPCM<br/>
+                    - MP3_ENC</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I formati supportati per i file con MIMETYPE la cui prima parte, o radice, è formata da "audio" sono i seguenti:<br/>
+                    - WAVE_LPCM<br/>
+                    - MP3_ENC</p>
+                </description>
+            </requirement>
+            <requirement ID="content_files4" RELATEDMAT="fileSec2 mdi_fileGrp_USE">
+                <description>
+                <head>Quality levels of content files | Livelli di qualità per i content file</head>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">The quality levels of content files will vary, depending on the features of the source material and depending of the attribute USE specified for each fileGrp.<br/>
+                    The quality parameters for image, video and audio content files related to the five values specified in the "MuseiDItalia_fileGrp_USE" vocabulary are specified within the technical guidelines of MuseiD_Italia.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml" xml:lang="it">I livelli di qualità dei file variano a seconda delle caratteristiche della fonte da cui sono ricavati (source) per digitalizzazione diretta o indiretta, e a seconda dell’attributo USE specificato per ogni fileGrp.<br/>
+                    I parametri di qualità per i file di immagine, video e audio che sono stabiliti in relazione ai cinque valori specificati nel vocabolario  "MuseiDItalia_fileGrp_USE" sono dettagliati nelle linee guida tecniche di MuseiD_Italia.
+                    </p>
+                </description>
+            </requirement>
+        </content_files>
+    </technical_requirements>
+    <tool></tool>
+    <Appendix NUMBER="1" LABEL="Example 1: Artwork and related images">
+                <mets xmlns="http://www.loc.gov/METS/"
+            xmlns:vra="http://www.vraweb.org/vracore4.htm"
+            xmlns:mix="http://www.loc.gov/mix/v20"
+            xmlns:premis="info:lc/xmlns/premis-v2"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xl="http://www.w3.org/1999/xlink"
+            xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd
+            http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix.xsd
+            http://www.vraweb.org/vracore4.htm http://www.vraweb.org/projects/vracore4/vra-4.0-restricted.xsd
+            info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/premis.xsd"
+            ID="mets_es_OA_01"
+            OBJID="NCT_1200147766"
+            LABEL="Merisi Michelangelo detto Caravaggio (1571-1572/ 1610), giovane con canestra di frutta - dipinto - 1593-1595, sec. XVI"
+            TYPE="OA"
+            PROFILE="http://purl.org/pico/mets/mdi-1.0">
+            <metsHdr CREATEDATE="2010-02-09T18:53:00" RECORDSTATUS="complete">
+                <agent ROLE="CREATOR" TYPE="ORGANIZATION">
+                    <name>Scuola Normale Superiore di Pisa</name>
+                </agent>
+            </metsHdr>
+            <dmdSec ID="dmd_pico">
+                <mdRef LOCTYPE="URL" MDTYPE="OTHER" LABEL="Metadati in formato PICO" ID="PICO" xl:href="http://www.artpast.org/oaipmh-thes4/oai2.php?verb=GetRecord&amp;identifier=oai:artpast.org:1200147766&amp;metadataPrefix=pico"/>
+            </dmdSec>
+            <dmdSec ID="dmd_VRA">
+                <mdWrap MDTYPE="VRA">
+                    <xmlData>
+                        <vra:work id="W_000008" refid="1200147766" source="ARTPAST">
+                            <vra:agentSet>
+                                <vra:display xml:lang="it">Merisi Michelangelo detto Caravaggio (1571-1572/ 1610)</vra:display>
+                                <vra:agent>
+                                    <vra:name type="personal" source="iccd_AUT">Merisi Michelangelo detto Caravaggio</vra:name>
+                                    <vra:dates type="life">
+                                        <vra:earliestDate circa="true">1571</vra:earliestDate>
+                                        <vra:latestDate>1610</vra:latestDate>
+                                    </vra:dates>
+                                </vra:agent>
+                            </vra:agentSet>
+                            <vra:dateSet>
+                                <vra:display>1593-1595, sec. XVI</vra:display>
+                                <vra:date type="creation">
+                                    <vra:earliestDate>1593</vra:earliestDate>
+                                    <vra:latestDate>1595</vra:latestDate>
+                                </vra:date>
+                            </vra:dateSet>
+                            <vra:descriptionSet>
+                                <vra:description xml:lang="it">documentato per la prima volta nell'inventario del sequestro del Cavalier d'Arpino del 1607</vra:description>
+                            </vra:descriptionSet>
+                            <vra:locationSet>
+                                <vra:display xml:lang="it">Villa Borghese, piazzale Scipione Borghese, 5, Roma (RM) - sala 8, inv. 136 (1959)</vra:display>
+                                <vra:location type="repository">
+                                    <vra:refid type="accession" source="iccd_INVN">136 (1959)</vra:refid>
+                                    <vra:name type="corporate" xml:lang="it">Villa Borghese</vra:name>
+                                    <vra:name type="other">sala 8</vra:name>
+                                    <vra:name type="geographic" xml:lang="it">piazzale Scipione Borghese, 5</vra:name>
+                                    <vra:name type="geographic" source="ISTAT 2001" refid="1205809158091" xml:lang="it">Roma</vra:name>
+                                </vra:location>
+                            </vra:locationSet>
+                            <vra:materialSet>
+                                <vra:material type="other" source="iccd_MTC" xml:lang="it">tela/ pittura a olio</vra:material>
+                            </vra:materialSet>
+                            <vra:measurementsSet>
+                                <vra:display>cm 70 x 67</vra:display>
+                                <vra:measurements type="height" unit="cm" extent="overall">70</vra:measurements>
+                                <vra:measurements type="length" unit="cm" extent="overall">67</vra:measurements>
+                            </vra:measurementsSet>
+                            <vra:relationSet>
+                                <vra:relation type="partOf" href="galleriaborghese_collezione_caravaggio.xml"></vra:relation>
+                                <vra:relation type="imageIs" refid="GFN E 54751" source="iccd_FTAN">documento fotografico: ARTPAST GFN E 54751</vra:relation>
+                                <vra:relation type="imageIs" relids="i_0001">Caravaggio, Giovane con canestra di frutta</vra:relation>
+                            </vra:relationSet>
+                            <vra:rightsSet>
+                                <vra:rights type="other">
+                                    <vra:rightsHolder xml:lang="it">Proprietà Stato</vra:rightsHolder>
+                                    <vra:text>Ministero per i Beni e le Attività Culturali</vra:text>
+                                </vra:rights>
+                            </vra:rightsSet>
+                            <vra:sourceSet>
+                                <vra:display xml:lang="it">scheda iccd OA: 1200147766</vra:display>
+                                <vra:source>
+                                    <vra:name type="electronic" source="ICCD_NCT" refid="1200147766">scheda iccd OA: 1200147766</vra:name>
+                                </vra:source>
+                            </vra:sourceSet>
+                            <vra:subjectSet>
+                                <vra:display>giovane con canestra di frutta; Figure: giovane. Frutti: uva; mele; albicocche; melograni; pesche</vra:display>
+                                <vra:subject>
+                                    <vra:term type="conceptTopic" source="PICOThesaurus" refid="http://culturaitalia.it/pico/thesaurus/4.1#opere_d_arte_visiva"></vra:term>
+                                    <vra:term type="conceptTopic" source="PICOThesaurus" refid="http://culturaitalia.it/pico/thesaurus/4.1#dipinti"></vra:term>
+                                    <vra:term type="descriptiveTopic">giovane con canestra di frutta</vra:term>
+                                    <vra:term type="iconographicTopic" vocab="Iconclass" refid="31 D 12 : 41 C 65 3"></vra:term>
+                                    <vra:term type="otherTopic" xml:lang="it">Figure: giovane. Frutti: uva; mele; albicocche; melograni; pesche</vra:term>
+                                </vra:subject>
+                            </vra:subjectSet>
+                            <vra:titleSet>
+                                <vra:title type="descriptive" xml:lang="it">giovane con canestra di frutta</vra:title>
+                            </vra:titleSet>
+                            <vra:worktypeSet>
+                                <vra:worktype source="iccd_OGTD" xml:lang="it">dipinto</vra:worktype>
+                                <vra:worktype vocab="DCMIType" refid="http://purl.org/dc/dcmitype/PhysicalObject" xml:lang="en">Physical Object</vra:worktype>
+                            </vra:worktypeSet>
+                        </vra:work>
+                        <vra:image  id="i_0001" refid="00005" source="ARTPAST">
+                            <vra:relationSet>
+                                <vra:relation type="imageOf" relids="W_000008"></vra:relation>
+                            </vra:relationSet>
+                            <vra:titleSet>
+                                <vra:title type="descriptive" xml:lang="it">Caravaggio, Giovane con canestra di frutta</vra:title>
+                            </vra:titleSet>
+                        </vra:image>
+                    </xmlData>
+                </mdWrap>
+            </dmdSec>
+            <amdSec>
+                <techMD ID="tmd01">
+                    <mdWrap MDTYPE="NISOIMG" MIMETYPE="image">
+                        <xmlData>
+                            <mix:mix>
+                                <mix:BasicDigitalObjectInformation>
+                                    <mix:fileSize>15900000</mix:fileSize>
+                                    <mix:FormatDesignation>
+                                        <mix:formatName>image/tiff</mix:formatName>
+                                        <mix:formatVersion>6.0</mix:formatVersion>
+                                    </mix:FormatDesignation>
+                                    <mix:Compression>
+                                        <mix:compressionScheme>LZW</mix:compressionScheme>
+                                        <mix:compressionSchemeLocalValue>LZW</mix:compressionSchemeLocalValue>
+                                    </mix:Compression>
+                                </mix:BasicDigitalObjectInformation>
+                                <mix:BasicImageInformation>
+                                    <mix:BasicImageCharacteristics>
+                                        <mix:imageWidth>4016</mix:imageWidth>
+                                        <mix:imageHeight>4157</mix:imageHeight>
+                                        <mix:PhotometricInterpretation>
+                                            <mix:colorSpace>RGB</mix:colorSpace>
+                                        </mix:PhotometricInterpretation>
+                                    </mix:BasicImageCharacteristics>
+                                </mix:BasicImageInformation>
+                                <mix:ImageCaptureMetadata>
+                                    <mix:SourceInformation>
+                                        <mix:sourceType>dipinto</mix:sourceType>
+                                        <mix:SourceID>
+                                            <mix:sourceIDType>inventario del 1959</mix:sourceIDType>
+                                            <mix:sourceIDValue>136</mix:sourceIDValue>
+                                        </mix:SourceID>
+                                        <mix:SourceSize>
+                                            <mix:SourceXDimension>
+                                                <mix:sourceXDimensionValue>670</mix:sourceXDimensionValue>
+                                                <mix:sourceXDimensionUnit>mm</mix:sourceXDimensionUnit>
+                                            </mix:SourceXDimension>
+                                            <mix:SourceYDimension>
+                                                <mix:sourceYDimensionValue>700</mix:sourceYDimensionValue>
+                                                <mix:sourceYDimensionUnit>mm</mix:sourceYDimensionUnit>
+                                            </mix:SourceYDimension>
+                                        </mix:SourceSize>
+                                    </mix:SourceInformation>
+                                    <mix:GeneralCaptureInformation>
+                                        <mix:dateTimeCreated>2010-01-15</mix:dateTimeCreated>
+                                        <mix:imageProducer>Galleria Borghese, servizio fotografico</mix:imageProducer>
+                                        <mix:captureDevice>digital still camera</mix:captureDevice>
+                                    </mix:GeneralCaptureInformation>
+                                    <mix:DigitalCameraCapture>
+                                        <mix:digitalCameraManufacturer>Phase One</mix:digitalCameraManufacturer>
+                                        <mix:DigitalCameraModel>
+                                            <mix:digitalCameraModelName>H25</mix:digitalCameraModelName>
+                                        </mix:DigitalCameraModel>
+                                        <mix:cameraSensor>undefined</mix:cameraSensor>
+                                        <mix:CameraCaptureSettings>
+                                            <mix:ImageData>
+                                                <mix:fNumber>1</mix:fNumber>
+                                                <mix:exposureTime>0.008</mix:exposureTime>
+                                                <mix:brightnessValue>
+                                                    <mix:numerator>0</mix:numerator>
+                                                    <mix:denominator>0</mix:denominator>
+                                                </mix:brightnessValue>
+                                                <mix:SubjectDistance>
+                                                    <mix:distance>5</mix:distance>
+                                                    <mix:MinMaxDistance>
+                                                        <mix:minDistance>4.9</mix:minDistance>
+                                                        <mix:maxDistance>5.3</mix:maxDistance>
+                                                    </mix:MinMaxDistance>
+                                                </mix:SubjectDistance>
+                                                <mix:lightSource>Fluorescent</mix:lightSource>
+                                                <mix:focalLength>0.120</mix:focalLength>
+                                                <mix:exposureIndex>8</mix:exposureIndex>
+                                                <mix:sensingMethod>Not defined</mix:sensingMethod>
+                                                <mix:autoFocus>Manual</mix:autoFocus>
+                                            </mix:ImageData>
+                                        </mix:CameraCaptureSettings>
+                                    </mix:DigitalCameraCapture>
+                                    <mix:methodology>Acquisizione mediante dorso digitale Phase One H25 applicato ad una fotocamera di medio formato Hasselblad 555 ELD e connesso ad un personal computer tramite firewire. Acquisisione del formato raw e conversione in formato tiff tramite il software Capture One.</mix:methodology>
+                                </mix:ImageCaptureMetadata>
+                                <mix:ImageAssessmentMetadata>
+                                    <mix:SpatialMetrics>
+                                        <mix:samplingFrequencyPlane>object plane</mix:samplingFrequencyPlane>
+                                        <mix:samplingFrequencyUnit>cm</mix:samplingFrequencyUnit>
+                                        <mix:xSamplingFrequency>
+                                            <mix:numerator>4016</mix:numerator>
+                                            <mix:denominator>67</mix:denominator>
+                                        </mix:xSamplingFrequency>
+                                        <mix:ySamplingFrequency>
+                                            <mix:numerator>4157</mix:numerator>
+                                            <mix:denominator>70</mix:denominator>
+                                        </mix:ySamplingFrequency>
+                                    </mix:SpatialMetrics>
+                                    <mix:ImageColorEncoding>
+                                        <mix:BitsPerSample>
+                                            <mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+                                            <mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+                                        </mix:BitsPerSample>
+                                        <mix:samplesPerPixel>3</mix:samplesPerPixel>
+                                    </mix:ImageColorEncoding>
+                                </mix:ImageAssessmentMetadata>
+                            </mix:mix>
+                        </xmlData>
+                    </mdWrap>
+                </techMD>
+                <techMD ID="tmd02">
+                    <mdWrap MDTYPE="NISOIMG" MIMETYPE="image">
+                        <xmlData>
+                            <mix:mix>
+                                <mix:BasicDigitalObjectInformation>
+                                    <mix:fileSize>39800000</mix:fileSize>
+                                    <mix:FormatDesignation>
+                                        <mix:formatName>image/tiff</mix:formatName>
+                                        <mix:formatVersion>6.0</mix:formatVersion>
+                                    </mix:FormatDesignation>
+                                    <mix:Compression>
+                                        <mix:compressionScheme>LZW</mix:compressionScheme>
+                                        <mix:compressionSchemeLocalValue>LZW</mix:compressionSchemeLocalValue>
+                                    </mix:Compression>
+                                </mix:BasicDigitalObjectInformation>
+                                <mix:BasicImageInformation>
+                                    <mix:BasicImageCharacteristics>
+                                        <mix:imageWidth>2008</mix:imageWidth>
+                                        <mix:imageHeight>2078</mix:imageHeight>
+                                        <mix:PhotometricInterpretation>
+                                            <mix:colorSpace>RGB</mix:colorSpace>
+                                        </mix:PhotometricInterpretation>
+                                    </mix:BasicImageCharacteristics>
+                                </mix:BasicImageInformation>
+                                <mix:ChangeHistory>
+                                    <mix:ImageProcessing>
+                                        <mix:dateTimeProcessed>2010-01-16</mix:dateTimeProcessed>
+                                        <mix:sourceData>file001m</mix:sourceData>
+                                        <mix:processingAgency>Galleria Borghese, servizio fotografico</mix:processingAgency>
+                                        <mix:ProcessingSoftware>
+                                            <mix:processingSoftwareName>Adobe Photoshop</mix:processingSoftwareName>
+                                            <mix:processingSoftwareVersion>CS</mix:processingSoftwareVersion>
+                                            <mix:processingOperatingSystemName>Win</mix:processingOperatingSystemName>
+                                            <mix:processingOperatingSystemVersion>7.0</mix:processingOperatingSystemVersion>
+                                        </mix:ProcessingSoftware>
+                                        <mix:processingActions>La risoluzione dell'immagine è stata ridotta da 4016 x 4157 pixel (master) a 2008 x 2078 pixel mantenendo il formato tiff</mix:processingActions>
+                                    </mix:ImageProcessing>
+                                </mix:ChangeHistory>
+                            </mix:mix>
+                        </xmlData>
+                    </mdWrap>
+                </techMD>
+                <techMD ID="tmd03">
+                    <mdWrap MDTYPE="NISOIMG" MIMETYPE="image">
+                        <xmlData>
+                            <mix:mix>
+                                <mix:BasicDigitalObjectInformation>
+                                    <mix:fileSize>556500</mix:fileSize>
+                                    <mix:FormatDesignation>
+                                        <mix:formatName>image/jp2</mix:formatName>
+                                        <mix:formatVersion>6.0</mix:formatVersion>
+                                    </mix:FormatDesignation>
+                                    <mix:Compression>
+                                        <mix:compressionScheme>JPEG 2000 Lossy</mix:compressionScheme>
+                                    </mix:Compression>
+                                </mix:BasicDigitalObjectInformation>
+                                <mix:BasicImageInformation>
+                                    <mix:BasicImageCharacteristics>
+                                        <mix:imageWidth>742</mix:imageWidth>
+                                        <mix:imageHeight>768</mix:imageHeight>
+                                        <mix:PhotometricInterpretation>
+                                            <mix:colorSpace>RGB</mix:colorSpace>
+                                        </mix:PhotometricInterpretation>
+                                    </mix:BasicImageCharacteristics>
+                                </mix:BasicImageInformation>
+                                <mix:ChangeHistory>
+                                    <mix:ImageProcessing>
+                                        <mix:dateTimeProcessed>2010-01-16</mix:dateTimeProcessed>
+                                        <mix:sourceData>file001m</mix:sourceData>
+                                        <mix:processingAgency>Galleria Borghese, servizio fotografico</mix:processingAgency>
+                                        <mix:ProcessingSoftware>
+                                            <mix:processingSoftwareName>Adobe Photoshop</mix:processingSoftwareName>
+                                            <mix:processingSoftwareVersion>CS</mix:processingSoftwareVersion>
+                                            <mix:processingOperatingSystemName>Win</mix:processingOperatingSystemName>
+                                            <mix:processingOperatingSystemVersion>7.0</mix:processingOperatingSystemVersion>
+                                        </mix:ProcessingSoftware>
+                                        <mix:processingActions>La risoluzione dell'immagine è stata ridotta da 4016 x 4157 pixel (master) a 742 x 768 pixel. Il formato è stato convertito da tiff a jpeg</mix:processingActions>
+                                    </mix:ImageProcessing>
+                                </mix:ChangeHistory>
+                            </mix:mix>
+                        </xmlData>
+                    </mdWrap>
+                </techMD>
+                <techMD ID="tmd04">
+                    <mdWrap MDTYPE="NISOIMG" MIMETYPE="image">
+                        <xmlData>
+                            <mix:mix>
+                                <mix:BasicDigitalObjectInformation>
+                                    <mix:fileSize>96500</mix:fileSize>
+                                    <mix:FormatDesignation>
+                                        <mix:formatName>image/jp2</mix:formatName>
+                                        <mix:formatVersion>6.0</mix:formatVersion>
+                                    </mix:FormatDesignation>
+                                    <mix:Compression>
+                                        <mix:compressionScheme>JPEG 2000 Lossy</mix:compressionScheme>
+                                    </mix:Compression>
+                                </mix:BasicDigitalObjectInformation>
+                                <mix:BasicImageInformation>
+                                    <mix:BasicImageCharacteristics>
+                                        <mix:imageWidth>309</mix:imageWidth>
+                                        <mix:imageHeight>320</mix:imageHeight>
+                                        <mix:PhotometricInterpretation>
+                                            <mix:colorSpace>RGB</mix:colorSpace>
+                                        </mix:PhotometricInterpretation>
+                                    </mix:BasicImageCharacteristics>
+                                </mix:BasicImageInformation>
+                                <mix:ChangeHistory>
+                                    <mix:ImageProcessing>
+                                        <mix:dateTimeProcessed>2010-01-16</mix:dateTimeProcessed>
+                                        <mix:sourceData>file003m</mix:sourceData>
+                                        <mix:processingAgency>Galleria Borghese, servizio fotografico</mix:processingAgency>
+                                        <mix:ProcessingSoftware>
+                                            <mix:processingSoftwareName>Adobe Photoshop</mix:processingSoftwareName>
+                                            <mix:processingSoftwareVersion>CS</mix:processingSoftwareVersion>
+                                            <mix:processingOperatingSystemName>Win</mix:processingOperatingSystemName>
+                                            <mix:processingOperatingSystemVersion>7.0</mix:processingOperatingSystemVersion>
+                                        </mix:ProcessingSoftware>
+                                        <mix:processingActions>La risoluzione dell'immagine è stata ridotta da 742 x 768 pixel (source) a 309 x 320 pixel</mix:processingActions>
+                                    </mix:ImageProcessing>
+                                </mix:ChangeHistory>
+                            </mix:mix>
+                        </xmlData>
+                    </mdWrap>
+                </techMD>
+                <techMD ID="tmd05">
+                    <mdWrap MDTYPE="NISOIMG" MIMETYPE="image">
+                        <xmlData>
+                            <mix:mix>
+                                <mix:BasicDigitalObjectInformation>
+                                    <mix:fileSize>21300</mix:fileSize>
+                                    <mix:FormatDesignation>
+                                        <mix:formatName>image/jp2</mix:formatName>
+                                        <mix:formatVersion>6.0</mix:formatVersion>
+                                    </mix:FormatDesignation>
+                                    <mix:Compression>
+                                        <mix:compressionScheme>JPEG 2000 Lossy</mix:compressionScheme>
+                                    </mix:Compression>
+                                </mix:BasicDigitalObjectInformation>
+                                <mix:BasicImageInformation>
+                                    <mix:BasicImageCharacteristics>
+                                        <mix:imageWidth>145</mix:imageWidth>
+                                        <mix:imageHeight>150</mix:imageHeight>
+                                        <mix:PhotometricInterpretation>
+                                            <mix:colorSpace>RGB</mix:colorSpace>
+                                        </mix:PhotometricInterpretation>
+                                    </mix:BasicImageCharacteristics>
+                                </mix:BasicImageInformation>
+                                <mix:ChangeHistory>
+                                    <mix:ImageProcessing>
+                                        <mix:dateTimeProcessed>2010-01-16</mix:dateTimeProcessed>
+                                        <mix:sourceData>file003m</mix:sourceData>
+                                        <mix:processingAgency>Galleria Borghese, servizio fotografico</mix:processingAgency>
+                                        <mix:ProcessingSoftware>
+                                            <mix:processingSoftwareName>Adobe Photoshop</mix:processingSoftwareName>
+                                            <mix:processingSoftwareVersion>CS</mix:processingSoftwareVersion>
+                                            <mix:processingOperatingSystemName>Win</mix:processingOperatingSystemName>
+                                            <mix:processingOperatingSystemVersion>7.0</mix:processingOperatingSystemVersion>
+                                        </mix:ProcessingSoftware>
+                                        <mix:processingActions>La risoluzione dell'immagine è stata ridotta da 742 x 768 pixel (source) a 145 x 150 pixel</mix:processingActions>
+                                    </mix:ImageProcessing>
+                                </mix:ChangeHistory>
+                            </mix:mix>
+                        </xmlData>
+                    </mdWrap>
+                </techMD>
+                <rightsMD ID="rgt01">
+                    <mdWrap MDTYPE="PREMIS:RIGHTS">
+                        <xmlData>
+                            <premis:rights>
+                                <premis:rightsStatement>
+                                    <premis:rightsStatementIdentifier>
+                                        <premis:rightsStatementIdentifierType>ARTPAST_RightsID</premis:rightsStatementIdentifierType>
+                                        <premis:rightsStatementIdentifierValue>000000500</premis:rightsStatementIdentifierValue>
+                                    </premis:rightsStatementIdentifier>
+                                    <premis:rightsBasis>copyright</premis:rightsBasis>
+                                    <premis:copyrightInformation>
+                                        <premis:copyrightStatus>copyrighted</premis:copyrightStatus>
+                                        <premis:copyrightJurisdiction>it</premis:copyrightJurisdiction>
+                                        <premis:copyrightStatusDeterminationDate>20051103</premis:copyrightStatusDeterminationDate>
+                                        <premis:copyrightNote>© 2005 Galleria Borghese</premis:copyrightNote>
+                                    </premis:copyrightInformation>
+                                    <premis:rightsGranted>
+                                        <premis:act>use</premis:act>
+                                        <premis:restriction>ogni altro utilizzo diverso dallo storage deve essere autorizzato dal detentore dei diritti</premis:restriction>
+                                        <premis:termOfGrant>
+                                            <premis:startDate>20100201</premis:startDate>
+                                        </premis:termOfGrant>
+                                    </premis:rightsGranted>
+                                </premis:rightsStatement>
+                            </premis:rights>
+                        </xmlData>
+                    </mdWrap>
+                </rightsMD>
+                <rightsMD ID="rgt02">
+                    <mdWrap MDTYPE="PREMIS:RIGHTS">
+                        <xmlData>
+                            <premis:rights>
+                                <premis:rightsStatement>
+                                    <premis:rightsStatementIdentifier>
+                                        <premis:rightsStatementIdentifierType>ARTPAST_RightsID</premis:rightsStatementIdentifierType>
+                                        <premis:rightsStatementIdentifierValue>000000501</premis:rightsStatementIdentifierValue>
+                                    </premis:rightsStatementIdentifier>
+                                    <premis:rightsBasis>license</premis:rightsBasis>
+                                    <premis:licenseInformation>
+                                        <premis:licenseIdentifier>
+                                            <premis:licenseIdentifierType>Creative Commons Public License: Attribuzione - Non commerciale - Non opere derivate 2.5 (ITALIA)</premis:licenseIdentifierType>
+                                            <premis:licenseIdentifierValue>http://creativecommons.org/licenses/by-nc-nd/2.5/it/legalcode</premis:licenseIdentifierValue>
+                                        </premis:licenseIdentifier>
+                                        <premis:licenseTerms>è possibile di riprodurre, distribuire, comunicare al pubblico, esporre in pubblico, rappresentare, eseguire e recitare quest'opera alle seguenti condizioni:
+                                            Attribuzione — Devi attribuire la paternità dell'opera nei modi indicati dall'autore o da chi ti ha dato l'opera in licenza e in modo tale da non suggerire che essi avallino te o il modo in cui tu usi l'opera.
+                                            Non commerciale — Non puoi usare quest'opera per fini commerciali.
+                                            Non opere derivate — Non puoi alterare o trasformare quest'opera, ne' usarla per crearne un'altra.</premis:licenseTerms>
+                                    </premis:licenseInformation>
+                                </premis:rightsStatement>
+                            </premis:rights>
+                        </xmlData>
+                    </mdWrap>
+                </rightsMD>
+            </amdSec>
+            <fileSec>
+                <fileGrp USE="master" ADMID="rgt01">
+                    <file ID="file001m" DMDID="i_0001" ADMID="tmd01" MIMETYPE="image/tiff">
+                        <FLocat LOCTYPE="URL" xl:href="giovane_con_canestra/01/m.tiff"/>
+                    </file>
+                </fileGrp>
+                <fileGrp USE="high" ADMID="rgt01">
+                    <file ID="file002h" DMDID="i_0001" ADMID="tmd02" MIMETYPE="image/tiff">
+                        <FLocat LOCTYPE="URL" xl:href="giovane_con_canestra/02/hr.tiff"/>
+                    </file>
+                </fileGrp>
+                <fileGrp USE="medium" ADMID="rgt02">
+                    <file ID="file003m" DMDID="i_0001" ADMID="tmd03" MIMETYPE="image/jpeg">
+                        <FLocat LOCTYPE="URL" xl:href="giovane_con_canestra/03/mr.jpeg"/>
+                    </file>
+                </fileGrp>
+                <fileGrp USE="low" ADMID="rgt02">
+                    <file ID="file004l" DMDID="i_0001" ADMID="tmd04" MIMETYPE="image/jpeg">
+                        <FLocat LOCTYPE="URL" xl:href="giovane_con_canestra/04/lr.jpeg"/>
+                    </file>
+                </fileGrp>
+                <fileGrp USE="preview" ADMID="rgt02">
+                    <file ID="file005p" DMDID="i_0001" ADMID="tmd05" MIMETYPE="image/jpeg">
+                        <FLocat LOCTYPE="URL" xl:href="giovane_con_canestra/05/p.jpeg"/>
+                    </file>
+                </fileGrp>
+            </fileSec>
+            <structMap TYPE="physical">
+                <div ID="div.1.0.0" TYPE="still image" DMDID="W_000008" LABEL="Caravaggio, Giovane con canestra di frutta" ORDER="001">
+                    <fptr FILEID="file001m"></fptr>
+                    <fptr FILEID="file002h"></fptr>
+                    <fptr FILEID="file003m"></fptr>
+                    <fptr FILEID="file004l"></fptr>
+                    <fptr FILEID="file005p"></fptr>
+                </div>
+            </structMap>
+        </mets>
+    </Appendix>
+</METS_Profile>

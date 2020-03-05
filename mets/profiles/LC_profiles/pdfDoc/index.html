@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Library of Congress Simple PDF Document METS Profile [Draft]</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheets/profile.css"></link>
+   </head>
+   <body>
+      <h2>LC METS Profiles</h2>
+      <h3>Library of Congress Simple PDF Document METS Profile [Draft]</h3>
+      <hr></hr>
+      <p><a href="http://www.loc.gov/mets/profiles/LC_profiles/pdfDoc/profile.xml">XML Version of Profile Document</a></p>
+      <hr></hr><br></br><h4>Abstract</h4>
+      <p>The Library of Congress pdfDoc METS Profile specifies how METS documents representing PDF (Portable Document Format) Documents
+         within Library of Congress digital library projects should be encoded.
+      </p><br></br><h4>URI</h4>
+      <p>http://www.loc.gov/mets/profiles/LC_profiles/pdfDoc</p><br></br><h4>Date</h4>
+      <p>2004-05-29T17:31:00</p><br></br><h4>Contact</h4>
+      <p>Network Development and MARC Standards Office<br></br><br></br>Library of Congress<br></br>101 Independence Avenue, Washington DC, 20540
+      </p><br></br><h4>Related Profile</h4>
+      <p>No related profiles.</p><br></br><h4>Extension Schema</h4>
+      <p>Metadata Object Description Schema (MODS)<br></br>http://www.loc.gov/mods/v3/
+      </p><br></br><h4>Description Rules</h4><br></br><h4>Controlled Vocabularies</h4>
+      <p>Library of Congress Subject Headings<br></br>Library of Congress<br></br>http://www.loc.gov/marc.source/subject/LCSH (proposed)<br></br>
+         	Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress
+         Subject Headings (LCSH).
+         <br></br></p>
+      <p>NACO Authority File<br></br>Library of Congress<br></br>http://authorities.loc.gov/<br></br>
+         	Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority
+         File.
+         <br></br></p>
+      <p>MARC Country Codes<br></br>Library of Congress NDMSO<br></br>http://www.loc.gov/marc.country/ (proposed)<br></br>
+         	Country codes used in the MODS section of a METS document must use MARC country code list.
+         <br></br></p>
+      <p>ISO 639-2 Language Codes<br></br>Library of Congress NDMSO<br></br>http://www.loc.gov/standards/iso639-2/<br></br>
+         	Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.
+         <br></br></p>
+      <p>MARC Relator Codes<br></br>Library of Congress NDMSO<br></br>http://www.loc.gov/marc.relators/<br></br>
+         	Relator codes or terms used in the MODS section of a METS document must use MARC relator list.
+         <br></br></p>
+      <p>Target Audience Codes<br></br>Library of Congress NDMSO<br></br>http://www.loc.gov/marc/sourcecode/target/<br></br>
+         	Terms used in the MODS section of a METS document must use the MARC target audience list.
+         <br></br></p>
+      <p>MARC Code List for Organizations<br></br>Library of Congress NDMSO<br></br>http://www.loc.gov/marc.organizations/ (proposed)<br></br>
+         	Source codes used in the MODS section of a METS document must use MARC organization list.
+         <br></br></p>
+      <h4>Structural Requirements</h4>
+      <h5>Descriptive Metadata Section</h5>
+      <p>A conforming document will contain a single Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS bibliographic
+         record. See Example 1.
+      </p>
+      <h6>Example 1.</h6>
+      <div class="box"><span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">dmdSec</span> <span xmlns="" class="xmlverb-attr-name">ID</span>="<span xmlns="" class="xmlverb-attr-content">MODS1</span>"&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">mdWrap</span> <span xmlns="" class="xmlverb-attr-name">MDTYPE</span>="<span xmlns="" class="xmlverb-attr-content">MODS</span>"&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">xmlData</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mods</span>:<span xmlns="" class="xmlverb-element-name">titleInfo</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mods</span>:<span xmlns="" class="xmlverb-element-name">title</span>&gt;<span xmlns="" class="xmlverb-text">Gerry&nbsp;Mulligan&nbsp;discography</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mods</span>:<span xmlns="" class="xmlverb-element-name">title</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mods</span>:<span xmlns="" class="xmlverb-element-name">titleInfo</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">xmlData</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">mdWrap</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">dmdSec</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;</span></div>
+      <p></p><br></br><br></br><h5>File Section</h5>
+      <p>The document must contain one File Section (fileSec). The File Section (fileSec) must include one File Group (fileGrp) that
+         includes a File (file) element for each PDF file). The fileSec may optionally include additional fileGrp elements for alternate
+         versions of the PDF document (for example a Microsoft Word version). When this is the case the file element GROUPID attribute
+         should be used to associate the documents. See Example 2.
+      </p>
+      <h6>Example 2.</h6>
+      <div class="box"><span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fileSec</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fileGrp</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">file</span> <span xmlns="" class="xmlverb-attr-name">ID</span>="<span xmlns="" class="xmlverb-attr-content">F1</span>" <span xmlns="" class="xmlverb-attr-name">MIMETYPE</span>="<span xmlns="" class="xmlverb-attr-content">application/pdf</span>" <span xmlns="" class="xmlverb-attr-name">GROUPID</span>="<span xmlns="" class="xmlverb-attr-content">G1</span>" <span xmlns="" class="xmlverb-attr-name">USE</span>="<span xmlns="" class="xmlverb-attr-content">MASTER</span>"&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">FLocat</span> <span xmlns="" class="xmlverb-attr-name">LOCTYPE</span>="<span xmlns="" class="xmlverb-attr-content">URL</span>" <span xmlns="" class="xmlverb-attr-name">xlink:href</span>="<span xmlns="" class="xmlverb-attr-content">http://lcweb2.loc.gov/natlib/path/200003721/0001.pdf</span>" /&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">file</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fileGrp</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fileGrp</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">file</span> <span xmlns="" class="xmlverb-attr-name">ID</span>="<span xmlns="" class="xmlverb-attr-content">F2</span>" <span xmlns="" class="xmlverb-attr-name">MIMETYPE</span>="<span xmlns="" class="xmlverb-attr-content">application/word</span>" <span xmlns="" class="xmlverb-attr-name">GROUPID</span>="<span xmlns="" class="xmlverb-attr-content">G1</span>" <span xmlns="" class="xmlverb-attr-name">USE</span>="<span xmlns="" class="xmlverb-attr-content">MASTER</span>"&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">FLocat</span> <span xmlns="" class="xmlverb-attr-name">LOCTYPE</span>="<span xmlns="" class="xmlverb-attr-content">URL</span>" <span xmlns="" class="xmlverb-attr-name">xlink:href</span>="<span xmlns="" class="xmlverb-attr-content">http://lcweb2.loc.gov/natlib/path/200003721/0001.doc</span>" /&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">file</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fileGrp</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fileSec</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;</span></div>
+      <p></p><br></br><br></br><h5>Structure Map</h5>
+      <p>The METS document must contain one Structure Map (structMap).</p>
+      <p>The Structure Map must contain one high level Division (div) element with a TYPE attribute with value "pdf:pdfDocObject" and
+         a DMDID attribute that references the dmdSec element.
+      </p>
+      <p>The high-level div will have one child div element of TYPE="pdf:pdfDoc".</p>
+      <p>The div TYPE="pdf:pdfDoc" will have one child File Pointer (fptr) element with FILEID attribute linking to the corresponding
+         File element in the fileSec. There may be additional fptr elements for alternate versions of the pdf document. See Example
+         3.
+      </p>
+      <h6>Example 3.</h6>
+      <div class="box"><span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">structMap</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">div</span> <span xmlns="" class="xmlverb-attr-name">TYPE</span>="<span xmlns="" class="xmlverb-attr-content">pdf:pdfDocObject</span>" <span xmlns="" class="xmlverb-attr-name">DMDID</span>="<span xmlns="" class="xmlverb-attr-content">MODS1</span>"&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">div</span> <span xmlns="" class="xmlverb-attr-name">TYPE</span>="<span xmlns="" class="xmlverb-attr-content">pdf:pdfDoc</span>"&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fptr</span> <span xmlns="" class="xmlverb-attr-name">FILEID</span>="<span xmlns="" class="xmlverb-attr-content">F1</span>" /&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">fptr</span> <span xmlns="" class="xmlverb-attr-name">FILEID</span>="<span xmlns="" class="xmlverb-attr-content">F2</span>" /&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">div</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">div</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;/<span xmlns="" class="xmlverb-element-nsprefix">mets</span>:<span xmlns="" class="xmlverb-element-name">structMap</span>&gt;<span xmlns="" class="xmlverb-text"><br>
+            &nbsp;&nbsp;</span></div>
+      <p></p><br></br><br></br><h5>Multiple Sections</h5>
+      <p>The METS element must have a PROFILE attribute with value "lc:pdf". This attribute identifies the document as conformant to
+         the Library of Congress Simple PDF Document METS Profile.
+      </p>
+      <p>The METS element must have a xmlns:lc attribute with value "xmlns:lc="http://www.loc.gov/mets/profiles/". This namespace lists
+         all Library of Congress METS Profiles.
+      </p>
+      <p>The METS element must have a xmlns:pdf attribute with value "http://www.loc.gov/mets/profiles/pdfDoc". This namespace is used
+         to define the values of div TYPE attributes in the StructMap (e.g. div TYPE="pdf:pdfDoc").
+      </p>
+   </body>
+</html>

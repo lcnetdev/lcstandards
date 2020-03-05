@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/METS_Profile/" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd 
+																															  http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+																															  http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd">
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000008.xml</URI>
+  <title>RLG Trove.net METS Profile</title>
+  <abstract>The RLG Trove.net METS Profile describes the METS documents created by RLG for use with the Trove.net site.  Trove.net is a freely accessible image database that contains rare and unusual images, reflecting the world's cultures. Based on RLG Cultural Materials, the site allows individuals and small businesses, as well as publishers and advertisers, to license images for various uses.  Each Trove.net METS object describes and links to one image; each image is part of a collection provided to RLG by a Cultural Materials contributing institution. A list of contributors and collections is available on the Trove.net site.  This METS profile differs from others in that the METS objects described in this profile are not used for managing digital assets.  The current uses of the Trove.net METS objects are primarily internal to RLG.  They are used to derive HTML and for indexing.  They are also distributed to vendors that enable licensing of selected images from RLG Cultural Materials.  In designing these METS objects, RLG has anticipated that there may be additional uses for them in the future.</abstract>
+  <date>2005-11-02T11:00:00</date>
+  <contact>
+    <name>Fae Hamilton</name>
+    <institution>RLG</institution>
+    <address>2029 Stierlin Court, Suite 100, Mountain View, CA, 94043-4684</address>
+    <phone>650-691-2263</phone>
+    <email>fae_hamilton@notes.rlg.org</email>
+  </contact>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Qualified Dublin Core: Elements</name>
+    <URI>http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd</URI>
+    <context>Used as the primary schema for descriptive metadata in the METS:dmdSec element.</context>
+  </extension_schema>
+  <extension_schema>
+    <name>Qualified Dublin Core: Terms</name>
+    <URI>http://dublincore.org/schemas/xmls/qdc/2003/04/02/dcterms.xsd</URI>
+    <context>Used for some elements of descriptive metadata in the METS:dmdSec element.</context>
+  </extension_schema>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/standards/mods/v3/mods-3-0.xsd</URI>
+    <context>Used for some elements of descriptive metadata in the METS:dmdSec element. Version 3.0 of the MODS schema is used; documents will not validate against MODS version 3.1.</context>
+  </extension_schema>
+  <extension_schema>
+    <name>NISO Metadata for Images in XML (NISO MIX)</name>
+    <URI>http://www.loc.gov/standards/mix/mix.xsd</URI>
+    <context>Used for a few basic elements of technical metadata about image files in the METS:techMD element.</context>
+  </extension_schema>
+  <description_rules>
+    <p>The Trove.net METS objects are built by RLG based on descriptive data from contributors.  The use of rules for description varies for each contributor, and sometimes for each collection from a contributor.  See  http://www.rlg.org/en/page.php?Page_ID=214  for RLG's guidelines to contributors about descriptive data for contribution to RLG Cultural Materials.</p>
+  </description_rules>
+  <controlled_vocabularies>
+    <vocabulary>
+      <description>
+	<p>METS objects are built by RLG based on descriptive data from contributors.  Some contributors may choose to use controlled vocabularies in some elements.  RLG encourages the use of controlled vocabularies, but does not require it, or specify any particular controlled vocabulary.</p>
+      </description>
+    </vocabulary>
+  </controlled_vocabularies>
+  <structural_requirements>
+    <metsRootElement>
+      <requirement ID="rt01">
+	<p>The OBJID attribute of the METS root element contains an alphanumeric collection identifier, followed by an underscore, and a sequential number within the collection for the image described and linked to by this METS object.  The collection identifier consists of the contributing institution's RLG Library Identifier, followed by a sequential number that is unique within the collections from this contributor.</p>
+      </requirement>
+      <requirement ID="rt02">
+	<p>The LABEL attribute of the METS root element contains the primary title of the object being described.</p>
+      </requirement>
+    </metsRootElement>
+    <dmdSec>
+      <requirement ID="dm01">
+	<p>Each Trove.net METS document contains one and only one Descriptive Metadata Section (METS:dmdSec) with a wrapped (METS:mdWrap) Dublin Core description. Qualified Dublin Core is the primary extension schema used for the descriptive metadata.  MODS is used for some elements which cannot be adequately qualified in Dublin Core.  In the design of the descriptive metadata for these METS objects, RLG attempted to simplify the RCM data by using Dublin Core as the primary extension schema, yet preserve some of the richness of the data by using additional descriptive elements.</p>
+      </requirement>
+      <requirement ID="dm02">
+	<head>Elements that may be used within the METS:xmlData element within METS:mdWrap</head>
+	<p>dc:title -- the primary title of the object</p>
+	<p>dcterms:alternative -- alternative title of the object.  Repeatable.</p>
+	<p>mods:name -- creator name.  Repeatable. Sort form is in the mods:namePart subelement, and display form is in the mods:displayForm subelement.  The mods:roleTerm subelement contains 'creator'.</p>
+	<p>mods:originInfo/mods:place/mods:placeTerm -- the name of the place where the object was created.  Repeatable.</p>
+	<p>mods:originInfo/mods:dateCreated -- creation dates of the object.  If the creation date is a date range, repeated occurrences are used with the "point" attribute set to "start" for the earliest date and to "end" for the latest date.  The display form of the creation date is in an occurrence that does not contain the "point" attribute.</p>
+	<p>dc:description  -- description of the object.  Repeatable.</p>
+	<p>mods:physicalDescription/mods:note -- an inscription or mark on the object.  The "type" attribute is set to "marks".</p>
+	<p>dc:format -- the object's dimensions, materials, and techniques</p>
+	<p>dc:type  -- the type of object (e.g., photograph).  Repeatable.</p>
+	<p>dc:language -- the language represented</p>
+	<p>mods:subject/mods:topic  -- topical subject terms.  Repeatable.</p>
+	<p>mods:subject/mods:name/mods:displayForm  -- the name of a depicted person or group.  Repeatable.  Sort form is the text of mods:name, and display form is in the  mods:displayForm subelement.</p>
+	<p>dc:coverage -- the name of a place depicted.  Repeatable.</p>
+	<p>dcTerms:isPartOf -- the name of the collection which the object is from</p>
+	<p>dc:publisher -- the name and location of the institution that contributed the image and metadata to RLG Cultural Materials</p>
+	<p>dc:identifier -- an identifier for the corresponding work in the contributor's system</p>
+	<p>dc:source -- a string constant identifying the database source, trove.net™</p>
+      </requirement>
+    </dmdSec>
+    <amdSec>
+      <requirement ID="ad01">
+	<p>Each Trove.net METS document contains one and only one Administrative Metadata Section (METS:amdSec).  NISO MIX is the extension schema used for basic technical data about the image in the METS:techMD element.</p> 
+      </requirement>
+      <requirement ID="ad02">
+	<p>The image pixel dimensions in the mix:ImageWidth and mix:ImageLength elements are those of the highest resolution image stored at RLG, not the thumbnail or watermarked snapshot.  The file identifier of the corresponding JPEG is in the mix:ImageIdentifier element, and is identical to the OBJID attribute of the METS root element.</p>
+      </requirement>
+    </amdSec>
+    <fileSec>
+      <requirement ID="fs01">
+	<p>Each Trove.net METS document contains one and only one File Section (METS:fileSec), containing one and only one File Group (METS:fileGrp).  The METS:Flocat element is not used; instead, the METS:file element points to the Administrative Metadata section, which contains the file identifier.</p>
+      </requirement>
+    </fileSec>
+    <structMap>
+      <requirement ID="st01">
+	<p>Each Trove.net METS document contains one and only one Structural Map (METS:structMap).  The structMap contains only one div (METS:div), pointing to the single image that is linked to this METS object.</p>
+      </requirement>
+    </structMap>
+  </structural_requirements>
+  <technical_requirements>
+    <content_files>
+      <requirement>
+	<p>Digital objects are 24-bit RGB JPEG-compressed image files.  Images vary across the collections in aspect ratio and dimensions.  Nearly all images are 1024wx768h pixels or larger; some are significantly larger, exceeding 5000x5000 pixels.</p>
+      </requirement>
+    </content_files>
+    <behavior_files>
+      <requirement>
+	<p>No behavior files are distributed with Trove.net METS documents.</p>
+      </requirement>
+    </behavior_files>
+    <metadata_files>
+      <requirement>
+	<p>No external metadata files are distributed with Trove.net METS documents.</p>
+      </requirement>
+    </metadata_files>
+  </technical_requirements>
+  <tool>
+    <note><p>There are no associated tools.</p></note>
+  </tool>
+  <Appendix NUMBER="1" LABEL="Example of Trove.net METS object">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/" 
+	       xmlns="http://www.loc.gov/METS/" 
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	       xmlns:mix="http://www.loc.gov/mix/"
+	       xmlns:dc="http://purl.org/dc/elements/1.1/"  
+	       xmlns:dcterms="http://purl.org/dc/terms/"  
+	       xmlns:mods="http://www.loc.gov/mods/v3" 
+	       xsi:schemaLocation="
+				   http://www.loc.gov/METS/ 
+				   http://www.loc.gov/standards/mets/mets.xsd 
+				   http://purl.org/dc/elements/1.1/
+				   http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd 
+				   http://purl.org/dc/terms/
+				   http://dublincore.org/schemas/xmls/qdc/2003/04/02/dcterms.xsd
+				   http://www.loc.gov/mix/
+				   http://www.loc.gov/standards/mix/mix.xsd 
+				   http://www.loc.gov/mods/v3
+				   http://www.loc.gov/standards/mods/v3/mods-3-0.xsd"
+	       OBJID="CSHR0008_000074" LABEL="Mansion Brand">
+      <mets:dmdSec  ID="DMD001">
+	<mets:mdWrap MIMETYPE="text/xml" LABEL="Dublin Core Metadata" MDTYPE="DC">
+	  <mets:xmlData>
+	    <dc:title>Mansion Brand</dc:title>
+	    <mods:name>
+	      <mods:namePart>Piru Citrus Association</mods:namePart>
+	      <mods:displayForm>Piru Citrus Association</mods:displayForm>
+	      <mods:role>
+		<mods:roleTerm type="text">creator</mods:roleTerm>
+	      </mods:role>
+	    </mods:name>
+	    <mods:originInfo>
+	      <mods:place>
+		<mods:placeTerm>Piru, Ventura Co., California</mods:placeTerm>
+	      </mods:place>
+	      <mods:dateCreated point="start">1880</mods:dateCreated>
+	      <mods:dateCreated point="end">1950</mods:dateCreated>
+	      <mods:dateCreated>1880-1950</mods:dateCreated>
+	    </mods:originInfo>
+	    <dc:format>11 x 10 inches</dc:format>
+	    <dc:type>Citrus Labels</dc:type>
+	    <mods:subject>
+	      <mods:topic>Agriculture</mods:topic>
+	    </mods:subject>
+	    <dcterms:isPartOf>California Citrus Labels</dcterms:isPartOf>
+	    <dc:publisher>Huntington Library, Art Collections, and Botanical Gardens. San Marino, California 91108 United States</dc:publisher>
+	    <dc:identifier>CSHRC. L. M-13</dc:identifier>
+	    <dc:source>trove.net™</dc:source>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:amdSec>
+	<mets:techMD ID="AMD1">
+	  <mets:mdWrap MDTYPE="OTHER">
+	    <mets:xmlData>
+	      <mix:mix>
+		<mix:BasicImageParameters>
+		  <mix:Format>
+		    <mix:MIMEType>image/jpeg</mix:MIMEType>
+		  </mix:Format>
+		  <mix:File>
+		    <mix:ImageIdentifier>CSHR0008_000074</mix:ImageIdentifier>
+		  </mix:File>
+		</mix:BasicImageParameters>
+		<mix:ImagingPerformanceAssessment>
+		  <mix:SpatialMetrics>
+		    <mix:ImageWidth>3072</mix:ImageWidth>
+		    <mix:ImageLength>2048</mix:ImageLength>
+		  </mix:SpatialMetrics>
+		</mix:ImagingPerformanceAssessment>
+	      </mix:mix>
+	    </mets:xmlData>
+	  </mets:mdWrap>
+	</mets:techMD>
+      </mets:amdSec>
+      <mets:fileSec>
+	<mets:fileGrp>
+	  <mets:file ID="FILE0001" MIMETYPE="image/jpeg" SEQ="1" ADMID="AMD1"/>
+	</mets:fileGrp>
+      </mets:fileSec>
+      <mets:structMap>
+	<mets:div ORDER="1" TYPE="image">
+	  <mets:fptr FILEID="FILE0001"/>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/version16/mets.v1-6.xsd">
+	<URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000021.xml</URI>
+	<title>Ex Libris - DigiTool multi-page entity</title>
+	<abstract>
+  DigiTool uses the METS standard to describe a group of files/objects with parent child relationships that comprise one intellectual entity. The METS structure map in DigiTool allows describing a multi-hierarchical level description of the object (for example, a logical table of contents of a book). The content files may be of any format type, e.g. audio, image, text, or video, and there can be any combination of formats within a single METS. The decision to require use of METS vs. complex object or collection management structure is influenced by the desired result and the nature of the material.
+  </abstract>
+	<date>2008-01-01T00:00:00</date>
+	<contact>
+		<name>Ex Libris LTD.</name>
+		<address>Gan Technology 8, Malcha Jerusalem, Israel</address>
+		<phone>972-2-6499100 or 972-2-6499106</phone>
+		<email>digitool.support@exlibris.co.il</email>
+	</contact>
+	<related_profile>There are no related profiles.</related_profile>
+	<extension_schema>
+		<name>Simple DC XML Schema (dc:)</name>
+		<URI>http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd</URI>
+		<context>Used for encoding descriptive metadata. (MDTYPE="DC")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Qualified DC XML Schema (dcterms:)</name>
+		<URI>http://dublincore.org/schemas/xmls/qdc/2003/04/02/dcterms.xsd</URI>
+		<context>Used for encoding descriptive metadata. (MDTYPE="DC")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>MARC</name>
+		<URI>http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd</URI>
+		<context>Used for encoding descriptive metadata. (MDTYPE="MARC")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>MODS</name>
+		<URI>http://www.loc.gov/standards/mods/v3/mods-3-1.xsd</URI>
+		<context>Used for encoding descriptive metadata. (MDTYPE="MODS")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Technical Video (LOC)</name>
+		<URI>http://lcweb2.loc.gov/mets/Schemas/VMD.xsd</URI>
+		<context>Used for encoding administrative technical metadata, specifically related to video. (MDTYPE="OTHER" OTHERMDTYPE="LC-V")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Technical Audio (LOC)</name>
+		<URI>http://lcweb2.loc.gov/mets/Schemas/AMD.xsd</URI>
+		<context>Used for encoding administrative technical metadata, specifically related to audio. (MDTYPE="OTHER" OTHERMDTYPE="LC-A")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Technical Image</name>
+		<URI>http://www.loc.gov/mix/mix.xsd</URI>
+		<context>Used for encoding administrative technical metadata, specifically related to still images. (MDTYPE="NISOIMG")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Technical Text</name>
+		<URI>http://dlib.nyu.edu/METS/textmd.xsd</URI>
+		<context>Used for encoding administrative technical metadata, specifically related to text. (MDTYPE="OTHER" OTHERMDTYPE="text_md")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Access Rights</name>
+		<URI>http://www.exlibrisgroup.com/xsd/digitool/access_right_v1.0.xsd</URI>
+		<context>Used for encoding administrative intellectual property rights metadata, specifically for access rights. (MDTYPE="OTHER" OTHERMDTYPE="rights_md")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Copyrights Metadata</name>
+		<URI>http://cosimo.stanford.edu/sdr/metsrights.xsd</URI>
+		<context>Used for encoding administrative intellectual property rights metadata, specifically copyrights related material.(MDTYPE="OTHER" OTHERMDTYPE="copyrights_md")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Preservation Metadata</name>
+		<URI>http://www.loc.gov/standards/premis/Object-v1-0.xsd</URI>
+		<context>Used for encoding administrative preservation metadata. (MDTYPE="OTHER" OTHERMDTYPE="preservation_md")</context>
+	</extension_schema>
+	<extension_schema>
+		<name>Change History Metadata</name>
+		<URI>http://www.exlibrisgroup.com/xsd/digitool/change_history_v1.0.xsd</URI>
+		<context>Used for encoding administrative change history metadata. Based on the PREMIS event metadata: http://www.loc.gov/standards/premis/Event-v1-0.xsd. (MDTYPE="OTHER" OTHERMDTYPE="history_md")</context>
+	</extension_schema>
+	<description_rules>
+		<p>Descriptive metadata contents should be encoded using MARC, Dublin Core, Dublin Core Terms, or MODS extension schemas, following both the appropriate guidelines recommended by the extension schemas' maintenance agencies and the Ex Libris Guidelines for descriptive metadata. The metadata should be embedded in the METS file as XML, using the mdWrap tag.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>
+        USE attribute values are mandatory (see DigiTool-specific mets_configuration.xml to achieve preferred usage in DTL)
+        The following are the out of the box values. Other values are supported as well but would need to be defined in the mets_configuration.xml mapping file.
+      </name>
+			<maintenance_agency>Ex Libris Systems Office</maintenance_agency>
+			<values>
+				<value>thumbnail</value>
+				<value>index</value>
+				<value>archive</value>
+				<value>reference</value>
+				<value>reference image</value>
+				<value>reference video</value>
+				<value>reference audio</value>
+				<value>reference text</value>
+				<value>alto</value>
+				<value>Images</value>
+				<value>Text</value>
+				<value>PDF</value>
+			</values>
+			<context ID="vc1" RELATEDMAT="fileSec2">
+				<p>mets/fileSec/fileGrp/@USE</p>
+			</context>
+			<description>
+				<head>These are the supported values for &lt;fileGrp&gt; USE attributes.</head>
+				<p>thumbnail - A low resolution image</p>
+				<p>index - A plain text or HTML file which can be used for full text search</p>
+				<p>archive - Master copy usually from tiff format for image resources </p>
+				<p>reference - Any type of delivery format - usually a Web transportable file size for image/text/video/audio etc.</p>
+				<p>reference image - Image manifestation of primary reference usage copy</p>
+				<p>reference video - Video manifestation of primary reference usage copy</p>
+				<p>reference audio - Audio manifestation of primary reference usage copy</p>
+				<p>reference text - Textual manifestation of primary reference usage copy</p>
+				<p>alto - Index manifestation in the alto XML format (http://www.loc.gov/ndnp/alto_1-1-041.xsd) This index file can be used for full text search and highlighting functions</p>
+				<p>Images - This is a CCS compliant use type for image based objects</p>
+				<p>Text - This is a CCS compliant use type for alto objects</p>
+				<p>PDF - This is a CCS compliant use type for PDF objects</p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Ex Libris Digital Object &lt;structMap&gt; TYPE attribute values</name>
+			<maintenance_agency>Ex Libris Systems Office</maintenance_agency>
+			<values>
+				<value>physical</value>
+				<value>logical</value>
+				<value>mixed</value>
+			</values>
+			<context ID="vc2" RELATEDMAT="structMap2">
+				<p>mets/structMap/@TYPE</p>
+			</context>
+			<description>
+				<head>These are the suggested values for the &lt;structMap&gt; TYPE attribute in METS documents conforming to this profile.</head>
+				<p>"physical" designates a purely physical structure.  For example, a book divided into page views.</p>
+				<p>"logical" designates a purely logical structure.  For example, a book divided into chapters or a diary divided into diary entries. This &lt;structMap&gt; will be the default view when viewing METS objects that contain it.</p>
+				<p>"mixed" designates a mixed structure.  For example, a book divided into chapters and also divided into page views. This &lt;structMap&gt; will be the default view when viewing METS objects and no "logical" &lt;structMap&gt; exist.</p>
+			</description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="metsRoot1">
+				<p>The root &lt;METS&gt; element must include a LABEL attribute value.</p>
+			</requirement>
+			<requirement ID="metsRoot2">
+				<p>The root &lt;METS&gt; element must include a  TYPE attribute value.</p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement ID="metsHdr1">
+				<p>Conforming METS documents must contain a &lt;metsHdr&gt; element.</p>
+				<p>Conforming METS documents must contain a &lt;metsHdr/agent/name&gt; element.</p>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement>
+				<p>Conforming METS documents may, but need not, contain one or more &lt;dmdSec&gt; elements.</p>
+			</requirement>
+			<requirement ID="dmdSec1">
+				<p>Any metadata provided must be embedded in the METS file as XML using the mdWrap tag.</p>
+				<p>mdRef is not supported.</p>
+			</requirement>
+			<requirement ID="dmdSec2">
+				<p>If a &lt;dmdSec&gt; of a conforming document contains a &lt;mdWrap&gt; with &lt;xmlData&gt;, the &lt;xmlData&gt; must conform to those listed in the extension schemas section above.</p>
+			</requirement>
+			<requirement ID="dmdSec3">
+				<p>Any dmdSec ID may, but need not be, referenced by the DMDID value denoted in either the fileSec section or structMap div section sections. </p>
+				<p> When referenced using DMDID from the top-level structMap div,  the assumption is that the metadata is relevant to the intellectual entity ONLY and not the specific files included in that intellectual entity.</p>
+				<p> When referenced using DMDID from the non top-level structMap divs,  the assumption is that the metadata is relevant to the pages/files referenced from that div-level reference and inherited downward.</p>
+				<p> When not referenced using DMDID at all, the assumption is that the metadata is relevant to the intellectual entity ONLY and not the specific files included in that intellectual entity.</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement ID="amdSec1">
+				<head>Conforming METS documents may or may not contain administrative metadata. Any of the supported &lt;amdSec&gt; child elements may appear: &lt;history_md&gt;, &lt;rights_md&gt;, &lt;text_md&gt;, &lt;LC_A&gt;, &lt;LC_V&gt;, &lt;IMAGENISO&gt; grouped by their most relevant category of administrative type i.e. &lt;IMAGENISO&gt; would fall under the classification of:</head>
+				<p>techMD (technical metadata) - Technical Video (LOC), Technical Audio (LOC), Technical Image, Technical Text.</p>
+				<p>rightsMD (intellectual property rights metadata) - Access Rights, Copyrights Metadata.</p>
+				<p>sourceMD (analog/digital source metadata) - Preservation Metadata. </p>
+				<p>digiprovMD (digital provenance metadata) - Change History Metadata.</p>
+			</requirement>
+			<requirement ID="amdSec2">
+				<p>A conforming METS document will contain one &lt;amdSec&gt; element per file.</p>
+				<p>Any defined &lt;history_md&gt;, &lt;rights_md&gt;, &lt;text_md&gt;, &lt;audio_md&gt;, &lt;video_md&gt;, &lt;IMAGENISO&gt; element or elements for the same file will appear in this single &lt;amdSec&gt; element and be designated by the appropriate type (techMD, rightsMD, etc.). Note that if the amdSec includes more than 1 metadata per file the ID reference should be to the specific child element metadata ID and not to the amdSec ID</p>
+			</requirement>
+			<requirement ID="amdSec3">
+				<p>If a &lt;amdSec&gt; of a conforming document contains a &lt;amdWrap&gt; with &lt;xmlData&gt;, the &lt;xmlData&gt; must conform to those listed in the extension schemas section above.</p>
+			</requirement>
+			<requirement ID="amdSec4">
+				<p>Any amdSec or child element techMD, rightsMD, sourceMD or digiprovMD ID may, but need not be, referenced by the ADMID value denoted in either the fileSec section or structMap div section sections.</p>
+				<p> When referenced using ADMID from the fileSec level - the metadata will be associated specifically with that particular file.</p>
+				<p> When not referenced using ADMID at all, the assumption is that the metadata is relevant to the intellectual entity ONLY and not the specific files included in that intellectual entity.</p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement ID="fileSec1">
+				<p>The &lt;fileGrp&gt; element must have a USE attribute.</p>
+				<p>Supported USE attribute values appear in the &lt;controlled_vocabularies&gt; section of this document.</p>
+			</requirement>
+			<requirement ID="fileSec2">
+				<p>The USE attribute should be expressed at the &lt;fileGrp&gt; level and not on the &lt;file&gt; level.</p>
+			</requirement>
+			<requirement ID="fileSec3" RELATEDMAT="vc1">
+				<p>The &lt;fileSec&gt; must contain a &lt;fileGrp&gt; for each file format/USE represented by the content files.</p>
+				<p>For example, the &lt;fileSec&gt; of a typical METS document implementing this profile might contain one &lt;fileGrp&gt; representing TIFF master images, one &lt;fileGrp&gt; representing high resolution JPEG reference images , one &lt;fileGrp&gt; representing medium resolution JPEG reference images, one &lt;fileGrp&gt; representing GIF thumbnail images, and one &lt;fileGrp&gt; representing OCR full text files.</p>
+			</requirement>
+			<requirement ID="fileSec4">
+				<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have a GROUPID attribute.</p>
+				<p>This attribute will associate each file with his manifestations (representations) in other &lt;fileSec&gt; sections.</p>
+				<p>For example a &lt;file&gt; holding a TIFF image will have the same GROUPID as its provided thumbnail manifestation &lt;file&gt;</p>
+			</requirement>
+			<requirement ID="fileSec5">
+				<p>Each &lt;file&gt; that has an ordered structure - i.e. physical pages and their thumbnails - should make use of the SEQ attribute to numerically indicate the order by which the physical order of pages should be displayed. The SEQ value should be consistent across the manifestation fileGrps for sibling file representations.</p>
+				<p>For example, the first master Tiff &lt;file&gt; image in a given &lt;fileGrp&gt; may have SEQ="1" and its analagous thumbnail in a different  &lt;fileGrp&gt; should also have SEQ="1" within that respective  &lt;file&gt; section.</p>
+			</requirement>
+			<requirement ID="fileSec6">
+				<p>Any &lt;file&gt; element may reference any number of pertinent descriptive metadata elements within the &lt;dmdSec&gt; via its DMDID attribute value. (see dmdSec section above)  Best practice dictates that this reference will be made at the structMap div level rather than at the fileSec level.</p>
+			</requirement>
+			<requirement ID="fileSec7">
+				<p>Any &lt;file&gt; element may reference any number of pertinent adminstrative metadata elements within the &lt;amdSec&gt; via its ADMID attribute value. (see amdSec section above)</p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement ID="structMap1">
+				<p>A conforming METS document must contain at least one &lt;structMap&gt;; it may, however, contain more than one &lt;structMap&gt;.</p>
+			</requirement>
+			<requirement ID="structMap2" RELATEDMAT="vc2">
+				<p>A conforming &lt;structMap&gt; must contain a TYPE attribute. Supported TYPE values appear in the &lt;controlled_vocabularies&gt; section of this document ("logical" ,"physical", or "mixed").</p>
+			</requirement>
+			<requirement ID="structMap3">
+				<p>Each &lt;structMap&gt; must include a LABEL attribute value.</p>
+			</requirement>
+			<requirement ID="structMap4">
+				<p>Each &lt;div&gt; must include a LABEL attribute value.</p>
+			</requirement>
+			<requirement ID="structMap5">
+				<p>The physical &lt;structMap&gt; represents a flattened structure and must only contain two levels of &lt;div&gt; elements with no further nesting. The top level &lt;div&gt; element required by the METS schema contains one level of child &lt;div&gt; elements to represent the linear sequence of the components of the digital object.</p>
+			</requirement>
+			<requirement ID="structMap6">
+				<p>The logical structMap represents the full hierarchical structure of the digital object, and can contain as many levels of nested &lt;div&gt; elements as required to express the object's full structure.</p>
+			</requirement>
+			<requirement ID="structMap7">
+				<p>A &lt;div&gt; element may or may not directly contain &lt;fptr&gt; elements. (In other words, a &lt;div&gt; of the &lt;structMap&gt; may or may not have content files directly associated with it).</p>
+			</requirement>
+			<requirement ID="structMap8">
+				<p>An &lt;fptr&gt; element must either:</p>
+				<p>1) directly point to a &lt;file&gt; element via its FILEID attribute;</p>
+				<p>2) contain an &lt;area&gt; element that points to a &lt;file&gt; element;</p>
+				<p>3) contain a &lt;seq&gt; element comprising multiple &lt;area&gt; elements that point to the relevant &lt;file&gt; elements.</p>
+			</requirement>
+			<requirement ID="structMap9">
+				<p>The &lt;par&gt; element can only be used in the PHYSICAL strcutMap.</p>
+			</requirement>
+			<requirement ID="structMap10">
+				<p>Any &lt;div&gt; element may reference any number of pertinent descriptive metadata elements within the &lt;dmdSec&gt; via its DMDID attribute value. (see dmdSec section above)</p>
+			</requirement>
+			<requirement ID="structMap11">
+				<p>Any &lt;div&gt; element may reference any number of pertinent administrative metadata elements within the &lt;amdSec&gt; via its ADMID attribute value. (see amdSec section above)</p>
+			</requirement>
+			<requirement ID="structMap12">
+				<p>Each &lt;div&gt; can contain only one child node &lt;fptr&gt; at that level. In other words, if more than one &lt;fptr&gt; reference is provided at a given div level, ONLY the first &lt;fptr&gt; will be used.</p>
+				<p>In case more than one node is required the &lt;div&gt; will have a &lt;seq&gt; which holds the required child nodes.</p>
+			</requirement>
+			<requirement ID="structMap13">
+				<p>An &lt;fptr&gt; element could directly contain an &lt;area&gt; element if only a portion of an integral file manifests the parent &lt;div&gt;.</p>
+				<p>This is likely to occur in either of two cases.</p>
+				<p>1) This would typically be the case when the parent &lt;div&gt; element represented just a segment of the entire document and the &lt;fptr&gt; represented ALTO OCR text. In this case, the &lt;area&gt; element under the &lt;fptr&gt; would point to the  &lt;file&gt; element representing the ALTO OCR text document (via its FILEID attribute) and must at least indicate  the starting point of the  the relevant section of the referenced ALTO OCR text file via the &lt;area&gt; BEGIN attribute. The BEGIN attribute, in this case, would have a BETYPE of "IDREF". The &lt;area&gt; element might also express the end point of the relevant section of the referenced file via its END attribute, but it need not do so.</p>
+				<p>2) When a &lt;structMap&gt; represents a logical structure, its individual &lt;div&gt; elements may each be manifested by only a portion of the associated image content files represented by its child &lt;fptr&gt; elements. In this case, an &lt;fptr&gt; element representing an image content file could, but need not, contain an &lt;area&gt; element which specified the shape and coordinates of the relevant section of the image via the &lt;area&gt; element's SHAPE and COORDS attribute values.</p>
+				<p>Note that this functionality is dependent on the support for the display of the area in the relevant viewer.</p>
+			</requirement>
+		</structMap>
+		<structLink>
+			<requirement ID="structLink1">
+				<p>A conforming METS document may contain a &lt;structLink&gt; element.  This profile, however, establishes no guidelines or expectations for its use.</p>
+			</requirement>
+		</structLink>
+		<behaviorSec>
+			<requirement ID="behaviorSec1">
+				<p>A conforming METS document may contain a &lt;behaviorSec&gt; element. This profile, however, establishes no guidelines or expectations for its use.</p>
+			</requirement>
+		</behaviorSec>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>This profile supports only image, textual, audio and video content files.</p>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool>
+		<name>ALTO</name>
+		<URI>http://www.loc.gov/ndnp/alto_1-1-041.xsd</URI>
+		<description>
+			<head>Requirements of the ALTO file</head>
+			<p>No default namespace is allowed in order to extract the text on the article window.</p>
+			<p>Default measurement unit is mm10, but measurement unit of pixel is also supported</p>
+		</description>
+	</tool>
+	<Appendix NUMBER="1" LABEL="Simple METS">
+		<mets:mets TYPE="text" LABEL="The Book Packaging label" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xb="http://com/exlibris/digiTool/repository/api/xmlbeans" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:mix="http://www.loc.gov/mix/">
+			<mets:metsHdr>
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Ex Libris - DigiTool profile example</mets:name>
+					<mets:note>This is an example METS file</mets:note>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="DMD1">
+				<mets:mdWrap MDTYPE="DC">
+					<mets:xmlData>
+						<dc:record>
+							<dc:title>Catcher in the rye</dc:title>
+							<dc:creator>J. D. Salinger</dc:creator>
+							<dc:description>The first 9 pages of the book</dc:description>
+							<dc:date>2008-01-01T00:00:00</dc:date>
+							<dc:language>Eng</dc:language>
+							<dc:rights>This document is copyrighted by Ex Libris Ltd. All rights reserved worldwide. No part can be copied or distributed, transmitted, transcribed, stored in a retrieval system or transplanted in any human or computer language, in any form or by any means, electronic, mechanical, magnetic, manual or otherwise, or disclosed to third parties, without the express written permission of Ex Libris Ltd.</dc:rights>
+						</dc:record>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:fileSec>
+				<mets:fileGrp USE="image">
+					<mets:file ID="TIF1" CREATED="2008-01-01T00:00:00" GROUPID="GRP1" MIMETYPE="image/tif" SEQ="1">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img1.tif"/>
+					</mets:file>
+					<mets:file ID="TIF2" CREATED="2008-01-01T00:00:00" GROUPID="GRP2" MIMETYPE="image/tif" SEQ="2">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img2.tif"/>
+					</mets:file>
+					<mets:file ID="TIF3" CREATED="2008-01-01T00:00:00" GROUPID="GRP3" MIMETYPE="image/tif" SEQ="3">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img3.tif"/>
+					</mets:file>
+					<mets:file ID="TIF4" CREATED="2008-01-01T00:00:00" GROUPID="GRP4" MIMETYPE="image/tif" SEQ="4">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img4.tif"/>
+					</mets:file>
+					<mets:file ID="TIF5" CREATED="2008-01-01T00:00:00" GROUPID="GRP5" MIMETYPE="image/tif" SEQ="5">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img5.tif"/>
+					</mets:file>
+					<mets:file ID="TIF6" CREATED="2008-01-01T00:00:00" GROUPID="GRP6" MIMETYPE="image/tif" SEQ="6">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img6.tif"/>
+					</mets:file>
+					<mets:file ID="TIF7" CREATED="2008-01-01T00:00:00" GROUPID="GRP7" MIMETYPE="image/tif" SEQ="7">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img7.tif"/>
+					</mets:file>
+					<mets:file ID="TIF8" CREATED="2008-01-01T00:00:00" GROUPID="GRP8" MIMETYPE="image/tif" SEQ="8">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img8.tif"/>
+					</mets:file>
+					<mets:file ID="TIF9" CREATED="2008-01-01T00:00:00" GROUPID="GRP9" MIMETYPE="image/tif" SEQ="9">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/img9.tif"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="thumbnail">
+					<mets:file ID="THUMB1" CREATED="2008-01-01T00:00:00" GROUPID="GRP1" MIMETYPE="image/jpg" SEQ="1">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb1.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB2" CREATED="2008-01-01T00:00:00" GROUPID="GRP2" MIMETYPE="image/jpg" SEQ="2">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb2.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB3" CREATED="2008-01-01T00:00:00" GROUPID="GRP3" MIMETYPE="image/jpg" SEQ="3">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb3.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB4" CREATED="2008-01-01T00:00:00" GROUPID="GRP4" MIMETYPE="image/jpg" SEQ="4">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb4.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB5" CREATED="2008-01-01T00:00:00" GROUPID="GRP5" MIMETYPE="image/jpg" SEQ="5">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb5.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB6" CREATED="2008-01-01T00:00:00" GROUPID="GRP6" MIMETYPE="image/jpg" SEQ="6">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb6.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB7" CREATED="2008-01-01T00:00:00" GROUPID="GRP7" MIMETYPE="image/jpg" SEQ="7">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb7.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB8" CREATED="2008-01-01T00:00:00" GROUPID="GRP8" MIMETYPE="image/jpg" SEQ="8">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb8.gif"/>
+					</mets:file>
+					<mets:file ID="THUMB9" CREATED="2008-01-01T00:00:00" GROUPID="GRP9" MIMETYPE="image/jpg" SEQ="9">
+						<mets:FLocat LOCTYPE="URL" xlink:href="file://files/thumb9.gif"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="PHYSICAL" LABEL="PHYSICAL">
+				<mets:div ID="PYS1" LABEL="Catcher in the rye - First 9 pages">
+					<mets:div ID="PYS2" LABEL="Page 1" ORDER="1">
+						<mets:fptr FILEID="TIF1" ID="PYS3"/>
+					</mets:div>
+					<mets:div ID="PYS4" LABEL="Page 2" ORDER="2">
+						<mets:fptr FILEID="TIF1" ID="PYS5"/>
+					</mets:div>
+					<mets:div ID="PYS6" LABEL="Page 3" ORDER="3">
+						<mets:fptr FILEID="TIF1" ID="PYS7"/>
+					</mets:div>
+					<mets:div ID="PYS8" LABEL="Page 4" ORDER="4">
+						<mets:fptr FILEID="TIF1" ID="PYS9"/>
+					</mets:div>
+					<mets:div ID="PYS10" LABEL="Page 5" ORDER="5">
+						<mets:fptr FILEID="TIF1" ID="PYS11"/>
+					</mets:div>
+					<mets:div ID="PYS12" LABEL="Page 6" ORDER="6">
+						<mets:fptr FILEID="TIF1" ID="PYS13"/>
+					</mets:div>
+					<mets:div ID="PYS14" LABEL="Page 7" ORDER="7">
+						<mets:fptr FILEID="TIF1" ID="PYS15"/>
+					</mets:div>
+					<mets:div ID="PYS16" LABEL="Page 8" ORDER="8">
+						<mets:fptr FILEID="TIF1" ID="PYS17"/>
+					</mets:div>
+					<mets:div ID="PYS18" LABEL="Page 9" ORDER="9">
+						<mets:fptr FILEID="TIF1" ID="PYS19"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+			<mets:structMap TYPE="LOGICAL" LABEL="LOGICAL">
+				<mets:div ID="LOG1" LABEL="Catcher in the rye - First 9 pages">
+					<mets:div ID="LOG2" LABEL="Chapter 1">
+						<mets:div ID="LOG3" LABEL="Page">
+							<mets:fptr FILEID="TIF1" ID="LOG4"/>
+						</mets:div>
+						<mets:div ID="LOG5" LABEL="Page">
+							<mets:fptr FILEID="TIF2" ID="LOG6"/>
+						</mets:div>
+					</mets:div>
+					<mets:div ID="LOG7" LABEL="Chapter 2">
+						<mets:div ID="LOG8" LABEL="Page">
+							<mets:fptr FILEID="TIF3" ID="LOG9"/>
+						</mets:div>
+						<mets:div ID="LOG10" LABEL="Page">
+							<mets:fptr FILEID="TIF4" ID="LOG11"/>
+						</mets:div>
+						<mets:div ID="LOG12" LABEL="Page">
+							<mets:fptr FILEID="TIF5" ID="LOG13"/>
+						</mets:div>
+					</mets:div>
+					<mets:div ID="LOG14" LABEL="Chapter 3">
+						<mets:div ID="LOG15" LABEL="Page">
+							<mets:fptr FILEID="TIF6" ID="LOG16"/>
+						</mets:div>
+						<mets:div ID="LOG17" LABEL="Page">
+							<mets:fptr FILEID="TIF7" ID="LOG18"/>
+						</mets:div>
+						<mets:div ID="LOG19" LABEL="Page">
+							<mets:fptr FILEID="TIF8" ID="LOG20"/>
+						</mets:div>
+						<mets:div ID="LOG21" LABEL="Page">
+							<mets:fptr FILEID="TIF9" ID="LOG22"/>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="2" LABEL="METS with ALTO OCR files">
+		<!-- DigiTool Mets Profile Sample -->
+		<mets:mets TYPE="text" LABEL="The Book Packaging label" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ar="http://com/exlibris/digiTool/repository/api/xmlbeans" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:mix="http://www.loc.gov/mix/">
+			<mets:metsHdr>
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Ex Libris - DigiTool profile example</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="DMD-1">
+				<mets:mdWrap MDTYPE="DC">
+					<mets:xmlData>
+						<dc:record>
+							<dc:title>The Book Label</dc:title>
+							<dc:creator>ExLibris Ltd.</dc:creator>
+							<dc:subject>METS example</dc:subject>
+						</dc:record>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:dmdSec ID="MODSMD_SEC1">
+				<mets:mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic metadata of section 1">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo ID="MODSMD_SECTION1" xml:lang="en">
+								<mods:title>Section 1 Title</mods:title>
+							</mods:titleInfo>
+							<mods:name ID="MODSMD_SECTION1" type="personal">
+								<mods:role>
+									<mods:roleTerm>aut</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:language>
+								<mods:languageTerm type="code" authority="rfc3066">en</mods:languageTerm>
+							</mods:language>
+							<mods:identifier type="local">EXL_METS</mods:identifier>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="NISOIMG-PAGE-1">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType/>
+									</mix:Format>
+									<mix:File>
+										<mix:FileSize>000027763</mix:FileSize>
+										<mix:Checksum>
+											<mix:ChecksumMethod/>
+											<mix:ChecksumValue/>
+										</mix:Checksum>
+									</mix:File>
+								</mix:BasicImageParameters>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="R-1">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="rights_md">
+						<mets:xmlData>
+							<ar:access_right_md enabled="true">
+								<ar:ar_copyrights required="true">
+									<ar:text_file>copyrightsStatement</ar:text_file>
+								</ar:ar_copyrights>
+								<ar:ar_conditions>
+									<ar:ar_condition>
+										<ar:ar_expressions>
+											<ar:ar_expression negate="false" ar_operation="eq">
+												<ar:key>ip_range</ar:key>
+												<ar:val1>10.0.0.1</ar:val1>
+												<ar:val2>11.0.0.1</ar:val2>
+											</ar:ar_expression>
+										</ar:ar_expressions>
+									</ar:ar_condition>
+								</ar:ar_conditions>
+							</ar:access_right_md>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:amdSec>
+				<mets:techMD ID="NISOIMG-PAGE-2">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType/>
+									</mix:Format>
+									<mix:File>
+										<mix:FileSize>000025763</mix:FileSize>
+										<mix:Checksum>
+											<mix:ChecksumMethod/>
+											<mix:ChecksumValue/>
+										</mix:Checksum>
+									</mix:File>
+								</mix:BasicImageParameters>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+			</mets:amdSec>
+			<mets:amdSec>
+				<mets:techMD ID="NISOIMG-PAGE-3">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType/>
+									</mix:Format>
+									<mix:File>
+										<mix:FileSize>000026546</mix:FileSize>
+										<mix:Checksum>
+											<mix:ChecksumMethod/>
+											<mix:ChecksumValue/>
+										</mix:Checksum>
+									</mix:File>
+								</mix:BasicImageParameters>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+			</mets:amdSec>
+			<mets:amdSec>
+				<mets:techMD ID="NISOIMG-PAGE-4">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType/>
+									</mix:Format>
+									<mix:File>
+										<mix:FileSize>000029546</mix:FileSize>
+										<mix:Checksum>
+											<mix:ChecksumMethod/>
+											<mix:ChecksumValue/>
+										</mix:Checksum>
+									</mix:File>
+								</mix:BasicImageParameters>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2005-06-12T00:00:00" USE="reference">
+					<mets:file ID="FID1a" MIMETYPE="image/jpg" SEQ="1" CREATED="2005-06-12T00:00:00" ADMID="NISOIMG-PAGE-1" GROUPID="1">
+						<mets:FLocat xlink:href="file://streams/page-1-img.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID2a" MIMETYPE="image/jpg" SEQ="2" CREATED="2005-06-12T00:00:00" ADMID="NISOIMG-PAGE-2" GROUPID="2">
+						<mets:FLocat xlink:href="file://streams/page-2-img.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID3a" MIMETYPE="image/jpg" SEQ="3" CREATED="2005-06-12T00:00:00" ADMID="NISOIMG-PAGE-3" GROUPID="3">
+						<mets:FLocat xlink:href="file://streams/page-3-img.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID4a" MIMETYPE="image/jpg" SEQ="4" CREATED="2005-06-12T00:00:00" ADMID="NISOIMG-PAGE-4" GROUPID="4">
+						<mets:FLocat xlink:href="file://streams/page-4-img.jpg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-06-12T00:00:00" USE="thumbnail">
+					<mets:file ID="FID1b" MIMETYPE="image/jpg" SEQ="1" CREATED="2005-06-12T00:00:00" GROUPID="1">
+						<mets:FLocat xlink:href="file://streams/page-1-thumb.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID2b" MIMETYPE="image/jpg" SEQ="2" CREATED="2005-06-12T00:00:00" GROUPID="2">
+						<mets:FLocat xlink:href="file://streams/page-2-thumb.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID3b" MIMETYPE="image/jpg" SEQ="3" CREATED="2005-06-12T00:00:00" GROUPID="3">
+						<mets:FLocat xlink:href="file://streams/page-3-thumb.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID4b" MIMETYPE="image/jpg" SEQ="4" CREATED="2005-06-12T00:00:00" GROUPID="4">
+						<mets:FLocat xlink:href="file://streams/page-4-thumb.jpg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-06-12T00:00:00" USE="reference audio">
+					<mets:file ID="FID1c" MIMETYPE="audio/mpeg" SEQ="1" CREATED="2005-06-12T00:00:00" GROUPID="1">
+						<mets:FLocat xlink:href="file://streams/page-1-vid.mpeg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID2c" MIMETYPE="audio/mpeg" SEQ="2" CREATED="2005-06-12T00:00:00" GROUPID="2">
+						<mets:FLocat xlink:href="file://streams/page-2-vid.mpeg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID3c" MIMETYPE="audio/mpeg" SEQ="3" CREATED="2005-06-12T00:00:00" GROUPID="3">
+						<mets:FLocat xlink:href="file://streams/page-3-vid.mpeg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID4c" MIMETYPE="audio/mpeg" SEQ="4" CREATED="2005-06-12T00:00:00" GROUPID="4">
+						<mets:FLocat xlink:href="file://streams/page-4-vid.mpeg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-06-12T00:00:00" USE="index">
+					<mets:file ID="FID1d" MIMETYPE="text/plain" SEQ="1" CREATED="2005-06-12T00:00:00" GROUPID="1">
+						<mets:FLocat xlink:href="file://streams/page-1-idx.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID2d" MIMETYPE="text/plain" SEQ="2" CREATED="2005-06-12T00:00:00" GROUPID="2">
+						<mets:FLocat xlink:href="file://streams/page-2-idx.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID3d" MIMETYPE="text/plain" SEQ="3" CREATED="2005-06-12T00:00:00" GROUPID="3">
+						<mets:FLocat xlink:href="file://streams/page-3-idx.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID4d" MIMETYPE="text/plain" SEQ="4" CREATED="2005-06-12T00:00:00" GROUPID="4">
+						<mets:FLocat xlink:href="file://streams/page-4-idx.txt" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-06-12T00:00:00" USE="alto">
+					<mets:file ID="FID1e" MIMETYPE="text/xml" SEQ="1" CREATED="2005-06-12T00:00:00" GROUPID="1">
+						<mets:FLocat xlink:href="file://streams/page-1-arc.xml" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID2e" MIMETYPE="text/xml" SEQ="2" CREATED="2005-06-12T00:00:00" GROUPID="2">
+						<mets:FLocat xlink:href="file://streams/page-2-arc.xml" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID3e" MIMETYPE="text/xml" SEQ="3" CREATED="2005-06-12T00:00:00" GROUPID="3">
+						<mets:FLocat xlink:href="file://streams/page-3-arc.xml" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID4e" MIMETYPE="text/xml" SEQ="4" CREATED="2005-06-12T00:00:00" GROUPID="4">
+						<mets:FLocat xlink:href="file://streams/page-4-arc.xml" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="Physical" ID="EXLIBRIS-PROFILE">
+				<mets:div LABEL="Book" ID="DTL1" TYPE="BOOK">
+					<mets:div LABEL="Page 1" ID="DTL2" ORDER="1" DMDID="NISOIMG-PAGE-1">
+						<mets:fptr>
+							<mets:area FILEID="FID1a"/>
+						</mets:fptr>
+					</mets:div>
+					<mets:div LABEL="Page 2" ID="DTL3" ORDER="2" DMDID="NISOIMG-PAGE-2">
+						<mets:fptr>
+							<mets:area FILEID="FID2a"/>
+						</mets:fptr>
+					</mets:div>
+					<mets:div LABEL="Page 3" ID="DTL4" ORDER="3" DMDID="NISOIMG-PAGE-3">
+						<mets:fptr>
+							<mets:area FILEID="FID3a"/>
+						</mets:fptr>
+					</mets:div>
+					<mets:div LABEL="Page 4" ID="DTL5" ORDER="4" DMDID="NISOIMG-PAGE-4">
+						<mets:fptr>
+							<mets:area FILEID="FID4a"/>
+						</mets:fptr>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+			<mets:structMap TYPE="Logical" ID="EXLIBRIS-LOGICAL">
+				<mets:div ID="DTL6" TYPE="BOOK" LABEL="Book" DMDID="DMD-1">
+					<mets:div ID="DTL7" LABEL="Title Page" TYPE="TITLE">
+						<mets:div ID="DTL8" LABEL="Headline" TYPE="HEADLINE">
+							<mets:fptr ID="DTL9">
+								<mets:area FILEID="FID1e" BETYPE="IDREF" BEGIN="P1_0001"/>
+							</mets:fptr>
+						</mets:div>
+						<mets:div ID="DTL10" LABEL="Opening statements" TYPE="TEXT">
+							<mets:fptr ID="DTL11">
+								<mets:seq>
+									<mets:area FILEID="FID1e" BETYPE="IDREF" BEGIN="P1_0002"/>
+									<mets:area FILEID="FID1e" BETYPE="IDREF" BEGIN="P1_0003"/>
+									<mets:area FILEID="FID1e" BETYPE="IDREF" BEGIN="P1_0003"/>
+									<mets:area FILEID="FID1e" BETYPE="IDREF" BEGIN="P1_0005"/>
+								</mets:seq>
+							</mets:fptr>
+						</mets:div>
+					</mets:div>
+					<mets:div ID="DTL12" TYPE="BODY" LABEL="Body">
+						<mets:div ID="DTL13" LABEL="First page" TYPE="PAGE" DMDID="MODSMD_SEC1">
+							<mets:div ID="DTL14" TYPE="PARAGRAPH">
+								<mets:div ID="DTL15" TYPE="TEXT">
+									<mets:fptr ID="DTL16">
+										<mets:seq>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0001"/>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0002"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+								<mets:div ID="DTL17" TYPE="TEXT">
+									<mets:fptr>
+										<mets:seq>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0003"/>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0004"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+							</mets:div>
+							<mets:div ID="DTL18" TYPE="PARAGRAPH">
+								<mets:div ID="DTL19" TYPE="TEXT">
+									<mets:fptr ID="DTL20">
+										<mets:seq>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0005"/>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0006"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+								<mets:div ID="DTL21" TYPE="TEXT">
+									<mets:fptr>
+										<mets:seq>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0007"/>
+											<mets:area FILEID="FID2e" BETYPE="IDREF" BEGIN="P2_0008"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+							</mets:div>
+						</mets:div>
+						<mets:div ID="DTL22" LABEL="Second page" TYPE="PAGE">
+							<mets:div ID="DTL23" TYPE="PARAGRAPH">
+								<mets:div ID="DTL24" TYPE="TEXT">
+									<mets:fptr ID="DTL25">
+										<mets:seq>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0001"/>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0002"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+								<mets:div ID="DTL26" TYPE="TEXT">
+									<mets:fptr>
+										<mets:seq>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0003"/>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0004"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+							</mets:div>
+							<mets:div ID="DTL27" TYPE="PARAGRAPH">
+								<mets:div ID="DTL28" TYPE="TEXT">
+									<mets:fptr ID="DTL29">
+										<mets:seq>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0005"/>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0006"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+								<mets:div ID="DTL30" TYPE="TEXT">
+									<mets:fptr>
+										<mets:seq>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0007"/>
+											<mets:area FILEID="FID3e" BETYPE="IDREF" BEGIN="P3_0008"/>
+										</mets:seq>
+									</mets:fptr>
+								</mets:div>
+							</mets:div>
+						</mets:div>
+					</mets:div>
+					<mets:div ID="DTL31" LABEL="Third page" TYPE="PAGE">
+						<mets:div ID="DTL32" TYPE="PARAGRAPH">
+							<mets:div ID="DTL33" TYPE="TEXT">
+								<mets:fptr ID="DTL34">
+									<mets:seq>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0001"/>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0002"/>
+									</mets:seq>
+								</mets:fptr>
+							</mets:div>
+							<mets:div ID="DTL35" TYPE="TEXT">
+								<mets:fptr>
+									<mets:seq>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0003"/>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0004"/>
+									</mets:seq>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+						<mets:div ID="DTL36" TYPE="PARAGRAPH">
+							<mets:div ID="DTL37" TYPE="TEXT">
+								<mets:fptr ID="DTL38">
+									<mets:seq>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0005"/>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0006"/>
+									</mets:seq>
+								</mets:fptr>
+							</mets:div>
+							<mets:div ID="DTL39" TYPE="TEXT">
+								<mets:fptr>
+									<mets:seq>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0007"/>
+										<mets:area FILEID="FID4e" BETYPE="IDREF" BEGIN="P4_0008"/>
+									</mets:seq>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+			<mets:structMap TYPE="Audio" ID="EXLIBRIS-AUDIO">
+				<mets:div ID="AUDIO1" LABEL="Book on tape">
+					<mets:div ID="AUDIO2" LABEL="First page">
+						<mets:fptr FILEID="FID1c"/>
+					</mets:div>
+					<mets:div ID="AUDIO3" LABEL="Second page">
+						<mets:fptr FILEID="FID2c"/>
+					</mets:div>
+					<mets:div ID="AUDIO4" LABEL="Third page">
+						<mets:fptr FILEID="FID3c"/>
+					</mets:div>
+					<mets:div ID="AUDIO5" LABEL="Fourth page">
+						<mets:fptr FILEID="FID4c"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink"  >
+
+  <!-- Created by Morgan Cundiff using Emacs -->
+  <!-- xsi:noNamespaceSchemaLocation="C:\mets_profiles\mets.profile.v1-1.xsd" -->
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/pdfDoc</URI>
+  <title>Library of Congress Simple PDF Document METS Profile [Draft]</title>
+  <abstract>The Library of Congress pdfDoc METS Profile specifies how METS documents representing PDF (Portable Document Format) Documents within Library of Congress digital library projects should be encoded.</abstract>
+  <date>2004-05-29T17:31:00</date>
+  <contact>
+    <name>Network Development and MARC Standards Office</name>
+    <institution>Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+    <context/>
+  </extension_schema>
+  <description_rules/>
+  <controlled_vocabularies>
+    <vocabulary>
+      <name>Library of Congress Subject Headings</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc.source/subject/LCSH (proposed)</URI>
+      <values>
+	<value/>
+      </values>
+      <context>
+	<p>Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress Subject Headings (LCSH).</p>
+      </context>
+      <description/>
+    </vocabulary>
+    <vocabulary>
+      <name>NACO Authority File</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://authorities.loc.gov/</URI>
+      <values>
+	<value/>
+      </values>
+      <context>
+	<p>Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority File.</p>
+      </context>
+      <description/>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Country Codes</name>
+      <maintenance_agency>Library of Congress NDMSO</maintenance_agency>
+      <URI>http://www.loc.gov/marc.country/ (proposed)</URI>
+      <values>
+	<value/>
+      </values>
+      <context>
+	<p>Country codes used in the MODS section of a METS document must use MARC country code list.</p>
+      </context>
+      <description/>
+    </vocabulary>
+    <vocabulary>
+      <name>ISO 639-2 Language Codes</name>
+      <maintenance_agency>Library of Congress NDMSO</maintenance_agency>
+      <URI>http://www.loc.gov/standards/iso639-2/</URI>
+      <values>
+	<value/>
+      </values>
+      <context>
+	<p>Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.</p>
+      </context>
+      <description/>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Relator Codes</name>
+      <maintenance_agency>Library of Congress NDMSO</maintenance_agency>
+      <URI>http://www.loc.gov/marc.relators/</URI>
+      <values>
+	<value/>
+      </values>
+      <context>
+	<p>Relator codes or terms used in the MODS section of a METS document must use MARC relator list.</p>
+      </context>
+      <description/>
+    </vocabulary>
+    <vocabulary>
+      <name>Target Audience Codes</name>
+      <maintenance_agency>Library of Congress NDMSO</maintenance_agency>
+      <URI>http://www.loc.gov/marc/sourcecode/target/</URI>
+      <values>
+	<value/>
+      </values>
+      <context>
+	<p>Terms used in the MODS section of a METS document must use the MARC target audience list.</p>
+      </context>
+      <description/>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Code List for Organizations</name>
+      <maintenance_agency>Library of Congress NDMSO</maintenance_agency>
+      <URI>http://www.loc.gov/marc.organizations/ (proposed)</URI>
+      <values>
+	<value/>
+      </values>
+      <context>
+	<p>Source codes used in the MODS section of a METS document must use MARC organization list.</p>
+      </context>
+      <description/>
+    </vocabulary>
+  </controlled_vocabularies>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A conforming document will contain a single Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS bibliographic record. See Example 1.</p>
+      </requirement>
+    </dmdSec>
+    <fileSec>
+      <requirement ID="fr01" RELATEDMAT="ex02">
+	<p>The document must contain one File Section (fileSec). The File Section (fileSec) must include one File Group (fileGrp) that includes a File (file) element for each PDF file). The fileSec may optionally include additional fileGrp elements for alternate versions of the PDF document (for example a Microsoft Word version). When this is the case the file element GROUPID attribute should be used to associate the documents. See Example 2.</p>
+      </requirement>
+    </fileSec>
+    <structMap>
+      <requirement ID="sm01" RELATEDMAT="ex03">
+	<p>The METS document must contain one Structure Map (structMap).</p>
+	<p>The Structure Map must contain one high level Division (div) element with a TYPE attribute with value "pdf:pdfDocObject" and a DMDID attribute that references the dmdSec element.</p>
+	<p>The high-level div will have one child div element of TYPE="pdf:pdfDoc".</p>
+	<p>The div TYPE="pdf:pdfDoc" will have one child File Pointer (fptr) element with FILEID attribute linking to the corresponding File element in the fileSec. There may be additional fptr elements for alternate versions of the pdf document. See Example 3.</p>
+      </requirement>
+    </structMap>
+    <multiSection>
+      <requirement>
+	<p>The METS element must have a PROFILE attribute with value "lc:pdf". This attribute identifies the document as conformant to the Library of Congress Simple PDF Document METS Profile.</p>
+	<p>The METS element must have a xmlns:lc attribute with value "xmlns:lc="http://www.loc.gov/mets/profiles/". This namespace lists all Library of Congress METS Profiles.</p>
+	<p>The METS element must have a xmlns:pdf attribute with value "http://www.loc.gov/mets/profiles/pdfDoc". This namespace is used to define the values of div TYPE attributes in the StructMap (e.g. div TYPE="pdf:pdfDoc").</p>
+      </requirement>
+    </multiSection>
+  </structural_requirements>
+
+  <technical_requirements>
+  </technical_requirements>
+
+
+  <tool/>
+  <Appendix ID="a1" NUMBER="0">
+    <mets:mets>Complete Instance Document goes here.</mets:mets>
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:dmdSec ID="MODS1">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:titleInfo>
+	    <mods:title>Gerry Mulligan discography</mods:title>
+	  </mods:titleInfo>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+
+
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:fileSec>
+      <mets:fileGrp>
+	<mets:file ID="F1" MIMETYPE="application/pdf" GROUPID="G1" USE="MASTER">
+	  <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/path/200003721/0001.pdf"/>
+	</mets:file>
+      </mets:fileGrp>
+      <mets:fileGrp>
+	<mets:file ID="F2" MIMETYPE="application/word" GROUPID="G1" USE="MASTER">
+	  <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/path/200003721/0001.doc"/>
+	</mets:file>
+      </mets:fileGrp>
+    </mets:fileSec>
+  </Appendix>
+
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:structMap>
+      <mets:div TYPE="pdf:pdfDocObject" DMDID="MODS1">
+	<mets:div TYPE="pdf:pdfDoc">
+	  <mets:fptr FILEID="F1"/>
+	  <mets:fptr FILEID="F2"/>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+
+
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/" 
+	       xmlns:lc="http://www.loc.gov/mets/profiles/" 
+	       xmlns:mods="http://www.loc.gov/mods/"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:pdf="http://www.loc.gov/mets/profiles/pdfDoc"
+	       PROFILE="lc:pdfDoc" OBJID="loc.natlib.ihas.200003721" />
+  </Appendix>
+
+
+
+</METS_Profile>

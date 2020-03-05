@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/v2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:METS="http://www.loc.gov/METS/" xmlns:PREMIS="info:lc/xmlns/premis-v2"
+	xmlns:OAI_DC="http://www.openarchives.org/OAI/2.0/oai_dc/"
+	xmlns:DC="http://purl.org/dc/elements/1.1/" xmlns:EAD="urn:isbn:1-931666-22-9"
+	xsi:schemaLocation="
+		http://www.w3.org/1999/xlink					http://www.loc.gov/standards/mets/xlink.xsd
+		http://www.loc.gov/METS_Profile/v2				http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd
+		http://www.loc.gov/METS/						http://www.loc.gov/standards/mets/mets.xsd
+		info:lc/xmlns/premis-v2							http://www.loc.gov/premis/premis.xsd
+		http://www.openarchives.org/OAI/2.0/oai_dc/		http://www.openarchives.org/OAI/2.0/oai_dc.xsd
+		urn:isbn:1-931666-22-9							http://www.loc.gov/ead/ead.xsd"
+	STATUS="final" REGISTRATION="registered">
+	<URI LOCTYPE="URL" ASSIGNEDBY="local">http://www.docuteam.ch/xmlns/sip-profile.xml</URI>
+	<URI LOCTYPE="URL" ASSIGNEDBY="metsboard">http://www.loc.gov/standards/mets/profiles/00000041.xml</URI> 
+	<title>The Matterhorn METS-Profile for Archives</title>
+	<abstract>This METS profile describes the structure of the METS document, which is the core of the digital 
+		object model used by the Docuteam software tools to support digital archiving. The profile has been 
+		developed in cooperation by Docuteam (http://www.docuteam.ch) and the Archives de l'Etat du Valais (http://www.vs.ch/aev)</abstract>
+	<date>2012-10-01T10:00:00</date>
+	<contact>
+		<institution>Docuteam GmbH</institution>
+		<address>Langacker 16, 5405 Baden-Dättwil, Switzerland</address>
+		<phone>+41 (0)56 470 03 37</phone>
+		<email>info@docuteam.ch</email>
+	</contact>
+	<related_profile/>
+	<profile_context/>
+	<external_schema>
+		<name>Docuteam Submission Agreement (SA)</name>
+		<URL>http://www.docuteam.ch/xmlns/submAgr.xsd</URL>
+		<context> The submision agreement specifies the relations between the producer and the
+			archive as it is described in ISO 20652:2006 (Producer-archive interface -- Methodology abstract standard). 
+			The unique ID of the submission agreement and the unique ID of the submission
+			agreement's Data Submission Session (DSS) should be placed into the "METS:mets[@TYPE]"
+			attribute. Although this is optional, it is strongly recommended. </context>
+	</external_schema>
+	<external_schema>
+		<name>Simple Dublin Core (DC)</name>
+		<URL>http://dublincore.org/schemas/xmls/simpledc20021212.xsd</URL>
+		<context> Descriptive metadata may be supplied in Dublin-Core format inside of a
+			"METS:mets/METS:dmdSec/METS:mdWrap[@MDTYPE='DC']/METS:xmlData" element. </context>
+	</external_schema>
+	<external_schema>
+		<name>Encoded Archival Description (EAD)</name>
+		<URL>http://www.loc.gov/ead/ead.xsd</URL>
+		<context> Descriptive metadata may be supplied in EAD format inside of a
+			"METS:mets/METS:dmdSec/METS:mdWrap[@MDTYPE='EAD']/METS:xmlData" element. </context>
+	</external_schema>
+	<external_schema>
+		<name>Preservation Metadata: Implementation Strategies (PREMIS) 2.2</name>
+		<URL>http://www.loc.gov/standards/premis/premis.xsd</URL>
+		<context> Used for encoding technical and administrative metadata inside of a 
+			"METS:mets/METS:amdSec/METS:digiprovMD/METS:mdWrap[@MDTYPE='PREMIS']/METS:xmlData" element. </context>
+	</external_schema>
+	<description_rules/>
+	<controlled_vocabularies/>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement>
+				<description>
+					<head>Label</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The attribute "LABEL" is optional and
+						contains the title of the submission agreement and the title of the
+						respective data submission session. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Profile</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The attribute "PROFILE" is mandatory
+						and contains the static URL of the SIP-Profile, as for instance
+						"http://www.docuteam.ch/xmlns/sip-profile.xml"</p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Type</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The attribute "TYPE" contains the IDs
+						of the submission agreement and the respective data submission session,
+						separated by an underscore character ("_"). Although this item is optional,
+						its presence is strongly recommended. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>ObjID</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The attribute "OBJID" is optional and
+						contains the persistent identifier of the Information Package as soon as
+						this has been assigned. </p>
+				</description>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement>
+				<description>
+					<head>Creation</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The attribute "CREATEDATE" is mandatory
+						and contains the timestamp of this SIP's creation. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Modification</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The attribute "LASTMODDATE" is
+						optional. It contains the timestamp of this SIP's last modification. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Record Status</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The attribute "RECORDSTATUS" is
+						mandatory. It describes the record status in regard to the ingest process
+						and contains a static text like "Submitted", "Validated", "Archived", "New",
+						"Migrated", or "Confirmed". It may contain other texts as needed by the
+						context. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Agent</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> At least one "METS:agent" element with
+						the attributes "ROLE='CREATOR'" and "TYPE='INDIVIDUAL'" is mandatory. It
+						must contain the element "METS:name" with the name of the creator. It may
+						contain the element "METS:note" with additional notes about the creator.
+					</p>
+				</description>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement>
+				<description>
+					<head>General</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> DMD sections are optional. If one is
+						present for an archived object, it has to contain the attribute "ID" that
+						matches the corresponding object's "METS:div[@DMDID]" attribute in the
+						structMap. There may be no more than one DMD section per archived
+						object.</p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>EAD</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> If the DMD section contains exactly one
+						"METS:mdWrap[@MDTYPE = 'EAD']" element, it has to contain one valid EAD
+						element within a "/METS:xmlData" element. The mandatory "EAD:archdesc"
+						element must contain one "EAD:dsc/EAD:c" element with the attributes "level"
+						and "otherlevel". The attribute "level" must contain the value "otherlevel".
+						The attribute "otherlevel" must contain the respective object's level of
+						description.</p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>DC</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> If the DMD section contains exactly one
+						"METS:mdWrap[@MDTYPE = 'DC']" element, it may contain one or more DC
+						elements within a "METS:xmlData/OAI_DC:dc" element. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Other</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> For any other DMD section type, there
+						exist no restrictions. </p>
+				</description>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement>
+				<description>
+					<head>General</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The METS file may contain zero or one
+						AMD sections. The AMD section contains, if it is present, zero or more
+						"METS:digiprovMD" elements. </p>
+					<p xmlns="http://www.w3.org/1999/xhtml"> A single "METS:digiprovMD" element must
+						contain exactly one
+						"METS:mdWrap[@MDTYPE='PREMIS']/METS:xmlData/PREMIS:premis[@version='2.2']"
+						element, which in turn contains a possibly empty list of "PREMIS:object"
+						elements. All "PREMIS:object" elements have to occur in the list before any
+						"PREMIS:event" elements. </p>
+					<p xmlns="http://www.w3.org/1999/xhtml">The "METS:digiprovMD" element requires
+						the "@ID" attribute to match the corresponding object's "METS:div[@ADMID]"
+						attribute in the structMap. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Objects</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The mandatory elements within a
+						"PREMIS:object" element are: </p>
+					<ul xmlns="http://www.w3.org/1999/xhtml">
+						<li>"PREMIS:objectIdentifier/PREMIS:objectIdentifierType"</li>
+						<li>"PREMIS:objectIdentifier/PREMIS:objectIdentifierValue"</li>
+					</ul>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Events</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The mandatory elements within a
+						"PREMIS:event" element are: </p>
+					<ul xmlns="http://www.w3.org/1999/xhtml">
+						<li>"PREMIS:eventIdentifier/PREMIS:eventIdentifierType"</li>
+						<li>"PREMIS:eventIdentifier/PREMIS:eventIdentifierValue"</li>
+						<li>"PREMIS:eventType"</li>
+						<li>"PREMIS:eventDateTime"</li>
+						<li>"PREMIS:eventOutcomeInformation/PREMIS:eventOutcome"</li>
+						<li>"PREMIS:linkingObjectIdentifier/PREMIS:linkingObjectIdentifierType"</li>
+						<li>"PREMIS:linkingObjectIdentifier/PREMIS:linkingObjectIdentifierValue"</li>
+					</ul>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Agent</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The mandatory elements within a
+						"PREMIS:agent" element are: </p>
+					<ul xmlns="http://www.w3.org/1999/xhtml">
+						<li>"PREMIS:agentIdentifier/PREMIS:agentIdentifierType"</li>
+						<li>"PREMIS:agentIdentifier/PREMIS:agentIdentifierValue"</li>
+					</ul>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Rights</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The mandatory elements within a
+						"PREMIS:rights" element are: </p>
+					<ul xmlns="http://www.w3.org/1999/xhtml">
+						<li>"PREMIS:rightsStatement/PREMIS:rightsStatementIdentifier/PREMIS:rightsStatementIdentifierType"</li>
+						<li>"PREMIS:rightsStatement/PREMIS:rightsStatementIdentifier/PREMIS:rightsStatementIdentifierValue"</li>
+					</ul>
+				</description>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement>
+				<description>
+					<head>General</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> The METS file may contain zero or one
+						fileSec sections. The fileSec section must contain, if it is present,
+						exactly one "METS:fileGrp" element. The "METS:fileGrp" element may contain
+						zero or more "METS:file" elements. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Files</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> Each "METS:file" element must contain
+						an "ID"-attribute which must match the "METS:fptr[@FILEID]" attribute value
+						in the corresponding object from the structMap.</p>
+					<p xmlns="http://www.w3.org/1999/xhtml"> Each "METS:file" element must
+						necessarily contain a "METS:FLocat" element with the following mandatory
+						non-empty attributes: </p>
+					<ul xmlns="http://www.w3.org/1999/xhtml">
+						<li>"LOCTYPE" containing the static value "URL"</li>
+						<li>"href" containing the file path relative to the SIP root directory in
+							URL format.</li>
+					</ul>
+				</description>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement>
+				<description>
+					<head>General</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"
+						> The structMap contains exactly one
+						"METS:div" element as the root node. Other "METS:div" elements are
+						recursively nested within each other and describe the hierarchical structure
+						of the SIP. Each "METS:div" element represents a file or folder. </p>
+				</description>
+			</requirement>
+			<requirement>
+				<description>
+					<head>Files and Folders</head>
+					<p xmlns="http://www.w3.org/1999/xhtml"> Each "METS:div" element has three
+						mandatory attributes: </p>
+					<ul xmlns="http://www.w3.org/1999/xhtml">
+						<li>"LABEL" containing the file or folder name</li>
+						<li>"TYPE" containing one of the static values "rootfolder", "folder", "rootfile" or
+							"file"</li>
+						<li>"ADMID" must match the corresponding "METS:digiprovMD[@ID]" attribute in
+							the amdSec section</li>
+					</ul>
+					<p xmlns="http://www.w3.org/1999/xhtml"
+						>There are four different types of
+						"METS:div" elements, distinguished by their "TYPE" attribute. The topmost
+						element can be one of "rootfolder" or "rootfile". All other elements nested
+						below can be one of "folder" or "file".</p>
+					<p xmlns="http://www.w3.org/1999/xhtml"
+						> Folder and rootfolder type "METS:div"
+						elements contain zero or more "METS:div" elements, one for each file or
+						folder within this folder in the file system. </p>
+					<p xmlns="http://www.w3.org/1999/xhtml"
+						> File type "METS:div" elements contain
+						exactly one more "METS:div" element with its "LABEL" attribute containing
+						the static value "Content", its "TYPE" attribute containing the static value
+						"content", and a "METS:fptr" element with its "FILEID" attribute value
+						matching the corresponding "METS:file[@ID]" attribute in the fileSec
+						section. </p>
+				</description>
+			</requirement>
+		</structMap>
+	</structural_requirements>
+	<technical_requirements/>
+	<tool/>
+	<Appendix NUMBER="1">
+		<METS:mets xmlns:METS="http://www.loc.gov/METS/" xmlns:EAD="urn:isbn:1-931666-22-9"
+			xmlns:PREMIS="info:lc/xmlns/premis-v2"
+			xmlns:OAI_DC="http://www.openarchives.org/OAI/2.0/oai_dc/"
+			xmlns:DC="http://purl.org/dc/elements/1.1/" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="   http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd   urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd   info:lc/xmlns/premis-v2 http://www.loc.gov/premis/premis.xsd   http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd   http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd"
+			PROFILE="http://www.docuteam.ch/xmlns/sip-profile.xml" TYPE="sa_all-formats-01_dss-01">
+			<METS:metsHdr RECORDSTATUS="New" LASTMODDATE="2012-10-01T09:17:01"/>
+			<METS:dmdSec ID="_20121001091423976">
+				<METS:mdWrap MDTYPE="EAD">
+					<METS:xmlData>
+						<EAD:ead>
+							<EAD:eadheader>
+								<EAD:eadid/>
+								<EAD:filedesc>
+									<EAD:titlestmt>
+										<EAD:titleproper/>
+									</EAD:titlestmt>
+								</EAD:filedesc>
+							</EAD:eadheader>
+							<EAD:archdesc level="otherlevel">
+								<EAD:did>
+									<EAD:unittitle/>
+								</EAD:did>
+								<EAD:dsc>
+									<EAD:c level="otherlevel" otherlevel="Bestand">
+										<EAD:did>
+											<EAD:unitid/>
+											<EAD:unittitle>BestandA</EAD:unittitle>
+											<EAD:langmaterial>
+												<EAD:language>Deutsch</EAD:language>
+											</EAD:langmaterial>
+										</EAD:did>
+									</EAD:c>
+								</EAD:dsc>
+							</EAD:archdesc>
+						</EAD:ead>
+					</METS:xmlData>
+				</METS:mdWrap>
+			</METS:dmdSec>
+			<METS:dmdSec ID="_20121001091424123">
+				<METS:mdWrap MDTYPE="EAD">
+					<METS:xmlData>
+						<EAD:ead>
+							<EAD:eadheader>
+								<EAD:eadid/>
+								<EAD:filedesc>
+									<EAD:titlestmt>
+										<EAD:titleproper/>
+									</EAD:titlestmt>
+								</EAD:filedesc>
+							</EAD:eadheader>
+							<EAD:archdesc level="otherlevel">
+								<EAD:did>
+									<EAD:unittitle/>
+								</EAD:did>
+								<EAD:dsc>
+									<EAD:c level="otherlevel" otherlevel="Serie">
+										<EAD:did>
+											<EAD:unitid/>
+											<EAD:unittitle>Serie10</EAD:unittitle>
+											<EAD:langmaterial>
+												<EAD:language>Deutsch</EAD:language>
+											</EAD:langmaterial>
+										</EAD:did>
+									</EAD:c>
+								</EAD:dsc>
+							</EAD:archdesc>
+						</EAD:ead>
+					</METS:xmlData>
+				</METS:mdWrap>
+			</METS:dmdSec>
+			<METS:dmdSec ID="_20121001091427005">
+				<METS:mdWrap MDTYPE="EAD">
+					<METS:xmlData>
+						<EAD:ead>
+							<EAD:eadheader>
+								<EAD:eadid/>
+								<EAD:filedesc>
+									<EAD:titlestmt>
+										<EAD:titleproper/>
+									</EAD:titlestmt>
+								</EAD:filedesc>
+							</EAD:eadheader>
+							<EAD:archdesc level="otherlevel">
+								<EAD:did>
+									<EAD:unittitle/>
+								</EAD:did>
+								<EAD:dsc>
+									<EAD:c level="otherlevel" otherlevel="Item">
+										<EAD:did>
+											<EAD:unitid/>
+											<EAD:unittitle>Bericht und Antrag an den
+												Staatsrat</EAD:unittitle>
+											<EAD:langmaterial>
+												<EAD:language>Deutsch</EAD:language>
+											</EAD:langmaterial>
+											<EAD:origination>Staatskanzlei</EAD:origination>
+											<EAD:unitdate label="creationPeriod">2011</EAD:unitdate>
+											<EAD:physdesc>
+												<EAD:extent>12 pages</EAD:extent>
+											</EAD:physdesc>
+										</EAD:did>
+									</EAD:c>
+								</EAD:dsc>
+							</EAD:archdesc>
+						</EAD:ead>
+					</METS:xmlData>
+				</METS:mdWrap>
+			</METS:dmdSec>
+			<METS:amdSec>
+				<METS:digiprovMD ID="_20121001091423971">
+					<METS:mdWrap MDTYPE="PREMIS">
+						<METS:xmlData>
+							<PREMIS:premis version="2.0">
+								<PREMIS:object xsi:type="PREMIS:representation">
+									<PREMIS:objectIdentifier>
+										<PREMIS:objectIdentifierType>Docuteam</PREMIS:objectIdentifierType>
+										<PREMIS:objectIdentifierValue>_20121001091423972</PREMIS:objectIdentifierValue>
+									</PREMIS:objectIdentifier>
+									<PREMIS:originalName xlink:type="simple">BestandA</PREMIS:originalName>
+								</PREMIS:object>
+								<PREMIS:event>
+									<PREMIS:eventIdentifier>
+										<PREMIS:eventIdentifierType>Docuteam</PREMIS:eventIdentifierType>
+										<PREMIS:eventIdentifierValue>_20121001091423975</PREMIS:eventIdentifierValue>
+									</PREMIS:eventIdentifier>
+									<PREMIS:eventType>Creation</PREMIS:eventType>
+									<PREMIS:eventDateTime>2012-10-01T09:14:23</PREMIS:eventDateTime>
+									<PREMIS:eventDetail>Performed by: Docupack</PREMIS:eventDetail>
+									<PREMIS:eventOutcomeInformation>
+										<PREMIS:eventOutcome>Success</PREMIS:eventOutcome>
+									</PREMIS:eventOutcomeInformation>
+									<PREMIS:linkingObjectIdentifier xlink:type="simple">
+										<PREMIS:linkingObjectIdentifierType>Docuteam</PREMIS:linkingObjectIdentifierType>
+										<PREMIS:linkingObjectIdentifierValue>_20121001091423972</PREMIS:linkingObjectIdentifierValue>
+									</PREMIS:linkingObjectIdentifier>
+								</PREMIS:event>
+							</PREMIS:premis>
+						</METS:xmlData>
+					</METS:mdWrap>
+				</METS:digiprovMD>
+				<METS:digiprovMD ID="_20121001091424111">
+					<METS:mdWrap MDTYPE="PREMIS">
+						<METS:xmlData>
+							<PREMIS:premis version="2.0">
+								<PREMIS:object xsi:type="PREMIS:representation">
+									<PREMIS:objectIdentifier>
+										<PREMIS:objectIdentifierType>Docuteam</PREMIS:objectIdentifierType>
+										<PREMIS:objectIdentifierValue>_20121001091424112</PREMIS:objectIdentifierValue>
+									</PREMIS:objectIdentifier>
+									<PREMIS:originalName xlink:type="simple">Serie10</PREMIS:originalName>
+								</PREMIS:object>
+								<PREMIS:event>
+									<PREMIS:eventIdentifier>
+										<PREMIS:eventIdentifierType>Docuteam</PREMIS:eventIdentifierType>
+										<PREMIS:eventIdentifierValue>_20121001091424122</PREMIS:eventIdentifierValue>
+									</PREMIS:eventIdentifier>
+									<PREMIS:eventType>Creation</PREMIS:eventType>
+									<PREMIS:eventDateTime>2012-10-01T09:14:24</PREMIS:eventDateTime>
+									<PREMIS:eventDetail>Performed by: Docupack</PREMIS:eventDetail>
+									<PREMIS:eventOutcomeInformation>
+										<PREMIS:eventOutcome>Success</PREMIS:eventOutcome>
+									</PREMIS:eventOutcomeInformation>
+									<PREMIS:linkingObjectIdentifier xlink:type="simple">
+										<PREMIS:linkingObjectIdentifierType>Docuteam</PREMIS:linkingObjectIdentifierType>
+										<PREMIS:linkingObjectIdentifierValue>_20121001091424112</PREMIS:linkingObjectIdentifierValue>
+									</PREMIS:linkingObjectIdentifier>
+								</PREMIS:event>
+							</PREMIS:premis>
+						</METS:xmlData>
+					</METS:mdWrap>
+				</METS:digiprovMD>
+				<METS:digiprovMD ID="_20121001091426958">
+					<METS:mdWrap MDTYPE="PREMIS">
+						<METS:xmlData>
+							<PREMIS:premis version="2.0">
+								<PREMIS:object xsi:type="PREMIS:file">
+									<PREMIS:objectIdentifier>
+										<PREMIS:objectIdentifierType>Docuteam</PREMIS:objectIdentifierType>
+										<PREMIS:objectIdentifierValue>_20121001091426959</PREMIS:objectIdentifierValue>
+									</PREMIS:objectIdentifier>
+									<PREMIS:objectCharacteristics>
+										<PREMIS:compositionLevel>0</PREMIS:compositionLevel>
+										<PREMIS:fixity>
+											<PREMIS:messageDigestAlgorithm>MD5</PREMIS:messageDigestAlgorithm>
+											<PREMIS:messageDigest>3bd483e55b455dad369af1681d230108</PREMIS:messageDigest>
+										</PREMIS:fixity>
+										<PREMIS:size>307884</PREMIS:size>
+										<PREMIS:format>
+											<PREMIS:formatDesignation>
+												<PREMIS:formatName>Acrobat PDF 1.5 - Portable Document
+													Format</PREMIS:formatName>
+											</PREMIS:formatDesignation>
+											<PREMIS:formatRegistry>
+												<PREMIS:formatRegistryName>PRONOM</PREMIS:formatRegistryName>
+												<PREMIS:formatRegistryKey>fmt/19</PREMIS:formatRegistryKey>
+											</PREMIS:formatRegistry>
+										</PREMIS:format>
+									</PREMIS:objectCharacteristics>
+									<PREMIS:originalName xlink:type="simple"
+										>Bericht1.pdf</PREMIS:originalName>
+								</PREMIS:object>
+								<PREMIS:event>
+									<PREMIS:eventIdentifier>
+										<PREMIS:eventIdentifierType>Docuteam</PREMIS:eventIdentifierType>
+										<PREMIS:eventIdentifierValue>_20121001091426995</PREMIS:eventIdentifierValue>
+									</PREMIS:eventIdentifier>
+									<PREMIS:eventType>Creation</PREMIS:eventType>
+									<PREMIS:eventDateTime>2012-10-01T09:14:26</PREMIS:eventDateTime>
+									<PREMIS:eventDetail>Performed by: Docupack</PREMIS:eventDetail>
+									<PREMIS:eventOutcomeInformation>
+										<PREMIS:eventOutcome>Success</PREMIS:eventOutcome>
+									</PREMIS:eventOutcomeInformation>
+									<PREMIS:linkingObjectIdentifier xlink:type="simple">
+										<PREMIS:linkingObjectIdentifierType>Docuteam</PREMIS:linkingObjectIdentifierType>
+										<PREMIS:linkingObjectIdentifierValue>_20121001091426959</PREMIS:linkingObjectIdentifierValue>
+									</PREMIS:linkingObjectIdentifier>
+								</PREMIS:event>
+							</PREMIS:premis>
+						</METS:xmlData>
+					</METS:mdWrap>
+				</METS:digiprovMD>
+			</METS:amdSec>
+			<METS:fileSec>
+				<METS:fileGrp>
+					<METS:file ID="_20121001091424135">
+						<METS:FLocat LOCTYPE="URL" xlink:href="file:///BestandA/Serie10/Bericht1.pdf"/>
+					</METS:file>
+				</METS:fileGrp>
+			</METS:fileSec>
+			<METS:structMap>
+				<METS:div LABEL="BestandA" TYPE="rootfolder" ADMID="_20121001091423971">
+					<METS:div LABEL="EAD" TYPE="metadata" DMDID="_20121001091423976"/>
+					<METS:div LABEL="Serie10" TYPE="folder" ADMID="_20121001091424111">
+						<METS:div LABEL="EAD" TYPE="metadata" DMDID="_20121001091424123"/>
+						<METS:div LABEL="Bericht1.pdf" TYPE="file" ADMID="_20121001091426958">
+							<METS:div LABEL="Content" TYPE="content">
+								<METS:fptr FILEID="_20121001091424135"/>
+							</METS:div>
+							<METS:div LABEL="EAD" TYPE="metadata" DMDID="_20121001091427005"/>
+						</METS:div>
+					</METS:div>
+				</METS:div>
+			</METS:structMap>
+		</METS:mets>
+	</Appendix>
+</METS_Profile>

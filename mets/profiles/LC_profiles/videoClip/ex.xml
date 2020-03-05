@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	   xmlns:mods="http://www.loc.gov/mods/v3"
+	   xmlns:lc="http://www.loc.gov/mets/profiles"
+	   xmlns:xlink="http://www.w3.org/TR/xlink"
+	   xmlns:rights="http://www.loc.gov/rights/"
+	   xmlns:video="http://www.loc.gov/mets/profiles/videoProgram"
+	   PROFILE="lc:videoProgram"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <!-- Created by Morgan Cundiff in Emacs -->
+  <!-- (For XMLSpy validation)
+       xsi:schemaLocation="http://www.loc.gov/METS/ C:\mets_profiles\mets.xsd http://www.loc.gov/MODS/v3 C:\mets_profiles\mods-3-0.xsd"
+  -->
+
+  <mets:dmdSec ID="dmd01">
+    <mets:mdWrap MDTYPE="MODS">
+      <mets:xmlData>
+	<mods:mods ID="mods1">
+	  <mods:titleInfo>
+	    <mods:title>Program Title</mods:title>
+	  </mods:titleInfo>
+	  <mods:relatedItem type="constituent" ID="seg01">
+	    <mods:titleInfo>
+	      <mods:title>Segment Title 1</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	  <mods:relatedItem type="constituent" ID="seg02">
+	    <mods:titleInfo>
+	      <mods:title>Segment Title 2</mods:title>
+	    </mods:titleInfo>
+	  </mods:relatedItem>
+	</mods:mods>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+
+  <mets:structMap>
+    <mets:div TYPE="vc:videoProgram" DMDID="mods1">
+      <mets:div TYPE="vc:programSegment" DMDID="seg01">
+	<mets:div TYPE="vc:video">
+	</mets:div>
+	<mets:div TYPE="vc:text">
+	</mets:div>
+      </mets:div>
+      <mets:div TYPE="vc:programSegment" DMDID="seg02">
+	<mets:div TYPE="vc:video">
+	</mets:div>
+	<mets:div TYPE="vc:text">
+	</mets:div>
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>

@@ -1,0 +1,2182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.loc.gov/METS_Profile/												http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+  	<URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000013.xml</URI>
+  	<title>UCB General METS Profile Version 1</title>
+	<abstract>The UC Berkeley Library uses this profile to govern METS instance documents intended for submission to the California Digital Library as well as METS documents intended for reference use and dissemination to end users through UCB's own digital library repository.  The digital content governed by the METS documents conforming to this profile may be of any type or combination of types including, but not limited to: images, tei-based structured text, ocr-based unstructured text, pdf documents, ps documents, quicktime video, and Real audio. Source materials whose METS encoded digital versions would be covered by this profile could include manuscripts (such as letters and diaries), printed materials (such as books, pamphlets, and technical reports), mixed content materials (such as scrapbooks, photoalbums and oral histories that include photographs and/or sound recordings), individual photographs, paintings, sculptures, etc.  This profile also covers born-digital materials intended for general reference use. It at once extends, and for UC Berkeley Library purposes, completely supersedes the UCB Paged Text Object Profile and the UCB Imaged Object Profile. However, it is not in all respects backwards compatible with these profiles.</abstract>
+  	<date>2006-08-29T00:00:00</date>
+  	<contact>
+    		<name>Rick Beaubien</name>
+    		<address>88 Herrada Rd., Santa Fe, NM, 87508-8890
+    		</address>
+    		<phone>(505) 466-6630</phone>
+    		<email>rbeaubie@library.berkeley.edu</email>
+  	</contact>
+  	<related_profile RELATIONSHIP="supersedes" URI="http://www.loc.gov/mets/profiles/00000003.xml">UCB Paged Text Object Profile
+  	</related_profile>
+  	<related_profile RELATIONSHIP="supersedes" URI="http://www.loc.gov/mets/profiles/00000002.xml">UCB Imaged Object Profile
+  	</related_profile>
+  	<extension_schema ID="ext1">
+    		<name>MODS</name>
+    		<URI>http://www.loc.gov/standards/mods/v3/mods-3-1.xsd</URI>
+    		<context>mets/dmdSec/mdWrap/xmlData</context>
+  		<note>While the schema referenced above represents v.3.1 of MODS, all v.3.x MODS schemas are largely backwards compatible with previous incremental releases of version 3. METS documents using any version 3 MODS schema are accommodated by this profile.</note>
+    	</extension_schema>
+  	<extension_schema ID="ext2">
+    		<name>NISOIMG</name>
+    		<URI>http://www.loc.gov/standards/mix/mix.xsd</URI>
+    		<context>mets/amdSec/techMD/mdWrap/xmlData</context>
+    		<note>Used for technical metadata about image content files.This profile supports both the existing version 1 of the schema as well as version 2 as soon as this becomes available.</note>
+  	</extension_schema>
+  	<extension_schema ID="ext3">
+    		<name>textmd</name>
+    		<URI>http://dlib.nyu.edu/METS/textmd.xsd</URI>
+    		<context>mets/amdSec/techMD/mdWrap/xmlData</context>
+    		<note>Used for technical metadata about text content files.</note>
+  	</extension_schema>
+  	<extension_schema ID="ext4">
+    		<name>METSRights</name>
+    		<URI>http://cosimo.stanford.edu/sdr/metsrights.xsd</URI>
+    		<context>mets/amdSec/rightsMD/mdWrap/xmlData</context>
+  		<note>The CopyrightMD schema (see below) is the preferred schema for rights once this schema has been finalized.  But the METSRights schema is included to accommodate METS documents prepared before the CopyrightMD schema and associated implementation support is complete.</note>
+  	</extension_schema>
+	<extension_schema ID="ext5">
+		<name>CopyrightMD</name>
+		<URI>http://www.cdlib.org/inside/projects/rights/schema/copyrightMD.xsd</URI>
+		<context>mets/amdSec/rightsMD/mdWrap/xmlData</context>
+		<note>This will be the preferred schema for rights metadata in UCB METS documents as soon as it has been finalized.</note>
+	</extension_schema>
+	<extension_schema ID="ext6">
+		<name>PREMIS</name>
+		<URI>http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd</URI>
+		<context>This schema may be used in either or both of the following contexts: mets/amdSec/sourceMD/mdWrap/xmlData and/or mets/amdSec/digiprovMD/mdWrap/xmlData</context>
+		<note>This profile neither requires nor constrains the use of the PREMIS schemas in the METS documents that implement it.  It is, however, supported in particular for the PREMIS object schema's ability to the track complex relationships between source and target content files. For example, PREMIS could be used to record the derivation of a Quicktime video from multiple still images files.</note>	
+	</extension_schema>
+  	<description_rules>
+  		<p>All applications of the MODS schema in conforming METS documents should follow the MODS User Guidelines published by Library of Congress' Network Development and MARC Standards Office (.http://www.loc.gov/standards/mods/v3/mods-userguide.html). In addition, all conforming objects destined for the California Digital Library should follow the provisions for descriptive metadata set forth in CDL's Guidelines for Digital Objects: http://www.cdlib.org/inside/diglib/guidelines/</p>
+  	</description_rules>
+  	<controlled_vocabularies>
+  		<vocabulary ID="vc1">
+  			<name>CDL &lt;mets&gt; TYPE attribute values</name> 			
+  			<maintenance_agency>California Digital Library, Office of the President, University of Califorina</maintenance_agency>
+  			<URI>http://www.cdlib.org/inside/diglib/guidelines/</URI>
+   			<context >
+  				<p>mets/@TYPE</p>
+  			</context>
+  			<description>
+  				<p>This profile specifies no required vocabulary for the TYPE attribute value on the root &lt;mets&gt; element, nor does it require that this attribute appear.  However, the California Digital Library maintains a list of values used by its presentation programs to control the default display format for the objects it ingests into the CDL repository.  METS documents destined for the California Digital Library, and conforming to this profile, may specify one of these TYPE values to insure desired treatment  in the CDL repository.</p>
+  			</description>
+  		</vocabulary> 		
+  		<vocabulary ID="vc2"> 
+	  		<name>UC Berkeley Library METS &lt;file&gt;/&lt;fileGrp&gt; USE Attribute Values</name>
+	  		<maintenance_agency>Library Systems Office, The General Library, University of California, Berkeley</maintenance_agency>
+	  		<values>
+	  			<value>image/master</value>
+	  			<value>image/reference</value>
+	  			<value>image/thumbnail</value>
+	  			<value>image/dynamic</value>
+	  			<value>text/tei</value>
+	  			<value>text/tei element</value>
+	  			<value>text/ocr</value>
+	  			<value>text/reference</value>  		
+	  			<value>application</value>
+	  			<value>video/master</value>
+	  			<value>video/reference</value>
+	  			<value>audio/master</value>
+	  			<value>audio/reference</value>
+	  		</values>
+	  		<context >
+	  			<p>mets/fileSec/fileGrp/@USE</p>
+	  			<p>mets/fileSec/fileGrp/file/@USE</p>
+	  		</context>
+	  		<description>
+	  			<p>These are the supported values for &lt;file&gt; and &lt;fileGrp&gt; USE attributes in METS documents implementing this profile. They are intended mainly to help presentation programs know how they should treat particular content files.  In particular, they should help a presentation program distinguish between content files that are intended for reference use and those that  served as masters, but which are not intended for reference purposes.  They can also provide a presentation program with information that can help it or the end user decide what is the most appropriate content file for a particular purpose when this information is not apparent from the content file's MIME type.  For example, the USE attribute can help identify TEI encoded files and to distinguish these from other structured text files.  They allow presentation programs to recognize files with a MIME type of  &quot;text/plain&quot; which represent &quot;dirty&quot; OCR. The individual USE attribute values are defined below</p>
+	  			<p>&quot;image/master&quot;, &quot;image/reference&quot;, &quot;image/thumbnail&quot; and &quot;image/dynamic&quot; are appropriate values to describe the intended use of image content files from a presentation program's standpoint. The value &quot;image/master&quot; designates image master files (ultimate or intermediate) not intended for reference use.  The appropriate USE values for any image that is intended for reference use, even if it also serves master image for other derivatives, would be &quot;image/reference&quot;, &quot;image/thumbnail&quot; or &quot;image/dynamic&quot;.  The value &quot;image/thumbnail&quot; designates images intended for  thumbnail applications; the value &quot;image/dynamic&quot;designates still images such as mrsid and jpeg2000 images which allow for zooming and other dynamic capabilities; and the more general value &quot;image/reference&quot; designates all other types of still image content files which are intended for general reference use</p>
+	  			<p>&quot;text/tei&quot; and &quot;text/tei element&quot; are the  appropriate values to describe associated structured text files encoded according to TEI rules.  &quot;text/tei element&quot; applies when a &lt;file&gt; element represents just an element within an integral TEI content file. In this case, the xlink:href value in the &lt;FLocat&gt; element would use XPointer syntax to qualify the file URL and specify the ID attribute value of the relevant element in the TEI file.  &quot;text/tei&quot; applies to all &lt;file&gt; elements that represent integral TEI content files.</p>
+	  			<p>&quot;text/ocr&quot; designates versions of the text produced by ocr technologies, but which have not been cleaned, and hence may not be appropriate for some purposes. &quot;text/reference&quot; designates unstructured text, including clean ocr, which is appropriate for reference and presentation purposes.</p>  			
+	  			<p>&quot;application&quot; designates all types of non-video and non-audio content files encoded in a proprietary format requiring special browser plugins or players for presentation to the user.  This is the appropriate USE attribute value for &quot;pdf&quot; and &quot;ps&quot; content files .</p>
+	  			<p>Audio content files are represented by two USE values: &quot;audio/master&quot; for audio master or archive files not intended for general reference use; and &quot;audio/reference&quot; for audio files suitable for general reference use.</p>
+	  			<p>Video content files are also represented by two USE values: &quot;video/master&quot;; for video master or archive files not intended for general reference use;  and &quot;video/reference&quot; for video files suitable for general reference use</p>
+	  		</description>
+  		</vocabulary>
+	</controlled_vocabularies>
+  	<structural_requirements>
+	    	<metsRootElement>
+		      	<requirement ID="metsRoot1">
+				<p>The root &lt;mets&gt;element must include a LABEL attribute value.</p>
+		      	</requirement>
+		      	<requirement ID="metsRoot2">
+				<p>The root &lt;mets&gt; element must include an OBJID attribute value containing a valid ark and uniquely identifying the object represented by the METS document in its owning repository.</p>
+		      	</requirement>
+	    		<requirement ID="metsRoot3" RELATEDMAT="vc1">
+	    			<p>The root &lt;mets&gt; element may, but need not include a TYPE attribute.  This profile does not specify a vocabulary for the TYPE attribute.  However METS documents conforming to this profile that are destined for CDL should use the CDL &lt;mets&gt; TYPE attribute value vocabulary if they do include a TYPE attribute value at the &lt;mets&gt; level.  If they do not include a &lt;mets&gt; TYPE attribute value, then the CDL ingest programs will assign one by default.</p>
+	    		</requirement>    		
+	    	</metsRootElement>
+	    	<metsHdr>
+	      	<requirement ID="metsHdr1">
+				<p>Conforming METS documents must contain a metsHdr element.</p>
+	      	</requirement>
+	      	<requirement ID="metsHdr2">
+				<p>The &lt;metsHdr&gt; element must include the CREATEDATE attribute value.  It must also include the LASTMODDATE attribute value if this does not coincide with the CREATEDATE.</p>
+	      	</requirement>
+	      	<requirement>
+				<p>The &lt;metsHdr&gt; element must include a child &lt;agent&gt; element identifying the person or institution responsible for creating the METS object.</p>
+	      	</requirement>
+	    	</metsHdr>
+	    	<dmdSec>
+	      	<requirement ID="dmdSec1">
+				<p>Conforming METS documents may, but need not, contain a one or more &lt;dmdSec&gt; elements. Each &lt;dmdSec&gt; may in turn contain a &lt;mdRef&gt; or a &lt;mdWrap&gt;</p>
+	      	</requirement>
+	      	<requirement ID="dmdSec2" RELATEDMAT="ext1">
+	      			<p>At least one version of any descriptive metadata appearing in &lt;mdWrap&gt; elements  in a compliant document  must conform to the MODS schema.  Secondary versions of descriptive metadata analogous to a primary MODS version may appear, but must conform to a descriptive metadata schema endorsed by the METS Editorial Board. </p>
+	      	</requirement>
+	    	</dmdSec>
+	    	<amdSec>
+		      <requirement ID="amdSec1">
+				<p>Conforming METS documents may, but need not, contain an &lt;amdSec&gt; element. This may but need not contain one or more &lt;techMD&gt; elements, &lt;sourceMD&gt; elements, &lt;digiprovMD&gt; elements and/or &lt;rightsMD&gt; elements. METS documents conforming to this profile that are destined for CDL should conform to the GDO requirements with respect to administrative metadata. </p>
+		      </requirement>
+		      <requirement ID="amdSec2">
+				<p>A conforming METS document will contain no more than one &lt;amdSec&gt; element.  All &lt;techMD&gt;, &lt;sourceMD&gt;, &lt;rightsMD&gt; and &lt;digiprovMD&gt; elements must appear in this single &lt;amdSec&gt; element.</p>
+		      </requirement>
+		      <requirement ID="amdSec3" RELATEDMAT="ext2">
+				<p>If one or more &lt;techMD&gt; elements pertaining to image content files are present, they must contain &lt;xmlData&gt; of NISOIMG type conforming to the MIX schema.</p>
+		      </requirement>
+		      <requirement ID="amdSec4" RELATEDMAT="ext3">
+				<p>If one or more &lt;techMD&gt; elements pertaining to text content files are present, they must contain &lt;xmlData&gt; conforming to the textmd schema.</p>
+		      </requirement>
+		    	<requirement ID="amdSec5">
+		    		<p>If one or more &lt;techMD&gt; elements pertaining to application content files are present, they should contain &lt;xmlData&gt; conforming to METS Editorial Board endorsed schemas, once such schemas exist.</p>
+		    	</requirement>    		
+		      <requirement ID="amdSec6" RELATEDMAT="ext4 ext5">
+				<p>If one or more &lt;rightsMD&gt; elements are present they must contain &lt;xmlData&gt; conforming to the CopyrightMD schema, once this schema has been finalized.  Any &lt;rightsMD&gt; elements in objects produced prior to the completion of the CopyrightMD schema must contain &lt;xmlData&gt; conforming to the RightsDeclarationMD (METSRights) schema.</p>
+		      </requirement>
+		      <requirement ID="amdSec7" RELATEDMAT="ext6">
+				<p>Any &lt;sourceMD&gt; or &lt;digiprovMD&gt; elements must contain &lt;xmlData&gt; conforming to PREMIS or another METS Editorial Board endorsed schema whenever such a schema exists and covers the requisite concepts.</p>
+		      </requirement>
+	      	<requirement ID="amdSec8" RELATEDMAT="ext2">
+				<p>Source metadata pertaining to image content files may be expressed as part of any MIX encoded technical metadata in &lt;techMD&gt; elements rather than in separate &lt;sourceMD&gt; elements.  This might occur whenever the available source metadata is minimal and covered by the MIX schema.</p>
+	      	</requirement>
+	    		<requirement ID="amdSec9" RELATEDMAT="ext6">
+	    			<p>Complex relationships between source and content files, such as those between the rotational still images comprising a Quicktime video and the Quicktime video itself may be expressed via the PREMIS Object schema.  Complex source relationships such as these should be recorded in a &lt;sourceMD&gt; element.</p>
+	    		</requirement>	    		
+	    	</amdSec>
+	    	<fileSec>
+	      	<requirement ID="fileSec1">
+				<p>The &lt;fileSec&gt; of a conforming METS document must contain a parent &lt;fileGrp&gt; for each file format/use represented by the content files.  For example, the &lt;fileSec&gt; of a typical METS document implementing this profile might contain one &lt;fileGrp&gt; representing TIFF master images, one &lt;fileGrp&gt; representing high resolution JPEG reference images , one &lt;fileGrp&gt; representing medium resolution JPEG reference images, one &lt;fileGrp&gt; representing GIF thumbnail images, and one &lt;fileGrp&gt; representing TEI transcriptions.  This profile does not support nested &lt;fileGrp&gt; elements.</p>
+	      	</requirement>
+	      	<requirement ID="fileSec2" RELATEDMAT="vc2">
+	      		<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an associated USE attribute.  The USE attribute may be expressed directly at the &lt;file&gt; element level. Alternately, however, the USE attribute may be expressed in conjunction with the &lt;fileGrp&gt; that is the immediate parent of a &lt;file&gt; element; in this case it is taken to pertain to all &lt;file&gt; elements in the &lt;fileGrp&gt;. The  &lt;file&gt;/&lt;fileGrp&gt; USE attribute values must be drawn from the UC Berkeley Library METS &lt;file&gt;/&lt;fileGrp&gt; USE Attribute Values</p>
+	      	</requirement>
+	    		<requirement ID="fileSec3">
+	    			<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an associated MIMETYPE attribute.  This attribute must contain the official MIME type value for the content file represented</p>
+	    		</requirement>
+	    		<requirement ID="fileSec4">
+	    			<p>The &lt;file&gt; elements in a conforming METS document may, but need not contain ADMID, SEQ, SIZE, CREATED, CHECKSUM, CHECKSUMTYPE, OWNERID or GROUPID attribute values.</p>	    			
+	    		</requirement>
+	    		<requirement ID="fileSec5">
+	    			<p>Any &lt;file&gt; element may reference any number of pertinent &lt;techMD&gt;, &lt;sourceMD&gt; and &lt;digiprovMD&gt; metadata elements within the &lt;amdSec&gt; via its AMDID attribute value. It should only reference ID values at the &lt;techMD&gt;, &lt;sourceMD&gt; and/or &lt;digiprovMD&gt; levels of the &lt;amdSec&gt;.</p>
+	    		</requirement>
+	    		<requirement ID="fileSec6" RELATEDMAT="structMap5">
+	    			<p>&lt;file&gt; elements should not reference the IDs of &lt;rightsMD&gt; elements in their ADMID attributes.  Under this profile it is the responsibility of the &lt;div&gt; elements in the &lt;structMap&gt; to reference the &lt;rightsMD&gt; elements that pertain the content the &lt;div&gt; elements represent.  </p>
+	    		</requirement>		    		
+	    		<requirement ID="fileSec7">
+	    			<p>If the &lt;file&gt; element SEQ attribute is used, it should appear in every &lt;file&gt; element and express the ordinal number corresponding to the &lt;file&gt; element's sequence in its immediate &lt;fileGrp&gt;.</p>	  		    		
+	    		</requirement>
+	    		<requirement ID="fileSec8">
+	    			<p>If the &lt;file&gt; element GROUPID attribute is used, it should appear in every &lt;file&gt; element. The GROUPID of &lt;file&gt; elements that represent different manifestations of the same content should have the same GROUPID value.</p>
+	    		</requirement>
+	    		<requirement ID="fileSec9" RELATEDMAT="structMap4">
+	    			<p>This profile does not support the use of the DMDID attribute in &lt;file&gt; elements. Under this profile it is the responsibility of the &lt;div&gt; elements in the &lt;structMap&gt; to reference the &lt;dmdSec&gt; elements that pertain the content the &lt;div&gt; elements represent. Content file level descriptive metadata is not supported. </p>
+	    		</requirement> 
+	    		<requirement ID="fileSec10">
+	    			<p>Each &lt;file&gt; element must contain an &lt;FLocat&gt; element which specifies external location of the content file in its xlink:href attribute.The &lt;FLocat&gt; element must contain an xlink:href attribute, as well as a LOCTYPE attribute indicating the type of href being provided.  It may, but need not contain, any of the other attributes defined in xlink:simpleLink as well as a CONTENTIDS attribute. No guidelines are provided, however, for the use of these attributes.</p>
+	    		</requirement>
+	    		<requirement ID="fileSec11" RELATEDMAT="vc2">
+	    			<p>In cases where the content represented by a &lt;mets&gt; document includes just a selected element or elements from an XML encoded structured text file conforming to the TEI schema, then the xlink:href attribute in the &lt;FLocat&gt; element may use XPointer syntax to isolate the relevant section (or element) of  the integral TEI document. For example, the &lt;FLocat&gt; element for a TEI file might look like this in the case where &quot;Part1&quot; was the ID value associated with the relevant element of the TEI file  represented by the &lt;file&gt; element: &lt;mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/ disabilityrights/text/kawauchi1.xml#Part1" LOCTYPE="URL" /&gt;. This handling is an alternative to the more standard practice of using the &lt;area&gt; element in conjunction with an &lt;fptr&gt; element in the &lt;structMap&gt; to isolate a portion of an integral file.  This profile does not require this alternative handling; but METS documents conforming to this profile that are destined for the California Digital Library should follow the current GDO guidelines in this matter. Note that when a &lt;file&gt; element references just an element within a TEI file as described here, the file USE attribute must be &quot;text/tei element&quot;
+	    			</p>
+	    		</requirement>
+	    		<requirement ID="fileSec12">
+	    			<p>This profile supports the use of one and only one &lt;FLocat&gt; element in conjunction with each &lt;file&gt; element</p>    			
+	    		</requirement>
+	    		<requirement ID="fileSec13">
+	    			<p>This profile does not support the use of the &lt;FContent&gt;, &lt;stream&gt;, or &lt;transformFile&gt; elements.</p>
+	    		</requirement>
+		    	<requirement ID="fileSec14">
+		    		<p>In the case of Real audio content, only the actual Real audio content files (the .rm files) should be represented in the &lt;fileSec&gt; and referenced via &lt;fptr&gt; and &lt;area&gt; elements in the &lt;structMap&gt;.  This profile assumes that any necessary launch file (e.g, an .ram file) will be generated dynamically by the presentation applications.</p>
+		    	</requirement>
+	    	</fileSec>
+	    	<structMap>
+	      	<requirement ID="structMap1">
+				<p>A conforming METS document must contain only one &lt;structMap&gt;. This &lt;structMap&gt; must not be empty.</p>
+	      	</requirement>
+	      	<requirement ID="structMap2" RELATEDMAT="vc2">
+				<p>A conforming &lt;structMap&gt; may, but need not, contain a TYPE attribute. This profile does not specify a vocabulary for this attribute nor make any assumptions about its application.</p>
+	      	</requirement>
+	      	<requirement ID="structMap3">
+				<p>Each &lt;div&gt; must include a LABEL attribute value and a TYPE attribute value.The LABEL attribute should identify the the division in a manner suitable for presentation to the end user in an associated &quot;table of contents&quot; and that will facilitate user navigation.  While there is no controlled vocabulary list dictated for the TYPE attribute, the TYPE attributes for &lt;div&gt; elements representing the physical levels of the structure of the original source material should, whenever possible, contain a common  generic designation for the physical level represented.  For example, &quot;page&quot;, &quot;detail&quot;, &quot;recto&quot;, &quot;verso&quot;, etc.</p>
+	      	</requirement>
+	      	<requirement ID="structMap4">
+				<p>A &lt;div&gt; element at any level may point to one or more pertinent &lt;dmdSec&gt; elements via its DMDID attribute value. However, the DMDID attribute should only reference ID values declared at the &lt;dmdSec&gt; element level, and not IDs at lower levels.  For example, a &lt;div&gt; DMDID attribute should not reference the ID value of an element within the &lt;xmlData&gt; section of a &lt;dmdSec&gt;.</p>
+	      	</requirement>
+    		<requirement ID="structMap5">
+    			<p>A &lt;div&gt; element at any level may use its ADMID attribute to point to a &lt;rightsMD&gt; element that contains the rights metadata pertinent to the content the &lt;div&gt; element represents.  In this case, the indicated rights metadata applies to the &lt;div&gt; that references it as well as all of its descendant &lt;div&gt; elements which do not themselves contain an ADMID reference to a different &lt;rightsMD&gt; element.</p>
+    		</requirement>
+    		<requirement ID="structMap6">
+    			<p>A &lt;div&gt; element may, but need not, include ORDER, ORDERLABEL, CONTENTIDS, and/or xlink:label attribute values. This profile dictates no guidelines or rules for the use of these &lt;div&gt; attributes.</p>
+    		</requirement>
+	      	<requirement ID="structMap7">
+				<p>A &lt;div&gt; element at any level may itself contain one or more &lt;div&gt; elements, one or more &lt;fptr&gt; elements, or a single &lt;mptr&gt; element.  A &lt;div&gt; element may contain both &lt;div&gt; elements and &lt;fptr&gt; elements; the &lt;mptr&gt; element, however, may not occur in combination with any other elements including another &lt;mptr&gt; element under the parent &lt;div&gt;.</p>
+	      	</requirement>
+	    	<requirement ID="structMap8">
+	    		<p>&lt;fptr&gt; elements that reference images representing different manifestions (resolutions) of the same content must appear consecutively under the &lt;div&gt; to which they pertain.  Any &lt;fptr&gt; elements referencing &lt;file&gt; elements whose USE is &quot;image/thumbnail&quot; must be arranged together in order of increasing size; and  any &lt;fptr&gt; elements referencing &lt;file&gt; elements whose USE is &quot;image/reference&quot; must also also be arranged together in order by size.</p>
+	    		
+	    	</requirement>	    		
+    		<requirement ID="structMap9">
+    			<p>The &lt;mptr&gt; element, if it is used, must contain an xlink:href attribute, as well as a LOCTYPE attribute indicating the type of href being provided.  It may, but need not contain, any of the other attributes defined in the xlink:simpleLink attribute group as well as a CONTENTIDS attribute. No guidelines are provided, however, for the use of these attributes.</p>
+    		</requirement>
+	      	<requirement ID="structMap10" RELATEDMAT="structMap11">
+				<p>An &lt;fptr&gt; element must either 1) directly point to a &lt;file&gt; element via its FILEID attribute; or 2) contain an &lt;area&gt; element that points to a &lt;file&gt; element; or 3) contain a &lt;seq&gt; element comprising multiple &lt;area&gt; elements that point to the relevant &lt;file&gt; elements. METS documents implementing this profile must not use the &lt;par&gt; element.   Typically the &lt;seq&gt; element would only be used under a &lt;div&gt; element that represented an intellectual (or logical) division, such as a diary entry.  In this case, more than one content file, played in sequence, may be required to manifest the logical division. 
+				</p>
+	      	</requirement>
+	      	<requirement ID="structMap11">
+	      		<p>An &lt;fptr&gt; element could directly contain an &lt;area&gt; element if only a portion of an integral file manifested the parent &lt;div&gt;.  This profile supports such use of the &lt;area&gt; element in conjunction with structured text, audio and video content only and as follows. 1) Structured text content. If an &lt;fptr&gt; element represents just a portion of an integral structured text file (such as  a TEI file),  an &lt;area&gt; element under the &lt;fptr&gt; would point to the  &lt;file&gt; element representing the integral structured text document (via its FILEID attribute) and would at least indicate the starting point of the relevant section of the content file via the &lt;area&gt; BEGIN attribute. The BEGIN attribute, in this case, would have a BETYPE of &quot;IDREF&quot;. The &lt;area&gt; element might also express the end point of the relevant section of the referenced file via its END attribute, but it need not do so. 2) Audio and video content. If an &lt;fptr&gt; element represents just a segment of an  integral audio or video content file, then  the &lt;area&gt; element under the &lt;fptr&gt; should point to the  &lt;file&gt; element representing the integral audio or video file (via its FILEID attribute) and must indicate the starting point and duration of the relevant section of the referenced audio or video file via the &lt;area&gt; BEGIN  and EXTENT attributes. The BETYPE and EXTTYPE attributes in these cases must be &quot;TIME&quot;  and the BEGIN and EXTENT attributes must contain a simple time value in the format HH:MM:SS.  If the relevant extent from the specified BEGIN point is the remainder of the audio or video file, then the EXTENT and EXTTYPE atributes may be omitted.</p>
+	      	</requirement>
+	    		<requirement ID="structMap12">
+	    			<p>An &lt;area&gt; element in documents implementing this profile should not use the SHAPE, COORDS or ADMID attributes.  It may, but need not, contain a CONTENTIDS attribute; however this profile provides no guidelines or rules for the use of this attribute</p>
+	    		</requirement>
+	    		<requirement ID="structMap13">
+	    			<p> An &lt;fptr&gt;; element representing a content type other than structured text, audio or video in conforming documents can only reference integral content files. METS documents conforming to this profile must not use the &lt;area&gt; element with its associated BEGIN and END attributes to isolate internal segments of such content files. An &lt;fptr&gt; element could, however , under some circumstances, contain &lt;area&gt; elements, providing these &lt;area&gt; elements reference integral content files.  For example, an &lt;fptr&gt; element would contain a &lt;seq&gt; element with multiple child &lt;area&gt; elements if multiple files needed to be&quot;played&quot; in sequence to manifest a division.  This might be the case if the &lt;structMap&gt; expressed a logical structure and a &lt;div&gt; in that structure required several files to manifest it.  For example, the &lt;div&gt; elements in the &lt;structMap&gt; for a diary might represent diary entries; and some of these entries might span multiple physical pages, and hence require multiple page image content files to manifest them. In this case, the &lt;div&gt; representing the spanned diary entry would contain at least one &lt;fptr&gt;element; this &lt;fptr&gt; element would contain a &lt;seq&gt; element which in turn contained a separate &lt;area&gt; element pointing to each &lt;file&gt; element representing a page the diary entry spans.</p>
+	      	</requirement>
+	      	<requirement ID="structMap14">
+				<p>Each &lt;fptr&gt; element that does not contain subsidiary &lt;area&gt; or &lt;seq&gt; elements must  point directly to a &lt;file&gt; element in the &lt;fileSec&gt; via its FILEID attributes. Similarly, each &lt;area&gt; element appearing under an &lt;fptr&gt; element or a &lt;seq&gt; element must point to directly to a &lt;file&gt; element via its FILEID attribute.</p>
+	      	</requirement>
+	    	</structMap>
+	    	<structLink>
+	      	<requirement ID="structLink1">
+				<p>A conforming METS document may contain a &lt;structLink&gt; element.  This profile, however, establishes no guidelines or expectations for its use.</p>
+	      	</requirement>
+	    	</structLink>
+	    	<behaviorSec>
+	      	<requirement ID="behaviorSec1">
+				<p>A conforming METS document may contain a &lt;behaviorSec&gt; element. This profile, however, establishes no guidelines or expectations for its use.</p>
+	      	</requirement>
+	    	</behaviorSec>
+	    	<multiSection>
+		      	<requirement ID="multi1">
+					<p>Only &lt;file&gt; elements will reference &lt;techMD&gt;, &lt;sourceMD&gt; and/or &lt;digiprovMD&gt; elements.  In other words, documents implementing this profile will express technical, source, and digital provenance administrative metadata in conjunction with content files only rather than in conjunction with &lt;div&gt; elements in the &lt;structMap&gt;.  &lt;rightsMD&gt; elements, however, may be referenced only from &lt;div&gt; elements in the &lt;structMap&gt;.</p>
+		      	</requirement>
+		      	<requirement ID="multi2">
+			 		<p>Only &lt;div&gt; elements will reference &lt;dmdSec&gt; elements.  In other words, documents implementing this profile will express descriptive metadata in conjunction with divisions of the &lt;structMap&gt; and not in conjunction with individual content files (&lt;file&gt; elements).</p>
+		      	</requirement>
+		    	<requirement>
+		    		<p>METS documents implementing this profile that are destined for CDL must also observe the structural requirements set forth in the CDL Guidelines for Digital Objects (http://www.cdlib.org/inside/diglib/guidelines/), which may be more specific or restrictive in some areas than this profile.</p>
+		    	</requirement>
+	    	</multiSection>
+  	</structural_requirements>
+  	<technical_requirements>
+    		<content_files>
+	      		<requirement>
+	      			<p>Image, application, video and audio content files referenced from conforming METS documents may be of any type supported by the CDL Guidlines for Digital Objects (http://www.cdlib.org/inside/diglib/guidelines/).</p>
+	      		</requirement>
+	      		<requirement>
+					<p>All &quot;tei&quot; files must be encoded according to version 1 of  the "TEI Text Encoding in Libraries: Guidelines for Best Encoding Practices" maintained by the Digital Library Federation (http://www.diglib.org/standards/tei.htm). </p>
+	      		</requirement>
+    		</content_files>
+  	</technical_requirements>
+  	<tool/>
+	<Appendix   ID="EX1" NUMBER="1" LABEL="Example with image and structured text content">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/" 
+			xmlns:mods="http://www.loc.gov/mods/v3" 
+			xmlns:xlink="http://www.w3.org/1999/xlink" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/" 
+			xsi:schemaLocation=
+			"http://www.loc.gov/METS/ 
+			http://www.loc.gov/mets/mets.xsd
+			http://www.loc.gov/mods/v3 
+			http://www.loc.gov/standards/mods/v3/mods-3-1.xsd
+			http://cosimo.stanford.edu/sdr/metsrights/
+			http://cosimo.stanford.edu/sdr/metsrights.xsd	" 
+			OBJID="ark:/13030/kt9s2009hz" 
+			LABEL="Dictation from Amelia Hartman Saunders : Sacramento : ms., 1887" 
+			PROFILE="http://www.loc.gov/mets/profiles/00000013.xml">
+			<mets:metsHdr CREATEDATE="2003-04-10T10:30:00">
+				<mets:agent ROLE="CREATOR">
+					<mets:name>Rick Beaubien</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="DMD1">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Dictation from Amelia Hartman Saunders : ms., Sacramento : 1887</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal">
+								<mods:namePart>Saunders, Amelia Hartman</mods:namePart>
+								<mods:namePart type="date">1851-</mods:namePart>
+								<mods:role>
+									<mods:roleTerm authority="lcnaf" type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:typeOfResource manuscript="yes">text</mods:typeOfResource>
+							<mods:genre authority="rbgenr">Autobiographies</mods:genre>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm type="text">Sacramento, California</mods:placeTerm>
+								</mods:place>
+								<mods:dateCreated>1887</mods:dateCreated>
+								<mods:dateCreated encoding="w3cdtf" point="start">1887</mods:dateCreated>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+							</mods:language>
+							<mods:physicalDescription>
+								<mods:extent>1 folder</mods:extent>
+							</mods:physicalDescription>
+							<mods:abstract>From miscellaneous California dictations, statements and some questionnaires concerning social life, customs, economic conditions, recorded and prepared for H.H. Bancroft primarily between 1887 and 1889.</mods:abstract>
+							<mods:note type="provenance">Forms part of the Hubert Howe Bancroft Collection</mods:note>
+							<mods:subject authority="lcsh">
+								<mods:geographic>California--Biography</mods:geographic>
+							</mods:subject>
+							<mods:subject>
+								<mods:geographic>Sacramento (Calif.)--Social life and customs</mods:geographic>
+							</mods:subject>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>Hubert Howe Bancroft Collection</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:titleInfo type="uniform">
+									<mods:title>Miscellaneous California dictations</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+							<mods:identifier type="local">BANC C-D 810:386</mods:identifier>
+							<mods:location>
+								<mods:physicalLocation>The Bancroft Library. University of California, Berkeley, CA 94720-6000</mods:physicalLocation>
+							</mods:location>
+							<mods:accessCondition displayLabel="Access restrictions:">Non-circulating; may be used only in the Bancroft library</mods:accessCondition>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:rightsMD ID="ADM1">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+						<mets:xmlData>
+							<rts:RightsDeclarationMD RIGHTSCATEGORY="OTHER" OTHERCATEGORYTYPE="UNKNOWN">
+								<rts:RightsHolder>
+									<rts:RightsHolderComments>All requests to reproduce, publish, quote from, or otherwise use collection materials must be submitted in writing to the Head of Access Services, The Bancroft Library, University of California, Berkeley 94720-6000. Consent is given on behalf of The Bancroft Library as the owner of the physical items and does not constitute permission from the copyright owner.  Such permission must be obtained from the copyright owner.   See: http://bancroft.berkeley.edu/reference/permissions.html</rts:RightsHolderComments>
+								</rts:RightsHolder>
+								<rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+									<rts:Constraints>
+										<rts:ConstraintDescription>Copyright status unknown. Some materials in these collections may be protected by the U.S. Copyright Law (Title 17, U.X.C.). In addition, the reproduction of some materials may be restricted by terms of University of California gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of copyright owners.  Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user.</rts:ConstraintDescription>
+									</rts:Constraints>
+								</rts:Context>
+							</rts:RightsDeclarationMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>					
+			</mets:amdSec>			
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="1999-06-17T00:00:00" USE="image/master">
+					<mets:file ID="FID1" MIMETYPE="image/tiff" SEQ="1" CREATED="1999-06-17T00:00:00" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/masters/bkm00002773a.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID2" MIMETYPE="image/tiff" SEQ="2" CREATED="1999-06-17T00:00:00" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/masters/bkm00002774a.tif" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="image/thumbnail">
+					<mets:file ID="FID3" MIMETYPE="image/gif" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_a.gif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID4" MIMETYPE="image/gif" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_a.gif" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="image/reference">
+					<mets:file ID="FID5" MIMETYPE="image/jpeg" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_b.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID6" MIMETYPE="image/jpeg" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_b.jpg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="image/reference">
+					<mets:file ID="FID7" MIMETYPE="image/jpeg" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_c.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="FID8" MIMETYPE="image/jpeg" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_c.jpg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="text/tei">
+					<mets:file ID="FID9" MIMETYPE="text/xml" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/tei/bkm00002772_a.xml" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div ORDER="1" TYPE="text" LABEL="Dictation from Amelia Hartman Saunders : Sacramento : ms., 1887" DMDID="DMD1" ADMID="ADM1">
+					<mets:fptr FILEID="FID9"/>
+					<mets:div ORDER="1" TYPE="page" LABEL=" Page [1]">
+						<mets:fptr FILEID="FID1"/>
+						<mets:fptr FILEID="FID3"/>
+						<mets:fptr FILEID="FID5"/>
+						<mets:fptr FILEID="FID7"/>
+					</mets:div>
+					<mets:div ORDER="2" TYPE="page" LABEL=" Page [2]">
+						<mets:fptr FILEID="FID2"/>
+						<mets:fptr FILEID="FID4"/>
+						<mets:fptr FILEID="FID6"/>
+						<mets:fptr FILEID="FID8"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>	
+	<Appendix ID="EX2" NUMBER="2" LABEL="Example with image and unstructured text content">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+			xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://www.loc.gov/METS/
+			http://www.loc.gov/standards/mets/mets.xsd
+			http://www.loc.gov/mods/v3
+			http://www.loc.gov/standards/mods/v3/mods-3-1.xsd"
+			OBJID="ark:/13030/hb9x0nb59j"
+			LABEL="Table Of Contents: The International Seminar on the Juche Idea, Pyongyang, September, 1977"
+			PROFILE="http://www.loc.gov/mets/profiles/00000013.xml">
+			<mets:metsHdr CREATEDATE="2004-10-27T00:00:00.0" LASTMODDATE="2004-10-27T00:00:00.0">
+				<mets:agent ROLE="CREATOR">
+					<mets:name>Michael Conkin</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="App2DMD1">
+				<mets:mdRef xlink:href="http://pathfinder.berkeley.edu/WebZ/Authorize?sessionid=0:bad=html/authofail.html:next=NEXTCMD%22/WebZ/QUERY:next=html/results.html:format=B:numrecs=20:entitytoprecno=1:entitycurrecno=1:tempjds=TRUE:entitycounter=1:entitydbgroup=Glad:entityCurrentPage=SearchRecentAcq:dbname=Glad:entitycountAvail=0:entitycountDisplay=0:entitycountWhere=0:entityCurrentSearchScreen=html/search.html:entityactive=1:indexA=gl%3A:termA=100785675:next=html/Cannedresultsframe.html:bad=error/badsearchframe.htm" LOCTYPE="URL" MDTYPE="MARC" LABEL="Associated Catalog Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="App2DMD2">
+				<mets:mdWrap MDTYPE="MODS" LABEL="The International Seminar on the Juche Idea, Pyongyang, September, 1977">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>The International Seminar on the Juche Idea, Pyongyang, September, 1977</mods:title>
+							</mods:titleInfo>
+							<mods:name type="conference">
+								<mods:namePart>International Seminar on the Juche Idea(1977 :Pyongyang)</mods:namePart>
+								<mods:role>
+									<mods:roleTerm type="text" authority="marcrelator">creator</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm type="code" authority="marccountry">kn</mods:placeTerm>
+								</mods:place>
+								<mods:place>
+									<mods:placeTerm type="text">Pyongyang </mods:placeTerm>
+								</mods:place>
+								<mods:publisher>Foreign Languages Publishing House</mods:publisher>
+								<mods:dateIssued>1977</mods:dateIssued>
+								<mods:issuance>monographic</mods:issuance>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm type="code" authority="iso639-2b">eng</mods:languageTerm>
+							</mods:language>
+							<mods:physicalDescription>
+								<mods:form authority="marcform">print</mods:form>
+								<mods:extent>763 p., [8] leaves of plates :ports. ;21 cm.</mods:extent>
+							</mods:physicalDescription>
+							<mods:subject authority="lcsh">
+								<mods:topic>Socialism</mods:topic>
+								<mods:geographic>Korea (North)</mods:geographic>
+								<mods:topic>Congresses</mods:topic>
+							</mods:subject>
+							<mods:identifier displayLabel="Local Call Number" type="local">MAIN HX412.I51 1977</mods:identifier>
+							<mods:identifier displayLabel="Storage Number" type="local">NRLF: B 3 186 061</mods:identifier>
+							<mods:location>
+								<mods:physicalLocation>Northern Regional Library Facility. Richmond Field Station - Bldg. 400. 1301 South 46th Street. Richmond, CA 94804-4698</mods:physicalLocation>
+								<mods:url displayLabel="Table of Contents">http://metsviewer.lib.berkeley.edu/nrlftoc/mets/100785675A-B3186061.xml</mods:url>
+							</mods:location>
+							<mods:recordInfo>
+								<mods:recordContentSource authority="marcorg">CUR</mods:recordContentSource>
+								<mods:recordCreationDate encoding="marc">891102</mods:recordCreationDate>
+								<mods:recordChangeDate encoding="iso8601">20041026115501.0</mods:recordChangeDate>
+								<mods:recordIdentifier>CUBGGLAD100785675B</mods:recordIdentifier>
+							</mods:recordInfo>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:fileSec>
+				<mets:fileGrp USE="text/ocr">
+					<mets:file ID="App2FID1" MIMETYPE="text/plain" SEQ="1" GROUPID="1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-001-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID2" MIMETYPE="text/plain" SEQ="2" GROUPID="2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-002-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID3" MIMETYPE="text/plain" SEQ="3" GROUPID="3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-003-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID4" MIMETYPE="text/plain" SEQ="4" GROUPID="4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-004-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID5" MIMETYPE="text/plain" SEQ="5" GROUPID="5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-005-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID6" MIMETYPE="text/plain" SEQ="6" GROUPID="6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-006-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID7" MIMETYPE="text/plain" SEQ="7" GROUPID="7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-007-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID8" MIMETYPE="text/plain" SEQ="8" GROUPID="8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-008-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID9" MIMETYPE="text/plain" SEQ="9" GROUPID="9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-009-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID10" MIMETYPE="text/plain" SEQ="10" GROUPID="10">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-010-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID11" MIMETYPE="text/plain" SEQ="11" GROUPID="11">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-011-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID12" MIMETYPE="text/plain" SEQ="12" GROUPID="12">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/texts/100785675A-B3186061-012-012.txt" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="image/master">
+					<mets:file ID="App2FID13" MIMETYPE="image/tiff" SEQ="1" GROUPID="1">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-001-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID14" MIMETYPE="image/tiff" SEQ="2" GROUPID="2">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-002-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID15" MIMETYPE="image/tiff" SEQ="3" GROUPID="3">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-003-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID16" MIMETYPE="image/tiff" SEQ="4" GROUPID="4">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-004-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID17" MIMETYPE="image/tiff" SEQ="5" GROUPID="5">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-005-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID18" MIMETYPE="image/tiff" SEQ="6" GROUPID="6">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-006-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID19" MIMETYPE="image/tiff" SEQ="7" GROUPID="7">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-007-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID20" MIMETYPE="image/tiff" SEQ="8" GROUPID="8">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-008-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID21" MIMETYPE="image/tiff" SEQ="9" GROUPID="9">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-009-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID22" MIMETYPE="image/tiff" SEQ="10" GROUPID="10">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-010-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID23" MIMETYPE="image/tiff" SEQ="11" GROUPID="11">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-011-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID24" MIMETYPE="image/tiff" SEQ="12" GROUPID="12">
+						<mets:FLocat xlink:href="http://offlineimage/nrlftoc/100785675A-B3186061-012-012.tif" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="image/reference">
+					<mets:file ID="App2FID25" MIMETYPE="image/jpeg" SEQ="1" GROUPID="1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-001-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID26" MIMETYPE="image/jpeg" SEQ="2" GROUPID="2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-002-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID27" MIMETYPE="image/jpeg" SEQ="3" GROUPID="3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-003-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID28" MIMETYPE="image/jpeg" SEQ="4" GROUPID="4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-004-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID29" MIMETYPE="image/jpeg" SEQ="5" GROUPID="5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-005-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID30" MIMETYPE="image/jpeg" SEQ="6" GROUPID="6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-006-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID31" MIMETYPE="image/jpeg" SEQ="7" GROUPID="7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-007-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID32" MIMETYPE="image/jpeg" SEQ="8" GROUPID="8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-008-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID33" MIMETYPE="image/jpeg" SEQ="9" GROUPID="9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-009-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID34" MIMETYPE="image/jpeg" SEQ="10" GROUPID="10">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-010-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID35" MIMETYPE="image/jpeg" SEQ="11" GROUPID="11">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-011-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App2FID36" MIMETYPE="image/jpeg" SEQ="12" GROUPID="12">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/nrlftoc/prod/100/images/100785675A-B3186061-012-012.jpg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div ORDER="1" TYPE="text" LABEL="Table of Contents: The International Seminar on the Juche Idea, Pyongyang, September, 1977" DMDID="App2DMD1 App2DMD2">
+					<mets:div ORDER="1" TYPE="page" LABEL="[p. 1]">
+						<mets:fptr FILEID="App2FID1"/>
+						<mets:fptr FILEID="App2FID13"/>
+						<mets:fptr FILEID="App2FID25"/>
+					</mets:div>
+					<mets:div ORDER="2" TYPE="page" LABEL="[p. 2]">
+						<mets:fptr FILEID="App2FID2"/>
+						<mets:fptr FILEID="App2FID14"/>
+						<mets:fptr FILEID="App2FID26"/>
+					</mets:div>
+					<mets:div ORDER="3" TYPE="page" LABEL="[p. 3]">
+						<mets:fptr FILEID="App2FID3"/>
+						<mets:fptr FILEID="App2FID15"/>
+						<mets:fptr FILEID="App2FID27"/>
+					</mets:div>
+					<mets:div ORDER="4" TYPE="page" LABEL="[p. 4]">
+						<mets:fptr FILEID="App2FID4"/>
+						<mets:fptr FILEID="App2FID16"/>
+						<mets:fptr FILEID="App2FID28"/>
+					</mets:div>
+					<mets:div ORDER="5" TYPE="page" LABEL="[p. 5]">
+						<mets:fptr FILEID="App2FID5"/>
+						<mets:fptr FILEID="App2FID17"/>
+						<mets:fptr FILEID="App2FID29"/>
+					</mets:div>
+					<mets:div ORDER="6" TYPE="page" LABEL="[p. 6]">
+						<mets:fptr FILEID="App2FID6"/>
+						<mets:fptr FILEID="App2FID18"/>
+						<mets:fptr FILEID="App2FID30"/>
+					</mets:div>
+					<mets:div ORDER="7" TYPE="page" LABEL="[p. 7]">
+						<mets:fptr FILEID="App2FID7"/>
+						<mets:fptr FILEID="App2FID19"/>
+						<mets:fptr FILEID="App2FID31"/>
+					</mets:div>
+					<mets:div ORDER="8" TYPE="page" LABEL="[p. 8]">
+						<mets:fptr FILEID="App2FID8"/>
+						<mets:fptr FILEID="App2FID20"/>
+						<mets:fptr FILEID="App2FID32"/>
+					</mets:div>
+					<mets:div ORDER="9" TYPE="page" LABEL="[p. 9]">
+						<mets:fptr FILEID="App2FID9"/>
+						<mets:fptr FILEID="App2FID21"/>
+						<mets:fptr FILEID="App2FID33"/>
+					</mets:div>
+					<mets:div ORDER="10" TYPE="page" LABEL="[p. 10]">
+						<mets:fptr FILEID="App2FID10"/>
+						<mets:fptr FILEID="App2FID22"/>
+						<mets:fptr FILEID="App2FID34"/>
+					</mets:div>
+					<mets:div ORDER="11" TYPE="page" LABEL="[p. 11]">
+						<mets:fptr FILEID="App2FID11"/>
+						<mets:fptr FILEID="App2FID23"/>
+						<mets:fptr FILEID="App2FID35"/>
+					</mets:div>
+					<mets:div ORDER="12" TYPE="page" LABEL="[p. 12]">
+						<mets:fptr FILEID="App2FID12"/>
+						<mets:fptr FILEID="App2FID24"/>
+						<mets:fptr FILEID="App2FID36"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix ID="EX3" NUMBER="3" LABEL="Example with pdf and image content">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+			xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+			xmlns:mix="http://www.loc.gov/mix/"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=
+			"http://www.loc.gov/METS/
+			http://www.loc.gov/standards/mets/mets.xsd
+			http://cosimo.stanford.edu/sdr/metsrights/
+			http://cosimo.stanford.edu/sdr/metsrights.xsd
+			http://www.loc.gov/mods/v3
+			http://www.loc.gov/standards/mods/v3/mods-3-1.xsd
+			http://www.loc.gov/mix/
+			http://www.loc.gov/standards/mix/mix.xsd"
+			OBJID="ark:/13030/hb4v19p1vc"
+			LABEL="RESST: A VLSI Implementation of a Record-Sorting Stack"
+			PROFILE="http://www.loc.gov/mets/profiles/00000013.xml">
+			<mets:metsHdr CREATEDATE="2005-12-02T03:02:15" LASTMODDATE="2005-12-08T08:19:18">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Library Systems Office, University of California, Berkeley</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="DMR1">
+				<mets:mdRef xlink:href="http://pathfinder.berkeley.edu/WebZ/Authorize?sessionid=0:bad=html/authofail.html:next=NEXTCMD%22/WebZ/QUERY:next=html/results.html:format=B:numrecs=20:entitytoprecno=1:entitycurrecno=1:tempjds=TRUE:entitycounter=1:entitydbgroup=Glad:entityCurrentPage=SearchRecentAcq:dbname=Glad:entitycountAvail=0:entitycountDisplay=0:entitycountWhere=0:entityCurrentSearchScreen=html/search.html:entityactive=1:indexA=gl%3A:termA=184925631:next=html/Cannedresultsframe.html:bad=error/badsearchframe.htm"
+					LOCTYPE="URL"
+					MDTYPE="MARC"
+					LABEL="Catalog Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DM1">
+				<mets:mdWrap MDTYPE="MODS" LABEL="RESST: A VLSI Implementation of a Record-Sorting Stack">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>RESST: A VLSI Implementation of a Record-Sorting Stack</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal">
+								<mods:namePart>Thompson, Clark D</mods:namePart>
+								<mods:role>
+									<mods:roleTerm type="text" authority="marc">Author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name type="personal">
+								<mods:namePart>Carey, Michael J</mods:namePart>
+								<mods:role>
+									<mods:roleTerm type="text" authority="marc">Author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name type="personal">
+								<mods:namePart>Hansen, Paul Mark</mods:namePart>
+								<mods:role>
+									<mods:roleTerm type="text" authority="marc">Author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name type="corporate">
+								<mods:namePart>EECS Department, University of California, Berkeley</mods:namePart>
+								<mods:role>
+									<mods:roleTerm type="text" authority="marc">Publisher</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:genre authority="aat">technical reports</mods:genre>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm type="text">University of California at Berkeley, Berkeley, California</mods:placeTerm>
+								</mods:place>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm type="code" authority="iso639-2b">eng</mods:languageTerm>
+							</mods:language>
+							<mods:physicalDescription>
+								<mods:extent>28 p</mods:extent>
+							</mods:physicalDescription>
+							<mods:abstract>This report discusses a VLSI implementation of a record-sorting stack. Records are represented on the stack as (key, record-pointer) pairs, and the operations supported are PUSH, POP, and CLEAR. When records are POPed, they are returned in smallest-first order. The implementation allows the sorting of n records in O(n) time, and the design is cascadable so that the capacity of a single VLSI chip does not limit the amount of data which may be sorted. This report describes a paper design and evaluation, and thus serves two purposes:  It describes one particular VLSI sorting circuit, and it also serves as a case study in VLSI design methodology. The algorithm is described, the overall chip organization and data flow are presented, and detailed circuits, layouts, and timing analyses are given</mods:abstract>
+							<mods:relatedItem displayLabel="Metacollection" type="host">
+								<mods:titleInfo>
+									<mods:title>technical reports</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="local search">hb1k40068r</mods:identifier>
+							</mods:relatedItem>
+							<mods:identifier type="local">CSD-82-102</mods:identifier>
+							<mods:location>
+								<mods:physicalLocation>Engineering Library, 110 Bechtel, University of California, Berkeley, CA 94720-1796</mods:physicalLocation>
+							</mods:location>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:rightsMD ID="App3ADM1">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+						<mets:xmlData>
+							<rts:RightsDeclarationMD RIGHTSCATEGORY="COPYRIGHTED">
+								<rts:RightsHolder>
+									<rts:RightsHolderName>The author</rts:RightsHolderName>
+									<rts:RightsHolderContact>
+										<rts:RightsHolderContactAddress>Computer Science Division, Department of Electrical Engineering &#x26; Computer Sciences, University of California, Berkeley</rts:RightsHolderContactAddress>
+									</rts:RightsHolderContact>
+								</rts:RightsHolder>
+								<rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+									<rts:Constraints>
+										<rts:ConstraintDescription>Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commericially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user</rts:ConstraintDescription>
+									</rts:Constraints>
+								</rts:Context>
+							</rts:RightsDeclarationMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp USE="application">
+					<mets:file ID="App3FID1" MIMETYPE="application/pdf" SEQ="1" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/techreports/ucb/text/CSD-82-102.pdf" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-11-29T13:55:00.0" USE="image/master">
+					<mets:file ID="App3FID2" MIMETYPE="image/tiff" SEQ="1" CREATED="2005-11-29T13:55:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0001.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID3" MIMETYPE="image/tiff" SEQ="2" CREATED="2005-11-29T13:55:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0002.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID4" MIMETYPE="image/tiff" SEQ="3" CREATED="2005-11-29T13:55:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0003.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID5" MIMETYPE="image/tiff" SEQ="4" CREATED="2005-11-29T13:55:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0004.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID6" MIMETYPE="image/tiff" SEQ="5" CREATED="2005-11-29T13:55:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0005.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID7" MIMETYPE="image/tiff" SEQ="6" CREATED="2005-11-29T13:55:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0006.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID8" MIMETYPE="image/tiff" SEQ="7" CREATED="2005-11-29T13:55:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0007.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID9" MIMETYPE="image/tiff" SEQ="8" CREATED="2005-11-29T13:55:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0008.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID10" MIMETYPE="image/tiff" SEQ="9" CREATED="2005-11-29T13:55:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0009.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID11" MIMETYPE="image/tiff" SEQ="10" CREATED="2005-11-29T13:55:00.0" GROUPID="GID11">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0010.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID12" MIMETYPE="image/tiff" SEQ="11" CREATED="2005-11-29T13:55:00.0" GROUPID="GID12">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0011.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID13" MIMETYPE="image/tiff" SEQ="12" CREATED="2005-11-29T13:55:00.0" GROUPID="GID13">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0012.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID14" MIMETYPE="image/tiff" SEQ="13" CREATED="2005-11-29T13:55:00.0" GROUPID="GID14">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0013.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID15" MIMETYPE="image/tiff" SEQ="14" CREATED="2005-11-29T13:55:00.0" GROUPID="GID15">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0014.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID16" MIMETYPE="image/tiff" SEQ="15" CREATED="2005-11-29T13:55:00.0" GROUPID="GID16">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0015.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID17" MIMETYPE="image/tiff" SEQ="16" CREATED="2005-11-29T13:55:00.0" GROUPID="GID17">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0016.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID18" MIMETYPE="image/tiff" SEQ="17" CREATED="2005-11-29T13:55:00.0" GROUPID="GID18">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0017.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID19" MIMETYPE="image/tiff" SEQ="18" CREATED="2005-11-29T13:55:00.0" GROUPID="GID19">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0018.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID20" MIMETYPE="image/tiff" SEQ="19" CREATED="2005-11-29T13:55:00.0" GROUPID="GID20">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0019.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID21" MIMETYPE="image/tiff" SEQ="20" CREATED="2005-11-29T13:55:00.0" GROUPID="GID21">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0020.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID22" MIMETYPE="image/tiff" SEQ="21" CREATED="2005-11-29T13:55:00.0" GROUPID="GID22">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0021.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID23" MIMETYPE="image/tiff" SEQ="22" CREATED="2005-11-29T13:55:00.0" GROUPID="GID23">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0022.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID24" MIMETYPE="image/tiff" SEQ="23" CREATED="2005-11-29T13:55:00.0" GROUPID="GID24">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0023.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID25" MIMETYPE="image/tiff" SEQ="24" CREATED="2005-11-29T13:55:00.0" GROUPID="GID25">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0024.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID26" MIMETYPE="image/tiff" SEQ="25" CREATED="2005-11-29T13:55:00.0" GROUPID="GID26">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0025.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID27" MIMETYPE="image/tiff" SEQ="26" CREATED="2005-11-29T13:55:00.0" GROUPID="GID27">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0026.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID28" MIMETYPE="image/tiff" SEQ="27" CREATED="2005-11-29T13:55:00.0" GROUPID="GID28">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0027.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="App3FID29" MIMETYPE="image/tiff" SEQ="28" CREATED="2005-11-29T13:55:00.0" GROUPID="GID29">
+						<mets:FLocat xlink:href="http://offlineimage/techreports/ucb/CSD-82-102_scanned_0028.tif" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div ORDER="1" TYPE="text" LABEL="RESST: A VLSI Implementation of a Record-Sorting Stack" DMDID="DMR1 DM1" ADMID="App3ADM1">
+					<mets:fptr FILEID="App3FID1"/>
+					<mets:div ORDER="1" TYPE="page" LABEL="Page 1">
+						<mets:fptr FILEID="App3FID2"/>
+					</mets:div>
+					<mets:div ORDER="2" TYPE="page" LABEL="Page 2">
+						<mets:fptr FILEID="App3FID3"/>
+					</mets:div>
+					<mets:div ORDER="3" TYPE="page" LABEL="Page 3">
+						<mets:fptr FILEID="App3FID4"/>
+					</mets:div>
+					<mets:div ORDER="4" TYPE="page" LABEL="Page 4">
+						<mets:fptr FILEID="App3FID5"/>
+					</mets:div>
+					<mets:div ORDER="5" TYPE="page" LABEL="Page 5">
+						<mets:fptr FILEID="App3FID6"/>
+					</mets:div>
+					<mets:div ORDER="6" TYPE="page" LABEL="Page 6">
+						<mets:fptr FILEID="App3FID7"/>
+					</mets:div>
+					<mets:div ORDER="7" TYPE="page" LABEL="Page 7">
+						<mets:fptr FILEID="App3FID8"/>
+					</mets:div>
+					<mets:div ORDER="8" TYPE="page" LABEL="Page 8">
+						<mets:fptr FILEID="App3FID9"/>
+					</mets:div>
+					<mets:div ORDER="9" TYPE="page" LABEL="Page 9">
+						<mets:fptr FILEID="App3FID10"/>
+					</mets:div>
+					<mets:div ORDER="10" TYPE="page" LABEL="Page 10">
+						<mets:fptr FILEID="App3FID11"/>
+					</mets:div>
+					<mets:div ORDER="11" TYPE="page" LABEL="Page 11">
+						<mets:fptr FILEID="App3FID12"/>
+					</mets:div>
+					<mets:div ORDER="12" TYPE="page" LABEL="Page 12">
+						<mets:fptr FILEID="App3FID13"/>
+					</mets:div>
+					<mets:div ORDER="13" TYPE="page" LABEL="Page 13">
+						<mets:fptr FILEID="App3FID14"/>
+					</mets:div>
+					<mets:div ORDER="14" TYPE="page" LABEL="Page 14">
+						<mets:fptr FILEID="App3FID15"/>
+					</mets:div>
+					<mets:div ORDER="15" TYPE="page" LABEL="Page 15">
+						<mets:fptr FILEID="App3FID16"/>
+					</mets:div>
+					<mets:div ORDER="16" TYPE="page" LABEL="Page 16">
+						<mets:fptr FILEID="App3FID17"/>
+					</mets:div>
+					<mets:div ORDER="17" TYPE="page" LABEL="Page 17">
+						<mets:fptr FILEID="App3FID18"/>
+					</mets:div>
+					<mets:div ORDER="18" TYPE="page" LABEL="Page 18">
+						<mets:fptr FILEID="App3FID19"/>
+					</mets:div>
+					<mets:div ORDER="19" TYPE="page" LABEL="Page 19">
+						<mets:fptr FILEID="App3FID20"/>
+					</mets:div>
+					<mets:div ORDER="20" TYPE="page" LABEL="Page 20">
+						<mets:fptr FILEID="App3FID21"/>
+					</mets:div>
+					<mets:div ORDER="21" TYPE="page" LABEL="Page 21">
+						<mets:fptr FILEID="App3FID22"/>
+					</mets:div>
+					<mets:div ORDER="22" TYPE="page" LABEL="Page 22">
+						<mets:fptr FILEID="App3FID23"/>
+					</mets:div>
+					<mets:div ORDER="23" TYPE="page" LABEL="Page 23">
+						<mets:fptr FILEID="App3FID24"/>
+					</mets:div>
+					<mets:div ORDER="24" TYPE="page" LABEL="Page 24">
+						<mets:fptr FILEID="App3FID25"/>
+					</mets:div>
+					<mets:div ORDER="25" TYPE="page" LABEL="Page 25">
+						<mets:fptr FILEID="App3FID26"/>
+					</mets:div>
+					<mets:div ORDER="26" TYPE="page" LABEL="Page 26">
+						<mets:fptr FILEID="App3FID27"/>
+					</mets:div>
+					<mets:div ORDER="27" TYPE="page" LABEL="Page 27">
+						<mets:fptr FILEID="App3FID28"/>
+					</mets:div>
+					<mets:div ORDER="28" TYPE="page" LABEL="Page 28">
+						<mets:fptr FILEID="App3FID29"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>		
+	</Appendix>
+	<Appendix ID="EX4" NUMBER="4" LABEL="Example with image only content">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+		xmlns:mods="http://www.loc.gov/mods/v3"
+		xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+		xmlns:mix="http://www.loc.gov/mix/"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation=
+		"http://www.loc.gov/METS/
+		http://www.loc.gov/standards/mets/mets.xsd
+		http://cosimo.stanford.edu/sdr/metsrights/
+		http://cosimo.stanford.edu/sdr/metsrights.xsd
+		http://www.loc.gov/mods/v3
+		http://www.loc.gov/standards/mods/v3/mods-3-1.xsd
+		http://www.loc.gov/mix/
+		http://www.loc.gov/standards/mix/mix.xsd"
+		OBJID="ark:/13030/hb3c6005tv"
+		LABEL="S. P. [Simmon Peña] Storms, Interpreter [&amp;c], Indian agency - near Grass Valley, California, 1851"
+			PROFILE="http://www.loc.gov/mets/profiles/00000013.xml">
+			<mets:metsHdr CREATEDATE="2005-07-13T11:24:07" LASTMODDATE="2005-07-13T11:24:07">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Library Systems Office, University of California, Berkeley</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="App4DMR1">
+				<mets:mdRef xlink:href="http://pathfinder.berkeley.edu/WebZ/Authorize?sessionid=0:bad=html/authofail.html:next=NEXTCMD%22/WebZ/QUERY:next=html/results.html:format=B:numrecs=20:entitytoprecno=1:entitycurrecno=1:tempjds=TRUE:entitycounter=1:entitydbgroup=Glad:entityCurrentPage=SearchRecentAcq:dbname=Glad:entitycountAvail=0:entitycountDisplay=0:entitycountWhere=0:entityCurrentSearchScreen=html/search.html:entityactive=1:indexA=gl%3A:termA=84396426:next=html/Cannedresultsframe.html:bad=error/badsearchframe.htm"
+				LOCTYPE="URL"
+				MDTYPE="MARC"
+				LABEL="Catalog Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="App4DMR2">
+				<mets:mdRef xlink:href="http://www.oac.cdlib.org/findaid/ark:/13030/kt8h4nd0m3"
+				XPTR="xpointer(id('cc409'))"
+				LOCTYPE="URL"
+				MDTYPE="EAD"
+				LABEL="Drawings of Indians and California scenery" />
+			</mets:dmdSec>
+			<mets:dmdSec ID="App4DM1">
+				<mets:mdWrap MDTYPE="MODS" LABEL="S. P. [Simmon Peña] Storms, Interpreter [&#x26;c], Indian agency - near Grass Valley, California, 1851">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>S. P. [Simmon Peña] Storms, Interpreter [&#x26;c], Indian agency - near Grass Valley, California, 1851</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal" authority="naf">
+								<mods:namePart>Brown, Henry B., fl. 1850-1859</mods:namePart>
+								<mods:role>
+								<mods:roleTerm type="text" authority="marc">Artist</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:typeOfResource>still image</mods:typeOfResource>
+							<mods:genre authority="gmgpc">Drawings</mods:genre>
+							<mods:genre authority="gmgpc">Portraits</mods:genre>
+							<mods:originInfo>
+								<mods:dateCreated>1851</mods:dateCreated>
+								<mods:dateCreated encoding="w3cdtf" point="start">1851</mods:dateCreated>
+								<mods:dateCreated encoding="w3cdtf" point="end">1851</mods:dateCreated>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm type="code" authority="iso639-2b">eng</mods:languageTerm>
+							</mods:language>
+							<mods:physicalDescription>
+								<mods:extent>1 drawing : pencil ; 20 x 13 cm</mods:extent>
+							</mods:physicalDescription>
+							<mods:note type="general">Captioned in manuscript</mods:note>
+							<mods:subject authority="lcsh">
+								<mods:topic>Indians of North America--California--Pictorial works</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:geographic>Grass Valley (Calif.) Pictorial works</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:geographic>California--Pictorial works</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:name type="personal" authority="naf">
+									<mods:namePart>Bartlett, John Russell, 1805-1886</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:relatedItem displayLabel="Metacollection" type="host">
+								<mods:titleInfo>
+									<mods:title>California Cultures</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="uri">http://calcultures.cdlib.org/</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem displayLabel="Collection" type="host">
+								<mods:titleInfo>
+									<mods:title>Drawings of Indians and California scenery</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="local">BANC PIC 1980.022--A</mods:identifier>
+								<mods:identifier type="uri">http://www.oac.cdlib.org/findaid/ark:/13030/kt8h4nd0m3</mods:identifier>
+							</mods:relatedItem>
+							<mods:identifier displayLabel="Local Call Number" type="local">BANC PIC 1980.022:01--A</mods:identifier>
+							<mods:location>
+								<mods:physicalLocation>The Bancroft Library, University of California, Berkeley, CA 94720-6000; http://bancroft.berkeley.edu/</mods:physicalLocation>
+							</mods:location>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="App4ADM1">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType>image/tiff</mix:MIMEType>
+										<mix:Compression>
+										<mix:CompressionScheme>1</mix:CompressionScheme>
+										</mix:Compression>
+										<mix:PhotometricInterpretation>
+											<mix:ColorSpace>2</mix:ColorSpace>
+											<mix:ICCProfile>
+											<mix:ProfileName>DilE836G18_01</mix:ProfileName>
+											</mix:ICCProfile>
+										</mix:PhotometricInterpretation>
+									</mix:Format>
+								</mix:BasicImageParameters>
+								<mix:ImageCreation>
+									<mix:ImageProducer>DIL/U.C. Berkeley Library</mix:ImageProducer>
+									<mix:DeviceSource>reflection print scanner</mix:DeviceSource>
+									<mix:ScanningSystemCapture>
+									<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer>Epson</mix:ScannerManufacturer>
+									<mix:ScannerModel>
+									<mix:ScannerModelName>836xl</mix:ScannerModelName>
+									<mix:ScannerModelSerialNo>B05401003MG9601009</mix:ScannerModelSerialNo>
+									</mix:ScannerModel>
+									</mix:ScanningSystemHardware>
+									</mix:ScanningSystemCapture>
+								</mix:ImageCreation>
+								<mix:ImagingPerformanceAssessment>
+									<mix:SpatialMetrics>
+										<mix:SamplingFrequencyUnit>2</mix:SamplingFrequencyUnit>
+										<mix:XSamplingFrequency>600</mix:XSamplingFrequency>
+										<mix:YSamplingFrequency>600</mix:YSamplingFrequency>
+									</mix:SpatialMetrics>
+									<mix:Energetics>
+										<mix:BitsPerSample>8,8,8</mix:BitsPerSample>
+										<mix:SamplesPerPixel>3</mix:SamplesPerPixel>
+									</mix:Energetics>
+								</mix:ImagingPerformanceAssessment>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="App4ADM2">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType>image/gif</mix:MIMEType>
+										<mix:Compression>
+											<mix:CompressionScheme>5</mix:CompressionScheme>
+										</mix:Compression>
+										<mix:PhotometricInterpretation>
+											<mix:ColorSpace>2</mix:ColorSpace>
+										</mix:PhotometricInterpretation>
+									</mix:Format>
+								</mix:BasicImageParameters>
+								<mix:ImagingPerformanceAssessment>
+									<mix:SpatialMetrics>
+										<mix:SamplingFrequencyUnit>2</mix:SamplingFrequencyUnit>
+										<mix:XSamplingFrequency>13</mix:XSamplingFrequency>
+										<mix:YSamplingFrequency>13</mix:YSamplingFrequency>
+									</mix:SpatialMetrics>
+									<mix:Energetics>
+										<mix:BitsPerSample>8</mix:BitsPerSample>
+										<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+									</mix:Energetics>
+								</mix:ImagingPerformanceAssessment>
+								<mix:ChangeHistory>
+									<mix:ImageProcessing>
+										<mix:ProcessingAgency>DIL/U.C. Berkeley Library</mix:ProcessingAgency>
+										<mix:ProcessingSoftware>
+											<mix:ProcessingSoftwareName>Photoshop</mix:ProcessingSoftwareName>
+										</mix:ProcessingSoftware>
+									</mix:ImageProcessing>
+								</mix:ChangeHistory>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="App4ADM3">
+					<mets:mdWrap MDTYPE="NISOIMG">
+					<mets:xmlData>
+						<mix:mix>
+							<mix:BasicImageParameters>
+								<mix:Format>
+									<mix:MIMEType>image/jpeg</mix:MIMEType>
+									<mix:Compression>
+										<mix:CompressionScheme>6</mix:CompressionScheme>
+									</mix:Compression>
+									<mix:PhotometricInterpretation>
+									<mix:ColorSpace>2</mix:ColorSpace>
+									</mix:PhotometricInterpretation>
+								</mix:Format>
+							</mix:BasicImageParameters>
+							<mix:ImagingPerformanceAssessment>
+								<mix:SpatialMetrics>
+									<mix:SamplingFrequencyUnit>2</mix:SamplingFrequencyUnit>
+									<mix:XSamplingFrequency>82</mix:XSamplingFrequency>
+									<mix:YSamplingFrequency>82</mix:YSamplingFrequency>
+								</mix:SpatialMetrics>
+								<mix:Energetics>
+									<mix:BitsPerSample>8,8,8</mix:BitsPerSample>
+									<mix:SamplesPerPixel>3</mix:SamplesPerPixel>
+								</mix:Energetics>
+							</mix:ImagingPerformanceAssessment>
+							<mix:ChangeHistory>
+								<mix:ImageProcessing>
+									<mix:ProcessingAgency>DIL/U.C. Berkeley Library</mix:ProcessingAgency>
+									<mix:ProcessingSoftware>
+										<mix:ProcessingSoftwareName>Photoshop</mix:ProcessingSoftwareName>
+									</mix:ProcessingSoftware>
+								</mix:ImageProcessing>
+							</mix:ChangeHistory>
+						</mix:mix>
+					</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="App4ADM4">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+									<mix:MIMEType>image/jpeg</mix:MIMEType>
+										<mix:Compression>
+											<mix:CompressionScheme>6</mix:CompressionScheme>
+										</mix:Compression>
+									<mix:PhotometricInterpretation>
+										<mix:ColorSpace>2</mix:ColorSpace>
+									</mix:PhotometricInterpretation>
+									</mix:Format>
+									</mix:BasicImageParameters>
+										<mix:ImagingPerformanceAssessment>
+									<mix:SpatialMetrics>
+										<mix:SamplingFrequencyUnit>2</mix:SamplingFrequencyUnit>
+										<mix:XSamplingFrequency>165</mix:XSamplingFrequency>
+										<mix:YSamplingFrequency>165</mix:YSamplingFrequency>
+									</mix:SpatialMetrics>
+									<mix:Energetics>
+										<mix:BitsPerSample>8,8,8</mix:BitsPerSample>
+										<mix:SamplesPerPixel>3</mix:SamplesPerPixel>
+									</mix:Energetics>
+								</mix:ImagingPerformanceAssessment>
+								<mix:ChangeHistory>
+									<mix:ImageProcessing>
+										<mix:ProcessingAgency>DIL/U.C. Berkeley Library</mix:ProcessingAgency>
+										<mix:ProcessingSoftware>
+										<mix:ProcessingSoftwareName>Photoshop</mix:ProcessingSoftwareName>
+										</mix:ProcessingSoftware>
+									</mix:ImageProcessing>
+								</mix:ChangeHistory>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="App4ADM5">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:ImageCreation>
+									<mix:SourceType>still image</mix:SourceType>
+									<mix:SourceID>BANC PIC 1980.022:01--A</mix:SourceID>
+									<mix:DateTimeCreated>2003-01-22</mix:DateTimeCreated>
+								</mix:ImageCreation>
+								<mix:ImagingPerformanceAssessment>
+									<mix:SpatialMetrics>
+										<mix:ImageWidth>3248</mix:ImageWidth>
+										<mix:ImageLength>5470</mix:ImageLength>
+										<mix:Source_X>
+											<mix:Source_Xdimension>5.41</mix:Source_Xdimension>
+											<mix:Source_XdimensionUnit>inches</mix:Source_XdimensionUnit>
+										</mix:Source_X>
+										<mix:Source_Y>
+											<mix:Source_Ydimension>9.12</mix:Source_Ydimension>
+											<mix:Source_YdimensionUnit>inches</mix:Source_YdimensionUnit>
+										</mix:Source_Y>
+									</mix:SpatialMetrics>
+								</mix:ImagingPerformanceAssessment>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="App4ADM6">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:ImagingPerformanceAssessment>
+									<mix:SpatialMetrics>
+										<mix:ImageWidth>73</mix:ImageWidth>
+										<mix:ImageLength>125</mix:ImageLength>
+									</mix:SpatialMetrics>
+								</mix:ImagingPerformanceAssessment>
+								<mix:ChangeHistory>
+									<mix:ImageProcessing>
+										<mix:DateTimeProcessed>2003-01-22</mix:DateTimeProcessed>
+										<mix:SourceData>http://offlineimage/calcultures/ucb/cubanc_1_2_00004722a.tif</mix:SourceData>
+									</mix:ImageProcessing>
+								</mix:ChangeHistory>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="App4ADM7">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:ImagingPerformanceAssessment>
+									<mix:SpatialMetrics>
+										<mix:ImageWidth>445</mix:ImageWidth>
+										<mix:ImageLength>750</mix:ImageLength>
+									</mix:SpatialMetrics>
+								</mix:ImagingPerformanceAssessment>
+								<mix:ChangeHistory>
+									<mix:ImageProcessing>
+										<mix:DateTimeProcessed>2003-01-22</mix:DateTimeProcessed>
+										<mix:SourceData>http://offlineimage/calcultures/ucb/cubanc_1_2_00004722a.tif</mix:SourceData>
+									</mix:ImageProcessing>
+								</mix:ChangeHistory>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="App4ADM8">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:ImagingPerformanceAssessment>
+									<mix:SpatialMetrics>
+										<mix:ImageWidth>893</mix:ImageWidth>
+										<mix:ImageLength>1500</mix:ImageLength>
+									</mix:SpatialMetrics>
+								</mix:ImagingPerformanceAssessment>
+								<mix:ChangeHistory>
+									<mix:ImageProcessing>
+										<mix:DateTimeProcessed>2003-01-22</mix:DateTimeProcessed>
+										<mix:SourceData>http://offlineimage/calcultures/ucb/cubanc_1_2_00004722a.tif</mix:SourceData>
+									</mix:ImageProcessing>
+								</mix:ChangeHistory>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="App4ADM9">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+						<mets:xmlData>
+							<rts:RightsDeclarationMD RIGHTSCATEGORY="OTHER" OTHERCATEGORYTYPE="UNKNOWN">
+								<rts:RightsHolder>
+									<rts:RightsHolderComments>All requests to reproduce, publish, quote from, or otherwise use collection materials must be submitted in writing to the Head of Access Services, The Bancroft Library, University of California, Berkeley 94720-6000. Consent is given on behalf of The Bancroft Library as the owner of the physical items and does not constitute permission from the copyright owner.  Such permission must be obtained from the copyright owner.   See: http://bancroft.berkeley.edu/reference/permissions.html</rts:RightsHolderComments>
+								</rts:RightsHolder>
+							<rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+								<rts:Constraints>
+									<rts:ConstraintDescription>Copyright status unknown. Some materials in these collections may be protected by the U.S. Copyright Law (Title 17, U.X.C.). In addition, the reproduction of some materials may be restricted by terms of University of California gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of copyright owners.  Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user</rts:ConstraintDescription>
+								</rts:Constraints>
+							</rts:Context>
+						</rts:RightsDeclarationMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/master">
+					<mets:file ID="App4FID1" MIMETYPE="image/tiff" SEQ="1" CREATED="2003-01-22T00:00:00.0" ADMID="App4ADM1 App4ADM5 " GROUPID="GID1">
+						<mets:FLocat xlink:href="http://offlineimage/calcultures/ucb/cubanc_1_2_00004722a.tif" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/thumbnail">
+					<mets:file ID="App4FID2" MIMETYPE="image/gif" SEQ="1" CREATED="2003-01-22T00:00:00.0" ADMID="App4ADM2 App4ADM6 " GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/calcultures/ucb/images/cubanc_1_2_00004722a_i.gif" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/reference">
+					<mets:file ID="App4FID3" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" ADMID="App4ADM3 App4ADM7 " GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/calcultures/ucb/images/cubanc_1_2_00004722a_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/reference">
+					<mets:file ID="App4FID4" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" ADMID="App4ADM4 App4ADM8 " GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/calcultures/ucb/images/cubanc_1_2_00004722a_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div ORDER="1" TYPE="still image" LABEL="S. P. [Simmon Peña] Storms, Interpreter [&#x26;c], Indian agency - near Grass Valley, California, 1851" DMDID="App4DMR1 App4DMR2 App4DM1" ADMID="App4ADM9">
+					<mets:fptr FILEID="App4FID1"/>
+					<mets:fptr FILEID="App4FID2"/>
+					<mets:fptr FILEID="App4FID3"/>
+					<mets:fptr FILEID="App4FID4"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>		
+	</Appendix>
+	<Appendix ID="EX5" NUMBER="5" LABEL="Example with Quicktime video">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+		xmlns:mods="http://www.loc.gov/mods/v3"
+		xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+		xmlns:mix="http://www.loc.gov/mix/"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation=
+		"http://www.loc.gov/METS/
+		http://www.loc.gov/standards/mets/mets.xsd
+		http://cosimo.stanford.edu/sdr/metsrights/
+		http://cosimo.stanford.edu/sdr/metsrights.xsd
+		http://www.loc.gov/mods/v3
+		http://www.loc.gov/standards/mods/v3/mods-3-1.xsd
+		http://www.loc.gov/mix/
+		http://www.loc.gov/standards/mix/mix.xsd"
+		OBJID="ark:/13030/hb3c6005xx"
+		LABEL="Silence"
+			PROFILE="http://www.loc.gov/mets/profiles/00000013.xml">
+			<mets:metsHdr CREATEDATE="2006-07-11T12:00:00" LASTMODDATE="2006-07-11T12:00:00">
+				<mets:agent ROLE="CREATOR" TYPE="INDIVIDUAL">
+					<mets:name>Rick Beaubien</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="App5DMR2">
+				<mets:mdRef xlink:href="http://www.oac.cdlib.org/findaid/ark:/13030/kt500023mk"
+					LOCTYPE="URL"
+					MDTYPE="EAD"
+					LABEL="Ruth and Sherman Lee Institute for Japanese Art collection" />
+			</mets:dmdSec>	
+			<mets:dmdSec ID="App5DM1">
+				<mets:mdWrap MDTYPE="MODS" LABEL="Silence">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Silence</mods:title>
+							</mods:titleInfo>
+							<mods:titleInfo type="translated">
+								<mods:title>Sei</mods:title>
+							</mods:titleInfo>					
+							<mods:name type="personal" authority="naf">
+								<mods:namePart>Fukami, Sueharu, 1947-</mods:namePart>
+								<mods:role>
+								<mods:roleTerm type="text" authority="marc">Artist</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:typeOfResource>three dimensional object</mods:typeOfResource>
+							<mods:genre authority="gmgpc">Showa</mods:genre>
+							<mods:genre authority="gmgpc">porcelain</mods:genre>
+							<mods:originInfo>
+								<mods:dateCreated>1969</mods:dateCreated>
+								<mods:dateCreated encoding="w3cdtf" point="start">1969</mods:dateCreated>
+								<mods:place>
+									<mods:placeTerm type="text">Kyoto, Kinki, Japan</mods:placeTerm>
+								</mods:place>						
+							</mods:originInfo>
+							<mods:physicalDescription>
+								<mods:extent>1 porcelain; 9 x 16 x 16 cm.</mods:extent>
+								<mods:note type="medium">Porcelain with white glaze</mods:note>
+							</mods:physicalDescription>
+							<mods:note type="acquisition">Clark Family Collection.  On long-term loan to th eLee Institute</mods:note>
+							<mods:note type="citation">Reproduced in: Shinya Maezaki, &quot;Beyond the Ocean's Horizon: The Work of Fukami Sueharu&quot;, Orientations, Mar. 2005, pp. 101-106</mods:note>
+							<mods:note type="exhibition">Exhibited: &quot;Genesis of a Genius: The Early Ceramics of Fukami Sueharu&quot; curated by Shinya Maezaki, The Ruth and Sherman Lee Institute for Japanese Art, Hanford, CA, April 1-July 26, 2003</mods:note>
+							<mods:relatedItem displayLabel="Collection" type="host">
+								<mods:titleInfo>
+									<mods:title>Ruth and Sherman Lee Institute for Japanese Art collection</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="uri">http://www.oac.cdlib.org/findaid/ark:/13030/kt8h4nd0m3</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem displayLabel="Original" type="original">
+								<mods:titleInfo>
+									<mods:title>Silence</mods:title>
+								</mods:titleInfo>
+								<mods:identifier displayLabel="Local Call Number" type="local">CF2002.080</mods:identifier>							
+								<mods:location>
+									<mods:physicalLocation>Ruth and Sherman Lee Institute of Japanese Art, 15770 Tenth Avenue, Hanford, California, 93230</mods:physicalLocation>
+									<mods:url> http://www.shermanleeinstitute.org/</mods:url>
+								</mods:location>
+							</mods:relatedItem>									
+							<mods:location>
+								<mods:physicalLocation>UC Merced Library, 225 N. Hospital Rd., Atwater, CA;   95301</mods:physicalLocation>
+							</mods:location>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00" USE="video/reference">
+					<mets:file ID="primeviewrotatable" MIMETYPE="video/quicktime" CREATED="2003-01-22T00:00:00" GROUPID="GID1">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080.mov"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/master">
+					<mets:file ID="primeviewmstr" MIMETYPE="image/tiff" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot1mstr" MIMETYPE="image/tiff" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r01.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot2mstr" MIMETYPE="image/tiff" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r02.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot3mstr" MIMETYPE="image/tiff" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r03.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot4mstr" MIMETYPE="image/tiff" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r04.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot5mstr" MIMETYPE="image/tiff" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r05.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot6mstr" MIMETYPE="image/tiff" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r06.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot7mstr" MIMETYPE="image/tiff" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r07r.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot8mstr" MIMETYPE="image/tiff" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r08.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot9mstr" MIMETYPE="image/tiff" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r09.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot10mstr" MIMETYPE="image/tiff" SEQ="11" CREATED="2003-01-22T00:00:00.0" GROUPID="GID11">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r10.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot11mstr" MIMETYPE="image/tiff" SEQ="12" CREATED="2003-01-22T00:00:00.0" GROUPID="GID12">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r11.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot12mstr" MIMETYPE="image/tiff" SEQ="13" CREATED="2003-01-22T00:00:00.0" GROUPID="GID13">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r12.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot13mstr" MIMETYPE="image/tiff" SEQ="14" CREATED="2003-01-22T00:00:00.0" GROUPID="GID14">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r13.tif" LOCTYPE="URL"/>
+					</mets:file>						
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/master">
+					<mets:file ID="primeviewderivmstr" MIMETYPE="image/tiff" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_CF2002_080/primeviewderivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/thumbnail">
+					<mets:file ID="tn1" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_i.jpg" LOCTYPE="URL"/>
+					</mets:file>		
+					<mets:file ID="rot1tn" MIMETYPE="image/jpeg" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r01_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot2tn" MIMETYPE="image/jpeg" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r02_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot3tn" MIMETYPE="image/jpeg" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r03_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot4tn" MIMETYPE="image/jpeg" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r04_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot5tn" MIMETYPE="image/jpeg" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r05_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot6tn" MIMETYPE="image/jpeg" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r06_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot7tn" MIMETYPE="image/jpeg" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r07_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot8tn" MIMETYPE="image/jpeg" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r08_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot9tn" MIMETYPE="image/jpeg" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r09_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot10tn" MIMETYPE="image/jpeg" SEQ="11" CREATED="2003-01-22T00:00:00.0" GROUPID="GID11">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r10_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot11tn" MIMETYPE="image/jpeg" SEQ="12" CREATED="2003-01-22T00:00:00.0" GROUPID="GID12">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r11_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot12tn" MIMETYPE="image/jpeg" SEQ="13" CREATED="2003-01-22T00:00:00.0" GROUPID="GID13">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r12_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot13tn" MIMETYPE="image/jpeg" SEQ="14" CREATED="2003-01-22T00:00:00.0" GROUPID="GID14">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r13_i.jpg" LOCTYPE="URL"/>
+					</mets:file>				
+				</mets:fileGrp>		
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/reference">
+					<mets:file ID="ref1" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_j.jpg" LOCTYPE="URL"/>
+					</mets:file>			
+					<mets:file ID="rot1ref1" MIMETYPE="image/jpeg" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r01_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot2ref1" MIMETYPE="image/jpeg" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r02_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot3ref1" MIMETYPE="image/jpeg" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r03_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot4ref1" MIMETYPE="image/jpeg" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r04_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot5ref1" MIMETYPE="image/jpeg" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r05_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot6ref1" MIMETYPE="image/jpeg" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r06_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot7ref1" MIMETYPE="image/jpeg" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r07_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot8ref1" MIMETYPE="image/jpeg" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r08_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot9ref1" MIMETYPE="image/jpeg" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r09_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot10ref1" MIMETYPE="image/jpeg" SEQ="11" CREATED="2003-01-22T00:00:00.0" GROUPID="GID11">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r10_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot11ref1" MIMETYPE="image/jpeg" SEQ="12" CREATED="2003-01-22T00:00:00.0" GROUPID="GID12">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r11_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot12ref1" MIMETYPE="image/jpeg" SEQ="13" CREATED="2003-01-22T00:00:00.0" GROUPID="GID13">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r12_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot13ref1" MIMETYPE="image/jpeg" SEQ="14" CREATED="2003-01-22T00:00:00.0" GROUPID="GID14">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r13_j.jpg" LOCTYPE="URL"/>
+					</mets:file>						
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/reference">
+					<mets:file ID="ref2" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_k.jpg" LOCTYPE="URL"/>
+					</mets:file>			
+					<mets:file ID="rot1ref2" MIMETYPE="image/jpeg" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r01_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot2ref2" MIMETYPE="image/jpeg" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r02_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot3ref2" MIMETYPE="image/jpeg" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r03_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot4ref2" MIMETYPE="image/jpeg" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r04_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot5ref2" MIMETYPE="image/jpeg" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r05_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot6ref2" MIMETYPE="image/jpeg" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r06_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot7ref2" MIMETYPE="image/jpeg" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r07_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot8ref2" MIMETYPE="image/jpeg" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r08_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot9ref2" MIMETYPE="image/jpeg" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r09_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot10ref2" MIMETYPE="image/jpeg" SEQ="11" CREATED="2003-01-22T00:00:00.0" GROUPID="GID11">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r10_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot11ref2" MIMETYPE="image/jpeg" SEQ="12" CREATED="2003-01-22T00:00:00.0" GROUPID="GID12">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r11_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot12ref2" MIMETYPE="image/jpeg" SEQ="13" CREATED="2003-01-22T00:00:00.0" GROUPID="GID13">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r12_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="rot13ref2" MIMETYPE="image/jpeg" SEQ="14" CREATED="2003-01-22T00:00:00.0" GROUPID="GID14">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/ucm_li_CF2002_080_r13_k.jpg" LOCTYPE="URL"/>
+					</mets:file>						
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/dynamic">
+					<mets:file ID="primeviewzoom" MIMETYPE="image/jpeg2000" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_CF2002_080/primeviewzoom.jp2" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div TYPE="three dimensional object" LABEL="Silence" DMDID="App5DM1">
+					<mets:fptr FILEID="primeviewmstr"/>
+					<mets:fptr FILEID="primeviewderivmstr"/>
+					<mets:fptr FILEID="tn1"/>
+					<mets:fptr FILEID="ref1"/>
+					<mets:fptr FILEID="ref2"/>			
+					<mets:fptr FILEID="primeviewrotatable"/>
+					<mets:fptr FILEID="primeviewzoom"/>			
+					<mets:div LABEL="Rotational view 1" TYPE="rotational view">				
+						<mets:fptr FILEID="rot1mstr"/>				
+						<mets:fptr FILEID="rot1tn" />
+						<mets:fptr FILEID="rot1ref1" />
+						<mets:fptr FILEID="rot1ref2" />			
+					</mets:div>
+					<mets:div LABEL="Rotational view 2" TYPE="rotational view">
+						<mets:fptr FILEID="rot2mstr"/>				
+						<mets:fptr FILEID="rot2tn" />
+						<mets:fptr FILEID="rot2ref1" />
+						<mets:fptr FILEID="rot2ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 3" TYPE="rotational view">
+						<mets:fptr FILEID="rot3mstr"/>				
+						<mets:fptr FILEID="rot3tn" />
+						<mets:fptr FILEID="rot3ref1" />
+						<mets:fptr FILEID="rot3ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 4" TYPE="rotational view">
+						<mets:fptr FILEID="rot4mstr"/>				
+						<mets:fptr FILEID="rot4tn" />
+						<mets:fptr FILEID="rot4ref1" />
+						<mets:fptr FILEID="rot4ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 5" TYPE="rotational view">
+						<mets:fptr FILEID="rot5mstr"/>				
+						<mets:fptr FILEID="rot5tn" />
+						<mets:fptr FILEID="rot5ref1" />
+						<mets:fptr FILEID="rot5ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 6" TYPE="rotational view">
+						<mets:fptr FILEID="rot6mstr"/>				
+						<mets:fptr FILEID="rot6tn" />
+						<mets:fptr FILEID="rot6ref1" />
+						<mets:fptr FILEID="rot6ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 7" TYPE="rotational view">
+						<mets:fptr FILEID="rot7mstr"/>				
+						<mets:fptr FILEID="rot7tn" />
+						<mets:fptr FILEID="rot7ref1" />
+						<mets:fptr FILEID="rot7ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 8" TYPE="rotational view">
+						<mets:fptr FILEID="rot8mstr"/>				
+						<mets:fptr FILEID="rot8tn" />
+						<mets:fptr FILEID="rot8ref1" />
+						<mets:fptr FILEID="rot8ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 9" TYPE="rotational view">				
+						<mets:fptr FILEID="rot9mstr"/>				
+						<mets:fptr FILEID="rot9tn" />
+						<mets:fptr FILEID="rot9ref1" />
+						<mets:fptr FILEID="rot9ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 10" TYPE="rotational view">
+						<mets:fptr FILEID="rot10mstr"/>				
+						<mets:fptr FILEID="rot10tn" />
+						<mets:fptr FILEID="rot10ref1" />
+						<mets:fptr FILEID="rot10ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 11" TYPE="rotational view">
+						<mets:fptr FILEID="rot11mstr"/>				
+						<mets:fptr FILEID="rot11tn" />
+						<mets:fptr FILEID="rot11ref1" />
+						<mets:fptr FILEID="rot11ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 12" TYPE="rotational view">			
+						<mets:fptr FILEID="rot12mstr"/>					
+						<mets:fptr FILEID="rot12tn" />
+						<mets:fptr FILEID="rot12ref1" />
+						<mets:fptr FILEID="rot12ref2" />	
+					</mets:div>
+					<mets:div LABEL="Rotational view 13" TYPE="rotational view">			
+						<mets:fptr FILEID="rot13mstr"/>					
+						<mets:fptr FILEID="rot13tn" />
+						<mets:fptr FILEID="rot13ref1" />
+						<mets:fptr FILEID="rot13ref2" />					
+					</mets:div>
+				</mets:div>		
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix ID="EX6" NUMBER="6" LABEL="Example with zoomable JPEG2000 image">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+			xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+			xmlns:mix="http://www.loc.gov/mix/"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=
+			"http://www.loc.gov/METS/
+			http://www.loc.gov/standards/mets/mets.xsd
+			http://cosimo.stanford.edu/sdr/metsrights/
+			http://cosimo.stanford.edu/sdr/metsrights.xsd
+			http://www.loc.gov/mods/v3
+			http://www.loc.gov/standards/mods/v3/mods-3-1.xsd
+			http://www.loc.gov/mix/
+			http://www.loc.gov/standards/mix/mix.xsd"
+			OBJID="ark:/13030/hb3c6005xx"
+			LABEL="Demons"
+			PROFILE="http://www.loc.gov/mets/profiles/00000013.xml">
+			<mets:metsHdr CREATEDATE="2006-07-11T12:00:00" LASTMODDATE="2006-07-11T12:00:00">
+				<mets:agent ROLE="CREATOR" TYPE="INDIVIDUAL">
+					<mets:name>Rick Beaubien</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="App6DMR2">
+				<mets:mdRef xlink:href="http://www.oac.cdlib.org/findaid/ark:/13030/kt500023mk"
+					LOCTYPE="URL"
+					MDTYPE="EAD"
+					LABEL="Ruth and Sherman Lee Institute for Japanese Art collection" />
+			</mets:dmdSec>	
+			<mets:dmdSec ID="App6DM1">
+				<mets:mdWrap MDTYPE="MODS" LABEL="Demons">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Demons</mods:title>
+							</mods:titleInfo>			
+							<mods:typeOfResource>still image</mods:typeOfResource>
+							<mods:genre authority="gmgpc">handscrolls</mods:genre>
+							<mods:genre authority="gmgpc">Edo (Japanese period)</mods:genre>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm type="text">Japan</mods:placeTerm>
+								</mods:place>						
+							</mods:originInfo>
+							<mods:physicalDescription>
+								<mods:extent>1 handscroll; 26 x 740 cm</mods:extent>
+								<mods:note type="medium">Ink and colors on paper</mods:note>
+								<mods:note type="marks">No signature, seals or inscriptions</mods:note>						
+							</mods:physicalDescription>
+							<mods:relatedItem displayLabel="Collection" type="host">
+								<mods:titleInfo>
+									<mods:title>Ruth and Sherman Lee Institute for Japanese Art collection</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="uri">http://www.oac.cdlib.org/findaid/ark:/13030/kt500023mk</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem displayLabel="Original" type="original">
+								<mods:titleInfo>
+									<mods:title>Demons</mods:title>
+								</mods:titleInfo>
+								<mods:identifier displayLabel="Local Call Number" type="local">1999.012b
+								</mods:identifier>								
+								<mods:location>
+									<mods:physicalLocation>Ruth and Sherman Lee Institute of Japanese Art, 15770 Tenth Avenue, Hanford, California, 93230</mods:physicalLocation>
+									<mods:url> http://www.shermanleeinstitute.org/</mods:url>
+								</mods:location>
+							</mods:relatedItem>
+							<mods:relatedItem displayLabel="Other format" type="otherFormat">
+								<mods:titleInfo>
+									<mods:title>Demons [zoomable version]</mods:title>
+								</mods:titleInfo>							
+								<mods:location>									
+									<mods:url>http://library.ucmerced.edu/QTsample/ucm_li_1999_012b/
+									</mods:url>
+								</mods:location>
+							</mods:relatedItem>									
+							<mods:location>
+								<mods:physicalLocation>UC Merced Library, 225 N. Hospital Rd., Atwater, CA;   95301</mods:physicalLocation>
+							</mods:location>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/master">
+					<mets:file ID="compositeviewmstr" MIMETYPE="image/tiff" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/compositeviewmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section1mstr" MIMETYPE="image/tiff" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section1mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section2mstr" MIMETYPE="image/tiff" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section2mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section3mstr" MIMETYPE="image/tiff" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section3mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section4mstr" MIMETYPE="image/tiff" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section4mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section5mstr" MIMETYPE="image/tiff" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section5mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section6mstr" MIMETYPE="image/tiff" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section6mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section7mstr" MIMETYPE="image/tiff" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section7mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section8mstr" MIMETYPE="image/tiff" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section8mstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section9mstr" MIMETYPE="image/tiff" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section9mstr.tif" LOCTYPE="URL"/>
+					</mets:file>			
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/master">
+					<mets:file ID="compositeviewderivmstr" MIMETYPE="image/tiff" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/compositeviewderivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section1derivmstr" MIMETYPE="image/tiff" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section1derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section2derivmstr" MIMETYPE="image/tiff" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section2derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section3derivmstr" MIMETYPE="image/tiff" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section3derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section4derivmstr" MIMETYPE="image/tiff" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section4derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section5derivmstr" MIMETYPE="image/tiff" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section5derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section6derivmstr" MIMETYPE="image/tiff" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section6derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section7derivmstr" MIMETYPE="image/tiff" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section7derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section8derivmstr" MIMETYPE="image/tiff" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section8derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section9derivmstr" MIMETYPE="image/tiff" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://offlineimage/jpnprints/ucm/test/ucm_li_1999_012b/section9derivmstr.tif" LOCTYPE="URL"/>
+					</mets:file>					
+				</mets:fileGrp>		
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/thumbnail">
+					<mets:file ID="compositeviewtn" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_i.jpg" LOCTYPE="URL"/>
+					</mets:file>					
+					<mets:file ID="section1tn" MIMETYPE="image/jpeg" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s01_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section2tn" MIMETYPE="image/jpeg" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s02_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section3tn" MIMETYPE="image/jpeg" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s03_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section4tn" MIMETYPE="image/jpeg" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s04_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section5tn" MIMETYPE="image/jpeg" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s05_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section6tn" MIMETYPE="image/jpeg" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s06_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section7tn" MIMETYPE="image/jpeg" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s07_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section8tn" MIMETYPE="image/jpeg" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s08_i.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section9tn" MIMETYPE="image/jpeg" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s09_i.jpg" LOCTYPE="URL"/>
+					</mets:file>						
+				</mets:fileGrp>		
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/reference">
+					<mets:file ID="compositeviewref1" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_j.jpg" LOCTYPE="URL"/>
+					</mets:file>					
+					<mets:file ID="section1ref1" MIMETYPE="image/jpeg" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s01_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section2ref1" MIMETYPE="image/jpeg" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s02_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section3ref1" MIMETYPE="image/jpeg" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s03_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section4ref1" MIMETYPE="image/jpeg" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s04_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section5ref1" MIMETYPE="image/jpeg" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s05_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section6ref1" MIMETYPE="image/jpeg" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s06_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section7ref1" MIMETYPE="image/jpeg" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s07_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section8ref1" MIMETYPE="image/jpeg" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s08_j.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section9ref1" MIMETYPE="image/jpeg" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID10">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s09_j.jpg" LOCTYPE="URL"/>
+					</mets:file>			
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/reference">
+					<mets:file ID="compositeviewref2" MIMETYPE="image/jpeg" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_k.jpg" LOCTYPE="URL"/>
+					</mets:file>					
+					<mets:file ID="section1ref2" MIMETYPE="image/jpeg" SEQ="2" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s01_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section2ref2" MIMETYPE="image/jpeg" SEQ="3" CREATED="2003-01-22T00:00:00.0" GROUPID="GID3">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s02_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section3ref2" MIMETYPE="image/jpeg" SEQ="4" CREATED="2003-01-22T00:00:00.0" GROUPID="GID4">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s03_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section4ref2" MIMETYPE="image/jpeg" SEQ="5" CREATED="2003-01-22T00:00:00.0" GROUPID="GID5">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s04_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section5ref2" MIMETYPE="image/jpeg" SEQ="6" CREATED="2003-01-22T00:00:00.0" GROUPID="GID6">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s05_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section6ref2" MIMETYPE="image/jpeg" SEQ="7" CREATED="2003-01-22T00:00:00.0" GROUPID="GID7">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s06_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section7ref2" MIMETYPE="image/jpeg" SEQ="8" CREATED="2003-01-22T00:00:00.0" GROUPID="GID8">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s07_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section8ref2" MIMETYPE="image/jpeg" SEQ="9" CREATED="2003-01-22T00:00:00.0" GROUPID="GID9">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s08_k.jpg" LOCTYPE="URL"/>
+					</mets:file>
+					<mets:file ID="section9ref2" MIMETYPE="image/jpeg" SEQ="10" CREATED="2003-01-22T00:00:00.0" GROUPID="GID2">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/ucm_li_1999_012b_s09_k.jpg" LOCTYPE="URL"/>
+					</mets:file>		
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-01-22T00:00:00.0" USE="image/dynamic">
+					<mets:file ID="compositeviewzoom" MIMETYPE="image/jpeg2000" SEQ="1" CREATED="2003-01-22T00:00:00.0" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/jpnprints/ucm/test/ucm_li_1999_012b/compositeviewzoom.jp2" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div TYPE="still image" LABEL="Demons" DMDID="App6DM1">
+					<mets:fptr FILEID="compositeviewmstr"/>
+					<mets:fptr FILEID="compositeviewderivmstr"/>
+					<mets:fptr FILEID="compositeviewtn"/>
+					<mets:fptr FILEID="compositeviewref1"/>
+					<mets:fptr FILEID="compositeviewref2"/>					
+					<mets:fptr FILEID="compositeviewzoom" />					
+					<mets:div LABEL="Section 1" TYPE="detail">
+						<mets:fptr FILEID="section1mstr"/>
+						<mets:fptr FILEID="section1derivmstr"/>				
+						<mets:fptr FILEID="section1tn" />
+						<mets:fptr FILEID="section1ref1" />
+						<mets:fptr FILEID="section1ref2" />		
+					</mets:div>
+					<mets:div LABEL="Section 2" TYPE="detail" >
+						<mets:fptr FILEID="section2mstr"/>
+						<mets:fptr FILEID="section2derivmstr"/>				
+						<mets:fptr FILEID="section2tn" />
+						<mets:fptr FILEID="section2ref1" />
+						<mets:fptr FILEID="section2ref2" />
+					</mets:div>
+					<mets:div LABEL="Section 3" TYPE="detail" >
+						<mets:fptr FILEID="section3mstr"/>
+						<mets:fptr FILEID="section3derivmstr"/>				
+						<mets:fptr FILEID="section3tn" />
+						<mets:fptr FILEID="section3ref1" />
+						<mets:fptr FILEID="section3ref2" />
+					</mets:div>
+					<mets:div LABEL="Section 4" TYPE="detail">
+						<mets:fptr FILEID="section4mstr"/>
+						<mets:fptr FILEID="section4derivmstr"/>				
+						<mets:fptr FILEID="section4tn" />
+						<mets:fptr FILEID="section4ref1" />
+						<mets:fptr FILEID="section4ref2" />
+					</mets:div>
+					<mets:div LABEL="Section 5" TYPE="detail">
+						<mets:fptr FILEID="section5mstr"/>
+						<mets:fptr FILEID="section5derivmstr"/>				
+						<mets:fptr FILEID="section5tn" />
+						<mets:fptr FILEID="section5ref1" />
+						<mets:fptr FILEID="section5ref2" />
+					</mets:div>
+					<mets:div LABEL="Section 6" TYPE="detail">
+						<mets:fptr FILEID="section6mstr"/>
+						<mets:fptr FILEID="section6derivmstr"/>				
+						<mets:fptr FILEID="section6tn" />
+						<mets:fptr FILEID="section6ref1" />
+						<mets:fptr FILEID="section6ref2" />	
+					</mets:div>
+					<mets:div LABEL="Section 7" TYPE="detail">
+						<mets:fptr FILEID="section7mstr"/>
+						<mets:fptr FILEID="section7derivmstr"/>				
+						<mets:fptr FILEID="section7tn" />
+						<mets:fptr FILEID="section7ref1" />
+						<mets:fptr FILEID="section7ref2" />	
+					</mets:div>
+					<mets:div LABEL="Section 8" TYPE="detail">
+						<mets:fptr FILEID="section8mstr"/>
+						<mets:fptr FILEID="section8derivmstr"/>				
+						<mets:fptr FILEID="section8tn" />
+						<mets:fptr FILEID="section8ref1" />
+						<mets:fptr FILEID="section8ref2" />	
+					</mets:div>
+					<mets:div LABEL="Section 9" TYPE="detail">				
+						<mets:fptr FILEID="section9mstr"/>
+						<mets:fptr FILEID="section9derivmstr"/>				
+						<mets:fptr FILEID="section9tn" />
+						<mets:fptr FILEID="section9ref1" />
+						<mets:fptr FILEID="section9ref2" />	
+					</mets:div>
+				</mets:div>		
+			</mets:structMap>
+		</mets:mets>		
+	</Appendix>
+	<Appendix ID="EX7" NUMBER="7" LABEL="Example with Real audio and tei content">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+			xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation=
+			"http://www.loc.gov/METS/
+			http://www.loc.gov/standards/mets/mets.xsd
+			http://cosimo.stanford.edu/sdr/metsrights/
+			http://cosimo.stanford.edu/sdr/metsrights.xsd
+			http://www.loc.gov/mods/v3
+			http://www.loc.gov/standards/mods/v3/mods-3-1.xsd"
+			OBJID="ark:/13030/hb4v19p1vc"
+			TYPE="sound recording"
+			LABEL="Interview with Yoshihiko Kawauchi: Life in rural Japan, 1953-1973"
+			PROFILE="http://www.loc.gov/mets/profiles/00000013.xml">
+			<mets:metsHdr CREATEDATE="2005-12-02T03:02:15" LASTMODDATE="2005-12-08T08:19:18">
+				<mets:agent ROLE="CREATOR" TYPE='INDIVIDUAL'>
+					<mets:name>RIck Beaubien</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="App7DM1">
+				<mets:mdWrap MDTYPE="MODS" LABEL="Interview with Yoshihiko Kawauchi: Life in rural Japan, 1953-1973">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Interview with Yoshihiko Kawauchi: Life in rural Japan, 1953-1973</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal">
+								<mods:namePart>Kawauchi, Yoshihiko</mods:namePart>
+								<mods:role>
+									<mods:roleTerm type="text" authority="marc">Interviewee</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name type="personal">
+								<mods:namePart>Breslin, Mary Louise</mods:namePart>
+								<mods:role>
+									<mods:roleTerm type="text" authority="marc">Interviewer</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:typeOfResource>sound recording</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm type="text">University of California at Berkeley, Berkeley, California</mods:placeTerm>
+								</mods:place>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm type="code" authority="iso639-2b">eng</mods:languageTerm>
+							</mods:language>
+							<mods:physicalDescription>
+								<mods:extent>1 minidisc (30 minutes)</mods:extent>
+							</mods:physicalDescription>
+							<mods:location>
+								<mods:physicalLocation>Regional Oral History Office, The Bancroft Library, University of California, Berkeley, CA 94720</mods:physicalLocation>
+							</mods:location>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:rightsMD ID="App7ADM1">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+						<mets:xmlData>
+							<rts:RightsDeclarationMD RIGHTSCATEGORY="COPYRIGHTED">
+								<rts:RightsHolder>
+									<rts:RightsHolderName>U.C. Regents</rts:RightsHolderName>
+									<rts:RightsHolderContact>
+										<rts:RightsHolderContactAddress>Regional Oral History Office, The Bancroft Library, University of California, Berkeley</rts:RightsHolderContactAddress>
+									</rts:RightsHolderContact>
+								</rts:RightsHolder>
+								<rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+									<rts:Constraints>
+										<rts:ConstraintDescription>Transmission or reproduction of materials protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commericially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user</rts:ConstraintDescription>
+									</rts:Constraints>
+								</rts:Context>
+							</rts:RightsDeclarationMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2005-11-29T13:55:00.0"  USE="audio/reference">
+					<mets:file ID="InterviewAudio" MIMETYPE="audio/x-pn-realaudio" SEQ="1" ADMID="App7ADM1" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/disabilityrights/audio/kawauchi1.rm" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-11-29T13:55:00.0" USE="text/tei">
+					<mets:file ID="InterviewTranscription" MIMETYPE="text/xml" SEQ="1" CREATED="2005-11-29T13:55:00.0" ADMID="App7ADM1" GROUPID="GID1">
+						<mets:FLocat xlink:href="http://digitalassets.lib.berkeley.edu/disabilityrights/text/kawauchi1.xml" LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div ORDER="1" TYPE="sound recording" LABEL="Interview with Yoshihiko Kawauchi: Life in rural Japan, 1953-1973" DMDID="App7DM1">
+					<mets:fptr FILEID="InterviewAudio"/>
+					<mets:fptr FILEID="InterviewTranscription"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>	
+	</Appendix>
+</METS_Profile>

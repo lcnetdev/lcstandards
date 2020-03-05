@@ -1,0 +1,1529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns="http://www.loc.gov/METS_Profile/"
+
+
+xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd 
+		    http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd">
+
+
+  <!-- Created by Morgan Cundiff using Emacs nxml-mode -->
+  <!-- Contributors: Corey Keith, Brian Vargas, Margaret Cundiff -->
+
+
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000007.xml</URI>
+  <title>Library of Congress Audio Compact Disc METS Profile</title>
+  <abstract>The Library of Congress Compact Disc METS Profile specifies how METS documents representing audio compact discs within Library of Congress digital library projects should be encoded. The term "compact disc" applies both to items issued as single discs and also to items issued as multiple disc sets. The distinctive features of the profile are: 1) the use of MODS to express the logical structure of the compact disc (by means of a hierarchy of relatedItem type="constituent" elements), 2) the use of the METS structMap to express the physical structure of the compact disc (by means of a hierarchy of typed div elements, and 3) a straightforward correlation of the two differing hierarchies by means of XML ID/IDREF links.</abstract>
+  <date>2005-06-08T17:31:00</date>
+  <contact>
+    <name>Morgan Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/standards/mods/v3/mods-3-0.xsd</URI>
+    <context/>
+  </extension_schema>
+  <description_rules>
+    <p>The content data used in the MODS section of a METS document must conform to AACR2.</p>
+  </description_rules>
+  <controlled_vocabularies>
+    <vocabulary>
+      <name>Library of Congress Subject Headings</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <context>
+	<p>Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress Subject Headings (LCSH).</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Library of Congress Classification</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/catdir/cpso/lcc.html</URI>
+    </vocabulary>
+    <vocabulary>
+      <name>NACO Authority File</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://authorities.loc.gov/</URI>
+      <context>
+	<p>Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority File.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Country Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/countries/</URI>
+      <context>
+	<p>Country codes used in the MODS section of a METS document must use MARC country code list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>ISO 639-2 Language Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/standards/iso639-2/</URI>
+      <context>
+	<p>Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Relator Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/relators/</URI>
+      <context>
+	<p>Relator codes or terms used in the MODS section of a METS document must use MARC relator list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Target Audience Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/sourcecode/target/</URI>
+      <context>
+	<p>Terms used in the MODS section of a METS document must use the MARC target audience list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Code List for Organizations</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/organizations/</URI>
+      <context>
+	<p>Source codes used in the MODS section of a METS document must use MARC organization list.</p>
+      </context>
+    </vocabulary>
+  </controlled_vocabularies>
+  <structural_requirements>
+    <metsRootElement>
+      <requirement ID="rt01" RELATEDMAT="ex13">
+	<p>The METS root element must have an attribute PROFILE="http://www.loc.gov/mets/profiles/00000007.xml".</p>
+      </requirement>
+    </metsRootElement>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p>If a compact disc contains one and only one work, and that work has no logical sub-parts to be described, then the MODS record will contain no relatedItem TYPE=constituent elements. Note: this will not often be the case. A typical case where it would occur would be a compact disc with only one title and one track (i.e. no physical or logical subdivisions).</p>
+	<p>Plese note: the term "work" is being used here as shorthand for the FRBR concept of "manifestation" of an abstract work. The work is in the form of a recorded performance as issued on a given audio compact disc.</p>
+      </requirement>
+      <requirement ID="dr03" RELATEDMAT="ex03">
+	<p>If there is more than one work recorded on the compact disc, the MODS element must contain one Related Item (relatedItem) child element for each work. Each relatedItem element must have an ID attribute and a type="constituent" attribute.</p>
+      </requirement>
+      <requirement ID="dr04" RELATEDMAT="ex04">
+	<head>Descriptive Metadata: MODS (logical parts with sub-parts)</head>
+	<p>If a work has logical sub-parts, those sub-parts may be represented with relatedItem TYPE=constituent child elements. Examples of logical sub-parts of a work are the movements of a musical work, the acts and scenes of a dramatic work, etc. The logical structure of a work will thus be represented as a heirarchy of relatedItems. All relatedItem TYPE=constituent elements  must be given an ID attribute and must have a titleInfo child element.</p>
+	<p>Note that the profile makes no further descriptive cataloging requirements either in terms of content (i.e. particular descriptive data) or content designation (particular MODS elements and attributes). That being said, it should be obvious (given that the mods element and the relatedItem element both have the same content model) that there is the possibilty of providing more extensive description for each relatedItem. If, and to what extent, this possibility is expoited, is considered to be outside the scope of the profile. Rather, it is an issue of local cataloging practice.</p>
+	<p>It should also be noted that because the mods element and the relatedItem type="constituent" child elements represent the logical heirarchy of the compact disc (i.e. as an XML tree structure), then it becomes possible to consider that information can be inherited from one level of the heirarchy to another. For instance, in Example 5, it is clear that the partName with value "Allegro molto appassionato, presto" is a part of the work with title "Concerto in E minor, op. 64" by virtue of the child-to-parent relationship in the XML tree. Again, if, and to what extent, this kind of potential for inheritance is exploited is beyond the scope of the profile and is a matter of cataloging practice.</p>
+      </requirement>
+    </dmdSec>
+    <amdSec>
+      <requirement>
+	<head>Administrative Metadata Section</head>
+	<p>The profile does not require administrative metadata.</p>
+      </requirement>
+    </amdSec>
+    <fileSec>
+      <requirement ID="fs01">
+	<head>File Section</head>
+	<p>The content files referenced by the fptr elements (in the structMap) must point to the appropriate files in the File Section (fileSec). The profile makes no further requirements regarding the fileSec element.</p>
+      </requirement>
+    </fileSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex05">
+	<p>The physical structure of the compact disc will be represented in the Structure Map (structMap) section of the METS instance. The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="cd:compactDiscObject" child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.</p>
+      </requirement>
+
+      <requirement ID="st02" RELATEDMAT="ex06">
+	<p>The primary physical component of a compactDiscObject is one or more compact discs. Accordingly, the div TYPE="cd:compactDiscObject" element must have one or more div TYPE="cd:disc" child elements. When there is more than one disc, the div TYPE="cd:disc" elements must occur in document order that corresponds to the physical order of the discs (Disk 1, Disk 2, etc.). A compactDiscObject may also contain physical components for the container cover, and for an inserted booklet. The div TYPE="cd:compactDiscObject" element may therefore also contain zero or one div TYPE="cd:cover" elements and/or zero or more div TYPE="cd:booklet" elements. The examples that follow will first treat the div TYPE="cd:disc" element with audio content and then move to the div TYPE="cd:cover" element and the div TYPE="cd:booklet" elements and a discussion of image and text content.</p>
+      </requirement>
+
+      <requirement ID="st03" RELATEDMAT="ex07">
+	<p>The div TYPE="cd:disc" elements will have one or more div TYPE="cd:track" child elements. The div TYPE="cd:track" elements should occur in document order that corresponds to the physical order of the tracks on the compact disc.</p> 
+	<p>If the track is not further divided (i.e. the audio content of the track corresponds to a relatedItem in the mods record), then the div TYPE="cd:track" element will contain a div TYPE="cd:audio" child element. Each div TYPE="cd:audio" element will contain one or more fptr (File Pointer) elements, each with a FILEID attribute that points to the appropriate file element in the fileSec (File Section). Also in this case, each div TYPE="cd:track" element must have an ID attribute and a DMDID attribute that points to the corresponding relatedItem element in the mods record.</p>
+	<p>If, however, the track is further divided into logical segments, see the next requirement on the use of div TYPE="cd:trackSegment" child elements.</p>
+      </requirement>
+
+      <requirement ID="st04" RELATEDMAT="ex08">
+	<p>The div TYPE="cd:track" elements may have zero or more div TYPE="cd:trackSegment" child elements. The div TYPE="cd:trackSegment" element should be used in cases where a compact disc track contains more than one logical part. Each div TYPE="cd:trackSegment" element must have a DMDID attribute that points to the corresponding relatedItem element in the mods record. Each div TYPE="cd:trackSegment" element will have a div TYPE="cd:audio" child element.</p>
+	<p>Each div TYPE="cd:audio" element will in turn have one or more fptr (File Pointer) elements. Each fptr element will in turn contain an area child element with a FILEID attribute that points to the appropriate file in the fileSec (File Section). The area element will also use the BETYPE (Beginning and End Type) attribute with value "TIME", the BEGIN attribute, and the EXTENT attribute to indicate the starting time and the duration of the associated audio file segment.</p>
+	<p>Example 9 shows a fragment of an operatic work as an illustration of the use of the div TYPE="cd:trackSegment" element. The work contains two acts and each act in turn contains two scenes so there are four logical sub-parts to be correlated to the appropriate audio segments. The disc, however, contains only two physical tracks (with each track containing two scenes). The div TYPE="cd:trackSegment" is used to correlate the segment of each track to the corresponding relatedItem element. Note that the div TYPE="cd:trackSegment" element is associated with the corresponding time segment of the appropriate file element by using the area element and the BETYPE, BEGIN, ande EXTENT attributes</p>
+      </requirement>
+
+      <requirement ID="st05" RELATEDMAT="ex09">
+	<p>The parent div element of all div TYPE="cd:audio" elements will have a DMDID attribute linking the parent div to the appropriate relatedItem element. These parent div elements will always be either div TYPE="cd:track" or div TYPE="cd:trackSegment". Notice (in the example below) that there is a correspondence between the three lowest-level relatedItem elements (in document order) and the three div elements that are parents of div TYPE="cd:audio" elements (in document order). (The phrase "lowest-level relatedItem elements" means relatedItem elements that contain no child relatedItem elements.)</p>
+      </requirement>
+
+      <requirement ID="st06" RELATEDMAT="ex10">
+	<p>A compactDiscObject may also contain image and text content in addition to audio content. Digital images may exist for the disc label, the container cover, and for an inserted booklet. A div TYPE="cd:image" element will always contain one or more fptr elements that point to the appropriate file elements.</p>
+	<p>In the case of container or cover images, the profile does not require a particular sequence of images. However, as a matter of practice, the images may be arranged in a reasonable document order with the front cover image occuring first. With the div TYPE="cd:image" element it may be useful to add a LABEL attribute containing additional structural information. For example, div TYPE="cd:image" LABEL="front cover" as in the following example.</p>
+      </requirement>
+
+      <requirement ID="st07" RELATEDMAT="ex11">
+	<p>Text files may exist for a transcription of the text on the disc label, a transcription of the text on the container cover,  a transcription of the text from an inserted booklet, or a transcription of the text from an audio program. A text file is associated with a particular physical component div element by nesting it as a child of that element. For example, for a text file containing a transcription of audio program for a particular track, div TYPE="cd:track" element would contain a div TYPE="cd:text" child element. For the purpose of illustration, an example of each of these possibilities is presented below. Note that each div TYPE="cd:text" element contains a fptr element with FILEID attribute pointing to the appropriate file element. The text file will typically be an XML document conforming to the TEILITE DTD.</p>
+      </requirement>
+
+      <requirement ID="st08" RELATEDMAT="ex12">
+	<p>The last example provides an overview of the structMap showing all possibilities for div TYPE hierarchies. It also  provides an easy reference for the complete compact disc profile div TYPE "vocabulary" (e.g. div TYPE="cd:compactDiscObject").</p>
+      </requirement>
+
+    </structMap>
+
+
+  </structural_requirements>
+  <technical_requirements>
+    <content_files>
+      <requirement>
+	<head>Audio Files</head>
+	<p>The master audio files referenced by conforming documents must be in WAVE Audio File Format. See Digital Formats for Library of Congress Collections: WAVE Audio File Format at http://www.digitalpreservation.gov/formats/fdd/fdd000001.shtml.</p>
+      </requirement>
+      <requirement>
+	<head>Still Image Files</head>
+	<p>The master image files referenced by conforming documents must be in TIFF Revision 6.0 format. See Digital Formats for Library of Congress Collections: TIFF, Revision 6.0 at http://www.digitalpreservation.gov/formats/fdd/fdd000022.shtml.</p>
+      </requirement>
+      <requirement>
+	<head>Text Files</head>
+	<p>Master text files referenced by conforming documents must be in XML format. See Digital Formats for Library of Congress Collections: XML (Extensible Markup Language) at http://www.digitalpreservation.gov/formats/fdd/fdd000075.shtml.</p>
+      </requirement>
+    </content_files>
+  </technical_requirements>
+  
+
+  <tool/>
+  <Appendix ID="a1" NUMBER="0">
+    <mets:mets OBJID="loc.natlib.ihas.200003790"  PROFILE="http://www.loc.gov/mets/profiles/00000007.xml" xmlns:mets="http://www.loc.gov/METS/" xmlns:lc="http://www.loc.gov/mets/profiles" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rights="http://www.loc.gov/rights/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:cd="http://www.loc.gov/mets/profiles/compactDisc" >
+      <mets:dmdSec ID="DMD">
+	<mets:mdWrap ID="MODS1" MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods version="3.0" xmlns:xsp="http://apache.org/xsp" xmlns:xspdoc="http://apache.org/cocoon/XSPDoc/v1" xmlns:esql="http://apache.org/cocoon/SQL/v2" xmlns:natlib="http://www.loc.gov/natlib" xmlns:xsp-request="http://apache.org/xsp/request/2.0">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>1946 Library of Congress recital</mods:title>
+	      </mods:titleInfo>
+	      <mods:titleInfo type="alternative">
+		<mods:title>Nathan Milstein in recital</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Milstein, Nathan</mods:namePart>
+		<mods:namePart type="date">1903-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm type="text">performer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:name type="corporate" authority="lcnaf">
+		<mods:namePart>Coolidge Auditorium (Library of Congress)</mods:namePart>
+	      </mods:name>
+	      <mods:typeOfResource>sound recording-musical</mods:typeOfResource>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="code" authority="marccountry">nyu</mods:placeTerm>
+		</mods:place>
+		<mods:place>
+		  <mods:placeTerm type="text">New York</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>Bridge Records</mods:publisher>
+		<mods:dateIssued>p1996</mods:dateIssued>
+	      </mods:originInfo>
+	      <mods:physicalDescription>
+		<mods:form authority="gmd">sound recording</mods:form>
+		<mods:extent>1 sound disc (67 min., 36 sec.) : digital ; 4 3/4 in.</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:tableOfContents>Chaconne / Tomaso Vitali (9:55) --  Sonata in G minor, BWV 1001 / Johann Sebastian Bach (15:01) -- Paganiniana (variations) / Nathan Milstein (9:05) - Concerto in E minor, op. 64 / Felix Mendelssohn-Bartholdy (25:10) - Nocturne in C-sharp minor / Fryderyk Chopin (3:42) - Scherzo-tarantelle / Henryk Wieniawski (3:54).</mods:tableOfContents>
+	      <mods:note type="statement of responsibility">Nathan Milstein</mods:note>
+	      <mods:note>Compact disc.</mods:note>
+	      <mods:note>Title on insert: Nathan Milstein in recital.</mods:note>
+	      <mods:note type="performers">Nathan Milstein, violin ; Josef Blatt, piano.</mods:note>
+	      <mods:note type="venue">Recorded Oct. 7, 1946 at the Coolidge Auditorium, the Library of Congress.</mods:note>
+	      <mods:note>Booklet containing biographical notes on the performers and program notes by K. Robert Schwarz (12 p.) inserted.</mods:note>
+	      <mods:classification authority="lcc">Bridge Records BRIDGE 9064</mods:classification>
+	      <mods:relatedItem type="series">
+		<mods:titleInfo>
+		  <mods:title>Great performances from the Library of Congress ; v. 3</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr001">
+		<mods:titleInfo type="uniform">
+		  <mods:title>Chaconne von Vitali</mods:title>
+		</mods:titleInfo>
+		<mods:titleInfo>
+		  <mods:title>Chaconne</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Vitali, Tomaso Antonio</mods:namePart>
+		  <mods:namePart type="date">1663-1745</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:name type="personal">
+		  <mods:namePart>Blatt, Josef</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">performer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:physicalDescription>
+		  <mods:extent>9:55</mods:extent>
+		</mods:physicalDescription>
+		<mods:note type="performers">Nathan Milstein, violin ; Josef Blatt, piano.</mods:note>
+		<mods:note type="statement of responsibility">Tomaso Vitali</mods:note>
+		<mods:note>Originally for violin and continuo; arr. for violin and piano.</mods:note>
+		<mods:note>Attributed to Tomaso Vitali, but most likely not by him.</mods:note>
+		<mods:subject>
+		  <mods:topic>Chaconnes (Violin and piano), Arranged.</mods:topic>
+		</mods:subject>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr002_005">
+		<mods:titleInfo>
+		  <mods:title>Sonata in G minor, BWV 1001</mods:title>
+		</mods:titleInfo>
+		<mods:titleInfo type="uniform">
+		  <mods:partName>Sonaten und Partiten, violin, BWV 1001-1006. Sonata, no. 1</mods:partName>
+		</mods:titleInfo>
+		<mods:name type="personal" authority="lcnaf">
+		  <mods:namePart>Bach, Johann Sebastian</mods:namePart>
+		  <mods:namePart type="date">1685-1750</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm>composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:physicalDescription>
+		  <mods:extent>15:01</mods:extent>
+		</mods:physicalDescription>
+		<mods:note type="performers">Nathan Milstein, violin</mods:note>
+		<mods:note type="statement of responsibility">Johann Sebastian Bach</mods:note>
+		<mods:subject authority="lcsh">
+		  <mods:topic>Sonatas (Violin)</mods:topic>
+		</mods:subject>
+		<mods:subject authority="lcsh">
+		  <mods:topic>Violin music</mods:topic>
+		</mods:subject>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr002">
+		  <mods:titleInfo>
+		    <mods:partName>Adagio</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>4:28</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr003">
+		  <mods:titleInfo>
+		    <mods:partName>Fuga : allegro</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>4:42</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr004">
+		  <mods:titleInfo>
+		    <mods:partName>Siciliano</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>3:32</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr005">
+		  <mods:titleInfo>
+		    <mods:partName>Presto</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>2:17</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr006">
+		<mods:titleInfo>
+		  <mods:title>Paganiniana : variations</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal" authority="lcnaf">
+		  <mods:namePart>Milstein, Nathan,</mods:namePart>
+		  <mods:namePart type="date">1903-</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm>composer</mods:roleTerm>
+		  </mods:role>
+		  <mods:role>
+		    <mods:roleTerm>performer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:name type="personal" authority="lcnaf">
+		  <mods:namePart>Paganini, Nicolo</mods:namePart>
+		  <mods:namePart type="date">1782-1840</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm>composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:physicalDescription>
+		  <mods:extent>9:05</mods:extent>
+		</mods:physicalDescription>
+		<mods:note type="performers">Nathan Milstein, violin</mods:note>
+		<mods:note type="statement of responsibility">Nathan Milstein</mods:note>
+		<mods:note>Variations for violin solo on themes by Nicolo Paganini.</mods:note>
+		<mods:subject authority="lcsh">
+		  <mods:topic>Variations (Violin)</mods:topic>
+		</mods:subject>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr007_009">
+		<mods:titleInfo>
+		  <mods:title>Concerto in E minor, op. 64</mods:title>
+		</mods:titleInfo>
+		<mods:titleInfo type="uniform" authority="lcnaf">
+		  <mods:title>Concertos, violin, orchestra, op. 64, E minor; arr.</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Mendelssohn-Bartholdy, Felix</mods:namePart>
+		  <mods:namePart type="date">1809-1847</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:name type="personal">
+		  <mods:namePart>Blatt, Josef</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">performer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:note type="performers">Nathan Milstein, violin ; Josef Blatt, piano.</mods:note>
+		<mods:note type="statement of responsibility">Felix Mendelssohn-Bartholdy</mods:note>
+		<mods:note>Originally for violin and orchestra; arranged for violin and piano.</mods:note>
+		<mods:subject authority="lcsh">
+		  <mods:topic>Concertos (Violin)</mods:topic>
+		  <mods:topic>Solo with piano</mods:topic>
+		</mods:subject>
+		<mods:physicalDescription>
+		  <mods:extent>25:10</mods:extent>
+		</mods:physicalDescription>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr007">
+		  <mods:titleInfo>
+		    <mods:partName>Allegro molto appassionato, presto</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>11:40</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr008">
+		  <mods:titleInfo>
+		    <mods:partName>Andante</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>7:11</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr009">
+		  <mods:titleInfo>
+		    <mods:partName>Allegretto non troppo, allegro molto vivace</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>6:12</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr010">
+		<mods:titleInfo type="uniform">
+		  <mods:title>Nocturnes, piano, B. 49, C# minor; arr.</mods:title>
+		</mods:titleInfo>
+		<mods:titleInfo>
+		  <mods:title>Nocturne in C# minor</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Chopin, Fr&#233;d&#233;ric,</mods:namePart>
+		  <mods:namePart type="date">1810-1849</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:name type="personal">
+		  <mods:namePart>Blatt, Josef</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">performer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:physicalDescription>
+		  <mods:extent>3:42</mods:extent>
+		</mods:physicalDescription>
+		<mods:note type="performers">Nathan Milstein, violin ; Josef Blatt, piano.</mods:note>
+		<mods:note type="statement of responsibility">Fryderyk Chopin ; arr. by Nathan Milstein</mods:note>
+		<mods:note>Originally for piano solo; arranged for violin and piano.</mods:note>
+		<mods:subject>
+		  <mods:topic>Violin and piano music, Arranged.</mods:topic>
+		</mods:subject>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr011">
+		<mods:titleInfo>
+		  <mods:title>Scherzo-tarantelle</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal" authority="lcnaf">
+		  <mods:namePart>Wieniawski, Henri,</mods:namePart>
+		  <mods:namePart type="date">1835-1880</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:name type="personal" authority="lcnaf">
+		  <mods:namePart>Blatt, Josef</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">performer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:physicalDescription>
+		  <mods:extent>3:54</mods:extent>
+		</mods:physicalDescription>
+		<mods:note type="performers">Nathan Milstein, violin ; Josef Blatt, piano.</mods:note>
+		<mods:note type="statement of responsibility">Henryk Wieniawski</mods:note>
+		<mods:subject>
+		  <mods:topic>Violin and piano music</mods:topic>
+		</mods:subject>
+	      </mods:relatedItem>
+	      <mods:identifier displayLabel="IHASDigitalID" type="local">200003790</mods:identifier>
+	      <mods:identifier displayLabel="IHASMODSID" type="local">19566</mods:identifier>
+	      <mods:identifier type="lccn">99594334</mods:identifier>
+	      <mods:identifier type="issue number">Bridge Records: BRIDGE 9064</mods:identifier>
+	      <mods:recordInfo>
+		<mods:recordContentSource authority="marcorg">IOS</mods:recordContentSource>
+		<mods:recordCreationDate encoding="marc">960807</mods:recordCreationDate>
+		<mods:recordChangeDate encoding="iso8601">20000625111554.0  </mods:recordChangeDate>
+		<mods:recordIdentifier>12078886  </mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:amdSec/>
+      <mets:fileSec>
+	<mets:fileGrp USE="MASTER">
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G1" ID="FN1002C">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0001.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G2" ID="FN10031">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0002.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G3" ID="FN10036">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0003.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G4" ID="FN1003B">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0004.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G5" ID="FN10040">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0005.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G6" ID="FN10045">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0006.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G7" ID="FN1004A">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0007.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G8" ID="FN1004F">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0008.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G9" ID="FN10054">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0009.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G10" ID="FN10059">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0010.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G11" ID="FN1005E">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0011.tif"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/tiff" GROUPID="G12" ID="FN10063">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/images/0012.tif"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G1" ID="FN10154">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0001v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G2" ID="FN1017C">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0002v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G3" ID="FN101A4">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0003v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G4" ID="FN101CC">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0004v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G5" ID="FN101F4">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0005v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G6" ID="FN1021C">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0006v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G7" ID="FN10244">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0007v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G8" ID="FN1026C">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0008v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G9" ID="FN10294">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0009v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G10" ID="FN102BC">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0010v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G11" ID="FN102E4">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0011v.jpg"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="image/jpeg" GROUPID="G12" ID="FN1030C">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/booklet/images/0012v.jpg"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="MASTER">
+	  <mets:file MIMETYPE="text/xml" ID="FN1006D">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/booklet/text/0001.xml"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="MASTER">
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G1" ID="FN10081">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr001/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G2" ID="FN10090">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr002/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G3" ID="FN1009F">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr003/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G4" ID="FN100AE">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr004/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G5" ID="FN100BD">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr005/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G6" ID="FN100CC">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr006/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G7" ID="FN100DB">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr007/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G8" ID="FN100EA">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr008/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G9" ID="FN100F9">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr009/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G10" ID="FN10108">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr010/audio/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G11" ID="FN10117">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/warehouse/lc_concerts/200003790/disc01/tr011/audio/0001.wav"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G1" ID="FN10320">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr001/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G2" ID="FN10334">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr002/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G3" ID="FN10348">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr003/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G4" ID="FN1035C">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr004/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G5" ID="FN10370">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr005/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G6" ID="FN10384">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr006/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G7" ID="FN10398">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr007/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G8" ID="FN103AC">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr008/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G9" ID="FN103C0">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr009/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G10" ID="FN103D4">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr010/audio/0001.mp3"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/mp3" GROUPID="G11" ID="FN103E8">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr011/audio/0001.mp3"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G1" ID="FN10325">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr001/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G2" ID="FN10339">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr002/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G3" ID="FN1034D">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr003/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G4" ID="FN10361">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr004/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G5" ID="FN10375">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr005/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G6" ID="FN10389">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr006/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G7" ID="FN1039D">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr007/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G8" ID="FN103B1">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr008/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G9" ID="FN103C5">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr009/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G10" ID="FN103D9">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr010/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp USE="SERVICE">
+	  <mets:file MIMETYPE="application/x-pn-realaudio" GROUPID="G11" ID="FN103ED">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://lcweb2.loc.gov/natlib/ihas/service/lc_concerts/200003790/disc01/tr011/audio/0001.ram"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+      <mets:structMap>
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1">
+	  <mets:div TYPE="cd:disc">
+	    <mets:div DMDID="DMD_disc01_tr001" ID="disc01_tr001" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN10081"/>
+		<mets:fptr FILEID="FN10320"/>
+		<mets:fptr FILEID="FN10325"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr002" ID="disc01_tr002" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN10090"/>
+		<mets:fptr FILEID="FN10334"/>
+		<mets:fptr FILEID="FN10339"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr003" ID="disc01_tr003" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN1009F"/>
+		<mets:fptr FILEID="FN10348"/>
+		<mets:fptr FILEID="FN1034D"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr004" ID="disc01_tr004" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100AE"/>
+		<mets:fptr FILEID="FN1035C"/>
+		<mets:fptr FILEID="FN10361"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr005" ID="disc01_tr005" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100BD"/>
+		<mets:fptr FILEID="FN10370"/>
+		<mets:fptr FILEID="FN10375"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr006" ID="disc01_tr006" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100CC"/>
+		<mets:fptr FILEID="FN10384"/>
+		<mets:fptr FILEID="FN10389"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr007" ID="disc01_tr007" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100DB"/>
+		<mets:fptr FILEID="FN10398"/>
+		<mets:fptr FILEID="FN1039D"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr008" ID="disc01_tr008" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100EA"/>
+		<mets:fptr FILEID="FN103AC"/>
+		<mets:fptr FILEID="FN103B1"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr009" ID="disc01_tr009" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100F9"/>
+		<mets:fptr FILEID="FN103C0"/>
+		<mets:fptr FILEID="FN103C5"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr010" ID="disc01_tr010" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN10108"/>
+		<mets:fptr FILEID="FN103D4"/>
+		<mets:fptr FILEID="FN103D9"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr011" ID="disc01_tr011" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN10117"/>
+		<mets:fptr FILEID="FN103E8"/>
+		<mets:fptr FILEID="FN103ED"/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div ID="booklet" TYPE="cd:booklet">
+	    <mets:div TYPE="cd:text">
+	      <mets:fptr FILEID="FN1006D"/>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN1002C"/>
+		<mets:fptr FILEID="FN10154"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN10031"/>
+		<mets:fptr FILEID="FN1017C"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN10036"/>
+		<mets:fptr FILEID="FN101A4"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN1003B"/>
+		<mets:fptr FILEID="FN101CC"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN10040"/>
+		<mets:fptr FILEID="FN101F4"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN10045"/>
+		<mets:fptr FILEID="FN1021C"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN1004A"/>
+		<mets:fptr FILEID="FN10244"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN1004F"/>
+		<mets:fptr FILEID="FN1026C"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN10054"/>
+		<mets:fptr FILEID="FN10294"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN10059"/>
+		<mets:fptr FILEID="FN102BC"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN1005E"/>
+		<mets:fptr FILEID="FN102E4"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:page">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr FILEID="FN10063"/>
+		<mets:fptr FILEID="FN1030C"/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+
+  <Appendix ID="ex13" NUMBER="1">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:structMap>
+	<mets:div TYPE="cd:compactDiscObject">
+	  <mets:div TYPE="cd:disc">
+	    <mets:div TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex01" NUMBER="2">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMD_ex01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1_ex01">
+	      <mods:titleInfo>
+		<mods:nonSort>The</mods:nonSort>
+		<mods:title>1946 Library of Congress recital</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1_ex01">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex02" NUMBER="3">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMD_ex2">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1_ex2">
+	      <mods:titleInfo>
+		<mods:nonSort>Der</mods:nonSort>
+		<mods:title>grosse fuge</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1_ex2">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex03" NUMBER="4">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMD_ex03">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1_ex03">
+	      <mods:titleInfo>
+		<mods:title>Bruce Hungerford, pianist, in live performances of works by Franz Schubert.</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="d01_tr001_ex03" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Fantasy in C</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="d01_tr002_ex03" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Four Impromptus</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1_ex03">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+
+  <Appendix ID="ex04" NUMBER="5">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMD_ex04">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1_ex04">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>1946 Library of Congress recital</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr001_ex04">
+		<mods:titleInfo>
+		  <mods:title>Chaconne</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Vitali, Tomaso Antonio</mods:namePart>
+		  <mods:namePart type="date">1663-1745</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr002_004_ex04">
+		<mods:titleInfo>
+		  <mods:title>Concerto in E minor, op. 64</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Mendelssohn-Bartholdy, Felix</mods:namePart>
+		  <mods:namePart type="date">1809-1847</mods:namePart>
+		  <mods:role>
+		    <mods:roleTerm type="text">composer</mods:roleTerm>
+		  </mods:role>
+		</mods:name>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr002_ex04">
+		  <mods:titleInfo>
+		    <mods:partName>Allegro molto appassionato, presto</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>11:40</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr003_ex04">
+		  <mods:titleInfo>
+		    <mods:partName>Andante</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>7:11</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr004_ex04">
+		  <mods:titleInfo>
+		    <mods:partName>Allegretto non troppo, allegro molto vivace</mods:partName>
+		  </mods:titleInfo>
+		  <mods:physicalDescription>
+		    <mods:extent>6:12</mods:extent>
+		  </mods:physicalDescription>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1_ex04">
+	</mets:div>
+      </mets:structMap>
+
+    </mets:mets>
+  </Appendix>
+
+
+
+  <Appendix ID="ex05" NUMBER="6">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMDex05">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1ex05">
+	      <mods:titleInfo>
+		<mods:nonSort>The</mods:nonSort>
+		<mods:title>1946 Library of Congress recital</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one div TYPE="cd:compactDiscObject" -->
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1ex05">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex06" NUMBER="7">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMD_ex06">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1_ex06">
+	      <mods:titleInfo>
+		<mods:nonSort>The</mods:nonSort>
+		<mods:title>1946 Library of Congress recital</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one div TYPE="cd:compactDiscObject" -->
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1_ex06">
+
+	  <!-- one or more div TYPE="cd:disc" -->
+	  <mets:div TYPE="cd:disc">
+	  </mets:div>
+
+	  <!-- zero or one div TYPE="cd:cover" -->
+	  <mets:div TYPE="cd:cover">
+	  </mets:div>
+
+	  <!-- zero or more div TYPE="cd:booklet" -->
+	  <mets:div TYPE="cd:booklet">
+	  </mets:div>
+
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex07" NUMBER="8">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+      <mets:structMap>
+	<!-- one and only one div TYPE="cd:compactDiscObject" -->
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1">
+
+	  <!-- one or more div TYPE="cd:disc" -->
+	  <mets:div TYPE="cd:disc">
+
+	    <!-- one or more div TYPE="cd:track" -->
+	    <mets:div TYPE="cd:track" ID="disc01_tr001_ex07">
+	      <!-- one and only one div TYPE="cd:audio" -->
+	      <mets:div TYPE="cd:audio">
+		<!-- one or more fptr -->
+		<mets:fptr/>
+		<mets:fptr/>
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex08" NUMBER="9">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMD_ex08">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1_ex08">
+	      <mods:titleInfo>
+		<mods:nonSort>The</mods:nonSort>
+		<mods:title>Pilgrims's progress</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Vaughan Williams, Ralph</mods:namePart>
+	      </mods:name>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr001seg01_02_ex08">
+		<mods:titleInfo>
+		  <mods:partNumber>Act I</mods:partNumber>
+		</mods:titleInfo>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr001seg01_ex08">
+		  <mods:titleInfo>
+		    <mods:partNumber>Scene 1</mods:partNumber>
+		    <mods:partName>The Pilgrim meets Evangelist</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr001seg02_ex08">
+		  <mods:titleInfo>
+		    <mods:partNumber>Scene 2</mods:partNumber>
+		    <mods:partName>The house beautiful</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr002seg01_02_ex08">
+		<mods:titleInfo>
+		  <mods:partNumber>Act II</mods:partNumber>
+		</mods:titleInfo>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr002seg01_ex08">
+		  <mods:titleInfo>
+		    <mods:partNumber>Scene 1</mods:partNumber>
+		    <mods:partName>The arming of the pilgrim</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr002seg02_ex08">
+		  <mods:titleInfo>
+		    <mods:partNumber>Scene 2</mods:partNumber>
+		    <mods:partName>The pilgrim meets Apollyon</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+
+      <mets:fileSec>
+	<mets:fileGrp>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G1_ex08" ID="F1_ex08">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://path/tr001/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G2_ex08" ID="F2_ex08">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://path/tr002/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G1_ex08" ID="F3_ex08">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://path/tr001/0001.wav"/>
+	  </mets:file>
+	  <mets:file MIMETYPE="audio/wav" GROUPID="G2_ex08" ID="F4_ex08">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://path/tr002/0001.wav"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+
+
+      <mets:structMap>
+	<!-- one and only one div TYPE="cd:compactDiscObject" -->
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1_ex08">
+
+	  <!-- one or more div TYPE="cd:disc" -->
+	  <mets:div TYPE="cd:disc">
+
+	    <!-- one or more div TYPE=cd:track" -->
+	    <mets:div TYPE="cd:track">
+	      <mets:div TYPE="cd:trackSegment" ID="disc01_tr001_seg01" DMDID="DMD_disc01_tr001seg01_ex08">
+		<mets:div TYPE="cd:audio">
+		  <mets:fptr>
+		    <mets:area FILEID="F1_ex08" BETYPE="TIME" BEGIN="00:00:00" EXTENT="00:07:30"/>
+		  </mets:fptr>
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="cd:trackSegment" ID="disc01_tr001_seg02" DMDID="DMD_disc01_tr001seg02_ex08">
+		<mets:div TYPE="cd:audio">
+		  <mets:fptr>
+		    <mets:area FILEID="F2_ex08" BETYPE="TIME" BEGIN="00:07:35" EXTENT="00:08:55"/>
+		  </mets:fptr>
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+
+	    <mets:div TYPE="cd:track">
+	      <mets:div TYPE="cd:trackSegment" ID="disc01_tr002_seg01" DMDID="DMD_disc01_tr002seg01_ex08">
+		<mets:div TYPE="cd:audio">
+		  <mets:fptr>
+		    <mets:area FILEID="F3_ex08" BETYPE="TIME" BEGIN="00:00:00" EXTENT="00:10:30"/>
+		  </mets:fptr>
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="cd:trackSegment" ID="disc01_tr002_seg02" DMDID="DMD_disc01_tr002seg02_ex08">
+		<mets:div TYPE="cd:audio">
+		  <mets:fptr>
+		    <mets:area FILEID="F4_ex08" BETYPE="TIME" BEGIN="00:10:35" EXTENT="00:09:30"/>
+		  </mets:fptr>
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex09" NUMBER="10">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+
+      <mets:dmdSec ID="DMD_ex09">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS1_ex09">
+	      <mods:titleInfo>
+		<mods:nonSort>The </mods:nonSort>
+		<mods:title>1946 Library of Congress recital</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Milstein, Nathan</mods:namePart>
+		<mods:namePart type="date">1903-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">performer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr001_ex09">
+		<mods:titleInfo>
+		  <mods:title>Chaconne von Vitali</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="DMD_disc01_tr002_005_ex09">
+		<mods:titleInfo>
+		  <mods:title>Sonaten und Partiten, violin</mods:title>
+		  <mods:partNumber>BWV 1001-1006. no. 1</mods:partNumber>
+		  <mods:partName>Sonata</mods:partName>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Bach, Johann Sebastian,</mods:namePart>
+		  <mods:namePart type="date">1685-1750</mods:namePart>
+		</mods:name>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr002_ex09">
+		  <mods:titleInfo>
+		    <mods:partName>Adagio</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr003_ex09">
+		  <mods:titleInfo>
+		    <mods:partName>Fuga</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr004_ex09">
+		  <mods:titleInfo>
+		    <mods:partName>Siciliano</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="DMD_disc01_tr005_ex09">
+		  <mods:titleInfo>
+		    <mods:partName>Presto</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1_ex09">
+	  <mets:div TYPE="cd:disc">
+	    <mets:div DMDID="DMD_disc01_tr001_ex09" ID="disc01_tr001_ex09" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN10081"/>
+		<mets:fptr FILEID="FN10320"/>
+		<mets:fptr FILEID="FN10325"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr002_ex09" ID="disc01_tr002_ex09" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN10090"/>
+		<mets:fptr FILEID="FN10334"/>
+		<mets:fptr FILEID="FN10339"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr003_ex09" ID="disc01_tr003_ex09" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN1009F"/>
+		<mets:fptr FILEID="FN10348"/>
+		<mets:fptr FILEID="FN1034D"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr004_ex09" ID="disc01_tr004_ex09" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100AE"/>
+		<mets:fptr FILEID="FN1035C"/>
+		<mets:fptr FILEID="FN10361"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div DMDID="DMD_disc01_tr005_ex09" ID="disc01_tr005_ex09" TYPE="cd:track">
+	      <mets:div TYPE="cd:audio">
+		<mets:fptr FILEID="FN100BD"/>
+		<mets:fptr FILEID="FN10370"/>
+		<mets:fptr FILEID="FN10375"/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex10" NUMBER="11">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+      <mets:structMap>
+	<!-- one and only one div TYPE="cd:compactDiscObject" -->
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1">
+
+	  <!-- one or more div TYPE="cd:disc" -->
+	  <mets:div TYPE="cd:disc">
+	    <!-- one and only one div TYPE="cd:discLabel" -->
+	    <mets:div TYPE="cd:discLabel">
+	      <mets:div TYPE="cd:image">
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+
+	  <!-- zero or one div TYPE="cd:cover" -->
+	  <mets:div TYPE="cd:cover">
+	    <!-- zero or one div TYPE="cd:imageSet" -->
+	    <mets:div TYPE="cd:imageSet">
+	      <!-- one or more div TYPE="cd:image" -->
+	      <mets:div TYPE="cd:image" LABEL="front cover">
+		<mets:fptr/>
+	      </mets:div>
+	      <mets:div TYPE="cd:image" LABEL="back cover">
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+
+	  <!-- zero or more div TYPE="cd:booklet" -->
+	  <mets:div TYPE="cd:booklet">
+	    <!-- zero or one div TYPE="cd:imageSet" -->
+	    <mets:div TYPE="cd:page">
+	      <!-- one or more div TYPE="cd:image" -->
+	      <mets:div TYPE="cd:image">
+		<mets:fptr/>
+	      </mets:div>
+	      <mets:div TYPE="cd:image">
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex11" NUMBER="12">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+      <mets:structMap>
+	<!-- one and only one div TYPE="cd:compactDiscObject" -->
+	<mets:div TYPE="cd:compactDiscObject" DMDID="MODS1">
+	  <!-- text transcript of audio program for the entire compact disc object (one or more discs) -->
+	  <mets:div TYPE="cd:text">
+	    <mets:fptr/>
+	  </mets:div>
+
+	  <mets:div TYPE="cd:disc">
+	    <!-- text transcript of audio program for the entire disc -->
+	    <mets:div TYPE="cd:text">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+
+	  <mets:div TYPE="cd:disc">
+	    <mets:div TYPE="cd:track">
+	      <!-- text transcript of audio program from the track -->
+	      <mets:div TYPE="cd:text">
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+
+	  <mets:div TYPE="cd:disc">
+	    <mets:div TYPE="cd:track">
+	      <mets:div TYPE="cd:trackSegment">
+		<!-- text transcript of audio program from the trackSegment -->
+		<mets:div TYPE="cd:text">
+		  <mets:fptr/>
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+
+	  <mets:div TYPE="cd:disc">
+	    <mets:div TYPE="cd:discLabel">
+	      <!-- transcript of text that appears on the disc label -->
+	      <mets:div TYPE="cd:text">
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+
+	  <mets:div TYPE="cd:cover">
+	    <!-- transcript of text that appears on the compact disc container cover -->
+	    <mets:div TYPE="cd:text">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+
+	  <mets:div TYPE="cd:booklet">
+	    <!-- transcript of text in the inserted booklet -->
+	    <mets:div TYPE="cd:text">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex12" NUMBER="13">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000007.xml">
+      <mets:structMap>
+	<!-- one and only one div TYPE="cd:compactDiscObject" -->
+	<mets:div TYPE="cd:compactDiscObject">
+	  <!-- zero or one div TYPE="cd:text" -->
+	  <!-- one or more div TYPE="cd:disc" -->
+	  <!-- zero or one div TYPE="cd:cover" -->
+	  <!-- zero or one div TYPE="cd:booklet" -->
+
+	  <mets:div TYPE="cd:text">
+	  </mets:div>
+	  <mets:div TYPE="cd:disc">
+	    <mets:div TYPE="cd:discLabel">
+	      <!-- zero or one div TYPE="cd:text" -->
+	      <mets:div TYPE="cd:text">
+	      </mets:div>
+	      <!-- zero or one div TYPE="cd:image" -->
+	      <mets:div TYPE="cd:image">
+	      </mets:div>
+	    </mets:div>
+	    <!--  one or more div TYPE="cd:track" -->
+	    <mets:div TYPE="cd:track">
+	      <!-- one and only one div TYPE="cd:audio" -->
+	      <!-- zero or one div TYPE="cd:text" -->
+	      <mets:div TYPE="cd:audio">
+	      </mets:div>
+	      <mets:div TYPE="cd:text">
+	      </mets:div>
+	      <!-- two or more div TYPE="cd:trackSegment" -->
+	      <mets:div TYPE="cd:trackSegment">
+		<!-- one and only one div TYPE="cd:audio" -->
+		<!-- zero or one div TYPE="cd:text" -->
+		<mets:div TYPE="cd:audio">
+		</mets:div>
+		<mets:div TYPE="cd:text">
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="cd:trackSegment">
+		<mets:div TYPE="cd:audio">
+		</mets:div>
+		<mets:div TYPE="cd:text">
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	  <!-- one and only one div TYPE="cd:cover" -->
+	  <mets:div TYPE="cd:cover">
+	    <!-- zero or one div TYPE="cd:imageSet" -->
+	    <!-- one and only one div TYPE="cd:text" -->
+	    <mets:div TYPE="cd:imageSet">
+	      <!-- one or more div TYPE="cd:image" -->
+	      <mets:div TYPE="cd:image">
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:text">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="cd:booklet">
+	    <!-- zero or one div TYPE="cd:text" -->
+	    <mets:div TYPE="cd:page">
+	      <!-- one or more div TYPE="cd:image" -->
+	      <mets:div TYPE="cd:image">
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="cd:text">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+
+
+</METS_Profile>

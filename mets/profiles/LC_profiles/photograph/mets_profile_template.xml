@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink"  >
+
+  <!-- Created by Morgan Cundiff using Emacs -->
+  <!-- xsi:noNamespaceSchemaLocation="C:\mets_profiles\mets.profile.v1-1.xsd" -->
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/phonodisc</URI>
+  <title>Library of Congress Audio Phonodisc METS Profile [Draft]</title>
+  <abstract>The Library of Congress Phonodisc METS Profile specifies how METS documents representing phonodiscs within Library of Congress digital library projects should be encoded. The term "phonodisc" applies both to items issued as single discs and also to items issued as multiple disc sets.</abstract>
+  <date>2004-05-29T17:31:00</date>
+  <contact>
+    <name>Network Development and MARC Standards Office</name>
+    <institution>Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+    <context/>
+  </extension_schema>
+  <description_rules/>
+  <controlled_vocabularies/>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p></p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p></p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex03">
+	<p></p>
+      </requirement>
+      <requirement ID="dr03" RELATEDMAT="ex04">
+	<p></p>
+      </requirement>
+      <requirement ID="dr04" RELATEDMAT="ex05">
+	<p></p>
+      </requirement>
+      <requirement ID="dr05" RELATEDMAT="ex06">
+	<p></p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement>
+      <p></p>
+      </requirement>
+      <requirement>
+      <p></p>
+      </requirement>
+      <requirement>
+      <p></p>
+      </requirement>
+      <requirement>
+      <p></p>
+      </requirement>
+      <requirement>
+      <p></p>
+      </requirement>
+      <requirement>
+      <p></p>
+      </requirement>
+      <requirement>
+      <p></p>
+      </requirement>
+      <requirement>
+	<p></p>
+      </requirement>
+      <requirement>
+	<p></p>
+      </requirement>
+    </structMap>
+  </structural_requirements>
+
+  <technical_requirements>
+  </technical_requirements>
+
+
+  <tool/>
+  <Appendix ID="a1" NUMBER="0">
+    <mets:mets>Complete Instance Document goes here.</mets:mets>
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:dmdSec ID="dmd01">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+
+</METS_Profile>

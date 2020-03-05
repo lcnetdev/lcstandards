@@ -1,0 +1,200 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Library of Congress METS Profile for PDF Documents [Draft]</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheets/profile.css" />
+   </head>
+   <body>
+      <h2>LC METS Profile</h2>
+      <h3>Library of Congress METS Profile for PDF Documents [Draft]</h3>
+      <hr />
+      <p><a href="http://www.loc.gov/standards/mets/test/pdfDoc/profile_pdfDoc.xml">XML Version of Profile Document</a></p>
+      <hr /><br /><h4>Abstract</h4>
+      <p>The Library of Congress METS Profile for PDF Documents specifies how METS documents representing PDF (Portable Document Format)
+         Documents within Library of Congress digital library projects should be encoded. This profile should be used in cases where
+         the document at hand consists of one PDF file and there is one corresponding MODS bibliographic record. There may also exist
+         an image to be used as an illustration (typically an image of a book cover used with a display of the bibliographic data)
+         as well as additional versions of the bibliographic data.
+      </p><br /><h4>URI</h4>
+      <p>http://www.loc.gov/standards/mets/test/pdfDoc/profile_pdfDoc.xml</p><br /><h4>Date</h4>
+      <p>2006-12-19T16:10:26.406-05:00</p>
+      <h4>Contact</h4>
+      <p><b>Morgan Cundiff</b><br />Network Development and MARC Standards Office, Library of Congress<br />101 Independence Avenue, Washington DC, 20540
+      </p><br /><h4>Related Profile</h4>
+      <p>No related profiles.</p><br /><h4>Extension Schema</h4>
+      <p>Metadata Object Description Schema (MODS)<br />http://www.loc.gov/mods/v3/
+      </p><br /><h4>Description Rules</h4>
+      <p>It is recommended that the content data used in the MODS section of a METS document conform to AACR2 to the extent that it
+         applies.
+      </p><br /><h4>Controlled Vocabularies</h4>
+      <p><b>Library of Congress Subject Headings</b><br />Library of Congress<br /><br />
+         	Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress
+         Subject Headings (LCSH).
+         
+      </p>
+      <p><b>Library of Congress Classification</b><br />Library of Congress<br />http://www.loc.gov/catdir/cpso/lcc.html<br /></p>
+      <p><b>NACO Authority File</b><br />Library of Congress<br />http://authorities.loc.gov/<br />
+         	Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority
+         File.
+         
+      </p>
+      <p><b>MARC Country Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/countries/<br />
+         	Country codes used in the MODS section of a METS document must use MARC country code list.
+         
+      </p>
+      <p><b>ISO 639-2 Language Codes</b><br />Library of Congress<br />http://www.loc.gov/standards/iso639-2/<br />
+         	Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.
+         
+      </p>
+      <p><b>MARC Relator Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/relators/<br />
+         	Relator codes or terms used in the MODS section of a METS document must use MARC relator list.
+         
+      </p>
+      <p><b>Target Audience Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/sourcecode/target/<br />
+         	Terms used in the MODS section of a METS document must use the MARC target audience list.
+         
+      </p>
+      <p><b>MARC Code List for Organizations</b><br />Library of Congress<br />http://www.loc.gov/marc/organizations/<br />
+         	Source codes used in the MODS section of a METS document must use MARC organization list.
+         
+      </p>
+      <h3>Structural Requirements</h3>
+      <h5>Descriptive Metadata Section</h5>
+      <h6>dmdSec Requirement 1</h6>
+      <p>A conforming document will contain a single Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS bibliographic
+         record. See Example 1.
+      </p>
+      <h6>dmdSec Requirement 2</h6>
+      <p>A conforming document may contain one or more additional Descriptive Metadata Sections (dmdSec) with either a wrapped (mdWrap)
+         bibliographic record or a referenced (mdRef) bibliographic record.
+      </p>
+      <h5>File Section</h5>
+      <h6>fileSec Requirement 1</h6>
+      <p>The document must contain one File Section (fileSec). The File Section (fileSec) must include one File Group (fileGrp) that
+         includes a File (file) element for each PDF file).
+      </p>
+      <h5>Structure Map</h5>
+      <h6>structMap Requirement 1</h6>
+      <p>The METS document must contain one Structure Map (structMap).</p>
+      <p>The Structure Map must contain one high level Division (div) element with a TYPE attribute with value "pdf:pdfDoc" and a DMDID
+         attribute that references the dmdSec element.
+      </p>
+      <p>The high-level div will have one child div element of TYPE="pdf:pdf".</p>
+      <p>The div TYPE="pdf:pdf" will have one child File Pointer (fptr) element with FILEID attribute linking to the corresponding
+         File element in the fileSec. There may be additional fptr elements for alternate versions of the pdf document. See Example.
+      </p>
+      <h5>Multiple Sections</h5>
+      <h6>multiSection Requirement 1</h6>
+      <p>The METS element must have a PROFILE attribute with value "lc:pdfDoc". This attribute identifies the document as conformant
+         to the Library of Congress Simple PDF Document METS Profile.
+      </p>
+      <p>The METS element must have a xmlns:lc attribute with value "xmlns:lc="http://www.loc.gov/mets/profiles/". This namespace lists
+         all Library of Congress METS Profiles.
+      </p>
+      <p>The METS element must have a xmlns:pdf attribute with value "http://www.loc.gov/mets/profiles/pdfDoc". This namespace is used
+         to define the values of div TYPE attributes in the StructMap (e.g. div TYPE="pdf:pdfDoc").
+      </p>
+      <h6>Example 1.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:pdf</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/pdfDoc</span>" <span class="xmlverb-attr-name">OBJID</span>="<span class="xmlverb-attr-content">loc.natlib.ihas.200028017</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">lc:pdfDoc</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">MODS1</span>" <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">MODS</span>" <span class="xmlverb-attr-name">version</span>="<span class="xmlverb-attr-content">3.1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">nonSort</span>&gt;<span class="xmlverb-text">The </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">nonSort</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Coolidge legacy</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">personal</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Barr, Cyrilla</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">author</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">typeOfResource</span>&gt;<span class="xmlverb-text">text</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">typeOfResource</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">place</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">placeTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Washington, D.C.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">placeTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">place</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">publisher</span>&gt;<span class="xmlverb-text">Library of Congress</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">publisher</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text">1997</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">issuance</span>&gt;<span class="xmlverb-text">monographic</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">issuance</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">book</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalDescription</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">extent</span>&gt;<span class="xmlverb-text">63 p. : ill. ; 21 cm.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">extent</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalDescription</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">targetAudience</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marctarget</span>"&gt;<span class="xmlverb-text">adult</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">targetAudience</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">note</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">statement of responsibility</span>"&gt;<span class="xmlverb-text">Cyrilla Barr.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">note</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">lcsh</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Library of Congress.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Elizabeth Sprague Coolidge Foundation</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">lcsh</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">topic</span>&gt;<span class="xmlverb-text">Music patrons</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">topic</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">lcsh</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">personal</span>"&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Coolidge, Elizabeth Sprague</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">date</span>"&gt;<span class="xmlverb-text">1864-1953</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">local</span>"&gt;<span class="xmlverb-text">200003890</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">isbn</span>"&gt;<span class="xmlverb-text">0844409170</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">lccn</span>"&gt;<span class="xmlverb-text">97019865</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">IHASDigitalID</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">local</span>"&gt;<span class="xmlverb-text">200003890</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">IHASMODSID</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">local</span>"&gt;<span class="xmlverb-text">16348</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcorg</span>"&gt;<span class="xmlverb-text">DLC</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordContentSource</span>&gt;<span class="xmlverb-text">IHAS</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordContentSource</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordChangeDate</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">marc</span>"&gt;<span class="xmlverb-text">040723</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordChangeDate</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordIdentifier</span> <span class="xmlverb-attr-name">source</span>="<span class="xmlverb-attr-content">IHAS</span>"&gt;<span class="xmlverb-text">loc.natlib.ihas.200003890</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordIdentifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordInfo</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">SRU_MARCXML</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdRef</span> <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">http://lcweb2.loc.gov:8081/cocoon/test/sru.xml?stdID=97019865&amp;amp;stylesheet=none</span>" <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MARC</span>" <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileSec</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span> <span class="xmlverb-attr-name">USE</span>="<span class="xmlverb-attr-content">MASTER</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">image/tiff</span>" <span class="xmlverb-attr-name">GROUPID</span>="<span class="xmlverb-attr-content">G1</span>" <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">FN10029</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">http://lcweb2.loc.gov/natlib/ihas/warehouse/jots/200028017/illustration/image/0001.tif</span>" /&gt;<span class="xmlverb-text"> <br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span> <span class="xmlverb-attr-name">USE</span>="<span class="xmlverb-attr-content">SERVICE</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">image/jpeg</span>" <span class="xmlverb-attr-name">GROUPID</span>="<span class="xmlverb-attr-content">G1</span>" <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">FN10066</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">http://lcweb2.loc.gov/natlib/ihas/service/jots/200028017/illustration/image/0001v.jpg</span>" /&gt;<span class="xmlverb-text">           </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span> <span class="xmlverb-attr-name">USE</span>="<span class="xmlverb-attr-content">MASTER</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">SIZE</span>="<span class="xmlverb-attr-content">4752096</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">application/pdf</span>" <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">FN10024</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">http://lcweb2.loc.gov/natlib/ihas/warehouse/jots/200028017/0001.pdf</span>" /&gt;<span class="xmlverb-text"> <br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">pdf:pdfDoc</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">MODS1</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">pdf:pdf</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">FN10024</span>" /&gt;<span class="xmlverb-text"> <br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">pdf:illustration</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">pdf:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">FN10066</span>" /&gt;<span class="xmlverb-text"> <br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h3>Technical Requirements</h3>
+      <h4>Content Files</h4>
+      <h5>Portable Document Format Files</h5>
+      <p>PDF files referenced by conforming documents must be valid PDF (Portable Document Format) files. See Digital Formats for Library
+         of Congress Collections: PDF (Portable Document Format) http://www.digitalpreservation.gov/formats/fdd/fdd000030.shtml.
+      </p>
+   </body>
+</html>

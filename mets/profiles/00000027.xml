@@ -1,0 +1,1652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created and revised by Metadata Analysis and Specification Unit, Metadata Services Department, University of California, San Diego.  -->
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.loc.gov/METS_Profile/  http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd"
+	xmlns="http://www.loc.gov/METS_Profile/">
+	<URI LOCTYPE="URL">>http://www.loc.gov/mets/profiles/00000027.xml</URI>
+	<title>UC San Diego Simple Object Profile</title>
+	<abstract>The UC San Diego Libraries uses the UC San Diego Simple Object profile for composing
+		METS instances for digital objects consisting of a single digital content file and
+		associated descriptive, administrative, and structural metadata. The content files must be
+		in an archival quality file format supported by the UC San Diego Libraries (see
+		https://libraries.ucsd.edu/ark:/20775/br61775312/1-1.pdf). The version of the previously
+		registered Simple Object Profile has been revised for the purpose of expressing all rights
+		metadata via the PREMIS schema.</abstract>
+	<date>2009-04-21T11:53:31</date>
+	<contact>
+		<name>Digital Library Program</name>
+		<address>Geisel Library, UC San Diego</address>
+		<email>dlp@ucsd.edu</email>
+	</contact>
+	<related_profile RELATIONSHIP="Supersedes"
+		URI="http://www.loc.gov/standards/mets/profiles/00000012.xml">UC San Diego Simple Object
+		Profile</related_profile>
+	<extension_schema>
+		<name>MODS</name>
+		<URI>http://www.loc.gov/standards/mods/v3/mods-3-2.xsd</URI>
+		<context>mets/dmdSec/mdWrap/xmlData</context>
+		<note>Used for descriptive metadata representing the intellectual object.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS</name>
+		<URI>http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData</context>
+		<note>Used for technical metadata about content files. Used for access restrictions to the
+			content files.</note>
+	</extension_schema>
+	<description_rules>
+		<p>All applications of MODS in UC San Diego METS records adhere to the MODS User Guidelines
+			published by the Library of Congress's Network Development and MARC Standards
+		Office.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>UC San Diego file USE attribute values</name>
+			<maintenance_agency>University of California, San Diego Libraries</maintenance_agency>
+			<URI>https://libraries.ucsd.edu/ark:/20775/br7474471n/1-1.pdf</URI>
+			<context ID="vc1" RELATEDMAT="fileSec2">
+				<p>mets/fileSec/fileGrp/@USE</p>
+				<p>mets/fileSec/fileGrp/file/@USE</p>
+			</context>
+			<description>
+				<p>These are the values supported for &lt;file&gt; and
+					&lt;fileGrp&gt; USE attributes for digital objects conforming to this
+					profile.</p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>UC San Diego Rights Basis Vocabulary</name>
+			<maintenance_agency>University of California, San Diego Libraries</maintenance_agency>
+			<URI>https://libraries.ucsd.edu/ark:/20775/br7474471n/1-1.pdf</URI>
+			<context ID="vc2" RELATEDMAT="copyrightMD2 licenserightsMD2 statuterightsMD2">
+				<p>mets/amdSec/rightsMD/mdWrap/xmlData/rightsStatement/rightsBasis</p>
+			</context>
+			<description>
+				<p>These are the values supported for the PREMIS rightsBasis element for digital
+					objects conforming to this profile.</p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>UC San Diego Rights Status Vocabulary</name>
+			<maintenance_agency>University of California, San Diego Libraries</maintenance_agency>
+			<URI>https://libraries.ucsd.edu/ark:/20775/br7474471n/1-1.pdf</URI>
+			<context ID="vc3" RELATEDMAT="copyrightMD3">
+				<p>mets/amdSec/rightsMD/mdWrap/xmlData/rightsStatement/copyrightStatus</p>
+			</context>
+			<description>
+				<p>These are the values supported for the PREMIS copyrightStatus element for digital
+					objects conforming to this profile.</p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>UC San Diego Rights Actions Vocabulary</name>
+			<maintenance_agency>University of California, San Diego Libraries</maintenance_agency>
+			<URI>https://libraries.ucsd.edu/ark:/20775/br7474471n/1-1.pdf</URI>
+			<context ID="vc4" RELATEDMAT="licenserightsMD3 licenserightsMD4 statuterightsMD4">
+				<p>mets/amdSec/rightsMD/mdWrap/xmlData/rightsStatement/rightsGranted/restriction</p>
+				<p>mets/amdSec/rightsMD/mdWrap/xmlData/rightsStatement/rightsGranted/action</p>
+			</context>
+			<description>
+				<p>These are the values supported for the PREMIS act and restriction elements for
+					digital objects conforming to this profile.</p>
+			</description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="metsRoot1">
+				<p>The root &lt;mets&gt; element must include a LABEL attribute value.</p>
+			</requirement>
+			<requirement ID="metsRoot2">
+				<p>The root &lt;mets&gt; element must include a PROFILE attribute value.</p>
+			</requirement>
+			<requirement ID="metsRoot3">
+				<p>The root &lt;mets&gt; element must include an OBJID attribute value that
+					uniquely identifies the METS instance in the UC San Diego digital repository.
+					The value must be an ARK.</p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement ID="metsHdr1">
+				<p>A METS record conforming to this profile must contain a &lt;metsHdr&gt;
+					element.</p>
+			</requirement>
+			<requirement ID="metsHdr2">
+				<p>The &lt;metsHdr&gt; element must contain the CREATEDATE attribute.</p>
+			</requirement>
+			<requirement ID="metsHdr3">
+				<p>The &lt;metsHdr&gt; element must contain an &lt;agent&gt; with
+					the ROLE attribute value "CREATOR" and a TYPE attribute value
+				"ORGANIZATION".</p>
+			</requirement>
+			<requirement ID="metsHdr4">
+				<p>The &lt;agent&gt; element must contain the &lt;name&gt; element
+					with the value "Digital Library Program, Geisel Library, University of
+					California, San Diego", and a &lt;note&gt; element with the value
+					"mailto:dlp@ucsd.edu".</p>
+			</requirement>
+			<requirement ID="metsHdr5">
+				<p>The &lt;metsHdr&gt; element should, but is not required to, contain a
+					LASTMODDATE attribute reflecting the date of the last modification to the METS
+					record.</p>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement ID="dmdSec1">
+				<p>A METS record conforming to this profile must contain one or more
+					&lt;dmdSec&gt; containing a &lt;mdWrap&gt; with
+					&lt;xmlData&gt;. The required dmdSec/mdWrap/xmlData must contain
+					elements from the Metadata Object Description Schema (MODS). Additional
+					&lt;dmdSec&gt; elements are permitted. For each additional metadata
+					schema a separate &lt;dmdSec&gt; must be used, and must contain
+					&lt;mdWrap&gt; with &lt;xmlData&gt;. When adding elements from
+					metadata schemas other than MODS (Dublin Core, VRA, FGDC, etc.) these should
+					conform to standardized guidelines for the schema.</p>
+			</requirement>
+			<requirement ID="dmdSec2">
+				<p>A conforming METS record must contain a /mods/titleInfo/title element.</p>
+			</requirement>
+			<requirement ID="dmdSec3">
+				<p>A conforming METS record must contain a /mods/typeOfResource element for which
+					the value must be taken from the MODS typeOfResource values.</p>
+			</requirement>
+			<requirement ID="dmdSec4">
+				<p>A conforming METS record must contain a /mods/identifier element, with the
+					attribute type="ARK". The element should contain the actionable URL ARK for the
+					digital object as a whole, not a constituent file.</p>
+			</requirement>
+			<requirement ID="dmdSec5">
+				<p>A conforming METS record must contain a /mods/note element, with the attribute
+					displayLabel="Digital object made available by". The element should name the UC
+					San Diego Libraries' data provider that is primarily responsible for making the
+					resource available digitally, e.g. Arts Library. The URL for the provider's main
+					page should be included with its name.</p>
+			</requirement>
+			<requirement ID="dmdSec6">
+				<p>A conforming METS record should, but is not required to, contain the following
+					descriptive metadata elements when they are applicable: creator
+					(/mods/name/namePart), date of creation (/mods/originInfo/dateCreated), genre
+					(/mods/subject/genre), description (/mods/abstract/), subject
+					(/mods/subject/...), language of the object (/mods/language), publisher
+					(/mods/originInfo/publisher), place of publication (/mods/originInfo/place) and
+					the name of the project or collection to which the object belongs
+					(/mods/relatedItem/titleInfo/title).</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement ID="amdSec1">
+				<p>A METS record conforming to this profile must have an &lt;amdSec&gt;
+					section. The &lt;amdSec&gt; section must contain at least one
+					techMD/mdWrap/xmlData section and at least one rightsMD/mdWrap/xmlData </p>
+			</requirement>
+			<requirement ID="techMD1">
+				<p>The required &lt;techMD&gt; must contain elements from the PREMIS schema.
+					A second &lt;techMD&gt; section may, but is not required to, be used if
+					applicable for the format. If a second &lt;techMD&gt; is used for
+					images, it should conform to the MIX Schema; if used for text, it should conform
+					to the TextMD Schema; if used for audio or video, it should conform to an
+					extension schema endorsed by the METS Editorial Board (although at this date of
+					publication extension schemas have not yet been endorsed for audio or
+				video).</p>
+			</requirement>
+			<requirement ID="techMD2">
+				<p>The required &lt;techMD&gt; should describe the digital file of the
+					highest, most archival quality.</p>
+			</requirement>
+			<requirement ID="techMD3">
+				<p>A conforming METS record must contain an /object/objectIdentifierType element
+					with the value "ARK", and an /objectIdentifierValue element with the ARK
+				value.</p>
+			</requirement>
+			<requirement ID="techMD4">
+				<p>A conforming METS record must contain an /object/preservationLevel element. The
+					value should be either "Full" or "Bit-level".</p>
+			</requirement>
+			<requirement ID="techMD5">
+				<p>A conforming METS record must contain an /object/objectCategory element. The
+					value should be "File".</p>
+			</requirement>
+			<requirement ID="techMD6">
+				<p>A conforming METS record must contain an
+					/object/objectCharacteristics/compositionLevel element. The value should be "0"
+					for uncompressed files or "1" for files with one level of compression (e.g., zip
+					or tar file).</p>
+			</requirement>
+			<requirement ID="techMD7">
+				<p>A conforming METS record must contain an
+					/object/objectCharacteristics/fixity/messageDigestAlgorithm and /messageDigest
+					element.</p>
+			</requirement>
+			<requirement ID="techMD8">
+				<p>A conforming METS record must contain an /object/objectCharacteristics/size
+					element.</p>
+			</requirement>
+			<requirement ID="techMD9">
+				<p>A conforming METS record must contain an
+					/object/objectCharacteristics/format/formatName element.</p>
+			</requirement>
+			<requirement ID="techMD10">
+				<p>A conforming METS record must contain an
+					/object/creatingApplication/dateCreatedByApplication element.</p>
+			</requirement>
+			<requirement ID="techMD11">
+				<p>A conforming METS record should, but is not required to, include the following
+					PREMIS elements: &lt;pre:storageMedium&gt;
+					(/object/storage/storageMedium), &lt;pre:formatVersion&gt;
+					(/object/objectCharacteristics/formatVersion),
+					&lt;pre:creatingApplicationName&gt;
+					(/object/creatingApplication/creatingApplicationName), and
+					&lt;pre:originalName&gt; (/object/originalName)</p>
+			</requirement>
+			<requirement ID="techMD12">
+				<p>Source or provenance metadata pertaining to image content files expressed as MIX,
+					can be included in a &lt;techMD&gt; section instead of a separate
+					&lt;sourceMD&gt; section.</p>
+			</requirement>
+
+			<requirement ID="copyrightMD1">
+				<p>The required rightsMD/mdWrap/xmlData must contain elements from the PREMIS Rights
+					schema.</p>
+			</requirement>
+			<requirement ID="copyrightMD2">
+				<p>A conforming METS record must include a rightsStatement/rightsBasis element with
+					the value expressed as "Copyright."</p>
+			</requirement>
+			<requirement ID="copyrightMD3">
+				<p>A conforming METS record must include a
+					rightsStatement/copyrightInformation/copyrightStatus element with the value
+					expressed as "Under copyright” if the work is still in copyright to an agent
+					other than UC Regents, "Copyright UC Regents" if the work is copyrighted to the
+					UC Regents, “Public Domain” if copyright for the work has expired or been gifted
+					to the public domain, or "Unknown" if the copyright status of the work cannot be
+					determined.</p>
+			</requirement>
+			<requirement ID="copyrightMD4">
+				<p>A conforming METS record may include a
+					rightsStatement/copyrightInformation/copyrightJurisdiction element containing
+					the appropriate code for the jurisdictional context of the copyright with a
+					value taken from ISO 3166. </p>
+			</requirement>
+			<requirement ID="copyrightMD5">
+				<p>A conforming METS record may have one
+					rightsStatement/copyrightInformation/copyrightNote element for identifying the
+					rights holder(s). The value encoded is to be the name of the copyright
+					holder(s)and should be in the form of: “Rights Holder(s): [rights holder’s name
+					in normal order]". </p>
+			</requirement>
+			<requirement ID="copyrightMD6">
+				<p>A conforming METS record must have one
+					rightsStatement/copyrightInformation/copyrightNote elment for describing the use
+					intended for in distribution of the work. The note should be in the form of:
+					“Use: [note text]”. </p>
+			</requirement>
+			<requirement ID="copyrightMD7">
+				<p>A conforming METS record must have one
+					rightsStatement/copyrightInformation/copyrightNote element for describing
+					constraints placed on re-use or re-distribution of the work. The note should be
+					in the form of: “Constraint(s) on Use: [note text]”.</p>
+			</requirement>
+			<requirement ID="licenserightsMD1">
+				<p>Additional rightsMD/mdWrap/xmlData elements must contain elements from the PREMIS
+					Rights schema.</p>
+			</requirement>
+			<requirement ID="licenserightsMD2">
+				<p>A conforming METS record may include a rightsStatement/rightsBasis element with
+					the value expressed as "License".</p>
+			</requirement>
+			<requirement ID="licenserightsMD3">
+				<p>When rightsBasis is "License", a conforming METS record must include a
+					rightsStatement/rightsGranted/act element with a value from the UC Libraries
+					Rights Actions Vocabulary.</p>
+			</requirement>
+			<requirement ID="licenserightsMD4">
+				<p>In cases when an action is not permitted, a conforming METS record must include a
+					rightsStatement/rightsGranted/restriction element with a value from the UC
+					Libraries Rights Restrictions Vocabulary.</p>
+			</requirement>
+			<requirement ID="licenserightsMD5">
+				<p>In cases when an action is restricted, a conforming METS record must include a
+					rightsStatement/rightsGranted/termOfGrant/startDate element with the value
+					indicating the time at which the restriction begins. Date must be expressed in
+					form YYYY-MM-DD.</p>
+			</requirement>
+			<requirement ID="licenserightsMD6">
+				<p>In cases when public display is restricted, a conforming METS record must include
+					a rightsStatement/rightsGranted/termOfGrant/endDate element with the value
+					indicating the time at which the restriction concludes. Date must be expressed
+					in form YYYY-MM-DD.</p>
+			</requirement>
+			<requirement ID="licenserightsMD7">
+				<p>A conforming METS record may, but is not required, to include the following
+					PREMIS Rights elements: &lt;pre:rightsStatementIdentifierType&gt;
+					(/rightsStatement/rightsStatementIdentifier/rightsStatementIdentifierType),
+					&lt;pre:rightsStatementIdentifierValue&gt;
+					(/rightsStatement/rightsStatementIdentifier/rightsStatementIdentifierValue),
+					&lt;pre:licenseIdentifierType&gt;
+					(/rightsStatement/licenseInformation/licenseIdentifier/licenseIdentifierType),
+					&lt;pre:licenseIdentifierValue&gt;
+					(/rightsStatement/licenseInformation/licenseIdentifier/licenseIdentifierValue),
+					&lt;pre:licenseTerms&gt;
+					(/rightsStatement/licenseInformation/licenseTerms),
+					&lt;pre:licenseNote&gt;
+					(/rightsStatement/licenseInformation/licenseNote), and
+					&lt;pre:rightsGrantedNote&gt;
+					(/rightsStatement/rightsGranted/rightsGrantedNote), </p>
+			</requirement>
+			<requirement ID="statuterightsMD1">
+				<p>Additional rightsMD/mdWrap/xmlData elements must contain elements from the PREMIS
+					Rights schema.</p>
+			</requirement>
+			<requirement ID="statuterightsMD2">
+				<p>A conforming METS record may include a rightsStatement/rightsBasis element with
+					the value expressed as "Statute".</p>
+			</requirement>
+			<requirement ID="statuterightsMD3">
+				<p>When rightsBasis is "Statute", a conforming METS record must include a
+					rightsStatement/statuteInformation/statuteCitation to identify the applicable
+					statute.The preferred citation is the name of the citation and a URI linking to
+					it. </p>
+			</requirement>
+			<requirement ID="statuterightsMD4">
+				<p>In cases when legal statute prohibits an action, a conforming METS record must
+					include a rightsStatement/rightsGranted/restriction element with a value from
+					the UC Libraries Rights Resrictions Vocabulary.</p>
+			</requirement>
+			<requirement ID="statuterightsMD5">
+				<p>In cases when an action is restricted, a conforming METS record must include a
+					rightsStatement/rightsGranted/termOfGrant/startDate element with the value
+					indicating the time at which the restriction begins (typically, the date the
+					content was created). Date must be expressed in form YYYY-MM-DD.</p>
+			</requirement>
+			<requirement ID="statuterightsMD6">
+				<p>In cases when public display is restricted, a conforming METS record must include
+					a rightsStatement/rightsGranted/termOfGrant/endDate element with the value
+					indicating the time at which the restriction concludes. Date must be expressed
+					in form YYYY-MM-DD.</p>
+			</requirement>
+			<requirement ID="statuterightsMD7">
+				<p>A conforming METS record may, but is not required, to include the following
+					PREMIS Rights elements: &lt;pre:rightsStatementIdentifierType&gt;
+					(/rightsStatement/rightsStatementIdentifier/rightsStatementIdentifierType),
+					&lt;pre:rightsStatementIdentifierValue&gt;
+					(/rightsStatement/rightsStatementIdentifier/rightsStatementIdentifierValue),
+					&lt;pre:licenseIdentifierType&gt;
+					(/rightsStatement/licenseInformation/licenseIdentifier/licenseIdentifierType),
+					&lt;pre:licenseIdentifierValue&gt;
+					(/rightsStatement/licenseInformation/licenseIdentifier/licenseIdentifierValue),
+					&lt;pre:licenseTerms&gt;
+					(/rightsStatement/licenseInformation/licenseTerms),
+					&lt;pre:licenseNote&gt;
+					(/rightsStatement/licenseInformation/licenseNote), and
+					&lt;pre:rightsGrantedNote&gt;
+					(/rightsStatement/rightsGranted/rightsGrantedNote), </p>
+			</requirement>
+			<requirement ID="sourceMD1">
+				<p>If source metadata is recorded, elements in the &lt;sourceMD&gt; sections
+					should be expressed using an extension schema endorsed by the METS Editorial
+					Board designed for expressing source metadata.</p>
+			</requirement>
+			<requirement ID="digiprovMD1">
+				<p>If provenance metadata is recorded, elements in the &lt;digiprovMD&gt;
+					sections should be expressed using an extension schema endorsed by the METS
+					Editorial Board designed for expressing provenance metadata.</p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement ID="fileSec1">
+				<p>The &lt;fileSec&gt; for a compliant METS record must contain one, or
+					more, &lt;fileGrp&gt; elements.</p>
+			</requirement>
+			<requirement ID="fileSec2">
+				<p>Each &lt;fileGrp&gt; element must contain one, and only one, file.</p>
+			</requirement>
+			<requirement ID="fileSec3">
+				<p>Each &lt;fileGrp&gt; must include a file USE attribute representing the
+					intended use of the referenced file.</p>
+			</requirement>
+			<requirement ID="fileSec4">
+				<p>Each &lt;file&gt; element must reference pertinent &lt;techMD&gt;
+					sections by including the relevant ID values in the ADMID attribute. The AMDID
+					attribute should also reference pertinent &lt;sourceMD&gt; and
+					&lt;provenanceMD&gt; elements, if present. The &lt;file&gt;
+					element should only reference ID values at the levels of &lt;techMD&gt;,
+					&lt;sourceMD&gt;, and &lt;digiprovMD&gt;.</p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement ID="structMap1">
+				<p>A conforming METS record must contain only one &lt;structMap&gt;
+				element</p>
+			</requirement>
+			<requirement ID="structMap2">
+				<p>The &lt;structMap&gt; element must contain a TYPE attribute encoded with
+					the value "physical."</p>
+			</requirement>
+			<requirement ID="structMap3">
+				<p>The &lt;div&gt; element must include a LABEL attribute value, which is
+					derived from and identical to the value encoded in the /mods/titleInfo/title
+					element.</p>
+			</requirement>
+			<requirement ID="structMap4">
+				<p>The &lt;div&gt; element must reference pertinent &lt;dmdSec&gt;
+					sections by including the relevant ID values in the DMDID attribute.</p>
+			</requirement>
+			<requirement ID="structMap5">
+				<p>The &lt;div&gt; element must reference pertinent &lt;rightsMD&gt;
+					sections by including the relevant ID values in the AMDID attribute.</p>
+			</requirement>
+			<requirement ID="structMap6">
+				<p>The &lt;div&gt; element must contain one or more &lt;fptr&gt;
+					elements, each of which references an individual &lt;file&gt; element
+					representing a version of the file.</p>
+			</requirement>
+			<requirement ID="structMap7">
+				<p>The &lt;fptr&gt; element must use the FILEID attribute to point directly
+					to a &lt;file&gt; element.</p>
+			</requirement>
+			<requirement ID="structMap8">
+				<p>The &lt;fptr&gt; element may not contain an &lt;area&gt;,
+					&lt;par&gt;, or &lt;seq&gt; element. These elements are not
+					supported in objects conforming to this profile.</p>
+			</requirement>
+			<requirement ID="structMap9">
+				<p>The &lt;mptr&gt; element is not supported in this profile.</p>
+			</requirement>
+		</structMap>
+		<structLink>
+			<requirement ID="structLink1">
+				<p>This profile stipulates no requirements for the &lt;structLink&gt;
+					element.</p>
+			</requirement>
+		</structLink>
+		<behaviorSec>
+			<requirement ID="behaviorSec1">
+				<p>This profile stipulates no requirements for the &lt;behaviorSec&gt;
+					element.</p>
+			</requirement>
+		</behaviorSec>
+		<multiSection>
+			<requirement ID="multi1">
+				<p>Only &lt;file&gt; elements will reference elements in the
+					&lt;techMD&gt;, &lt;sourceMD&gt;, and &lt;digiprovMD&gt;
+					sections.</p>
+			</requirement>
+			<requirement ID="multi2">
+				<p>Only the &lt;div&gt; element will reference metadata in the
+					&lt;dmdSec&gt; and &lt;rightsMD&gt; sections. That is,
+					descriptive metadata and rights metadata are always and only expressed in
+					conjunction with division of the &lt;structMap&gt; and not in
+					conjunction with the content file.</p>
+			</requirement>
+		</multiSection>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>The profile does not prescribe a format for the file, but it is strongly
+					recommended that the file format and resolution for at least one version of the
+					image be of an archival quality.</p>
+			</requirement>
+		</content_files>
+		<behavior_files>
+			<requirement>
+				<p>The profile does not prescribe association to any behaviors.</p>
+			</requirement>
+		</behavior_files>
+		<metadata_files>
+			<requirement>
+				<p>This profile does not prescribe referencing of external metadata records. If an
+					external metadata record is referenced, it is recommended that the file be valid
+					for the schema in which it is written, i.e., that it be a valid MARC record.</p>
+			</requirement>
+		</metadata_files>
+	</technical_requirements>
+	<tool>
+		<description>
+			<p>No tools are associated with this profile</p>
+		</description>
+	</tool>
+	<Appendix NUMBER="1">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+			xmlns:mix="http://www.loc.gov/mix/" xmlns:pre="http://www.loc.gov/standards/premis/v1"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/mix/mix02.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+			OBJID="ark:/20775/bb00000001" TYPE="still image"
+			LABEL="Corning: Municipal Fire Station: Ext.: doorways"
+			PROFILE="UC San Diego Simple Object Profile">
+			<mets:metsHdr CREATEDATE="2004-09-05T14:15:00" LASTMODDATE="2006-04-27T16:05:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Digital Library Program, Geisel Library, University of California,
+						San Diego</mets:name>
+					<mets:note>mailto:dlp@ucsd.edu</mets:note>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="EDM1">
+				<mets:mdRef xlink:href="http://roger.ucsd.edu/record=b3904109" LOCTYPE="URL"
+					MDTYPE="MARC" LABEL="UC San Diego ROGER Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DM1">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Corning: Municipal Fire Station: Ext.:
+								doorways</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal">
+								<mods:namePart>Birkerts, Gunnar</mods:namePart>
+							</mods:name>
+							<mods:typeOfResource>still image</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:dateCreated>Unknown</mods:dateCreated>
+								<mods:dateIssued>c1977</mods:dateIssued>
+							</mods:originInfo>
+							<mods:subject authority="lcsh">
+								<mods:geographic>Corning (N.Y.)-Municipal Fire
+								Station</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>Architecture--Artist--United States--20th C.
+								A.D.</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>Fire stations</mods:topic>
+							</mods:subject>
+							<mods:classification authority="local">1/82 B619.3G 7GVmfs(a).cDR1</mods:classification>
+							<mods:identifier type="local">b3904109 aal</mods:identifier>
+							<mods:identifier type="ARK"
+								>http://libraries.ucsd.edu/ark:/20775/bb00000001</mods:identifier>
+							<mods:identifier type="local">41822000182301</mods:identifier>
+							<mods:note displayLabel="Digital object made available by"> Arts
+								Library, University of California, San Diego, La Jolla, 92093-0175
+								(http://libraries.ucsd.edu/locations/arts/) </mods:note>
+							<mods:relatedItem type="host">
+								<mods:titleInfo displayLabel="Collection">
+									<mods:title>AAL Visual Resources Collection</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="ADM1">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:premis>
+								<pre:object>
+									<pre:objectIdentifier>
+										<pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+										<pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000001/1-1.tif</pre:objectIdentifierValue>
+									</pre:objectIdentifier>
+									<pre:preservationLevel>full</pre:preservationLevel>
+									<pre:objectCategory>file</pre:objectCategory>
+									<pre:objectCharacteristics>
+										<pre:compositionLevel>0</pre:compositionLevel>
+										<pre:fixity>
+											<pre:messageDigestAlgorithm>CRC</pre:messageDigestAlgorithm>
+											<pre:messageDigest>3,969,186,822</pre:messageDigest>
+										</pre:fixity>
+										<pre:size>16393</pre:size>
+										<pre:format>
+											<pre:formatDesignation>
+												<pre:formatName>TIFF</pre:formatName>
+												<pre:formatVersion>5.0</pre:formatVersion>
+											</pre:formatDesignation>
+										</pre:format>
+									</pre:objectCharacteristics>
+									<pre:creatingApplication>
+										<pre:dateCreatedByApplication>2003-04-01T09:15:16</pre:dateCreatedByApplication>
+									</pre:creatingApplication>
+								</pre:object>
+							</pre:premis>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="ADM2">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:ImageCreation>
+									<mix:SourceType>Slide, color, 35 mm, Fuji film</mix:SourceType>
+									<mix:SourceID>41822000182301</mix:SourceID>
+									<mix:ImageProducer>Luna Imaging Inc.</mix:ImageProducer>
+									<mix:DeviceSource>transmission scanner</mix:DeviceSource>
+									<mix:ScanningSystemCapture>
+										<mix:ScanningSystemHardware>
+											<mix:ScannerManufacturer>CreoScitex</mix:ScannerManufacturer>
+											<mix:ScannerModel>
+												<mix:ScannerModelName>Eversmart
+												Select</mix:ScannerModelName>
+											</mix:ScannerModel>
+										</mix:ScanningSystemHardware>
+										<mix:ScanningSystemSoftware>
+											<mix:ScanningSoftware>oXYgen</mix:ScanningSoftware>
+											<mix:ScanningSoftwareVersionNo>v.1.1.0</mix:ScanningSoftwareVersionNo>
+										</mix:ScanningSystemSoftware>
+									</mix:ScanningSystemCapture>
+								</mix:ImageCreation>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="ADM3">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:rightsStatement>
+								<pre:rightsBasis>Copyright</pre:rightsBasis>
+								<pre:copyrightInformation>
+									<pre:copyrightStatus>Unknown</pre:copyrightStatus>
+									<pre:copyrightNote>Use: This work is available from the UC San
+										Diego Libraries. This digital copy of the work is intended
+										to support research, teaching, and private study. </pre:copyrightNote>
+									<pre:copyrightNote>Constraint(s) on Use: This work may be
+										protected by the U.S. Copyright Law (Title 17, U.S.C.). Use
+										of this work beyond that allowed by “fair use” requires the
+										written permission of the copyright holders(s).
+										Responsibility for obtaining permissions and any use and
+										distribution of this work rests exclusively with the user
+										and not the UC San Diego Libraries. Inquiries can be made to
+										the UC San Diego Libraries department having custody of the
+										work
+									(http://libraries.ucsd.edu/locations/arts/).</pre:copyrightNote>
+								</pre:copyrightInformation>
+							</pre:rightsStatement>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2003-04-01T09:15:16" USE="Image-Master">
+					<mets:file ID="ark-20775-bb00000001-1-1" MIMETYPE="image/tiff"
+						CREATED="2003-04-01T09:15:16" ADMID="ADM1 ADM2" GROUPID="GID1">
+						<FLocat
+							xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000001/1-1.tiff"
+							LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-04-01T09:15:16" USE="Image-Service">
+					<mets:file ID="ark-20775-bb00000001-1-2" MIMETYPE="image/jpeg"
+						CREATED="2003-04-01T09:15:16" GROUPID="GID1">
+						<FLocat xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000001/1-2.jpg"
+							LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2003-04-01T09:15:16" USE="Image-Thumbnail">
+					<mets:file ID="ark-20775-bb00000001-1-3" MIMETYPE="image/gif"
+						CREATED="2003-04-01T09:15:16" GROUPID="GID1">
+						<FLocat xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000001/1-3.gif"
+							LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div ORDER="1" TYPE="still image"
+					LABEL="Corning: Municipal Fire Station: Ext.: doorways" DMDID="EDM1 DM1"
+					ADMID="ADM3">
+					<mets:fptr FILEID="ark-20775-bb00000001-1-1"/>
+					<mets:fptr FILEID="ark-20775-bb00000001-1-2"/>
+					<mets:fptr FILEID="ark-20775-bb00000001-1-3"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="2">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+			xmlns:mix="http://www.loc.gov/mix/" xmlns:pre="http://www.loc.gov/standards/premis/v1"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/mix/mix02.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+			OBJID="ark:/20775/bb00000002" TYPE="still image" LABEL="Cobla Barcelona"
+			PROFILE="UC San Diego Simple Object Profile">
+			<mets:metsHdr CREATEDATE="2004-09-21T11:30:00" LASTMODDATE="2006-05-01T11:30:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Digital Library Program, Geisel Library, University of California,
+						San Diego</mets:name>
+					<mets:note>mailto:dlp@ucsd.edu</mets:note>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="EDM1a">
+				<mets:mdRef xlink:href="http://roger.ucsd.edu/record=b4320378" LOCTYPE="URL"
+					MDTYPE="MARC" LABEL="UC San Diego ROGER Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DM1a">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Cobla Barcelona</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal">
+								<mods:namePart>Fabregas, Richard</mods:namePart>
+							</mods:name>
+							<mods:typeOfResource>still image</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:dateCreated>1936</mods:dateCreated>
+							</mods:originInfo>
+							<mods:note>Musician in traditional costume, large oboe, and dancers in
+								background.</mods:note>
+							<mods:subject authority="rbgenr">
+								<mods:genre>Propaganda--Spain--1936</mods:genre>
+							</mods:subject>
+							<mods:subject authority="rbgenr">
+								<mods:genre>Posters--Spain--1936</mods:genre>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:geographic>Spain--History--Civil War,
+								1936-1939--Posters</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:geographic>Spain--History--Civil War,
+								1936-1939--Propaganda</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:geographic>Spain--History--Civil War, 1936-1939--Music and the
+									war</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>Anti-fascist movements--Spain--Posters.</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>Political posters, Spanish</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>War posters, Spanish</mods:topic>
+							</mods:subject>
+							<mods:classification authority="lcc">DP269.15.F33 1936</mods:classification>
+							<mods:identifier type="local">b4320378</mods:identifier>
+							<mods:identifier type="ARK"
+								>http://libraries.ucsd.edu/ark:/20775/bb00000002</mods:identifier>
+							<mods:note displayLabel="Digital object made available by"> Mandeville
+								Special Collections Library, University of California, San Diego,
+								San Diego, CA 92093-0175S
+								(http://libraries.ucsd.edu/locations/mscl/) </mods:note>
+							<mods:relatedItem type="host">
+								<mods:titleInfo displayLabel="Collection">
+									<mods:title>Southworth Spanish Civil War Collection</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="ADM1a">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:premis>
+								<pre:object>
+									<pre:objectIdentifier>
+										<pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+										<pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000002.tif</pre:objectIdentifierValue>
+									</pre:objectIdentifier>
+									<pre:preservationLevel>full</pre:preservationLevel>
+									<pre:objectCategory>file</pre:objectCategory>
+									<pre:objectCharacteristics>
+										<pre:compositionLevel>0</pre:compositionLevel>
+										<pre:fixity>
+											<pre:messageDigestAlgorithm>CRC</pre:messageDigestAlgorithm>
+											<pre:messageDigest>2,299,258,308</pre:messageDigest>
+										</pre:fixity>
+										<pre:size>98259</pre:size>
+										<pre:format>
+											<pre:formatDesignation>
+												<pre:formatName>TIFF</pre:formatName>
+												<pre:formatVersion>5.0</pre:formatVersion>
+											</pre:formatDesignation>
+										</pre:format>
+									</pre:objectCharacteristics>
+									<pre:creatingApplication>
+										<pre:dateCreatedByApplication>2002-12-04T00:00:00.0</pre:dateCreatedByApplication>
+									</pre:creatingApplication>
+								</pre:object>
+							</pre:premis>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="ADM2a">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:ImageCreation>
+									<mix:SourceType>1 print (poster); 100 x 70 cm.</mix:SourceType>
+									<mix:SourceID>DP269.15.F33 1936 35 mm slide</mix:SourceID>
+									<mix:ImageProducer>Mandeville Special Collections Library</mix:ImageProducer>
+									<mix:DeviceSource>transmission scanner</mix:DeviceSource>
+									<mix:ScanningSystemCapture>
+										<mix:ScanningSystemHardware>
+											<mix:ScannerManufacturer>Nikon</mix:ScannerManufacturer>
+											<mix:ScannerModel>
+												<mix:ScannerModelName>Coolscan</mix:ScannerModelName>
+												<mix:ScannerModelNumber>LS-200</mix:ScannerModelNumber>
+											</mix:ScannerModel>
+										</mix:ScanningSystemHardware>
+										<mix:ScanningSystemSoftware>
+											<mix:ScanningSoftware>NikonScan</mix:ScanningSoftware>
+										</mix:ScanningSystemSoftware>
+									</mix:ScanningSystemCapture>
+								</mix:ImageCreation>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="ADM3a">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:rightsStatement>
+								<pre:rightsBasis>Copyright</pre:rightsBasis>
+								<pre:copyrightInformation>
+									<pre:copyrightStatus>Under copyright</pre:copyrightStatus>
+									<pre:copyrightJurisdiction>us</pre:copyrightJurisdiction>
+									<pre:copyrightNote>Use: This work is available from the UC San
+										Diego Libraries. This digital copy of the work is intended
+										to support research, teaching, and private study. </pre:copyrightNote>
+									<pre:copyrightNote>Constraint(s) on Use: This work is protected
+										by the U.S. Copyright Law (Title 17, U.S.C.). Use of this
+										work beyond that allowed by “fair use” requires written
+										permission of the copyright holder(s). Responsibility for
+										obtaining permissions and any use and distribution of this
+										work rests exclusively with the user and not the UC San
+										Diego Libraries. Inquiries can be made to the UC San Diego
+										Libraries department having custody of the work
+										(http://libraries.ucsd.edu/locations/mscl/).
+									</pre:copyrightNote>
+								</pre:copyrightInformation>
+							</pre:rightsStatement>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2002-12-04T00:00:00" USE="Image-Master">
+					<mets:fileGrp>
+						<mets:file ID="ark-20775-bb00000002-1-1" MIMETYPE="image/tiff"
+							CREATED="2002-12-04T00:00:00" ADMID="ADM1a ADM2a" GROUPID="GID1">
+							<FLocat
+								xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000002/1-1.tif"
+								LOCTYPE="URL"/>
+						</mets:file>
+					</mets:fileGrp>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div ORDER="1" TYPE="still image" LABEL="Cobla Barcelona" DMDID="EDM1a DM1a"
+					ADMID="ADM3a">
+					<mets:fptr FILEID="ark-20775-bb00000002-1-1"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="3">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+			xmlns:mix="http://www.loc.gov/mix/" xmlns:pre="http://www.loc.gov/standards/premis/v1"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/mix/mix02.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+			OBJID="ark:/20775/bb00000003" TYPE="still image"
+			LABEL="Horizon coffee-can dredge, Wilde and Holden on Vanua Mbalavu. During two days we did a great deal of wading to and from the boats. Finally we reassembled on the beach to await arrival of the ship. While it was anchored, the bottom sediment of the lagoon was sampled with low-cost equipment."
+			PROFILE="UC San Diego Simple Object Profile">
+			<mets:metsHdr CREATEDATE="2004-09-22T08:45:00" LASTMODDATE="2006-04-24T10:52:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Digital Library Program, Geisel Library, University of California,
+						San Diego</mets:name>
+					<mets:note>mailto:dlp@ucsd.edu</mets:note>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="DM1b">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Horizon coffee-can dredge, Wilde and Holden on Vanua
+									Mbalavu. During two days we did a great deal of wading to and
+									from the boats. Finally we reassembled on the beach to await
+									arrival of the ship. While it was anchored, the bottom sediment
+									of the lagoon was sampled with low-cost equipment</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal">
+								<mods:namePart>Abranson, Christian-Erik</mods:namePart>
+							</mods:name>
+							<mods:name type="corporate">
+								<mods:namePart>Nova Expedition</mods:namePart>
+							</mods:name>
+							<mods:typeOfResource>still image</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:dateCreated>1950-00-00</mods:dateCreated>
+							</mods:originInfo>
+							<mods:physicalDescription>
+								<mods:note>Black and white glossy print</mods:note>
+								<mods:note>8x10 print</mods:note>
+								<mods:note>Crop marks all around, small circular creases (bottom
+									left), long crease on left</mods:note>
+							</mods:physicalDescription>
+							<mods:subject authority="local">
+								<mods:genre>People</mods:genre>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:genre>Scientific Equipment</mods:genre>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:genre>Photograph</mods:genre>
+							</mods:subject>
+							<mods:subject>
+								<mods:name type="personal" authority="lcnaf">
+									<mods:namePart>Wilde, P. (Pat), 1935-</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:subject>
+								<mods:name type="personal" authority="lcnaf">
+									<mods:namePart>Holden, John C.</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:subject>
+								<mods:name type="corporate" authority="lcnaf">
+									<mods:namePart>Horizon (Ship)</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:subject>
+								<mods:name type="corporate" authority="lcnaf">
+									<mods:namePart>Nova Expedition</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:subject>
+								<mods:name type="corporate" authority="lcnaf">
+									<mods:namePart>NOVA-HORIZON</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>Dredging</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Vanua Mbalavu</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:geographic>Vanua Balavu (Fiji)</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:geographic>NOVA03HO</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:geographic>61</mods:geographic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:geographic>South Pacific Ocean</mods:geographic>
+							</mods:subject>
+							<mods:identifier type="ARK"
+								>http://libraries.ucsd.edu/ark:/20775/bb00000003</mods:identifier>
+							<mods:note displayLabel="Digital object made available by"> Scripps
+								Institution of Oceanography Library, University of California, San
+								Diego, La Jolla, CA 92093-0219
+								(http://libraries.ucsd.edu/locations/sio/) </mods:note>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>H. William Menard Papers, 1938-1986
+									(MC18)</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+							<mods:relatedItem type="host" displayLabel="Project">
+								<mods:titleInfo>
+									<mods:title>LSTA-CEO</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="ADM1b">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:object>
+								<pre:objectIdentifier>
+									<pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+									<pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000003.tif</pre:objectIdentifierValue>
+								</pre:objectIdentifier>
+								<pre:preservationLevel>full</pre:preservationLevel>
+								<pre:objectCategory>file</pre:objectCategory>
+								<pre:objectCharacteristics>
+									<pre:compositionLevel>0</pre:compositionLevel>
+									<pre:fixity>
+										<pre:messageDigestAlgorithm>CRC</pre:messageDigestAlgorithm>
+										<pre:messageDigest>3,356,155,929</pre:messageDigest>
+									</pre:fixity>
+									<pre:size>25144</pre:size>
+									<pre:format>
+										<pre:formatDesignation>
+											<pre:formatName>TIFF</pre:formatName>
+											<pre:formatVersion>5.0</pre:formatVersion>
+										</pre:formatDesignation>
+									</pre:format>
+								</pre:objectCharacteristics>
+								<pre:creatingApplication>
+									<pre:dateCreatedByApplication>2002-04-11T00:00:00.0</pre:dateCreatedByApplication>
+								</pre:creatingApplication>
+							</pre:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="ADM2b">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:ImageCreation>
+									<mix:SourceType>Photographic print</mix:SourceType>
+									<mix:SourceID>mc1850030009</mix:SourceID>
+									<mix:ImageProducer>Luna Imaging Inc.</mix:ImageProducer>
+									<mix:DeviceSource>transmission scanner</mix:DeviceSource>
+									<mix:ScanningSystemCapture>
+										<mix:ScanningSystemHardware>
+											<mix:ScannerManufacturer>CreoScitex</mix:ScannerManufacturer>
+											<mix:ScannerModel>
+												<mix:ScannerModelName>Eversmart
+												Select</mix:ScannerModelName>
+											</mix:ScannerModel>
+										</mix:ScanningSystemHardware>
+										<mix:ScanningSystemSoftware>
+											<mix:ScanningSoftware>oXYgen</mix:ScanningSoftware>
+											<mix:ScanningSoftwareVersionNo>v.1.1.0</mix:ScanningSoftwareVersionNo>
+										</mix:ScanningSystemSoftware>
+									</mix:ScanningSystemCapture>
+								</mix:ImageCreation>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="ADM3b">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:rightsStatement>
+								<pre:rightsBasis>Copyright</pre:rightsBasis>
+								<pre:copyrightInformation>
+									<pre:copyrightStatus>Under copyright</pre:copyrightStatus>
+									<pre:copyrightJurisdiction>us</pre:copyrightJurisdiction>
+									<pre:copyrightNote>Rights Holder(s): Christian-Erik Abranson</pre:copyrightNote>
+									<pre:copyrightNote>Use: This work is available from the UC San
+										Diego Libraries. This digital copy of the work is intended
+										to support research, teaching, and private study. </pre:copyrightNote>
+									<pre:copyrightNote>Constraint(s) on Use: This work is protected
+										by the U.S. Copyright Law (Title 17, U.S.C.). Use of this
+										work beyond that allowed by “fair use” requires written
+										permission of the copyright holder(s). Responsibility for
+										obtaining permissions and any use and distribution of this
+										work rests exclusively with the user and not the UC San
+										Diego Libraries. Inquiries can be made to the UC San Diego
+										Libraries department having custody of the work
+										(http://libraries.ucsd.edu/locations/sio/).
+									</pre:copyrightNote>
+								</pre:copyrightInformation>
+							</pre:rightsStatement>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2002-04-11T00:00:00.0" USE="Image-Master">
+					<mets:file ID="ark-20775-bb00000003-1-1" MIMETYPE="image/tiff"
+						CREATED="2002-04-11T00:00:00.0" ADMID="ADM1b ADM2b" GROUPID="GID1">
+						<FLocat
+							xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000003/1-1.tif "
+							LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2002-04-11T00:00:00.0" USE="Image-Service">
+					<mets:file ID="ark-20775-bb00000003-1-2" MIMETYPE="image/jpeg"
+						CREATED="2002-04-11T00:00:00.0" GROUPID="GID1">
+						<FLocat
+							xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000003/1-2.jpg "
+							LOCTYPE="URL"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div ORDER="1" TYPE="still image"
+					LABEL="Horizon coffee-can dredge, Wilde and Holden on Vanua Mblava. During two days we did a great deal of wading to and from the boats. Finally we reassembled on the beach to await arrival of the ship. While it was anchored, the bottom sediment of the lagoon was sampled with low-cost equipment."
+					DMDID="DM1b" ADMID="ADM3b">
+					<mets:fptr FILEID="ark-20775-bb00000003-1-1"/>
+					<mets:fptr FILEID="ark-20775-bb00000003-1-2"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="4">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+			xmlns:mix="http://www.loc.gov/mix/" xmlns:pre="http://www.loc.gov/standards/premis/v1"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/mix/mix02.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+			OBJID="ark:/20775/bb00000004" TYPE="moving image" LABEL="News parade of the year 1945"
+			PROFILE="UC San Diego Simple Object Profile">
+			<mets:metsHdr CREATEDATE="2005-03-28T09:15:00" LASTMODDATE="2006-04-27T09:15:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Digital Library Program, Geisel Library, University of California,
+						San Diego</mets:name>
+					<mets:note>mailto:dlp@ucsd.edu</mets:note>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="EDM1c">
+				<mets:mdRef xlink:href="http://pactech.ucsd.edu/record=b3626461" LOCTYPE="URL"
+					MDTYPE="MARC" LABEL="UC San Diego ROGER Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DM1c">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>News parade of the year 1945</mods:title>
+							</mods:titleInfo>
+							<mods:name type="corporate">
+								<mods:namePart>Castle Films, inc.</mods:namePart>
+							</mods:name>
+							<mods:name type="corporate">
+								<mods:namePart>United World Films, inc</mods:namePart>
+							</mods:name>
+							<mods:typeOfResource>moving image</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm>United States</mods:placeTerm>
+								</mods:place>
+								<mods:publisher>Castle Films</mods:publisher>
+								<mods:publisher>United World Films</mods:publisher>
+								<mods:dateCreated>1946?</mods:dateCreated>
+							</mods:originInfo>
+							<mods:physicalDescription>
+								<mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+								<mods:note>1 film reel (10 min.); si. at sd. speed, b &amp; w;
+									16 mm. </mods:note>
+							</mods:physicalDescription>
+							<mods:tableOfContents>Now it can be seen! British battleship bombed --
+								Nazi U-boat scores direct hit on H.M.S.M.S. -- Hitler's V's bomb!
+								Exposed by allies -- Secret weapon never used was Hitler's threat to
+								America -- Millions mourn Roosevelt, Harry S. Truman succeeds to
+								U.S. presidency -- The war president's remains are brought to the
+								national capital -- The new president takes the oath of office --
+								Franklin D. Roosevelt is buried at his Hyde Park, NY, birthplace --
+								Final battle in Europe -- The heart of Berlin! Soviet's last
+								offensive -- General Eisenhower receives unconditional surrender
+								pens -- Allies in Berlin – Allied commanders assemble to accept Nazi
+								capitalization – Prime Minister Churchill reviews Canadian and
+								British troops -- President Truman reviews American forces in
+								Berlina -- We want peace and prosperity for the world -- Liberated
+								nations -- Paris at the Arc de Triomphe ; Gen. de Gaulle pays
+								tribute to spirit of liberty -- Holland rejoins – In Denmark, King
+								Christian welcomes Marshall Montgomery -- Norway's independence is
+								restored! Crown Prince Olaf is joined in Trumulation celebration --
+								Axis war criminals -- Hess -- Goering -- Von Runsdtedt -- Pertain
+								[sic?] -- Laval -- Yamashita -- Jap's last stand -- Yanks raised Old
+								Glory over Iwo Jima! Japs are routed in desperate battles for
+								Okinawa -- Atomic bomb destroys Nagasaki -- Nagasaki -- General
+								MacArthur accepts Japan's surrender terms for allied natiions --
+								Yanks in Tokyo -- MacArthur with U.S. Armies ; Navy officials in Jap
+								capital -- Pearl Harbor avenged! Remains of once powerful Jap fleet
+								-- Millions of G.I.'s come home -- At San Francisco the carrier
+								Saratoga steams victoriously through Golden Gate -- So good to come
+								home to -- U.S. Navy's great days -- President Truman is accorded
+								New York's greatest ovation -- The world's greatest Navy assembles
+								in Hudson River ; millions line shores -- The President reviews
+								fleet aboard destroyer Renshaw while plans and guns herald a year of
+								victory.</mods:tableOfContents>
+							<mods:note>Reformatted as Quick Time, MPEG4, and AVI file formats </mods:note>
+							<mods:subject>
+								<mods:genre>Newsreels</mods:genre>
+							</mods:subject>
+							<mods:subject>
+								<mods:name type="personal" authority="lcnaf">
+									<mods:namePart>Truman, Harry S.</mods:namePart>
+									<mods:namePart type="date">1884-1972</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:subject>
+								<mods:name type="personal" authority="lcnaf">
+									<mods:namePart>Churchill, Winston</mods:namePart>
+									<mods:namePart type="termsOfAddress">Sir</mods:namePart>
+									<mods:namePart type="date">1874-1965</mods:namePart>
+								</mods:name>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>World War, 1939-1945</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>History, Modern--20th century</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>War crime trials—Germany--Nuremburg</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:geographic>United States—History—1945</mods:geographic>
+							</mods:subject>
+							<mods:classification authority="local">P-100-1</mods:classification>
+							<mods:identifier type="local">b3626461</mods:identifier>
+							<mods:identifier type="ARK"
+								>http://libraries.ucsd.edu/ark:/20775/bb00000004</mods:identifier>
+							<mods:note displayLabel="Digital object made available by"> Arts
+								Library, University of California, San Diego, La Jolla, CA
+								92093-0175 (http://libraries.ucsd.edu/locations/arts/) </mods:note>
+							<mods:relatedItem type="host">
+								<mods:titleInfo displayLabel="Project">
+									<mods:title>NARA Project Films</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="ADM1c">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:object>
+								<pre:objectIdentifier>
+									<pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+									<pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000004.avi</pre:objectIdentifierValue>
+								</pre:objectIdentifier>
+								<pre:preservationLevel>full</pre:preservationLevel>
+								<pre:objectCategory>file</pre:objectCategory>
+								<pre:objectCharacteristics>
+									<pre:compositionLevel>0</pre:compositionLevel>
+									<pre:fixity>
+										<pre:messageDigestAlgorithm>CRC</pre:messageDigestAlgorithm>
+										<pre:messageDigest>3,356,155,929</pre:messageDigest>
+									</pre:fixity>
+									<pre:size>2514445</pre:size>
+									<pre:format>
+										<pre:formatDesignation>
+											<pre:formatName>AVI</pre:formatName>
+										</pre:formatDesignation>
+									</pre:format>
+								</pre:objectCharacteristics>
+								<pre:creatingApplication>
+									<pre:dateCreatedByApplication>2005-04-11T00:00:00.0</pre:dateCreatedByApplication>
+								</pre:creatingApplication>
+							</pre:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="ADM2c">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:rightsStatement>
+								<pre:rightsBasis>Copyright</pre:rightsBasis>
+								<pre:copyrightInformation>
+									<pre:copyrightStatus>Unknown</pre:copyrightStatus>
+									<pre:copyrightNote>Use: This work is available from the UC San
+										Diego Libraries. This digital copy of the work is intended
+										to support research, teaching, and private study. </pre:copyrightNote>
+									<pre:copyrightNote>Constraint(s) on Use: This work may be
+										protected by the U.S. Copyright Law (Title 17, U.S.C.). Use
+										of this work beyond that allowed by “fair use” requires the
+										written permission of the copyright holders(s).
+										Responsibility for obtaining permissions and any use and
+										distribution of this work rests exclusively with the user
+										and not the UC San Diego Libraries. Inquiries can be made to
+										the UC San Diego Libraries department having custody of the
+										work
+									(http://libraries.ucsd.edu/locations/arts/).</pre:copyrightNote>
+								</pre:copyrightInformation>
+							</pre:rightsStatement>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2005-02-01T09:15:00" USE="Video-Master">
+					<mets:fileGrp>
+						<mets:file ID="ark-20775-bb00000004-1-1" MIMETYPE="video/x-msvideo"
+							CREATED="2005-02-01T09:15:00" ADMID="ADM1c" GROUPID="GID1">
+							<FLocat
+								xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000004/1-1.avi"
+								LOCTYPE="URL"/>
+						</mets:file>
+					</mets:fileGrp>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-02-01T09:15:00" USE="Video-Streaming">
+					<mets:fileGrp>
+						<mets:file ID="ark-20775-bb00000004-1-2" MIMETYPE="video/quicktime"
+							CREATED="2005-02-01T09:15:00" GROUPID="GID1">
+							<FLocat
+								xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000004/1-2.mov"
+								LOCTYPE="URL"/>
+						</mets:file>
+					</mets:fileGrp>
+				</mets:fileGrp>
+				<mets:fileGrp VERSDATE="2005-02-01T09:15:00" USE="Video-Service">
+					<mets:fileGrp>
+						<mets:file ID="ark-20775-bb00000004-1-3" MIMETYPE="video/mpeg"
+							CREATED="2005-02-01T09:15:00" GROUPID="GID1">
+							<FLocat
+								xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000004/1-3.mp4"
+								LOCTYPE="URL"/>
+						</mets:file>
+					</mets:fileGrp>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div ORDER="1" TYPE="moving image" LABEL="News parade of the year 1945"
+					DMDID="EDM1c DM1c" ADMID="ADM2c">
+					<mets:fptr FILEID="ark-20775-bb00000004-1-1"/>
+					<mets:fptr FILEID="ark-20775-bb00000004-1-2"/>
+					<mets:fptr FILEID="ark-20775-bb00000004-1-3"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="5">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+			xmlns:mix="http://www.loc.gov/mix/" xmlns:pre="http://www.loc.gov/standards/premis/v1"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/mix/mix02.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+			OBJID="ark:/20775/bb00000005" TYPE="text"
+			LABEL="Program Design Options for Serving At-Risk Youth"
+			PROFILE="UC San Diego Simple Object Profile">
+			<mets:metsHdr CREATEDATE="2006-04-27T09:15:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Digital Library Program, Geisel Library, University of California,
+						San Diego</mets:name>
+					<mets:note>mailto:dlp@ucsd.edu</mets:note>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="EDM1d">
+				<mets:mdRef xlink:href="http://roger.ucsd.edu/record=b3326438" LOCTYPE="URL"
+					MDTYPE="MARC" LABEL="UC San Diego ROGER Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DM1d">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>A Guide to Program design options for serving at-risk
+									youth</mods:title>
+								<mods:subTitle>a companion piece to the Program options tool-kit for
+									at-risk youth</mods:subTitle>
+							</mods:titleInfo>
+							<mods:titleInfo type="alternative">
+								<mods:title>Program Design Options for Serving At-Risk
+								Youth</mods:title>
+							</mods:titleInfo>
+							<mods:name type="corporate">
+								<mods:namePart>United States. Employment and Training
+								Administration</mods:namePart>
+							</mods:name>
+							<mods:name type="corporate">
+								<mods:namePart>Youth Research and Technical Assistance Project
+									(U.S.)</mods:namePart>
+							</mods:name>
+							<mods:name type="corporate">
+								<mods:namePart>Florence Heller Graduate School for Advanced Studies
+									in Social Welfare. Center for Human Resources </mods:namePart>
+							</mods:name>
+							<mods:name type="personal" authority="lcnaf">
+								<mods:namePart>Curnan, Susan P.</mods:namePart>
+							</mods:name>
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm>Waltham, MA</mods:placeTerm>
+								</mods:place>
+								<mods:publisher>Center for Human Resources, Brandeis University,
+									Heller Graduate School</mods:publisher>
+								<mods:dateCreated>c[1993]</mods:dateCreated>
+							</mods:originInfo>
+							<mods:physicalDescription>
+								<mods:digitalOrigin>born digital</mods:digitalOrigin>
+								<mods:reformattingQuality>preservation</mods:reformattingQuality>
+								<mods:note>1 computer disk; 5 1/4 in</mods:note>
+							</mods:physicalDescription>
+							<mods:note>The online version (see link above) contains all the files
+								from the original diskettes </mods:note>
+							<mods:note>Screen title </mods:note>
+							<mods:note>Running title: Program design options technical assistance
+								guide </mods:note>
+							<mods:note>Title on disk label: Program design options for serving
+								at-risk youth </mods:note>
+							<mods:note>"August 1993." </mods:note>
+							<mods:note>"This Guide is one in a series of training and technical
+								assistance publications prepared under the Youth Research and
+								Technical Assistance Project (YRTAP), sponsored by the U.S.
+								Department of Labor, contract no.
+								99-0-1869-75-053-01."--Acknowledgements </mods:note>
+							<mods:note>"A companion piece to the Program design options tool kit for
+								at-risk youth"--Foreword </mods:note>
+							<mods:note>"The content and strategies pressented in the Technical
+								assistance guide represent the collective and creative work of the
+								Center's principal staff including Susan P. Curnan ...
+								"--Acknowledgements </mods:note>
+							<mods:note>Reformatted as PDF file format</mods:note>
+							<mods:subject authority="lcsh">
+								<mods:topic>Youth--Employment--United States</mods:topic>
+							</mods:subject>
+							<mods:subject authority="lcsh">
+								<mods:topic>Youth--Employment--Government policy--United
+								States</mods:topic>
+							</mods:subject>
+							<mods:identifier type="local">http://uclibs.org/PID22091</mods:identifier>
+							<mods:identifier type="ARK"
+								>http://libraries.ucsd.edu/ark:/20775/bb00000005</mods:identifier>
+							<mods:note displayLabel="Digital object made available by"> Data,
+								Government and Geographic Information Services, Social Sciences and
+								Humanities Library, University of California, San Diego, La Jolla,
+								CA 92093-0175
+								(http://libraries.ucsd.edu/locations/sshl/data-gov-info-gis/) </mods:note>
+							<mods:relatedItem type="host">
+								<mods:titleInfo displayLabel="Project">
+									<mods:title>UC San Diego GPO Data Migration Project</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="ADM1d">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:object>
+								<pre:objectIdentifier>
+									<pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+									<pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000005.pdf</pre:objectIdentifierValue>
+								</pre:objectIdentifier>
+								<pre:preservationLevel>full</pre:preservationLevel>
+								<pre:objectCategory>file</pre:objectCategory>
+								<pre:objectCharacteristics>
+									<pre:compositionLevel>0</pre:compositionLevel>
+									<pre:fixity>
+										<pre:messageDigestAlgorithm>CRC</pre:messageDigestAlgorithm>
+										<pre:messageDigest>3,356,155,929</pre:messageDigest>
+									</pre:fixity>
+									<pre:size>319488</pre:size>
+									<pre:format>
+										<pre:formatDesignation>
+											<pre:formatName>PDF</pre:formatName>
+										</pre:formatDesignation>
+									</pre:format>
+								</pre:objectCharacteristics>
+								<pre:creatingApplication>
+									<pre:dateCreatedByApplication>2005-04-11T00:00:00.0</pre:dateCreatedByApplication>
+								</pre:creatingApplication>
+							</pre:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="ADM2d">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:rightsStatement>
+								<pre:rightsBasis>Copyright</pre:rightsBasis>
+								<pre:copyrightInformation>
+									<pre:copyrightStatus>Public Domain</pre:copyrightStatus>
+									<pre:copyrightNote>Use: This work is available from the UC San
+										Diego Libraries. This digital copy of the work is intended
+										to support research, teaching, and private study. </pre:copyrightNote>
+									<pre:copyrightNote>Constraint(s) on Use: This work may be used
+										without prior permission. </pre:copyrightNote>
+								</pre:copyrightInformation>
+							</pre:rightsStatement>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2005-02-01T09:15:00" USE="Application-PDF">
+					<mets:fileGrp>
+						<mets:file ID="ark-20775-bb00000005-1-1" MIMETYPE="application/pdf"
+							CREATED="2005-02-01T09:15:00" ADMID="ADM1d" GROUPID="GID1">
+							<FLocat
+								xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000005/1-1.pdf"
+								LOCTYPE="URL"/>
+						</mets:file>
+					</mets:fileGrp>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div ORDER="1" TYPE="text"
+					LABEL="A Guide to Program design options for serving at-risk youth"
+					DMDID="EDM1d DM1d" ADMID="ADM2d">
+					<mets:fptr FILEID="ark-20775-bb00000005-1-1"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="6">
+		<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+			xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+			xmlns:mix="http://www.loc.gov/mix/" xmlns:pre="http://www.loc.gov/standards/premis/v1"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/mix/mix02.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+			OBJID="ark:/20775/bb00000006" TYPE="sound recording-musical" LABEL="Variation No. 12"
+			PROFILE="UC San Diego Simple Object Profile">
+			<mets:metsHdr CREATEDATE="2005-03-28T09:15:00" LASTMODDATE="2006-04-27T09:15:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>Digital Library Program, Geisel Library, University of California,
+						San Diego</mets:name>
+					<mets:note>mailto:dlp@ucsd.edu</mets:note>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:dmdSec ID="EDM1e">
+				<mets:mdRef xlink:href="http://pactech.ucsd.edu/record=b3626461" LOCTYPE="URL"
+					MDTYPE="MARC" LABEL="UC San Diego ROGER Record"/>
+			</mets:dmdSec>
+			<mets:dmdSec ID="DM1e">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:titleInfo>
+								<mods:title>Variation No. 12</mods:title>
+							</mods:titleInfo>
+							<mods:name type="personal">
+								<mods:namePart>Bach, Johann Sebastian</mods:namePart>
+							</mods:name>
+							<mods:name type="personal">
+								<mods:namePart>Leonhardt, Gustav</mods:namePart>
+							</mods:name>
+							<mods:typeOfResource>sound recording-musical</mods:typeOfResource>
+							<mods:originInfo>
+								<mods:place>
+									<mods:placeTerm>Minneapolis, MN</mods:placeTerm>
+								</mods:place>
+								<mods:publisher>Pro Arte</mods:publisher>
+								<mods:dateIssued>1985</mods:dateIssued>
+							</mods:originInfo>
+							<mods:physicalDescription>
+								<mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+								<mods:note>1 sound disc : digital, stereo. ; 4 3/4 in</mods:note>
+							</mods:physicalDescription>
+							<mods:subject authority="local">
+								<mods:topic>Classical</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Harpsichord</mods:topic>
+							</mods:subject>
+							<mods:classification authority="local">MUD22720_14</mods:classification>
+							<mods:identifier type="ARK"
+								>http://libraries.ucsd.edu/ark:/20775/bb00000006</mods:identifier>
+							<mods:note displayLabel="Digital object made available by"> Arts
+								Library, University of California, San Diego, La Jolla, CA
+								92093-0175 (http://libraries.ucsd.edu/locations/arts/) </mods:note>
+							<mods:relatedItem type="host">
+								<mods:titleInfo displayLabel="Project">
+									<mods:title>Digital Audio Reserves</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="ADM1e">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:object>
+								<pre:objectIdentifier>
+									<pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+									<pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000005.mp3</pre:objectIdentifierValue>
+								</pre:objectIdentifier>
+								<pre:preservationLevel>full</pre:preservationLevel>
+								<pre:objectCategory>file</pre:objectCategory>
+								<pre:objectCharacteristics>
+									<pre:compositionLevel>0</pre:compositionLevel>
+									<pre:fixity>
+										<pre:messageDigestAlgorithm>CRC</pre:messageDigestAlgorithm>
+										<pre:messageDigest>3,356,155,929</pre:messageDigest>
+									</pre:fixity>
+									<pre:size>2514</pre:size>
+									<pre:format>
+										<pre:formatDesignation>
+											<pre:formatName>MP3</pre:formatName>
+										</pre:formatDesignation>
+									</pre:format>
+								</pre:objectCharacteristics>
+								<pre:creatingApplication>
+									<pre:dateCreatedByApplication>2005-04-11T00:00:00.0</pre:dateCreatedByApplication>
+								</pre:creatingApplication>
+							</pre:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:rightsMD ID="ADM2e">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+						<mets:xmlData>
+							<pre:rightsStatement>
+								<pre:rightsBasis>Copyright</pre:rightsBasis>
+								<pre:copyrightInformation>
+									<pre:copyrightStatus>Under copyright</pre:copyrightStatus>
+									<pre:copyrightNote>Use: This work is available from the UC San
+										Diego Libraries. This digital copy of the work is intended
+										to support research, teaching, and private study. </pre:copyrightNote>
+									<pre:copyrightNote>Constraint(s) on Use: This work is protected
+										by the U.S. Copyright Law (Title 17, U.S.C.). Use of this
+										work beyond that allowed by “fair use” requires written
+										permission of the copyright holder(s). Responsibility for
+										obtaining permissions and any use and distribution of this
+										work rests exclusively with the user and not the UC San
+										Diego Libraries. Inquiries can be made to the UC San Diego
+										Libraries department having custody of the work
+										(http://libraries.ucsd.edu/locations/arts/).
+									</pre:copyrightNote>
+								</pre:copyrightInformation>
+							</pre:rightsStatement>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp VERSDATE="2005-02-01T09:15:00" USE="Audio-Service">
+					<mets:fileGrp>
+						<mets:file ID="ark-20775-bb00000006-1-1" MIMETYPE="audio/mpeg3"
+							CREATED="2005-02-01T09:15:00" ADMID="ADM1e" GROUPID="GID1">
+							<FLocat
+								xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000006/1-1.mp3"
+								LOCTYPE="URL"/>
+						</mets:file>
+					</mets:fileGrp>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div ORDER="1" TYPE="sound recording-musical" LABEL="Variation No. 12"
+					DMDID="EDM1e DM1e" ADMID="ADM2e">
+					<mets:fptr FILEID="ark-20775-bb00000006-1-1"/>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>

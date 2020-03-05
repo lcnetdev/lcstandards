@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink"  >
+
+  <!-- Created by Morgan Cundiff using Emacs -->
+  <!-- xsi:noNamespaceSchemaLocation="C:\mets_profiles\mets.profile.v1-1.xsd" -->
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/photograph</URI>
+  <title>Library of Congress METS Profile for a Digital Photograph [Draft]</title>
+  <abstract>The Library of Congress METS Profile for Photographs specifies how METS documents representing single photographs within Library of Congress digital library projects should be encoded.</abstract>
+  <date>2004-05-29T17:31:00</date>
+  <contact>
+    <name>Network Development and MARC Standards Office</name>
+    <institution>Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+    <context/>
+  </extension_schema>
+  <description_rules/>
+  <controlled_vocabularies/>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A METS photoObject document must contain one and only one Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p>If there is only one version of the photograph to be digitized (and thus to be considered as part of the photoObject) then the MODS record will contain no relatedItem TYPE="constituent" elements. The term "version" here is used to refer to the various possible manifestations of a photograph such as an original negative, a copy negative, a print, a contact sheet, and the like.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex03">
+	<p>If the photoObject does consist of multiple versions, then the MODS record will have one relatedItem  element for each version. Each of these relatedItem should have TYPE="constituent" attribute and an ID attribute.</p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex04">
+	<p>The physical structure of the photoObject will be represented in the Structure Map (structMap) section of the METS instance. The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="photo:photoObject" child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.</p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex05">
+	<p>The div TYPE="photo:photoObject" element will have one or more div TYPE="photo:version" child elements. When there is only one version of the photograph (see dmdSec Requirement 3) there will be one div TYPE="photo:version" element. The div TYPE="photo:photoObject" element must have a DMDID pointing to the mods element.</p>
+      </requirement>
+      <requirement ID="st03" RELATEDMAT="ex06">
+	<p>In the cases where there is more than one version of the photograph (see dmdSec Requirement 3), there will be one corresponding div TYPE="photo:version" element for each relatedItem TYPE="constituent" contained in the mods element. Each div TYPE="photo:version" element must have a DMDID pointing to the corresponding relatedItem element. Note that the relatedItem type="constituent" elements and the div TYPE="photo:version" elements correspond according to their document order.</p>
+      </requirement>
+      <requirement ID="st04" RELATEDMAT="ex07">
+	<p>In the case where a particuluar version of the photograph is comprised of more than one image, the div TYPE="photo:version element will have one div TYPE="photo:image child element for each image. A common example is  the case where there are two images for a print (one image for the front and one image for the back). The div TYPE="photo:image element may optionally use the LABEL attribute to supply clarifying structural information, for example div TYPE="photo:image LABEL="front".</p>
+      </requirement>
+
+    </structMap>
+  </structural_requirements>
+
+  <technical_requirements>
+  </technical_requirements>
+
+
+  <tool/>
+  <Appendix ID="a1" NUMBER="0">
+    <mets:mets>Complete Instance Document goes here.</mets:mets>
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:dmdSec ID="dmd1">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>Title</mods:title>
+	    </mods:titleInfo>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:dmdSec ID="dmd1">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</mods:title>
+	    </mods:titleInfo>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+
+
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:dmdSec ID="dmd1">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>[Portrait of Tyree Glenn, New York, N.Y., ca. July 1947]</mods:title>
+	    </mods:titleInfo>
+	    <mods:relatedItem ID="ver01" type="constituent">
+	      <mods:location>
+		<mods:physicalLocation displayLabel="contents of subfield">negative</mods:physicalLocation>
+	      </mods:location>
+	    </mods:relatedItem>
+	    <mods:relatedItem ID="ver02" type="constituent">
+	      <mods:location>
+		<mods:physicalLocation displayLabel="contents of subfield">contact print with annotations</mods:physicalLocation>
+	      </mods:location>
+	    </mods:relatedItem>
+	    <mods:relatedItem ID="ver03" type="constituent">
+	      <mods:location>
+		<mods:physicalLocation displayLabel="contents of subfield">published print (The Golden Age of Jazz, Pomegranate Artbooks)</mods:physicalLocation>
+	      </mods:location>
+	    </mods:relatedItem>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:dmdSec ID="dmd1">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</mods:title>
+	    </mods:titleInfo>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+
+    <mets:structMap>
+      <mets:div TYPE="photo:photoObject" DMDID="mods1">
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+
+  <Appendix ID="ex05" NUMBER="5">
+    <mets:dmdSec ID="dmd1">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</mods:title>
+	    </mods:titleInfo>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+
+    <mets:structMap>
+      <mets:div TYPE="photo:photoObject" DMDID="mods1">
+	<mets:div TYPE="photo:version">
+	  <mets:div TYPE="photo:image">
+	    <mets:fptr FILEID="F1"/>
+	    <mets:fptr FILEID="F2"/>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+
+  <Appendix ID="ex06" NUMBER="6">
+    <mets:dmdSec ID="dmd1">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>[Portrait of Tyree Glenn, New York, N.Y., ca. July 1947]</mods:title>
+	    </mods:titleInfo>
+	    <mods:relatedItem ID="ver01" type="constituent">
+	      <mods:location>
+		<mods:physicalLocation displayLabel="contents of subfield">negative</mods:physicalLocation>
+	      </mods:location>
+	    </mods:relatedItem>
+	    <mods:relatedItem ID="ver02" type="constituent">
+	      <mods:location>
+		<mods:physicalLocation displayLabel="contents of subfield">contact print with annotations</mods:physicalLocation>
+	      </mods:location>
+	    </mods:relatedItem>
+	    <mods:relatedItem ID="ver03" type="constituent">
+	      <mods:location>
+		<mods:physicalLocation displayLabel="contents of subfield">published print (The Golden Age of Jazz, Pomegranate Artbooks)</mods:physicalLocation>
+	      </mods:location>
+	    </mods:relatedItem>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+
+    <mets:structMap>
+      <mets:div TYPE="photo:photoObject" DMDID="mods1">
+	<mets:div TYPE="photo:version" DMDID="ver01">
+	  <mets:div TYPE="photo:image">
+	    <mets:fptr FILEID="F1"/>
+	    <mets:fptr FILEID="F2"/>
+	  </mets:div>
+	  <mets:div TYPE="photo:version" DMDID="ver02">
+	    <mets:div TYPE="photo:image">
+	      <mets:fptr FILEID="F3"/>
+	      <mets:fptr FILEID="F4"/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="photo:version" DMDID="ver03">
+	    <mets:div TYPE="photo:image">
+	      <mets:fptr FILEID="F5"/>
+	      <mets:fptr FILEID="F6"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+
+  <Appendix ID="ex07" NUMBER="7">
+    <mets:structMap>
+      <mets:div TYPE="photo:photoObject" DMDID="mods1">
+	<mets:div TYPE="photo:version" LABEL="Print">
+	  <mets:div TYPE="photo:image" LABEL="Front">
+	    <mets:fptr FILEID="F1"/>
+	    <mets:fptr FILEID="F1"/>
+	  </mets:div>
+	  <mets:div TYPE="photo:image" LABEL="Back">
+	    <mets:fptr FILEID="F1"/>
+	    <mets:fptr FILEID="F1"/>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix> 
+
+
+</METS_Profile>

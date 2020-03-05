@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	   xmlns:mods="http://www.loc.gov/mods/v3"
+	   xmlns:lc="http://www.loc.gov/mets/profiles"
+	   xmlns:xlink="http://www.w3.org/TR/xlink"
+	   xmlns:rights="http://www.loc.gov/rights/"
+	   xmlns:photo="http://www.loc.gov/mets/profiles/photoObject"
+	   PROFILE="lc:photoObject" xmlns="http://www.loc.gov/METS/"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <!-- Created by Morgan Cundiff in Emacs -->
+  <!-- (For XMLSpy validation)
+       xsi:schemaLocation="http://www.loc.gov/METS/ C:\mets_profiles\mets.xsd http://www.loc.gov/MODS/v3 C:\mets_profiles\mods-3-0.xsd"
+  -->
+
+  <mets:structMap>
+    <!-- photoObject (one and only one) -->
+    <mets:div TYPE="photo:photoObject">
+
+      <!-- text files associated with the photoObjectObject (zero or more) -->   
+      <mets:div TYPE="photo:text">
+      </mets:div>
+
+      <!-- image files associated with the photoObjectObject (zero or more) -->
+      <mets:div TYPE="photo:images">
+      </mets:div>
+
+
+      <!-- disc (one or more) -->
+      <mets:div TYPE="photo:disc">
+
+	<!-- text files associated with the disc (zero or more) -->
+	<mets:div TYPE="photo:text">
+	</mets:div>
+
+	<!-- image files associated with the disc (zero or more) -->
+	<mets:div TYPE="photo:images">
+	</mets:div>
+
+
+	<!-- tracks associated with the disc (one or more) -->
+	<mets:div TYPE="photo:track">
+
+	  <!-- audio files associated with the track (zero or more) -->
+	  <mets:div TYPE="photo:audio">
+	  </mets:div>
+
+	  <!-- text files associated with the track (zero or more) -->
+	  <mets:div TYPE="photo:text">
+	  </mets:div>
+	</mets:div>
+
+
+
+	<mets:div TYPE="photo:track">
+	  <!-- track segments associated with track (zero or more) -->
+	  <mets:div TYPE="photo:trackSegment">
+
+	    <!-- audio files associated with the trackSegment (one or more) -->
+	    <mets:div TYPE="photo:audio">
+	    </mets:div>
+
+	    <!-- text files associated with the trackSegment (zero or more) -->
+	    <mets:div TYPE="photo:text">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+
+
+
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>

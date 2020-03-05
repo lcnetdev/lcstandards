@@ -1,0 +1,760 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Creado por Julio Cordal Elviro -->
+<METS_Profile 
+	REGISTRATION="registered"
+	STATUS="final"	
+	xmlns="http://www.loc.gov/METS_Profile/v2" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+	xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd">
+	<URI ASSIGNEDBY="local" LOCTYPE="URL">http://bvpb.mcu.es/i18n/doc/VirtualLibraryOfBibliographicalHeritage_metsProfile.xml</URI>
+	<URI ASSIGNEDBY="metsboard" LOCTYPE="URL">http://www.loc.gov/standards/mets/profiles/00000044.xml</URI>
+	<title xml:lang="es">Perfil METS-BVPB para ingesta y preservación de recursos digitales</title>
+	<title xml:lang="en">Digital Resources Ingest and Preservation BVPB-METS profile</title>
+	<abstract xml:lang="es">Este perfil está orientado a la creación de METS que sirvan para representar, preservar e ingestar los objetos digitales que se archivan y ofrecen al público en la Biblioteca Virtual de Patrimonio Bibligráfico del Ministerio de Educación, Cultura y Deporte (España). Puede ser utilizado para ingestar objetos digitales y/o metadatos en bases de datos, y en general para registrar, trasmitir y almacenar metadatos y objetos digitales.</abstract>
+	<abstract xml:lang="en">This profile is aimed at the creation of METS eligible for representing, preserving and ingesting the digital objects that are archived and available to the public at the Virtual Library of Bibliographical Heritage of the Ministry of Education, Culture and Sports (Spain). It can be used to ingest digital objects and/or metadata in databases, and, in general, for recording, transmitting and storing metadata and digital objects.</abstract>
+	<date>2015-03-24T11:30:00</date>
+	<contact>
+		<name>Domingo Arroyo Fernández / Julio Cordal Elviro</name>
+		<institution>España. Ministerio de Educación, Cultura y Deporte. Subdirección General de Coordianción Bibliotecaria</institution>
+		<address>Plaza del Rey, 1.  28004 Madrid</address>
+		<phone>91 701 70 00 / Ext: 37463 - Ext.: 32904</phone>
+		<email>domingo.arroyo@mecd.es / julio.cordal@mecd.es</email>
+	</contact>
+	<related_profile RELATIONSHIP="based on" URI="http://www.loc.gov/mets/profiles/00000005.xml">Model Paged Text Object Profile
+  </related_profile>
+	<profile_context>
+		<uses>
+			<use>
+				<xhtml:p xml:lang="es">Este perfil está diseñado principalmente para la carga de objetos digitales con sus metadatos en bibliotecas digitales.</xhtml:p>
+				<xhtml:p xml:lang="en">This profile is designed primarily for ingest digital objects and their metadata in digital libraries.</xhtml:p>
+			</use>
+			<use>
+				<xhtml:p xml:lang="es">Este perfil puede utilizarse también para preservación de objetos digitales.</xhtml:p>
+				<xhtml:p xml:lang="en">This profile may also be used for the preservation of digital objects.</xhtml:p>
+			</use>
+		</uses>
+	</profile_context>
+	<external_schema ID="MARC">
+		<name>MARC21</name>
+		<URL>http://www.loc.gov/marc/</URL>
+		<context>
+    mets/dmdSec/mdWrap[@MDTYPE="MARC"]
+    </context>
+		<note>
+			<xhtml:p xml:lang="es">En este perfil los objetos digitales son descritos mediante metadatos MARC21. Se incluirá el registro bibliográfico MARC21 XML en la sección de metadatos descriptivos (dmdSec).</xhtml:p>
+			<xhtml:p xml:lang="es">Opcionalmente se podrán añadir registros MARC21-XML de fondos. En tal caso, el registro de fondos se colocará a continuación del registro bibliográfico correspondiente, ambos anidados dentro de una etiqueta &lt;collection&gt; .</xhtml:p>
+			<xhtml:p xml:lang="es">En caso de que no se incluya el registro de fondos MARC21-XML en el METS, el registro bibliográfico MARC21-XML deberá contar con una etiqueta 852, con el código de la biblioteca en el subcampo $a y la signatura en el subcampo $j.</xhtml:p>
+			<xhtml:p xml:lang="es">Se podrán incluir adicionalmente metadatos descriptivos en otros formatos, por ejemplo "Dublin Core", "MODS", etc... En estos casos cada registro debe ir en su propia sección de metadatos descriptivos y estas secciones se colocarán a continuación de las secciones de metadatos descriptivos (dmdSec) que contienen los registros MARC21.</xhtml:p>
+			<xhtml:p xml:lang="en">In this profile the digital objects are described using MARC21 metadata. MARC21-XML bibliographic record will be included in the descriptive metadata section (dmdSec).</xhtml:p>
+			<xhtml:p xml:lang="en">Optionally MARC21-XML holdings records could be added. In such cases, the holding record must be placed following the corresponding bibliographic record, both nested within a &lt;collection&gt; tag.</xhtml:p>
+			<xhtml:p xml:lang="en">If the MARC21-XML holding record is not included in the METS, MARC21-XML bibliographic record should have a label 852, with the library code in subfield $a and the signature in subfield $j.</xhtml:p>
+			<xhtml:p xml:lang="en">Additionally, descriptive metadata in other formats may be included, for example "Dublin Core", "MODS", etc... In these cases each record must be placed in its own descriptive metadata section, following descriptive metadata sections (dmdSec) containing MARC21 records.</xhtml:p>
+		</note>
+	</external_schema>
+	<external_schema ID="METSrights">
+		<name>METSrights</name>
+		<URL>http://cosimo.stanford.edu/sdr/metsrights/</URL>
+		<context>
+    mets/amdSec
+    </context>
+		<note>
+			<xhtml:p xml:lang="es">Se incluirán metadatos METSrights con indicación sobre los derechos de autor a los que están sujetos los objetos digitales que se describen en el METS.</xhtml:p>
+			<xhtml:p xml:lang="en">METSrights metadata with copyright information of the digital objects described in METS file will be included.</xhtml:p>
+		</note>
+	</external_schema>
+	<external_schema ID="PREMIS">
+		<name>PREMIS</name>
+		<URL>http://www.loc.gov/standards/premis</URL>
+		<context>mets/amdSec/techMD/mdWrap[@MDTYPE="PREMIS"]</context>
+		<note>
+			<xhtml:p xml:lang="es">Si se quiere usar el archivo METS para la preservación de los materiales descritos en la sección de metadatos, se incluirán metadatos de preservación PREMIS en la sección de metadatos administrativos (amdSec).</xhtml:p>
+			<xhtml:p xml:lang="en">If METS file is going to be used for preservation of the materials described in the descriptive metadata section, PREMIS preservation metadata will be included in administrative metadata section (amdSec).</xhtml:p>
+		</note>
+	</external_schema>
+	<external_schema ID="MIX">
+		<name>NISO Metadata for Images in XML (NISO MIX)</name>
+		<URL>http://www.loc.gov/mix/v20</URL>
+		<context>mets/amdSec/techMD/MdWrap[@MDTYPE="PREMIS"]/xmlData/object[@xsi:type="file"]/objectCharacteristics/objectCharacteristicsExtension</context>
+		<context>mets/amdSec/techMD/MdWrap/xmlData</context>
+		<note>
+			<xhtml:p xml:lang="es">Los metadatos MIX pueden ser una buena opción para enriquecer o acompañar los metadatos PREMIS.</xhtml:p>
+			<xhtml:p xml:lang="es">Se puede incluir una sección de metadatos administrativos (amdSec) independiente con metadatos MIX de la obra entera. También se pueden incluir metadatos MIX a nivel de página, dentro de los metadatos PREMIS.</xhtml:p>
+			<xhtml:p xml:lang="en">MIX metatata can be a good choice to enrich or go along with PREMIS metadata.</xhtml:p>
+			<xhtml:p xml:lang="en">A separate administrative metadata section (amdSec) with MIX metadata of the entire work can be included. Page-level MIX metadata can also be included within PREMIS metadata.</xhtml:p>
+		</note>
+	</external_schema>
+	<description_rules>
+		<xhtml:p xml:lang="es">Los registros bibliográficos deben ser conformes a las reglas de catalogación vigentes o de mayor uso en España: Reglas de catalogación españolas, ISBD unificada, etc...</xhtml:p>
+		<xhtml:p xml:lang="en">Bibliographic records must comply with the current and most commonly used cataloging rules in Spain: Spanish Cataloguing Rules, consolidated ISBD, etc ...</xhtml:p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>MARC Country Codes (Códigos de País del formato MARC)</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/marc/countries/</URI>
+			<context>mets/dmdSec/mdWrap[@MDTYPE="MARC"]/xmlData/Collection/controlfield[@tag="008"]
+			</context>
+			<description>
+				<xhtml:p xml:lang="es">Dentro del registro MARC21 se codificará en las posiciones 15-17 del campo 008 el lugar de publicación de la obra descrita mediante la Lista de Códigos de País (Marc Code List for Countries) de la Library of Congress.</xhtml:p>
+				<xhtml:p xml:lang="en">Within the MARC21 record, in positions 15-17 of 008 field, the codes of the Library of Congress Marc Code List for Countries will be used to indicate the place of publication of the work described.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>ISO 639-2 Language Codes</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/standards/iso639-2/</URI>
+			<context>mets/dmdSec/mdWrap[@MDTYPE="MARC"]/xmlData/Collection/controlfield[@tag="008"]</context>
+			<description>
+				<xhtml:p xml:lang="es">Dentro del registro MARC21 se codificará en las posiciones 35-37 del campo 008 el idioma principal de la obra descrita mediante la Lista de Códigos de Lengua (Marc Code List for Languages) de la Library of Congress.</xhtml:p>
+				<xhtml:p xml:lang="en">Within the MARC21 record, in positions 35-37 of 008 field, the codes of the Library of Congress Marc Languages Code List for Languages will be used to indicate main language of the work described.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Lista de Encabezamientos de Materia para Bibliotecas Públicas (LEM) (Subject Headings List for Public Libraries - Spain)</name>
+			<maintenance_agency>Dirección General de Bellas Artes y Bienes Culturales y de Archivos y Bibliotecas</maintenance_agency>
+			<URI>http://id.sgcb.mcu.es/lem/</URI>
+			<context>mets/dmdSec/mdWrap[@MDTYPE="MARC"]/xmlData/Collection/controlfield[@tag="650"]</context>
+			<context>mets/dmdSec/mdWrap[@MDTYPE="MARC"]/xmlData/Collection/controlfield[@tag="651"]</context>
+			<description>
+				<xhtml:p xml:lang="es">Dentro del registro MARC21 se utilizará la Lista de Encabezamientos de Materia para Bibliotecas Públicas para consignar la temática (materias, asuntos) de la obra.</xhtml:p>
+				<xhtml:p xml:lang="en">Within MARC21 record Subject Headings List for Public Libraries (Spain) will be used to indicate the subject of the work.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Valores para el atributo TYPE del &lt;structMap&gt; (&lt;structMap&gt; TYPE attribute values)</name>
+			<values>
+				<value>physical</value>
+				<value>logical</value>
+				<value>mixed</value>
+			</values>
+			<context>mets/structMap/@TYPE
+			</context>
+			<description>
+				<xhtml:p xml:lang="es">Estos son los valores del atributo TYPE de la etiqueta &lt;structMap&gt; que se deben usar en los METS que estén conformes a este perfil: </xhtml:p>
+				<xhtml:ul xml:lang="es">
+					<xhtml:li>&quot;physical&quot; designa una estructura puramente física. Por ejemplo un libro que contiene páginas.</xhtml:li>
+					<xhtml:li>&quot;logical&quot; desigan una estructura lógica, esto es, hace referencia a la organización intelectual de la obra, por ejemplo, un libro que contiene capítulos.</xhtml:li>
+					<xhtml:li>&quot;
+				mixed&quot; desigan una estructura mixta.</xhtml:li>
+				</xhtml:ul>
+				<xhtml:p xml:lang="en">These are the values of TYPE attribute of the &lt;structMap&gt; to be used in METS according to this profile: </xhtml:p>
+				<xhtml:ul xml:lang="en">
+					<xhtml:li>&quot;physical&quot; refers to a strictly physical structure. For example, a book containing pages.</xhtml:li>
+					<xhtml:li>&quot;logical&quot; indicate a logical structure, i.e., refers to the intellectual organization of the work, for example, a book containing chapters.</xhtml:li>
+					<xhtml:li>&quot;
+				mixed&quot; refers to a hybrid structure.</xhtml:li>
+				</xhtml:ul>
+			</description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="ID_001" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">En la etiqueta raiz, además de las menciones de namespaces y URIs necesarias, se ha de incluir un atributo LABEL que sirva para identificar el archivo. El valor de dicho atributo será el título de la obra (o las primeras palabras del título si éste es muy largo). Si se diera el caso de que hubiera varias obras con el mismo título (varios ejemplares de una obra o partes de una obra…) que pudieran dar lugar a valores idénticos en el atributo LABEL de diferentes METS, se diferenciarán dichos valores de alguna manera, por ejemplo añadiendo un número de parte o la signatura del ejemplar.</xhtml:p>
+					<xhtml:p xml:lang="en">In the root label, in addition to necessary namespaces and URIs, a LABEL attribute which identifies the file has to be included. The value of this attribute will be the title of the work (or the first words of the title in case it's very long). If we have several works with the same title (several copies of a work or parts of a work...) which could result in identical values in the LABEL attribute of different METS files, these values shall be distinguished somehow, for example adding a part number or the signature of the copy.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_002" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">La etiqueta raíz &lt;mets&gt; debería incluir un atributo PROFILE que indique la conformidad del archivo a este perfil.</xhtml:p>
+					<xhtml:p xml:lang="en">The &lt;mets&gt; root tag should include a PROFILE attribute stating the conformity to this profile.</xhtml:p>
+				</description>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement ID="ID_003" REQLEVEL="SHOULD">
+				<description>
+					<xhtml:p xml:lang="es">Para identificación del responsable de la creación del METS, es conveniente que se use en la cabecera la etiqueta &lt;agent&gt; con el atributo ROLE y la etiqueta &lt;name&gt; anidada en ella con el nombre del responsable.</xhtml:p>
+					<xhtml:p xml:lang="en">For identifying the responsible for the creation of METS file, it is convenient to use in the header the &lt;agent&gt; tag with ROLE attribute and the &lt;name&gt; tag nested in it with the name of the person responsible.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_004" RELATEDMAT="ID_012" REQLEVEL="SHOULD">
+				<description>
+					<xhtml:p xml:lang="es">La cabecera del METS debería contener una etiqueta &lt;altRecordID&gt; con un atributo TYPE cuyo valor sea "Institución y signatura" (TYPE="Institución y signatura").</xhtml:p>
+					<xhtml:p xml:lang="es">El valor de esta etiqueta consta de dos partes separadas por un espacio en blanco: el código de institución y la signatura. Este código de institución debe ser idéntico al código de institución indicado en el subcampo $a del campo MARC21 852, y no debe contener espacios en blanco. En cuanto a la signatura, debe ser idéntica a la indicada en el subcampo $j del campo MARC21 852.</xhtml:p>
+					<xhtml:p xml:lang="en">The METS header should include an &lt;altRecordID&gt; tag with a TYPE attribute which value is "Institución y signatura" (TYPE="Institución y signatura").</xhtml:p>
+					<xhtml:p xml:lang="en">A blank space divides this tag value in two parts: institution code and signature. The institution code must be identical to the institution code indicated in $a subfield of MARC21 852 field, and must not contain blanks. As for the signature, it must be identical to the signature indicated in $j subfield of MARC21 852 field.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_005" REQLEVEL="SHOULD">
+				<description>
+					<xhtml:p xml:lang="es">La cabecera del mets debería contener asímismo una etiqueta &lt;altRecordID&gt; con un atributo TYPE cuyo valor sea "Nº control bibliográfico" (TYPE="Nº control bibliográfico").</xhtml:p>
+					<xhtml:p xml:lang="es">El valor de esta etiqueta será el número de control del registro bibliográfico MARC21, es decir, el número de control que se indica en la etiqueta 001 del registro bibliográfico MARC21.</xhtml:p>
+					<xhtml:p xml:lang="en">The header of the METS file should contein also an &lt;altRecordID&gt; tag with a TYPE attribute whose value is "Nº control bibliográfico" (TYPE="Nº control bibliográfico").</xhtml:p>
+					<xhtml:p xml:lang="en">The value of this tag will be the control number of de MARC21 bibliographic record, i.e., the control number registrered in 001 tag of the MARC21 bibliographical record.</xhtml:p>
+				</description>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement ID="ID_006" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Pueden incluirse varias secciones de metadatos descriptivos si esto fuera necesario para describir los objetos a cargar/preservar, debe haber como mínimo una.</xhtml:p>
+					<xhtml:p xml:lang="en">Several descriptive metadata sections may be included if they were necessary for describing the objects to ingest/preserve. There must be at least one.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_007" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Si se incluyen registros bibliográficos en varios formatos (p. ej.: MARC21 y Dublin Core), cada uno de estos registros debe estar contenido en su propia etiqueta &lt;dmSec&gt; .</xhtml:p>
+					<xhtml:p xml:lang="es">Si se incluyen registros bibliográficos en varios formatos (p. ej.: MARC21 y Dublin Core), en primer lugar se colocará el registro MARC21.</xhtml:p>
+					<xhtml:p xml:lang="en">If bibliographical records in several formats wer included (for instance: MARC21 and Dublin Core), each of these records must be contained in its own &lt;dmSec&gt; tag.</xhtml:p>
+					<xhtml:p xml:lang="en">If bibliographical records in several formats were included (for instance: MARC21 and Dublin Core), the MARC21 record will be placed first.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_008" RELATEDMAT="ID_027" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Cada sección &lt;dmSec&gt; del METS debe identificarse mediante un atributo ID.</xhtml:p>
+					<xhtml:p xml:lang="en">An ID attribute must identify each METS &lt;dmSec&gt; section.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_009" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">En el METS debe existir una sección de metadatos descriptivos (&lt;dmdSec&gt;) que incluya la descripción bibliográfica en formato MARC21-XML de la obra a cargar o preservar.</xhtml:p>
+					<xhtml:p xml:lang="es">Este registro MARC21-XML se anidará dentro de una etiqueta &lt;xmlData&gt; , y ésta a su vez dentro de la etiqueta &lt;mdWrap&gt; con el valor "MARC" en el atributo MDTYPE (MDTYPE="MARC").</xhtml:p>
+					<xhtml:p xml:lang="es">Para registros bibliográficos en formato Dublin Core, el valor del atributo MDTYPE en la etiqueta &lt;mdWrap&gt; será "DC" (MDTYPE="DC"). Si se tratara de un registro MODS, el valor de este atributo sería "MODS" (MDTYPE="MODS").</xhtml:p>
+					<xhtml:p xml:lang="en">Every METS file must have a descriptive metadata section (&lt;dmdSec&gt;) containing bibliographical description in MARC21-XML format of the work to ingest or preserve.</xhtml:p>
+					<xhtml:p xml:lang="en">This MARC21-XML record will be nested within a &lt;xmlData&gt; tag, wich will be nested itself within a &lt;mdWrap&gt; tag with the value "MARC" in its MDTYPE attribute (MDTYPE="MARC").</xhtml:p>
+					<xhtml:p xml:lang="en">For bibliographic records in Dublin Core format, the value of MDTYPE attribute in &lt;mdWrap&gt; tag must be "DC" (MDTYPE = "DC"). If it were a MODS record, the value of this attribute would be "MODS" (MDTYPE="MODS").</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_010" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Si se incluyen registros bibliográficos de una obra y de sus partes, cada uno de estos registros debe estar contenido en su propia etiqueta &lt;dmSec&gt; .</xhtml:p>
+					<xhtml:p xml:lang="es">En estos casos, en primer lugar se colocará el registro de la obra, a continuación los registros de las partes.</xhtml:p>
+					<xhtml:p xml:lang="en">If bibliographic records of a work and its parts are included, each of this records must be contained in its own &lt;dmSec&gt; tag.</xhtml:p>
+					<xhtml:p xml:lang="en">In such cases, first the record of the work will be placed, then the records of the parties.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_011" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Se podrá incluir un registro de fondos MARC21 junto al registro bibliográfico MARC21. En tal caso, se colocará el registro de fondos a continuación del bibliográfico y ambos estarán anidados dentro la misma etiqueta &lt;collection&gt; .</xhtml:p>
+					<xhtml:p xml:lang="en">A MARC21 holdings record may be included along with the MARC21 bibliographic record. In such cases the holdings record will be placed after the bibliographical record and both of them will be nested within the same &lt;collection&gt; tag.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_012" RELATEDMAT="ID_004" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Debe existir, ya sea en el registro bibliográfico (cuando no haya registro de fondos) o en el de fondos (pero no en ambos) un campo MARC 852 que incluya el código de la biblioteca en el subcampo $a y la signatura en el subcampo $j. En el código de la biblioteca no debe haber espacios en blanco. Este código y esta signatura deben ser idénticos a los que aparecen en la etiqueta &lt;altRecordID&gt; con atributo TYPE="Institución y signatura" de la cabecera del METS.</xhtml:p>
+					<xhtml:p xml:lang="en">There must be either in the bibliographic record (when there is no holdings record) or in the holdings record (but not in both) a MARC 852 field that includes the library code in subfield $a and the signature in subfield $j. The library code must not have blank spaces. This code and this signature must be identical to those in the &lt;altRecordID&gt; tag with TYPE="Institution and signature" attribute of the METS file header.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_013" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">En caso de que los registros MARC21 (bibliográficos o de fondos) contengan campos 856, estos deben incluir un subcampo $u (URI) o un subcampo $w (número de control).</xhtml:p>
+					<xhtml:p xml:lang="en">If MARC21 records (bibliographical or holdings) contain 856 fields, these fields must include a $u subfield (URI) or a $w subfield (control number).</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_014" RELATEDMAT="ID_019" REQLEVEL="SHOULD">
+				<description>
+					<xhtml:p xml:lang="es">El archivo METS contendrá una sección de metadatos descriptivos (&lt;dmSec&gt;) en la que se indicará cuál es la imagen representativa de la obra.</xhtml:p>
+					<xhtml:p xml:lang="es">La imagen representativa de la obra (una de las imágenes que conforman la copia digital de la obra) es la imagen que se utiliza para generar la miniatura que representa la obra. Suele ser la portada o una ilustración.</xhtml:p>
+					<xhtml:p xml:lang="es">Esta sección de metadatos descriptivos se colocará en último lugar, a continuación de la sección o secciones que contienen los registros bibliográficos que describen la obra.</xhtml:p>
+					<xhtml:p xml:lang="es">Esta sección de metadatos descriptivos anidará una etiqueta &lt;mdWrap&gt; , y ésta a su vez una etiqueta &lt;xmlData&gt; . La etiqueta &lt;xmlData&gt; contendrá una etiqueta &lt;grupoObjetoMultimedia&gt; con atributo presentacionDef="miniaturas". Por último, la etiqueta &lt;grupoObjetoMultimedia&gt; contendrá una etiqueta &lt;imagenFavorita&gt; cuyo valor será el ID de la imagen representativa.</xhtml:p>
+					<xhtml:p xml:lang="en">METS file will include a descriptive metadata section (&lt;dmSec&gt;) where the representative image of the work will be registered.</xhtml:p>
+					<xhtml:p xml:lang="en">The representative image of the work (one of the images that make up the digital copy of the work) is the one used to generate the thumbnail representing the work. Usually the cover or an illustration.</xhtml:p>
+					<xhtml:p xml:lang="en">This descriptive metadata section will be placed last, after the section or sections containing bibliographic records describing the work.</xhtml:p>
+					<xhtml:p xml:lang="en">This descriptive metadata section will nest a &lt;mdWrap&gt; tag, and this in turn, a &lt;xmlData&gt; tag. &lt;xmlData&gt; tag will contain a &lt;grupoObjetoMultimedia&gt; tag with presentacionDef="miniaturas" attribute. Finally, &lt;grupoObjetoMultimedia&gt; tag will contain a &lt;imagenFavorita&gt; tag whose value will be the representative image ID.</xhtml:p>
+				</description>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement ID="ID_015" REQLEVEL="SHOULD">
+				<description>
+					<xhtml:p xml:lang="es">Los METS conforme a este perfil contendrán una sección de metadatos administrativos (&lt;amdSec&gt;) en la que se incluyan metadatos de derechos conforme al esquema de metadatos METSrights (http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd).</xhtml:p>
+					<xhtml:p xml:lang="es">Estos metadatos se anidarán en una etiqueta &lt;xmlData&gt; , anidada a su vez en una etiqueta &lt;mdWrap&gt; , anidada a su vez en la etiqueta &lt;rightsMD&gt; anidada en la etiqueta &lt;amdSec&gt; .</xhtml:p>
+					<xhtml:p xml:lang="es">En esta sección se indicará mediante el valor "METSRIGHTS" de los atributos MDTYPE o OTHERMDTYPE de la etiqueta &lt;mdWrap&gt; (según versión de METS) que los metadatos son del tipo METSrights (MDTYPE="METSRIGHTS" o MDTYPE="OTHERS" OTHERMDTYPE="METSRIGHTS").</xhtml:p>
+					<xhtml:p xml:lang="es">La etiqueta &lt;rightsMD&gt; se identificará mediante un atributo ID.</xhtml:p>
+					<xhtml:p xml:lang="en">METS under this profile will contain a administrative metadata sectión (&lt;amdSec&gt;) whith rights metadata according to METSrights schema (http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd).</xhtml:p>
+					<xhtml:p xml:lang="en">This metadata will be nested in a &lt;xmlData&gt; tag, nested in turn in a &lt;mdWrap&gt; tag, nested in turn in a &lt;rightsMD&gt; tag, nested in turn in the &lt;amdSec&gt; tag.</xhtml:p>
+					<xhtml:p xml:lang="en">In this section, metadata to be METSrights type will be indicated by "METSRIGHTS" value of MDTYPE o OTHERMDTYPE attributes of &lt;mdWrap&gt; tag (MDTYPE="METSRIGHTS" or MDTYPE="OTHERS" OTHERMDTYPE="METSRIGHTS", depending on METS version).</xhtml:p>
+					<xhtml:p xml:lang="en">&lt;rightsMD&gt; tag will be identified by an ID attribute.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_016" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Si van a ser usados para preservación, los METS conforme a este perfil contendrán una sección de metadatos administrativos (&lt;amdSec&gt;) en la que se incluirán metadatos de preservación conforme al esquema de metadatos PREMIS para las imágenes de preservación.</xhtml:p>
+					<xhtml:p xml:lang="es">Estos metadatos se anidarán en una etiqueta &lt;xmlData&gt; , anidada a su vez en una etiqueta &lt;mdWrap&gt; , anidada a su vez en la etiqueta &lt;techMD&gt; anidada en la etiqueta &lt;amdSec&gt; .</xhtml:p>
+					<xhtml:p xml:lang="es">La etiqueta &lt;mdWrap&gt; contendrá el atributo MDTYPE con valor "PREMIS" (MDTYPE="PREMIS").</xhtml:p>
+					<xhtml:p xml:lang="es">La etiqueta &lt;techMD&gt; se identificará mediante un atributo ID.</xhtml:p>
+					<xhtml:p xml:lang="en">If METS under this profile are going to be used for preservation, they will contain an administrative metadata section (&lt;amdSec&gt;) where preservation metadata according to PREMIS metadata schema for preservation images are included.</xhtml:p>
+					<xhtml:p xml:lang="en">This metadaa will be nested in a &lt;xmlData&gt; tag, nested in turn in a &lt;mdWrap&gt; tag, nested in turn in &lt;techMD&gt; tag, nested in turn in &lt;amdSec&gt; tag.</xhtml:p>
+					<xhtml:p xml:lang="en">&lt;mdWrap&gt; tag will contain MDTYPE attribute with "PREMIS" value (MDTYPE="PREMIS").</xhtml:p>
+					<xhtml:p xml:lang="en">&lt;techMD&gt; tag will be identified by an ID attribute.</xhtml:p>
+				</description>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement ID="ID_017" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">La sección de archivo (fileSec) incluirá una etiqueta &lt;fileGrp&gt; por cada grupo de imágenes susceptible de ser cargado. Cada uno de estos grupos será en sí mismo una manifestación de la obra que se está describiendo en el METS. Estos grupos de imágenes pueden diferir entre sí en cuanto al formato, la resolución u otras carácterísticas (blanco y negro, color...). Si se va a cargar una sola imagen o un solo grupo de imágenes habrá un solo &lt;fileGrp&gt;, si se pretende cargar la obra en varios formatos (por ejemplo jpg y pdf), habrá un &lt;fileGrp&gt; para cada formato.</xhtml:p>
+					<xhtml:p xml:lang="en">File section (fileSec) will include a &lt;fileGrp&gt; tag for each group of images likely to be loadable. Each of these groups is itself a manifestation of the work that is described in the METS file. These groups of pictures may differ from each other in terms of format, resolution or other characteristics (black and white, color...). If just a single image or a single group of images is going to be ingested only will be one &lt;fileGrp&gt;, if a work in various formats (for instance jpg and pdf) is going to be ingested, there will be a &lt;fileGrp&gt; for each format.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_018" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">En cada una de las etiquetas &lt;fileGrp&gt; se incluirá un atributo USE cuyo valor podrá estar entre los siguientes: &quot;archive&quot; (masters), &quot;thumbnail&quot; (miniaturas), &quot;reference&quot; (imágenes para web...), &quot;ocr&quot;...</xhtml:p>
+					<xhtml:p xml:lang="es">Si los METS se van a usar para cargar objetos digitales, deben contener un &lt;fileGrp&gt; cuyo atributo USE tenga el valor &quot;reference&quot;. Este &lt;fileGrp&gt; corresponderá o hará referencia a un archivo o grupo de archivos JPG optimizados para su visualización en la web.</xhtml:p>
+					<xhtml:p xml:lang="es">Si los METS se van a usar para preservación, deben contener un &lt;fileGrp&gt; cuyo atributo USE tenga el valor &quot;archive&quot;. Este &lt;fileGrp&gt; corresponderá o hará referencia a un archivo o grupo de archivos TIFF.</xhtml:p>
+					<xhtml:p xml:lang="es">En caso de que haya varios grupos de imágenes (&lt;fileGrp&gt;), deberá colocarse en primer lugar, el &lt;fileGrp&gt; cuyo atributo USE tenga el valor &quot;reference&quot; .</xhtml:p>
+					<xhtml:p xml:lang="en">Each &lt;fileGrp&gt; tag will include an USE attribute which value may be among the following: &quot;archive&quot; (masters), &quot;thumbnail&quot; , &quot;reference&quot; (web images...), &quot;ocr&quot;...</xhtml:p>
+					<xhtml:p xml:lang="en">If METS are going to be used to ingest digital objects, they must contain a &lt;fileGrp&gt; whose USE attribute has the value &quot;reference&quot;. This &lt;fileGrp&gt; will correspond or refer to a web optimized JPG file or group of files.</xhtml:p>
+					<xhtml:p xml:lang="en">If METS are going to be used for preservation, they must contain a &lt;fileGrp&gt; whose USE attribute has the value &quot;archive&quot;. This &lt;fileGrp&gt; will correspond or refer to a TIFF file or group of files.</xhtml:p>
+					<xhtml:p xml:lang="en">If there are several groups of images (&lt;fileGrp&gt;), &lt;fileGrp&gt; whose USE attribute has &quot;reference&quot; value will be placed first.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_019" RELATEDMAT="ID_032" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Dentro de cada &lt;fileGrp&gt; se incluirá una etiqueta &lt;file&gt; para cada imagen de las que conforman el grupo. Cada una de estas etiquetas &lt;file&gt; se identificará mediante un atributo ID.</xhtml:p>
+					<xhtml:p xml:lang="en">Whitin each &lt;fileGrp&gt; tag a &lt;file&gt; for each image of the group will be included. Each of these &lt;file&gt; tags will be identified by an ID attribute.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_020" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Si se usa el atributo opcional GROUPID dentro de las etiquetas &lt;file&gt;, sus valores no deben repetirse dentro de un mismo grupo. Estos valores deben ser sin embargo los mismos para etiquetas &lt;file&gt; de distintos grupos que corresponden a imágenes iguales pero en distinto formato.</xhtml:p>
+					<xhtml:p xml:lang="en">If, within the &lt;file&gt; tags, the optional attribute GROUPID is used, their values must not be repeated within the same group. These values must however be the same for different groups &lt;file&gt; tags corresponding to the same image but in different format.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_021" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Cada etiqueta &lt;file&gt; anidará una etiqueta &lt;Flocat&gt; con atributo LOCTYPE que tenga un valor que esté entre los siguientes: "ARK", "URN", "URL", "PURL", "HANDLE", "DOI", "OTHER". En el &lt;fileGrp&gt; obligatorio mencionado anteriormente, el valor del atributo LOCTYPE de sus etiquetas &lt;Flocat&gt; será en general "URL" (LOCTYPE="URL").</xhtml:p>
+					<xhtml:p xml:lang="en">Each &lt;file&gt; tag will nest a &lt;Flocat&gt; tag with LOCTYPE attribute which value must be one of the following: "ARK", "URN", "URL", "PURL", "HANDLE", "DOI", "OTHER". In the required &lt;fileGrp&gt; mentioned above, value of the LOCTYPE attribute in &lt;Flocat&gt; tags will generally be "URL" (LOCTYPE="URL").</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_022" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Cada etiqueta &lt;Flocat&gt; incluirá además un atributo xlink:href cuyo valor será la dirección de la imagen. Es muy importante que estas direcciones sean direcciones válidas. Si los METS acompañan a los objetos digitales en un disco duro USB u otro dispositivo externo, las direcciones a los objetos de la sección de archivo de los METS deberán ser las direcciones a los objetos del disco duro u dispositivo externo. Para otras aplicaciones y situaciones es perfectamente posible realizar las cargas vía remota incluyendo en este atributo direcciones web.</xhtml:p>
+					<xhtml:p xml:lang="en">Each &lt;Flocat&gt; tag will also include an xlink:href attribute whose value is the address of the image. It's very important that these addresses are valid addresses. If METS accompany the digital objects in a USB hard drive or in another external device, directions to the objects in the archive section of METS files must be the directions to USB hard disk or external device objects. For other uses and contexts it's perfectly possible to carry out uploads remotely including web addresses in this attribute.</xhtml:p>
+				</description>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement ID="ID_023" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">La sección &lt;strucMap&gt; sirve para organizar estructural y jerárquicamente los elementos (archivos) que conforman los grupos de objetos (los &lt;fileGrp&gt;). El METS contendrá un Mapa estructural (&lt;structMap&gt;) por cada estructura de la obra que se pretenda cargar o archivar.</xhtml:p>
+					<xhtml:p xml:lang="es">Existirá normalmente un sólo mapa estructural que valdría para cualquiera de los grupos de imágenes que son estructuralmente equivalentes (por ejemplo, una copia TIFF y otra JPG derivada de ésta). Pero puede darse el caso de que grupos de objetos digitales de la misma obra que se hayan generado sean estructuralmente distintos y se pretenda cargar estos grupos; en tal caso habría que incluir un mapa estructural distinto para cada estructura (es el caso por ejemplo de una obra que se pretende cargar por un lado como conjunto de imágenes y por otro como un archivo único PDF).</xhtml:p>
+					<xhtml:p xml:lang="es">En el caso de que haya varios mapas estructurales se pondrá en primer lugar, el mapa estructural que corresponda a la copia de difusión en JPG de la obra. Los mapas estructurales correspondientes a formatos compilatorios (como Pdf ) se pondrán los últimos.</xhtml:p>
+					<xhtml:p xml:lang="en">The &lt;strucMap&gt; section is used to hierarchically and structuraly organize the elements (files) that constitute the groups of objects (&lt;fileGrp&gt;). The METS file will contain a structural map (&lt;structMap&gt;) for each structure of the work planned to be ingested or archived.</xhtml:p>
+					<xhtml:p xml:lang="en">Tipically, there will a unique structural map that would apply to any group of images that are structurally equivalent (for example, a TIFF copy and other JPG copy derived from it). But it may happen that generated groups of digital objects of the same work are structurally diferent and it is intended to ingest these groups (that is the case for example of a work you intend to load on one hand as a set of images and in the other hand as a single PDF file); in this case a diferent structural map for each structure must be included.</xhtml:p>
+					<xhtml:p xml:lang="en">If there are several structural maps, the one corresponding to the web optimized JPG copy of the work will be placed first. The structural maps corresponding to compilations formats (as PDF) will be placed the last.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_024" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Cada etiqueta &lt;stuctMap&gt; deberá llevar un atributo TYPE con uno de los siguientes valores: "physical", "logical" o "mixed". 
+Los METS conformes a este perfil deberán incluir al menos un &lt;stuctMap&gt; con un atributo TYPE con valor "physical" (TYPE="physical"). Este &lt;stuctMap&gt; corresponderá a la copia de difusión de la obra (JPG), y se colocará en primer lugar si es que hubiera varios mapas estructurales.</xhtml:p>
+					<xhtml:p xml:lang="en">Each &lt;stuctMap&gt; tag must contain a TYPE attribute with one of the following values: "physical", "logical" o "mixed". 
+METS under this profile will include at least one &lt;stuctMap&gt; with a TYPE attribute whose value is "physical" (TYPE="physical"). This &lt;stuctMap&gt; correspond to the web optimized JPG copy of the work, and it will be placed first in case there were several structural maps.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_025" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Las etiquetas &lt;stuctMap&gt; deberán llevar además un atributo LABEL cuyo valor sirva para identificar la obra cuya estructura se está definiendo.</xhtml:p>
+					<xhtml:p xml:lang="en">&lt;stuctMap&gt; tags will have also a LABEL attribute whose value will identify the work whose structure is being defined.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_026" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Las secciones de mapa estructural anidarán tantos niveles de etiquetas &lt;div&gt; como niveles jerárquicos tenga la estructura que se pretende definir. Cada &lt;stuctMap&gt; anidará al menos una etiqueta &lt;div&gt; (div de primer orden) que corresponda a la obra en su conjunto.</xhtml:p>
+					<xhtml:p xml:lang="es">Cuando se pretende cargar un sólo archivo, por ejemplo un PDF o un JPG suelto, bastará con este div de primer orden para reflejar la estructura. Si quisieramos cargar una monografía cuya representación digital la conforman una serie de imágenes JPG (una por página), necesitaríamos un segundo nivel de &lt;div&gt; , esto es, una serie de etiquetas &lt;div&gt; (una por imagen) anidadas en la de primer orden.</xhtml:p>
+					<xhtml:p xml:lang="en">Structural map sections will nest so many &lt;div&gt; tags levels as hierarchical levels has the structure that is being defined. Each &lt;stuctMap&gt; will nest at least a &lt;div&gt; tag (first-order div) corresponding the work as a whole.</xhtml:p>
+					<xhtml:p xml:lang="en">If It's intended to ingest just one file, for instance, a PDF or a unique JPG, the mentioned first-level div will be enought to register the structure. If we would like to ingest a monograph formed by several JPG images (one per page), we would need a second level of &lt;div&gt;, i.e., a set of &lt;div&gt; (one per image) nested in the first-order div.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_027" RELATEDMAT="ID_008" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">El primer &lt;div&gt; (div de primer orden) debe incluir un atributo DMDID que enlace con una sección de metadatos descriptivos (&lt;dmdSec&gt;). El valor de este atributo ha de ser idéntico al valor del atributo ID de la referida sección de metadatos descriptivos.</xhtml:p>
+					<xhtml:p xml:lang="en">The first &lt;div&gt; (first-order div) must include a DMDID attribute to link to a descriptive metadata section (&lt;dmdSec&gt;). The value of this attribute must be identical to the value of that ID attribute of the descriptive metadata section.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_028" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Pueden incluirse además otros enlaces a secciones de metadatos descriptivos en cualquier otro &lt;div&gt; del nivel que sea. Este sería el caso por ejemplo, si tenemos un Atlas formado por mapas y ponemos los registros bibliográficos del Atlas y de los mapas que lo conforman cada uno en una sección de metadatos descriptivos. En tal caso, existirá un enlace (DMDID) al registro del Atlas en el primer &lt;div&gt; (o &lt;div&gt; de primer orden), y otros enlaces, mediante atributos DMDID, en las etiquetas &lt;div&gt; de nivel de página.</xhtml:p>
+					<xhtml:p xml:lang="en">Others links to descriptive metadata sections may also be included in any other &lt;div&gt; whatever their level. This is the case for example if we have an Atlas formed by several maps and we insert Atlas and maps bibliographic records, each one in a descriptive metadata section. In such a case, a link (DMDID) to Atlas record in the first &lt;div&gt; (or first-order &lt;div&gt;), and other links in the various page-level &lt;div&gt; (using attributes DMDID), must exist.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_029" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Cada &lt;div&gt; del mapa estructural debe contener el atributo ORDER, cuyo valor sea el número de orden de dicho &lt;div,&gt; dentro del conjunto de etiquetas &lt;div&gt; que se encuentran a su mismo nivel de anidamiento, es decir, entre los &lt;div&gt; hermanos.</xhtml:p>
+					<xhtml:p xml:lang="en">Each structural map &lt;div&gt; must contain the ORDER attribute, whose value is the order number of that &lt;div&gt; within the group of &lt;div&gt; which are at the same nesting level, that is, between the siblings &lt;div&gt;.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_030" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Cada &lt;div&gt; debe contener además el atributo TYPE. El valor de este atributo indicará el tipo o nivel de &lt;div&gt; (libro, capítulo, página...). En el primer nivel de &lt;div&gt; se indicará mediante este atributo el tipo de obra, por ejemplo "libro", "mapa", etc...</xhtml:p>
+					<xhtml:p xml:lang="es"> 
+Si se trata de una estructura de sólo dos niveles (lo que es el caso más habitual en la BVPB), por ejemplo una monografía dividida en páginas (una imagen por página), los valores de este atributo para el primer nivel de &lt;div&gt; indicarán el tipo de obra (por ejemplo TYPE="libro"), mientras que los valores de este atributo para el segundo nivel de &lt;div&gt; indicarán que tal nivel corresponde a las imágenes individuales (normalmente de página -- TYPE="página").</xhtml:p>
+					<xhtml:p xml:lang="en">Each &lt;div&gt; must also contain the TYPE attribute. The value of this attribute indicates the &lt;div&gt; type or level (book, chapter, page...). In the first-level &lt;div&gt; the type of work (for instance "book", "map", etc...) will be indicated by this attribute.</xhtml:p>
+					<xhtml:p xml:lang="en"> 
+				If the structure has only two levels (which is the most common case in BVPB), for example, a monograph divided into pages (one image per page), the first-level &lt;div&gt; values of this attribute will indicate the type of work (for example TYPE="book"), while the second-level &lt;div&gt; attribute values will indicate that this level corresponds to the individual images (usually page images - TYPE="page").</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_031" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Cada &lt;div&gt; debe contener además el atributo LABEL, cuyo valor servirá para identificar y visualizar (en web o en el programa de catalogación) la parte de la estructura que representa dicha etiqueta.</xhtml:p>
+					<xhtml:p xml:lang="es">El &lt;div&gt; de primer orden (o nivel de anidamiento) incluirá el título de la obra que se va a cargar. 
+</xhtml:p>
+					<xhtml:p xml:lang="es">
+En el &lt;strucMap&gt; con atributo TYPE="physical" obligatorio, los  &lt;div&gt; que correspondan a las imágenes de página (con atributo TYPE="página") indicarán el número de página como valor del atributo LABEL.</xhtml:p>
+					<xhtml:p xml:lang="en">Each &lt;div&gt; must also contain the LABEL attribute, whose value will be useful to identifying and displaying (in the web or cataloging program) the structure part that represents that label.</xhtml:p>
+					<xhtml:p xml:lang="en">First-order (or nesting level) &lt;div&gt; will include the title of the work to be ingested. 
+</xhtml:p>
+					<xhtml:p xml:lang="en">
+In the &lt;strucMap&gt; with the mandatory TYPE="physical" attribute, the page images &lt;div&gt; (with attribute TYPE="page") will indicate the page number by the LABEL attribute value .</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_032" RELATEDMAT="ID_019" REQLEVEL="MUST">
+				<description>
+					<xhtml:p xml:lang="es">Las etiquetas &lt;div&gt; de nivel de página, o mejor dicho, de último nivel (las que corresponden a las imágenes individuales) anidarán necesariamente etiquetas &lt;fptr&gt; con atributos FILEID. El valor de este atributo será idéntico al valor del atributo ID de la etiqueta &lt;file&gt; del objeto digital al que el &lt;div&gt; está haciendo referencia en esa parte de la estructura.</xhtml:p>
+					<xhtml:p xml:lang="es">Es decir, es necesario asociar partes de la estructura con archivos concretos, para que la máquina sea capaz de cargar los objetos que conforman la obra por su orden y de acuerdo a dicha estructura. Esto se hace asociando los atributos FILEID de la sección de mapa estructural (&lt;StrucMap&gt;) con los correspondientes atributos ID de la sección de archivo (&lt;fileSec&gt;).</xhtml:p>
+					<xhtml:p xml:lang="es">
+Por ejemplo, si tenemos, dentro de la sección de archivo (&lt;fileSec&gt;) una etiqueta &lt;file&gt; con ID="005" que contiene un enlace (&lt;Flocat&gt;) a una imagen determinada de una página de la obra, en la parte del mapa estructural que haga referencia a dicha página (un &lt;div&gt;), habrá que incluir un atributo FILEID cuyo valor sería en este caso 005 (FILEID="005"). De esta manera, la máquina puede saber que en tal parte de la estructura de la obra ha de colocar tal imagen.</xhtml:p>
+					<xhtml:p xml:lang="en">Page-level &lt;div&gt; tags, or should we say last-level &lt;div&gt; (those corresponding to individual images) necessarily will nest &lt;fptr&gt; tags with FILEID attributes. This attribute value will be identical to the ID attribute value of the &lt;file&gt; tag for the digital object to which you are referring in this part of the structure.</xhtml:p>
+					<xhtml:p xml:lang="en">That is, you need to associate parts of the structure with specific files, so that the machine can ingest the objects that make up the work  in an orderly way and according to this structure. This is done by associating FileID attributes of the structural map section with the corresponding ID attribute of the file section (&lt;fileSec&gt;).</xhtml:p>
+					<xhtml:p xml:lang="en">
+For example, if we have in the file section (&lt;fileSec&gt;) a &lt;file&gt; tag with ID="005" containing a link (&lt;Flocat&gt;) to a certain page image of the book, on the part of the structural map (a &lt;div&gt;) that refers to that page, a FILEID attribute must be included, being its value, in this case 005 (FILEID="005"). Then, the machine knows that in this part of the structure of the work has to put this image.</xhtml:p>
+				</description>
+			</requirement>
+		</structMap>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement ID="ID_033" REQLEVEL="MUST">
+				<description>
+					<head>JPGs optimizados para web / Web optimized JPGs</head>
+					<xhtml:p xml:lang="es">Este perfil está pensado para cargar imágenes JPG optimizadas para web en la Biblioteca Virtual de Patrimonio Bibliográfico.</xhtml:p>
+					<xhtml:p xml:lang="es">Las instituciones que hayan sido beneficiadas por subvenciones o contratos del Ministerio de Educación, Cultura y Deporte y cuyos proyectos de digitalización hayan de ser cargados en la BVPB, están obligadas a entregar una copia de tales imágenes JPGs optimizadas para web a la Subdirección General de Coordinación Bibliotecaria en un disco duro externo con conexión USB.</xhtml:p>
+					<xhtml:p xml:lang="es">Este perfil tiene la suficiente flexibilidad para permitir cargas de objetos digitales en otros muchos formatos y contextos.</xhtml:p>
+					<xhtml:p xml:lang="en">This profile is designed to ingest web optimized JPG images in the Virtual Library of Bibliographical Heritage (Spain).</xhtml:p>
+					<xhtml:p xml:lang="en">The beneficiary institutions of Ministry of Culture, Education and Sports grants or contracts whose digitization projects are to be ingested into BVPB are required to submit a copy of such web optimized JPG images to the General División for Library Coordination (Subdirección General de Coordinación Bibliotecaria) on a external USB hard drive.</xhtml:p>
+					<xhtml:p xml:lang="en">This page is flexible enough to allow ingestions of digital objects in many other formats and contexts.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="ID_034" REQLEVEL="SHOULD">
+				<description>
+					<head>Imágenes TIFF de preservación / Preservation TIFF images</head>
+					<xhtml:p xml:lang="es">Este perfil puede usarse para preservación de imágenes digitales.</xhtml:p>
+					<xhtml:p xml:lang="es">En este caso, las imágenes de preservación han de tener formato TIFF.</xhtml:p>
+					<xhtml:p xml:lang="en">This profile can be used for digital images preservation.</xhtml:p>
+					<xhtml:p xml:lang="en">In this case, the preservation images have to be in TIFF format.</xhtml:p>
+				</description>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool>
+		<name>JHOVE</name>
+		<agency>JSTOR y la Biblioteca de la universidad de Harvard. / JSTOR and Harvard University Library</agency>
+		<URI>http://hul.harvard.edu/jhove/</URI>
+		<description>
+			<xhtml:p xml:lang="es">JHOVE es una aplicación capaz de identificar formatos, validar y extraer características de los objetos digitales.</xhtml:p>
+			<xhtml:p xml:lang="en">JHOVE is an application that allows us to identify formats, validate and extract features of digital objects.</xhtml:p>
+		</description>
+		<note>
+			<xhtml:p xml:lang="es">Los METS acordes a este perfil deben ser validos según el programa JHOVE.</xhtml:p>
+			<xhtml:p xml:lang="en">METS under this profile must be valid according to JHOVE.</xhtml:p>
+		</note>
+	</tool>
+	<Appendix ID="a1" NUMBER="1" LABEL="apéndice1">
+		<mets 
+			xmlns="http://www.loc.gov/METS/" 
+			ID="mets001" 
+			LABEL="Astronomia britannica" 
+			PROFILE="Perfil METS-MCE para ingesta y preservación de recursos digitales" 
+			TYPE="Material textual. Monografía" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xmlns:xlink="http://www.w3.org/1999/xlink" 
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+			<metsHdr CREATEDATE="2010-11-04T09:49:18">
+				<agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<name>Novacen S.L.</name>
+				</agent>
+				<altRecordID TYPE="Nº control bibliográfico">BVPG20101004616</altRecordID>
+				<altRecordID TYPE="Institución y signatura">PG 05126</altRecordID>
+			</metsHdr>
+			<dmdSec ID="DM1">
+				<mdWrap MDTYPE="MARC">
+					<xmlData>
+						<collection xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation=" http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+							<record>
+								<leader>00000nam 82200000 b 4500</leader>
+								<controlfield tag="001">BVPG20101004616</controlfield>
+								<controlfield tag="003">BVPG</controlfield>
+								<controlfield tag="005">20100817074916.0</controlfield>
+								<controlfield tag="008">000930s1669 gbr 000 0 lat d</controlfield>
+								<datafield tag="035" ind1=" " ind2=" ">
+									<subfield code="a">BVPG20100001035</subfield>
+								</datafield>
+								<datafield tag="035" ind1=" " ind2=" ">
+									<subfield code="a">PG 0002024</subfield>
+								</datafield>
+								<datafield tag="040" ind1=" " ind2=" ">
+									<subfield code="a">PG</subfield>
+								</datafield>
+								<datafield tag="080" ind1=" " ind2=" ">
+									<subfield code="a">52</subfield>
+								</datafield>
+								<datafield tag="100" ind1="1" ind2=" ">
+									<subfield code="a">Wing, Vincent</subfield>
+									<subfield code="d">1619-1668</subfield>
+								</datafield>
+								<datafield tag="245" ind1="0" ind2="0">
+									<subfield code="a">Astronomia britannica</subfield>
+									<subfield code="c">authore Arturo Wieng</subfield>
+								</datafield>
+								<datafield tag="260" ind1=" " ind2=" ">
+									<subfield code="a">Londini</subfield>
+									<subfield code="b">Typis Johannis Malock</subfield>
+									<subfield code="c">1889</subfield>
+								</datafield>
+								<datafield tag="300" ind1=" " ind2=" ">
+									<subfield code="a">6 p.</subfield>
+									<subfield code="b">il.</subfield>
+									<subfield code="c">4º (34 cm)</subfield>
+								</datafield>
+								<datafield tag="650" ind1=" " ind2="4">
+									<subfield code="a">Astronomía</subfield>
+								</datafield>
+							</record>
+							<record>
+								<leader>00000nxm 822000001n 4500</leader>
+								<controlfield tag="001">BVPG20101003206</controlfield>
+								<controlfield tag="003">BVPG</controlfield>
+								<controlfield tag="004">BVPG20101004616</controlfield>
+								<controlfield tag="005">20101022121345.0</controlfield>
+								<controlfield tag="008">1008170u 8 0001bb 0100817</controlfield>
+								<datafield tag="040" ind1=" " ind2=" ">
+									<subfield code="a">PG</subfield>
+								</datafield>
+								<datafield tag="852" ind1=" " ind2=" ">
+									<subfield code="a">PG</subfield>
+									<subfield code="j">05126</subfield>
+								</datafield>
+							</record>
+						</collection>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<dmdSec ID="DGBGOM">
+				<mdWrap MDTYPE="OTHER" OTHERMDTYPE="DGBGOM">
+					<xmlData>
+						<grupoObjetoMultimedia mimeType="image/jpeg" presentacionDef="miniaturas" tieneOCR="false">
+							<imagenFavorita>FID6</imagenFavorita>
+						</grupoObjetoMultimedia>
+					</xmlData>
+				</mdWrap>
+			</dmdSec>
+			<amdSec ID="AMD001">
+				<rightsMD ID="AMDR001">
+					<mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRIGHTS">
+						<xmlData>
+							<RightsDeclarationMD xmlns="http://cosimo.stanford.edu/sdr/metsrights/" xsi:schemaLocation=" http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd" RIGHTSDECID="BVPGMR0179" RIGHTSCATEGORY="COPYRIGHTED">
+								<RightsDeclaration>Los contenidos digitales y metadatos son propiedad exclusiva de la Biblioteca Virtual de Parimonio Geográfico. El Ministerio de Cultura tienen permiso para su puesta a disposición del público.</RightsDeclaration>
+								<RightsHolder RIGHTSHOLDERID="BVPGMR0179">
+									<RightsHolderName>Biblioteca Virtual de Patrimonio Geográfico</RightsHolderName>
+									<RightsHolderComments/>
+									<RightsHolderContact>
+										<RightsHolderContactDesignation>Propiedad Biblioteca Virtual de Patrimonio Geográfico</RightsHolderContactDesignation>
+										<RightsHolderContactAddress>C/ Fátima 27, 28015 Madrid (España)</RightsHolderContactAddress>
+										<RightsHolderContactPhone PHONETYPE="BUSINESS">+34 91 427 87 54</RightsHolderContactPhone>
+										<RightsHolderContactEmail>bibliotecapg@bvpg.es</RightsHolderContactEmail>
+									</RightsHolderContact>
+								</RightsHolder>
+								<Context CONTEXTCLASS="GENERAL PUBLIC">
+									<Permissions DISCOVER="true" DISPLAY="true" COPY="false" DUPLICATE="false" MODIFY="false" DELETE="false" PRINT="false" OTHER="false"/>
+									<Constraints CONSTRAINTTYPE="UNIT">
+	        	</Constraints>
+								</Context>
+							</RightsDeclarationMD>
+						</xmlData>
+					</mdWrap>
+				</rightsMD>
+			</amdSec>
+			<amdSec>
+				<techMD ID="AMDP001">
+					<mdWrap MDTYPE="PREMIS">
+						<xmlData>
+							<premis xmlns="http://www.loc.gov/standards/premis/v1" xmlns:mix="http://www.loc.gov/mix/v20" xsi:schemaLocation="http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd
+http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd">
+								<object>
+									<objectIdentifier>
+										<objectIdentifierType>ID de monografía</objectIdentifierType>
+										<objectIdentifierValue>778865087</objectIdentifierValue>
+									</objectIdentifier>
+									<objectCategory>Representation</objectCategory>
+									<originalName>1_1888</originalName>
+									<environment>
+										<environmentCharacteristic>Conocidos</environmentCharacteristic>
+										<environmentNote>Sistema operativo: Windows XP Professional, 5.1.2600 Service Pack 3 Compilation 2600; Pc: APD; Procesador: Intel(R) Core(TM)2 Duo; CPU: E 8400 @ 3.00 GHz ; Memoria: 2,99 GB de RAM ; Disco duro: 232 GB ; Scanner: OS 12000 C ADVANCE, Serial number -53608- ; etc...</environmentNote>
+									</environment>
+								</object>
+								<object>
+									<objectIdentifier>
+										<objectIdentifierType>ID de imagen</objectIdentifierType>
+										<objectIdentifierValue>778865087001</objectIdentifierValue>
+									</objectIdentifier>
+									<objectCategory>file</objectCategory>
+									<objectCharacteristics>
+										<compositionLevel>0</compositionLevel>
+										<size>50141661</size>
+										<format>
+											<formatDesignation>
+												<formatName>image/jpg</formatName>
+												<formatVersion>6.0</formatVersion>
+											</formatDesignation>
+										</format>
+									</objectCharacteristics>
+									<originalName>001.jpg</originalName>
+									<storage>
+										<contentLocation>
+											<contentLocationType>Carpeta</contentLocationType>
+											<contentLocationValue>E://BVPG/1_1888</contentLocationValue>
+										</contentLocation>
+										<storageMedium>Disco Duro para Preservación</storageMedium>
+									</storage>
+								</object>
+								<object>
+									<objectIdentifier>
+										<objectIdentifierType>ID de imagen</objectIdentifierType>
+										<objectIdentifierValue>778865087002</objectIdentifierValue>
+									</objectIdentifier>
+									<objectCategory>file</objectCategory>
+									<objectCharacteristics>
+										<compositionLevel>0</compositionLevel>
+										<size>50141768</size>
+										<format>
+											<formatDesignation>
+												<formatName>image/jpg</formatName>
+												<formatVersion>6.0</formatVersion>
+											</formatDesignation>
+										</format>
+									</objectCharacteristics>
+									<originalName>002.jpg</originalName>
+									<storage>
+										<contentLocation>
+											<contentLocationType>Carpeta</contentLocationType>
+											<contentLocationValue>E://BVPG/1_1888</contentLocationValue>
+										</contentLocation>
+										<storageMedium>Disco Duro para Preservación</storageMedium>
+									</storage>
+								</object>
+								<object>
+									<objectIdentifier>
+										<objectIdentifierType>ID de imagen</objectIdentifierType>
+										<objectIdentifierValue>778865087003</objectIdentifierValue>
+									</objectIdentifier>
+									<objectCategory>file</objectCategory>
+									<objectCharacteristics>
+										<compositionLevel>0</compositionLevel>
+										<size>50141661</size>
+										<format>
+											<formatDesignation>
+												<formatName>image/jpg</formatName>
+												<formatVersion>6.0</formatVersion>
+											</formatDesignation>
+										</format>
+									</objectCharacteristics>
+									<originalName>003.jpg</originalName>
+									<storage>
+										<contentLocation>
+											<contentLocationType>Carpeta</contentLocationType>
+											<contentLocationValue>E://BVPG/1_1888</contentLocationValue>
+										</contentLocation>
+										<storageMedium>Disco Duro para Preservación</storageMedium>
+									</storage>
+								</object>
+								<object>
+									<objectIdentifier>
+										<objectIdentifierType>ID de imagen</objectIdentifierType>
+										<objectIdentifierValue>778865087004</objectIdentifierValue>
+									</objectIdentifier>
+									<objectCategory>file</objectCategory>
+									<objectCharacteristics>
+										<compositionLevel>0</compositionLevel>
+										<size>50241543</size>
+										<format>
+											<formatDesignation>
+												<formatName>image/jpg</formatName>
+												<formatVersion>6.0</formatVersion>
+											</formatDesignation>
+										</format>
+									</objectCharacteristics>
+									<originalName>004.jpg</originalName>
+									<storage>
+										<contentLocation>
+											<contentLocationType>Carpeta</contentLocationType>
+											<contentLocationValue>E://BVPG/1_1888</contentLocationValue>
+										</contentLocation>
+										<storageMedium>Disco Duro para Preservación</storageMedium>
+									</storage>
+								</object>
+								<object>
+									<objectIdentifier>
+										<objectIdentifierType>ID de imagen</objectIdentifierType>
+										<objectIdentifierValue>778865087005</objectIdentifierValue>
+									</objectIdentifier>
+									<objectCategory>file</objectCategory>
+									<objectCharacteristics>
+										<compositionLevel>0</compositionLevel>
+										<size>50141661</size>
+										<format>
+											<formatDesignation>
+												<formatName>image/jpg</formatName>
+												<formatVersion>6.0</formatVersion>
+											</formatDesignation>
+										</format>
+									</objectCharacteristics>
+									<originalName>005.jpg</originalName>
+									<storage>
+										<contentLocation>
+											<contentLocationType>Carpeta</contentLocationType>
+											<contentLocationValue>E://BVPG/1_1888</contentLocationValue>
+										</contentLocation>
+										<storageMedium>Disco Duro para Preservación</storageMedium>
+									</storage>
+								</object>
+							</premis>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+			</amdSec>
+			<fileSec>
+				<fileGrp ID="FG1" USE="reference">
+					<file ID="FID001" MIMETYPE="image/jpeg" GROUPID="001">
+						<FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="E://BVPG/1_1888/001.jpg"/>
+					</file>
+					<file ID="FID002" MIMETYPE="image/jpeg" GROUPID="002">
+						<FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="E://BVPG/1_1888/002.jpg"/>
+					</file>
+					<file ID="FID003" MIMETYPE="image/jpeg" GROUPID="003">
+						<FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="E://BVPG/1_1888/003.jpg"/>
+					</file>
+					<file ID="FID004" MIMETYPE="image/jpeg" GROUPID="004">
+						<FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="E://BVPG/1_1888/004.jpg"/>
+					</file>
+					<file ID="FID005" MIMETYPE="image/jpeg" GROUPID="005">
+						<FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="E://BVPG/1_1888/005.jpg"/>
+					</file>
+				</fileGrp>
+			</fileSec>
+			<structMap ID="SM1" TYPE="PHYSICAL" LABEL="Astronomia britannica">
+				<div ORDER="1" LABEL="Astronomia britannica" TYPE="libro" DMDID="DM1">
+					<div ORDER="1" LABEL="[Cubierta]" TYPE="pagina">
+						<fptr FILEID="FID001"/>
+					</div>
+					<div ORDER="2" LABEL="Índice" TYPE="pagina">
+						<fptr FILEID="FID002"/>
+					</div>
+					<div ORDER="3" LABEL="Página 1" TYPE="pagina">
+						<fptr FILEID="FID003"/>
+					</div>
+					<div ORDER="4" LABEL="Página 2" TYPE="pagina">
+						<fptr FILEID="FID004"/>
+					</div>
+					<div ORDER="5" LABEL="Contracubierta" TYPE="pagina">
+						<fptr FILEID="FID005"/>
+					</div>
+				</div>
+			</structMap>
+		</mets>
+	</Appendix>
+</METS_Profile>

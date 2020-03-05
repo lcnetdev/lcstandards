@@ -1,0 +1,1646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+	<URI LOCTYPE="URN">http://www.loc.gov/mets/profiles/00000025.xml</URI>
+	<title>Australian METS Conference Profile 1.0</title>
+	<abstract>
+This profile describes the rules and requirements for using METS as an exchange format to support the collection and preservation of and access to conference publications. It is a sub-profile of the Australian METS Profile 1.0 and adheres to the conference content model specified in the &#60;div&#62; TYPE Attribute vocabulary therein. 
+</abstract>
+	<date>2007-12-04T15:31:00</date>
+	<contact>
+		<institution>The Australian National University</institution>
+		<address>
+Canberra, ACT, 0200, Australia
+</address>
+		<phone>+61 2 6125 0736</phone>
+		<email>scott.yeadon@anu.edu.au</email>
+	</contact>
+	<related_profile URI="http://www.loc.gov/mets/profiles/00000018.xml" RELATIONSHIP="inherits">Australian METS Profile 1.0
+	</related_profile>
+	<extension_schema><note>This profile inherits the extension schemas supported by the Australian METS Profile 1.0. No additional extension schema are specified in this profile</note></extension_schema>
+	<description_rules>
+<p>This profile describes the rules and requirements for using METS as an exchange format to support the collection and preservation of and access to conference publications. It is a sub-profile of the Australian METS Profile 1.0 and adheres to the Conference content model specified in the &lt;div&gt; TYPE attribute vocabulary therein.</p>
+<p>A METS document conforming to this profile may have been created for use as a Submission Information Package (SIP) or a Dissemination Information Package (DIP). The example in Appendix 1 is a conforming METS document representing a conference instance in physical form (i.e. structured to reflect the conference program) with five papers across two tracks. This document was created as a SIP to enable a copy of the conference in its original form to be archived in a repository. The Example in Appendix 2 is the same conference but with the conference viewed as a logical entity composed of a set of submissions. The form in Appendix 2 would be used where the packaging agent is unable to obtain the necessary information to recreate the conference in its original form or the receiving party only requires the conference output. Appendix 3 shows the same logical form created as a DIP to enable a delivery system to provide access to the archived copy. The examples are based on a cut-down semi-fictional version of the Open Repositories 2008 conference, an instance of the Open Repositories Conference series.</p>
+<p>Conference instances and conference series</p>
+<p>In accordance with the Australian METS Profile, a
+conforming METS document must include descriptive metadata encoded in MODS for
+the primary object represented by the METS document and each of its structural
+components, unless &lt;structMap&gt;&lt;div&gt; attributes provide a sufficient
+level of bibliographic description.</p>
+<p>Mandatory elements and persistent identifiers</p>
+<p>Where a conference submission is being described in
+a conforming METS document, title is mandatory. Otherwise it need only be
+included if the component has its own distinctive title. Additional metadata,
+including use of controlled vocabularies and reference to authority lists, are
+encouraged within descriptive metadata but are not mandatory. However, if the
+METS document is being used as a DIP, each MODS record must include an
+identifier element containing a persistent, globally unique and locally
+resolvable identifier for the object or component being described. </p>
+<p>The examples in Appendix 1 and Appendix 2 include identifiers of type URI that resolve to the publisher's copy of the issue. The example in Appendix 3 includes the persistent identifiers assigned by the repository to the primary object and its components on ingest. This document also includes a full set of administrative metadata recording the ingest event for each file.</p>
+<p>Fully self-describing metadata</p> 
+<p>In accordance with the Australian METS Profile, the
+descriptive metadata must contain sufficient information for the component and
+its relationship to the conference series to be completely self-describing. MODS
+supports two ways of doing this: the hierarchy can be fully represented within
+a single relatedItem instance using repeatable part subelements; or each level
+of the hierarchy can be nested in its own relatedItem element. This profile
+requires a separate relatedItem element for each level in the hierarchy that
+plays a significant role in the delivery of access to the conference and its
+components.  In addition, if the METS document is being used as a DIP, an identifier
+element must be included for each relatedItem as described in the section
+above.</p>
+<p>In both examples, submission &lt;dmdSec&gt;s
+have a relatedItem for the conference instance which itself has a relatedItem for the conference series. This enables the identifiers to be recorded that will support navigation
+from the more abstract conference concept to the scheduled instances when the metadata is unpacked and deployed in other contexts such as a federated discovery service.</p>
+<p>The archived copy could include a relatedItem for the published copy. This may be the preferred version while it remains available online. However, the DIP for the archived copy can also be used to generate a fully navigable version of the conference instance.</p>
+<p>Mappings</p>
+<p>Mappings from  MARC21 and Dublin Core
+(unqualified) to MODS are given on the MODS website at http://www.loc.gov/standards/mods/dcsimple-mods.html.
+Note that this profile requires the extent of a submission to be recorded under
+relatedItem/part/extent in MODS, although one could see this as being a
+property of the submission, not the host. The main reason for this is that MODS
+does not yet support the use of the unit attribute when extent is used as a
+sub-element of physicalDescription. However, there is also a benefit in terms
+of processing of including all extent metadata in the same place. The start and
+end data elements in MODS are properties of any component. For example a scheduled conference will have start and end information, and individual sessions, tracks and submissions (presentations) may also have this information available.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>Australian METS Profile &#60;div&#62; TYPE Attribute</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<URI>http://www.nla.gov.au/australianmetsprofile/divtype/</URI>
+			<description>
+				<p>This profile supports all values from the conference content model.</p>
+			</description>
+		</vocabulary></controlled_vocabularies>
+	<structural_requirements>
+<metsRootElement>
+			<requirement ID="metsRoot1">
+				<p>The &#60;mets&#62; root element must contain a PROFILE attribute with the value "http://www.loc.gov/mets/profiles/00000019.xml".
+</p>
+			</requirement>
+		</metsRootElement>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>There are currently no restrictions on file formats used. It is recommended that files listed in fileGrp USE="original" or "master" be of a type suitable for long-term archiving.</p>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool>
+		<note><p>There are no requirements for tools specified in this profile.</p></note>
+	</tool>
+	<Appendix NUMBER="1" LABEL="Example of a Submission Information Package for a digital conference instance">
+		<mets:mets PROFILE="http://www.loc.gov/mets/profiles/000000??.xml" OBJID="METS-d1e1" TYPE="conference" xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd  http://www.loc.gov/standards/premis/v1  http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:premis="http://www.loc.gov/standards/premis/v1">		
+			<mets:metsHdr CREATEDATE="2007-09-25T09:03:05.202+10:00" LASTMODDATE="2007-09-25T09:03:05.202+10:00">
+				<mets:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+					<mets:name>The Australian National University</mets:name>
+				</mets:agent>
+				<mets:agent ROLE="CREATOR" TYPE="OTHER">
+					<mets:name>OCS SWORD Deposit Plugin v1.0</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			
+			<!-- Conference instance descriptive metadata -->
+			<mets:dmdSec ID="d1e1">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:genre>conference</mods:genre>
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:originInfo>
+								<mods:dateOther type="scheduled" point="start">2008-04-01</mods:dateOther>
+								<mods:dateOther type="scheduled" point="end">2008-04-04</mods:dateOther>
+							</mods:originInfo>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>Open Repositories</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or</mods:identifier>
+							</mods:relatedItem>
+							<mods:abstract>Repositories play a pivotal role in the evolving scholarly information environment of open access research outputs and scholarly collections. With its theme of "Practice and Innovation", OR08 will create an opportunity for practitioners and researchers to share experiences and to explore the challenges of the new scholarly communication.</mods:abstract>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for track 1 -->
+			<mets:dmdSec ID="d1e21">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:titleInfo>
+								<mods:title>Sustainability</mods:title>
+							</mods:titleInfo>
+							<mods:genre>track</mods:genre>
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:originInfo>
+								<mods:dateOther type="scheduled" point="start">2008-04-01T13:00:00Z</mods:dateOther>
+								<mods:dateOther type="scheduled" point="end">2008-04-01T14:30:00Z</mods:dateOther>
+							</mods:originInfo>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for track 2 -->
+			<mets:dmdSec ID="d1e22">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:titleInfo>
+								<mods:title>Social Networks</mods:title>
+							</mods:titleInfo>
+							<mods:genre>track</mods:genre>
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:originInfo>
+								<mods:dateOther type="scheduled" point="start">2008-04-01T13:00:00Z</mods:dateOther>
+								<mods:dateOther type="scheduled" point="end">2008-04-01T14:30:00Z</mods:dateOther>
+							</mods:originInfo>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the first submission in track 1 -->
+			<mets:dmdSec ID="d1e24">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Collaboration in building a sustainable repository environment: a national library's role</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateOther type="presented" point="start">2008-04-01T13:00:00Z</mods:dateOther>
+								<mods:dateOther type="presented" point="end">2008-04-01T13:45:00Z</mods:dateOther>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Warwick</mods:namePart>
+								<mods:namePart type="family">Cathro</mods:namePart>
+								<mods:affiliation>National Library of Australia</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>This paper describes several Australian repository projects in which the National Library of Australia has played a key role. After briefly describing the proposed Australian National Data Service (ANDS), the paper examines two projects related to national discovery and collection registry services, and describes the draft international standard (ISO 2146) on which the prototype registry service is based. The paper then describes three projects related to persistence and sustainability. One of these projects (PILIN) is likely to lead to the establishment of a National Persistent Identifier Service. Another project (AONS) has developed open source tools to alert repository managers to the potential obsolescence of file formats in their repositories. A third project has developed an Australian METS Profile, together with a standard way of encoding PREMIS preservation metadata in METS. The Australian METS profile and its three layer model (generic layer, content model layer, implementation layer) is briefly described. These activities have provided a focus for the National Library in engaging with the university community. The Library is committed to continue collaborating with the higher education sector to improve the national research information infrastructure.</mods:abstract>
+							<mods:subject>
+								<mods:topic>sustainability</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>repositories</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/5
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+								<mods:part>
+									<mods:detail type="track">
+										<mods:title>Sustainability</mods:title>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- descriptive metadata for the second submission in track 1  -->
+			<mets:dmdSec ID="d1e55">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Best of Both: Connecting a institutional digital repository and a digital preservation service</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateOther type="presented" point="start">2008-04-01T13:45:00Z</mods:dateOther>
+								<mods:dateOther type="presented" point="end">2008-04-01T14:30:00Z</mods:dateOther>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Libby</mods:namePart>
+								<mods:namePart type="family">Bishop</mods:namePart>
+								<mods:affiliation>University of Leeds</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Institutional digital repositories are growing at a rapid rate. With expansion, however, come new challenges. Three areas identified in the recent JISC digital repository review include handling data and other file formats in addition to text and pdf research outputs, sustainability and long-term preservation, and better integrating repositories into researchers’ work practices and the life cycle of research projects. A newly launched project, Timescapes, will create an archive of qualitative longitudinal data based at the University of Leeds and has been designed to develop and test solutions in these three areas. The Timescapes Archive will have two components: there will be a digital repository at Leeds that will be the receiving facility for incoming content. This repository will be an extension of the existing MIDESS system at Leeds and explicitly designed to accommodate multi-media file formats. This repository will support data preparation, metadata enhancement, and data sharing, both within the Timescapes team and with other authorised users. The repository will send appropriately prepared (e.g., compliant with OAIS and DDI standards) to the UK Data Archive at the University of Essex for preservation. Dissemination versions of files (whether produced at Leeds or UKDA) will be managed from the repository. Thus the repository will have primary responsibility for ingest and dissemination with the UKDA handling preservation. This paper will first address the distinctive features of the Timescapes archive and its design process. Secondly it will discuss the implementation strategies used to date in the project. Finally, it will report on successes and challenges encountered so far. The project is still in its first year so all findings are tentative. However, it is hoped that by sharing our experience early, the project will benefit from others’ experience and perhaps also be of some value to others.</mods:abstract>
+							<mods:subject>
+								<mods:topic>preservation</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>repository</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/6
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+								<mods:part>
+									<mods:detail type="track">
+										<mods:title>Sustainability</mods:title>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the third submission in track 2 -->
+			<mets:dmdSec ID="d1e170">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Embedding the Managed Repository in National Science Digital Library (NSDL) Semantic Library Services</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateOther type="presented" point="start">2008-04-01T13:00:00Z</mods:dateOther>
+								<mods:dateOther type="presented" point="end">2008-04-01T13:30:00Z</mods:dateOther>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Carol</mods:namePart>
+								<mods:namePart type="family">Minton Morris</mods:namePart>
+								<mods:affiliation>Cornell University</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Elly</mods:namePart>
+								<mods:namePart type="family">Cramer</mods:namePart>
+								<mods:affiliation>Cornell University</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Managed institutional digital assets are fixed commodities, while serendipitously created web communications about those assets are often hard to pin down. The National Science Digital Library’s (NSDL) community of users contributes two kinds of contextual communications about library resources that are often interrelated—short news and information items and mid-sized, editable articles. This paper presents one solution to the “semantic synthesis challenge,” or how to extract warranted knowledge from these two types of casual context by embedding the managed repository using web application plug-ins that interact with the NSDL Data repository (NDR).</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>semantic web</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/7
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+								<mods:part>
+									<mods:detail type="track">
+										<mods:title>Social Networks</mods:title>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the fourth submission in track 2 -->
+			<mets:dmdSec ID="d1e222">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Open Repositories 2.0: Harvesting Community Annotations to Enhance Discovery services</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateOther type="presented" point="start">2008-04-01T13:30:00Z</mods:dateOther>
+								<mods:dateOther type="presented" point="end">2008-04-01T14:00:00Z</mods:dateOther>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Jane</mods:namePart>
+								<mods:namePart type="family">Hunter</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Imran</mods:namePart>
+								<mods:namePart type="family">Khan</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Ron</mods:namePart>
+								<mods:namePart type="family">Chernich</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Anna</mods:namePart>
+								<mods:namePart type="family">Gerber</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Over the past few years, collaborative social tagging and annotation systems that involve communities of users creating and sharing their own metadata, have exploded on the Internet. Examples of such systems include: Flickr, Del.icio.us, Connotea, YouTube, LastFm. Such systems are exemplary of the Web 2.0 phenomena because they use the Internet to harness collective intelligence. Although there are issues associated with the quality of the metadata generated, there are also significant advantages including the cost benefits of leveraging community effort and enhanced search and discovery services that result from richer, more relevant metadata and rankings of resources. In this paper we describe the HarvANA (Harvesting and Aggregating Networked Annotations) system that we are developing at the University of Queensland. The objective of HarvANA is to develop an efficient streamlined system (based on open standards and a set of open source services) that can leverage the explosion of community annotation/tagging systems and exploit the resulting metadata to improve discovery and reasoning across open repositories. Within the HarvANA system, community annotations are stored on (one or more) Annotea-compliant annotation servers that are separate from the collections that they are annotating. An OAI-PMH interface, built on top of the Annotation server(s), enables periodic harvesting of new annotations (since the last harvest). The harvested annotations are then aggregated with the institutional metadata (IM), to enrich the metadata store with community knowledge and enable more sophisticated and improved discovery services.</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>discovery service</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/8
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+								<mods:part>
+									<mods:detail type="track">
+										<mods:title>Social Networks</mods:title>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the fifth submission in track 2  -->
+			<mets:dmdSec ID="d1e265">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Towards an Open Repository of Teaching Resources</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateOther type="presented" point="start">2008-04-01T14:00:00Z</mods:dateOther>
+								<mods:dateOther type="presented" point="end">2008-04-01T14:30:00Z</mods:dateOther>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">David</mods:namePart>
+								<mods:namePart type="family">Millard</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Yvonne</mods:namePart>
+								<mods:namePart type="family">Howard</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Gary</mods:namePart>
+								<mods:namePart type="family">Wills</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Julie</mods:namePart>
+								<mods:namePart type="family">Watson</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Miguel</mods:namePart>
+								<mods:namePart type="family">Arrebola</mods:namePart>
+								<mods:affiliation>University of Portsmouth</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>In this paper we describe our work to create a set of usability tools for CLARE, an EPrints installation storing Learning Objects. These tools include Web 2.0 style presentation and comments and a concept map browser. Although the evaluation of our tools was broadly positive, through workshops with the language teaching community we discovered that a Learning Object repository is too heavyweight to be used as an everyday tool for sharing learning resources. In this paper we present the new requirements we elicited from the community, who wanted a lightweight, learning resource repository, with little metadata overhead, following the interface best-practices of popular online repository sites such as Flickr and YouTube</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>teaching and learning environment</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/9
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+								<mods:part>
+									<mods:detail type="track">
+										<mods:title>Social Networks</mods:title>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<mets:amdSec>
+				<mets:techMD ID="T-d1e1">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>auto</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>METS-d1e1</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>full</premis:preservationLevel>
+								<premis:objectCategory>Representation</premis:objectCategory>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+			</mets:amdSec>
+			
+			<mets:fileSec>
+				<mets:fileGrp USE="original">
+					<mets:file ID="F-d1e20" MIMETYPE="application/pdf" SIZE="30100" CHECKSUM="940faa9ab023cb0d42ef103a34b8c5bd" CHECKSUMTYPE="MD5" OWNERID="overview.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e24" MIMETYPE="application/pdf" SIZE="60278" CHECKSUM="eb0fcf9ba0c30b0d2266139a38b6b7fa" CHECKSUMTYPE="MD5" OWNERID="OR08_cathro.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e55" MIMETYPE="application/pdf" SIZE="1552728" CHECKSUM="58a82a739a9a30d39e35b88532777676" CHECKSUMTYPE="MD5" OWNERID="best_of_both.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e170" MIMETYPE="application/pdf" SIZE="757235" CHECKSUM="6640d903bdb58dc674fba2f0738561f0" CHECKSUMTYPE="MD5" OWNERID="submission81.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e222" MIMETYPE="application/pdf" SIZE="1796361" CHECKSUM="8d67f887c47ae355d70603f17f6c9a9d" CHECKSUMTYPE="MD5" OWNERID="submission.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e265" MIMETYPE="application/pdf" SIZE="204509" CHECKSUM="87e6552bd83130ddd52c7d3c1db9c8a9" CHECKSUMTYPE="MD5" OWNERID="submission.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="physical">
+				<mets:div TYPE="conference" DMDID="d1e1" ADMID="T-d1e1">
+					<mets:div TYPE="overview" LABEL="Conference Overview">
+						<mets:fptr FILEID="F-d1e20"/>
+					</mets:div>
+					<mets:div TYPE="track" LABEL="Sustainability" DMDID="d1e21">
+						<mets:div TYPE="submission" DMDID="d1e24">
+							<mets:fptr FILEID="F-d1e24"/>
+						</mets:div>
+						<mets:div TYPE="submission" DMDID="d1e55">
+							<mets:fptr FILEID="F-d1e55"/>
+						</mets:div>
+					</mets:div>
+					<mets:div TYPE="track" LABEL="Social Networking" DMDID="d1e22">
+						<mets:div TYPE="submission" DMDID="d1e170">
+							<mets:fptr FILEID="F-d1e170"/>
+						</mets:div>
+						<mets:div TYPE="submission" DMDID="d1e222">
+							<mets:fptr FILEID="F-d1e222"/>
+						</mets:div>
+						<mets:div TYPE="submission" DMDID="d1e265">
+							<mets:fptr FILEID="F-d1e265"/>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="2" LABEL="Example of a Submission Information Package for a set of digital conference papers">
+		<mets:mets PROFILE="http://www.loc.gov/mets/profiles/000000??.xml" OBJID="METS-d1e1" TYPE="conference" xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd  http://www.loc.gov/standards/premis/v1  http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:premis="http://www.loc.gov/standards/premis/v1">		
+			<mets:metsHdr CREATEDATE="2007-09-25T09:03:05.202+10:00" LASTMODDATE="2007-09-25T09:03:05.202+10:00">
+				<mets:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+					<mets:name>The Australian National University</mets:name>
+				</mets:agent>
+				<mets:agent ROLE="CREATOR" TYPE="OTHER">
+					<mets:name>OCS SWORD Deposit Plugin v1.0</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			
+			<!-- Conference instance descriptive metadata -->
+			<mets:dmdSec ID="d1e1a">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:genre>conference</mods:genre>
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:originInfo>
+								<mods:dateOther type="scheduled" point="start">2008-04-01</mods:dateOther>
+								<mods:dateOther type="scheduled" point="end">2008-04-04</mods:dateOther>
+							</mods:originInfo>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>Open Repositories</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or</mods:identifier>
+							</mods:relatedItem>
+						</mods:mods>
+						<mods:abstract>Repositories play a pivotal role in the evolving scholarly information environment of open access research outputs and scholarly collections. With its theme of "Practice and Innovation", OR08 will create an opportunity for practitioners and researchers to share experiences and to explore the challenges of the new scholarly communication.</mods:abstract>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the first submission in track 1 -->
+			<mets:dmdSec ID="d1e24a">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Collaboration in building a sustainable repository environment: a national library's role</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Warwick</mods:namePart>
+								<mods:namePart type="family">Cathro</mods:namePart>
+								<mods:affiliation>National Library of Australia</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>This paper describes several Australian repository projects in which the National Library of Australia has played a key role. After briefly describing the proposed Australian National Data Service (ANDS), the paper examines two projects related to national discovery and collection registry services, and describes the draft international standard (ISO 2146) on which the prototype registry service is based. The paper then describes three projects related to persistence and sustainability. One of these projects (PILIN) is likely to lead to the establishment of a National Persistent Identifier Service. Another project (AONS) has developed open source tools to alert repository managers to the potential obsolescence of file formats in their repositories. A third project has developed an Australian METS Profile, together with a standard way of encoding PREMIS preservation metadata in METS. The Australian METS profile and its three layer model (generic layer, content model layer, implementation layer) is briefly described. These activities have provided a focus for the National Library in engaging with the university community. The Library is committed to continue collaborating with the higher education sector to improve the national research information infrastructure.</mods:abstract>
+							<mods:subject>
+								<mods:topic>sustainability</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>repositories</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/5
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- descriptive metadata for the second submission in track 1  -->
+			<mets:dmdSec ID="d1e55a">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Best of Both: Connecting a institutional digital repository and a digital preservation service</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Libby</mods:namePart>
+								<mods:namePart type="family">Bishop</mods:namePart>
+								<mods:affiliation>University of Leeds</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Institutional digital repositories are growing at a rapid rate. With expansion, however, come new challenges. Three areas identified in the recent JISC digital repository review include handling data and other file formats in addition to text and pdf research outputs, sustainability and long-term preservation, and better integrating repositories into researchers’ work practices and the life cycle of research projects. A newly launched project, Timescapes, will create an archive of qualitative longitudinal data based at the University of Leeds and has been designed to develop and test solutions in these three areas. The Timescapes Archive will have two components: there will be a digital repository at Leeds that will be the receiving facility for incoming content. This repository will be an extension of the existing MIDESS system at Leeds and explicitly designed to accommodate multi-media file formats. This repository will support data preparation, metadata enhancement, and data sharing, both within the Timescapes team and with other authorised users. The repository will send appropriately prepared (e.g., compliant with OAIS and DDI standards) to the UK Data Archive at the University of Essex for preservation. Dissemination versions of files (whether produced at Leeds or UKDA) will be managed from the repository. Thus the repository will have primary responsibility for ingest and dissemination with the UKDA handling preservation. This paper will first address the distinctive features of the Timescapes archive and its design process. Secondly it will discuss the implementation strategies used to date in the project. Finally, it will report on successes and challenges encountered so far. The project is still in its first year so all findings are tentative. However, it is hoped that by sharing our experience early, the project will benefit from others’ experience and perhaps also be of some value to others.</mods:abstract>
+							<mods:subject>
+								<mods:topic>preservation</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>repository</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/6
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the third submission in track 2 -->
+			<mets:dmdSec ID="d1e170a">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Embedding the Managed Repository in National Science Digital Library (NSDL) Semantic Library Services</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Carol</mods:namePart>
+								<mods:namePart type="family">Minton Morris</mods:namePart>
+								<mods:affiliation>Cornell University</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Elly</mods:namePart>
+								<mods:namePart type="family">Cramer</mods:namePart>
+								<mods:affiliation>Cornell University</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Managed institutional digital assets are fixed commodities, while serendipitously created web communications about those assets are often hard to pin down. The National Science Digital Library’s (NSDL) community of users contributes two kinds of contextual communications about library resources that are often interrelated—short news and information items and mid-sized, editable articles. This paper presents one solution to the “semantic synthesis challenge,” or how to extract warranted knowledge from these two types of casual context by embedding the managed repository using web application plug-ins that interact with the NSDL Data repository (NDR).</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>semantic web</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/7
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the fourth submission in track 2 -->
+			<mets:dmdSec ID="d1e222a">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Open Repositories 2.0: Harvesting Community Annotations to Enhance Discovery services</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Jane</mods:namePart>
+								<mods:namePart type="family">Hunter</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Imran</mods:namePart>
+								<mods:namePart type="family">Khan</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Ron</mods:namePart>
+								<mods:namePart type="family">Chernich</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Anna</mods:namePart>
+								<mods:namePart type="family">Gerber</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Over the past few years, collaborative social tagging and annotation systems that involve communities of users creating and sharing their own metadata, have exploded on the Internet. Examples of such systems include: Flickr, Del.icio.us, Connotea, YouTube, LastFm. Such systems are exemplary of the Web 2.0 phenomena because they use the Internet to harness collective intelligence. Although there are issues associated with the quality of the metadata generated, there are also significant advantages including the cost benefits of leveraging community effort and enhanced search and discovery services that result from richer, more relevant metadata and rankings of resources. In this paper we describe the HarvANA (Harvesting and Aggregating Networked Annotations) system that we are developing at the University of Queensland. The objective of HarvANA is to develop an efficient tracklined system (based on open standards and a set of open source services) that can leverage the explosion of community annotation/tagging systems and exploit the resulting metadata to improve discovery and reasoning across open repositories. Within the HarvANA system, community annotations are stored on (one or more) Annotea-compliant annotation servers that are separate from the collections that they are annotating. An OAI-PMH interface, built on top of the Annotation server(s), enables periodic harvesting of new annotations (since the last harvest). The harvested annotations are then aggregated with the institutional metadata (IM), to enrich the metadata store with community knowledge and enable more sophisticated and improved discovery services.</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>discovery service</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/8
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the fifth submission in track 2  -->
+			<mets:dmdSec ID="d1e265a">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Towards an Open Repository of Teaching Resources</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">David</mods:namePart>
+								<mods:namePart type="family">Millard</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Yvonne</mods:namePart>
+								<mods:namePart type="family">Howard</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Gary</mods:namePart>
+								<mods:namePart type="family">Wills</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Julie</mods:namePart>
+								<mods:namePart type="family">Watson</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Miguel</mods:namePart>
+								<mods:namePart type="family">Arrebola</mods:namePart>
+								<mods:affiliation>University of Portsmouth</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>In this paper we describe our work to create a set of usability tools for CLARE, an EPrints installation storing Learning Objects. These tools include Web 2.0 style presentation and comments and a concept map browser. Although the evaluation of our tools was broadly positive, through workshops with the language teaching community we discovered that a Learning Object repository is too heavyweight to be used as an everyday tool for sharing learning resources. In this paper we present the new requirements we elicited from the community, who wanted a lightweight, learning resource repository, with little metadata overhead, following the interface best-practices of popular online repository sites such as Flickr and YouTube</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>teaching and learning environment</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/9
+							</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+							    <mods:identifier type="uri">http://publish.anu.edu.au/ocs/index.php/or/2008</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<mets:amdSec>
+				<mets:techMD ID="T-d1e1a">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>auto</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>METS-d1e1</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>full</premis:preservationLevel>
+								<premis:objectCategory>Representation</premis:objectCategory>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+			</mets:amdSec>
+			
+			<mets:fileSec>
+				<mets:fileGrp USE="original">
+					<mets:file ID="F-d1e20a" MIMETYPE="application/pdf" SIZE="60278" CHECKSUM="940faa9ab023cb0d42ef103a34b8c5bd" CHECKSUMTYPE="MD5" OWNERID="overview.pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/overview.pdf"/>
+					</mets:file>
+					<mets:file ID="F-d1e21a" MIMETYPE="application/pdf" SIZE="30167" CHECKSUM="4d1ee024f19b6144c665c5b318e20bb3" CHECKSUMTYPE="MD5" OWNERID="program.pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/program.pdf"/>
+					</mets:file>
+					<mets:file ID="F-d1e24a" MIMETYPE="application/pdf" SIZE="60278" CHECKSUM="eb0fcf9ba0c30b0d2266139a38b6b7fa" CHECKSUMTYPE="MD5" OWNERID="OR08_cathro.pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/5"/>
+					</mets:file>
+					<mets:file ID="F-d1e55a" MIMETYPE="application/pdf" SIZE="1552728" CHECKSUM="58a82a739a9a30d39e35b88532777676" CHECKSUMTYPE="MD5" OWNERID="best_of_both.pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/6"/>
+					</mets:file>
+					<mets:file ID="F-d1e170a" MIMETYPE="application/pdf" SIZE="757235" CHECKSUM="6640d903bdb58dc674fba2f0738561f0" CHECKSUMTYPE="MD5" OWNERID="submission81.pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/7"/>
+					</mets:file>
+					<mets:file ID="F-d1e222a" MIMETYPE="application/pdf" SIZE="1796361" CHECKSUM="8d67f887c47ae355d70603f17f6c9a9d" CHECKSUMTYPE="MD5" OWNERID="submission.pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/8"/>
+					</mets:file>
+					<mets:file ID="F-d1e265a" MIMETYPE="application/pdf" SIZE="204509" CHECKSUM="87e6552bd83130ddd52c7d3c1db9c8a9" CHECKSUMTYPE="MD5" OWNERID="submission.pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/9"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="logical">
+				<mets:div TYPE="conference" DMDID="d1e1a" ADMID="T-d1e1a">
+					<mets:div TYPE="overview" LABEL="Conference Overview">
+						<mets:fptr FILEID="F-d1e20a"/>
+					</mets:div>
+					<mets:div TYPE="program" LABEL="Conference Program">
+						<mets:fptr FILEID="F-d1e21a"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d1e24a">
+						<mets:fptr FILEID="F-d1e24a"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d1e55a">
+						<mets:fptr FILEID="F-d1e55a"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d1e170a">
+						<mets:fptr FILEID="F-d1e170a"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d1e222a">
+						<mets:fptr FILEID="F-d1e222a"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d1e265a">
+						<mets:fptr FILEID="F-d1e265a"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+		<Appendix NUMBER="3" LABEL="Example of a Dissemination Information Package for archived conference papers">
+		<mets:mets PROFILE="http://www.loc.gov/mets/profiles/000000??.xml" OBJID="METS-d1e1" TYPE="conference" xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd  http://www.loc.gov/standards/premis/v1  http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:premis="http://www.loc.gov/standards/premis/v1">		
+			<mets:metsHdr CREATEDATE="2007-09-25T09:03:05.202+10:00" LASTMODDATE="2007-09-25T09:03:05.202+10:00">
+				<mets:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+					<mets:name>The Australian National University</mets:name>
+				</mets:agent>
+				<mets:agent ROLE="CREATOR" TYPE="OTHER">
+					<mets:name>au.edu.apsr.dspace.content.packager.AustralianMETSConferenceDisseminator</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			
+			<!-- Conference instance descriptive metadata -->
+			<mets:dmdSec ID="d-1885-23">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:genre>conference</mods:genre>
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:originInfo>
+								<mods:dateOther type="scheduled" point="start">2008-04-01</mods:dateOther>
+								<mods:dateOther type="scheduled" point="end">2008-04-04</mods:dateOther>
+							</mods:originInfo>
+							<mods:identifier type="hdl">hdl:1885/23</mods:identifier>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>Open Repositories</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="hdl">hdl:1885/22</mods:identifier>
+							</mods:relatedItem>
+						</mods:mods>
+						<mods:abstract>Repositories play a pivotal role in the evolving scholarly information environment of open access research outputs and scholarly collections. With its theme of "Practice and Innovation", OR08 will create an opportunity for practitioners and researchers to share experiences and to explore the challenges of the new scholarly communication.</mods:abstract>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the first submission in track 1 -->
+			<mets:dmdSec ID="d-1885-30">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Collaboration in building a sustainable repository environment: a national library's role</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Warwick</mods:namePart>
+								<mods:namePart type="family">Cathro</mods:namePart>
+								<mods:affiliation>National Library of Australia</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>This paper describes several Australian repository projects in which the National Library of Australia has played a key role. After briefly describing the proposed Australian National Data Service (ANDS), the paper examines two projects related to national discovery and collection registry services, and describes the draft international standard (ISO 2146) on which the prototype registry service is based. The paper then describes three projects related to persistence and sustainability. One of these projects (PILIN) is likely to lead to the establishment of a National Persistent Identifier Service. Another project (AONS) has developed open source tools to alert repository managers to the potential obsolescence of file formats in their repositories. A third project has developed an Australian METS Profile, together with a standard way of encoding PREMIS preservation metadata in METS. The Australian METS profile and its three layer model (generic layer, content model layer, implementation layer) is briefly described. These activities have provided a focus for the National Library in engaging with the university community. The Library is committed to continue collaborating with the higher education sector to improve the national research information infrastructure.</mods:abstract>
+							<mods:subject>
+								<mods:topic>sustainability</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>repositories</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">hdl:1885/30</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">hdl:1885/23</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- descriptive metadata for the second submission in track 1  -->
+			<mets:dmdSec ID="d-1885-31">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Best of Both: Connecting a institutional digital repository and a digital preservation service</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Libby</mods:namePart>
+								<mods:namePart type="family">Bishop</mods:namePart>
+								<mods:affiliation>University of Leeds</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Institutional digital repositories are growing at a rapid rate. With expansion, however, come new challenges. Three areas identified in the recent JISC digital repository review include handling data and other file formats in addition to text and pdf research outputs, sustainability and long-term preservation, and better integrating repositories into researchers’ work practices and the life cycle of research projects. A newly launched project, Timescapes, will create an archive of qualitative longitudinal data based at the University of Leeds and has been designed to develop and test solutions in these three areas. The Timescapes Archive will have two components: there will be a digital repository at Leeds that will be the receiving facility for incoming content. This repository will be an extension of the existing MIDESS system at Leeds and explicitly designed to accommodate multi-media file formats. This repository will support data preparation, metadata enhancement, and data sharing, both within the Timescapes team and with other authorised users. The repository will send appropriately prepared (e.g., compliant with OAIS and DDI standards) to the UK Data Archive at the University of Essex for preservation. Dissemination versions of files (whether produced at Leeds or UKDA) will be managed from the repository. Thus the repository will have primary responsibility for ingest and dissemination with the UKDA handling preservation. This paper will first address the distinctive features of the Timescapes archive and its design process. Secondly it will discuss the implementation strategies used to date in the project. Finally, it will report on successes and challenges encountered so far. The project is still in its first year so all findings are tentative. However, it is hoped that by sharing our experience early, the project will benefit from others’ experience and perhaps also be of some value to others.</mods:abstract>
+							<mods:subject>
+								<mods:topic>preservation</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>repository</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">hdl:1885/31</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">hdl:1885/23</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the third submission in track 2 -->
+			<mets:dmdSec ID="d-1885-32">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Embedding the Managed Repository in National Science Digital Library (NSDL) Semantic Library Services</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Carol</mods:namePart>
+								<mods:namePart type="family">Minton Morris</mods:namePart>
+								<mods:affiliation>Cornell University</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Elly</mods:namePart>
+								<mods:namePart type="family">Cramer</mods:namePart>
+								<mods:affiliation>Cornell University</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Managed institutional digital assets are fixed commodities, while serendipitously created web communications about those assets are often hard to pin down. The National Science Digital Library’s (NSDL) community of users contributes two kinds of contextual communications about library resources that are often interrelated—short news and information items and mid-sized, editable articles. This paper presents one solution to the “semantic synthesis challenge,” or how to extract warranted knowledge from these two types of casual context by embedding the managed repository using web application plug-ins that interact with the NSDL Data repository (NDR).</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>semantic web</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">hdl:1885/32</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">hdl:1885/23</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the fourth submission in track 2 -->
+			<mets:dmdSec ID="d-1885-33">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Open Repositories 2.0: Harvesting Community Annotations to Enhance Discovery services</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">Jane</mods:namePart>
+								<mods:namePart type="family">Hunter</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Imran</mods:namePart>
+								<mods:namePart type="family">Khan</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Ron</mods:namePart>
+								<mods:namePart type="family">Chernich</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Anna</mods:namePart>
+								<mods:namePart type="family">Gerber</mods:namePart>
+								<mods:affiliation>University of Queensland</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>Over the past few years, collaborative social tagging and annotation systems that involve communities of users creating and sharing their own metadata, have exploded on the Internet. Examples of such systems include: Flickr, Del.icio.us, Connotea, YouTube, LastFm. Such systems are exemplary of the Web 2.0 phenomena because they use the Internet to harness collective intelligence. Although there are issues associated with the quality of the metadata generated, there are also significant advantages including the cost benefits of leveraging community effort and enhanced search and discovery services that result from richer, more relevant metadata and rankings of resources. In this paper we describe the HarvANA (Harvesting and Aggregating Networked Annotations) system that we are developing at the University of Queensland. The objective of HarvANA is to develop an efficient tracklined system (based on open standards and a set of open source services) that can leverage the explosion of community annotation/tagging systems and exploit the resulting metadata to improve discovery and reasoning across open repositories. Within the HarvANA system, community annotations are stored on (one or more) Annotea-compliant annotation servers that are separate from the collections that they are annotating. An OAI-PMH interface, built on top of the Annotation server(s), enables periodic harvesting of new annotations (since the last harvest). The harvested annotations are then aggregated with the institutional metadata (IM), to enrich the metadata store with community knowledge and enable more sophisticated and improved discovery services.</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>discovery service</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">hdl:1885/33</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">hdl:1885/23</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<!-- Descriptive metadata for the fifth submission in track 2  -->
+			<mets:dmdSec ID="d-1885-34">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Towards an Open Repository of Teaching Resources</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:namePart type="given">David</mods:namePart>
+								<mods:namePart type="family">Millard</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Yvonne</mods:namePart>
+								<mods:namePart type="family">Howard</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Gary</mods:namePart>
+								<mods:namePart type="family">Wills</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Julie</mods:namePart>
+								<mods:namePart type="family">Watson</mods:namePart>
+								<mods:affiliation>University of Southampton</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Miguel</mods:namePart>
+								<mods:namePart type="family">Arrebola</mods:namePart>
+								<mods:affiliation>University of Portsmouth</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">author</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:abstract>In this paper we describe our work to create a set of usability tools for CLARE, an EPrints installation storing Learning Objects. These tools include Web 2.0 style presentation and comments and a concept map browser. Although the evaluation of our tools was broadly positive, through workshops with the language teaching community we discovered that a Learning Object repository is too heavyweight to be used as an everyday tool for sharing learning resources. In this paper we present the new requirements we elicited from the community, who wanted a lightweight, learning resource repository, with little metadata overhead, following the interface best-practices of popular online repository sites such as Flickr and YouTube</mods:abstract>
+							<mods:subject>
+								<mods:topic>social networking</mods:topic>
+							</mods:subject>
+							<mods:subject>
+								<mods:topic>teaching and learning environment</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">hdl:1885/34</mods:identifier>
+							<mods:genre>submission</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">hdl:1885/23</mods:identifier>
+								<mods:titleInfo>
+									<mods:title>Open Repositories 2008</mods:title>
+								</mods:titleInfo>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			
+			<mets:amdSec>
+				<mets:techMD ID="t-1885-23">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/23</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>full</premis:preservationLevel>
+								<premis:objectCategory>Representation</premis:objectCategory>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="t-1885-28">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/28</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>940faa9ab023cb0d42ef103a34b8c5bd</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>e1472</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="t-1885-29">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/29</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>4d1ee024f19b6144c665c5b318e20bb3</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>e1477</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="t-1885-30">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/30</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>eb0fcf9ba0c30b0d2266139a38b6b7fa</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>e1480</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="t-1885-31">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/31</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>58a82a739a9a30d39e35b88532777676</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>e1483</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="t-1885-32">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/32</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>6640d903bdb58dc674fba2f0738561f0</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>e1486</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="t-1885-33">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/33</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>8d67f887c47ae355d70603f17f6c9a9d</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>e1489</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="t-1885-34">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>1885/34</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>87e6552bd83130ddd52c7d3c1db9c8a9</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>e1492</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:digiprovMD ID="e1472">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>e1472</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2008-04-10T06:23:10Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>1885/28</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="e1477">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>e1477</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2008-04-10T06:23:11Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>1885/29</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="e1480">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>e1480</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2008-04-10T06:23:12Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>1885/30</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="e1483">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>e1483</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2008-04-10T06:23:13Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>1885/31</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="e1486">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>e1486</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2008-04-10T06:23:14Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>1885/32</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="e1489">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>e1489</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2008-04-10T06:23:15Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>1885/33</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="e1492">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>e1492</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2008-04-10T06:23:16Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>1885/34</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+			</mets:amdSec>			
+			<mets:fileSec>
+				<mets:fileGrp USE="original">
+					<mets:file ID="f-1885-28" MIMETYPE="application/pdf" SIZE="60278" CHECKSUM="940faa9ab023cb0d42ef103a34b8c5bd" CHECKSUMTYPE="MD5" OWNERID="overview.pdf" ADMID="t-1885-28 e1472">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/overview.pdf"/>
+					</mets:file>
+					<mets:file ID="f-1885-29" MIMETYPE="application/pdf" SIZE="30167" CHECKSUM="4d1ee024f19b6144c665c5b318e20bb3" CHECKSUMTYPE="MD5" OWNERID="program.pdf" ADMID="t-1885-29 e1477">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/program.pdf"/>
+					</mets:file>
+					<mets:file ID="f-1885-30" MIMETYPE="application/pdf" SIZE="60278" CHECKSUM="eb0fcf9ba0c30b0d2266139a38b6b7fa" CHECKSUMTYPE="MD5" OWNERID="OR08_cathro.pdf" ADMID="t-1885-30 e1480">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/5"/>
+					</mets:file>
+					<mets:file ID="f-1885-31" MIMETYPE="application/pdf" SIZE="1552728" CHECKSUM="58a82a739a9a30d39e35b88532777676" CHECKSUMTYPE="MD5" OWNERID="best_of_both.pdf" ADMID="t-1885-31 e1483">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/1/6"/>
+					</mets:file>
+					<mets:file ID="f-1885-32" MIMETYPE="application/pdf" SIZE="757235" CHECKSUM="6640d903bdb58dc674fba2f0738561f0" CHECKSUMTYPE="MD5" OWNERID="submission81.pdf" ADMID="t-1885-32 e1486">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/7"/>
+					</mets:file>
+					<mets:file ID="f-1885-33" MIMETYPE="application/pdf" SIZE="1796361" CHECKSUM="8d67f887c47ae355d70603f17f6c9a9d" CHECKSUMTYPE="MD5" OWNERID="submission.pdf" ADMID="t-1885-33 e1489">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/8"/>
+					</mets:file>
+					<mets:file ID="f-1885-34" MIMETYPE="application/pdf" SIZE="204509" CHECKSUM="87e6552bd83130ddd52c7d3c1db9c8a9" CHECKSUMTYPE="MD5" OWNERID="submission.pdf" ADMID="t-1885-34 e1492">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://publish.anu.edu.au/ocs/index.php/or/2008/paper/download/2/9"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="logical">
+				<mets:div TYPE="conference" DMDID="d-1885-23" ADMID="t-1885-23">
+					<mets:div TYPE="overview" LABEL="Conference Overview">
+						<mets:fptr FILEID="f-1885-28"/>
+					</mets:div>
+					<mets:div TYPE="program" LABEL="Conference Program">
+						<mets:fptr FILEID="f-1885-29"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d-1885-30">
+						<mets:fptr FILEID="f-1885-30"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d-1885-31">
+						<mets:fptr FILEID="f-1885-31"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d-1885-32">
+						<mets:fptr FILEID="f-1885-32"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d-1885-33">
+						<mets:fptr FILEID="f-1885-33"/>
+					</mets:div>
+					<mets:div TYPE="submission" DMDID="d-1885-34">
+						<mets:fptr FILEID="f-1885-34"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>

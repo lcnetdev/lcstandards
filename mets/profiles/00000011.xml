@@ -1,0 +1,1809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/"
+	xsi:schemaLocation="http://www.loc.gov/METS_Profile/
+	http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd  http://www.loc.gov/METS/
+	http://www.loc.gov/standards/mets/mets.xsd">
+	<URI LOCTYPE="URN">http://www.loc.gov/mets/profiles/00000011.xml</URI>
+	<title>Usage of METS 1.4 as part of the Universal Object Format</title>
+	<abstract>This profile specifies how METS documents as part of the Universal Object Format (UOF)
+		should be encoded. The UOF was defined in the German project kopal (Co-operative development
+		of a long-term digital information archive). With the UOF digital objects along with
+		metadata can be archived and exchanged between institutions and archiving systems. This
+		profile specifies a generic usage in conformance with the UOF specifications. It does not
+		specify the concrete usage in DIAS (archival system by IBM used in kopal) or in any other
+		existing technical environment.</abstract>
+	<date>2006-03-13T12:00:00</date>
+	<contact>
+		<name>Tobias Steinke</name>
+		<address>Deutsche Bibliothek, Adickesallee 1, 60322 Frankfurt, Germany</address>
+		<phone>+496915251762</phone>
+		<email>steinke@dbf.ddb.de</email>
+	</contact>
+	<related_profile>There are no related profiles.</related_profile>
+	<extension_schema>
+		<name>Long-term preservation Metadata for Electronic Resources 1.2 - LMERobject</name>
+		<URI>http://nbn-resolving.de/?urn=urn:nbn:de:1111-2005041208</URI>
+		<note>Reference description: http://nbn-resolving.de/?urn=urn:nbn:de:1111-2005051906</note>
+	</extension_schema>
+	<extension_schema>
+		<name>Long-term preservation Metadata for Electronic Resources 1.2 - LMERfile</name>
+		<URI>http://nbn-resolving.de/?urn=urn:nbn:de:1111-2005041220</URI>
+		<note>Reference description: http://nbn-resolving.de/?urn=urn:nbn:de:1111-2005051906</note>
+	</extension_schema>
+	<extension_schema>
+		<name>Long-term preservation Metadata for Electronic Resources 1.2 - LMERprocess</name>
+		<URI>http://nbn-resolving.de/?urn=urn:nbn:de:1111-2005041212</URI>
+		<note>Reference description: http://nbn-resolving.de/?urn=urn:nbn:de:1111-2005051906</note>
+	</extension_schema>
+	<description_rules>
+		<p>No description rules are specified by this profile.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>ISO 8601 date time information</name>
+			<maintenance_agency>ISO</maintenance_agency>
+			<URI>http://www.w3.org/TR/NOTE-datetime/</URI>
+			<context>
+				<p> All date / time information must be stored according to ISO 8601. </p>
+			</context>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement>
+				<p>The attribute OBJID must be the internal ID (internal ID’s are only unequivocal
+					within the same archiving system) if it is an export object (DIP) from an
+					archive.</p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement>
+				<p>The attribute CREATEDATE must contain a valid date that states the creation or
+					last update of the present metadata in the file mets.xml.</p>
+				<p>The element agent must be existent with the attributes ROLE and TYPE as well as
+					the sub-element name. That provides information about the creating institution
+					(in case of a SIP) or the archiving system (in case of a DIP). In the latter
+					case, the internal ID in OBJID can be interpreted within the context.</p>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement>
+				<p>A conforming METS document can contain one or more dmdSec elements.</p>
+				<p>Every dmdSec must have an ID attribute which must be referenced in the Structural
+					Map of the type "ASSET"</p>
+				<p>In general there is no limitation about the metadata formats used.</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement>
+				<p>The administrative metadata section contains all technical and digital provenance
+					metadata section for the object and its files. There mustn't be any other
+					technical or digital provenance metadata outside of this section.</p>
+				<p>A conforming METS document must contain at least one techMD section for metadata
+					on the whole archive object and one techMD section for each file belonging to
+					the object.</p>
+				<p>The techMD section for the whole archive object must include elements from
+					LMER-Object. Mandatory is only persistentIdentifier that names the external ID.
+					groupIdentifier can be used repeatedly. objectVersion defines the state as
+					original or migration and should be „1“ for an original. If startFile exists,
+					that element contains the value of the ID attribute of the corresponding file of
+					the File Section of METS. If existent, numberOfFiles must correspond to the
+					number of files listed in the File Section of METS.</p>
+				<p>The respective techMD section of each file must include elements from LMER-File.
+					Only format with an appropriate attribute REGISTRYNAME to identify the used
+					namespace is mandatory. linkedTo is repeatable and, like in startFile, names the
+					corresponding file elements of METS. The following elements from LMER-File
+					should be left out, because they already appear mandatory in the File Section of
+					METS: fileIdentifier, path, name, size, fileDateTime, fileChecksum and mimeType.</p>
+				<p>In the LMER-File element xmlData, further technical metadata in an arbitrary XML
+					schema can be stated for each file (e. g. MIX, TechMD, JHOVE output). The
+					element is repeatable.</p>
+				<p>A conforming METS document may contain digiprovMD sections for the whole object
+					and for each file.</p>
+				<p>The digiprovMD sections must include elements from LMER-Process. The elements
+					oldMetadataRecordCreator, oldObjectIdentifier and oldOb-jectVersion can only
+					exist when referring to the object. oldObjectIdentifier states the internal ID
+					of the predecessor of the described migration. oldMeta-dataRecordCreator
+					provides the context within which the internal ID is valid.</p>
+				<p>All techMD and digiprovMD sections must have the ID attribute so that they can be
+					referenced in the File section.</p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement>
+				<p>A conforming METS document must contain exactly one fileGrp element within which
+					for each file a file element exists that in turn has one Flocat element each.
+					This results in references named by xlink:href that have to be LOCTYPE=“URL“ and
+					have to start with „file://./“ since they are relative links.</p>
+				<p>The following attributes of file are mandatory: ID, MIMETYPE, CREATED, SIZE,
+					CHECKSUM, CHECKSUMTYPE</p>
+				<p>In the attribute ADMID of fileGrp, the ID of the techMD section that contains
+					metadata on the whole object must be referenced. Additionally, the ID’s of the
+					digiprovMD sections that describe migrations of the whole object are stated
+					there. Accordingly, in the attribute ADMID of file the ID of the corresponding
+					techMD section with the metadata on the certain file and the ID’s of file
+					related digiprovMD sections have to be stated. As for the order of each listing
+					of the ID’s in ADMID, the following regulation applies: At first, the ID’s of
+					digiprovMD sections are being listed in descending order, starting with the last
+					migration; in the end, the ID of the techMD section (for each file or in
+					fileGrp, exactly one techMD section can be assigned to only).</p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement>
+				<p>In a conforming METS document there can be an arbitrary number of Structural
+					Maps. However, there must exist exactly one Structural Map with the attribute
+					TYPE=“ASSET“ that has the following composition: Only one div element with the
+					attribute TYPE=“ASSET“ exists, and this encloses a list of fptr elements for
+					each file of the object. In the respective attribute FILEID, the corresponding
+					ID from the File Section is being referenced. In the attribute DMDID of the div
+					element, the ID’s of all existing dmdSec sections have to be stated.</p>
+				<p>Besides the mandatory fptr elements, ASSET div also can list mptr elements
+					relating to external ID’s of other archive objects that are linked technically
+					to the present object (e.g., an XML schema that is being referenced by XML files
+					of the present object). This mechanism should not cover content related
+					correlations (e.g., journals); metadata in the dmdSec sections are more suitable
+					for that purpose.</p>
+			</requirement>
+		</structMap>
+		<multiSection>
+			<requirement>
+				<p>All metadata must be included using mdWrap. mdRef is not allowed.</p>
+			</requirement>
+		</multiSection>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>There are no restrictions on content files.</p>
+			</requirement>
+		</content_files>
+		<behavior_files>
+			<requirement>
+				<p>There are no restrictions on behavior files</p>
+			</requirement>
+		</behavior_files>
+		<metadata_files>
+			<requirement>
+				<p>It is not allowed to reference metadata files. All metadata must be inline.</p>
+			</requirement>
+		</metadata_files>
+	</technical_requirements>
+	<tool>
+		<name>kopal Library for Retrieval and Ingest (koLibRI)</name>
+		<agency>Die Deutsche Bibliothek / Staats- und Universitätsbibliothek Göttingen</agency>
+		<URI>http://kopal.langzeitarchivierung.de/index_koLibRI.php.en</URI>
+		<description>
+			<p>The kopal Library for Retrival and Ingest (koLibRI) represents a library of Java
+				tools that have been developed for the interaction with the DIAS system of IBM
+				within the kopal project. It has been design by intention to be re-usable as a whole
+				or in parts within other contexts, too.</p>
+		</description>
+	</tool>
+	<Appendix NUMBER="1">
+		<mets OBJID="" TYPE="Kopal Submission Information Package" PROFILE="DDB"
+			xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:mets="http://www.loc.gov/METS/" xmlns:lmerFile="http://www.ddb.de/LMERfile"
+			xmlns:lmerObject="http://www.ddb.de/LMERobject"
+			xmlns:lmerProcess="http://www.ddb.de/LMERprocess"
+			xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd
+			http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/version14/mets.xsd
+			http://www.ddb.de/LMERfile  http://www.ddb.de/standards/lmer/lmer-file.xsd
+			http://www.ddb.de/LMERobject  http://www.ddb.de/standards/lmer/lmer-object.xsd
+			http://www.ddb.de/LMERprocess  http://www.ddb.de/standards/lmer/lmer-process.xsd">
+			<metsHdr CREATEDATE="2006-01-12T14:50:16" RECORDSTATUS="PRODUCTION">
+				<agent ROLE="ARCHIVIST" TYPE="ORGANIZATION">
+					<name>Die Deutsche Bibliothek</name>
+					<note> Automatisch generierte Metadaten. Für weitere Informationen:
+						kopal.langzeitarchivierung.de </note>
+				</agent>
+			</metsHdr>
+			<amdSec ID="AmdSec-0001">
+				<techMD ID="TechMD-LMER-Object">
+					<mdWrap ID="TechMD-LMER-Object-MdWrap" MIMETYPE="text/xml" MDTYPE="OTHER"
+						OTHERMDTYPE="lmerObject" LABEL="LMERobject">
+						<xmlData>
+							<lmerObject:name>Eisele, Bettina___Universelle Funktionen mit
+								Lücken-Potenzreihen</lmerObject:name>
+							<lmerObject:persistentIdentifier>urn:nbn:de:hbz:385-2902</lmerObject:persistentIdentifier>
+							<lmerObject:objectVersion>1</lmerObject:objectVersion>
+							<lmerObject:masterCreationDate>2006-01-12T14:50:14</lmerObject:masterCreationDate>
+							<lmerObject:metadataCreationDate>2006-01-12T14:50:14</lmerObject:metadataCreationDate>
+							<lmerObject:metadataRecordCreator>KOPAL DIAS</lmerObject:metadataRecordCreator>
+							<lmerObject:numberOfFiles>3</lmerObject:numberOfFiles>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="TechMD-File-1">
+					<mdWrap ID="TechMD-File-1-MdWrap" MIMETYPE="text/xml" MDTYPE="OTHER"
+						OTHERMDTYPE="lmerFile" LABEL="LMERfile">
+						<xmlData>
+							<lmerFile:format REGISTRYNAME="DIAS"
+								>urn:diasid:fty:kopal:0200507050000000000001</lmerFile:format>
+							<lmerFile:xmlData MDTYPE="JHOVE">
+								<jhove xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+									xmlns="http://hul.harvard.edu/ois/xml/ns/jhove"
+									xsi:schemaLocation="http://hul.harvard.edu/ois/xml/ns/jhove
+									http://hul.harvard.edu/ois/xml/xsd/jhove/1.3/jhove.xsd"
+									name="LMER" release="1.3" date="2005-08-29">
+									<date>2006-01-12T14:50:15+01:00</date>
+									<repInfo>
+										<reportingModule release="1.4" date="2005-03-09">PDF-hul</reportingModule>
+										<format>PDF</format>
+										<version>1.2</version>
+										<status>Well-Formed and valid</status>
+										<properties>
+											<property>
+												<name>PDFMetadata</name>
+												<values arity="List" type="Property">
+												<property>
+												<name>Objects</name>
+												<values arity="Scalar" type="Integer">
+												<value>427</value>
+												</values>
+												</property>
+												<property>
+												<name>FreeObjects</name>
+												<values arity="Scalar" type="Integer">
+												<value>1</value>
+												</values>
+												</property>
+												<property>
+												<name>IncrementalUpdates</name>
+												<values arity="Scalar" type="Integer">
+												<value>1</value>
+												</values>
+												</property>
+												<property>
+												<name>DocumentCatalog</name>
+												<values arity="List" type="Property">
+												<property>
+												<name>PageLayout</name>
+												<values arity="Scalar" type="String">
+												<value>SinglePage</value>
+												</values>
+												</property>
+												<property>
+												<name>PageMode</name>
+												<values arity="Scalar" type="String">
+												<value>UseNone</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Info</name>
+												<values arity="List" type="Property">
+												<property>
+												<name>Creator</name>
+												<values arity="Scalar" type="String">
+												<value> TeX output
+												2005.01.03:1058</value>
+												</values>
+												</property>
+												<property>
+												<name>Producer</name>
+												<values arity="Scalar" type="String">
+												<value>dvipdfm 0.13.2c,
+												Copyright © 1998, by Mark A.
+												Wicks</value>
+												</values>
+												</property>
+												<property>
+												<name>CreationDate</name>
+												<values arity="Scalar" type="Date">
+												<value>Mon Jan 03 10:59:16 CET
+												2005</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Filters</name>
+												<values arity="List" type="Property">
+												<property>
+												<name>FilterPipeline</name>
+												<values arity="Scalar" type="String">
+												<value>FlateDecode</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Fonts</name>
+												<values arity="List" type="Property">
+												<property>
+												<name>Type1</name>
+												<values arity="List" type="Property">
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F18</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>ATQHZK+LASY10</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>195</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>ATQHZK+LASY10</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												<value>Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-19</value>
+												<value>-192</value>
+												<value>944</value>
+												<value>683</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F5</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>OMSLHJ+CMEX10</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>OMSLHJ+CMEX10</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-24</value>
+												<value>-2960</value>
+												<value>1454</value>
+												<value>772</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F7</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>LHTLNA+CMR8</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>LHTLNA+CMR8</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-36</value>
+												<value>-250</value>
+												<value>1070</value>
+												<value>750</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F12</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>SHIWUZ+MSBM7</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>0</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>127</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>SHIWUZ+MSBM7</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>0</value>
+												<value>-504</value>
+												<value>2615</value>
+												<value>1004</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F15</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>Times-Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>EncodingDictionary</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Differences</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F1</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>Times-Bold</value>
+												</values>
+												</property>
+												<property>
+												<name>EncodingDictionary</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Differences</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F11</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>EPYWLA+CMMI6</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>EPYWLA+CMMI6</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												<value>Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>11</value>
+												<value>-250</value>
+												<value>1241</value>
+												<value>750</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F8</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>BYDRCN+CMMI12</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>BYDRCN+CMMI12</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												<value>Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-30</value>
+												<value>-250</value>
+												<value>1026</value>
+												<value>750</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F13</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>ODOKME+MSBM10</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>0</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>127</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>ODOKME+MSBM10</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-55</value>
+												<value>-420</value>
+												<value>2343</value>
+												<value>920</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F4</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>IHTDSI+CMSY8</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>IHTDSI+CMSY8</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												<value>Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-30</value>
+												<value>-955</value>
+												<value>1185</value>
+												<value>779</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F10</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>VWAPXZ+CMSY10</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>VWAPXZ+CMSY10</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												<value>Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-29</value>
+												<value>-960</value>
+												<value>1116</value>
+												<value>775</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F2</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>Times-Roman</value>
+												</values>
+												</property>
+												<property>
+												<name>EncodingDictionary</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Differences</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F6</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>OHIAGQ+CMMI8</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>OHIAGQ+CMMI8</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												<value>Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-24</value>
+												<value>-250</value>
+												<value>1110</value>
+												<value>750</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F16</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>CFZYDM+CMSY6</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>CFZYDM+CMSY6</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												<value>Italic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-4</value>
+												<value>-948</value>
+												<value>1329</value>
+												<value>786</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F3</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>Times-Roman</value>
+												</values>
+												</property>
+												<property>
+												<name>EncodingDictionary</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Differences</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F9</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>VDUXBA+CMR12</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>VDUXBA+CMR12</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-34</value>
+												<value>-251</value>
+												<value>988</value>
+												<value>750</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F17</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>MADKEQ+CMR6</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>MADKEQ+CMR6</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>-20</value>
+												<value>-250</value>
+												<value>1193</value>
+												<value>750</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												<property>
+												<name>Font</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>Name</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>F14</value>
+												</values>
+												</property>
+												<property>
+												<name>BaseFont</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>FQDUZA+MSAM10</value>
+												</values>
+												</property>
+												<property>
+												<name>FontSubset</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												<property>
+												<name>FirstChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>33</value>
+												</values>
+												</property>
+												<property>
+												<name>LastChar</name>
+												<values
+												arity="Scalar"
+												type="Integer">
+												<value>196</value>
+												</values>
+												</property>
+												<property>
+												<name>FontDescriptor</name>
+												<values arity="List"
+												type="Property">
+												<property>
+												<name>FontName</name>
+												<values
+												arity="Scalar"
+												type="String">
+												<value>FQDUZA+MSAM10</value>
+												</values>
+												</property>
+												<property>
+												<name>Flags</name>
+												<values
+												arity="List"
+												type="String">
+												<value>Symbolic</value>
+												</values>
+												</property>
+												<property>
+												<name>FontBBox</name>
+												<values
+												arity="Array"
+												type="Integer">
+												<value>8</value>
+												<value>-463</value>
+												<value>1331</value>
+												<value>1003</value>
+												</values>
+												</property>
+												<property>
+												<name>FontFile</name>
+												<values
+												arity="Scalar"
+												type="Boolean">
+												<value>true</value>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+												</property>
+												</values>
+											</property>
+										</properties>
+									</repInfo>
+								</jhove>
+							</lmerFile:xmlData>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="TechMD-File-2">
+					<mdWrap ID="TechMD-File-2-MdWrap" MIMETYPE="text/xml" MDTYPE="OTHER"
+						OTHERMDTYPE="lmerFile" LABEL="LMERfile">
+						<xmlData>
+							<lmerFile:format REGISTRYNAME="DIAS"
+								>urn:diasid:fty:kopal:0200507050000000000015</lmerFile:format>
+							<lmerFile:xmlData MDTYPE="JHOVE">
+								<jhove xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+									xmlns="http://hul.harvard.edu/ois/xml/ns/jhove"
+									xsi:schemaLocation="http://hul.harvard.edu/ois/xml/ns/jhove
+									http://hul.harvard.edu/ois/xml/xsd/jhove/1.3/jhove.xsd"
+									name="LMER" release="1.3" date="2005-08-29">
+									<date>2006-01-12T14:50:15+01:00</date>
+									<repInfo>
+										<reportingModule release="1.1" date="2005-01-11">ASCII-hul</reportingModule>
+										<format>ASCII</format>
+										<status>Well-Formed and valid</status>
+										<properties>
+											<property>
+												<name>ASCIIMetadata</name>
+												<values arity="List" type="Property">
+												<property>
+												<name>LineEndings</name>
+												<values arity="List" type="String">
+												<value>CRLF</value>
+												</values>
+												</property>
+												</values>
+											</property>
+										</properties>
+									</repInfo>
+								</jhove>
+							</lmerFile:xmlData>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+				<techMD ID="TechMD-File-3">
+					<mdWrap ID="TechMD-File-3-MdWrap" MIMETYPE="text/xml" MDTYPE="OTHER"
+						OTHERMDTYPE="lmerFile" LABEL="LMERfile">
+						<xmlData>
+							<lmerFile:format REGISTRYNAME="DIAS"
+								>urn:diasid:fty:kopal:0000000000000000000000</lmerFile:format>
+							<lmerFile:category>binary</lmerFile:category>
+							<lmerFile:xmlData MDTYPE="JHOVE">
+								<jhove xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+									xmlns="http://hul.harvard.edu/ois/xml/ns/jhove"
+									xsi:schemaLocation="http://hul.harvard.edu/ois/xml/ns/jhove
+									http://hul.harvard.edu/ois/xml/xsd/jhove/1.3/jhove.xsd"
+									name="LMER" release="1.3" date="2005-08-29">
+									<date>2006-01-12T14:50:16+01:00</date>
+									<repInfo>
+										<reportingModule release="1.2" date="2005-03-09">BYTESTREAM</reportingModule>
+										<format>bytestream</format>
+										<status>Well-Formed and valid</status>
+									</repInfo>
+								</jhove>
+							</lmerFile:xmlData>
+						</xmlData>
+					</mdWrap>
+				</techMD>
+			</amdSec>
+			<fileSec>
+				<fileGrp ID="ASSET" ADMID="TechMD-LMER-Object">
+					<file ID="FILE0001" MIMETYPE="application/pdf" SIZE="330118"
+						CREATED="2006-01-12T14:50:16"
+						CHECKSUM="17673a8df8fc8ddd101fc0fbd6ed69d416608571" CHECKSUMTYPE="SHA-1"
+						ADMID="TechMD-File-1">
+						<FLocat LOCTYPE="URL" xlink:type="simple"
+							xlink:href="file://./d1/973908904.pdf"/>
+					</file>
+					<file ID="FILE0002" MIMETYPE="text/plain; charset=US-ASCII" SIZE="48"
+						CREATED="2006-01-12T14:50:16"
+						CHECKSUM="e54dbd60ec4507768eb7e4a663e19c1045e38595" CHECKSUMTYPE="SHA-1"
+						ADMID="TechMD-File-2">
+						<FLocat LOCTYPE="URL" xlink:type="simple"
+							xlink:href="file:///./d1/ddbmd5.txt"/>
+					</file>
+					<file ID="FILE0003" MIMETYPE="application/octet-stream" SIZE="13531"
+						CREATED="2006-01-12T14:50:16"
+						CHECKSUM="4507fffd6b0a47bc2d4e80d1b132776359e77db4" CHECKSUMTYPE="SHA-1"
+						ADMID="TechMD-File-3">
+						<FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./meta.txt"/>
+					</file>
+				</fileGrp>
+			</fileSec>
+			<structMap TYPE="ASSET">
+				<div ORDER="1" LABEL="File list" TYPE="ASSET">
+					<fptr FILEID="FILE0001"/>
+					<fptr FILEID="FILE0002"/>
+					<fptr FILEID="FILE0003"/>
+				</div>
+			</structMap>
+			<structMap TYPE="LOGICAL">
+				<div>
+					<div ORDER="1" LABEL="973908904.pdf">
+						<fptr FILEID="FILE0001"/>
+					</div>
+					<div ORDER="2" LABEL="ddbmd5.txt">
+						<fptr FILEID="FILE0002"/>
+					</div>
+					<div ORDER="3" LABEL="meta.txt">
+						<fptr FILEID="FILE0003"/>
+					</div>
+				</div>
+			</structMap>
+		</mets>
+	</Appendix>
+</METS_Profile>

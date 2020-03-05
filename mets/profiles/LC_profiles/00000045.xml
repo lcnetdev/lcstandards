@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile STATUS="final" REGISTRATION="registered"
+    xmlns="http://www.loc.gov/METS_Profile/v2"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xsi:schemaLocation="
+    http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd
+    http://www.loc.gov/METS/ http://www.loc.gov./standards/mets/mets.xsd
+    ">
+    <URI LOCTYPE="URL" ASSIGNEDBY="local">http://digital2.library.unt.edu/mets/untl.xml</URI>
+    <URI LOCTYPE="URL" ASSIGNEDBY="metsboard">http://www.loc.gov/standards/mets/profiles/00000045.xml</URI>
+    <title>UNTL METS Archival Information Package Profile</title>
+    <abstract>This profile describes the rules and requirements for using METS as an Archival Information Package (AIP) for general digital objects at the University of North Texas. 
+        Digital objects may contain files, groupings into fileSets and further organization into manifestations. 
+        This METS profile is used by the University of North Texas for all Archival Information Packages accessioned by the UNT Libraries' Digital Collections. 
+
+        All MUST, MUST NOT, SHOULD, SHOULD NOT and MAY terms are used according to the meaning defined in RFC 2119 (http://www.ietf.org/rfc/rfc2119.txt)</abstract>
+    <date>2015-03-05T11:08:00</date>
+    <contact>
+        <name>Mark Phillips</name>
+        <institution>University of North Texas Libraries</institution>
+        <address>1155 Union Circle #305190, Denton, TX 76203-5017</address>
+        <phone>(940)391-0414</phone>
+        <email>mark.phillips@unt.edu</email>
+    </contact>
+    <related_profile/>
+    <profile_context>
+        <resource_model><xhtml:p>This profile describes the METS records used by the UNT Libraries as part of the Archival Information Packages (AIP) in terms of the Open Archival Information Systems Reference Model.</xhtml:p>
+        </resource_model>
+    </profile_context>
+    <external_schema>
+        <name>PREMIS Preservation Metadata Schema</name>
+        <URL>http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd</URL>
+    </external_schema>
+    <external_schema>
+        <name>UNTL Descriptive Metadata</name>
+        <URL>http://digital2.library.unt.edu/untl.xsd</URL>
+    </external_schema>
+    <external_schema>
+        <name>JHOVE - JSTOR/Harvard Object Validation Environment</name>
+        <URL>http://hul.harvard.edu/ois/xml/xsd/jhove/jhove.xsd</URL>
+    </external_schema>
+    <description_rules><xhtml:p>All descriptive metadata must adhere to the "University of North Texas Libraries' Input Guidelines for Descriptive Metadata."</xhtml:p></description_rules>
+    <controlled_vocabularies>
+        <vocabulary ID="vocab1">
+            <name>UNT Libraries' METS USE types</name>
+            <maintenance_agency>UNT Libraries' Digital Libraries Division</maintenance_agency>
+            <URI>http://digital2.library.unt.edu/vocabularies/use-qualifiers/</URI>
+            <description>
+            	<xhtml:p>This profile specifies the required vocabulary for the USE attribute value on the fileGrp element. It is required that this attribute appear. These values should distinguish the relationship between files.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="vocab2">
+            <name>METS structMap/div TYPE attribute values</name>
+            <values>
+                <value>object</value>
+                <value>manifestation</value>
+                <value>fileSet</value>
+            </values>
+            <description>
+            	<xhtml:p>This profile specifies the required vocabulary for the TYPE attribute value on the div elements of the structMap. It is required that this attribute appear at all div levels. These values distinguish by class the portions of the digital object described by the METS document.
+            	</xhtml:p>
+            </description>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsRootElement>
+            <requirement ID="metsRoot1" REQLEVEL="MUST">
+                <description> <xhtml:p>The root METS element must include an OBJID attribute with an ARK identifier assigned to the digital object.</xhtml:p></description>
+            </requirement>
+            <requirement ID="metsRoot2" REQLEVEL="MUST">
+                <description> <xhtml:p>The root METS element must include a TYPE attribute with a value of "archival information package".</xhtml:p></description>
+            </requirement>
+        </metsRootElement>
+        <metsHdr>
+            <requirement ID="metsHdr1" REQLEVEL="MUST">
+                <description><xhtml:p>The metsHdr element must contain the CREATEDATE and LASTMODDATE attributes.</xhtml:p></description>
+            </requirement>
+            <requirement ID="metsHdr2" REQLEVEL="MUST">
+                <description><xhtml:p>The metsHdr element must contain an agent element with the ROLE attribute value "CREATOR", TYPE attribute value "ORGANIZATION", and name element with value "UNT Libraries: Digital Projects Unit".</xhtml:p></description>
+            </requirement>
+        </metsHdr>
+        
+        <dmdSec>
+            <requirement ID="dmdSec1" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents must contain one dmdSec element. The dmdSec must contain a single mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="dmdSec2" REQLEVEL="MUST">
+                <description><xhtml:p>The mdRef element must identify to an external metadata record that conforms to the UNTL Descriptive Metadata schema. The identifier of the UNTL compliant metadata must be recorded in the xlink:href attribute of the mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="dmdSec3" REQLEVEL="MUST">
+                <description><xhtml:p>The mdRef element must have the MDTYPE attribute value of "OTHER".</xhtml:p></description>
+            </requirement>
+            <requirement ID="dmdSec4" REQLEVEL="MUST">
+                <description><xhtml:p>The mdRef element must have the OTHERMDTYPE attribute value of "UNTL".</xhtml:p></description>
+            </requirement>
+            <requirement ID="dmdSec5" REQLEVEL="MUST">
+                <description><xhtml:p>The mdRef element must have the LOCTYPE attribute value of "ARK".</xhtml:p></description>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement ID="amdSec1" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents must contain only one amdSec element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="amdSec2" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents must contain one or more techMD elements. Each techMD element must contain either an mdWrap or mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="amdSec3" REQLEVEL="MUST">
+                <description><xhtml:p>Each techMD element must contain an ID attribute.</xhtml:p></description>
+            </requirement>
+            <requirement ID="amdSec4" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents must contain one mdRef element per METS file element that points to an external document that conforms to the JHOVE schema. The location of this document must be recorded in the xlink:href attribute. This element must have an MDTYPE attribute value of "OTHER", an OTHERMDTYPE value of "JHOVE", and a LOCTYPE value of "URL".</xhtml:p></description>
+            </requirement>
+            <requirement ID="amdSec5" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents must contain one mdRef element per METS file element that encapsulates a PREMIS Object record using the PREMIS v1.0 Schema. This is included in an mdWrap with MDTYPE attribute of PREMIS and the PREMIS record is included within an xmlData element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="amdSec6" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents must contain one mdRef element per METS file element that encapsulates the output of the UNIX file command. This is included in an mdWrap with MDTYPE attribute of "OTHER" and a OTHERMDTYPE attribute of "unix_file". The output of the file command is encapsulated in a locally defined XML document included within an xmlData element.</xhtml:p></description>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement ID="fileSec1" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents must contain one fileSec element. The fileSec element must have an ID attribute assigned.</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec2" REQLEVEL="MUST">
+                <description><xhtml:p>Conforming METS documents for this profile must contain one or more fileGrp elements. The fileGrp container acts as an organizing unit for files that form a UNTL specific concept of a "fileSet". These fileSets group files that relate to a logical unit of an object such as a page, track, clip, or image. Each fileGrp must contain an ID attribute.</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec3" REQLEVEL="MUST" RELATEDMAT="vocab1">
+                <description><xhtml:p>Each file represented in the fileSec must have an associated USE attribute. The file USE attribute values must be drawn from the controlled vocabulary for file USE Attribute Values referenced within this profile.</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec4" REQLEVEL="MUST">
+                <description><xhtml:p>Each file element must contain an FLocat element which specifies the external location of the content file in an xlink:href attribute. The FLocat element must contain an xlink:href attribute, as well as a LOCTYPE attribute indicating the type of href being provided. The LOCTYPE for each file is "URL". The xlink:href attribute value is a URL with the "file://" protocol.</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec5" REQLEVEL="MUST">
+                <description><xhtml:p>Each file element must contain each of the following attributes in addition to the USE attribute mentioned above: MIMETYPE, CHECKSUMTYPE, CREATED, CHECKSUM, OWNERID, ADMID, ID, and SIZE.</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec6" REQLEVEL="MUST">
+                <description><xhtml:p>The CHECKSUMTYPE attribute must have a value of "MD5".</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec7" REQLEVEL="MUST">
+                <description><xhtml:p>The OWNERID attribute value must be an UUID using the urn:uuid:7b85fdd7-a15f-4bed-bc77-a51ea3beebae notation.</xhtml:p></description>
+            </requirement>
+             <requirement ID="fileSec8" REQLEVEL="MUST">
+                <description><xhtml:p>The ADMID attribute value must be set of identifiers that reference techMD elements in the adSec of the METS document. There are three ADMID identifiers separated by spaces.</xhtml:p></description>
+            </requirement> 
+        </fileSec>
+        <structMap>
+            <requirement ID="structMap1" REQLEVEL="MUST">
+                <description><xhtml:p>A conforming METS document must contain one and only one structMap.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap2" REQLEVEL="MUST">
+                <description><xhtml:p>A conforming structMap must contain an ID attribute.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap3" REQLEVEL="MUST" RELATEDMAT="vocab2">
+                <description><xhtml:p>The structMap will be organized by three nested div elements. Each lowest level div element has a TYPE attribute with the value of "fileSet", and contains one or more fptr elements, whose FILEID attribute points to the fileGrp of the referenced item in the fileSec. The next level div contains a TYPE attribute with a value from "manifestation". The top level div contains a TYPE attribute with a value of "object", and a DMDID attribute that points to the descriptive metadata for the digital object to the METS structMap.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap4" REQLEVEL="MUST">
+                <description><xhtml:p>The mptr element is not supported, instead a fptr element must directly point to a file element via its FILEID attribute. METS documents implementing this profile must not use the area, par, or seq elements.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap5" REQLEVEL="MUST NOT">
+                <description><xhtml:p>METS documents implementing this profile must not use the area, par, or seq elements.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap6" REQLEVEL="SHOULD">
+                <description><xhtml:p>The second and third level div elements should contain an ORDER attribute with an integer representing the order of that div within the whole document.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap7" REQLEVEL="MAY">
+                <description><xhtml:p>The third level div element may have an optional ORDERLABEL attribute which is used to record any pagination information related to a given fileSet.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap8" REQLEVEL="MAY">
+                <description><xhtml:p>The third level div element may have an optional LABEL attribute which is used to record additional non-pagination information related to a given fileSet. An example usage is the title of a track in an audio recording or the title of a clip in a multi-clip video object.</xhtml:p></description>
+            </requirement>
+        </structMap>
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement ID="techReq1" REQLEVEL="SHOULD">
+                <description><xhtml:p>It is recommended that digitized files described with METS documents conforming to this profile meet the minimum specifications of the UNT Libraries: available at http://www.library.unt.edu/digital-projects-unit/standards and that born-digital resources whenever possible come from a list of preferred formats available at http://www.library.unt.edu/digital-projects-unit/preferred-formats/.
+                </xhtml:p></description>
+            </requirement>
+        </content_files>
+    </technical_requirements>
+    <tool>
+        <name>UNT Libraries: AIPMaker</name>
+        <agency>UNT Libraries, Digital Libraries Division</agency>
+        <description><xhtml:p>The UNT Libraries' AIPMaker software is capable of creating a conforming METS file from a Submission Information Package that is a valid UNT Libraries submission package.</xhtml:p></description>
+    </tool>
+    <tool>
+        <name>UNT Libraries: ACPMaker</name>
+        <agency>UNT Libraries, Digital Libraries Division</agency>
+        <description><xhtml:p>The UNT Libraries' ACPMaker software is capable of using a METS document and associated digital content to produce an Access Content Package for the UNT Libraries' content access system called Aubrey.</xhtml:p></description>
+    </tool>
+    <Appendix NUMBER="1" LABEL="Example METS File for a two page letter available on The Portal to Texas History.">
+        <mets xmlns="http://www.loc.gov/METS/" xmlns:premis="http://www.loc.gov/standards/premis" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov./standards/mets/mets.xsd http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd" TYPE="archival information package" OBJID="ark:/67531/metapth591432" PROFILE="UNT_AIP_1.0">
+          <metsHdr CREATEDATE="2015-03-02T23:03:07Z" LASTMODDATE="2015-03-02T23:03:07Z" ID="hdr_00001">
+            <agent TYPE="ORGANIZATION" ROLE="CREATOR">
+              <name>UNT Libraries: Digital Projects Unit</name>
+            </agent>
+          </metsHdr>
+          <dmdSec ID="dmd_00001">
+            <mdRef xlink:href="ark:/67531/metapth591432/metadata.untl.xml" OTHERMDTYPE="UNTL" LOCTYPE="ARK" MDTYPE="OTHER"/>
+          </dmdSec>
+          <amdSec>
+            <techMD ID="amd_00001">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>62fa47f7-12cd-49d1-9ab8-c44103b28c1b</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>961fe74cf5d176c593d15a9acc5a669d</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>32299</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>text/x-pro</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_01.pro</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00002">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+                <xmlData>
+                    <unix_file>
+                        <identifier>urn:uuid:62fa47f7-12cd-49d1-9ab8-c44103b28c1b</identifier>
+                        <version>file-5.03</version>
+                        <output>PrimeOCR output file, version 5.00</output>
+                        <mimetype>text/x-pro</mimetype>
+                        <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+                    </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00003">
+              <mdRef xlink:href="file://metadata/62fa47f7-12cd-49d1-9ab8-c44103b28c1b.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+            <techMD ID="amd_00007">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>e114f79d-58a5-4dbd-a755-8ce746dfbc83</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>5091791ad624283e1c3f5dd1de610435</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>5625</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>application/xml</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_01.pro.xml</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00008">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+              <xmlData> 
+               <unix_file>
+                <identifier>urn:uuid:e114f79d-58a5-4dbd-a755-8ce746dfbc83</identifier>
+                <version>file-5.03</version>
+                <output>XML  document text</output>
+                <mimetype>application/xml</mimetype>
+                <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+               </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00009">
+              <mdRef xlink:href="file://metadata/e114f79d-58a5-4dbd-a755-8ce746dfbc83.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+            <techMD ID="amd_00004">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>f8814afe-c697-4b93-b159-ecd96e83f414</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>183f30d601ec664fc557b292bb23df1d</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>47747840</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>image/tiff</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_01.tif</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00005">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+              <xmlData> 
+               <unix_file>
+                    <identifier>urn:uuid:f8814afe-c697-4b93-b159-ecd96e83f414</identifier>
+                    <version>file-5.03</version>
+                    <output>TIFF image data, little-endian</output>
+                    <mimetype>image/tiff</mimetype>
+                    <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+               </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00006">
+              <mdRef xlink:href="file://metadata/f8814afe-c697-4b93-b159-ecd96e83f414.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+            <techMD ID="amd_00010">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>2bcbb48b-c0a4-43da-bf05-32a07f01d635</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>569dcd2f6c6c1cfd17d12e8f1340c27e</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>1240</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>text/plain</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_01.txt</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00011">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+              <xmlData> 
+               <unix_file>
+                    <identifier>urn:uuid:2bcbb48b-c0a4-43da-bf05-32a07f01d635</identifier>
+                    <version>file-5.03</version>
+                    <output>BOA archive data</output>
+                    <mimetype>text/plain</mimetype>
+                    <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+               </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00012">
+              <mdRef xlink:href="file://metadata/2bcbb48b-c0a4-43da-bf05-32a07f01d635.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+            <techMD ID="amd_00013">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>295e97ff-0679-4561-a60d-62def4e2e88a</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>d45013f543b73d5f3e224de6c14b9bd7</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>12404</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>text/x-pro</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_02.pro</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00014">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+              <xmlData> 
+               <unix_file>
+                    <identifier>urn:uuid:295e97ff-0679-4561-a60d-62def4e2e88a</identifier>
+                    <version>file-5.03</version>
+                    <output>PrimeOCR output file, version 5.00</output>
+                    <mimetype>text/x-pro</mimetype>
+                    <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+               </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00015">
+              <mdRef xlink:href="file://metadata/295e97ff-0679-4561-a60d-62def4e2e88a.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+            <techMD ID="amd_00019">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>be03a4a0-6e7f-40ae-896c-af4813bb75dd</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>7d4b4d0dbfddcd4d15551465f85a5d4d</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>2448</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>application/xml</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_02.pro.xml</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00020">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+              <xmlData> 
+               <unix_file>
+                    <identifier>urn:uuid:be03a4a0-6e7f-40ae-896c-af4813bb75dd</identifier>
+                    <version>file-5.03</version>
+                    <output>XML  document text</output>
+                    <mimetype>application/xml</mimetype>
+                    <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+               </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00021">
+              <mdRef xlink:href="file://metadata/be03a4a0-6e7f-40ae-896c-af4813bb75dd.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+            <techMD ID="amd_00016">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>c148186e-3a14-4185-90cc-0d5b4263303c</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>c04d0e7e5212ae8265b04f04bc721629</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>47747840</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>image/tiff</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_02.tif</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00017">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+              <xmlData> 
+               <unix_file>
+                    <identifier>urn:uuid:c148186e-3a14-4185-90cc-0d5b4263303c</identifier>
+                    <version>file-5.03</version>
+                    <output>TIFF image data, little-endian</output>
+                    <mimetype>image/tiff</mimetype>
+                    <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+               </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00018">
+              <mdRef xlink:href="file://metadata/c148186e-3a14-4185-90cc-0d5b4263303c.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+            <techMD ID="amd_00022">
+              <mdWrap MDTYPE="PREMIS">
+                <xmlData>
+                  <premis:object>
+                    <premis:objectIdentifier>
+                      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+                      <premis:objectIdentifierValue>7dbda472-377f-45b7-b763-036b6b78e665</premis:objectIdentifierValue>
+                    </premis:objectIdentifier>
+                    <premis:objectCategory>file</premis:objectCategory>
+                    <premis:objectCharacteristics>
+                      <premis:compositionLevel>0</premis:compositionLevel>
+                      <premis:fixity>
+                        <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                        <premis:messageDigest>adf38e4cd0bb80403992f697f0bde0ad</premis:messageDigest>
+                        <premis:messageDigestOriginator>md5Hash</premis:messageDigestOriginator>
+                      </premis:fixity>
+                      <premis:size>467</premis:size>
+                      <premis:format>
+                        <premis:formatDesignation>
+                          <premis:formatName>text/plain</premis:formatName>
+                        </premis:formatDesignation>
+                      </premis:format>
+                    </premis:objectCharacteristics>
+                    <premis:originalName>01_tif/CUA_CTX-236-1945-09-26_02.txt</premis:originalName>
+                  </premis:object>
+                </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00023">
+              <mdWrap MDTYPE="OTHER" OTHERMDTYPE="unix_file">
+              <xmlData>
+              <unix_file>
+                    <identifier>urn:uuid:7dbda472-377f-45b7-b763-036b6b78e665</identifier>
+                    <version>file-5.03</version>
+                    <output>ASCII text</output>
+                    <mimetype>text/plain</mimetype>
+                    <magicLocation>/home/digitalprojects/coda/unt_dpu_magic</magicLocation>
+              </unix_file>
+              </xmlData>
+              </mdWrap>
+            </techMD>
+            <techMD ID="amd_00024">
+              <mdRef xlink:href="file://metadata/7dbda472-377f-45b7-b763-036b6b78e665.jhove.xml" OTHERMDTYPE="JHOVE" LOCTYPE="URL" MDTYPE="OTHER"/>
+            </techMD>
+          </amdSec>
+          <fileSec ID="sec_00001">
+            <fileGrp ID="fgrp_00001">
+              <file MIMETYPE="text/x-pro" USE="11" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:03Z" CHECKSUM="961fe74cf5d176c593d15a9acc5a669d" OWNERID="urn:uuid:62fa47f7-12cd-49d1-9ab8-c44103b28c1b" ADMID="amd_00001 amd_00003 amd_00002" ID="file_00001" SIZE="32299">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_01.pro" LOCTYPE="URL"/>
+              </file>
+              <file MIMETYPE="application/xml" USE="5" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:03Z" CHECKSUM="5091791ad624283e1c3f5dd1de610435" OWNERID="urn:uuid:e114f79d-58a5-4dbd-a755-8ce746dfbc83" ADMID="amd_00007 amd_00009 amd_00008" ID="file_00003" SIZE="5625">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_01.pro.xml" LOCTYPE="URL"/>
+              </file>
+              <file MIMETYPE="image/tiff" USE="0" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:04Z" CHECKSUM="183f30d601ec664fc557b292bb23df1d" OWNERID="urn:uuid:f8814afe-c697-4b93-b159-ecd96e83f414" ADMID="amd_00004 amd_00006 amd_00005" ID="file_00002" SIZE="47747840">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_01.tif" LOCTYPE="URL"/>
+              </file>
+              <file MIMETYPE="text/plain" USE="4" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:04Z" CHECKSUM="569dcd2f6c6c1cfd17d12e8f1340c27e" OWNERID="urn:uuid:2bcbb48b-c0a4-43da-bf05-32a07f01d635" ADMID="amd_00010 amd_00012 amd_00011" ID="file_00004" SIZE="1240">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_01.txt" LOCTYPE="URL"/>
+              </file>
+            </fileGrp>
+            <fileGrp ID="fgrp_00002">
+              <file MIMETYPE="text/x-pro" USE="11" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:04Z" CHECKSUM="d45013f543b73d5f3e224de6c14b9bd7" OWNERID="urn:uuid:295e97ff-0679-4561-a60d-62def4e2e88a" ADMID="amd_00013 amd_00015 amd_00014" ID="file_00005" SIZE="12404">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_02.pro" LOCTYPE="URL"/>
+              </file>
+              <file MIMETYPE="application/xml" USE="5" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:04Z" CHECKSUM="7d4b4d0dbfddcd4d15551465f85a5d4d" OWNERID="urn:uuid:be03a4a0-6e7f-40ae-896c-af4813bb75dd" ADMID="amd_00019 amd_00021 amd_00020" ID="file_00007" SIZE="2448">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_02.pro.xml" LOCTYPE="URL"/>
+              </file>
+              <file MIMETYPE="image/tiff" USE="0" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:04Z" CHECKSUM="c04d0e7e5212ae8265b04f04bc721629" OWNERID="urn:uuid:c148186e-3a14-4185-90cc-0d5b4263303c" ADMID="amd_00016 amd_00018 amd_00017" ID="file_00006" SIZE="47747840">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_02.tif" LOCTYPE="URL"/>
+              </file>
+              <file MIMETYPE="text/plain" USE="4" CHECKSUMTYPE="MD5" CREATED="2015-03-02T23:01:04Z" CHECKSUM="adf38e4cd0bb80403992f697f0bde0ad" OWNERID="urn:uuid:7dbda472-377f-45b7-b763-036b6b78e665" ADMID="amd_00022 amd_00024 amd_00023" ID="file_00008" SIZE="467">
+                <FLocat xlink:href="file://data/01_tif/CUA_CTX-236-1945-09-26_02.txt" LOCTYPE="URL"/>
+              </file>
+            </fileGrp>
+          </fileSec>
+          <structMap ID="smap_00001">
+            <div DMDID="dmd_00001" TYPE="object" ID="obj_00001">
+              <div LABEL="tif" TYPE="manifestation" ID="mn_00001" ORDER="1">
+                <div TYPE="fileSet" ID="fs_00001" ORDER="1">
+                  <fptr FILEID="file_00001"/>
+                  <fptr FILEID="file_00003"/>
+                  <fptr FILEID="file_00002"/>
+                  <fptr FILEID="file_00004"/>
+                </div>
+                <div TYPE="fileSet" ID="fs_00002" ORDER="2">
+                  <fptr FILEID="file_00005"/>
+                  <fptr FILEID="file_00007"/>
+                  <fptr FILEID="file_00006"/>
+                  <fptr FILEID="file_00008"/>
+                </div>
+              </div>
+            </div>
+          </structMap>
+        </mets>
+    </Appendix>
+</METS_Profile>

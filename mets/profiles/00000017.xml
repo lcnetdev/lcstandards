@@ -1,0 +1,1954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--created by the Metadata Analysis and Specification Unit, Metadata Services Department, University of California, San Diego.-->
+<!--<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance http://www.loc.gov/METS_Profile/  http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">-->
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/METS_Profile/  http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd"
+    xmlns="http://www.loc.gov/METS_Profile/">
+    <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000017.xml</URI>
+    <title>UCSD Complex Object Profile</title>
+    <abstract> The UCSD Libraries uses the UCSD Complex Object profile for composing METS instances
+        for digital objects in which the primary content of the digital object is contained in two
+        or more digital files. The content files may be of any format type, e.g., audio, image,
+        text, or video, and there can be any combination of formats within a single complex object.
+        There are no restrictions placed on the type of logical structure represented in the complex
+        object. The decision to require a complex object’s structure to be represented by both
+        physical and logical &lt;structMap&gt;s, as described in the profile, is influenced
+        by the current requirements of the METS Navigator application. </abstract>
+    <date>2007-07-30T10:53:31</date>
+    <contact>
+        <name>Digital Library Office</name>
+        <address>Geisel Library, UC, San Diego</address>
+        <email>dlo@ucsd.edu</email>
+    </contact>
+    <related_profile RELATIONSHIP="Extends"
+        URI="http://www.loc.gov/standards/mets/profiles/00000012.xml">UCSD Simple Object Profile</related_profile>
+    <extension_schema>
+        <name>MODS</name>
+        <URI>http://www.loc.gov/standards/mods/v3/mods-3-2.xsd</URI>
+        <context>mets/dmdSec/mdWrap/xmlData</context>
+        <note>Used for descriptive metadata representing the intellectual object.</note>
+    </extension_schema>
+    <extension_schema>
+        <name>PREMIS</name>
+        <URI>http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd</URI>
+        <context>mets/amdSec/techMD/mdWrap/xmlData</context>
+        <note>Used for technical metadata about content files.</note>
+    </extension_schema>
+    <extension_schema>
+        <name>METSRights</name>
+        <URI>http://cosimo.stanford.edu/sdr/metsrights.xsd</URI>
+        <context>mets/amdSec/rightsMD/mdWrap/xmlData</context>
+        <note>Used for recording intellectual property rights.</note>
+    </extension_schema>
+    <description_rules>
+        <p>All applications of MODS in UCSD METS records adhere to the MODS User Guidelines
+            published by the Library of Congress's Network Development and MARC Standards Office.</p>
+        <p>MODS usage in UCSD METS records is also informed by The Digital Library Federation /
+            Aquifer Implementation Guidelines for Shareable MODS Records.</p>
+    </description_rules>
+    <controlled_vocabularies>
+        <vocabulary>
+            <name>UCSD file USE attribute values</name>
+            <maintenance_agency>University of California, San Diego</maintenance_agency>
+            <values>
+                <value>Application-PDF</value>
+                <value>Application-PS</value>
+                <value>Audio-Master</value>
+                <value>Audio-Master-Edited</value>
+                <value>Audio-Service</value>
+                <value>Audio-Streaming</value>
+                <value>Audio-Clip</value>
+                <value>Image-Master</value>
+                <value>Image-Master-Edited</value>
+                <value>Image-Service</value>
+                <value>Image-Service-LowRes</value>
+                <value>Image-Service-MedRes</value>
+                <value>Image-Service-HighRes</value>
+                <value>Image-Service-Edited</value>
+                <value>Image-Thumbnail</value>
+                <value>Text-OCR-Edited</value>
+                <value>Text-OCR-Unedited</value>
+                <value>Text-TEI-Translated</value>
+                <value>Text-TEI-Transcripted</value>
+                <value>Text-Georeference</value>
+                <value>Text-Data</value>
+                <value>Text-Data Definition</value>
+                <value>Text-Codebook</value>
+                <value>Video-Master</value>
+                <value>Video-Master-Edited</value>
+                <value>Video-Service</value>
+                <value>Video-Streaming</value>
+                <value>Video-Clip</value>
+            </values>
+            <context ID="vc1" RELATEDMAT="fileSec2">
+                <p>mets/fileSec/fileGrp/@USE</p>
+                <p>mets/fileSec/fileGrp/file/@USE</p>
+            </context>
+            <description>
+                <p>These are the values supported for &lt;file&gt; and
+                    &lt;fileGrp&gt; USE attributes for digital objects conforming to this
+                    profile.</p>
+            </description>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsRootElement>
+            <requirement ID="metsRoot1">
+                <p>The root &lt;mets&gt; element must include a LABEL attribute value. </p>
+            </requirement>
+            <requirement ID="metsRoot2">
+                <p>The root &lt;mets&gt; element must include a PROFILE attribute value.
+                </p>
+            </requirement>
+            <requirement ID="metsRoot3">
+                <p>The root &lt;mets&gt; element must include an OBJID attribute value that
+                    uniquely identifies the METS instance in the UCSD digital repository. The value
+                    must be an ARK. .</p>
+            </requirement>
+        </metsRootElement>
+        <metsHdr>
+            <requirement ID="metsHdr1">
+                <p>A METS record conforming to this profile must contain a &lt;metsHdr&gt;
+                    element. </p>
+            </requirement>
+            <requirement ID="metsHdr2">
+                <p>The &lt;metsHdr&gt; element must contain the CREATEDATE attribute. </p>
+            </requirement>
+            <requirement ID="metsHdr3">
+                <p>The &lt;metsHdr&gt; element must contain an &lt;agent&gt; with
+                    the ROLE attribute value "CREATOR" and a TYPE attribute value "ORGANIZATION".
+                </p>
+            </requirement>
+            <requirement ID="metsHdr4">
+                <p>The &lt;agent&gt; element must contain the &lt;name&gt; element
+                    with the value "Digital Library Office, Geisel Library, University of
+                    California, San Diego", and a &lt;note&gt; element with the value
+                    "mailto:dlo@ucsd.edu". </p>
+            </requirement>
+            <requirement ID="metsHdr5">
+                <p>The &lt;metsHdr&gt; element should, but is not required to, contain a
+                    LASTMODDATE attribute reflecting the date of the last modification to the METS
+                    record. </p>
+            </requirement>
+        </metsHdr>
+        <dmdSec>
+            <requirement ID="dmdSec1">
+                <p>A METS record conforming to this profile must contain at least one
+                    &lt;dmdSec&gt; containing a &lt;mdWrap&gt; with
+                    &lt;xmlData&gt;. </p>
+            </requirement>
+            <requirement ID="dmdSec2">
+                <p>All &lt;dmdSec&gt; elements must contain an ID attribute.</p>
+            </requirement>
+            <requirement ID="dmdSec3">
+                <p>The required dmdSec/mdWrap/xmlData must contain elements from the Metadata Object
+                    Description Schema (MODS) and describe the digital object as a whole. </p>
+            </requirement>
+            <requirement ID="dmdSec4">
+                <p>A conforming METS record must contain a mods/titleInfo/title element. </p>
+            </requirement>
+            <requirement ID="dmdSec5">
+                <p>A conforming METS record must contain a mods/typeOfResource element for which the
+                    value must be taken from the MODS typeOfResource values. Type of resource values
+                    should be determined by the materials content not the file format. For example
+                    an image of a page of text should have the value "text".</p>
+            </requirement>
+            <requirement ID="dmdSec6">
+                <p>A conforming METS record must contain a mods/identifier element, with the
+                    attribute TYPE="ARK". The element should contain the actionable URL ARK for the
+                    digital object as a whole, not a constituent file. </p>
+            </requirement>
+            <requirement ID="dmdSec7">
+                <p>A conforming METS record must contain a mods/note element, with the attribute
+                    displayLabel="Digital object made available by". The element should name the
+                    UCSD Libraries' data provider that is primarily responsible for making the
+                    resource available digitally with the URL for the provider's main webpage, e.g.
+                    Mandeville Special Collections Library, University of California, San Diego, La
+                    Jolla, CA 92093-0175 (http://orpheus.ucsd.edu/speccoll/)</p>
+            </requirement>
+            <requirement ID="dmdSec8">
+                <p>A conforming METS record should, but is not required to, contain the following
+                    descriptive metadata elements when they are applicable: creator
+                    (mods/name/namePart), date of creation (mods/originInfo/dateCreated), genre
+                    (mods/genre), description (mods/abstract), subject (mods/subject/...), language
+                    of the object (mods/language), publisher (mods/originInfo/publisher), place of
+                    publication (mods/originInfo/place) and the name of the project or collection to
+                    which the object belongs (mods/relatedItem/titleInfo/title). </p>
+            </requirement>
+            <requirement ID="dmdSec9">
+                <p>If present, descriptive metadata for each component part of the digital object
+                    must be placed in a separate &lt;dmdSec&gt; element and expressed with
+                    the MODS metadata schema.</p>
+            </requirement>
+            <requirement ID="dmdSec10">
+                <p>If parallel description, in a schema other than MODS (e.g., Dublin Core, VRA,
+                    FGDC, etc.), is provided for the object or its components, each parallel
+                    description must be placed in a separate &lt;dmdSec&gt; element. When
+                    adding elements from metadata schemas these should conform to standardized
+                    guidelines for the schema. </p>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement ID="amdSec1">
+                <p>A METS record conforming to this profile must have an &lt;amdSec&gt;
+                    section. The &lt;amdSec&gt; section must contain at least one
+                    techMD/mdWrap/xmlData section for each master file and at least one
+                    rightsMD/mdWrap/xmlData section pertaining to the digital object as a whole.
+                </p>
+            </requirement>
+            <requirement ID="amdSec2">
+                <p>All &lt;techMD&gt; and &lt;rightsMD&gt; elements must contain an
+                    ID attribute.</p>
+            </requirement>
+            <requirement ID="techMD1">
+                <p>The required &lt;techMD&gt; sections must contain elements from the
+                    PREMIS schema. </p>
+            </requirement>
+            <requirement ID="techMD2">
+                <p>The required &lt;techMD&gt; sections should describe the digital files of
+                    the greatest archival quality. </p>
+            </requirement>
+            <requirement ID="techMD3">
+                <p>A conforming METS record must contain a
+                    pre/object/objectIdentifier/objectIdentifierType element with the value "ARK",
+                    and a pre/object/objectIdentifier/objectIdentifierValue element with the unique
+                    ID. </p>
+            </requirement>
+            <requirement ID="techMD4">
+                <p>A conforming METS record must contain a pre/object/preservationLevel element. The
+                    value should be either "Full" or "Bit-level". </p>
+            </requirement>
+            <requirement ID="techMD5">
+                <p>A conforming METS record must contain a pre/object/objectCategory element. The
+                    value should be "File". </p>
+            </requirement>
+            <requirement ID="techMD6">
+                <p>A conforming METS record must contain a
+                    pre/object/objectCharacteristics/compositionLevel element. The value should be
+                    "0" for uncompressed files.</p>
+            </requirement>
+            <requirement ID="techMD7">
+                <p>A conforming METS record must contain a
+                    pre/object/objectCharacteristics/fixity/messageDigestAlgorithm element and a
+                    pre/object/objectCharacteristics/fixity/messageDigest element. </p>
+            </requirement>
+            <requirement ID="techMD8">
+                <p>A conforming METS record must contain a pre/object/objectCharacteristics/size
+                    element. </p>
+            </requirement>
+            <requirement ID="techMD9">
+                <p>A conforming METS record must contain a
+                    pre/object/objectCharacteristics/format/formatName element. </p>
+            </requirement>
+            <requirement ID="techMD10">
+                <p>A conforming METS record must contain a
+                    pre/object/creatingApplication/dateCreatedByApplication element. </p>
+            </requirement>
+            <requirement ID="techMD11">
+                <p>A conforming METS record should, but is not required to, include the following
+                    PREMIS elements: medium on which the object is stored
+                    (pre/object/storage/storageMedium), file format version
+                    (pre/object/objectCharacteristics/formatDesignation/formatVersion), name of the
+                    application that created the file
+                    (pre/object/creatingApplication/creatingApplicationName), and the original file
+                    name (pre/object/originalName) </p>
+            </requirement>
+            <requirement ID="techMD12">
+                <p>Additional &lt;techMD&gt; sections may, but are not required to, be used
+                    for the description of files other than the master file, or for inclusion of
+                    format specific metadata for any file.</p>
+            </requirement>
+            <requirement ID="techMD13">
+                <p>Additional format specific &lt;techMD&gt; sections for the description of
+                    images must be expressed with the MIX schema.</p>
+            </requirement>
+            <requirement ID="techMD14">
+                <p>Additional format specific &lt;techMD&gt; sections for the description of
+                    text must be expressed with the TextMD schema.</p>
+            </requirement>
+            <requirement ID="techMD15">
+                <p>Additional format specific &lt;techMD&gt; sections for the description of
+                    audio or video, should conform to an extension schema endorsed by the METS
+                    Editorial Board (although at this date of publication extension schemas have not
+                    yet been endorsed for audio or video). </p>
+            </requirement>
+            <requirement ID="techMD16">
+                <p>Source or provenance metadata expressed as MIX pertaining to image content files,
+                    can be included in a &lt;techMD&gt; section instead of a separate
+                    &lt;sourceMD&gt; section. </p>
+            </requirement>
+            <requirement ID="rightsMD1">
+                <p>The required &lt;rightsMD&gt; must contain elements from the METSRights
+                    schema. The &lt;rightsMD&gt; for the digital object as a whole will be
+                    taken to apply to all component parts unless different rights are specified for
+                    components in additional &lt;rightsMD&gt; sections. </p>
+            </requirement>
+            <requirement ID="rightsMD2">
+                <p>A conforming METS record must include a rts/RightsDeclarationMD element with the
+                    RIGHTSCATEGORY attribute encoded as either "COPYRIGHTED", "PUBLIC DOMAIN" or
+                    "OTHER". </p>
+            </requirement>
+            <requirement ID="rightsMD3">
+                <p>A conforming METS record must include a rts/RightsDeclarationMD/RightsDeclaration
+                    from the METSRights Schema with the value expressed as either "Copyright is held
+                    by unnamed third party" for works for which the copyright holder(s) can not be
+                    identified, "Copyright is held by named third party but not the UC Regents" for
+                    works for which the copyright holder(s) is not the UC Regents and can be
+                    identified, "Copyright held by the UC Regents" for materials under copyright to
+                    the University of California Regents, "The work is in the public domain" for
+                    works known to have entered the public domain, or "Copyright status has not been
+                    determined by the UCSD Libraries" for works for which the copyright holder(s)
+                    cannot be identified and the work cannot be said to have entered the public
+                    domain. </p>
+            </requirement>
+            <requirement ID="rightsMD4">
+                <p>If necessary, a justification of the rights declaration can be included in
+                    rts/RightsDeclarationMD/RightsDeclaration/ element to explain the copyright
+                    assertion. This is not necessary if the basis for the assertion is evident in
+                    the descriptive metadata for the object. In cases where this is not evident, a
+                    justification statement may be very useful. Examples of such cases include 1)
+                    when the copyright holder is different than the creator and 2) when an item has
+                    been gifted to the public domain prior to the copyright expiring. </p>
+            </requirement>
+            <requirement ID="rightsMD5">
+                <p>A conforming METS record must include a
+                    rts/RightsDeclarationMD/Context/Constraints/ConstraintDescription containing an
+                    indication of how the digital asset can be used. See the UCSD Rights Metadata
+                    Strategy for boilerplate text. </p>
+            </requirement>
+            <requirement ID="rightsMD6">
+                <p>A conforming METS record may, but is not required to, include a
+                    rts/RightsHolder/… from the METSRights Schema for those works for which the
+                    copyright holder(s) can be identified. Data can include the name of the
+                    copyright holder(s), their contact information and any notes relevant to the
+                    copyright holder. </p>
+            </requirement>
+            <requirement ID="sourceMD1">
+                <p>If source metadata is recorded, elements in the &lt;sourceMD&gt; sections
+                    should be expressed using an extension schema endorsed by the METS Editorial
+                    Board designed for expressing source metadata (although at this date of
+                    publication an extension schema has not yet been endorsed for source metadata).
+                </p>
+            </requirement>
+            <requirement ID="digiprovMD1">
+                <p>If provenance metadata is recorded, elements in the &lt;digiprovMD&gt;
+                    sections should be expressed using an extension schema endorsed by the METS
+                    Editorial Board designed for expressing provenance metadata (although at this
+                    date of publication an extension schema has not yet been endorsed for provenance
+                    metadata). </p>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement ID="fileSec1">
+                <p>The &lt;fileSec&gt; for a compliant METS record must contain one, or
+                    more, &lt;fileGrp&gt; elements. </p>
+            </requirement>
+            <requirement ID="fileSec2">
+                <p>Each &lt;fileGrp&gt; must include a file USE attribute, with a value
+                    taken from the controlled vocabulary listed above, representing the intended use
+                    of the referenced file(s). </p>
+            </requirement>
+            <requirement ID="fileSec3">
+                <p>Each &lt;file&gt; element must contain ID and GROUPID attribute value
+                    pairs. </p>
+            </requirement>
+            <requirement ID="fileSec4">
+                <p>Each &lt;file&gt; element must reference pertinent &lt;techMD&gt;
+                    sections by including the relevant ID values in the ADMID attribute. The ADMID
+                    attribute should also reference pertinent &lt;sourceMD&gt; and
+                    &lt;provenanceMD&gt; elements, if present. The &lt;file&gt;
+                    element should only reference ID values at the levels of &lt;techMD&gt;,
+                    &lt;sourceMD&gt;, and &lt;digiprovMD&gt;. </p>
+            </requirement>
+        </fileSec>
+        <structMap>
+            <requirement ID="structMap1">
+                <p>A conforming METS record must contain two &lt;structMap&gt; elements, one
+                    with the TYPE attribute value encoded as "logical", a second with the value
+                    encoded as "physical".</p>
+            </requirement>
+            <requirement ID="structMap2">
+                <p>The physical &lt;structMap&gt; represents a flattened structure and must
+                    only contain two levels of &lt;div&gt; elements with no further nesting.
+                    The top level &lt;div&gt; element required by the METS schema contains
+                    one level of child &lt;div&gt; elements to represent the linear sequence
+                    of the components of the digital object. </p>
+            </requirement>
+            <requirement ID="structMap3">
+                <p> The logical structMap represents the full hierarchical structure of the digital
+                    object, and so can contain as many levels of nested &lt;div&gt; elements
+                    as required to express the objects full structure.</p>
+            </requirement>
+            <requirement ID="structMap4">
+                <p>All &lt;div&gt; elements within the top level containing
+                    &lt;div&gt; must have an ORDER attribute. </p>
+            </requirement>
+            <requirement ID="structMap5">
+                <p>When applicable, &lt;div&gt; elements must reference pertinent
+                    &lt;dmdSec&gt; sections by including the relevant ID values in the DMDID
+                    attributes. </p>
+            </requirement>
+            <requirement ID="structMap6">
+                <p>When applicable, &lt;div&gt; elements should include a LABEL attribute
+                    with the value derived from, and identical, to the value encoded in the
+                    /mods/titleInfo/title element in the related &lt;dmdSec&gt;. </p>
+            </requirement>
+            <requirement ID="structMap7">
+                <p>When applicable, &lt;div&gt; elements must reference pertinent
+                    &lt;rightsMD&gt; sections by including the relevant ID values in the
+                    ADMID attributes. </p>
+            </requirement>
+            <requirement ID="structMap8">
+                <p>Each &lt;fptr&gt; element must reference an individual
+                    &lt;file&gt; element representing a version of the file. </p>
+            </requirement>
+            <requirement ID="structMap9">
+                <p>The &lt;fptr&gt; element must use the FILEID attribute to point directly
+                    to a &lt;file&gt; element. </p>
+            </requirement>
+            <requirement ID="structMap10">
+                <p>The &lt;fptr&gt; element may not contain an &lt;area&gt;,
+                    &lt;par&gt;, or &lt;seq&gt; element. These elements are not
+                    supported in objects conforming to this profile. </p>
+            </requirement>
+            <requirement ID="structMap11">
+                <p>The &lt;mptr&gt; element is not supported in this profile. </p>
+            </requirement>
+        </structMap>
+        <structLink>
+            <requirement ID="structLink1">
+                <p>This profile stipulates no requirements for the &lt;structLink&gt;
+                    element. </p>
+            </requirement>
+        </structLink>
+        <behaviorSec>
+            <requirement ID="behaviorSec1">
+                <p>This profile stipulates no requirements for the &lt;behaviorSec&gt;
+                    element. </p>
+            </requirement>
+        </behaviorSec>
+        <multiSection>
+            <requirement ID="multi1">
+                <p>Only &lt;file&gt; elements will reference elements in the
+                    &lt;techMD&gt;, &lt;sourceMD&gt;, and &lt;digiprovMD&gt;
+                    sections. </p>
+            </requirement>
+            <requirement ID="multi2">
+                <p>Only the &lt;div&gt; element will reference metadata in the
+                    &lt;dmdSec&gt; and &lt;rightsMD&gt; sections. That is,
+                    descriptive metadata and rights metadata are always and only expressed in
+                    conjunction with division of the &lt;structMap&gt; and not in
+                    conjunction with the content file(s). </p>
+            </requirement>
+        </multiSection>
+    </structural_requirements>
+
+    <technical_requirements>
+        <content_files>
+            <requirement>
+                <p>The profile does not prescribe a format for the file, but it is strongly
+                    recommended that the file format and resolution for at least one version of the
+                    image be of an archival quality.</p>
+            </requirement>
+        </content_files>
+        <behavior_files>
+            <requirement>
+                <p>The profile does not prescribe association to any behaviors.</p>
+            </requirement>
+        </behavior_files>
+        <metadata_files>
+            <requirement>
+                <p>This profile does not prescribe referencing of external metadata records. If an
+                    external metadata record is referenced, it is recommended that the file be valid
+                    for the schema in which it is written, i.e., that it be a valid MARC record.</p>
+            </requirement>
+        </metadata_files>
+    </technical_requirements>
+    <tool>
+        <description>
+            <p>Some of the requirements of this profile, especially the requirement for two
+                &lt;structMap&gt;s, are influenced by the METS Navigator application as it
+                is currently available. </p>
+        </description>
+    </tool>
+    <Appendix NUMBER="1">
+        <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+            xmlns:mix="http://www.loc.gov/mix/"
+            xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+            xmlns:pre="http://www.loc.gov/standards/premis/v1"
+            xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/standards/mix/mix.xsd http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+            OBJID="ark:/20775/bb00000050"
+            LABEL="Autograph letter : Loreto Mission, Baja Calif., to Father Juan de Ugarte, 1698 April 17"
+            TYPE="text" PROFILE="UCSD Complex Object Profile">
+            <mets:metsHdr CREATEDATE="2007-02-15T18:06:49" LASTMODDATE="2007-03-28T10:52:00">
+                <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+                    <mets:name>Digital Library Office, Geisel Library, University of California, San
+                        Diego</mets:name>
+                    <mets:note>mailto:dlo@ucsd.edu</mets:note>
+                </mets:agent>
+            </mets:metsHdr>
+
+            <mets:dmdSec ID="EDM1">
+                <mets:mdRef xlink:href="http://roger.ucsd.edu:80/record=b3697471" LOCTYPE="URL"
+                    MDTYPE="MARC" LABEL="UCSD ROGER Record"/>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM1">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>Autograph letter : Loreto Mission, Baja Calif., to
+                                    Father Juan de Ugarte, 1698 April 17</mods:title>
+                            </mods:titleInfo>
+                            <mods:titleInfo type="alternative">
+                                <mods:title>Juan María de Salvatierra letter</mods:title>
+                            </mods:titleInfo>
+                            <mods:name type="personal">
+                                <mods:namePart>Salvatierra, Juan María de</mods:namePart>
+                                <mods:namePart type="date">1648-1717</mods:namePart>
+                                <mods:role>
+                                    <mods:roleTerm type="text" authority="marcrelator">creator</mods:roleTerm>
+                                    <mods:roleTerm type="code" authority="marcrelator"
+                                    >cre</mods:roleTerm>
+                                </mods:role>
+                            </mods:name>
+                            <mods:typeOfResource>text</mods:typeOfResource>
+                            <mods:originInfo>
+                                <mods:dateCreated>1698 April 17</mods:dateCreated>
+                            </mods:originInfo>
+                            <mods:classification authority="local">F124.S16 1698 VLT</mods:classification>
+                            <mods:identifier type="ARK"
+                                >http://libraries.ucsd.edu/ark:/20775/bb00000050</mods:identifier>
+                            <mods:abstract> Autograph letter, signed, to Father Juan de Ugarte,
+                                reporting the arrival of supplies and describing a battle with local
+                                Indians. In the letter, Father Salvatierra also expresses his
+                                opinions about the Spanish mission system in the American southwest
+                                and what it requires to succeed </mods:abstract>
+                            <mods:note> Jesuit priest who attempted to establish several missions in
+                                Baja California between 1697 and 1704. Salvatierra also authored
+                                several important histories and biographies about the missions and
+                                missionaries of the Spanish Southwest </mods:note>
+                            <mods:subject>
+                                <mods:name type="personal">
+                                    <mods:namePart>Salvatierra, Juan María de</mods:namePart>
+                                    <mods:namePart type="date">1648-1717</mods:namePart>
+                                </mods:name>
+                                <mods:topic>Correspondence</mods:topic>
+                            </mods:subject>
+                            <mods:subject>
+                                <mods:name type="personal">
+                                    <mods:namePart>Ugarte, Juan de</mods:namePart>
+                                    <mods:namePart type="date">1662-1730</mods:namePart>
+                                </mods:name>
+                            </mods:subject>
+                            <mods:subject>
+                                <mods:name type="corporate">
+                                    <mods:namePart>Jesuits</mods:namePart>
+                                </mods:name>
+                                <mods:topic>Missions</mods:topic>
+                                <mods:geographic>Mexico</mods:geographic>
+                                <mods:geographic>Loreto (Baja California Sur)</mods:geographic>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:topic>Missions, Spanish</mods:topic>
+                                <mods:geographic>Mexico</mods:geographic>
+                                <mods:geographic>Loreto (Baja California Sur)</mods:geographic>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:topic>Indians of Mexico</mods:topic>
+                                <mods:geographic>Loreto (Baja California Sur)</mods:geographic>
+                                <mods:topic>Missions</mods:topic>
+                                <mods:topic>History</mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:geographic>Loreto (Baja California Sur, Mexico)</mods:geographic>
+                                <mods:topic>History</mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:geographic>Baja California (Mexico : Peninsula)</mods:geographic>
+                                <mods:topic>History</mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="rbgenr">
+                                <mods:genre>Letters</mods:genre>
+                                <mods:geographic>Mexico</mods:geographic>
+                                <mods:temporal>17th Century</mods:temporal>
+                            </mods:subject>
+                            <mods:note type="citation"> Juan María de Salvatierra. Mandeville
+                                Special Collections Library, UCSD </mods:note>
+                            <mods:note displayLabel="Digital object made available by"> Mandeville
+                                Special Collections Library, University of California, San Diego, La
+                                Jolla, CA 92093-0175 (http://orpheus.ucsd.edu/speccoll/) </mods:note>
+                            <mods:relatedItem type="host">
+                                <mods:titleInfo displayLabel="Collection">
+                                    <mods:title>Baja California Collection</mods:title>
+                                </mods:titleInfo>
+                            </mods:relatedItem>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:amdSec>
+
+                <mets:techMD ID="ADM1">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000050/1-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>e7649812</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>10127622</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2007-05-01T09:15:16</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM2">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000050/2-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>9fd911db</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>9969972</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2007-05-01T09:18:23</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM3">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000050/3-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>8b76dbf3</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>9969972</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2007-05-01T09:26:08</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM4">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000050/4-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>33a7fc32</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>10085311</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2007-05-01T10:01:45</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+
+                <mets:rightsMD ID="ADM5">
+                    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+                        <mets:xmlData>
+                            <rts:RightsDeclarationMD RIGHTSCATEGORY="PUBLIC DOMAIN">
+                                <rts:RightsDeclaration>The work is in the public domain.</rts:RightsDeclaration>
+                                <rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+                                    <rts:Constraints CONSTRAINTTYPE="TRANSFERPERMISSIONS">
+                                        <rts:ConstraintDescription> This work may be used without
+                                            prior permission. </rts:ConstraintDescription>
+                                    </rts:Constraints>
+                                    <rts:Constraints CONSTRAINTTYPE="RE-USE">
+                                        <rts:ConstraintDescription> This work may be used without
+                                            prior permission. </rts:ConstraintDescription>
+                                    </rts:Constraints>
+                                </rts:Context>
+                            </rts:RightsDeclarationMD>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:rightsMD>
+            </mets:amdSec>
+
+            <mets:fileSec>
+                <mets:fileGrp USE="Image-Master">
+                    <mets:file ID="ark-20775-bb00000050-1-1" GROUPID="GID1" USE="Image-Master"
+                        ADMID="ADM1" CREATED="2007-05-01T09:15:16" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/1-1.tif"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-2-1" GROUPID="GID2" USE="Image-Master"
+                        ADMID="ADM2" CREATED="2007-05-01T09:18:23" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/2-1.tif"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-3-1" GROUPID="GID3" USE="Image-Master"
+                        ADMID="ADM3" CREATED="2007-05-01T09:26:08" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/3-1tif"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-4-1" GROUPID="GID4" USE="Image-Master"
+                        ADMID="ADM4" CREATED="2007-05-01T10:01:45" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/4-1.tif"/>
+                    </mets:file>
+                </mets:fileGrp>
+
+                <mets:fileGrp USE="Image-Thumbnail">
+                    <mets:file ID="ark-20775-bb00000050-1-2" GROUPID="GID1" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/1-2.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-2-2" GROUPID="GID2" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/2-2.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-3-2" GROUPID="GID3" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/3-2.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-4-2" GROUPID="GID4" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/4-2.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+
+                <mets:fileGrp USE="Image-Service">
+                    <mets:file ID="ark-20775-bb00000050-1-3" GROUPID="GID1" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/1-3.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-2-3" GROUPID="GID2" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/2-3.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-3-3" GROUPID="GID3" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/3-3.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000050-4-3" GROUPID="GID4" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000050/4-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+            </mets:fileSec>
+
+            <mets:structMap TYPE="logical">
+                <mets:div ORDER="1"
+                    LABEL="Autograph letter : Loreto Mission, Baja Calif., to Father Juan de Ugarte, 1698 April 17"
+                    DMDID="EDM1 DM1" ADMID="ADM5" TYPE="text">
+                    <mets:div ORDER="1" LABEL="Leaf 1" TYPE="leaf">
+                        <mets:div ORDER="1" LABEL="Recto">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000050-1-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-1-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-1-3"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="2" LABEL="Verso">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000050-2-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-2-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-2-3"/>
+                            </mets:div>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ORDER="2" LABEL="Leaf 2" TYPE="leaf">
+                        <mets:div ORDER="1" LABEL="Recto">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000050-3-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-3-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-3-3"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="2" LABEL="Verso">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000050-4-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-4-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000050-4-3"/>
+                            </mets:div>
+                        </mets:div>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+
+            <mets:structMap TYPE="physical">
+                <mets:div ORDER="1"
+                    LABEL="Autograph letter : Loreto Mission, Baja Calif., to Father Juan de Ugarte, 1698 April 17"
+                    DMDID="EDM1 DM1" ADMID="ADM5" TYPE="text">
+                    <mets:div ORDER="1" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000050-1-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-1-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-1-3"/>
+                    </mets:div>
+                    <mets:div ORDER="2" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000050-2-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-2-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-2-3"/>
+                    </mets:div>
+                    <mets:div ORDER="3" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000050-3-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-3-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-3-3"/>
+                    </mets:div>
+                    <mets:div ORDER="4" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000050-4-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-4-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000050-4-3"/>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+        </mets:mets>
+    </Appendix>
+
+    <Appendix NUMBER="2">
+        <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+            xmlns:mix="http://www.loc.gov/mix/"
+            xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+            xmlns:pre="http://www.loc.gov/standards/premis/v1"
+            xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/standards/mix/mix.xsd http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+            OBJID="ark:/20775/bb00000051"
+            LABEL="Erik Hohwü Christensen laboratory notebooks and photographs"
+            TYPE="mixed material" PROFILE="UCSD Complex Object Profile">
+            <mets:metsHdr CREATEDATE="2007-02-15T18:06:49" LASTMODDATE="2007-03-28T10:52:00">
+                <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+                    <mets:name>Digital Library Office, Geisel Library, University of California, San
+                        Diego</mets:name>
+                    <mets:note>mailto:dlo@ucsd.edu</mets:note>
+                </mets:agent>
+            </mets:metsHdr>
+
+            <mets:dmdSec ID="EDM1a">
+                <mets:mdRef xlink:href="http://roger.ucsd.edu:80/record=b3758057" LOCTYPE="URL"
+                    MDTYPE="MARC" LABEL="UCSD ROGER Record"/>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM1a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>Erik Hohwü Christensen laboratory notebooks and
+                                    photographs</mods:title>
+                            </mods:titleInfo>
+                            <mods:titleInfo type="alternative">
+                                <mods:title>Laboratory notebooks and photographs, 1935</mods:title>
+                            </mods:titleInfo>
+                            <mods:name type="personal">
+                                <mods:namePart>Christensen, Erik Hohwü</mods:namePart>
+                                <mods:role>
+                                    <mods:roleTerm type="text" authority="marcrelator">creator</mods:roleTerm>
+                                    <mods:roleTerm type="code" authority="marcrelator"
+                                    >cre</mods:roleTerm>
+                                </mods:role>
+                            </mods:name>
+                            <mods:typeOfResource collection="yes" manuscript="yes">mixed material</mods:typeOfResource>
+                            <mods:originInfo>
+                                <mods:dateCreated>1935</mods:dateCreated>
+                            </mods:originInfo>
+                            <mods:classification authority="local">F124.S16 1698 VLT</mods:classification>
+                            <mods:identifier type="local">?</mods:identifier>
+                            <mods:identifier type="ARK"
+                                >http://libraries.ucsd.edu/ark:/20775/bb00000051</mods:identifier>
+                            <mods:abstract> Laboratory data and photographs compiled by Erik Hohwü
+                                Christensen and related to the 1935 International High Altitude
+                                Expedition to Chile. The collection includes two sets of test
+                                results for exercise on a cycle ergometer, four black-and-white
+                                photographs of the mountain Aucanquilcha and the surrounding Chilean
+                                Andes, and a black-and-white slide of a mining car near the Ollague
+                                mine. </mods:abstract>
+                            <mods:note> Swedish physiologist and member of the 1935 International
+                                High Altitude Expedition to Chile </mods:note>
+                            <mods:subject>
+                                <mods:name type="personal">
+                                    <mods:namePart>Christensen, Erik Hohwü</mods:namePart>
+                                </mods:name>
+                                <mods:topic>Archives</mods:topic>
+                            </mods:subject>
+                            <mods:subject>
+                                <mods:name type="conference">
+                                    <mods:namePart>International High Altitude Expedition to
+                                    Chile</mods:namePart>
+                                </mods:name>
+                                <mods:temporal>(1935)</mods:temporal>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:topic>Altitude, Influence of</mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:topic>Exercise</mods:topic>
+                                <mods:topic>Physiological aspects </mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:topic>Adaptation (Physiology)</mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="lcsh">
+                                <mods:geographic>Andes</mods:geographic>
+                                <mods:topic>Pictorial works</mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="gmgpc">
+                                <mods:genre>Photographic prints</mods:genre>
+                                <mods:temporal>1930-1939</mods:temporal>
+                            </mods:subject>
+                            <mods:note type="citation"> Erik Hohwü Christensen Laboratory Notebooks
+                                and Photographs. MSS 469. Mandeville Special Collections Library,
+                                UCSD </mods:note>
+                            <mods:note displayLabel="Digital object made available by"> Mandeville
+                                Special Collections Library, University of California, San Diego, La
+                                Jolla, CA 92093-0175 (http://orpheus.ucsd.edu/speccoll/) </mods:note>
+                            <mods:relatedItem type="host">
+                                <mods:titleInfo displayLabel="Collection">
+                                    <mods:title>High Altitude Medicine and Physiology
+                                    Collection</mods:title>
+                                </mods:titleInfo>
+                            </mods:relatedItem>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM2a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>Laboratory notebook 1, 1935</mods:title>
+                            </mods:titleInfo>
+                            <mods:abstract> Protocols, Jan. 23 - March 14, 1935, for exercise test
+                                on cycle ergometer. Tests were baseline data and were taken in
+                                Boston prior to the 1935 International High Altitude Expedition to
+                                Chile. </mods:abstract>
+                            <mods:originInfo>
+                                <mods:dateCreated point="start">1935-01-23</mods:dateCreated>
+                                <mods:dateCreated point="end">1935-03-14</mods:dateCreated>
+                            </mods:originInfo>
+                            <mods:typeOfResource>text</mods:typeOfResource>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM3a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>Laboratory notebook 2, 1935</mods:title>
+                            </mods:titleInfo>
+                            <mods:abstract> Protocols, May 8 - June 13, 1935, for exercise on
+                                mechanically braked cycle ergometer. Tests were taken during the
+                                1935 International High Altitude Expedition to Chile. </mods:abstract>
+                            <mods:originInfo>
+                                <mods:dateCreated point="start">1935-05-08</mods:dateCreated>
+                                <mods:dateCreated point="end">1935-06-13</mods:dateCreated>
+                            </mods:originInfo>
+                            <mods:typeOfResource>text</mods:typeOfResource>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM4a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>the mountain Aucanquilcha</mods:title>
+                            </mods:titleInfo>
+                            <mods:typeOfResource>still image</mods:typeOfResource>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM5a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>Aucanquilcha with llamas in the foreground</mods:title>
+                            </mods:titleInfo>
+                            <mods:typeOfResource>still image</mods:typeOfResource>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM6a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>a section of the Chilean Andes</mods:title>
+                            </mods:titleInfo>
+                            <mods:typeOfResource>still image</mods:typeOfResource>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM7a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>two team members of the 1935 International High Altitude
+                                    Expedition to Chile</mods:title>
+                            </mods:titleInfo>
+                            <mods:typeOfResource>still image</mods:typeOfResource>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:dmdSec ID="DM8a">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>Railroad car near the Ollague mine in the Chilean Andes,
+                                    1935</mods:title>
+                            </mods:titleInfo>
+                            <mods:abstract>The image was taken during the 1935 International High
+                                Altitude Expedition to Chile.</mods:abstract>
+                            <mods:typeOfResource>still image</mods:typeOfResource>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:amdSec>
+                <mets:techMD ID="ADM1a">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000051/1-1.pdf</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>639575a4</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>36948403</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>PDF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-11-29T09:10:11</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM2a">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000051/2-1.pdf</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>9ae5f16a</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>40579891</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>PDF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-11-29T09:45:56</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM3a">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000051/3-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>8e8f954b</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>9968510</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-11-24T10:03:52</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM4a">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000051/4-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>a0802b60</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>9999870</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-11-24T10:09:28</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM5a">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000051/5-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>b1a47116</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>10220634</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-11-24T10:11:12</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM6a">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000051/6-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>ef374336</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>9834393</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-11-24T10:13:06</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM7a">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000051/7-1.tif</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>70c819c9</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>10152846</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>TIFF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-11-24T10:18:38</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+
+                <mets:rightsMD ID="ADM8a">
+                    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+                        <mets:xmlData>
+                            <rts:RightsDeclarationMD RIGHTSCATEGORY="COPYRIGHTED">
+                                <rts:RightsDeclaration>Copyright held by unnamed third party.</rts:RightsDeclaration>
+                                <rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+                                    <rts:Constraints CONSTRAINTTYPE="TRANSFERPERMISSIONS">
+                                        <rts:ConstraintDescription> This work is available from
+                                            Mandeville Special Collections Library. This digital
+                                            copy of the work is intended to support research,
+                                            teaching, and private study. Users may print, download,
+                                            or link to the work without prior consent of the UCSD
+                                            Libraries. </rts:ConstraintDescription>
+                                    </rts:Constraints>
+                                    <rts:Constraints CONSTRAINTTYPE="RE-USE">
+                                        <rts:ConstraintDescription> This work is protected by the
+                                            U.S. Copyright Law (Title 17, U.S.C.). Transmission or
+                                            reproduction of this work beyond that allowed by fair
+                                            use requires written permission of the copyright
+                                            holder(s). Responsibility for any re-use and
+                                            distribution of this work rests exclusively with the
+                                            user and not the UCSD Libraries.
+                                        </rts:ConstraintDescription>
+                                    </rts:Constraints>
+                                </rts:Context>
+                            </rts:RightsDeclarationMD>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:rightsMD>
+            </mets:amdSec>
+
+            <mets:fileSec>
+                <mets:fileGrp USE="Application-PDF">
+                    <mets:file ID="ark-20775-bb00000051-1-1" GROUPID="GID1" USE="Application-PDF"
+                        ADMID="ADM1a" CREATED="2006-11-29T09:10:11" MIMETYPE="application/pdf">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/1-1.pdf"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-2-1" GROUPID="GID2" USE="Application-PDF"
+                        ADMID="ADM2a" CREATED="2006-11-29T09:45:56" MIMETYPE="application/pdf">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/2-1.pdf"/>
+                    </mets:file>
+                </mets:fileGrp>
+
+                <mets:fileGrp USE="Text-OCR-Unedited">
+                    <mets:file ID="ark-20775-bb00000051-1-2" GROUPID="GID1" USE="Text-OCR-Unedited"
+                        MIMETYPE="text/plain">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/1-2.txt"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-2-2" GROUPID="GID2" USE="Text-OCR-Unedited"
+                        MIMETYPE="text/plain">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/2-2.txt"/>
+                    </mets:file>
+                </mets:fileGrp>
+
+                <mets:fileGrp USE="Image-Master">
+                    <mets:file ID="ark-20775-bb00000051-3-1" GROUPID="GID3" USE="Image-Master"
+                        ADMID="ADM3a" CREATED="2006-11-24T10:03:52" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/3-1.tif"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-4-1" GROUPID="GID4" USE="Image-Master"
+                        ADMID="ADM4a" CREATED="2006-11-24T10:09:28" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/4-1.tif"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-5-1" GROUPID="GID5" USE="Image-Master"
+                        ADMID="ADM5a" CREATED="2006-11-24T10:11:12" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/5-1tif"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-6-1" GROUPID="GID6" USE="Image-Master"
+                        ADMID="ADM6a" CREATED="2006-11-24T10:13:06" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/6-1.tif"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-7-1" GROUPID="GID7" USE="Image-Master"
+                        ADMID="ADM7a" CREATED="2006-11-24T10:18:38" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/7-1.tif"/>
+                    </mets:file>
+                </mets:fileGrp>
+
+                <mets:fileGrp USE="Image-Thumbnail">
+                    <mets:file ID="ark-20775-bb00000051-3-2" GROUPID="GID3" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/3-2.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-4-2" GROUPID="GID4" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/4-2.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-5-2" GROUPID="GID5" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/5-2.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-6-2" GROUPID="GID6" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/6-2.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-7-2" GROUPID="GID7" USE="Image-Thumbnail"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/7-2.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+
+                <mets:fileGrp USE="Image-Service">
+                    <mets:file ID="ark-20775-bb00000051-3-3" GROUPID="GID3" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/3-3.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-4-3" GROUPID="GID4" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/4-3.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-5-3" GROUPID="GID5" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/5-3.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-6-3" GROUPID="GID6" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/6-3.jpg"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000051-7-3" GROUPID="GID7" USE="Image-Service"
+                        MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000051/7-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+            </mets:fileSec>
+
+
+            <mets:structMap TYPE="logical">
+                <mets:div ORDER="1"
+                    LABEL="Erik Hohwü Christensen laboratory notebooks and photographs"
+                    DMDID="EDM1a DM1a" ADMID="ADM8a" TYPE="collection">
+                    <mets:div ORDER="1" LABEL="Laboatory notebook 1 , 1935" DMDID="DM2a" TYPE="book">
+                        <mets:div ORDER="1">
+                            <mets:fptr FILEID="ark-20775-bb00000051-1-1"/>
+                            <mets:fptr FILEID="ark-20775-bb00000051-1-2"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ORDER="2" LABEL="Laboatory notebook 2 , 1935" DMDID="DM3a" TYPE="book">
+                        <mets:div ORDER="1">
+                            <mets:fptr FILEID="ark-20775-bb00000051-2-1"/>
+                            <mets:fptr FILEID="ark-20775-bb00000051-2-2"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ORDER="3" LABEL="Photographs, 1935">
+                        <mets:div ORDER="1" LABEL="the montain Aucanquilcha" DMDID="DM4a">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000051-3-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-3-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-3-3"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="2" LABEL="Aucanquilcha with llamas in the foreground"
+                            DMDID="DM5a">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000051-4-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-4-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-4-3"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="3" LABEL="a section of the Chilean andes" DMDID="DM6a">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000051-5-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-5-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-5-3"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="4"
+                            LABEL="two team memebers of the 1935 International High Altitude Expedition to Chile"
+                            DMDID="DM7a">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000051-6-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-6-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-6-3"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="4"
+                            LABEL="Railroad car near the Ollague mine in the Chilean Andes, 1935"
+                            DMDID="DM8a">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000051-7-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-7-2"/>
+                                <mets:fptr FILEID="ark-20775-bb00000051-7-3"/>
+                            </mets:div>
+                        </mets:div>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+
+            <mets:structMap TYPE="physical">
+                <mets:div ORDER="1"
+                    LABEL="Erik Hohwü Christensen laboratory notebooks and photographs"
+                    DMDID="EDM1a DM1a" ADMID="ADM8a" TYPE="collection">
+                    <mets:div ORDER="1" LABEL="Laboatory notebook 1 , 1935" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000051-1-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-1-2"/>
+                    </mets:div>
+                    <mets:div ORDER="2" LABEL="Laboatory notebook 2 , 1935" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000051-1-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-1-2"/>
+                    </mets:div>
+                    <mets:div ORDER="3" LABEL="Photographs, 1935" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-3"/>
+                    </mets:div>
+                    <mets:div ORDER="2" LABEL="Aucanquilcha with llamas in the foreground"
+                        TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-3"/>
+                    </mets:div>
+                    <mets:div ORDER="3" LABEL="a section of the Chilean andes" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-3"/>
+                    </mets:div>
+                    <mets:div ORDER="4"
+                        LABEL="two team memebers of the 1935 International High Altitude Expedition to Chile"
+                        TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-4-3"/>
+                    </mets:div>
+                    <mets:div ORDER="4"
+                        LABEL="Railroad car near the Ollague mine in the Chilean Andes, 1935"
+                        TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000051-7-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-7-2"/>
+                        <mets:fptr FILEID="ark-20775-bb00000051-7-3"/>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+        </mets:mets>
+    </Appendix>
+
+    <Appendix NUMBER="3">
+        <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/"
+            xmlns:mix="http://www.loc.gov/mix/"
+            xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+            xmlns:pre="http://www.loc.gov/standards/premis/v1"
+            xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/mix/ http://www.loc.gov/standards/mix/mix.xsd http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/PREMIS-v1-1.xsd"
+            OBJID="ark:/20775/bb00000052"
+            LABEL="Oral history interview with Robert R. Hessler: March 6, 2006/ interview by Robert R. Hessler with Laura Harkewicz"
+            TYPE="sound recording" PROFILE="UCSD Complex Object Profile">
+            <mets:metsHdr CREATEDATE="2007-02-15T18:06:49" LASTMODDATE="2006-04-24T10:52:00">
+                <mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+                    <mets:name>Digital Library Office, Geisel Library, University of California, San
+                        Diego</mets:name>
+                    <mets:note>mailto:dlo@ucsd.edu</mets:note>
+                </mets:agent>
+            </mets:metsHdr>
+
+            <mets:dmdSec ID="DM1b">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>Oral history interview with Robert R. Hessler: March 6,
+                                    2006/ interview by Robert R. Hessler with Laura
+                                Harkewicz</mods:title>
+                            </mods:titleInfo>
+                            <mods:name type="personal">
+                                <mods:namePart>Hessler, Robert Raymond, 1932-</mods:namePart>
+                                <mods:role>
+                                    <mods:roleTerm type="text" authority="marcrelator">creator</mods:roleTerm>
+                                    <mods:roleTerm type="code" authority="marcrelator"
+                                    >cre</mods:roleTerm>
+                                </mods:role>
+                            </mods:name>
+                            <mods:typeOfResource>sound recording</mods:typeOfResource>
+                            <mods:originInfo>
+                                <mods:dateCreated>3/6/06</mods:dateCreated>
+                            </mods:originInfo>
+                            <mods:identifier type="local">ac56hessler03</mods:identifier>
+                            <mods:genre>oral histories</mods:genre>
+                            <mods:subject authority="Alexandria Digital Library Gazetteer">
+                                <mods:geographic>La Jolla (San Diego, Calif.)</mods:geographic>
+                            </mods:subject>
+                            <mods:subject>
+                                <mods:topic>Hessler, Robert Raymond, 1932---Archives</mods:topic>
+                            </mods:subject>
+                            <mods:subject>
+                                <mods:topic>Oral histories</mods:topic>
+                            </mods:subject>
+                            <mods:subject>
+                                <mods:topic>Hessler, Robert R., interviewee</mods:topic>
+                            </mods:subject>
+                            <mods:subject authority="IHO Limits of Oceans and Seas">
+                                <mods:geographic>North Pacific Ocean</mods:geographic>
+                                <mods:geographicCode>57</mods:geographicCode>
+                            </mods:subject>
+                            <mods:relatedItem type="host">
+                                <mods:titleInfo displayLabel="Collection">
+                                    <mods:title>Scripps Institution of Oceanography Oral History
+                                        Project, 2005</mods:title>
+                                </mods:titleInfo>
+                                <mods:name>
+                                    <mods:namePart>Scripps Institution of
+                                    Oceanography</mods:namePart>
+                                </mods:name>
+                            </mods:relatedItem>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+
+            <mets:amdSec>
+                <mets:techMD ID="ADM1b">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000052/1-1.mp2</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>e21043d4</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>2469484031</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>MPEG-1 Layer II</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-08-12T10:09:12</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM2b">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000052/2-1.mp2</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>4c0830fe</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>250579891</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>MPEG-1 Layer II</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-08-12T10:16:41</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM3b">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000052/3-1.mp2</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>410b8f90</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>2489968510</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>MPEG-1 Layer II</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-08-12T10:19:36</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:techMD ID="ADM4b">
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <pre:premis>
+                                <pre:object>
+                                    <pre:objectIdentifier>
+                                        <pre:objectIdentifierType>ARK</pre:objectIdentifierType>
+                                        <pre:objectIdentifierValue>http://libraries.ucsd.edu/ark:/20775/bb00000052/5-1.pdf</pre:objectIdentifierValue>
+                                    </pre:objectIdentifier>
+                                    <pre:preservationLevel>full</pre:preservationLevel>
+                                    <pre:objectCategory>file</pre:objectCategory>
+                                    <pre:objectCharacteristics>
+                                        <pre:compositionLevel>0</pre:compositionLevel>
+                                        <pre:fixity>
+                                            <pre:messageDigestAlgorithm>crc32</pre:messageDigestAlgorithm>
+                                            <pre:messageDigest>823775c4</pre:messageDigest>
+                                        </pre:fixity>
+                                        <pre:size>20948403</pre:size>
+                                        <pre:format>
+                                            <pre:formatDesignation>
+                                                <pre:formatName>PDF</pre:formatName>
+                                            </pre:formatDesignation>
+                                        </pre:format>
+                                    </pre:objectCharacteristics>
+                                    <pre:creatingApplication>
+                                        <pre:dateCreatedByApplication>2006-06-01T09:15:16</pre:dateCreatedByApplication>
+                                    </pre:creatingApplication>
+                                </pre:object>
+                            </pre:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:techMD>
+                <mets:rightsMD ID="ADM5b">
+                    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+                        <mets:xmlData>
+                            <rts:RightsDeclarationMD RIGHTSCATEGORY="COPYRIGHTED">
+                                <rts:RightsDeclaration>Copyright held by the UC Regents</rts:RightsDeclaration>
+                                <rts:RightsHolder>
+                                    <rts:RightsHolderName>UC Regents</rts:RightsHolderName>
+                                </rts:RightsHolder>
+                                <rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+                                    <rts:Constraints CONSTRAINTTYPE="TRANSFERPERMISSIONS">
+                                        <rts:ConstraintDescription> This work is available from the
+                                            SIO Archives. This digital copy of the work is intended
+                                            to support research, teaching, and private study. Users
+                                            may print, download, or link to the work without prior
+                                            consent of the UCSD Libraries.
+                                        </rts:ConstraintDescription>
+                                    </rts:Constraints>
+                                    <rts:Constraints CONSTRAINTTYPE="RE-USE">
+                                        <rts:ConstraintDescription>This work is protected by the
+                                            U.S. Copyright Law (Title 17, U.S.C.). Transmission or
+                                            reproduction of this work beyond that allowed by fair
+                                            use requires written permission of the UC Regents.
+                                            Permission can be obtained from the UCSD Libraries
+                                            department having custody of the work. Responsibility
+                                            for any re-use and distribution of this item rests
+                                            exclusively with the user and not the UCSD
+                                        Libraries.</rts:ConstraintDescription>
+                                    </rts:Constraints>
+                                </rts:Context>
+                            </rts:RightsDeclarationMD>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:rightsMD>
+
+                <mets:rightsMD ID="ADM6b">
+                    <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METSRights">
+                        <mets:xmlData>
+                            <rts:RightsDeclarationMD RIGHTSCATEGORY="COPYRIGHTED">
+                                <rts:RightsDeclaration>Copyright held by the UC Regents</rts:RightsDeclaration>
+                                <rts:RightsHolder>
+                                    <rts:RightsHolderName>UC Regents</rts:RightsHolderName>
+                                </rts:RightsHolder>
+                                <rts:Context CONTEXTCLASS="GENERAL PUBLIC">
+                                    <rts:Permissions DISPLAY="false"/>
+                                    <rts:Constraints CONSTRAINTTYPE="OTHER"
+                                        OTHERCONSTRAINTTYPE="ACCESS">
+                                        <rts:ConstraintDescription> This work is not available for
+                                            public access. </rts:ConstraintDescription>
+                                    </rts:Constraints>
+                                </rts:Context>
+                            </rts:RightsDeclarationMD>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:rightsMD>
+
+            </mets:amdSec>
+
+            <mets:fileSec>
+                <mets:fileGrp USE="Audio-Master">
+                    <mets:file ID="ark-20775-bb00000052-1-1" GROUPID="GID1" USE="Audio-Master"
+                        ADMID="ADM1b" CREATED="2006-08-12T10:09:12" MIMETYPE="audio/mpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/1-1.mp2"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000052-2-1" GROUPID="GID2" USE="Audio-Master"
+                        ADMID="ADM2b" CREATED="2006-08-12T10:16:41" MIMETYPE="audio/mpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/2-1.mp2"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000052-3-1" GROUPID="GID3" USE="Audio-Master"
+                        ADMID="ADM3b" CREATED="2006-08-12T10:19:36" MIMETYPE="audio/mpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/3-1.mp2"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp USE="Audio-Service">
+                    <mets:file ID="ark-20775-bb00000052-1-2" GROUPID="GID1" USE="Audio-Service"
+                        CREATED="2006-06-01T09:15:16" MIMETYPE="audio/mpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/1-2.mp3"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000052-2-2" GROUPID="GID2" USE="Audio-Service"
+                        CREATED="2006-06-01T09:16:46" MIMETYPE="audio/mpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/2-2.mp3"/>
+                    </mets:file>
+                    <mets:file ID="ark-20775-bb00000052-3-2" GROUPID="GID3" USE="Audio-Service"
+                        CREATED="2006-06-01T09:18:10" MIMETYPE="audio/mpeg">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/3-2.mp3"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp USE="Application-PDF-Edited">
+                    <mets:file ID="ark-20775-bb00000052-4-1" GROUPID="GID4"
+                        USE="Application-PDF-Edited" CREATED="2006-06-01T09:15:16"
+                        MIMETYPE="application/pdf">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/4-1.pdf"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp USE="Application-PDF">
+                    <mets:file ID="ark-20775-bb00000052-5-1" GROUPID="GID4" USE="Application-PDF"
+                        ADMID="ADM4b" CREATED="2006-06-01T09:15:16" MIMETYPE="application/pdf">
+                        <mets:FLocat LOCTYPE="URL"
+                            xlink:href="http://libraries.ucsd.edu/ark:/20775/bb00000052/5-1.pdf"/>
+                    </mets:file>
+                </mets:fileGrp>
+            </mets:fileSec>
+
+            <mets:structMap TYPE="logical">
+                <mets:div ORDER="1"
+                    LABEL="Oral history interview with Robert R. Hessler: March 6, 2006/ interview by Robert R. Hessler with Laura Harkewicz"
+                    DMDID="DM1b" ADMID="ADM6b">
+                    <mets:div ORDER="1" LABEL="audio recording">
+                        <mets:div ORDER="1" LABEL="part 1" TYPE="item">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000052-1-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000052-1-2"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="2" LABEL="part 2" TYPE="item">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000052-2-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000052-2-2"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ORDER="3" LABEL="part 3" TYPE="item">
+                            <mets:div ORDER="1" TYPE="page">
+                                <mets:fptr FILEID="ark-20775-bb00000052-3-1"/>
+                                <mets:fptr FILEID="ark-20775-bb00000052-3-2"/>
+                            </mets:div>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ORDER="2" LABEL="transcript" TYPE="item">
+                        <mets:div ORDER="1" TYPE="page">
+                            <mets:fptr FILEID="ark-20775-bb00000052-4-1"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ORDER="3" LABEL="transcript" TYPE="item" ADMID="ADM5b">
+                        <mets:div ORDER="1" TYPE="page">
+                            <mets:fptr FILEID="ark-20775-bb00000052-5-1"/>
+                        </mets:div>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+
+            <mets:structMap TYPE="physical">
+                <mets:div ORDER="1"
+                    LABEL="Oral history interview with Robert R. Hessler: March 6, 2006/ interview by Robert R. Hessler with Laura Harkewicz"
+                    DMDID="DM1b" ADMID="ADM6b">
+                    <mets:div ORDER="1" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000052-1-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000052-1-2"/>
+                    </mets:div>
+                    <mets:div ORDER="2" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000052-2-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000052-2-2"/>
+                    </mets:div>
+                    <mets:div ORDER="3" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000052-3-1"/>
+                        <mets:fptr FILEID="ark-20775-bb00000052-3-2"/>
+                    </mets:div>
+                    <mets:div ORDER="4" TYPE="page">
+                        <mets:fptr FILEID="ark-20775-bb00000052-4-1"/>
+                    </mets:div>
+                    <mets:div ORDER="5" TYPE="page" ADMID="ADM5b">
+                        <mets:fptr FILEID="ark-20775-bb00000052-5-1"/>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+        </mets:mets>
+    </Appendix>
+</METS_Profile>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" 
+	      xmlns:mets="http://www.loc.gov/METS/" 
+	      xmlns:mods="http://www.loc.gov/mods/v3" 
+	      xmlns:xlink="http://www.w3.org/1999/xlink"
+	      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	      xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd">
+
+
+  <URI LOCTYPE="URL">http://www.loc.gov/standards/mets/test/sheetMusic/profile_sm.xml</URI>
+  <title>Library of Congress METS Profile for Sheet Music [Draft]</title>
+  <abstract>The Library of Congress Sheet Music METS Profile specifies how a METS document representing a piece of sheet music should be encoded for inclusion in a Library of Congress digital library project.</abstract>
+  <date>2007-06-14T11:10:17.531-05:00</date>
+  <contact>
+    <name>Morgan Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri"/>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+  </extension_schema>
+  <extension_schema>
+    <name>Metadata for Images in XML (MIX)</name>
+    <URI>http://www.loc.gov/mix/v10</URI>
+  </extension_schema>
+  <extension_schema>
+    <name>PREMIS</name>
+    <URI>http://www.loc.gov/standards/premis/v1</URI>
+  </extension_schema>
+
+  <description_rules>
+    <p>It is recommended that the content data used in the MODS section of a METS document conform to AACR2 to the extent that it applies.</p> 
+  </description_rules>
+
+  <controlled_vocabularies>
+    <vocabulary>
+      <name>Library of Congress Subject Headings</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <context>
+	<p>Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress Subject Headings (LCSH).</p> 
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Library of Congress Classification</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <URI>http://www.loc.gov/catdir/cpso/lcc.html</URI> 
+    </vocabulary>
+    <vocabulary>
+      <name>NACO Authority File</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <URI>http://authorities.loc.gov/</URI> 
+      <context>
+	<p>Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority File.</p> 
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Country Codes</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <URI>http://www.loc.gov/marc/countries/</URI> 
+      <context>
+	<p>Country codes used in the MODS section of a METS document must use MARC country code list.</p> 
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>ISO 639-2 Language Codes</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <URI>http://www.loc.gov/standards/iso639-2/</URI> 
+      <context>
+	<p>Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.</p> 
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Relator Codes</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <URI>http://www.loc.gov/marc/relators/</URI> 
+      <context>
+	<p>Relator codes or terms used in the MODS section of a METS document must use MARC relator list.</p> 
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Target Audience Codes</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <URI>http://www.loc.gov/marc/sourcecode/target/</URI> 
+      <context>
+	<p>Terms used in the MODS section of a METS document must use the MARC target audience list.</p> 
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Code List for Organizations</name> 
+      <maintenance_agency>Library of Congress</maintenance_agency> 
+      <URI>http://www.loc.gov/marc/organizations/</URI> 
+      <context>
+	<p>Source codes used in the MODS section of a METS document must use MARC organization list.</p> 
+      </context>
+    </vocabulary>
+  </controlled_vocabularies>
+
+
+
+
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dm01" RELATEDMAT="ex01">
+	<p>A document must contain at least one Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS bibliographic record. The mods element must have an ID attribute. This dmdSec is considered the primary dmdSec and should be the first dmdSec to occur in the document in the case where there is more than one dmdSec.</p>
+	<p>A document may contain additional Descriptive Metadata Sections (dmdSec).</p>
+      </requirement>
+    </dmdSec>
+    <amdSec>
+      <requirement ID="am01">
+	<p>A METS document may optionally contain preservation-related metadata that is expressed using the PREMIS schemas. PREMIS data can be associated with either the entire object (i.e. data that is applicable to all component files), which is, in PREMIS terms, considered to be at the level of the object category "representation", or PREMIS data may be associated with individual files. The following brief example shows a possible encoding for the date of a preservation "event" (i.e. the date of digitization) for an audio file. Note that (as of this writing) PREMIS is still very new, and that best practices for its use with METS have not yet emerged. [Example to be supplied.]</p> 
+      </requirement>
+    </amdSec>
+    <fileSec>
+      <requirement ID="fs01">
+	<head>File Section</head> 
+	<p>The content files referenced by the fptr elements (in the structMap) must point to the appropriate files in the File Section (fileSec). The highest quality or "master" files must be contained in File Group (fileGrp) elements with a USE="MASTER" attribute. File (file) elements must have a MIMETYPE attribute with appropriate value and File Location (FLocat) elements must have a LOCTYPE attribute with appropriate value. The profile makes no further requirements regarding the fileSec element. The example document in Appendix 1 provides a more complete example of Library of Congress practice (see the XML version of this document). [Appendix 1 to be supplied.]</p> 
+      </requirement>
+
+    </fileSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex02">
+	<p>The physical structure of the sheet music will be represented in the Structure Map (structMap) section of the METS instance. The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="sm:sheetMusic" child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.</p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex03">
+	<p>The div TYPE="sm:sheetMusic" element will in turn contain one or more div TYPE="sm:page" elements. There must be one div TYPE="sm:page" element for each page of the piece of sheet music. The div TYPE="sm:page" elements must be in document order that corresponds to the order of the pages in the piece of sheet music.</p>
+      </requirement>
+
+      <requirement ID="st02" RELATEDMAT="ex03">
+	<p>The div TYPE="sm:sheetMusic" element will in turn contain one or more div TYPE="sm:page" elements. There must be one div TYPE="sm:page" element for each page of the piece of sheet music. The div TYPE="sm:page" elements must be in document order that corresponds to the order of the pages in the piece of sheet music.</p>
+      </requirement>
+
+      <requirement ID="st02" RELATEDMAT="ex03">
+	<p>The div TYPE="sm:page" element will in turn contain one div TYPE="sm:image" element.</p>
+      </requirement>
+
+      <requirement ID="st03" RELATEDMAT="ex04">
+	<p>The div TYPE="sm:page" element will contain File Pointer (fptr) elements with FILEID attributes that reference the appropriate image files for the page.</p>
+      </requirement>
+
+      <requirement ID="st04" RELATEDMAT="ex05">
+	<p>The div TYPE="sm:sheetMusic" element may also have one and only one div TYPE="sm:lyrics" child element. This will be used in cases where a text version of the transcribed lyrics is supplied (in addition to the scanned page images). The div TYPE="sm:lyrics" element will contain File Pointer (fptr) elements with FILEID attributes that reference the appropriate text files for the piece of sheet music.</p>
+	<p>he div TYPE="sm:sheetMusic" element may also have one and only one div TYPE="sm:notation" child element. This will be used in cases where a transcription of the notated music is supplied (in addition to the scanned page images). The div TYPE="sm:notation" element will contain File Pointer (fptr) elements with FILEID attributes that reference the appropriate music notation file for the piece of sheet music.</p>
+      </requirement>
+    </structMap>
+
+  </structural_requirements>
+  <technical_requirements></technical_requirements>
+  <tool></tool>
+  <Appendix ID="a1" NUMBER="0" LABEL="appendix1">
+    <mets:mets>
+      <mets:structMap>
+	<mets:div/>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:mets>
+      <mets:dmdSec ID="ex01_dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="ex01_mods1">
+	      <mods:titleInfo>
+		<mods:title>Stars and stripes forever</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>notated music</mods:typeOfResource>
+	      <mods:originInfo>
+		<mods:dateIssued>1898</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	      <mods:physicalDescription>
+		<mods:form authority="marcform">print</mods:form>
+		<mods:reformattingQuality>access</mods:reformattingQuality>
+		<mods:internetMediaType>h</mods:internetMediaType>
+		<mods:extent>6 p.</mods:extent>
+		<mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+	      </mods:physicalDescription>
+	      <mods:targetAudience authority="marctarget">adult</mods:targetAudience>
+	      <mods:subject authority="lcsh">
+		<mods:topic>National songs--United States</mods:topic>
+	      </mods:subject>
+	      <mods:subject authority="lcsh">
+		<mods:topic>Patriotic music--United States</mods:topic>
+	      </mods:subject>
+	      <mods:classification>M1630.3.S(case)</mods:classification>
+	      <mods:identifier displayLabel="IHASDigitalID" type="local">100010482</mods:identifier>
+	      <mods:identifier displayLabel="IHASMODSID" type="local">354</mods:identifier>
+	      <mods:location>
+		<mods:physicalLocation authority="marcorg">DLC</mods:physicalLocation>
+	      </mods:location>
+	      <mods:recordInfo>
+		<mods:recordContentSource>IHAS</mods:recordContentSource>
+		<mods:recordChangeDate encoding="marc">041228</mods:recordChangeDate>
+		<mods:recordIdentifier source="IHAS">loc.natlib.ihas.100010482</mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:structMap>
+	<mets:div/>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:mets PROFILE="lc:sheetMusic"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:sm="http://www.loc.gov/mets/profiles/sheetMusic"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <mets:dmdSec ID="ex02_dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="ex02_mods1">
+	      <mods:titleInfo>
+		<mods:title>Stars and stripes forever</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one sheetMusic div -->
+	<mets:div TYPE="sm:sheetMusic" DMDID="ex02_mods1">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:mets PROFILE="lc:sheetMusic"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:sm="http://www.loc.gov/mets/profiles/sheetMusic"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <mets:dmdSec ID="ex03_dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="ex03_mods1">
+	      <mods:titleInfo>
+		<mods:title>Stars and stripes forever</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one sheetMusic div -->
+	<mets:div TYPE="sm:sheetMusic">
+	  <!-- one or more page div -->
+	  <mets:div TYPE="sm:page">
+	    <mets:div TYPE="sm:image">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="sm:page">
+	    <mets:div TYPE="sm:image">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="sm:page">
+	    <mets:div TYPE="sm:image">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:mets PROFILE="lc:sheetMusic"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:sm="http://www.loc.gov/mets/profiles/sheetMusic"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <mets:dmdSec ID="ex04_dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="ex04_mods1">
+	      <mods:titleInfo>
+		<mods:title>Stars and stripes forever</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one sheetMusic div -->
+	<mets:div TYPE="sm:sheetMusic">
+	  <!-- one or more page div -->
+	  <mets:div TYPE="sm:page">
+	    <mets:div TYPE="sm:image">
+	      <!-- <mets:fptr FILEID="F1"/> -->
+	      <!-- <mets:fptr FILEID="F2"/> -->
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="sm:page">
+	    <mets:div TYPE="sm:image">
+	      <!-- <mets:fptr FILEID="F3"/> -->
+	      <!-- <mets:fptr FILEID="F4"/> -->
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="sm:page">
+	    <mets:div TYPE="sm:image">
+	      <!-- <mets:fptr FILEID="F5"/> -->
+	      <!-- <mets:fptr FILEID="F6"/>  -->
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex05" NUMBER="5">
+    <mets:mets PROFILE="lc:sheetMusic"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:sm="http://www.loc.gov/mets/profiles/sheetMusic"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <mets:dmdSec ID="ex05_dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="ex05_mods1">
+	      <mods:titleInfo>
+		<mods:title>Stars and stripes forever</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one sheetMusic div -->
+	<mets:div TYPE="sm:sheetMusic">
+	  <!-- one and only one lyrics div -->
+	  <mets:div TYPE="sm:lyrics">
+	    <!-- <mets:fptr FILEID="F20"/>  -->
+	  </mets:div>
+	  <!-- one and only one notation div -->
+	  <mets:div TYPE="sm:notation">
+	    <!-- <mets:fptr FILEID="F21"/>  -->
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

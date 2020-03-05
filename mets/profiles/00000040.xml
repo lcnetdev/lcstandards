@@ -1,0 +1,667 @@
+<METS_Profile REGISTRATION="registered" STATUS="final"
+    xmlns="http://www.loc.gov/METS_Profile/v2" 
+    xmlns:mets="http://www.loc.gov/METS/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:rights="http://cosimo.stanford.edu/sdr/metsrights/"
+    xmlns:mods="http://www.loc.gov/mods/v3"
+    xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" 
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:premis="info:lc/xmlns/premis-v2" 
+    xsi:schemaLocation="
+    http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd
+    http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd
+    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/mods.xsd 
+    http://cosimo.stanford.edu/sdr/metsrights/ http://www.loc.gov/standards/rights/METSRights.xsd 
+    http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd 
+    info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/v2/premis.xsd 
+    http://purl.org/dc/elements/1.1/ http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd 
+    http://purl.org/dc/terms/ http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd">
+    <URI LOCTYPE="URL" ASSIGNEDBY="metsboard">http://www.loc.gov/standards/mets/profiles/00000040.xml</URI>
+    <title>UCL Uberset METS Profile</title>
+    <abstract>The UCL METS Profile specifies how METS documents should be encoded for use in the
+        University of Connecticut Libraries' Digital Repository and the set of data that UCL has
+        named the uberset. The uberset consists of only (and not all) descriptive,
+        technical/preservation, and rights metadata needed to create and update data streams in
+        Fedora Objects.</abstract>
+    <!-- UCL named this set of data the uberset because it consists of the majority of metadata needed for description, preservation, rights and technical information. It is understood that the uberset does not contain abosolutely all
+    the metadata found in UCL's digital repository. The uberset is a data stream in all of UCL's Fedora digital objects of which there are three types: Grouping, Primary Container, and Media. This structure of Fedora Digital objects
+    represents an atomistic content model architecture where content is stored in a separate Fedora Digital Object (i.e. Media Object) and not a data stream.-->
+    <date>2012-08-27T09:06:00</date>
+    <contact>
+        <name>Jennifer M. Eustis</name>
+        <institution>University of Connecticut Libraries</institution>
+        <address>369 Fairfield Way, Unit 1005, Storrs, CT, 06269</address>
+        <phone>860-486-0384</phone>
+        <email>jennifer.eustis@lib.uconn.edu</email>
+    </contact>
+    <related_profile>There are no related profiles.</related_profile>
+    <profile_context>
+        <resource_model>
+            <xhtml:p>The UCL uberset profile describes the encoding and structure of a METS document
+                created at the point of ingest.</xhtml:p>
+        </resource_model>
+    </profile_context>
+    <external_schema>
+        <name>The Metadata Object Description Schema</name>
+        <URL>http://www.loc.gov/standards/mods/mods.xsd</URL>
+        <context>mets/dmdSec/mdWrap/xmlData</context>
+        <note>
+            <xhtml:p>UCL uses MODS as a normalized descriptive metadata standard.</xhtml:p>
+        </note>
+    </external_schema>
+    <external_schema>
+        <name>OAI Compliant Simple Dublin Core</name>
+        <URL>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</URL>
+        <context>mets/dmdSec/mdWrap/xmlData</context>
+        <note>
+            <xhtml:p>UCL's instance of Fedora requires a data stream in Dublin Core. UCL has chosen
+                to implement this Fedora requirement as an OAI compliant simple Dublin Core. Beyond
+                this requirement, UCL uses the OAI Dublin Core for harvesting purposes.</xhtml:p>
+        </note>
+    </external_schema>
+    <external_schema>
+        <name>Rights Metadata, METSRights</name>
+        <URL>http://www.loc.gov/standards/rights/METSRights.xsd</URL>
+        <context>mets/amdSec/rightsMD/mdWrap/xmlData</context>
+        <note>
+            <xhtml:p>UCL uses METSRights to encode rights metadata.</xhtml:p>
+        </note>
+    </external_schema>
+    <external_schema>
+        <name>PREMIS, Preservation Metadata</name>
+        <URL>http://www.loc.gov/standards/premis/v2/premis.xsd</URL>
+        <context>mets/amdSec/digiprovMD/mdWrap/xmlData</context>
+        <note>
+            <xhtml:p>UCL uses PREMIS to encode both preservation metadata and normalized technical
+                metadata derived from extracted metadata at the time of ingest.</xhtml:p>
+        </note>
+    </external_schema>
+    <description_rules>
+        <xhtml:p>Though submitters have the ability to submit metadata using their own metadata
+            standard, descriptive metadata will be normalized to MODS. UCL's implementation of MODS
+            is based on the Digital Library Federation and Aquifer Implementation Guidelines for
+            Shareable MODS Records and MODS User Guidelines published by the Library of Congress'
+            Network Development and MARC Standards Office. For all descriptive metadata, UCL
+            recommends that the content data conform to RDA to the extent that it applies. UCL
+            strongly discourages the use of HTML tags in any descriptive data.</xhtml:p>
+    </description_rules>
+    <controlled_vocabularies>
+        <vocabulary>
+            <name>Faceted Application of Subject Terminology</name>
+            <maintenance_agency>OCLC</maintenance_agency>
+            <URI>http://experimental.worldcat.org/fast/</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use FAST controlled subject headings in the
+                    MODS section of the METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Virtual International Authority File</name>
+            <maintenance_agency>OCLC</maintenance_agency>
+            <URI>http://viaf.org</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use VIAF controlled headings in the MDOS
+                    section of the METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Open Researcher and Contributor ID Registry</name>
+            <maintenance_agency>ORCID Board of Directors</maintenance_agency>
+            <URI>http://orcid.org</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use ORCID identifiers and profiles for UCL
+                    researchers and contributors who do not have a VIAF controlled heading in the
+                    MODS section of the METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Art and Architecture Thesaurus</name>
+            <maintenance_agency>Getty Research Institute</maintenance_agency>
+            <URI>http://www.getty.edu/research/tools/vocabularies/aat</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use AAT in the MODS section of the METS
+                    document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Thesaurus of Geographic Names</name>
+            <maintenance_agency>Getty Research Institute</maintenance_agency>
+            <URI>http://www.getty.edu/research/tools/vocabularies/tgn</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use TGN in the MODS section of the METS
+                    document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>MARC Relator Terms</name>
+            <maintenance_agency>Library of Congress</maintenance_agency>
+            <URI>http://www.loc.gov/marc/relators</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use Relator terms in the MODS section of the
+                    METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>MARC Frequency Terms</name>
+            <maintenance_agency>Library of Congress</maintenance_agency>
+            <URI>http://www.loc.gov/marc/sourcecode/frequency</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use Frequency terms in the MODS section of
+                    the METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Target Audience Terms</name>
+            <maintenance_agency>Library of Congress</maintenance_agency>
+            <URI>http://www.loc.gov/marc/sourcecode/target</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use Target Audience Terms in the MODS section
+                    of the METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Dublin Core Metadata Initiative Type Vocabulary</name>
+            <maintenance_agency>Dublin Core Metadata Initiative</maintenance_agency>
+            <URI>http://dublincore.org/documents/2000/07/11/dcmi-type-vacabulary</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use DCMI type vocabulary in the OAI DC
+                    section of the METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>IANA MIME Media Types</name>
+            <maintenance_agency>Internet Corporation for Assigned Names and
+                Numbers</maintenance_agency>
+            <URI>http://www.iana.org</URI>
+            <description>
+                <xhtml:p>UCL uses normalized IANA MIME Media Type terms in the MODS section of the
+                    METS document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>ISO 639-2 Language Codes</name>
+            <maintenance_agency>Library of Congress</maintenance_agency>
+            <URI>http://www.loc.gov/standards/iso639-2/</URI>
+            <description>
+                <xhtml:p>UCL requires the use of Language Codes in the MODS section of the METS
+                    document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>W3 Date and Time Format</name>
+            <maintenance_agency>W3C</maintenance_agency>
+            <URI>http://www.w3.org/TR/NOTE-datetime</URI>
+            <description>
+                <xhtml:p>UCL requires the use of the W3DTF in the MODS section of the METS
+                    document.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary>
+            <name>Standard Identifier Source Codes</name>
+            <maintenance_agency>Library of Congress</maintenance_agency>
+            <URI>http://www.loc.gov/standards/sourcelist/standard-identifier</URI>
+            <description>
+                <xhtml:p>It is strongly recommended to use SISC in the MODS section of the METS
+                    document.</xhtml:p>
+            </description>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsHdr>
+            <requirement>
+                <description>
+                    <xhtml:p>A UCL METS document does not contain a metsHdr section.</xhtml:p>
+                </description>
+            </requirement>
+        </metsHdr>
+        <dmdSec>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires two dmdSec sections in the METS document. The first dmdSec
+                        section consists of the OAI compliant simple Dublin Core descriptive
+                        metadata, and, the second the MODS normalized descriptive metadata. Each
+                        section uses the mdWrap and xmlData elements.</xhtml:p>
+                </description>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires one amdSec section in the METS docuemnt. The amdSec
+                        consists of one of each of the following subelements: rightsMD, digiprovMD,
+                        sourceMD. Each subelement use the mdWrap and xmlData elements. The rightsMD
+                        subsection uses METSRights and digiprovMD PREMIS from normailized technical
+                        metadata. The subsection sourceMD encodes the descriptive metadata submitted
+                        at the point of ingest and is normalized to MODS in the dmdSec
+                        section.</xhtml:p>
+                </description>
+            </requirement>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL does not require a PREMIS section for the Grouping and Primary
+                        Container Fedora Digital Objects.</xhtml:p>
+                </description>
+                <!-- UCL Content Model Architechture has a minimum of three levels that correspond to three Fedora Digital Objects that are related by the Fedora RDF Ontology. 
+                    The Grouping Object is akin to the FRBR "Work" that represents the idea of a digital resource. An example is the collection of John R. Reeves.
+                    The Primary Container Object is akin to the FRBR "Manigestation" and "Item". Expanding on the example above would gives us something like the Primary Container Object is the papers of John R. Reeves. 
+                    The Media Object is akin to the item and contains the digital content. Expanding on the example above would yield that Media Object no. 1 is the jpg2000 of John R. Reeves' letter to his secretary.
+                    Given this atomistc content model architecture, it was decided that preservation and technical metadata was not always necessary at the Grouping and Primary Container Object level.-->
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement>
+                <description>
+                    <xhtml:p>A UCL METS document does not contain a fileSec section.</xhtml:p>
+                </description>
+            </requirement>
+        </fileSec>
+        <structMap>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires one structMap section in the METS document. UCL requires
+                        the structMap section to have the div element with the attribute TYPE set to
+                        the term ;&quot;uberset:&quot; and attribute LABEL set to one of the
+                        following terms: groupingobject, pco, mediaobject.</xhtml:p>
+                    <!-- The three terms used in the attribute LABEL correspond to the three primary Fedora Digital Objects in UCL's content model architecture: the Grouping, Primary Container, and Media Objects. These terms are used as anchors to denote to which object the metadata refers. -->
+                </description>
+            </requirement>
+        </structMap>
+        <structLink>
+            <requirement>
+                <description>
+                    <xhtml:p>A UCL METS document does not contain a structLink section.</xhtml:p>
+                </description>
+            </requirement>
+        </structLink>
+        <behaviorSec>
+            <requirement>
+                <description>
+                    <xhtml:p>A UCL METS document does not contain a behaviorSec section.</xhtml:p>
+                </description>
+            </requirement>
+        </behaviorSec>
+        <multiSection>
+            <requirement>
+                <description>
+                    <xhtml:p>A UCL METS document does not contain a multiSection section.</xhtml:p>
+                </description>
+            </requirement>
+        </multiSection>
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL currently accepts still images, text, and streaming media in a
+                        variety of formats. Submitted content will be normalized to an archival copy
+                        according to TRAC.</xhtml:p>
+                    <!-- UCL is in the process of writing documentation on accepted formats and how formats will be preserved and archived. Once this is finalized, this profile will be updated accordingly. -->
+                </description>
+            </requirement>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires the use of W3CDTF, Language Code ISO 639-2, IANA MIME
+                        Media Types.</xhtml:p>
+                </description>
+            </requirement>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires that the OAI compliant simple Dublin Core, oai_dc, adhere
+                        to the scema maintained by the Dublin Core Metadata Initiative and the Open
+                        Archives OAI PMH.</xhtml:p>
+                </description>
+            </requirement>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires that the normalized descriptive metadata, MODS, adhere to
+                        the schema maintained by the Library of Congress.</xhtml:p>
+                </description>
+            </requirement>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires that the preservation metadata, PREMIS, adhere to the
+                        schema maintained by the Library of Congress.</xhtml:p>
+                </description>
+            </requirement>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requires that the rights metadata, METSRights, adhere to the schema
+                        maintained by Stanford University.</xhtml:p>
+                </description>
+            </requirement>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL requries that the source descriptive metadata submitted at ingest
+                        adhere to a national or international schema. The only exception would be
+                        for scientific datasets that might contain information unable to be encoded
+                        using a national or international metadata standard.</xhtml:p>
+                </description>
+                <!-- Currently, the source descriptive metadata accepted by UCL's digital repository is MODS, Qualified Dublin Core, ISO19115 Geographic Information, and EAD. In time, UCL will begin to access research data that will require manipulation before or at the time of ingest. -->
+            </requirement>
+        </content_files>
+        <behavior_files>
+            <requirement>
+                <description>
+                    <xhtml:p>There must not be any behaviors associated with a conforming
+                        document.</xhtml:p>
+                </description>
+            </requirement>
+        </behavior_files>
+        <metadata_files>
+            <requirement>
+                <description>
+                    <xhtml:p>UCL does not require that source descriptive metadata validate against
+                        a schema or DTD.</xhtml:p>
+                </description>
+            </requirement>
+        </metadata_files>
+    </technical_requirements>
+    <tool>
+        <name>MODS to Simple Dublin Core</name>
+        <agency>Library of Congress</agency>
+        <URI>http://www.loc.gov/standards/mods/MODS3-22simpleDC.xsl</URI>
+        <description>
+            <xhtml:p>A UCL METS document will use this transformation developed by the Library of
+                Congress to create the required Fedora OAI compliant simple Dublin Core section in
+                the METS document.</xhtml:p>
+        </description>
+        <!-- Currently, UCL relies on this transformation to MODS version 3.2. UCL is developing a transformation based on this one for MODS version 3.4. Once this is finalized, this profile will be updated accordingly. -->
+    </tool>
+    <Appendix NUMBER="1">
+        <!-- Originally, there were 4 appendices included in this METS profile. The four appendices corresponded to four different ingest scenarios differentiated by the type of descriptive metadata standard used to encode the description of the digital content.
+            These four scenarios were: Qualified Dublin Core, MODS, Qualified Dublin Core with elements of the Electronic and Theses Metadata Standard, and FGDC CSGDM. Currently, UCL is working with only one of these scenarios. That scenario is
+            metadata and digital content sent from UCL's Archives and Special Collections, which includes Qualified Dublin Core descriptive metadata. In our digital repository development phases II and III, UCL will work on different ingest scenarios from different library units and collaborators.
+            Furthermore, the structure of the METS document does not change from one ingest scenario to another. Given these two circumstances, one example was considered sufficient for this METS profile.-->
+        <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+            xmlns:rights="http://cosimo.stanford.edu/sdr/metsrights/"
+            xmlns:mods="http://www.loc.gov/mods/v3"
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+            xmlns:premis="info:lc/xmlns/premis-v2" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml"
+            xsi:schemaLocation="
+            http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+            http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/mods.xsd 
+            http://cosimo.stanford.edu/sdr/metsrights/ http://www.loc.gov/standards/rights/METSRights.xsd 
+            http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd 
+            info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/v2/premis.xsd 
+            http://purl.org/dc/elements/1.1/ http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd 
+            http://purl.org/dc/terms/ http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd">
+            <mets:metsHdr/>
+            <mets:dmdSec ID="OAIDC">
+                <mets:mdWrap MDTYPE="OTHER">
+                    <mets:xmlData>
+                        <oai_dc:dc>
+                            <dc:title>Group portrait of the Horace Fenton family in front of
+                                bookcase</dc:title>
+                            <dc:creator>Manter, Jerauld A.</dc:creator>
+                            <dc:date>1930</dc:date>
+                            <dc:type>Group portraits; Negatives; Portrait photographs</dc:type>
+                            <dc:type>Still Image</dc:type>
+                            <dc:subject>Storrs (Conn.)</dc:subject>
+                            <dc:subject>Fenton family</dc:subject>
+                            <dc:description>Older man in formal suit in a chair with a younger man
+                                seated (on the chair arm?) beside him with his arm draped along the
+                                back of the chair. A woman is seated in a chair to the older man's
+                                left , with another young man with a mustache standing to her rear.
+                                A bookshelf filled with books and topped with various objects forms
+                                the background.</dc:description>
+                            <dc:format>b&amp;w, negative</dc:format>
+                            <dc:source>Thomas J. Dodd Research Center, University of Connecticut
+                                Libraries</dc:source>
+                            <dc:rights>The image is owned, held, or licensed by the University of
+                                Connecticut and is available for personal, non-commercial, and
+                                educational use, provided that ownership of the image is properly
+                                cited. Any commercial use of the image, without the written
+                                permission of the University of Connecticut, is strictly
+                                prohibited.</dc:rights>
+                            <dc:identifier>http://www.cthistoryonline.org/cdm/singleitem/collection/photographs/id/126/rec/1</dc:identifier>
+                            <dc:format>image/jpeg</dc:format>
+                            <dc:publisher>Thomas J. Dodd Research Center</dc:publisher>
+                        </oai_dc:dc>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="MODS">
+                <mets:mdWrap MDTYPE="MODS">
+                    <mets:xmlData>
+                        <mods:titleInfo>
+                            <mods:title>Group protrait of the Horace Fenton family in front of
+                                bookcase</mods:title>
+                        </mods:titleInfo>
+                        <mods:name authority="viaf" type="personal">
+                            <mods:namePart type="family">Manter</mods:namePart>
+                            <mods:namePart type="given">Jerauld A.</mods:namePart>
+                            <mods:namePart type="date">1889-1990</mods:namePart>
+                            <mods:role>
+                                <mods:roleTerm authority="marcrelator" type="text"
+                                    >creator</mods:roleTerm>
+                            </mods:role>
+                        </mods:name>
+                        <mods:typeOfResource>still image</mods:typeOfResource>
+                        <mods:genre authority="aat">group portraits</mods:genre>
+                        <mods:genre authority="aat">black-and-white negatives</mods:genre>
+                        <mods:originInfo>
+                            <mods:publisher>Thomas J. Dodd Research Center</mods:publisher>
+                            <mods:dateIssued keyDate="yes">1930</mods:dateIssued>
+                        </mods:originInfo>
+                        <mods:physicalDescription>
+                            <mods:form authority="marcsmd">photonegative</mods:form>
+                            <mods:internetMediaType>image/jpeg</mods:internetMediaType>
+                            <mods:digitalOrigin>digitized other analog</mods:digitalOrigin>
+                        </mods:physicalDescription>
+                        <mods:abstract>Older man in formal suit in a chair with a younger man seated
+                            (on the chair arm?) beside him with his arm draped along the back of the
+                            chair. A woman is seated in a chair to the older man's left , with
+                            another young man with a mustache standing to her rear. A bookshelf
+                            filled with books and topped with various objects forms the
+                            background.</mods:abstract>
+                        <mods:subject authority="fast">
+                            <mods:name type="family">
+                                <mods:namePart>Fenton family</mods:namePart>
+                            </mods:name>
+                        </mods:subject>
+                        <mods:subject authority="tgn">
+                            <mods:geographic>Storrs</mods:geographic>
+                        </mods:subject>
+                        <mods:location>
+                            <mods:url usage="primary display"
+                                >http://www.cthistoryonline.org/cdm/singleitem/collection/photographs/id/126/rec/1</mods:url>
+                        </mods:location>
+                        <mods:relatedItem type="original">
+                            <mods:note displayLabel="Source">Thomas J. Dodd Research Center,
+                                University of Connecticut Libraries</mods:note>
+                        </mods:relatedItem>
+                        <mods:accessCondition type="use and reproduction">The image is owned, held,
+                            or licensed by the University of Connecticut and is available for
+                            personal, non-commercial, and educational use, provided that ownership
+                            of the image is properly cited. Any commercial use of the image, without
+                            the written permission of the University of Connecticut, is strictly
+                            prohibited.</mods:accessCondition>
+                        <mods:recordInfo>
+                            <mods:languageOfCataloging>
+                                <mods:languageTerm type="code" authority="iso639-2b"
+                                    >eng</mods:languageTerm>
+                            </mods:languageOfCataloging>
+                        </mods:recordInfo>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:amdSec>
+                <mets:rightsMD ID="RIGHTS">
+                    <mets:mdWrap MDTYPE="OTHER">
+                        <mets:xmlData>
+                            <rights:RightsDeclarationMD RIGHTSCATEGORY="OTHER">
+                                <rights:RightsDeclaration>The image is owned, held, or licensed by
+                                    the University of Connecticut and is available for personal,
+                                    non-commercial, and educational use, provided that ownership of
+                                    the image is properly cited. Any commercial use of the image,
+                                    without the written permission of the University of Connecticut,
+                                    is strictly prohibited.</rights:RightsDeclaration>
+                                <rights:RightsHolder>
+                                    <rights:RightsHolderName>University of Connecticut
+                                        Libraries</rights:RightsHolderName>
+                                    <rights:RightsHolderContact>
+                                        <rights:RightsHolderContactDesignation>Archives and Special
+                                            Collections</rights:RightsHolderContactDesignation>
+                                        <rights:RightsHolderContactAddress>369 Fairfield Way,
+                                            Storrs, CT</rights:RightsHolderContactAddress>
+                                        <rights:RightsHolderContactPhone PHONETYPE="BUSINESS"
+                                            >860-486-0384</rights:RightsHolderContactPhone>
+                                    </rights:RightsHolderContact>
+                                </rights:RightsHolder>
+                                <rights:Context CONTEXTCLASS="GENERAL PUBLIC">
+                                    <rights:UserName>BOTH</rights:UserName>
+                                    <rights:Permissions DISCOVER="true" DISPLAY="true" COPY="true"
+                                        DUPLICATE="true" MODIFY="false" DELETE="false" PRINT="true"
+                                    />
+                                </rights:Context>
+                            </rights:RightsDeclarationMD>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:rightsMD>
+                <mets:sourceMD ID="NATIVE">
+                    <mets:mdWrap MDTYPE="OTHER">
+                        <mets:xmlData>
+                            <dc:title>Group portrait of the Horace Fenton family in front of
+                                bookcase</dc:title>
+                            <dc:creator>Manter, Jerauld A.</dc:creator>
+                            <dc:date>1930; 1931; 1932; 1933; 1934; 1935; 1936; 1937; 1938;
+                                1939</dc:date>
+                            <dc:type>Group portraits; Negatives; Portrait photographs</dc:type>
+                            <dc:type>Image; Still Image</dc:type>
+                            <dc:subject>Storrs (Conn.)</dc:subject>
+                            <dc:subject>Fenton family</dc:subject>
+                            <dcterms:abstract>Older man in formal suit in a chair with a younger man
+                                seated (on the chair arm?) beside him with his arm draped along the
+                                back of the chair. A woman is seated in a chair to the older man's
+                                left , with another young man with a mustache standing to her rear.
+                                A bookshelf filled with books and topped with various objects forms
+                                the background.</dcterms:abstract>
+                            <dc:format>Title supplied by cataloger.</dc:format>
+                            <dc:format>b&amp;w, negative</dc:format>
+                            <dc:source>Thomas J. Dodd Research Center, University of Connecticut
+                                Libraries</dc:source>
+                            <dc:rights>The image is owned, held, or licensed by the University of
+                                Connecticut and is available for personal, non-commercial, and
+                                educational use, provided that ownership of the image is properly
+                                cited. Any commercial use of the image, without the written
+                                permission of the University of Connecticut, is strictly
+                                prohibited.</dc:rights>
+                            <dc:identifier>1988-0010_ph1160.jpg</dc:identifier>
+                            <dc:identifier>1988-0010.ph1160, Jerauld A. Manter Photograph
+                                Collection, Archives and Special Collections at the Thomas J. Dodd
+                                Research Center, University of Connecticut
+                                Libraries.</dc:identifier>
+                            <dc:format>image/jpeg</dc:format>
+                            <dc:publisher>Thomas J. Dodd Research Center</dc:publisher>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:sourceMD>
+                <mets:digiprovMD ID="PREMIS">
+                    <!-- This PREMIS section was created using the PREMIS in METS Toolbox developed by the Florida Center for Library Automation for the Library of Congress in 2009 (http://pim.fcla.edu/).
+                    The example used in this METS document is an image from the Photograph Collection from Connecticut History Online, which currently does not have any PREMIS data associated with it.
+                    As we migrate from systems where digital content such as this example image is stored and managed, we will create if necessary a PREMIS section within the METS file as explained previously. -->
+                    <mets:mdWrap MDTYPE="PREMIS">
+                        <mets:xmlData>
+                            <premis:premis version="2.0" xmlns:premis="info:lc/xmlns/premis-v2"
+                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                xsi:schemaLocation="info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/premis.xsd">
+                                <!-- premis file object -->
+                                <premis:object xsi:type="premis:file">
+                                    <premis:objectIdentifier>
+                                        <premis:objectIdentifierType>image</premis:objectIdentifierType>
+                                        <premis:objectIdentifierValue>image</premis:objectIdentifierValue>
+                                    </premis:objectIdentifier>
+                                    <premis:objectCharacteristics>
+                                        <premis:compositionLevel>0</premis:compositionLevel>
+                                        <premis:fixity>
+                                            <premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+                                            <premis:messageDigest>16094627d3ac44da71baddc4294d5770</premis:messageDigest>
+                                            <premis:messageDigestOriginator>Archive</premis:messageDigestOriginator>
+                                        </premis:fixity>
+                                        <premis:fixity>
+                                            <premis:messageDigestAlgorithm>SHA-1</premis:messageDigestAlgorithm>
+                                            <premis:messageDigest>7d51005cb7220757bfad4aef493640bbfb89563c</premis:messageDigest>
+                                            <premis:messageDigestOriginator>Archive</premis:messageDigestOriginator>
+                                        </premis:fixity>
+                                        <premis:size>79517</premis:size>
+                                        <premis:format>
+                                            <premis:formatDesignation>
+                                                <premis:formatName>Extensible Hypertext Markup
+                                                  Language</premis:formatName>
+                                                <premis:formatVersion>1.0</premis:formatVersion>
+                                            </premis:formatDesignation>
+                                            <premis:formatRegistry>
+                                                <premis:formatRegistryName>http://www.nationalarchives.gov.uk/pronom</premis:formatRegistryName>
+                                                <premis:formatRegistryKey>fmt/102</premis:formatRegistryKey>
+                                            </premis:formatRegistry>
+                                        </premis:format>
+                                    </premis:objectCharacteristics>
+                                    <premis:originalName>http://www.cthistoryonline.org/cdm/singleitem/collection/photographs/id/126/rec/1</premis:originalName>
+                                    <premis:linkingEventIdentifier>
+                                        <premis:linkingEventIdentifierType>URI</premis:linkingEventIdentifierType>
+                                        <premis:linkingEventIdentifierValue>1</premis:linkingEventIdentifierValue>
+                                    </premis:linkingEventIdentifier>
+                                </premis:object>
+                                <!-- premis bitstream object -->
+                                <!-- premis event -->
+                                <premis:event>
+                                    <premis:eventIdentifier>
+                                        <premis:eventIdentifierType>URI</premis:eventIdentifierType>
+                                        <premis:eventIdentifierValue>1</premis:eventIdentifierValue>
+                                    </premis:eventIdentifier>
+                                    <premis:eventType>describe</premis:eventType>
+                                    <premis:eventDateTime>2012-08-23T10:07:46-04:00</premis:eventDateTime>
+                                    <premis:eventDetail>Not well-formed</premis:eventDetail>
+                                    <premis:eventOutcomeInformation>
+                                        <premis:eventOutcome>success</premis:eventOutcome>
+                                        <premis:eventOutcomeDetail>
+                                            <premis:eventOutcomeDetailNote>Anomoly detected by the
+                                                PIMs Toolbox.</premis:eventOutcomeDetailNote>
+                                            <!-- PIMs detected an anomoly and originally inserted a descriptive note as such in the element eventOutcomeDetailExtension. This was manually changed to a more general note in the above field.
+                                            PIMs is being used for the purposes of this example image. However, PIMs will not be used to general PREMIS sections in UCL's uberset METS documents. If the metadata for a digital resource does
+                                            not contain any PREMIS data, the PREMIS section in the digiprovMD section of the METS document will be created using data from the descriptive, technical, and rights metadata at ingest. 
+                                            Also, METS documents at the Global and Primary Container Object levels do not require a PREMIS section. For the initial phase of UCL's digital repository, the majority of descriptions will
+                                            be at the Grouping level and will not contain any PREMIS data.-->
+                                        </premis:eventOutcomeDetail>
+                                    </premis:eventOutcomeInformation>
+                                    <premis:linkingAgentIdentifier>
+                                        <premis:linkingAgentIdentifierType>URI</premis:linkingAgentIdentifierType>
+                                        <premis:linkingAgentIdentifierValue>info:fda/daitss/description/v2.1.0</premis:linkingAgentIdentifierValue>
+                                    </premis:linkingAgentIdentifier>
+                                    <premis:linkingObjectIdentifier>
+                                        <premis:linkingObjectIdentifierType>image</premis:linkingObjectIdentifierType>
+                                        <premis:linkingObjectIdentifierValue>image</premis:linkingObjectIdentifierValue>
+                                    </premis:linkingObjectIdentifier>
+                                </premis:event>
+                                <!-- premis agent -->
+                                <premis:agent>
+                                    <premis:agentIdentifier>
+                                        <premis:agentIdentifierType>URI</premis:agentIdentifierType>
+                                        <premis:agentIdentifierValue>info:fda/daitss/description/v2.1.0</premis:agentIdentifierValue>
+                                    </premis:agentIdentifier>
+                                    <premis:agentName>Format Description Service</premis:agentName>
+                                    <premis:agentType>Web Service</premis:agentType>
+                                    <premis:agentNote>built with JHOVE 1.6 (built on December 12,
+                                        2011), DROID 3.0 with DROID signature file version
+                                        55.</premis:agentNote>
+                                </premis:agent>
+                            </premis:premis>
+                        </mets:xmlData>
+                    </mets:mdWrap>
+                </mets:digiprovMD>
+            </mets:amdSec>
+            <mets:fileSec>
+                <mets:fileGrp/>
+            </mets:fileSec>
+            <mets:structMap>
+                <mets:div TYPE="uberset" LABEL="pco"/>
+            </mets:structMap>
+        </mets:mets>
+    </Appendix>
+</METS_Profile>

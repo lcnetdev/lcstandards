@@ -1,0 +1,411 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Library of Congress METS Profile for Sheet Music [Draft]</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheets/profile.css" />
+   </head>
+   <body>
+      <h2>LC METS Profile</h2>
+      <h3>Library of Congress METS Profile for Sheet Music [Draft]</h3>
+      <hr />
+      <p><a href="http://www.loc.gov/standards/mets/test/sheetMusic/profile_sm.xml">XML Version of Profile Document</a></p>
+      <hr /><br /><h4>Abstract</h4>
+      <p>The Library of Congress Sheet Music METS Profile specifies how a METS document representing a piece of sheet music should
+         be encoded for inclusion in a Library of Congress digital library project.
+      </p><br /><h4>URI</h4>
+      <p>http://www.loc.gov/standards/mets/test/sheetMusic/profile_sm.xml</p><br /><h4>Date</h4>
+      <p>2007-06-14T09:22:46.73-04:00</p>
+      <h4>Contact</h4>
+      <p><b>Morgan Cundiff</b><br />Network Development and MARC Standards Office, Library of Congress<br />101 Independence Avenue, Washington DC, 20540
+      </p><br /><h4>Related Profile</h4>
+      <p>No related profiles.</p><br /><h4>Extension Schema</h4>
+      <p>Metadata Object Description Schema (MODS)<br />http://www.loc.gov/mods/v3/
+      </p><br /><h4>Extension Schema</h4>
+      <p>Metadata for Images in XML (MIX)<br />http://www.loc.gov/mix/v10
+      </p><br /><h4>Extension Schema</h4>
+      <p>PREMIS<br />http://www.loc.gov/standards/premis/v1
+      </p><br /><h4>Description Rules</h4>
+      <p>It is recommended that the content data used in the MODS section of a METS document conform to AACR2 to the extent that it
+         applies.
+      </p><br /><h4>Controlled Vocabularies</h4>
+      <p><b>Library of Congress Subject Headings</b><br />Library of Congress<br /><br />
+         	Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress
+         Subject Headings (LCSH). 
+         
+      </p>
+      <p><b>Library of Congress Classification</b><br />Library of Congress<br />http://www.loc.gov/catdir/cpso/lcc.html<br /></p>
+      <p><b>NACO Authority File</b><br />Library of Congress<br />http://authorities.loc.gov/<br />
+         	Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority
+         File. 
+         
+      </p>
+      <p><b>MARC Country Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/countries/<br />
+         	Country codes used in the MODS section of a METS document must use MARC country code list. 
+         
+      </p>
+      <p><b>ISO 639-2 Language Codes</b><br />Library of Congress<br />http://www.loc.gov/standards/iso639-2/<br />
+         	Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes. 
+         
+      </p>
+      <p><b>MARC Relator Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/relators/<br />
+         	Relator codes or terms used in the MODS section of a METS document must use MARC relator list. 
+         
+      </p>
+      <p><b>Target Audience Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/sourcecode/target/<br />
+         	Terms used in the MODS section of a METS document must use the MARC target audience list. 
+         
+      </p>
+      <p><b>MARC Code List for Organizations</b><br />Library of Congress<br />http://www.loc.gov/marc/organizations/<br />
+         	Source codes used in the MODS section of a METS document must use MARC organization list. 
+         
+      </p>
+      <h3>Structural Requirements</h3>
+      <h5>Descriptive Metadata Section</h5>
+      <h6>dmdSec Requirement 1</h6>
+      <p>A document must contain at least one Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS bibliographic record.
+         The mods element must have an ID attribute. This dmdSec is considered the primary dmdSec and should be the first dmdSec to
+         occur in the document in the case where there is more than one dmdSec.
+      </p>
+      <p>A document may contain additional Descriptive Metadata Sections (dmdSec).</p>
+      <h6>Example 1.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex01_dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex01_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Stars and stripes forever</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Sousa, John Philip</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Composer</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">typeOfResource</span>&gt;<span class="xmlverb-text">notated music</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">typeOfResource</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text">1898</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">issuance</span>&gt;<span class="xmlverb-text">monographic</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">issuance</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalDescription</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">form</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcform</span>"&gt;<span class="xmlverb-text">print</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">form</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">reformattingQuality</span>&gt;<span class="xmlverb-text">access</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">reformattingQuality</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">internetMediaType</span>&gt;<span class="xmlverb-text">h</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">internetMediaType</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">extent</span>&gt;<span class="xmlverb-text">6 p.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">extent</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">digitalOrigin</span>&gt;<span class="xmlverb-text">reformatted digital</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">digitalOrigin</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalDescription</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">targetAudience</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marctarget</span>"&gt;<span class="xmlverb-text">adult</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">targetAudience</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">lcsh</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">topic</span>&gt;<span class="xmlverb-text">National songs--United States</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">topic</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">lcsh</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">topic</span>&gt;<span class="xmlverb-text">Patriotic music--United States</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">topic</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">subject</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">classification</span>&gt;<span class="xmlverb-text">M1630.3.S(case)</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">classification</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">IHASDigitalID</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">local</span>"&gt;<span class="xmlverb-text">100010482</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">IHASMODSID</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">local</span>"&gt;<span class="xmlverb-text">354</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">identifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcorg</span>"&gt;<span class="xmlverb-text">DLC</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordContentSource</span>&gt;<span class="xmlverb-text">IHAS</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordContentSource</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordChangeDate</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">marc</span>"&gt;<span class="xmlverb-text">041228</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordChangeDate</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordIdentifier</span> <span class="xmlverb-attr-name">source</span>="<span class="xmlverb-attr-content">IHAS</span>"&gt;<span class="xmlverb-text">loc.natlib.ihas.100010482</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordIdentifier</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">recordInfo</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h5>Administrative Metadata Section</h5>
+      <h6>amdSec Requirement 1</h6>
+      <p>A METS document may optionally contain preservation-related metadata that is expressed using the PREMIS schemas. PREMIS data
+         can be associated with either the entire object (i.e. data that is applicable to all component files), which is, in PREMIS
+         terms, considered to be at the level of the object category "representation", or PREMIS data may be associated with individual
+         files. The following brief example shows a possible encoding for the date of a preservation "event" (i.e. the date of digitization)
+         for an audio file. Note that (as of this writing) PREMIS is still very new, and that best practices for its use with METS
+         have not yet emerged. [Example to be supplied.]
+      </p>
+      <h5>File Section</h5>
+      <h6>fileSec Requirement 1</h6>
+      <p>The content files referenced by the fptr elements (in the structMap) must point to the appropriate files in the File Section
+         (fileSec). The highest quality or "master" files must be contained in File Group (fileGrp) elements with a USE="MASTER" attribute.
+         File (file) elements must have a MIMETYPE attribute with appropriate value and File Location (FLocat) elements must have a
+         LOCTYPE attribute with appropriate value. The profile makes no further requirements regarding the fileSec element. The example
+         document in Appendix 1 provides a more complete example of Library of Congress practice (see the XML version of this document).
+         [Appendix 1 to be supplied.]
+      </p>
+      <h5>Structure Map</h5>
+      <h6>structMap Requirement 1</h6>
+      <p>The physical structure of the sheet music will be represented in the Structure Map (structMap) section of the METS instance.
+         The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="sm:sheetMusic"
+         child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.
+      </p>
+      <h6>Example 2.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:sm</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/sheetMusic</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">lc:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex02_dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex02_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Stars and stripes forever</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Sousa, John Philip</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Composer</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;!--<span class="xmlverb-comment"> one and only one sheetMusic div </span>--&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:sheetMusic</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">ex02_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 2</h6>
+      <p>The div TYPE="sm:sheetMusic" element will in turn contain one or more div TYPE="sm:page" elements. There must be one div TYPE="sm:page"
+         element for each page of the piece of sheet music. The div TYPE="sm:page" elements must be in document order that corresponds
+         to the order of the pages in the piece of sheet music.
+      </p>
+      <h6>Example 3.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:sm</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/sheetMusic</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">lc:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex03_dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex03_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Stars and stripes forever</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Sousa, John Philip</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Composer</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;!--<span class="xmlverb-comment"> one and only one sheetMusic div </span>--&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;!--<span class="xmlverb-comment"> one or more page div </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 3</h6>
+      <p>The div TYPE="sm:sheetMusic" element will in turn contain one or more div TYPE="sm:page" elements. There must be one div TYPE="sm:page"
+         element for each page of the piece of sheet music. The div TYPE="sm:page" elements must be in document order that corresponds
+         to the order of the pages in the piece of sheet music.
+      </p>
+      <h6>Example 3.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:sm</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/sheetMusic</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">lc:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex03_dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex03_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Stars and stripes forever</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Sousa, John Philip</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Composer</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;!--<span class="xmlverb-comment"> one and only one sheetMusic div </span>--&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;!--<span class="xmlverb-comment"> one or more page div </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 4</h6>
+      <p>The div TYPE="sm:page" element will in turn contain one div TYPE="sm:image" element.</p>
+      <h6>Example 3.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:sm</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/sheetMusic</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">lc:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex03_dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex03_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Stars and stripes forever</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Sousa, John Philip</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Composer</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;!--<span class="xmlverb-comment"> one and only one sheetMusic div </span>--&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;!--<span class="xmlverb-comment"> one or more page div </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 5</h6>
+      <p>The div TYPE="sm:page" element will contain File Pointer (fptr) elements with FILEID attributes that reference the appropriate
+         image files for the page.
+      </p>
+      <h6>Example 4.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:sm</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/sheetMusic</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">lc:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex04_dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex04_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Stars and stripes forever</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Sousa, John Philip</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Composer</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;!--<span class="xmlverb-comment"> one and only one sheetMusic div </span>--&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;!--<span class="xmlverb-comment"> one or more page div </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F1"/&gt; </span>--&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F2"/&gt; </span>--&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F3"/&gt; </span>--&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F4"/&gt; </span>--&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F5"/&gt; </span>--&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F6"/&gt;  </span>--&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 6</h6>
+      <p>The div TYPE="sm:sheetMusic" element may also have one and only one div TYPE="sm:lyrics" child element. This will be used
+         in cases where a text version of the transcribed lyrics is supplied (in addition to the scanned page images). The div TYPE="sm:lyrics"
+         element will contain File Pointer (fptr) elements with FILEID attributes that reference the appropriate text files for the
+         piece of sheet music.
+      </p>
+      <p>he div TYPE="sm:sheetMusic" element may also have one and only one div TYPE="sm:notation" child element. This will be used
+         in cases where a transcription of the notated music is supplied (in addition to the scanned page images). The div TYPE="sm:notation"
+         element will contain File Pointer (fptr) elements with FILEID attributes that reference the appropriate music notation file
+         for the piece of sheet music.
+      </p>
+      <h6>Example 5.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:sm</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/sheetMusic</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">lc:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex05_dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ex05_mods1</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Stars and stripes forever</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text">Sousa, John Philip</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">namePart</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span> <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">marcrelator</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">text</span>"&gt;<span class="xmlverb-text">Composer</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">roleTerm</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">role</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">name</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;!--<span class="xmlverb-comment"> one and only one sheetMusic div </span>--&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:sheetMusic</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;!--<span class="xmlverb-comment"> one and only one lyrics div </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:lyrics</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F20"/&gt;  </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;!--<span class="xmlverb-comment"> one and only one notation div </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">sm:notation</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;!--<span class="xmlverb-comment"> &lt;mets:fptr FILEID="F21"/&gt;  </span>--&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h3>Technical Requirements</h3>
+   </body>
+</html>

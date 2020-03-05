@@ -1,0 +1,257 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Library of Congress METS Profile for a Digital Photograph [Draft]</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheets/profile.css" />
+   </head>
+   <body>
+      <h2>LC METS Profile</h2>
+      <h3>Library of Congress METS Profile for a Digital Photograph [Draft]</h3>
+      <hr />
+      <p><a href="http://www.loc.gov/mets/profiles/LC_profiles/photograph/00000010.xml">XML Version of Profile Document</a></p>
+      <hr /><br /><h4>Abstract</h4>
+      <p>The Library of Congress METS Profile for Photographs specifies how METS documents representing single photographs within Library
+         of Congress digital library projects should be encoded. The profile applies to both photographs and other pictorial items.
+      </p><br /><h4>URI</h4>
+      <p>http://www.loc.gov/mets/profiles/LC_profiles/photograph/00000010.xml</p><br /><h4>Date</h4>
+      <p>2006-04-01T17:31:00</p>
+      <h4>Contact</h4>
+      <p><b>Network Development and MARC Standards Office</b><br />Library of Congress<br />101 Independence Avenue, Washington DC, 20540
+      </p><br /><h4>Related Profile</h4>
+      <p>No related profiles.</p><br /><h4>Extension Schema</h4>
+      <p>Metadata Object Description Schema (MODS)<br />http://www.loc.gov/mods/v3/
+      </p><br /><h4>Description Rules</h4><br /><h4>Controlled Vocabularies</h4>
+      <h3>Structural Requirements</h3>
+      <h5>Descriptive Metadata Section</h5>
+      <h6>dmdSec Requirement 1</h6>
+      <p>A METS photoObject document must contain one and only one Descriptive Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic
+         record. The mods element must have an ID attribute.
+      </p>
+      <h6>Example 1.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:re</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/photograph</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">photo:photograph</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd1_ex01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods1_ex01</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Title</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>dmdSec Requirement 2</h6>
+      <p>If there is only one version of the photograph to be digitized (and thus to be considered as part of the photoObject) then
+         the MODS record will contain no relatedItem TYPE="constituent" elements. The term "version" here is used to refer to the various
+         possible manifestations of a photograph such as an original negative, a copy negative, a print, a cropped print, a contact
+         sheet, and the like. This is not to be confused with multiple digital images for a particular version (different digital image
+         file formats, resolutions, etc.).
+      </p>
+      <h6>Example 2.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:re</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/photograph</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">photo:photograph</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd1_ex02</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods1_ex02</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+              </span></div><br /><br /><h6>dmdSec Requirement 3</h6>
+      <p>If the photoObject does consist of multiple versions, then the MODS record will have one relatedItem  element for each version.
+         Each of these relatedItems must have a TYPE="constituent" attribute and an ID attribute.
+      </p>
+      <h6>Example 3.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:re</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/photograph</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">photo:photograph</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd1_ex03</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods1_ex03</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">[Portrait of Tyree Glenn, New York, N.Y., ca. July 1947]</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ver01_ex03</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">contents of subfield</span>"&gt;<span class="xmlverb-text">negative</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ver02_ex03</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">contents of subfield</span>"&gt;<span class="xmlverb-text">contact print with annotations</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ver03_ex03</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">contents of subfield</span>"&gt;<span class="xmlverb-text">published print (The Golden Age of Jazz, Pomegranate Artbooks)</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h5>Structure Map</h5>
+      <h6>structMap Requirement 1</h6>
+      <p>The physical structure of the photoObject will be represented in the Structure Map (structMap) section of the METS instance.
+         The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="photo:photoObject"
+         child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.
+      </p>
+      <h6>Example 4.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:re</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/photograph</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">photo:photograph</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd1_ex04</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods1_ex04</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:photoObject</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">mods1_ex04</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 2</h6>
+      <p>The div TYPE="photo:photoObject" element will have one or more div TYPE="photo:version" child elements. When there is only
+         one version of the photograph (see dmdSec Requirement 3) there will be one div TYPE="photo:version" element. The div TYPE="photo:photoObject"
+         element must have a DMDID pointing to the mods element.
+      </p>
+      <h6>Example 5.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:re</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/photograph</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">photo:photograph</span>"&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd1_ex05</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods1_ex05</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">[Portrait of Tyree Glenn, New York, N.Y.(?), ca. July 1947]</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:photoObject</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">mods1_ex05</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:version</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 3</h6>
+      <p>In the cases where there is more than one version of the photograph (see dmdSec Requirement 3), there will be one corresponding
+         div TYPE="photo:version" element for each relatedItem TYPE="constituent" contained in the mods element. Each div TYPE="photo:version"
+         element must have a DMDID pointing to the corresponding relatedItem element. Note that the relatedItem type="constituent"
+         elements and the div TYPE="photo:version" elements correspond according to their document order.
+      </p>
+      <h6>Example 6.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:re</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/photograph</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">photo:photograph</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd1_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods1_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">[Portrait of Tyree Glenn, New York, N.Y., ca. July 1947]</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ver01_ex06</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">contents of subfield</span>"&gt;<span class="xmlverb-text">negative</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ver02_ex06</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">contents of subfield</span>"&gt;<span class="xmlverb-text">contact print with annotations</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ver03_ex06</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span> <span class="xmlverb-attr-name">displayLabel</span>="<span class="xmlverb-attr-content">contents of subfield</span>"&gt;<span class="xmlverb-text">published print (The Golden Age of Jazz, Pomegranate Artbooks)</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">physicalLocation</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">location</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:photoObject</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">mods1_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:version</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">ver01_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:version</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">ver02_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:image</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:version</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">ver03_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:image</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 4</h6>
+      <p>In the case where a particuluar version of the photograph is comprised of two images (usually one for the front of a print
+         and one for the back of a print), the div TYPE="photo:version element will contain two div TYPE="photo:image child elements.
+         The typical example of this is the case where a photo print contains useful information about the photograph (names, date,
+         location, photographer, etc.) inscribed on the back side. The first div TYPE="photo:image element must be for the front side
+         of the print and second div TYPE="photo:image element must be for the back side of the print. The div TYPE="photo:image element
+         may optionally use the LABEL attribute to supply clarifying structural information, for example div TYPE="photo:image LABEL="Front".
+      </p>
+      <h6>Example 7.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span><span class="xmlverb-ns-name"> xmlns:lc</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles</span>"<span class="xmlverb-ns-name"> xmlns:rights</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/rights/</span>"<span class="xmlverb-ns-name"> xmlns:re</span>="<span class="xmlverb-ns-uri">http://www.loc.gov/mets/profiles/photograph</span>" <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">photo:photograph</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:photoObject</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">mods1_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:version</span>" <span class="xmlverb-attr-name">LABEL</span>="<span class="xmlverb-attr-content">Print</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:image</span>" <span class="xmlverb-attr-name">LABEL</span>="<span class="xmlverb-attr-content">Front</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">photo:image</span>" <span class="xmlverb-attr-name">LABEL</span>="<span class="xmlverb-attr-content">Back</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h3>Technical Requirements</h3>
+   </body>
+</html>

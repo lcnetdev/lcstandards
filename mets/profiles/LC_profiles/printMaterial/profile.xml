@@ -1,0 +1,352 @@
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink">
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/printMaterial</URI>
+  <title>Library of Congress METS Profile for Print Materials [Draft]</title>
+  <abstract>The Library of Congress METS Profile for Print Materials specifies how a METS document representing a printed, multi-page document (e.g. a book, a pamphlet, or a concert program) should be encoded for use in a Library of Congress digital library project.</abstract>
+  <date>2004-09-08T17:31:00</date>
+  <contact>
+    <name>Morgan Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri">
+  </registration_info>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+  </extension_schema>
+  <description_rules></description_rules>
+  <controlled_vocabularies></controlled_vocabularies>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex02">
+	<p>The physical structure of the print material item will be represented in the Structure Map (structMap) section of the METS instance. The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="pm:printMaterialObject" child element. The div TYPE="pm:printMaterialObject" element of the structMap must have a DMDID attribute that points to the mods element. </p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex03">
+	<p>The div TYPE="pm:printMaterialObject" element will contain one and only one div TYPE="pm:printMaterial" child element. The div TYPE="pm:printMaterial" element will contain one or more div TYPE="pm:page" elements. There must be one div TYPE="pm:page" element for each page of the printed material item. The div TYPE="pm:page" elements must be in document order that corresponds to the order of the pages in the printed material item.</p>
+      </requirement>
+      <requirement ID="st03" RELATEDMAT="ex04">
+	<p>Each div TYPE="pm:page" element will contain one or more File Pointer (fptr) elements with FILEID attributes that reference the appropriate image files for the page.</p>
+      </requirement>
+      <requirement ID="st04" RELATEDMAT="ex05">
+	<p>The div TYPE="pm:printMaterialObject" element may also have one and only one div TYPE="pm:text" child element. This will be used in cases where a text transcripion of the print material item is supplied (in addition to the scanned page images). The div TYPE="pm:text" element will contain File Pointer (fptr) elements with FILEID attributes that reference the appropriate text files.</p>
+      </requirement>
+    </structMap>
+
+  </structural_requirements>
+  <technical_requirements></technical_requirements>
+  <tool></tool>
+  <Appendix ID="a1" NUMBER="1" LABEL="appendix1"></Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:dmdSec ID="dmd01">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="MODS">
+	    <mods:titleInfo>
+	      <mods:title>Adams and liberty</mods:title>
+	    </mods:titleInfo>
+	    <mods:name>
+	      <mods:namePart>[Smith, John Stafford?]</mods:namePart>
+	      <mods:role>
+		<mods:roleTerm authority="marcrelator" type="text">Author</mods:roleTerm>
+	      </mods:role>
+	    </mods:name>
+	    <mods:name>
+	      <mods:namePart>[Paine Jr., Robert Treat]</mods:namePart>
+	      <mods:role>
+		<mods:roleTerm authority="marcrelator" type="text">Lyricist</mods:roleTerm>
+	      </mods:role>
+	    </mods:name>
+	    <mods:typeOfResource>text</mods:typeOfResource>
+	    <mods:originInfo>
+	      <mods:place>
+		<mods:placeTerm type="text">Northampton, MA</mods:placeTerm>
+	      </mods:place>
+	      <mods:publisher>A. Wright, for D. Wright and Company</mods:publisher>
+	      <mods:dateIssued>1798</mods:dateIssued>
+	      <mods:issuance>monographic</mods:issuance>
+	    </mods:originInfo>
+	    <mods:physicalDescription>
+	      <mods:form authority="marcform">print</mods:form>
+	      <mods:reformattingQuality>access</mods:reformattingQuality>
+	      <mods:internetMediaType>h</mods:internetMediaType>
+	      <mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+	    </mods:physicalDescription>
+	    <mods:targetAudience authority="marctarget">adult</mods:targetAudience>
+	    <mods:note>"Adams and liberty" is written to the tune of the Anacreontic song, and this is believed to be the first American book publication of the music of that song.</mods:note>
+	    <mods:subject authority="lcsh">
+	      <mods:topic>Patriotic music--United States</mods:topic>
+	    </mods:subject>
+	    <mods:classification>M1628.A2 A5 (case)</mods:classification>
+	    <mods:identifier displayLabel="IHASDigitalID" type="local">100010461</mods:identifier>
+	    <mods:identifier displayLabel="IHASMODSID" type="local">334</mods:identifier>
+	    <mods:location>
+	      <mods:physicalLocation authority="marcorg">DLC</mods:physicalLocation>
+	    </mods:location>
+	    <mods:recordInfo>
+	      <mods:recordContentSource>IHAS</mods:recordContentSource>
+	      <mods:recordChangeDate encoding="marc">041228</mods:recordChangeDate>
+	      <mods:recordIdentifier source="IHAS">loc.natlib.ihas.100010461</mods:recordIdentifier>
+	    </mods:recordInfo>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:pm="http://www.loc.gov/mets/profiles/printMaterial"
+	       PROFILE="lc:printMaterial" 
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>Adams and liberty</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>[Smith, John Stafford?]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Author</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:name>
+		<mods:namePart>[Paine Jr., Robert Treat]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Lyricist</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="text">Northampton, MA</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>A. Wright, for D. Wright and Company</mods:publisher>
+		<mods:dateIssued>1798</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one printMaterialObject div -->
+	<mets:div TYPE="pm:printMaterialObject" DMDID="mods1">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:pm="http://www.loc.gov/mets/profiles/printMaterial"
+	       PROFILE="lc:printMaterial" 
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>Adams and liberty</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>[Smith, John Stafford?]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Author</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:name>
+		<mods:namePart>[Paine Jr., Robert Treat]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Lyricist</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="text">Northampton, MA</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>A. Wright, for D. Wright and Company</mods:publisher>
+		<mods:dateIssued>1798</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one printMaterialObject div -->
+	<mets:div TYPE="pm:printMaterialObject" DMDID="mods1">
+	  <!-- one and only one printMaterial div -->
+	  <mets:div TYPE="pm:printMaterial">
+	    <!-- one or more page div -->
+	    <mets:div TYPE="pm:page">
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:pm="http://www.loc.gov/mets/profiles/printMaterial"
+	       PROFILE="lc:printMaterial" 
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>Adams and liberty</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>[Smith, John Stafford?]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Author</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:name>
+		<mods:namePart>[Paine Jr., Robert Treat]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Lyricist</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="text">Northampton, MA</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>A. Wright, for D. Wright and Company</mods:publisher>
+		<mods:dateIssued>1798</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one printMaterialObject div -->
+	<mets:div TYPE="pm:printMaterialObject" DMDID="mods1">
+	  <mets:div TYPE="pm:printMaterial">
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F1"/>
+	      <mets:fptr FILEID="F2"/>
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F3"/>
+	      <mets:fptr FILEID="F4"/>
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F5"/>
+	      <mets:fptr FILEID="F6"/>
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F7"/>
+	      <mets:fptr FILEID="F8"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex05" NUMBER="5">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:pm="http://www.loc.gov/mets/profiles/printMaterial"
+	       PROFILE="lc:printMaterial" 
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>Adams and liberty</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>[Smith, John Stafford?]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Author</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:name>
+		<mods:namePart>[Paine Jr., Robert Treat]</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Lyricist</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>text</mods:typeOfResource>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="text">Northampton, MA</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>A. Wright, for D. Wright and Company</mods:publisher>
+		<mods:dateIssued>1798</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one printMaterialObject div -->
+	<mets:div TYPE="pm:printMaterialObject" DMDID="mods1">
+	  <mets:div TYPE="pm:printMaterial">
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F1"/>
+	      <mets:fptr FILEID="F2"/>
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F3"/>
+	      <mets:fptr FILEID="F4"/>
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F5"/>
+	      <mets:fptr FILEID="F6"/>
+	    </mets:div>
+	    <mets:div TYPE="pm:page">
+	      <mets:fptr FILEID="F7"/>
+	      <mets:fptr FILEID="F8"/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="pm:text">
+	    <mets:fptr FILEID="F9"/>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

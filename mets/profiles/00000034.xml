@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile
+  xmlns="http://www.loc.gov/METS_Profile/v2"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd" 
+  STATUS="final" REGISTRATION="registered">
+
+  <URI LOCTYPE="URL" ASSIGNEDBY="local">http://purl.fcla.edu/fcla/rxp-rep-profile</URI>
+  <URI LOCTYPE="URL" ASSIGNEDBY="metsboard" REGDATE="2010-07-28">http://www.loc.gov/standards/mets/profiles/00000034.xml</URI>	
+  <title>TIPR rxp-rep-n.xml</title>
+
+  <abstract>
+    METS documents describing representations of the RXP.
+
+    RFC 2119 (http://www.ietf.org/rfc/rfc2119.txt) defines the meanings of terms MUST, SHOULD, etc.
+  </abstract>
+
+  <date>2010-07-06T16:39:29-04:00</date>
+
+  <contact>
+    <name>Francesco Lazzarino</name>
+    <institution>Florida Center for Library Automation</institution>
+    <address>
+      The Florida Center for Library Automation
+      5830 NW 39th Ave
+      Gainesville, FL 32606
+    </address>
+    <email>flaz@ufl.edu</email>
+  </contact>
+	
+  <registration_info regDate="2010-07-28T00:00:00" regURI="http://www.loc.gov/standards/mets/profiles/00000034.xml"/>	
+
+  <related_profile URI="http://purl.fcla.edu/fcla/rxp-base-profile" RELATIONSHIP="extends">
+    TIPR base METS profile
+  </related_profile>
+
+  <profile_context>
+    <resource_model>
+      <xhtml:p>
+        The Repository Exchange Package (RXP) is a hierarchical packaging
+        format designed to facilitate the exchange of Archival Information
+        Packages (AIPs) between digital repositories.  The RXP employs METS and
+        PREMIS metadata documents to encode AIP preservation and structural
+        metadata at the root level. All other data are stored in the files
+        subdirectory.
+      </xhtml:p>
+      <xhtml:p>
+        link to RXP Specification: http://wiki.fcla.edu:8000/TIPR/21
+      </xhtml:p>
+    </resource_model>
+  </profile_context>
+
+  <external_schema/>
+
+  <description_rules>
+    <xhtml:p>None</xhtml:p>
+  </description_rules>
+
+  <controlled_vocabularies/>
+
+  <structural_requirements>
+    <amdSec>
+
+      <requirement ID="amdSec-digiprov-reference">
+        <description>
+          <xhtml:p>
+            The amdSec MUST have a digiprovMD with an mdRef that MUST reference
+            (via mdRef) 'rxp-rep-n-digiprov.xml' where n is an integer.
+          </xhtml:p>
+        </description>
+      </requirement>
+
+    </amdSec>
+
+    <fileSec>
+
+      <requirement ID="fileSec-owner-id">
+        <description>
+          <xhtml:p>
+            Each file not in the metadata file group SHOULD have an OWNERID
+            attribute. The OWNERID SHOULD match the URI identifier of the file
+            in the representation provenance (rxp-rep-n-digiprov.xml). OWNERID
+            serves as a link between the location of a file and its provenance.
+          </xhtml:p>
+        </description>
+      </requirement>
+
+    </fileSec>
+
+  </structural_requirements>
+
+  <technical_requirements>
+
+    <content_files>
+      <requirement>
+        <description>
+          <xhtml:p>
+            All FLocats in the fileSec SHALL reference files in the "files/" directory or the rxp-rep-n-digiprov.xml files and MUST NOT reference other files.
+          </xhtml:p>
+        </description>
+      </requirement>
+    </content_files>
+
+  </technical_requirements>
+
+  <tool>
+    <description>
+      <xhtml:p>No tools are associated with this profile</xhtml:p>
+    </description>
+  </tool>
+
+  <Appendix NUMBER="1">
+
+    <mets OBJID='daitss-test://E00001996_NQF0Z3' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.loc.gov/METS/'
+    	xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd">
+      <metsHdr CREATEDATE='2010-06-16T16:32:25-04:00'>
+        <agent ROLE='DISSEMINATOR' TYPE='ORGANIZATION'>
+          <name>FCLA</name>
+          <note>rxp-0.96</note>
+        </agent>
+      </metsHdr>
+      <amdSec>
+        <digiprovMD ID='digiprov-1'>
+          <mdRef LOCTYPE='URL' MDTYPE='PREMIS' xlink:href='rxp-rep-1-digiprov.xml' />
+        </digiprovMD>
+      </amdSec>
+      <fileSec>
+        <fileGrp USE='METADATA'>
+          <file CHECKSUM='7e0f53078472e5b487a178d2a5dea5d48e65ece8' CHECKSUMTYPE='SHA-1' ID='rxp-rep-1-digiprov' SIZE='16700'>
+            <FLocat LOCTYPE='URL' xlink:href='rxp-rep-1-digiprov.xml' />
+          </file>
+        </fileGrp>
+        <fileGrp>
+          <file CHECKSUM='863cc6cdd35d1eadc8e43a8dc589a19cbb09645a' CHECKSUMTYPE='SHA-1' ID='file-1' OWNERID='daitss-test://E00001996_NQF0Z3/file/1' SIZE='3793'>
+            <FLocat LOCTYPE='URL' xlink:href='files/E00001996_NQF0Z3/wave.xml' />
+          </file>
+          <file CHECKSUM='5678aea9e9856e7dfa1a92301a3c680cde472755' CHECKSUMTYPE='SHA-1' ID='file-2' OWNERID='daitss-test://E00001996_NQF0Z3/file/0' SIZE='134962'>
+            <FLocat LOCTYPE='URL' xlink:href='files/E00001996_NQF0Z3/obj1.wav' />
+          </file>
+        </fileGrp>
+      </fileSec>
+      <structMap>
+        <div>
+          <fptr FILEID='file-1' />
+          <fptr FILEID='file-2' />
+        </div>
+      </structMap>
+    </mets>
+  </Appendix>
+
+
+</METS_Profile>

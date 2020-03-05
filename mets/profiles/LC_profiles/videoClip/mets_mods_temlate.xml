@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	   xmlns:mods="http://www.loc.gov/mods/v3"
+	   xmlns:lc="http://www.loc.gov/mets/profiles"
+	   xmlns:xlink="http://www.w3.org/TR/xlink"
+	   xmlns:rights="http://www.loc.gov/rights/"
+	   xmlns:cd="http://www.loc.gov/mets/profiles/compactDisc"
+	   PROFILE="lc:longPlayDisc" xmlns="http://www.loc.gov/METS/"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <!-- Created by Morgan Cundiff in Emacs -->
+  <!-- (For XMLSpy validation)
+       xsi:schemaLocation="http://www.loc.gov/METS/ C:\mets_profiles\mets.xsd http://www.loc.gov/MODS/v3 C:\mets_profiles\mods-3-0.xsd"
+  -->
+
+  <mets:dmdSec ID="dmd01">
+    <mets:mdWrap MDTYPE="MODS">
+      <mets:xmlData>
+	<mods:mods>
+	  <mods:titleInfo>
+	    <mods:title>
+
+	    </mods:title>
+	  </mods:titleInfo>
+	</mods:mods>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+
+  <mets:structMap>
+    <mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>

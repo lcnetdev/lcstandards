@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head><title>METS Profile for Historical Newspapers</title></head>
+
+  <body>
+    <h3>Notes on Draft METS Profile for Historical Newspapers</h3>
+    <h4>Morgan Cundiff<br/>Network Development and MARC Standards Office<br/>Library of Congress</h4>
+
+    <hr/>
+
+    <h5>Notes:</h5>
+
+    <p>The Profile is to be used to represent a single issue of a given historical newspaper.</p>
+    <p>The Profile maintains a strict separation between physical entities and logical entities.</p>
+    <p>There are only three physical entities. They are: issue, page, and pageRegion.</p>
+    <p>The physical entities are represented in the structMap section of the METS document as div types (div type="news:page"). There is only one structMap.</p>
+    <p>Logical structure is represented using MODS in the METS dmdSec. It is necessary to use the latest version of MODS (http://www.loc.gov/standards/mods/v3/mods-3-2b.xsd). Note that this version is still in test and is not the current official version.</p>
+    <p>The primary logical entities are issue, issue section, article, article section, and illustration. The top-level MODS record describes the issue. The other primary logical entities (issueSection, article, articleSection, and illustration) are described in a heirarchy of MODS relatedItem elements.</p>
+    <p>The primary logical entities are expressed as values of the MODS genre element.</p>
+    <p>The allowable genre values (for Profile compliance) are listed in <a href="newspaper_genre_terms.html">Newspaper Genre Terms</a>.</p>
+    <p>It is also possible to tag subparts of the primary logical entities. The typical example of this is tagging the paragraph.</p>
+    <hr/>
+    <h4>Documents:</h4>
+    <p><a href="00000010.html">Draft profile (HTML version for easy reading)</a></p>
+    <p><a href="00000010.xml">Draft profile (XML version)</a></p>
+    <!--
+	<p><a href="np_mets.xml">Example document (issue with articles)</a></p>
+	<p><a href="np_mets_para1.xml">Example document (issue with articles and paragraphs)</a></p>
+    -->
+    <hr/>
+    <h5>CCS Sample Document 1</h5>
+    <p>Example of newspaper with article spanning three pages.</p>
+    <p><a href="examples/sample1/20060220.PDF">PDF (images of issue)</a></p>
+    <p><a href="examples/sample1/copy_20060220-METS.xml">CCS METS</a></p>
+    <p><a href="examples/sample1/sample1.xml">LC METS (draft)</a></p>
+    <hr/>
+    <h5>CCS Sample Document 2a</h5>
+    <p><a href="examples/sample2a/18870101.PDF">PDF (images of issue)</a></p>
+    <p><a href="examples/sample2a/copy18870101-METS.xml">CCS METS</a></p>
+    <p><a href="examples/sample2a/sample2a.xml">LC METS (draft)</a></p>
+    <hr/>
+    <h5>CCS Sample Document 2b</h5>
+    <p><a href="examples/sample2b/18870101.PDF">PDF (images of issue)</a></p>
+    <p><a href="examples/sample2b/copy_18870101-METS.xml">CCS METS</a></p>
+    <p><a href="examples/sample2b/sample2b.xml">LC METS (draft)</a></p>
+    <hr/>
+    <h5>CCS Sample Document 2c</h5>
+    <p><a href="examples/sample2c/18870101.PDF">PDF (images of issue)</a></p>
+    <p><a href="examples/sample2c/copy_18870101-METS.xml">CCS METS</a></p>
+    <p><a href="examples/sample2c/sample2c.xml">LC METS (draft)</a></p>
+    <hr/>
+    <h5>CCS Sample Document 3</h5>
+    <p><a href="examples/sample3/19550515.PDF">PDF (images of issue)</a></p>
+    <p><a href="examples/sample3/19550515-METS.xml">CCS METS</a></p>
+    <p><a href="examples/sample3/sample3.xml">LC METS (draft)</a></p>
+    <hr/>
+    <h5>CCS Sample Document 4</h5>
+    <p>Example of issue with several overlapping structures.</p>
+    <p><a href="examples/sample4/18830110.PDF">PDF (images of issue)</a></p>
+    <p><a href="examples/sample4/copy_18830110-METS.xml">CCS METS</a></p>
+    <p><a href="examples/sample4/sample4.xml">LC METS (draft)</a></p>
+    <hr/>
+    <h5>CCS Sample Document 5</h5>
+    <p>Example of an article with sections.</p>
+    <p><a href="examples/sample5/1900010101-PDF.pdf">PDF (images of issue)</a></p>
+    <p><a href="examples/sample5/copy_1900010101-org.xml">CCS METS</a></p>
+    <p><a href="examples/sample5/sample5.xml">LC METS (draft)</a></p>
+    <hr/>
+    <p><a href="newspaper_genre_terms.html">Newspaper Genre Terms</a></p>
+    <p><a href="newspaper_doc_model.html">Newspaper Document Model</a></p>
+    <hr/>
+<!--    <p><a href="ccs2ndnp3.xsl">XSLT Stylesheet for CCS METS to LC METS conversion</a></p>
+    <hr/>
+-->
+    <p><i>last update: March 14, 2006</i></p>
+  </body>
+
+
+</html>

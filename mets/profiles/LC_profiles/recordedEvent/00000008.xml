@@ -1,0 +1,1031 @@
+<?xml version="1.0"?>
+<METS_Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/METS_Profile/"
+
+xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd 
+		    http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd
+		    http://www.loc.gov/standards/premis http://www.loc.gov/standards/premis/PREMIS-v1-0.xsd"
+
+>
+
+
+
+  <!--  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000008.xml</URI> -->
+  <URI LOCTYPE="URL">http://www.loc.gov/standards/mets/profiles/LC_profiles/recordedEvent/00000008.xml</URI>
+
+
+  <title>Library of Congress METS Profile for Recorded Events [Draft]</title>
+  <abstract>The Library of Congress Recorded Events METS Profile specifies how METS documents representing recorded events should be encoded. The term "recorded event" includes both audio and video recordings.  This profile will typically be used for non-commercial recordings of events such as concerts, lectures, or radio and television broadcasts. A distinctive feature of the profile is that it represents the physical structure of a given audio or video program as a simple sequence of time-based segments. These segments are expressed in the METS structMap section of the METS document and are described below. Or, put another way, there is no attempt made to express the physical components (e.g. tape, disc, side, track, etc.) of the original carrrier.</abstract>
+  <date>2005-09-12T17:31:00</date>
+  <contact>
+    <name>Morgan V. Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri"/>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+  </extension_schema>
+  <extension_schema>
+    <name>Premis</name>
+    <URI>http://www.loc.gov/standards/premis</URI>
+  </extension_schema>
+  <description_rules>
+    <p>It is recommended that the content data used in the MODS section of a METS document conform to AACR2 to the extent that it applies.</p>
+  </description_rules>
+  <controlled_vocabularies>
+    <vocabulary>
+      <name>Library of Congress Subject Headings</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>No URI established.</URI>
+      <context>
+	<p>Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress Subject Headings (LCSH).</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Library of Congress Classification</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/catdir/cpso/lcc.html</URI>
+    </vocabulary>
+    <vocabulary>
+      <name>NACO Authority File</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://authorities.loc.gov/</URI>
+      <context>
+	<p>Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority File.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Country Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/countries/</URI>
+      <context>
+	<p>Country codes used in the MODS section of a METS document must use MARC country code list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>ISO 639-2 Language Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/standards/iso639-2/</URI>
+      <context>
+	<p>Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Relator Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/relators/</URI>
+      <context>
+	<p>Relator codes or terms used in the MODS section of a METS document must use MARC relator list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>Target Audience Codes</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/sourcecode/target/</URI>
+      <context>
+	<p>Terms used in the MODS section of a METS document must use the MARC target audience list.</p>
+      </context>
+    </vocabulary>
+    <vocabulary>
+      <name>MARC Code List for Organizations</name>
+      <maintenance_agency>Library of Congress</maintenance_agency>
+      <URI>http://www.loc.gov/marc/organizations/</URI>
+      <context>
+	<p>Source codes used in the MODS section of a METS document must use MARC organization list.</p>
+      </context>
+    </vocabulary>
+  </controlled_vocabularies>
+  <structural_requirements>
+    <metsRootElement>
+      <requirement ID="rt01" RELATEDMAT="ex17">
+	<p>The METS root element must have an attribute PROFILE="http://www.loc.gov/mets/profiles/00000008.xml".</p>
+      </requirement>
+    </metsRootElement>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p>If the recorded event contains subparts that are to be described, the MODS element must contain one Related Item (relatedItem) element for each sub-part. An example of a sub-part might be a recorded concert with a relatedItem describing each musical work. Each relatedItem element must have an ID attribute and a type="constituent" attribute.</p>
+      </requirement>
+      <requirement ID="dr3" RELATEDMAT="ex03">
+	<p>If a musical work (as is in the previous example) or any other kind of event segment, has logical sub-parts of its own, the logical structure of those sub-parts may in turn be represented with relatedItem type="constituent" child elements. Examples of logical sub-parts are the movements of a musical work, the acts and scenes of a dramatic work, etc. The logical structure of a work (or any other kind of program segment) will thus be represented as a heirarchy of relatedItems type="constituent". All relatedItem type=constituent" elements must be given an ID attribute.</p> 
+      </requirement>
+      <requirement ID="dr04" RELATEDMAT="ex04">
+	<p>Note also that a recorded event might be subdivided into sub-parts for purely arbitrary reasons (rather than logical sub-parts based on the content of the recorded program). The typical example of this is breaking a long program into shorter segments based on arbitrary time durations. As with logical sub-parts, relatedItems may be used to represent these event segments.</p>
+      </requirement>
+    </dmdSec>
+    <amdSec>
+      <requirement ID="am01" RELATEDMAT="ex15">
+	<p>A METS document may optionally contain preservation-related metadata that is expressed using the PREMIS schemas. PREMIS data can be associated with either the entire object (i.e. data that is applicable to all component files), which is, in PREMIS terms, considered to be at the level of the object category "representation", or PREMIS data may associated with individual files. The following brief example shows a possible encoding for the date of a preservation "event" (i.e. the date of digitization) for an audio file. Note that (as of this writing) PREMIS is still very new, and that best practices for its use with METS have not yet emerged.</p>
+      </requirement>
+    </amdSec>
+    <fileSec>
+      <requirement ID="fs01">
+	<head>File Section</head>
+	<p>The content files referenced by the fptr elements (in the structMap) must point to the appropriate files in the File Section (fileSec). The profile makes no further requirements regarding the fileSec element.</p>
+      </requirement>
+    </fileSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex05">
+	<p>The physical structure of the recorded event will be represented in the Structure Map (structMap) section of the METS document. The document will have one and only one structMap. The structMap element must contain one and only one top level div TYPE="re:recordedEvent" child element. The top-level div element of the structMap must have a DMDID attribute that points to the mods element.</p>
+
+	<p>The div TYPE="re:recordedEvent" element must contain one or more div TYPE="re:segment" elements. The div TYPE="re:segment" elements represent ordered, time-based segments of the recorded program (i.e. the document order of the div TYPE="re:segment" elements must reflect the audio or video program order). A div TYPE="re:segment" element has no furthur semantic meaning. The entire recorded event object will always be expressed as a sequence of one or more segments.</p>
+	<p>Each div TYPE="re:segment" elements must contain either one div TYPE="re:audio" child element or one div TYPE="re:video" child element.</p>
+	<p>In the case where there is only one div TYPE="re:segment" element (as in Example 5) the DMDID attribute must also point to the mods element.</p>
+      </requirement>
+
+      <requirement ID="st02" RELATEDMAT="ex06">
+	<p>In the case where there are more than one div TYPE="re:segment" elements (as in Example 6) the DMDID attributes must must point to the corresponding relatedItem type="constituent" elements in the MODS record. In some cases the relatedItem type="constituent" elements represent only arbitrary segments of the recorded event (perhaps based only on time duration) but where navigation of the segments is desirable. This is the case in the following example.</p>
+      </requirement>
+
+      <requirement ID="st03" RELATEDMAT="ex07">
+	<p>In other cases, the segments may be associated with the appropriate relatedItem elements where the relatedItems provide a more thorough description of the logical structure (i.e. the program content) of the recorded event. This is the case in the following example. Note that this approach provides a method for correlating the two differing hierarchical representations (logical and physical) of the recorded event object.</p>
+      </requirement> 
+
+      <requirement ID="st04">
+	<p>A recordedEventObject may also contain text and image content in addition to audio or video content. A text file may exist as a transcription of the audio program content, or may exist as a transcription of text that appears on the original container, or, in any document that is inserted in the container.  (These include the kind of documents usually described as "accompanying material", e.g. a concert program, a curator's notes, a recording engineer's notes, etc.). Images may exit as scans of the original container, or as scans of an inserted document.</p>
+
+	<p>The profile thus provides for the following possibilities: 1) A text transcription of an entire recordedEvent, 2) A text transcription of an audio or video segment, 3) A text transcription of material from the original container, 4) A text transcription of an inserted document, 5) Images of the container, 6) Images of an inserted document, and 7) An illustrative image. Each of these will be demonstrated in the examples that follow.</p>
+      </requirement> 
+
+      <requirement ID="st05" RELATEDMAT="ex08">
+	<p>A text transcription of an entire recordedEvent is expressed as a div TYPE="re:text" element. In this case the div TYPE="re:text" element will occur as a child element of the div TYPE="re:recordedEvent" element as in Example 8.</p>
+      </requirement>
+
+      <requirement ID="st06" RELATEDMAT="ex09">
+	<p>There may also exist text transcriptions for each audio or video segment of a multi-segment recordedEvent. In this case the div TYPE="re:text" element will occur as a child element of the div TYPE="re:segment" element as in Example 9.</p>
+      </requirement>
+
+      <requirement ID="st07" RELATEDMAT="ex10">
+	<p>If there exist either text files (or image files) derived from the original container, then the div TYPE="re:recordedEvent" element will contain one div TYPE="re:container" element. In the case of a text transcription derived from the container, the div TYPE="re:container" element will contain a div TYPE="re:text" element as in Example 10.</p>
+      </requirement>
+
+      <requirement ID="st08" RELATEDMAT="ex11">
+	<p>In the case of a text transcription derived from an inserted document, the div TYPE="re:recordedEvent" element will contain one or more div TYPE="re:insertedDoc" elements.  The div TYPE="re:insertedDoc" element will contain a div TYPE="re:text" element as in Example 11.</p>      
+      </requirement>
+
+      <requirement ID="st09" RELATEDMAT="ex12">
+	<p>In the case of images derived from the original container, the div TYPE="re:container" element will contain one div TYPE="re:imageSet" element. The div TYPE="re:imageSet" element will contain one div TYPE="re:image" element for each scanned image as in Example 12. Note that there is no prescribed order for the images as far as the profile is concerned. The images can be arranged in any order according to local practice.</p>
+      </requirement>
+
+      <requirement ID="st10" RELATEDMAT="ex13">
+	<p>In the case of images derived from an inserted document, the div TYPE="re:recordedEvent" element will contain one or more div TYPE="re:insertedDoc" elements. Each div TYPE="re:insertedDoc element will contain one or more div TYPE="re:page" elements. Each div TYPE="re:page" element will contain one div TYPE="re:image" elements as in Example 13.</p>
+      </requirement>
+
+      <requirement ID="st11" RELATEDMAT="ex14">
+	<p>In some cases it may be desirable to create a single arbitrary image for the sole purpose of illustration. A typical example of this is using a still image captured from a video program to serve as an illustration when displaying the bibliographic information for the video in question. In this case the div TYPE="re:recordedEvent" element will contain one div TYPE="re:illustration" element which in turn will contain one div TYPE="re:image" element.</p>
+      </requirement>
+
+
+      <requirement ID="st12" RELATEDMAT="ex16">
+	<p>The following example provides an illustration of all the possibilities for building a structMap. Note that div TYPE="re:audio", div TYPE="re:video", div TYPE="re:text", and div TYPE="re:image" are always leaf nodes. These div elements will always contain an fptr child element.</p>
+      </requirement>
+
+
+    </structMap>
+  </structural_requirements>
+  <technical_requirements>
+    <content_files>
+      <requirement>
+	<head>Audio Files</head>
+	<p>The master audio files referenced by conforming documents must be in WAVE Audio File Format. See Digital Formats for Library of Congress Collections: WAVE Audio File Format at http://www.digitalpreservation.gov/formats/fdd/fdd000001.shtml.</p>
+      </requirement>
+      <requirement>
+	<head>Still Image Files</head>
+	<p>The master image files referenced by conforming documents must be in TIFF Revision 6.0 format. See Digital Formats for Library of Congress Collections: TIFF, Revision 6.0 at http://www.digitalpreservation.gov/formats/fdd/fdd000022.shtml.</p>
+      </requirement>
+      <requirement>
+	<head>Text Files</head>
+	<p>Master text files referenced by conforming documents must be in XML format. See Digital Formats for Library of Congress Collections: XML (Extensible Markup Language) at http://www.digitalpreservation.gov/formats/fdd/fdd000075.shtml.</p>
+      </requirement>
+    </content_files>
+  </technical_requirements>
+
+  <tool></tool>
+  <Appendix ID="a1" NUMBER="0" LABEL="appendix1">
+    <mets:mets>
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex17" NUMBER="17">
+    <mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000008.xml">
+      <mets:structMap>
+	<mets:div></mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1" LABEL="1">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       PROFILE="re:recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods_ex01">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       PROFILE="re:recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex02">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex02">
+	      <mods:titleInfo>
+		<mods:title>[Library of Congress Music Division concert, 2003-02-12]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="con1_ex02" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Millennium designs</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Shapey, Ralph,</mods:namePart>
+		  <mods:namePart type="date">1921-</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="con2_ex02" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Quartets, strings, D major</mods:title>
+		  <mods:partNumber>no. 3, op. 18, no. 3, D major</mods:partNumber>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Beethoven, Ludwig van,</mods:namePart>
+		  <mods:namePart type="date">1770-1827</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       PROFILE="re:recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd"
+
+>
+
+      <mets:dmdSec ID="dmd01_ex03">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex03">
+	      <mods:titleInfo>
+		<mods:title>[Library of Congress Music Division concert, 2003-02-12]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="con1_ex03" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Millennium designs</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Shapey, Ralph,</mods:namePart>
+		  <mods:namePart type="date">1921-</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="con2_ex03" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Quartets, strings, D major</mods:title>
+		  <mods:partNumber>no. 3, op. 18, no. 3, D major</mods:partNumber>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Beethoven, Ludwig van,</mods:namePart>
+		  <mods:namePart type="date">1770-1827</mods:namePart>
+		</mods:name>
+		<mods:relatedItem ID="con2a_ex03" type="constituent">
+		  <mods:titleInfo>
+		    <mods:partName>Allegro</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem ID="con2b_ex03" type="constituent">
+		  <mods:titleInfo>
+		    <mods:partName>Allegretto</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem ID="con2c_ex03" type="constituent">
+		  <mods:titleInfo>
+		    <mods:partName>Rondo: Allegro commodo</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       PROFILE="lc:recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+
+xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd"
+>
+
+      <mets:dmdSec ID="dmd01_ex04">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex04">
+	      <mods:titleInfo>
+		<mods:title>[Library of Congress Music Division concert, 2003-02-12]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="con1_ex04" type="constituent">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 1</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="con2_ex04" type="constituent">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 2</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="con3_ex04" type="constituent">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 3</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex05" NUMBER="5">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex05">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex05">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex05">
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex05">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+
+  </Appendix>
+
+  <Appendix ID="ex06" NUMBER="6">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex06">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex06">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="con1_ex06" type="constituent">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 1</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="con2_ex06" type="constituent">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 2</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="con3_ex06" type="constituent">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 3</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex06">
+	  <!-- one or more div TYPE="re:segment"  -->
+	  <mets:div TYPE="re:segment" DMDID="con1_ex06">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:segment" DMDID="con2_ex06">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:segment" DMDID="con3_ex06">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex07" NUMBER="7">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       PROFILE="re:recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd 
+		    http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd"
+
+>
+
+      <mets:dmdSec ID="dmd01_ex07">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex07">
+	      <mods:titleInfo>
+		<mods:title>[Library of Congress Music Division concert, 2003-02-12]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="con1_ex07" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Millennium designs</mods:title>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Shapey, Ralph,</mods:namePart>
+		  <mods:namePart type="date">1921-</mods:namePart>
+		</mods:name>
+	      </mods:relatedItem>
+	      <mods:relatedItem ID="con2_ex07" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Quartets, strings, D major</mods:title>
+		  <mods:partNumber>no. 3, op. 18, no. 3, D major</mods:partNumber>
+		</mods:titleInfo>
+		<mods:name type="personal">
+		  <mods:namePart>Beethoven, Ludwig van,</mods:namePart>
+		  <mods:namePart type="date">1770-1827</mods:namePart>
+		</mods:name>
+		<mods:relatedItem ID="con2a_ex07" type="constituent">
+		  <mods:titleInfo>
+		    <mods:partName>Allegro</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem ID="con2b_ex07" type="constituent">
+		  <mods:titleInfo>
+		    <mods:partName>Allegretto</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem ID="con2c_ex07" type="constituent">
+		  <mods:titleInfo>
+		    <mods:partName>Rondo: Allegro commodo</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex07">
+	  <!-- one or more audio segments -->
+	  <mets:div TYPE="re:segment" DMDID="con1_ex07">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:segment" DMDID="con2a_ex07">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:segment" DMDID="con2b_ex07">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:segment" DMDID="con2c_ex07">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex08" NUMBER="8">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex08">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex08">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex08">
+	  <mets:div TYPE="re:text">
+	  </mets:div>
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex08">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+
+
+  <Appendix ID="ex09" NUMBER="9">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex09">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex09">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem type="constituent" ID="con1_ex09">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 1.</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con2_ex09">
+		<mods:titleInfo>
+		  <mods:partNumber>Part 2.</mods:partNumber>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex09">
+	  <mets:div TYPE="re:segment" DMDID="con1_ex09">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:segment" DMDID="con2_ex09">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex10" NUMBER="10">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex10">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex10">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex10">
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex10">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:container">
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex11" NUMBER="11">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex11">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex11">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex11">
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex11">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:insertedDoc">
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex12" NUMBER="12">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex12">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex12">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex12">
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex12">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:container">
+	    <mets:div TYPE="re:imageSet">
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex13" NUMBER="13">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex13">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex13">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex13">
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex13">
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:insertedDoc">
+	    <mets:div TYPE="re:page">
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="re:page">
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="re:page">
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex14" NUMBER="14">
+    <mets:mets PROFILE="lc:recordedEvent"
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01_ex14">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex14">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex14">
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex14">
+	    <mets:div TYPE="re:video">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="re:illustration">
+	    <mets:div TYPE="re:image">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex15" NUMBER="15">
+    <mets:mets PROFILE="lc:recordedEvent" 
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	       xmlns:premis="http://www.loc.gov/standards/premis">
+
+      <mets:dmdSec ID="dmd01_ex15">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1_ex15">
+	      <mods:titleInfo>
+		<mods:title>[Senator Smith speech to Rotary Club, 1956-12-12]</mods:title>
+	      </mods:titleInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:amdSec>
+	<mets:techMD ID="amd01_ex15">
+	  <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="PREMIS">
+	    <mets:xmlData>
+	      <premis:premis>
+		<premis:object>
+		  <premis:objectIdentifier>
+		    <premis:objectIdentifierType>LCfileID</premis:objectIdentifierType>
+		    <premis:objectIdentifierValue>fileID0001</premis:objectIdentifierValue>
+		  </premis:objectIdentifier>
+		  <premis:objectCategory>file</premis:objectCategory>
+		</premis:object>
+		<premis:event>
+		  <premis:eventIdentifier>
+		    <premis:eventIdentifierType>LCcaptureID</premis:eventIdentifierType>
+		    <premis:eventIdentifierValue>captureID0001</premis:eventIdentifierValue>
+		  </premis:eventIdentifier>
+		  <premis:eventType>digitize</premis:eventType>
+		  <premis:eventDateTime>2005-10-06T00:00:00.001</premis:eventDateTime>
+		</premis:event>
+	      </premis:premis>
+	    </mets:xmlData>
+	  </mets:mdWrap>
+	</mets:techMD>
+      </mets:amdSec>
+
+      <mets:fileSec>
+	<mets:fileGrp>
+	  <mets:file ID="f1_ex15" ADMID="amd01_ex15" MIMETYPE="audio/wav">
+	    <mets:FLocat LOCTYPE="URL" xlink:href="http://path/0001.wav"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+
+      <mets:structMap>
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex15">
+	  <mets:div TYPE="re:segment" DMDID="mods1_ex15">
+	    <mets:div TYPE="re:video">
+	      <mets:fptr FILEID="f1_ex15"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+
+  <Appendix ID="ex16" NUMBER="16">
+    <mets:mets PROFILE="lc:recordedEvent" 
+	       xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/1999/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:re="http://www.loc.gov/mets/profiles/recordedEvent"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	       xmlns:premis="http://www.loc.gov/standards/premis">
+
+      <mets:structMap>
+	<!-- recordedEvent (one and only one) -->
+	<mets:div TYPE="re:recordedEvent" DMDID="mods1_ex08">
+	  <!-- text (zero or one -->
+	  <mets:div TYPE="re:text">
+	  </mets:div>
+	  <!-- segment (one or more) -->
+	  <mets:div TYPE="re:segment">
+	    <!-- audio (or video) (one and only one) -->
+	    <mets:div TYPE="re:audio">
+	    </mets:div>
+	    <!-- text (zero or one) -->
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	  </mets:div>
+	  <!-- container (zero or one -->
+	  <mets:div TYPE="re:container">
+	    <!-- text AND/OR imageSet  -->
+	    <!-- text (zero or one) -->
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	    <!-- imageSet (zero or one) -->
+	    <mets:div TYPE="re:containerPart">
+	      <!-- image (one or more) -->
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="re:containerPart">
+	      <!-- image (one or more) -->
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	  <!-- insertedDoc (zero or more) -->
+	  <mets:div TYPE="re:insertedDoc">
+	    <!-- text (zero or one) -->
+	    <mets:div TYPE="re:text">
+	    </mets:div>
+	    <!-- page (one or more) -->
+	    <mets:div TYPE="re:page">
+	      <!-- one and only one image -->
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="re:page">
+	      <mets:div TYPE="re:image">
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	  <!-- illustration (zero or one) -->
+	  <mets:div TYPE="re:illustration">
+	    <!-- one and only one -->
+	    <mets:div TYPE="re:image">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

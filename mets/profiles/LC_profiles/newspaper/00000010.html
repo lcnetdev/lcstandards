@@ -1,0 +1,522 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>METS Profile for Historical Newspapers [Draft]</title>
+      <link rel="stylesheet" type="text/css" href="../stylesheets/profile.css" />
+   </head>
+   <body>
+      <h2>LC METS Profile</h2>
+      <h3>METS Profile for Historical Newspapers [Draft]</h3>
+      <hr />
+      <p><a href="http://www.loc.gov/standards/mets/profiles/LC_profiles/newspaper/00000010.xml">XML Version of Profile Document</a></p>
+      <hr /><br /><h4>Abstract</h4>
+      <p>The METS Profile for Historical Newspapers specifies how METS documents representing digitized historical newpapers should
+         be encoded. Note that the profile is to be used to represent a single issue of a newspaper.
+      </p><br /><h4>URI</h4>
+      <p>http://www.loc.gov/standards/mets/profiles/LC_profiles/newspaper/00000010.xml</p><br /><h4>Date</h4>
+      <p>2006-02-06T17:31:00</p>
+      <h4>Contact</h4>
+      <p><b>Morgan V. Cundiff</b><br />Network Development and MARC Standards Office, Library of Congress<br />101 Independence Avenue, Washington DC, 20540
+      </p><br /><h4>Related Profile</h4>
+      <p>No related profiles.</p><br /><h4>Extension Schema</h4>
+      <p>Metadata Object Description Schema (MODS)<br />http://www.loc.gov/mods/v3/
+      </p><br /><h4>Extension Schema</h4>
+      <p>Premis<br />http://www.loc.gov/standards/premis
+      </p><br /><h4>Description Rules</h4>
+      <p>It is recommended that the content data used in the MODS section of a METS document conform to AACR2 to the extent that it
+         applies.
+      </p><br /><h4>Controlled Vocabularies</h4>
+      <p><b>Library of Congress Subject Headings</b><br />Library of Congress<br />No URI established.<br />
+         	Controlled subject headings used in the MODS section of a METS document must be formulated according to the Library of Congress
+         Subject Headings (LCSH).
+         
+      </p>
+      <p><b>Library of Congress Classification</b><br />Library of Congress<br />http://www.loc.gov/catdir/cpso/lcc.html<br /></p>
+      <p><b>NACO Authority File</b><br />Library of Congress<br />http://authorities.loc.gov/<br />
+         	Controlled name and title headings used in the MODS section of a METS document must be formulated according to the NACO Authority
+         File.
+         
+      </p>
+      <p><b>MARC Country Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/countries/<br />
+         	Country codes used in the MODS section of a METS document must use MARC country code list.
+         
+      </p>
+      <p><b>ISO 639-2 Language Codes</b><br />Library of Congress<br />http://www.loc.gov/standards/iso639-2/<br />
+         	Language codes used in the MODS section of a METS document must use ISO 639-2 bibliographic codes.
+         
+      </p>
+      <p><b>MARC Relator Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/relators/<br />
+         	Relator codes or terms used in the MODS section of a METS document must use MARC relator list.
+         
+      </p>
+      <p><b>Target Audience Codes</b><br />Library of Congress<br />http://www.loc.gov/marc/sourcecode/target/<br />
+         	Terms used in the MODS section of a METS document must use the MARC target audience list.
+         
+      </p>
+      <p><b>MARC Code List for Organizations</b><br />Library of Congress<br />http://www.loc.gov/marc/organizations/<br />
+         	Source codes used in the MODS section of a METS document must use MARC organization list.
+         
+      </p>
+      <h3>Structural Requirements</h3>
+      <h5>METS Root Element</h5>
+      <h6>metsRootElement Requirement 1</h6>
+      <p>The METS root element must have an attribute PROFILE="http://www.loc.gov/mets/profiles/00000010.xml". </p>
+      <h6>Example 1.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h5>Descriptive Metadata Section</h5>
+      <h6>dmdSec Requirement 1</h6>
+      <p>A document must contain three Descriptive Metadata Sections (dmdSec). Each dmdSec element must have an ID attribute. The first
+         dmdSec element will contain a reference (mdref) to a bibliographic record in an external system for the printed version of
+         the newspaper. An mdRef element must have an ID attribute.
+      </p>
+      <h6>Example 3.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd01</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdRef</span> <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">path/to/record</span>" <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>" <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods_print</span>" /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>dmdSec Requirement 2</h6>
+      <p>The second dmdSec element will contain a reference (mdref) to a bibliographic record in an external system for the digital
+         version of the newspaper.
+      </p>
+      <h6>Example 4.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdRef</span> <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">path/to/record</span>" <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>" <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">mods_digital</span>" /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>dmdSec Requirement 3</h6>
+      <p>The third dmdSec contains a wrapped (mdWrap) MODS record for the digitized issue of the newspaper. The MODS record must contain
+         the title, issue date, genre (with value "newspaper") and language. The mods element must have an ID attribute.
+      </p>
+      <h6>Example 5.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03a</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_issue_ex05</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Montags Zeitung</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">newspaper</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">w3cdtf</span>"&gt;<span class="xmlverb-text">11/05/1908</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">code</span>" <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">rfc3066</span>"&gt;<span class="xmlverb-text">de</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>dmdSec Requirement 4</h6>
+      <p>The MODS record may optionally describe the logical entities contained in a given issue of a newspaper. Logical entities include
+         the following: issue section (issueSection), article, article section (articleSection), photograph, illustration, and advertisement.
+         The logical entities are defined in Newspaper Genre Terms. [under construction]
+      </p>
+      <p>Each logical entity will be described in the MODS record as a Related Item (relatedItem type="constituent"). Each relatedItem
+         type="constituent" element must have an ID attribute. Each relatedItem type="constituent" element must have a genre child
+         element with appropriate value (e.g. "article").
+      </p>
+      <h6>Example 6.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03b</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_issue_ex06</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Montags Zeitung</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">newspaper</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">w3cdtf</span>"&gt;<span class="xmlverb-text">11/05/1908</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">code</span>" <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">rfc3066</span>"&gt;<span class="xmlverb-text">de</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_ex06</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Wien, 10. mai.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">article</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>dmdSec Requirement 5</h6>
+      <p>Each logical entity (i.e. each relatedItem type="constituent" element) may in turn contain structural subparts. These subparts
+         include: paragraph.  These subparts are expressed as part elements with type attribute of value "subPartType". The subpart
+         types are also defined in Newspaper Genre Terms. [under construction]. In the following example, the relatedItem element (for
+         an article) contains part child elements for each paragraphs in the article. Each part element must have an ID attribute.
+      </p>
+      <h6>Example 7.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03c</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_issue_ex07</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Montags Zeitung</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">newspaper</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">w3cdtf</span>"&gt;<span class="xmlverb-text">11/05/1908</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">code</span>" <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">rfc3066</span>"&gt;<span class="xmlverb-text">de</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_ex07</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Wien, 10. mai.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">article</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_para01_ex07</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">paragraph</span>"&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">text</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_para02_ex07</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">paragraph</span>"&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">text</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_para03_ex07</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">paragraph</span>"&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">text</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h5>Administrative Metadata Section</h5>
+      <h6>amdSec Requirement 1</h6>
+      <p>[Example of how to use PREMIS needs work]. A METS document may optionally contain preservation-related metadata that is expressed
+         using the PREMIS schemas. PREMIS data can be associated with either the entire object (i.e. data that is applicable to all
+         component files), which is, in PREMIS terms, considered to be at the level of the object category "representation", or PREMIS
+         data may associated with individual files. The following brief example shows a possible encoding for the date of a preservation
+         "event" (i.e. the date of digitization) for an audio file. Note that (as of this writing) PREMIS is still very new, and that
+         best practices for its use with METS have not yet emerged.
+      </p>
+      <h6>Example 8.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> /&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h5>File Section</h5>
+      <h6>fileSec Requirement 1</h6>
+      <p>The content files referenced by the fptr elements (in the structMap) must point to the appropriate files in the File Section
+         (fileSec). The profile makes no further requirements regarding the fileSec element. The example document in Appendix 1 provides
+         an example of Library of Congress practice.
+      </p>
+      <h5>Structure Map</h5>
+      <h6>structMap Requirement 1</h6>
+      <p>The physical structure of the newspaper will be represented in the Structure Map (structMap) section of the METS document.
+         The document must have one and only one structMap. There are three physical entities that are expressed in the structMap.
+         They are: issue, page, and page region (pageRegion). These entities are expressed as a heirarchy of typed Division (div) elements
+         (div TYPE="ndnp:issue", div TYPE="ndnp:page", and div TYPE="ndnp:pageRegion".
+      </p>
+      <p>The structMap element must contain one and only one div TYPE="ndnp:issue" child element. The div TYPE="ndnp:issue" element
+         must have a DMDID attribute that points to the mods element for the issue. The div TYPE="ndnp:issue" element will contain
+         one div TYPE="ndnp:page" child element for each page in the newspaper issue. The following example shows an issue that consists
+         of four pages. Note that the div TYPE="ndnp:page" elements do require a DMDID attribute as the physical entity "page" does
+         not directly correspond to a logical entity in the bibliographic description.
+      </p>
+      <h6>Example 9.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03d</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_issue_ex09</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Montags Zeitung</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">newspaper</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">w3cdtf</span>"&gt;<span class="xmlverb-text">11/05/1908</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">code</span>" <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">rfc3066</span>"&gt;<span class="xmlverb-text">de</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:issue</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_issue_ex09</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 2</h6>
+      <p>Each div TYPE="ndnp:page" element may contain a child div element for each form of digitized content that represents the page.
+         The three possibilities are: an image of the page (mets:div TYPE="ndnp:image"), an alto file (mets:div TYPE="ndnp:alto") for
+         the page, or a text version of the page (mets:div TYPE="ndnp:text"). The following example shows two pages, each with a corresonding
+         image file and alto file. Note that the mets:div TYPE="ndnp:image" elements and the mets:div TYPE="ndnp:alto" elements each
+         contain File Pointer (fptr) elements that point to the corresponding file elements in the File Section (fileSec).
+      </p>
+      <h6>Example 10.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03e</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_issue_ex10</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Montags Zeitung</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">newspaper</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">w3cdtf</span>"&gt;<span class="xmlverb-text">11/05/1908</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">code</span>" <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">rfc3066</span>"&gt;<span class="xmlverb-text">de</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileSec</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">IMG00001_ex10</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">image/tif</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-img/issue0001_0001.tif</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">IMG00002_ex10</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">image/tif</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-img/issue0001_0002.tif</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ALT00001_ex10</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">text/xml</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-alto/issue0001-alto00001.xml</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ALT00002_ex10</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">text/xml</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-alto/issue0001-alto00002.xml</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:issue</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_issue_ex10</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">IMG00001_ex10</span>" /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:alto</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">ALT00001_ex10</span>" /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:image</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">IMG00002_ex10</span>" /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:alto</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">ALT00002_ex10</span>" /&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 3</h6>
+      <p>A div TYPE="ndnp:page" element may contain one or more div TYPE="ndnp:pageRegion elements. A "pageRegion" is a portion of
+         a page file that corresponds to a particular logical entity (e.g. a newspaper article). In the example below the issue has
+         two pages with three articles. Each div TYPE="ndnp:pageRegion element must contain a mets:div TYPE="ndnp:alto" child element
+         with an fptr element. The fptr element must contain an area child element with FILEID and BEGIN attributes that point to the
+         corresponding alto file and the ID attribute within the alto file that identifies the pageRegion.
+      </p>
+      <h6>Example 11.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03f</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_issue_ex11</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Montags Zeitung</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">newspaper</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">w3cdtf</span>"&gt;<span class="xmlverb-text">11/05/1908</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">code</span>" <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">rfc3066</span>"&gt;<span class="xmlverb-text">de</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_ex11</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Wien, 10. mai.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">article</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article02_ex11</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Neueste nachrichten</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">article</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article03_ex11</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Neueste nachrichten</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">article</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileSec</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">IMG00001_ex11</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">image/tif</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-img/issue0001_0001.tif</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">IMG00002_ex11</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">image/tif</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-img/issue0001_0002.tif</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ALT00001_ex11</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">text/xml</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-alto/issue0001-alto00001.xml</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">ALT00002_ex11</span>" <span class="xmlverb-attr-name">MIMETYPE</span>="<span class="xmlverb-attr-content">text/xml</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">FLocat</span> <span class="xmlverb-attr-name">LOCTYPE</span>="<span class="xmlverb-attr-content">URL</span>" <span class="xmlverb-attr-name">xlink:href</span>="<span class="xmlverb-attr-content">file://./issue0001-alto/issue0001-alto00002.xml</span>" /&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">file</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileGrp</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fileSec</span>&gt;<span class="xmlverb-text"><br />
+            <br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:issue</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article01_ex11</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;!--<span class="xmlverb-comment"> article 1 title: "Wein, 10. Mai."  </span>--&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:pageRegion</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article01_ex11</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:alto</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">area</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">ALT00001_ex11</span>" <span class="xmlverb-attr-name">BEGIN</span>="<span class="xmlverb-attr-content">P1_TB00005</span>" /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;!--<span class="xmlverb-comment"> article 2 title: "Neueste Nachrichten."  </span>--&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:pageRegion</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article02_ex11</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:alto</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">area</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">ALT00002_ex11</span>" <span class="xmlverb-attr-name">BEGIN</span>="<span class="xmlverb-attr-content">P2_TB00018</span>" /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;!--<span class="xmlverb-comment"> article 3 title: "Notizen."  </span>--&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:pageRegion</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article03_ex11</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:alto</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">area</span> <span class="xmlverb-attr-name">FILEID</span>="<span class="xmlverb-attr-content">ALT00002_ex11</span>" <span class="xmlverb-attr-name">BEGIN</span>="<span class="xmlverb-attr-content">P2_TB00024</span>" /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">fptr</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h6>structMap Requirement 4</h6>
+      <p>It is possible, using div TYPE="ndnp:pageRegion elements to provide any level of access to the contents of a particular newpapaer
+         page. The previous example provides what might be called "article level" access. The following example provides what might
+         be called "article and paragraph level access". 
+      </p>
+      <h6>Example 12.</h6>
+      <div class="box"><span class="xmlverb-text"><br />
+                </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span> <span class="xmlverb-attr-name">PROFILE</span>="<span class="xmlverb-attr-content">http://www.loc.gov/mets/profiles/00000010.xml</span>"&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">dmd03g</span>"&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span> <span class="xmlverb-attr-name">MDTYPE</span>="<span class="xmlverb-attr-content">MODS</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_issue_ex12</span>"&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Montags Zeitung</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">newspaper</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span> <span class="xmlverb-attr-name">encoding</span>="<span class="xmlverb-attr-content">w3cdtf</span>"&gt;<span class="xmlverb-text">11/05/1908</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">dateIssued</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">originInfo</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span> <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">code</span>" <span class="xmlverb-attr-name">authority</span>="<span class="xmlverb-attr-content">rfc3066</span>"&gt;<span class="xmlverb-text">de</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">languageTerm</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">language</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_ex12</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">constituent</span>"&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text">Wien, 10. mai.</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">title</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">titleInfo</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text">article</span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">genre</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_para01_ex12</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">paragraph</span>"&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">text</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_para02_ex12</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">paragraph</span>"&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">text</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span>&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span> <span class="xmlverb-attr-name">ID</span>="<span class="xmlverb-attr-content">DMD_article01_para03_ex12</span>" <span class="xmlverb-attr-name">type</span>="<span class="xmlverb-attr-content">paragraph</span>"&gt;<span class="xmlverb-text"><br />
+                              </span>&lt;<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">text</span> /&gt;<span class="xmlverb-text"><br />
+                            </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">part</span>&gt;<span class="xmlverb-text"><br />
+                          </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">relatedItem</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mods</span>:<span class="xmlverb-element-name">mods</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">xmlData</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mdWrap</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">dmdSec</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:issue</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_issue_ex12</span>"&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:page</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:pageRegion</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article01_ex12</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:pageRegion</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article01_para01_ex12</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:pageRegion</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article01_para01_ex12</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span> <span class="xmlverb-attr-name">TYPE</span>="<span class="xmlverb-attr-content">ndnp:pageRegion</span>" <span class="xmlverb-attr-name">DMDID</span>="<span class="xmlverb-attr-content">DMD_article01_para01_ex12</span>"&gt;<span class="xmlverb-text"><br />
+                        </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                      </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                    </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">div</span>&gt;<span class="xmlverb-text"><br />
+                  </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">structMap</span>&gt;<span class="xmlverb-text"><br />
+                </span>&lt;/<span class="xmlverb-element-nsprefix">mets</span>:<span class="xmlverb-element-name">mets</span>&gt;<span class="xmlverb-text"><br />
+              </span></div><br /><br /><h3>Technical Requirements</h3>
+      <h4>Content Files</h4>
+      <h5>Still Image Files</h5>
+      <p>The master image files referenced by conforming documents must be in TIFF Revision 6.0 format. See Digital Formats for Library
+         of Congress Collections: TIFF, Revision 6.0 at http://www.digitalpreservation.gov/formats/fdd/fdd000022.shtml.
+      </p>
+      <h5>Text Files</h5>
+      <p>Master text files referenced by conforming documents must be in XML format. See Digital Formats for Library of Congress Collections:
+         XML (Extensible Markup Language) at http://www.digitalpreservation.gov/formats/fdd/fdd000075.shtml.
+      </p>
+   </body>
+</html>

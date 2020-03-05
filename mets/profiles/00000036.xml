@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile REGISTRATION="registered" STATUS="final" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.loc.gov/METS_Profile/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd">
+	<URI LOCTYPE="URL" ASSIGNEDBY="metsboard">http://www.loc.gov/standards/mets/profiles/00000036.xml</URI>
+	<URI ASSIGNEDBY="local" LOCTYPE="URL">http://formex.publications.europa.eu/schema/cellar-mets-profile.xml</URI>
+	<title xml:lang="en">Publications Office METS Document Profile for General Information Packages</title>
+	<abstract>This profile describes the rules and requirements for using METS as general information exchange package. 
+	Developed by infeurope S.A. on behalf of the Publications Office of the European Union, this profile is intended for the ingest and retrieval of publication data maintained by the Publications Office.</abstract>
+	<date>2010-12-08T15:40:00Z</date>
+	<contact>
+		<institution>Publications Office of the European Union</institution>
+		<address>2 rue Mercier, L-2985 Luxembourg</address>
+		<email>OP-METS@publications.europa.eu</email>
+	</contact>
+	<registration_info regDate="2011-04-25T00:00:00" regURI="http://www.loc.gov/standards/mets/profiles/00000036.xml"/>
+	<related_profile/>
+	<profile_context>
+		<resource_model/>
+		<uses>
+			<use ID="uc-1">
+				<head>Create request</head>
+				<xhtml:p>The METS message represents a request for the creation of objects. The &lt;structMap&gt; elements describe cohesive objects that have to be created by the ingesting system.</xhtml:p>
+			</use>
+			<use ID="uc-2" REQID="structMap2">
+				<head>Update request</head>
+				<xhtml:p>The METS message represents a request for an update on specific objects. The &lt;structMap&gt; elements describe updates on already existing cohesive objects.</xhtml:p>
+			</use>
+			<use ID="uc-3" REQID="structMap2">
+				<head>Read request</head>
+				<xhtml:p>The METS message represents a request to read specific objects. The &lt;structMap&gt; elements specify what information on which objects should be retrieved.</xhtml:p>
+			</use>
+			<use ID="uc-4" REQID="metsHdr2 metsHdr3 metsHdr4">
+				<head>Create response</head>
+				<xhtml:p>The METS message represents a response to a requested create.</xhtml:p>
+			</use>
+			<use ID="uc-5" REQID="metsHdr2 metsHdr3 metsHdr4">
+				<head>Update response</head>
+				<xhtml:p>The METS message represents a response to a requested update.</xhtml:p>
+			</use>
+			<use ID="uc-6" REQID="metsHdr2 metsHdr3 metsHdr4">
+				<head>Read response</head>
+				<xhtml:p>The METS message represents a response to a requested read.</xhtml:p>
+			</use>
+		</uses>
+	</profile_context>
+	<external_schema/>
+	<description_rules/>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>Operation Type</name>
+			<values>
+				<value ID="ot1">read.req</value>
+				<value ID="ot2">read.rsp</value>
+				<value ID="ot3">create.req</value>
+				<value ID="ot4">create.rsp</value>
+				<value ID="ot5">update.req</value>
+				<value ID="ot6">update.rsp</value>
+			</values>
+			<context>/mets/@TYPE</context>
+			<description>
+				<xhtml:p>These are the values permitted for the TYPE attribute of &lt;mets&gt;.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Notice Type</name>
+			<values>
+				<value>notice</value>
+				<value>prenotice</value>
+			</values>
+			<context>/mets/@LABEL</context>
+			<description>
+				<xhtml:p>These are the values permitted for the LABEL attribute of &lt;mets&gt;.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Entity Type</name>
+			<values>
+				<value ID="et1">work</value>
+				<value ID="et2">expression</value>
+				<value ID="et3">manifestation</value>
+				<value ID="et4">dossier</value>
+				<value ID="et5">event</value>
+				<value ID="et6">agent</value>
+			</values>
+			<context>//div/@TYPE</context>
+			<description>
+				<xhtml:p>These are the values permitted for the TYPE attribute of &lt;div&gt;. The &lt;structMap&gt; is used to describe the top level hierarchy of "cohesive objects" (e.g. work -> expression -> manifestation) defined in the Common Data Model.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Ingestionstatus</name>
+			<values>
+				<value ID="is1">success</value>
+				<value ID="is2">failure</value>
+			</values>
+			<context>/mets/metsHdr/@RECORDSTATUS</context>
+			<description>
+				<xhtml:p>These are the values permitted for the RECORDSTATUS attribute of &lt;metsHdr&gt;.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Metadata Type</name>
+			<values>
+				<value>op_dmd</value>
+				<value>op_tmd</value>
+			</values>
+			<context>//mdRef/@OTHERMDTYPE</context>
+			<context>//mdWrap//@OTHERMDTYPE</context>
+			<description>
+				<xhtml:p>These are the values permitted for the OTHERMDTYPE attribute of &lt;mdRef&gt; and &lt;mdWrap&gt;.</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>CELLAR METS - MIME Types</name>
+			<maintenance_agency>Publications Office of the European Union</maintenance_agency>
+			<URI>http://formex.publications.europa.eu/authority/media-types.html</URI>
+			<context>//mdRef/@MIMETYPE</context>
+			<context>//file/@MIMETYPE</context>
+			<description>
+				<xhtml:p>The Publications Office of the EU uses media types as defined in the IANA MIME Media Type registry: http://www.iana.org/assignments/media-types/. In case a media type is not registered (yet) in the IANA registry, the media type defined by the vendor or developer of the media type is used instead. In case of multiple media types with the same file extension, the media type is completed with a type specifying the exact media type. For example: application/pdf;type="pdfx".
+The list of media types permitted in the CELLAR (IANA registered and unregistered) can be found at the following address: http://formex.publications.europa.eu/schema/mediatypes.html
+</xhtml:p>
+			</description>
+		</vocabulary>
+		<vocabulary>
+			<name>Granularity and Information Type</name>
+			<values>
+				<value ID="ag1">node.content</value>
+				<value ID="ag2">node.metadata</value>
+				<value ID="ag3">node.all</value>
+				<value ID="ag4">tree.content</value>
+				<value ID="ag5">tree.metadata</value>
+				<value ID="ag6">tree.all</value>
+			</values>
+			<context>//structMap/@TYPE</context>
+			<description>
+				<xhtml:p>These are the values permitted for the TYPE attribute of &lt;structMap&gt;.</xhtml:p>
+				<xhtml:p>The TYPE attribute provides two levels of granularity for read and update. Valid values consist of a dot-separated pre- and postfix.</xhtml:p>
+				<xhtml:p>Prefixes:</xhtml:p>
+				<xhtml:ol>
+					<xhtml:li>tree - means the elements specified within the &lt;structMap&gt; and all its child elements</xhtml:li>
+					<xhtml:li>node - means only the elements specified within the &lt;structMap&gt;</xhtml:li>
+				</xhtml:ol>
+				<xhtml:p>Postfixes:</xhtml:p>
+				<xhtml:ul>
+					<xhtml:li>metadata - only descriptive metadata is concerned</xhtml:li>
+					<xhtml:li>content - only content related data streams and technical metadata are concerned</xhtml:li>
+					<xhtml:li>all - metadata and content are concerned</xhtml:li>
+				</xhtml:ul>
+			</description>
+		</vocabulary>
+		<vocabulary>
+		<name>Data Stream Handling</name>
+		<values>
+			<value>ref_only</value>
+		</values>
+		<context>//FLocat/@USE</context>
+		<description>
+			<xhtml:p>This is the only value permitted for the USE attribute of &lt;FLocat&gt;.</xhtml:p>
+			<xhtml:p>The USE attribute indicates that for the specified file only its reference will be maintained by the ingesting system.</xhtml:p>
+		</description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="metsRoot1" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>The attribute TYPE has to be present.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsRoot2" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>A &lt;metsHdr&gt; has to be present.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsRoot3">
+				<description>
+					<xhtml:p>The number of &lt;dmdSec&gt; is bound to the number of &lt;structMap&gt; elements. I.e. for each &lt;structMap&gt; there must be exactly one related &lt;dmdSec&gt;.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsRoot4">
+				<description>
+					<xhtml:p>The number of &lt;amdSec&gt; depends on the number of &lt;structMap&gt; elements. I.e. for each &lt;structMap&gt; there must be exactly one related &lt;amdSec&gt;. Further &lt;amdSec&gt; elements related to an ingestion report referenced by the &lt;metsHdr&gt; of a response message are permitted.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsRoot5" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>In any case the LABEL attribute has to be present. The value indicates whether the METS message represents a "prenotice" or a "notice".</xhtml:p>
+				</description>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement ID="metsHdr1" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>The attribute CREATEDATE has to be present.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsHdr2" REQLEVEL="MUST" RELATEDMAT="uc-4 uc-5 uc-6">
+				<description>
+					<xhtml:p>The attribute RECORDSTATUS has to be present in case of a response.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsHdr3" REQLEVEL="MUST" RELATEDMAT="uc-4 uc-5 uc-6">
+				<description>
+					<xhtml:p>The attribute LASTMODDATE has to be present in case of a response.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsHdr4" REQLEVEL="MUST" RELATEDMAT="uc-4 uc-5 uc-6 is2">
+				<description>
+					<xhtml:p>In case of a response with RECORDSTATUS set to "failure" the attribute ADMID has to be present and refer to a report within corresponding &lt;techMD&gt; element(s) that are nested within a superior &lt;amdSec&gt; element.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="metsHdr5" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>In any case the &lt;metsHdr&gt; element has to contain a &lt;metsDocumentID&gt; element that uniquely identifies the message.</xhtml:p>
+				</description>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement ID="dmdSec1" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>In any case the value "OTHER" has to be chosen for the attribute MDTYPE.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="dmdSec2" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>In any case the attribute OTHERMDTYPE has to be present and its value must be set to "op_dmd" for descriptive metadata.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="dmdSec3" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>For the specification of metadata either the element &lt;mdRef&gt; or &lt;mdWrap&gt; has to be used.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="dmdSec4" REQLEVEL="MUST NOT">
+				<description>
+					<xhtml:p>The concurrent utilization of &lt;mdRef&gt; and &lt;mdWrap&gt; within the same parent element is prohibited.</xhtml:p>
+				</description>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement ID="amdSec1" REQLEVEL="MUST" RELATEDMAT="metsRoot4">
+				<description>
+					<xhtml:p>The occurrence of the &lt;techMD&gt; element is limited to the number of manifestations that occur in the related &lt;structMap&gt; element.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="amdSec2" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>For the attribute MDTYPE of the element &lt;techMD&gt; the value "OTHER" has to be chosen.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="amdSec3" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>For each &lt;techMD&gt; the attribute OTHERMDTYPE has to present and its value must be set to "op_tmd" for technical metadata.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="amdSec4" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>For the specification of metadata either the element &lt;mdRef&gt; or &lt;mdWrap&gt; has to be used. The concurrent utilization of both elements is prohibited.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="amdSec5" REQLEVEL="MUST NOT">
+				<description>
+					<xhtml:p>The concurrent utilization of &lt;mdRef&gt; and &lt;mdWrap&gt; within the same parent element is prohibited.</xhtml:p>
+				</description>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement ID="fileSec1" REQLEVEL="MUST NOT">
+				<description>
+					<xhtml:p>METS documents implementing this profile must not use the &lt;stream&gt;, &lt;transformFile&gt; or nested &lt;file&gt; elements.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="fileSec2" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>Content files can either be referenced via &lt;FLocat&gt; or embedded via &lt;FContent&gt;.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="fileSec3" REQLEVEL="MUST NOT">
+				<description>
+					<xhtml:p>The concurrent utilization of &lt;FLocat&gt; and &lt;FContent&gt; within the same &lt;file&gt; elements is prohibited.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="fileSec4" REQLEVEL="MUST NOT">
+				<description>
+					<xhtml:p>Each &lt;file&gt; element must not use more than one &lt;FLocat&gt; element.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="fileSec5" REQLEVEL="MUST">
+				<description>
+				<xhtml:p>For each specified data stream for which the ingesting system should only maintain a reference, the USE attribute of &lt;FLocat&gt; must be present.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="fileSec6" REQLEVEL="MUST" RELATEDMAT="fileSec5">
+				<description>
+					<xhtml:p>For each reference to an external resource given by the &lt;FLocat&gt; element, the xlink:href has to contain a corresponding absolute URL. In case that the content will be provided together with the METS document via the same physical ZIP archive, the xlink:href must specify a corresponding relative URL.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="fileSec7" REQLEVEL="MUST">
+				<description>
+				<xhtml:p>Each &lt;file&gt; element must provide a SHA-1 hash value for the referenced or embedded data stream via its attributes CHECKSUM and CHECKSUMTYPE.</xhtml:p>
+				</description>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement ID="structMap1" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>For each &lt;structMap&gt; the ID attribute has to be present.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap2" REQLEVEL="MUST" RELATEDMAT="uc-2 uc-3 uc-5 uc-6 ot1 ot2 ot5 ot6">
+				<description>
+					<xhtml:p>Depending on the specified operation the TYPE attribute of the &lt;structMap&gt; element has to be present.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap3" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>For each &lt;div&gt; element the attributes TYPE and CONTENTIDS are mandatory. While TYPE has to be used to specify the entity type of the object represented by the given &lt;div&gt; element, the attribute CONTENTIDS has to be used to list all known production identifiers for the specified object. These Production identifiers are URIs that must be given in CURIE syntax.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap4" REQLEVEL="MUST">
+				<description>
+					<xhtml:p>For the root &lt;div&gt; element the attribute TYPE has to be set to "work", "dossier" or "agent".</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap5" REQLEVEL="MUST" RELATEDMAT="et1">
+				<description>
+					<xhtml:p>For a &lt;div&gt; element with the TYPE attribute set to "work" the TYPE attribute for each of its child &lt;div&gt;'s has to be set to "expression".</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap6" REQLEVEL="MUST" RELATEDMAT="et2">
+				<description>
+					<xhtml:p>For a &lt;div&gt; element with the TYPE attribute set to "expression" the TYPE attribute for each of its child &lt;div&gt;'s has to be set to "manifestation".</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap7" REQLEVEL="MUST NOT" RELATEDMAT="et3">
+				<description>
+					<xhtml:p>For a &lt;div&gt; element with the TYPE attribute set to "manifestation" further child &lt;div&gt; are prohibited.</xhtml:p>
+					<xhtml:p/>
+				</description>
+			</requirement>
+			<requirement ID="structMap8" REQLEVEL="MUST" RELATEDMAT="et4">
+				<description>
+					<xhtml:p>For a &lt;div&gt; element with the TYPE attribute set to "dossier" the TYPE attribute for each of its child &lt;div&gt;'s has to be set to "event".</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap9" REQLEVEL="MUST NOT" RELATEDMAT="et5">
+				<description>
+					<xhtml:p>For a &lt;div&gt; element with the TYPE attribute set to "event" further child elements are prohibited.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap10" REQLEVEL="MUST NOT" RELATEDMAT="et6">
+				<description>
+					<xhtml:p>For a &lt;div&gt; element with the TYPE attribute set to "agent" further child elements are prohibited.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap11" REQLEVEL="MUST NOT">
+				<description>
+					<xhtml:p>The &lt;mptr&gt; element is not supported and its usage prohibited.</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap12" REQLEVEL="MUST" RELATEDMAT="et3">
+				<description>
+					<xhtml:p>The &lt;fptr&gt; element in only permitted for &lt;div&gt; elements with the attribute TYPE set to "manifestation".</xhtml:p>
+				</description>
+			</requirement>
+			<requirement ID="structMap13" REQLEVEL="MUST NOT">
+				<description>
+					<xhtml:p>METS documents implementing this profile must not use the &lt;area&gt;, &lt;par&gt; or &lt;seq&gt; elements.</xhtml:p>
+				</description>
+			</requirement>
+		</structMap>
+		<structLink>
+			<requirement ID="structLink1" REQLEVEL="MUST NOT">
+				<description>
+				<xhtml:p>METS documents implementing this profile must not use the &lt;structLink&gt; element.</xhtml:p>
+				</description>
+			</requirement>
+		</structLink>
+		<behaviorSec>
+			<requirement ID="behaviorSec1" REQLEVEL="MUST NOT">
+				<description>
+				<xhtml:p>METS documents implementing this profile must not use the &lt;behaviorSec&gt; element.</xhtml:p>
+				</description>
+			</requirement>
+		</behaviorSec>
+	</structural_requirements>
+	<technical_requirements/>
+	<tool/>
+	<Appendix NUMBER="1">
+		<mets xmlns="http://www.loc.gov/METS/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd" PROFILE="http://formex.publications.europa.eu/schema/cellar-mets-profile.xml" LABEL="notice" TYPE="create.req">
+			<metsHdr CREATEDATE="2010-09-30T12:59:26Z">
+				<metsDocumentID>oj-JOL_2006_088_R_0063_0120100930125926</metsDocumentID>
+			</metsHdr>
+			<dmdSec ID="dmd_oj-JOL_2006_088_R_0063_01">
+				<mdRef LOCTYPE="URL" MIMETYPE="application/rdf+xml" MDTYPE="OTHER" OTHERMDTYPE="op_dmd" xlink:href="32006D0241.dmd.rdf"/>
+			</dmdSec>
+			<amdSec ID="amd_oj-JOL_2006_088_R_0063_01">
+				<techMD ID="techMD_oj-JOL_2006_088_R_0063_01_FRA-pdf">
+					<mdRef MIMETYPE="application/rdf+xml" LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="op_tmd" xlink:href="32006D0241.techMD_FRA_pdf.rdf"/>
+				</techMD>
+				<techMD ID="techMD_oj-JOL_2006_088_R_0063_01_FRA-formex">
+					<mdRef MIMETYPE="application/rdf+xml" LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="op_tmd" xlink:href="32006D0241.techMD_FRA_formex.rdf"/>
+				</techMD>
+				<techMD ID="techMD_oj-JOL_2006_088_R_0063_01_DAN-pdf">
+					<mdRef MIMETYPE="application/rdf+xml" LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="op_tmd" xlink:href="32006D0241.techMD_DAN_pdf.rdf"/>
+				</techMD>
+				<techMD ID="techMD_oj-JOL_2006_088_R_0063_01_DAN-formex">
+					<mdRef MIMETYPE="application/rdf+xml" LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="op_tmd" xlink:href="32006D0241.techMD_DAN_formex.rdf"/>
+				</techMD>
+				<techMD ID="techMD_oj-JOL_2006_088_R_0063_01_GER-pdf">
+					<mdRef MIMETYPE="application/rdf+xml" LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="op_tmd" xlink:href="32006D0241.techMD_GER_pdf.rdf"/>
+				</techMD>
+				<techMD ID="techMD_oj-JOL_2006_088_R_0063_01_GER-formex">
+					<mdRef MIMETYPE="application/rdf+xml" LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="op_tmd" xlink:href="32006D0241.techMD_GER_formex.rdf"/>
+				</techMD>
+			</amdSec>
+			<fileSec>
+				<fileGrp>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-FRA-formex-L_2006088FR.01006301.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088FR.01006301.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-FRA-formex-L_2006088FR.01006401.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088FR.01006401.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-FRA-formex-L_2006088FR.01006402.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088FR.01006402.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-FRA-pdf-l_08820060325fr00630064.pdf" MIMETYPE="application/pdf;type=pdfx">
+						<FLocat LOCTYPE="URL" xlink:href="l_08820060325fr00630064.pdf"/>
+					</file>
+				</fileGrp>
+				<fileGrp>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-DAN-formex-L_2006088DA.01006301.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088DA.01006301.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-DAN-formex-L_2006088DA.01006401.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088DA.01006401.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-DAN-formex-L_2006088DA.01006402.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088DA.01006402.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-DAN-pdf-l_08820060325da00630064.pdf" MIMETYPE="application/pdf;type=pdfx">
+						<FLocat LOCTYPE="URL" xlink:href="l_08820060325da00630064.pdf"/>
+					</file>
+				</fileGrp>
+				<fileGrp>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-GER-formex-L_2006088DE.01006301.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088DE.01006301.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-GER-formex-L_2006088DE.01006401.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088DE.01006401.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-GER-formex-L_2006088DE.01006402.xml" MIMETYPE="application/xml;type=fmx3">
+						<FLocat LOCTYPE="URL" xlink:href="L_2006088DE.01006402.xml"/>
+					</file>
+					<file ID="file_oj-JOL_2006_088_R_0063_01-GER-pdf-l_08820060325de00630064.pdf" MIMETYPE="application/pdf;type=pdfx">
+						<FLocat LOCTYPE="URL" xlink:href="l_08820060325de00630064.pdf"/>
+					</file>
+				</fileGrp>
+			</fileSec>
+			<structMap ID="oj-JOL_2006_088_R_0063_01">
+				<div TYPE="work" CONTENTIDS="oj:JOL_2006_088_R_0063_01 celex:32006D0241" DMDID="dmd_oj-JOL_2006_088_R_0063_01">
+					<div TYPE="expression" CONTENTIDS="oj:JOL_2006_088_R_0063_01.FRA celex:32006D0241.FRA" DMDID="dmd_oj-JOL_2006_088_R_0063_01">
+						<div TYPE="manifestation" CONTENTIDS="oj:JOL_2006_088_R_0063_01.FRA.formex celex:32006D0241.FRA.formex" DMDID="dmd_oj-JOL_2006_088_R_0063_01" ADMID="techMD_oj-JOL_2006_088_R_0063_01_FRA-formex">
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-FRA-formex-L_2006088FR.01006301.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.FRA.formex.L_2006088FR.01006301.xml"/>
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-FRA-formex-L_2006088FR.01006401.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.FRA.formex.L_2006088FR.01006401.xml"/>
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-FRA-formex-L_2006088FR.01006402.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.FRA.formex.L_2006088FR.01006402.xml"/>
+						</div>
+						<div TYPE="manifestation" CONTENTIDS="oj:JOL_2006_088_R_0063_01.FRA.pdf celex:32006D0241.FRA.pdf" DMDID="dmd_oj-JOL_2006_088_R_0063_01" ADMID="techMD_oj-JOL_2006_088_R_0063_01_FRA-pdf">
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-FRA-pdf-l_08820060325fr00630064.pdf" CONTENTIDS="oj:JOL_2006_088_R_0063_01.FRA.pdf.l_08820060325fr00630064.pdf"/>
+						</div>
+					</div>
+					<div TYPE="expression" CONTENTIDS="oj:JOL_2006_088_R_0063_01.DAN celex:32006D0241.DAN" DMDID="dmd_oj-JOL_2006_088_R_0063_01">
+						<div TYPE="manifestation" CONTENTIDS="oj:JOL_2006_088_R_0063_01.DAN.formex celex:32006D0241.DAN.formex" DMDID="dmd_oj-JOL_2006_088_R_0063_01" ADMID="techMD_oj-JOL_2006_088_R_0063_01_DAN-formex">
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-DAN-formex-L_2006088DA.01006301.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.DAN.formex.L_2006088DA.01006301.xml"/>
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-DAN-formex-L_2006088DA.01006401.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.DAN.formex.L_2006088DA.01006401.xml"/>
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-DAN-formex-L_2006088DA.01006402.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.DAN.formex.L_2006088DA.01006402.xml"/>
+						</div>
+						<div TYPE="manifestation" CONTENTIDS="oj:JOL_2006_088_R_0063_01.DAN.pdf celex:32006D0241.DAN.pdf" DMDID="dmd_oj-JOL_2006_088_R_0063_01" ADMID="techMD_oj-JOL_2006_088_R_0063_01_DAN-pdf">
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-DAN-pdf-l_08820060325da00630064.pdf" CONTENTIDS="oj:JOL_2006_088_R_0063_01.DAN.pdf.l_08820060325da00630064.pdf"/>
+						</div>
+					</div>
+					<div TYPE="expression" CONTENTIDS="oj:JOL_2006_088_R_0063_01.GER celex:32006D0241.GER" DMDID="dmd_oj-JOL_2006_088_R_0063_01">
+						<div TYPE="manifestation" CONTENTIDS="oj:JOL_2006_088_R_0063_01.GER.formex celex:32006D0241.GER.formex" DMDID="dmd_oj-JOL_2006_088_R_0063_01" ADMID="techMD_oj-JOL_2006_088_R_0063_01_GER-formex">
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-GER-formex-L_2006088DE.01006301.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.GER.formex.L_2006088DE.01006301.xml"/>
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-GER-formex-L_2006088DE.01006401.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.GER.formex.L_2006088DE.01006401.xml"/>
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-GER-formex-L_2006088DE.01006402.xml" CONTENTIDS="oj:JOL_2006_088_R_0063_01.GER.formex.L_2006088DE.01006402.xml"/>
+						</div>
+						<div TYPE="manifestation" CONTENTIDS="oj:JOL_2006_088_R_0063_01.GER.pdf celex:32006D0241.GER.pdf" DMDID="dmd_oj-JOL_2006_088_R_0063_01" ADMID="techMD_oj-JOL_2006_088_R_0063_01_GER-pdf">
+							<fptr FILEID="file_oj-JOL_2006_088_R_0063_01-GER-pdf-l_08820060325de00630064.pdf" CONTENTIDS="oj:JOL_2006_088_R_0063_01.GER.pdf.l_08820060325de00630064.pdf"/>
+						</div>
+					</div>
+				</div>
+			</structMap>
+		</mets>
+	</Appendix>
+</METS_Profile>

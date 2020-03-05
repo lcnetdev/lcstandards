@@ -1,0 +1,371 @@
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink">
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/score</URI>
+  <title>Library of Congress METS Profile for Musical Scores and Parts [Draft]</title>
+  <abstract>The Library of Congress Profile for Musical Scores and Parts specifies how METS documents representing musical scores and/or parts should be encoded. The profile applies to a digited musical score, a digitized set of musical parts, or a digitized score and set of musical parts. It can be used with either printed or manuscript musical scores and parts.</abstract>
+  <date>2004-09-08T17:31:00</date>
+  <contact>
+    <name>Morgan Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri">
+  </registration_info>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+  </extension_schema>
+  <description_rules></description_rules>
+  <controlled_vocabularies></controlled_vocabularies>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p>If the score includes parts, the MODS record must contain a relatedItem type="constituent" element (with titleInfo and partName subelements) for each musical part in the set. Each relatedItem element must have an ID attribute with appropriate value.</p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex03">
+	<p>The METS document must contain one and only one Structure Map (structMap).</p>
+	<p>The structMap element must contain one div TYPE="sc:scoreObject" child element. The div TYPE="sc:scoreObject" element must have a DMDID attribute that references the mods element.</p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex04">
+	<p>If the scoreObject contains a score (as opposed to only a set of parts), the div TYPE="sc:scoreObject" must contain a div TYPE="sc:score" child element. The div TYPE="sc:score" will in turn have one div TYPE="sc:page" for each page image that comprises the score. This div is the "leaf" element and will contain one or more File Pointer (filePtr) elements that reference File elements (for image files) in the File Group section.</p>
+      </requirement>
+      <requirement ID="st03" RELATEDMAT="ex05">
+	<p>The div TYPE="sc:score" element may also contain a child File Pointer (fptr) element with FILEID attribute referencing the File element for the file that contains a complete set of score image files (e.g. a pdf file).</p>
+      </requirement>
+      <requirement ID="st04" RELATEDMAT="ex06">
+	<p>If a scoreObject contains a set of parts, the div TYPE="sc:scoreObject element must contain one div TYPE="sc:parts child element. The div TYPE="sc:parts element will contain one div TYPE="sc:part element for each part in the set of parts. Each div TYPE="sc:part element must have a DMDID attribute referencing the corresponding relatedItem type="constituent" element. Note that the document order of the div TYPE="sc:part" elements and the relatedItem type="constituent" elements should both reflect the "score order" of the actual set of parts. Each div TYPE="sc:part element will in turn contain one or more div TYPE="sc:page child elements.</p>
+      </requirement>
+      <requirement ID="st05" RELATEDMAT="ex07">
+	<p>Each div TYPE="sc:part element must have a DMDID attribute which references the appropriate relatedItem type="constituent" element.</p>
+      </requirement>
+    </structMap>
+  </structural_requirements>
+  <technical_requirements></technical_requirements>
+  <tool></tool>
+  <Appendix ID="a1" NUMBER="0" LABEL="appendix1">
+  </Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:dmdSec ID="DMD">
+      <mets:mdWrap ID="MODS1" MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods>
+	    <mods:titleInfo>
+	      <mods:title>Library of Congress march</mods:title>
+	    </mods:titleInfo>
+	    <mods:name>
+	      <mods:namePart>Sousa, John Philip</mods:namePart>
+	      <mods:role>
+		<mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+	      </mods:role>
+	    </mods:name>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+  <Appendix ID="ex02" NUMBER="2">
+    <mets:dmdSec ID="dmd01">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>Library of Congress march</mods:title>
+	    </mods:titleInfo>
+	    <mods:name>
+	      <mods:namePart>Sousa, John Philip</mods:namePart>
+	      <mods:role>
+		<mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+	      </mods:role>
+	    </mods:name>
+	    <mods:relatedItem type="constituent" ID="con1">
+	      <mods:titleInfo>
+		<mods:partName>Piccolo</mods:partName>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con2">
+	      <mods:titleInfo>
+		<mods:partName>Flute 1</mods:partName>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con3">
+	      <mods:titleInfo>
+		<mods:partName>Flute 2</mods:partName>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:mets OBJID="loc.natlib.ihas.100010802"  PROFILE="lc:score" 
+	       xmlns:mets="http://www.loc.gov/METS/" 
+	       xmlns:lc="http://www.loc.gov/mets/profiles"  
+	       xmlns:xlink="http://www.w3.org/TR/xlink" 
+	       xmlns:rights="http://www.loc.gov/rights/" 
+	       xmlns:mods="http://www.loc.gov/mods/v3" 
+	       xmlns:sc="http://www.loc.gov/mets/profiles/score">
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>Library of Congress march</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:relatedItem type="constituent" ID="con1">
+		<mods:titleInfo>
+		  <mods:partName>Piccolo</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con2">
+		<mods:titleInfo>
+		  <mods:partName>Flute 1</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con3">
+		<mods:titleInfo>
+		  <mods:partName>Flute 2</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="sc:scoreObject" DMDID="mods1">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex04" NUMBER="4">
+    <mets:mets OBJID="loc.natlib.ihas.100010802"  PROFILE="lc:score" 
+	       xmlns:mets="http://www.loc.gov/METS/" 
+	       xmlns:lc="http://www.loc.gov/mets/profiles"  
+	       xmlns:xlink="http://www.w3.org/TR/xlink" 
+	       xmlns:rights="http://www.loc.gov/rights/" 
+	       xmlns:mods="http://www.loc.gov/mods/v3" 
+	       xmlns:sc="http://www.loc.gov/mets/profiles/score">
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>Library of Congress march</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:relatedItem type="constituent" ID="con1">
+		<mods:titleInfo>
+		  <mods:partName>Piccolo</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con2">
+		<mods:titleInfo>
+		  <mods:partName>Flute 1</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con3">
+		<mods:titleInfo>
+		  <mods:partName>Flute 2</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="sc:scoreObject" DMDID="mods1">
+	  <mets:div TYPE="sc:score">
+	    <!-- one or more pages -->
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex05" NUMBER="5">
+    <mets:structMap>
+      <mets:div TYPE="sc:scoreObject" DMDID="mods1">
+	<mets:div TYPE="sc:score">
+	  <!-- file pointer to file containing complete set of score images (e.g. a pdf fle) -->
+	  <mets:fptr FILEID="F1"/>
+	</mets:div>
+	<!-- one or more pages -->
+	<mets:div TYPE="sc:page">
+	  <mets:fptr FILEID="F1"/>
+	</mets:div>
+	<mets:div TYPE="sc:page">
+	  <mets:fptr FILEID="F1"/>
+	</mets:div>
+	<mets:div TYPE="sc:page">
+	  <mets:fptr FILEID="F1"/>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+  <Appendix ID="ex06" NUMBER="6">
+    <mets:structMap>
+      <mets:div TYPE="sc:scoreObject" DMDID="mods1">
+	<mets:div TYPE="sc:score">
+	  <!-- file pointer to file containing complete set of score images (e.g. a pdf fle) -->
+	  <mets:fptr FILEID="F1"/>
+	  <!-- one or more pages -->
+	  <mets:div TYPE="sc:page">
+	    <mets:fptr FILEID="F1"/>
+	  </mets:div>
+	  <mets:div TYPE="sc:page">
+	    <mets:fptr FILEID="F1"/>
+	  </mets:div>
+	  <mets:div TYPE="sc:page">
+	    <mets:fptr FILEID="F1"/>
+	  </mets:div>
+	</mets:div>
+	<!-- scoreObject contains a set of parts -->
+	<mets:div TYPE="sc:parts">
+	  <!-- one or more part -->
+	  <mets:div TYPE="sc:part">
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="sc:part">
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="sc:part">
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+  <Appendix ID="ex07" NUMBER="7">
+    <mets:mets OBJID="loc.natlib.ihas.100010802"  PROFILE="lc:score" 
+	       xmlns:mets="http://www.loc.gov/METS/" 
+	       xmlns:lc="http://www.loc.gov/mets/profiles"  
+	       xmlns:xlink="http://www.w3.org/TR/xlink" 
+	       xmlns:rights="http://www.loc.gov/rights/" 
+	       xmlns:mods="http://www.loc.gov/mods/v3" 
+	       xmlns:sc="http://www.loc.gov/mets/profiles/score">
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>Library of Congress march</mods:title>
+	      </mods:titleInfo>
+	      <mods:name>
+		<mods:namePart>Sousa, John Philip</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">Composer</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:relatedItem type="constituent" ID="con1">
+		<mods:titleInfo>
+		  <mods:partName>Piccolo</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con2">
+		<mods:titleInfo>
+		  <mods:partName>Flute 1</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con3">
+		<mods:titleInfo>
+		  <mods:partName>Flute 2</mods:partName>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="sc:scoreObject" DMDID="mods1">
+	  <mets:div TYPE="sc:score">
+	    <!-- file pointer to file containing complete set of score images (e.g. a pdf fle) -->
+	    <mets:fptr FILEID="F1"/>
+	    <!-- one or more pages -->
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	    <mets:div TYPE="sc:page">
+	      <mets:fptr FILEID="F1"/>
+	    </mets:div>
+	  </mets:div>
+	  <!-- scoreObject contains a set of parts -->
+	  <mets:div TYPE="sc:parts">
+	    <!-- one or more part -->
+	    <mets:div TYPE="sc:part" DMDID="con1">
+	      <mets:div TYPE="sc:page">
+		<mets:fptr FILEID="F1"/>
+	      </mets:div>
+	      <mets:div TYPE="sc:page">
+		<mets:fptr FILEID="F1"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="sc:part" DMDID="con2">
+	      <mets:div TYPE="sc:page">
+		<mets:fptr FILEID="F1"/>
+	      </mets:div>
+	      <mets:div TYPE="sc:page">
+		<mets:fptr FILEID="F1"/>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="sc:part" DMDID="con3">
+	      <mets:div TYPE="sc:page">
+		<mets:fptr FILEID="F1"/>
+	      </mets:div>
+	      <mets:div TYPE="sc:page">
+		<mets:fptr FILEID="F1"/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

@@ -1,0 +1,719 @@
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink">
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/LC_profiles/phonodisc</URI>
+  <title>Library of Congress METS Profile for Commercial Phonodiscs [Draft]</title>
+  <abstract>The Library of Congress Phonodisc METS Profile specifies how METS documents representing phonodiscs within Library of Congress digital library projects should be encoded. The term "phonodisc" applies both to items issued as single discs and also to items issued as multiple disc sets.</abstract>
+  <date>2004-09-08T17:31:00</date>
+  <contact>
+    <name>Morgan Cundiff</name>
+    <institution>Network Development and MARC Standards Office, Library of Congress</institution>
+    <address>101 Independence Avenue, Washington DC, 20540</address>
+  </contact>
+  <registration_info ID="id" regDate="2004-09-08T17:31:00" regURI="uri">
+  </registration_info>
+  <related_profile>No related profiles.</related_profile>
+  <extension_schema>
+    <name>Metadata Object Description Schema (MODS)</name>
+    <URI>http://www.loc.gov/mods/v3/</URI>
+  </extension_schema>
+  <description_rules></description_rules>
+  <controlled_vocabularies></controlled_vocabularies>
+  <structural_requirements>
+    <dmdSec>
+      <requirement ID="dr01" RELATEDMAT="ex01">
+	<p>A document must contain one and only one Descriptive	Metadata Section (dmdSec) with a wrapped (mdWrap) MODS	bibliographic record. The mods element must have an ID attribute.</p>
+      </requirement>
+      <requirement ID="dr02" RELATEDMAT="ex02">
+	<p>If a phonodisc contains one and only one work, and that work has no logical sub-parts to be described, then the MODS record will contain no relatedItem TYPE=constituent elements. Note: this will not often be the case. A typical case where it would occur would be a compact disc with only one title and one track (i.e. no physical or logical subdivisions).</p>
+      </requirement>
+      <requirement ID="dr03" RELATEDMAT="ex03">
+	<p>If there is more than one work recorded on the phonodisc, the MODS element must contain one Related Item (relatedItem) element for each work. Each relatedItem element must have an ID attribute and a type="constituent" attribute.</p>
+      </requirement>
+      <requirement ID="dr04" RELATEDMAT="ex04">
+	<p>If a work has logical sub-parts, the logical structure of those sub-parts may be represented with relatedItem/titleInfo/partName child elements. Examples of logical sub-parts of a work are the movements of a musical work, the acts and scenes of a dramatic work, etc. The logical structure of a work will thus be represented as a heirarchy of relatedItems. All relatedItem elements that are the lowest level relatedItems on a given axis (i.e. relatedItem elements that do not have any relatedItem child elements of their own) must be given an ID attribute.</p>
+      </requirement>
+    </dmdSec>
+    <structMap>
+      <requirement ID="st01" RELATEDMAT="ex05">
+	<p>The physical structure of the phonodisc will be represented in the Structure Map (structMap) section of the METS instance. The document will have one and only one structMap. The structMap element will have one and only one top level div TYPE="phono:phonodiscObject" child element. The top-level div element of the structMap will have a DMDID attribute that points to the mods element.</p>
+      </requirement>
+      <requirement ID="st02" RELATEDMAT="ex06">
+	<p>The div TYPE="phono:phonodiscObject" element will have one or more div TYPE="phono:disc" child elements. When there is more than one disc, the div TYPE="phono:disc" elements should be in a document order that corresponds to the physical order of the discs (Disk 1, Disk 2, etc.).</p>
+      </requirement>
+      <requirement ID="st03" RELATEDMAT="ex07">
+	<p>Each div TYPE="phono:disc" element will contain either one or two div TYPE="phono:side" child elements.</p>
+      </requirement>
+      <requirement ID="st04" RELATEDMAT="ex08">
+	<p>The div TYPE="phono:disc" elements will have one or more div TYPE="phono:track" child elements. The div TYPE="phono:track" elements should be in document order that corresponds to the physical order of the tracks on the compact disc.</p> 
+	<p>If the track is not further divided (i.e. the audio content of the track corresponds to a relatedItem in the mods record), then the div TYPE="phono:track" element will contain a div TYPE="phono:audio" child element. Each div TYPE="phono:audio" element will contain one or more fptr (File Pointer) elements, each with a FILEID attribute that points to the appropriate file element in the fileSec (File Section). Also in this case, each div TYPE="phono:track" element will have a DMDID attribute that points to the corresponding relatedItem element in the mods record.</p>
+	<p>If, however, the track is further divided into logical segments, see the next requirement on the use of div TYPE="phono:trackSegment" child elements.</p>
+      </requirement>
+      <requirement ID="st05" RELATEDMAT="ex09">
+	<p>The div TYPE="phono:track" elements may have zero or more div TYPE="phono:trackSegment" child elements. Each div TYPE="phono:trackSegment" element must have a DMDID attribute that points to the corresponding relatetItem element in the mods record. Each div TYPE="phono:trackSegment" element will have a div TYPE="phono:audio" child element.</p>
+	<p>Each div TYPE="phono:audio" element will in turn have one or more fptr (File Pointer) elements. Each fptr element will in turn contain an area child element with a FILEID attribute that points to the appropriate file in the fileSec (File Section). The area element will also use the BETYPE (Beginning and End Type) attribute with value "TIME", the BEGIN attribute, and the EXTENT attribute to indicate the starting time and the duration of the associated audio file segment.</p>
+      </requirement>
+      <requirement ID="st06" RELATEDMAT="ex10">
+	<p>The parent div element of all div TYPE="phono:audio" elements will have a DMDID attribute linking the parent div to the appropriate relatedItem element. These parent div elements will always be either div TYPE="phono:track" or div TYPE="phono:trackSegment". Notice (in the example below) that there is a correspondence between the three lowest-level relatedItem elements (in document order) and the three div elements that are parents of div TYPE="phono:audio" elements (in document order). (The phrase "lowest-level relatedItem elements" means relatedItem elements that contain no child relatedItem elements.)</p>
+      </requirement>
+      <requirement ID="st07" RELATEDMAT="ex11">
+	<p>The parent div element of all div TYPE="phono:audio" elements may have a LABEL attribute with a string value comprised of additional structural metadata (e.g. "beginning", "conclusion", "Part 1", "continued", etc. These text strings will usually be transcribed from the item.</p>
+      </requirement>
+      <requirement ID="st08" RELATEDMAT="ex12">
+	<p>A phonodiscObject may have one or more associated digital image sets. Three types of image sets are possible: an image set for the album covers, an image set for an inserted booklet, or an image set for the disc labels. Such image sets will be represented in the structMap as a div TYPE = "phono:coverImageSet" element, as a div TYPE = "phono:bookletImageSet" element, or a div TYPE = "phono:discImageSet" element. (Note that the div TYPE="phono:imageSet" element is a child of the div TYPE="phono:phonodiscObject" element.) Each of these image set div elements contain one div TYPE="phono:image" child element for each image in the image set.</p>
+
+	<p>A div TYPE = "phono:coverImageSet" element may only occur as a child of div TYPE="phono:phonodiscObject" element.</p>
+	<p>A div TYPE = "phono:bookletImageSet" element may only occur as a child of div TYPE="phono:phonodiscObject" element.</p>
+
+	<p>A div TYPE = "phono:discImageSet" element may occur either as a child of the div TYPE="phono:phonodiscObject" element, as a child of a div TYPE="phono:disc" element, or as a child of a div TYPE="phono:disc" element.</p>
+
+	<p> The LABEL attribute may optionally be used with any of the div types listed above to provide additional structural information. An example might be div TYPE="phono:bookletImageSet" LABEL="booklet". Another example might be div TYPE="phono:image" LABEL="front cover". The label attribute is optional.</p>
+      </requirement>
+      <requirement ID="st09" RELATEDMAT="ex13">
+	<p>A phonodiscObject may have one or more associated text files. Four types of text files are possible: a text file that is a transcription of text printed on a compact disc cover, a text file that is a transcription of text printed in an enclosed booklet, a text file that is a transcription of text printed on a disc label, and a text file that is a transcription of an audio program. These text files will be represented in the structMap as a div TYPE = "phono:coverText" element, a div TYPE = "phono:bookletText" element, a div TYPE = "phono:labelText" element, or a div TYPE = "phono:audioProgramText" element.</p>
+
+	<p>A div TYPE="phono:coverText" element can only occur as a child of the div TYPE="phono:phonodiscObject" element.</p> 
+
+	<p>A div TYPE="phono:bookletText" element can only occur as a child of the div TYPE="phono:phonodiscObject" element.</p> 
+	<p>A div TYPE="phono:labelText" element can occur as either a child of the div TYPE="phono:phonodiscObject" element or the div TYPE="phono:disc" element.</p>
+
+	<p>A div TYPE="phono:audioProgramText" element can occur as a child of the div TYPE="phono:phonodiscObject" element, the div TYPE="phono:disc" element, the div TYPE="phono:track" element, or the div TYPE="phono:trackSegment" element.</p>
+
+	<p>The associated relatedItem element in the mods record may contain contain a child relatedItem type="otherFormat"/genre element to provide a genre term for the text file.</p>
+
+	<p>A div TYPE = "phono:coverText" element, a div TYPE = "phono:bookletText" element, a div TYPE = "phono:labelText" element, or a div TYPE = "phono:audioProgramText" element will contain one or more fptr (File Pointer) elements, each with a FILEID attribute that points to the appropriate file element in the fileSec (File Section).</p>
+
+	<p>A text file will typically be an XML file conforming to the TEILITE DTD or other appropriate schema for text encoding.</p>
+      </requirement>
+    </structMap>
+
+  </structural_requirements>
+  <technical_requirements></technical_requirements>
+  <tool></tool>
+  <Appendix ID="a1" NUMBER="1" LABEL="appendix1"></Appendix>
+  <Appendix ID="ex01" NUMBER="1">
+    <mets:dmdSec ID="dmd01">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>New concepts of artistry in rhythm</mods:title>
+	    </mods:titleInfo>
+	    <mods:name type="personal">
+	      <mods:namePart>Kenton, Stan.</mods:namePart>
+	      <mods:role>
+		<mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+	      </mods:role>
+	      <mods:role>
+		<mods:roleTerm authority="marcrelator" type="code">prf</mods:roleTerm>
+	      </mods:role>
+	    </mods:name>
+	    <mods:typeOfResource>sound recording-musical</mods:typeOfResource>
+	    <mods:originInfo>
+	      <mods:place>
+		<mods:placeTerm type="code" authority="marccountry">cau</mods:placeTerm>
+	      </mods:place>
+	      <mods:publisher>Creative World</mods:publisher>
+	      <mods:dateIssued>[1952]</mods:dateIssued>
+	      <mods:dateIssued encoding="marc">1952</mods:dateIssued>
+	      <mods:issuance>monographic</mods:issuance>
+	    </mods:originInfo>
+	    <mods:physicalDescription>
+	      <mods:form authority="gmd">Sound recording</mods:form>
+	      <mods:extent>1 disc. : 12 in., stereo. ; 33 1/3 rpm.</mods:extent>
+	    </mods:physicalDescription>
+	    <mods:tableOfContents>23&#176;-82&#176;W.--Portrait of a count.--Invention for guitar and trumpet.--My lady.--Young blood.--Frank speaking.--Prologue.--Improvisation.</mods:tableOfContents>
+	    <mods:note>Creative World: 1002 (on container ST-1002).</mods:note>
+	    <mods:note type="performers">Jazz ensembles; Stan Kenton and his orchestra.</mods:note>
+	    <mods:note type="venue">Recorded Sept. 8-16, 1952.</mods:note>
+	    <mods:subject authority="lcsh">
+	      <mods:topic>Jazz</mods:topic>
+	      <mods:temporal>1951-1960</mods:temporal>
+	    </mods:subject>
+	    <mods:classification authority="lcc">Creative World ST 1002 (White House D18)</mods:classification>
+	    <mods:identifier type="lccn">00718055</mods:identifier>
+	    <mods:identifier type="issue number">1002 Creative World</mods:identifier>
+	    <mods:identifier type="issue number">ST-1002 Creative World</mods:identifier>
+	    <mods:recordInfo>
+	      <mods:recordContentSource authority="marcorg">CGP</mods:recordContentSource>
+	      <mods:recordCreationDate encoding="marc">790206</mods:recordCreationDate>
+	      <mods:recordChangeDate encoding="iso8601">20010225140418.0  </mods:recordChangeDate>
+	      <mods:recordIdentifier>12324957  </mods:recordIdentifier>
+	    </mods:recordInfo>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+  <Appendix ID="ex03" NUMBER="3">
+    <mets:dmdSec ID="dmd01">
+      <mets:mdWrap MDTYPE="MODS">
+	<mets:xmlData>
+	  <mods:mods ID="mods1">
+	    <mods:titleInfo>
+	      <mods:title>New concepts of artistry in rhythm</mods:title>
+	    </mods:titleInfo>
+	    <mods:name type="personal">
+	      <mods:namePart>Kenton, Stan.</mods:namePart>
+	      <mods:role>
+		<mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+	      </mods:role>
+	    </mods:name>
+	    <mods:relatedItem type="constituent" ID="con1">
+	      <mods:titleInfo>
+		<mods:title>23&#176;-82&#176;W</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con2">
+	      <mods:titleInfo>
+		<mods:title>Portrait of a count</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con3">
+	      <mods:titleInfo>
+		<mods:title>Invention for guitar and trumpet</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con4">
+	      <mods:titleInfo>
+		<mods:title>My lady</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con5">
+	      <mods:titleInfo>
+		<mods:title>Young blood</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con6">
+	      <mods:titleInfo>
+		<mods:title>Frank speaking</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con7">
+	      <mods:titleInfo>
+		<mods:title>Prologue</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	    <mods:relatedItem type="constituent" ID="con8">
+	      <mods:titleInfo>
+		<mods:title>Improvisation</mods:title>
+	      </mods:titleInfo>
+	    </mods:relatedItem>
+	  </mods:mods>
+	</mets:xmlData>
+      </mets:mdWrap>
+    </mets:dmdSec>
+  </Appendix>
+  <Appendix ID="ex05" NUMBER="5">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:phono="http://www.loc.gov/mets/profiles/phonodisc"
+	       PROFILE="phono:phonodisc" xmlns="http://www.loc.gov/METS/"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>New concepts of artistry in rhythm</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Kenton, Stan.</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="phono:phonodiscObject" DMDID="mods1">
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex06" NUMBER="6">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:phono="http://www.loc.gov/mets/profiles/phonodisc"
+	       PROFILE="phono:phonodisc" xmlns="http://www.loc.gov/METS/"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>New concepts of artistry in rhythm</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Kenton, Stan.</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one phonodiscObject -->
+	<mets:div TYPE="phono:phonodiscObject" DMDID="mods1">
+	  <!-- disc (one or more) -->
+	  <mets:div TYPE="phono:disc">
+	  </mets:div>
+	  <mets:div TYPE="phono:disc">
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex07" NUMBER="7">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:phono="http://www.loc.gov/mets/profiles/phonodisc"
+	       PROFILE="phono:phonodisc" xmlns="http://www.loc.gov/METS/"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods1">
+	      <mods:titleInfo>
+		<mods:title>New concepts of artistry in rhythm</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Kenton, Stan.</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one phonodiscObject -->
+	<mets:div TYPE="phono:phonodiscObject" DMDID="mods1">
+	  <!-- disc (one or more) -->
+	  <mets:div TYPE="phono:disc">
+	    <!-- one or two sides -->
+	    <mets:div TYPE="phono:side">
+	    </mets:div>
+	    <mets:div TYPE="phono:side">
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="phono:disc">
+	    <mets:div TYPE="phono:side">
+	    </mets:div>
+	    <mets:div TYPE="phono:side">
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex08" NUMBER="8">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:phono="http://www.loc.gov/mets/profiles/phonodisc"
+	       PROFILE="phono:phonodisc" xmlns="http://www.loc.gov/METS/"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods>
+	      <mods:titleInfo>
+		<mods:title>New concepts of artistry in rhythm</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Kenton, Stan.</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+		</mods:role>
+		<mods:role>
+		  <mods:roleTerm authority="marcrelator" type="code">prf</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource>sound recording-musical</mods:typeOfResource>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="code" authority="marccountry">cau</mods:placeTerm>
+		</mods:place>
+		<mods:publisher>Creative World</mods:publisher>
+		<mods:dateIssued>[1952]</mods:dateIssued>
+		<mods:dateIssued encoding="marc">1952</mods:dateIssued>
+		<mods:issuance>monographic</mods:issuance>
+	      </mods:originInfo>
+	      <mods:physicalDescription>
+		<mods:form authority="gmd">Sound recording</mods:form>
+		<mods:extent>1 disc. : 12 in., stereo. ; 33 1/3 rpm.</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:tableOfContents>23&#176;-82&#176;W.--Portrait of a count.--Invention for guitar and trumpet.--My lady.--Young blood.--Frank speaking.--Prologue.--Improvisation.</mods:tableOfContents>
+	      <mods:note>Creative World: 1002 (on container ST-1002).</mods:note>
+	      <mods:note type="performers">Jazz ensembles; Stan Kenton and his orchestra.</mods:note>
+	      <mods:note type="venue">Recorded Sept. 8-16, 1952.</mods:note>
+	      <mods:subject authority="lcsh">
+		<mods:topic>Jazz</mods:topic>
+		<mods:temporal>1951-1960</mods:temporal>
+	      </mods:subject>
+	      <mods:classification authority="lcc">Creative World ST 1002 (White House D18)</mods:classification>
+	      <mods:relatedItem type="constituent" ID="con1">
+		<mods:titleInfo>
+		  <mods:title>23&#176;-82&#176;W</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con2">
+		<mods:titleInfo>
+		  <mods:title>Portrait of a count</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con3">
+		<mods:titleInfo>
+		  <mods:title>Invention for guitar and trumpet</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con4">
+		<mods:titleInfo>
+		  <mods:title>My lady</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con5">
+		<mods:titleInfo>
+		  <mods:title>Young blood</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con6">
+		<mods:titleInfo>
+		  <mods:title>Frank speaking</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con7">
+		<mods:titleInfo>
+		  <mods:title>Prologue</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent" ID="con8">
+		<mods:titleInfo>
+		  <mods:title>Improvisation</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:identifier type="lccn">00718055</mods:identifier>
+	      <mods:identifier type="issue number">1002 Creative World</mods:identifier>
+	      <mods:identifier type="issue number">ST-1002 Creative World</mods:identifier>
+	      <mods:recordInfo>
+		<mods:recordContentSource authority="marcorg">CGP</mods:recordContentSource>
+		<mods:recordCreationDate encoding="marc">790206</mods:recordCreationDate>
+		<mods:recordChangeDate encoding="iso8601">20010225140418.0  </mods:recordChangeDate>
+		<mods:recordIdentifier>12324957  </mods:recordIdentifier>
+	      </mods:recordInfo>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<!-- one and only one phonodiscObject -->
+	<mets:div TYPE="phono:phonodiscObject" DMDID="mods1">
+	  <!-- disc (one or more) -->
+	  <mets:div TYPE="phono:disc">
+	    <!-- one or two sides -->
+	    <mets:div TYPE="phono:side">
+	      <!-- one or more tracks -->
+	      <mets:div TYPE="phono:track" DMDID="con1">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F1" />
+		  <mets:fptr FILEID="F2" />
+		  <mets:fptr FILEID="F3" />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="con2">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F4" />
+		  <mets:fptr FILEID="F5" />
+		  <mets:fptr FILEID="F6" />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="con3">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F7" />
+		  <mets:fptr FILEID="F8" />
+		  <mets:fptr FILEID="F9" />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="con4">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F10" />
+		  <mets:fptr FILEID="F11" />
+		  <mets:fptr FILEID="F12" />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="con5">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F13" />
+		  <mets:fptr FILEID="F14" />
+		  <mets:fptr FILEID="F15" />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="con6">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F16" />
+		  <mets:fptr FILEID="F17" />
+		  <mets:fptr FILEID="F18" />
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="phono:side">
+	      <mets:div TYPE="phono:track" DMDID="con7">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F19" />
+		  <mets:fptr FILEID="F20" />
+		  <mets:fptr FILEID="F21" />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="con8">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="F22" />
+		  <mets:fptr FILEID="F23" />
+		  <mets:fptr FILEID="F24" />
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex09" NUMBER="9">
+    <mets:structMap>
+      <mets:div TYPE="phono:phonodiscObject" DMDID="mods01">
+	<mets:div TYPE="phono:disc">
+	  <mets:div TYPE="phono:side">
+	    <mets:div TYPE="phono:track">
+	      <mets:div TYPE="phono:trackSegment" DMDID="d01_tr001_seg01">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr>
+		    <mets:area FILEID="F1" BETYPE="TIME" BEGIN="00:00:00" EXTENT="00:02:30" />
+		  </mets:fptr>
+		  <mets:fptr>
+		    <mets:area FILEID="F1" BETYPE="TIME" BEGIN="00:00:00" EXTENT="00:02:30" />
+		  </mets:fptr>
+		  <mets:fptr>
+		    <mets:area FILEID="F1" BETYPE="TIME" BEGIN="00:00:00" EXTENT="00:02:30" />
+		  </mets:fptr>
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:trackSegment" DMDID="d01_tr001_seg02">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr>
+		    <mets:area FILEID="F1" BETYPE="TIME" BEGIN="00:02:33" EXTENT="00:04:40" />
+		  </mets:fptr>
+		  <mets:fptr>
+		    <mets:area FILEID="F1" BETYPE="TIME" BEGIN="00:02:33" EXTENT="00:04:40" />
+		  </mets:fptr>
+		  <mets:fptr>
+		    <mets:area FILEID="F1" BETYPE="TIME" BEGIN="00:02:33" EXTENT="00:04:40" />
+		  </mets:fptr>
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+  <Appendix ID="ex10" NUMBER="10">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:phono="http://www.loc.gov/mets/profiles/phonodisc"
+	       PROFILE="phono:phonodisc" xmlns="http://www.loc.gov/METS/"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+      <mets:dmdSec ID="dmd01">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="mods01">
+	      <mods:titleInfo>
+		<mods:title>Album Title</mods:title>
+	      </mods:titleInfo>
+	      <mods:relatedItem type="constituent" ID="d01_tr001">
+		<mods:titleInfo>
+		  <mods:title>Work Title 1</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Work Title 2</mods:title>
+		</mods:titleInfo>
+		<mods:relatedItem type="constituent" ID="d01_tr002">
+		  <mods:titleInfo>
+		    <mods:partName>Part Name 1</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+		<mods:relatedItem type="constituent" ID="d01_tr003">
+		  <mods:titleInfo>
+		    <mods:partName>Part Name 2</mods:partName>
+		  </mods:titleInfo>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+
+      <mets:structMap>
+	<mets:div TYPE="phono:phonodiscObject">
+	  <mets:div TYPE="phono:disc">
+	    <mets:div TYPE="phono:side">
+	      <mets:div TYPE="phono:track" DMDID="d01_tr001">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="d01_tr002">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr />
+		</mets:div>
+	      </mets:div>
+	      <mets:div TYPE="phono:track" DMDID="d01_tr003">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr />
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix ID="ex11" NUMBER="11">
+    <mets:structMap>
+      <mets:div TYPE="phono:phonodiscObject" DMDID="mods1">
+	<mets:div TYPE="phono:disc">
+	  <mets:div TYPE="phono:side">
+	    <mets:div TYPE="phono:track" DMDID="d01_tr001">
+	      <mets:div TYPE="phono:audio">
+		<mets:fptr />
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="phono:track" DMDID="d01_tr002" LABEL="beginning">
+	      <mets:div TYPE="phono:audio">
+		<mets:fptr />
+	      </mets:div>
+	    </mets:div>
+	    <mets:div TYPE="phono:track" DMDID="d01_tr003" LABEL="conclusion">
+	      <mets:div TYPE="phono:audio">
+		<mets:fptr />
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+  <Appendix ID="ex12" NUMBER="12">
+    <mets:structMap>
+      <mets:div TYPE="phono:phonodiscObject" DMDID="MODS1">
+	<mets:div TYPE="phono:disc">
+	  <mets:div TYPE="phono:side">
+	    <mets:div TYPE="phono:track" DMDID="d01_tr001">
+	      <mets:div TYPE="phono:audio">
+		<mets:fptr/>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="phono:coverImageSet">
+	    <mets:div TYPE="phono:image" LABEL="front cover">
+	      <mets:fptr/>
+	    </mets:div>
+	    <mets:div TYPE="phono:image">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	  <mets:div TYPE="phono:bookletImageSet" LABEL="Booklet">
+	    <mets:div TYPE="phono:image">
+	      <mets:fptr/>
+	    </mets:div>
+	    <mets:div TYPE="phono:image">
+	      <mets:fptr/>
+	    </mets:div>
+	    <mets:div TYPE="phono:image">
+	      <mets:fptr/>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:structMap>
+  </Appendix>
+  <Appendix ID="ex13" NUMBER="13">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	       xmlns:mods="http://www.loc.gov/mods/v3"
+	       xmlns:lc="http://www.loc.gov/mets/profiles"
+	       xmlns:xlink="http://www.w3.org/TR/xlink"
+	       xmlns:rights="http://www.loc.gov/rights/"
+	       xmlns:phono="http://www.loc.gov/mets/profiles/phonodisc"
+	       PROFILE="phono:phonodisc" xmlns="http://www.loc.gov/METS/"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+
+      <mets:dmdSec ID="DMD">
+	<mets:mdWrap ID="MODS1" MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods ID="MODS" version="3.0">
+	      <mods:titleInfo>
+		<mods:title>Where home is</mods:title>
+		<mods:subTitle>life in nineteenth-century Cincinnati</mods:subTitle>
+	      </mods:titleInfo>
+	      <mods:relatedItem ID="DMD_tr0001" type="constituent">
+		<mods:titleInfo>
+		  <mods:title>Where Home Is</mods:title>
+		</mods:titleInfo>
+		<mods:relatedItem type="otherFormat">
+		  <mods:typeOfResource>text</mods:typeOfResource>
+		  <mods:genre>Lyrics</mods:genre>
+		</mods:relatedItem>
+	      </mods:relatedItem>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:amdSec/>
+
+      <mets:structMap>
+	<mets:div TYPE="phono:phonodiscObject" DMDID="MODS1">
+	  <mets:div TYPE="phono:disc">
+	    <mets:div TYPE="phono:side">
+	      <mets:div TYPE="phono:track" DMDID="DMD_tr0001">
+		<mets:div TYPE="phono:audio">
+		  <mets:fptr FILEID="FN1014A"/>
+		</mets:div>
+		<mets:div TYPE="phono:audioProgramText">
+		  <mets:fptr FILEID="FN10031"/>
+		</mets:div>
+	      </mets:div>
+	    </mets:div>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

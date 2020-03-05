@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/"
+	   xmlns:mods="http://www.loc.gov/mods/v3"
+	   xmlns:lc="http://www.loc.gov/mets/profiles"
+	   xmlns:xlink="http://www.w3.org/TR/xlink"
+	   xmlns:rights="http://www.loc.gov/rights/"
+	   xmlns:photo="http://www.loc.gov/mets/profiles/photoObject"
+	   PROFILE="lc:photoObject" xmlns="http://www.loc.gov/METS/"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <!-- Created by Morgan Cundiff in Emacs -->
+  <!-- (For XMLSpy validation)
+       xsi:schemaLocation="http://www.loc.gov/METS/ C:\mets_profiles\mets.xsd http://www.loc.gov/MODS/v3 C:\mets_profiles\mods-3-0.xsd"
+  -->
+
+  <mets:dmdSec ID="dmd1">
+    <mets:mdWrap MDTYPE="MODS">
+      <mets:xmlData>
+	<mods:mods ID="mods1">
+	  <mods:titleInfo>
+	    <mods:title>[Portrait of Tyree Glenn, New York, N.Y., ca. July 1947]</mods:title>
+	  </mods:titleInfo>
+	  <mods:relatedItem ID="ver01" type="constituent">
+	    <mods:location>
+	      <mods:physicalLocation displayLabel="contents of subfield">negative</mods:physicalLocation>
+	    </mods:location>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="ver02" type="constituent">
+	    <mods:location>
+	      <mods:physicalLocation displayLabel="contents of subfield">contact print with annotations</mods:physicalLocation>
+	    </mods:location>
+	  </mods:relatedItem>
+	  <mods:relatedItem ID="ver03" type="constituent">
+	    <mods:location>
+	      <mods:physicalLocation displayLabel="contents of subfield">published print (The Golden Age of Jazz, Pomegranate Artbooks)</mods:physicalLocation>
+	    </mods:location>
+	  </mods:relatedItem>
+	</mods:mods>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+
+  <mets:structMap>
+    <mets:div TYPE="photo:photoObject" DMDID="mods1">
+      <mets:div TYPE="photo:version" DMDID="ver01">
+	<mets:div TYPE="photo:image">
+	  <mets:fptr FILEID="F1"/>
+	  <mets:fptr FILEID="F2"/>
+	</mets:div>
+	<mets:div TYPE="photo:version" DMDID="ver02">
+	  <mets:div TYPE="photo:image">
+	    <mets:fptr FILEID="F3"/>
+	    <mets:fptr FILEID="F4"/>
+	  </mets:div>
+	</mets:div>
+	<mets:div TYPE="photo:version" DMDID="ver03">
+	  <mets:div TYPE="photo:image">
+	    <mets:fptr FILEID="F5"/>
+	    <mets:fptr FILEID="F6"/>
+	  </mets:div>
+	</mets:div>
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+</mets:mets>

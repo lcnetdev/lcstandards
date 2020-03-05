@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile 
+    xmlns="http://www.loc.gov/METS_Profile/v2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"  
+    xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd" STATUS="final" REGISTRATION="registered">
+    <URI LOCTYPE="URL" ASSIGNEDBY="metsboard">http://www.loc.gov/standards/mets/profiles/00000035.xml</URI>
+    <URI LOCTYPE="URL" ASSIGNEDBY="local">http://www.lib.utexas.edu/schema/UTVideoMETS.xml</URI>
+    <title>UT Video METS Profile</title>
+    <abstract>This profile describes the rules and requirements for using METS as an Archival
+        Information Package for digital video objects. Digital video objects may contain raw,
+        master, and derivative video files, as well as text transcripts and/or translations.
+        Developed by the Human Rights Documentation Initiative at the University of Texas Libraries,
+        this profile is intended for any video object collected by the Libraries.</abstract>
+    <date>2010-08-11T15:32:00</date>
+    <contact>
+        <name>Amy Rushing</name>
+        <institution>University of Texas Libraries</institution>
+        <address>P.O. Box P, PCL 2.300, S5453, Austin, Texas 78713-8916</address>
+        <phone>(512)495-4355</phone>
+        <email>a.rushing@austin.utexas.edu</email>
+    </contact>
+    <registration_info regDate="2010-10-05T00:00:00" regURI="http://www.loc.gov/standards/mets/profiles/00000035.xml"/>
+    <related_profile/>
+    <profile_context/>
+    <external_schema>
+        <name>Metadata Object Description Schema (MODS)</name>
+        <URL>http://www.loc.gov/standards/mods/mods.xsd</URL>
+    </external_schema>
+    <external_schema>
+        <name>UTVIDEOTech</name>
+        <URL>http://www.lib.utexas.edu/schema/UTVIDEOTech.xsd</URL>
+    </external_schema>
+    <external_schema>
+        <name>UTVIDEOSrc</name>
+        <URL>http://www.lib.utexas.edu/schema/UTVIDEOSrc.xsd</URL>
+    </external_schema>
+    <external_schema>
+        <name>PREMIS Preservation Metadata Schema:Event</name>
+        <URL>http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd</URL>
+    </external_schema>
+    <description_rules><xhtml:p>All metadata must adhere to the "University of Texas Libraries Human Rights Documentation Initiative Metadata Guidelines for Video"</xhtml:p></description_rules>
+    <controlled_vocabularies>
+        <vocabulary ID="vocab1">
+            <name>USE Attribute Values for METS fileSec, fileGrp element</name>
+            <values>
+                <value>raw</value>
+                <value>master</value>
+                <value>derivative</value>
+            </values>
+            <description>
+            	<xhtml:p>This profile specifies the required vocabulary for the USE attribute value on the fileGrp element. It is required that this attribute appear. These values should distinguish the relationship between digital video files.</xhtml:p>
+            </description>
+        </vocabulary>
+        <vocabulary ID="vocab2">
+            <name>METS structMap/div TYPE attribute values</name>
+            <values>
+                <value>video</value>
+                <value>transcript</value>
+                <value>thumbnail</value>
+                <value>preview</value>
+            </values>
+            <description>
+            	<xhtml:p>This profile specifies the required vocabulary for the TYPE attribute value on the second level div element of the structMap. It is required that this attribute appear at this level. These values distinguish by class the digital objects described by the METS document.
+            	</xhtml:p>
+            </description>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsRootElement>
+            <requirement ID="metsRoot1">
+                <description><xhtml:p>The root METS element must include a PROFILE attribute value.</xhtml:p></description>
+            </requirement>
+            <requirement ID="metsRoot2">
+                <description> <xhtml:p>The root METS element must include a TYPE attribute with a value of "digital video".</xhtml:p></description>
+            </requirement>            
+        </metsRootElement>
+        <metsHdr>
+            <requirement ID="metsHdr1">
+                <description><xhtml:p>The metsHdr element must contain the CREATEDATE and LASTMODDATE attributes.</xhtml:p></description>
+            </requirement>
+            <requirement ID="metsHdr2">
+                <description><xhtml:p>The metsHdr element must contain an agent element with the ROLE attribute value "CUSTODIAN", TYPE attribute value "ORGANIZATION", and name element with value
+                    "University of Texas Libraries".</xhtml:p></description>
+            </requirement>            
+        </metsHdr>
+        <dmdSec ID="dmdSec1">
+            <requirement>
+                <description><xhtml:p>Conforming METS documents must contain one or more dmdSec elements. Each dmdSec must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="dmdSec2">
+                <description><xhtml:p>Each mdRef element must point to an external document that conforms to the MODS schema.The location of the MODS compliant metadata must be recorded in the
+                    xlink:href attribute of each mdRef element. </xhtml:p></description>
+            </requirement>            
+        </dmdSec>
+        <amdSec ID="amdSec1">
+            <requirement>
+                <description><xhtml:p>Conforming METS documents must contain only one amdSec element. This section must contain one or more of each of the following elements: techMD, sourceMD and digiprovMD.</xhtml:p></description>
+            </requirement>
+            <requirement ID="techMD1">
+                <description><xhtml:p>Conforming METS documents must contain one or more techMD elements. Each techMD element must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="techMD2">
+                <description><xhtml:p>Each mdRef element must point to an external document that conforms to the UTVIDEOTech schema. The location of this document must be recorded in the xlink:href attribute.</xhtml:p></description>
+            </requirement>
+            <requirement ID="rightsMD1">
+                <description><xhtml:p>Information regarding rights is covered by the MODS descriptive metadata element "accessCondition." No additional external rights schema is necessary.</xhtml:p></description>
+            </requirement>
+            <requirement ID="sourceMD1">
+                <description><xhtml:p>Conforming METS documents must contain one or more sourceMD elements. Each sourceMD element must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="sourceMD2">
+                <description><xhtml:p>Each mdRef element in this section must use the xlink:href attribute to point to the URL of an external document that conforms to the UTVIDEOSrc schema. The location of the UTVIDEOSrc compliant metadata must be recorded in the
+                    xlink:href attribute of each mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="digiprovMD1">
+                <description><xhtml:p>Conforming METS documents must contain one or more digiprovMD elements. Each digiprovMD element must contain a mdRef element.</xhtml:p></description>
+            </requirement>
+            <requirement ID="digiprovMD2">
+                <description><xhtml:p>Each mdRef element in this section must use the xlink:href attribute to point to the URL of an external document that conforms to the PREMIS:event schema. The location of the PREMIS:event compliant metadata must be recorded in the
+                    xlink:href attribute of each mdRef element. </xhtml:p></description>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement ID="fileSec1" RELATEDMAT="vocab1">
+                <description><xhtml:p>Conforming METS documents for this profile must contain a fileSec. Each file represented in the fileSec must have an associated USE attribute. The USE attribute is expressed in conjunction with the fileGrp that is the immediate
+                    parent of a file element so that it pertains to all file elements in the fileGrp. The fileGrp USE attribute values must be drawn from the controlled vocabulary for fileGrp USE Attribute Values contained within this profile.</xhtml:p></description>
+            </requirement>
+            <requirement ID="fileSec2">
+                <description><xhtml:p>Each file element must contain an FLocat element which specifies the external location of the content file in an xlink:href attribute.The FLocat element must contain an xlink:href attribute, as well as a LOCTYPE attribute indicating the
+                    type of href being provided. In most cases, the LOCTYPE for digital video objects will be URL.</xhtml:p></description>
+            </requirement>            
+        </fileSec>
+        <structMap>
+            <requirement ID="structMap1">
+                <description><xhtml:p>A conforming METS document must contain one and only one structMap.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap2">
+                <description><xhtml:p>A conforming structMap must contain a ID attribute as well as a TYPE attribute with the value "Logical".</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap3" RELATEDMAT="vocab2">
+                <description><xhtml:p>The structMap will be organized by three nested div elements. Each lowest level div element contains one or more fptr elements, whose FILEID attribute points to the fileGrp of the referenced item in the fileSec. The next level div contains a
+                    TYPE attribute with a value from vc2 above. This level div also contains a DMDID that points to the descriptive Metadata shared by the TYPE group. The ADMID attribute is contained by the top level div and references any metadata shared
+                    by all files.</xhtml:p></description>
+            </requirement>
+            <requirement ID="structMap4">
+                <description><xhtml:p>The mptr element is not supported, instead a fptr element must directly point to a file element via its FILEID attribute. METS documents implementing this profile must not use the area, par or seq elements. </xhtml:p></description>
+            </requirement>
+        </structMap>        
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement>
+                <description><xhtml:p>Preview Images:
+                    It is recommended that:
+                    Thumbnail preview images are stored in JPEG format with a 100 pixel longest edge.
+                    Small preview images are stored in JPEG format with a 240 pixel longest edge.
+                    Medium preview images are stored in JPEG format with a 500 pixel longest edge.
+                    Square preview images are stored in JPEG format at a resolution of 75x75 pixels.</xhtml:p></description>
+            </requirement>
+            <requirement>
+                <description><xhtml:p>Archival Moving Image (video) Files:
+                    It is recommended that:
+                    Archival Video Files are DV/DVC-NTSC, 640x480 pixels,
+                    16 bit integer (big endian)
+                    Stereo Left Right, 48.00 khz 
+                    29.97 fps </xhtml:p></description>
+            </requirement>
+        </content_files>        
+    </technical_requirements>
+    <tool>
+        <name>MediaInfo</name>
+        <URI>http://mediainfo.sourceforge.net/en</URI>
+        <description><xhtml:p>MediaInfo will be used for generating technical metadata on each raw and production master digital video file that comprises the video object.  The xml output from MediaInfo will be transformed to conform to the schema created by  the UT Libraries: UTVIDEOTech.xsd </xhtml:p></description>
+    </tool>
+    <Appendix NUMBER="1">
+        <mets xmlns="http://www.loc.gov/METS/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mods/xlink.xsd http://www.lib.utexas.edu/schema/UTVIDEOTech.xsd http://www.lib.utexas.edu/schema/UTVIDEOSrc.xsd"
+            PROFILE="UTVideoMETS" TYPE="digital video">
+            <metsHdr CREATEDATE="2010-02-22T07:13:18Z">
+                <agent ROLE="CUSTODIAN" TYPE="ORGANIZATION">
+                    <name>University of Texas Libraries</name>
+                </agent>
+            </metsHdr>
+            <dmdSec ID="dmd_1">
+                <mdRef xlink:href="file://kmc00003/kmc00003-mods.xml" MIMETYPE="text/xml" MDTYPE="MODS"
+                    LOCTYPE="URL"/>
+            </dmdSec>
+            <amdSec ID="amd_1">
+                <techMD ID="vid1raw-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid1raw-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOTech"/>
+                </techMD>
+                <techMD ID="vid2raw-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid2raw-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOTech"/>
+                </techMD>
+                <techMD ID="vid3raw-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid3raw-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOTech"/>
+                </techMD>
+                <techMD ID="vid1-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid1-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOTech"/>
+                </techMD>
+                <techMD ID="vid2-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid2-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOTech"/>
+                </techMD>
+                <techMD ID="vid3-tech">
+                    <mdRef LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid3-tech.xml"
+                        MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOTech"/>
+                </techMD>
+                <sourceMD ID="vid1-src">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOSrc"
+                        xlink:href="file://kmc00003/kmc00003-vid1-src.xml"/>
+                </sourceMD>
+                <sourceMD ID="vid2-src">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOSrc"
+                        xlink:href="file://kmc00003/kmc00003-vid2-src.xml"/>
+                </sourceMD>
+                <sourceMD ID="vid3-src">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="UTVIDEOSrc"
+                        xlink:href="file://kmc00003/kmc00003-vid3-src.xml"/>
+                </sourceMD>
+                <digiprovMD ID="PREMIS_1">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://kmc00003/kmc00003-vid1raw_premis.xml"/>
+                </digiprovMD>
+                <digiprovMD ID="PREMIS_2">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://kmc00003/kmc00003-vid2raw_premis.xml"/>
+                </digiprovMD>
+                <digiprovMD ID="PREMIS_3">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://kmc00003/kmc00003-vid1raw_premis.xml"/>
+                </digiprovMD>
+                <digiprovMD ID="PREMIS_4">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://kmc00003/kmc00003-vid1_premis.xml"/>
+                </digiprovMD>
+                <digiprovMD ID="PREMIS_5">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://kmc00003/kmc00003-vid2_premis.xml"/>
+                </digiprovMD>
+                <digiprovMD ID="PREMIS_6">
+                    <mdRef LOCTYPE="URL" MIMETYPE="text/xml" MDTYPE="PREMIS:EVENT"
+                        xlink:href="file://kmc00003/kmc00003-vid3_premis.xml"/>
+                </digiprovMD>
+            </amdSec>
+            <fileSec>
+                <fileGrp USE="raw">
+                    <file ID="FID1" MIMETYPE="video/finalcutpro" SIZE="11895564117"
+                        ADMID="vid1raw-tech PREMIS_1 vid1-src">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid1.fcp"/>
+                    </file>
+                    <file ID="FID2" MIMETYPE="video/finalcutpro" SIZE="11895564215"
+                        ADMID="vid2raw-tech PREMIS_2 vid2-src">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid2.fcp"/>
+                    </file>
+                    <file ID="FID3" MIMETYPE="video/finalcutpro" SIZE="11895565100"
+                        ADMID="vid3raw-tech PREMIS_3 vid3-src">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid3.fcp"/>
+                    </file>
+                </fileGrp>
+                <fileGrp USE="master">
+                    <file ID="FID4" MIMETYPE="video/quicktime" SIZE="5503441" CHECKSUM="ca6d366e941821c4bddd94d5092e01b9"
+                        CHECKSUMTYPE="MD5" ADMID="vid1-tech PREMIS_4 ">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid1.mov"/>
+                    </file>
+                    <file ID="FID5" MIMETYPE="video/quicktime" SIZE="5953533" CHECKSUM="81b428cc2f63cbd5decfbe958078c16e"
+                        CHECKSUMTYPE="MD5" ADMID="vid2-tech PREMIS_5 ">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid2.mov"/>
+                    </file>
+                    <file ID="FID6" MIMETYPE="video/quicktime" SIZE="7272931" CHECKSUM="27dffa831cf7aba0ac4a204dd5061d6d "
+                        CHECKSUMTYPE="MD5" ADMID="vid3-tech PREMIS_6">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid3.mov"/>
+                    </file>
+                    <file ID="FID7" MIMETYPE="application/msword" SIZE="149" CHECKSUM="557e7efb27c11c535e925aff51cced92"
+                        CHECKSUMTYPE="MD5">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-trans.doc"/>
+                    </file>
+                </fileGrp>
+                <fileGrp USE="derivative">
+                    <file ID="FID8" MIMETYPE="video/mpeg4" SIZE="347223" CHECKSUM="388d8b77848751181757db5ea4a6c2ed"
+                        CHECKSUMTYPE="MD5">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid1.mp4"/>
+                    </file>
+                    <file ID="FID9" MIMETYPE="video/mpeg4" SIZE="351837" CHECKSUM="99e2d1b5ea4284cf504532e2fa7a8a54"
+                        CHECKSUMTYPE="MD5">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid2.mp4"/>
+                    </file>
+                    <file ID="FID10" MIMETYPE="video/mpeg4" SIZE="79310" CHECKSUM="e7c4961575f8e2edb0826b6667ed7efb"
+                        CHECKSUMTYPE="MD5">
+                        <FLocat LOCTYPE="URL" xlink:href="file://kmc00003/kmc00003-vid3.mp4"/>
+                    </file>
+                </fileGrp>
+            </fileSec>
+            <structMap ID="smap_1" TYPE="Logical">
+                <div>
+                    <div TYPE="video" DMDID="dmd_1">
+                        <div ORDER="1">
+                            <fptr FILEID="FID1"/>
+                            <fptr FILEID="FID4"/>
+                            <fptr FILEID="FID8"/>
+                        </div>
+                        <div ORDER="2">
+                            <fptr FILEID="FID2"/>
+                            <fptr FILEID="FID5"/>
+                            <fptr FILEID="FID9"/>
+                        </div>
+                        <div ORDER="3">
+                            <fptr FILEID="FID3"/>
+                            <fptr FILEID="FID6"/>
+                            <fptr FILEID="FID10"/>
+                        </div>
+                    </div>
+                    <div TYPE="transcript">
+                        <fptr FILEID="FID7"/>
+                    </div>
+                </div>
+            </structMap>
+        </mets>
+    </Appendix>    
+</METS_Profile>

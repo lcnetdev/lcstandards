@@ -1,0 +1,1717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+	<URI LOCTYPE="URN">http://www.loc.gov/mets/profiles/00000018.xml</URI>
+	<title>Australian METS Profile 1.0</title>
+	<abstract>
+This profile describes the rules and requirements for using METS as an exchange format to support the collection and preservation of and access to content in Australian digital repositories. It is a generic profile not specific to a particular system or implementation. Repositories will need to develop and register sub-profiles that detail implementation-specific requirements. 
+</abstract>
+	<date>2007-10-19T17:31:00</date>
+	<contact>
+		<institution>National Library of Australia</institution>
+		<address>Canberra, ACT, 2600, Australia
+</address>
+		<phone>+61 2 6262 1111</phone>
+		<email>standards@nla.gov.au</email>
+	</contact>
+	<related_profile RELATIONSHIP="Inherited by" URI="TBA">Australian METS Journal Profile 1.0</related_profile>
+	<extension_schema>
+		<name>MODS</name>
+		<URI>http://www.loc.gov/standards/mods/v3/mods-3-2.xsd</URI>
+		<context>mets/dmdSec/mdWrap/xmlData/mods</context>
+		<note>Support for MODS is required in this profile. When additional extension schema are also used for encoding descriptive metadata these should be recorded in a sub-profile.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS OBJECT</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData/premis and/or
+mets/amdSec/sourceMD/mdWrap/xmlData/premis</context>
+		<note>Support for PREMIS to encode technical metadata is required in this profile.  When additional data elements are needed to record technical metadata for specific file types the extension schema listed below can be used. Users are encouraged to recommend additional elements for these schema and additional schema for inclusion in this profile.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>MIX</name>
+		<URI>http://www.loc.gov/standards/mix/mix10/mix10.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData/mix</context>
+		<note>Extensions to the METS schema specific to still-image technical metadata.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>TEXTMD</name>
+		<URI>http://dlib.nyu.edu/METS/textmd.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData/textmd</context>
+		<note>Extensions to the METS schema specific to text technical metadata.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>AUDIOMD</name>
+		<URI>http://lcweb2.loc.gov/mets/Schemas/AMD.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData/audiomd</context>
+		<note>Extensions to the METS schema specific to audio technical metadata.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>VIDEOMD</name>
+		<URI>http://lcweb2.loc.gov/mets/Schemas/VMD.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData/videomd</context>
+		<note>Extensions to the METS schema specific to video technical metadata.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>METS RIGHTS</name>
+		<URI>http://cosimo.stanford.edu/sdr/metsrights.xsd</URI>
+		<context>mets/amdSec/rightsMD/mdWrap/xmlData/premis</context>
+		<note>Rights metadata, if included in the &#60;amdSec&#62; element, must be encoded in either the METS Rights or PREMIS Rights or XACML Policy schema.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS RIGHTS</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Rights-v1-1.xsd</URI>
+		<context>mets/amdSec/rightsMD/mdWrap/xmlData/premis</context>
+		<note>Rights metadata, if included in the &#60;amdSec&#62; element, must be encoded in either the METS Rights or PREMIS Rights or XACML Policy schema.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>XACML</name>
+		<URI>http://docs.oasis-open.org/xacml/2.0/access_control-xacml-2.0-policy-schema-os.xsd</URI>
+		<context>mets/amdSec/rightsMD/mdWrap/xmlData/premis</context>
+		<note>Rights metadata, if included in the &#60;amdSec&#62; element, must be encoded in either the METS Rights or PREMIS Rights or XACML Policy schema.</note>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS AGENT</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd</URI>
+		<context>mets/amdSec/digiprovMD/mdWrap/xmlData/premis</context>
+		<note>Extensions to the METS schema specific to agents. </note>
+	</extension_schema>
+	<extension_schema>
+		<name>PREMIS EVENT</name>
+		<URI>http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd</URI>
+		<context>mets/amdSec/digiprovMD/mdWrap/xmlData/premis</context>
+		<note>Extensions to the METS schema specific to events.</note>
+	</extension_schema>
+	<description_rules>
+		<p>This profile describes the rules and requirements for using METS as an exchange format to support the collection and preservation of and access to content in Australian digital repositories. It is a generic profile not specific to a particular system or implementation, and therefore does not, for example, contain any detail in the Technical Requirements section. It is intended that repositories will develop and register sub-profiles that detail the implementation-specific requirements.</p>
+		<p>Saying that a particular element or attribute in this profile is not supported does not imply that it is prohibited. However, it does imply that it may be ignored. In general, implementations processing METS documents that conform to this profile should attempt to preserve any undefined elements or attributes. </p>
+		<p>A conforming METS document represents a discrete object of interest for the purposes of collection, preservation or access. An object will be completely described in a conforming METS document, therefore in the case of a composite object, the components will be described within the document as well. </p>
+		<p>An object (whether it is a single or composite object) may be a component of another object. A conforming METS document may therefore represent a whole object or a component, as long as the component is a discrete object of interest with its own descriptive metadata.  </p>
+		<p>Where an object is a component of another object, a conforming METS document should express that relationship through appropriate elements in the descriptive metadata extension schema, i.e. self-referencing, either fully described in the primary MODS, or in separate &#60;dmdSec&#62; elements.</p>
+		<p>An object or component described in a conforming METS document may be a physical object that has not yet have been digitised or it may be a digital object stored on a physical carrier.   </p>
+		<p>The amount of data included in a conforming METS document will depend on the purpose of the document. If the purpose is to submit an object to a repository as an OAIS Submission Information Package (SIP), then a conforming METS document must contain the files comprising the archival copy of the object and its components. If the purpose is to transfer custody of an object from one repository to another as an OAIS Archival Information Package (AIP), it must also contain the supporting files and metadata necessary for the object's long term preservation and access.  If the purpose is to deliver an object as an OAIS Dissemination Information Package (DIP), a conforming METS document may contain only derivative files or pointers to derivative files, along with sufficient metadata to render or execute these files properly. In the case of complex hierarchical objects, components may be represented by another METS document and just referenced in the parent METS document.</p>
+<p>The first example appended to this profile shows a submission information package for a digitised still image with two files comprising the archival copy of the object (master and co-master). The &#60;dmdSec&#62; contains only identifiers for the still image and its host collection as these can be used by the repository to retrieve a full cataloguing record on ingest. There is no technical metadata for the images themselves as this can be generated on ingest. However, PREMIS &#60;object&#62;, &#60;event&#62; and &#60;agent&#62; metadata elements are included because of the need to record the derivation relationship, the hardware and software used in the creation events and the type of manipulation used to create the co-master.</p>
+		<p>The second example appended to this profile shows a dissemination information package that could be used to transfer a digitised still image from the same collection from one repository to another. The package includes a derivative master and two derivative files created on ingest as well as the master and co-master. Seven events are recorded, the creation events for each file and the ingestion events for the master and co-master.</p>
+		<p>Information encoded using the extension schema listed in this profile should follow the appropriate guidelines recommended by the extension schema's maintenance agencies. For example, MODS encoded descriptive metadata should follow the MODS Users Guidelines published by the Library of Congress' Network Development and MARC Standards Office.  Users of additional schema should list these as extension schema in a sub-profile and follow the appropriate guidelines.  </p>
+		<p>All available metadata should be included for the archival copy of an object when custody is being transferred. If no suitable extension schema covers all the metadata, the extra elements can be encoded using a local extension schema.</p>
+		<p>Controlled vocabularies for elements that are mandatory in this profile and that are not already included in METS or the registered extension schema are listed in the Controlled Vocabularies section. Users of additional elements constrained by controlled vocabularies should list these in the Controlled Vocabularies section of a sub-profile.</p>
+		<p>Values of "not applicable" and "unknown" are permitted for mandatory elements and attributes where data cannot be supplied.</p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>Australian METS Profile Preservation Level for Files</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>supported = fully supported</value>
+				<value>known = not supported yet but high priority to try and fully support</value>
+				<value>unsupported = known or unknown format, preserve bitstream as is, but low priority for support</value>
+				<value>not applicable = not a preservation copy of the item</value>
+			</values>
+		</vocabulary>
+		<vocabulary>
+			<name>Australian METS Profile Preservation Level for Representations</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>level [N] = where [N] is any number; "level 1" must represent the highest level preservation action that may be applied to an object</value>
+				<value>pending = preservation level is yet to be determined</value>
+			</values>
+		</vocabulary>
+		<vocabulary>
+			<name>Australian METS Profile Storage Medium</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>computer card = card containing digitally encoded data designed for use with a computer</value>
+				<value>computer chip cartridge = cartridge containing a miniaturized electronic circuit on a small wafer of semiconductor silicon</value>
+				<value>computer disc = disc containing digitally encoded data, magnetically or optically recorded, designed for use with a computer</value>
+				<value>computer disc cartridge = cartridge containing one or more computer discs</value>
+				<value>computer tape cartridge = cartridge containing a computer tape</value>
+				<value>computer tape cassette = cassette containing a computer tape</value>
+				<value>computer tape reel = open reel holding a length of computer tape to be used with a computer tape drive</value>
+				<value>online resource = digital resource accessed by means of hardware and software connections to a communications network</value>
+			</values>
+			<description><p>These values are based on the Resource Description and Access controlled vocabulary for carrier type.</p></description>
+		</vocabulary>
+				<vocabulary>
+			<name>Australian METS Profile Event Type</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>capture = the process whereby a repository actively obtains an object</value>
+				<value>compression = the process of coding data to save storage space or transmission time</value>
+				<value>creation = the act of creating a new object</value>
+				<value>deaccession = the process of removing an object from the inventory of a repository</value>
+				<value>decompression = the process of reversing the effects of compression</value>
+				<value>decryption = the process of converting encrypted data to plaintext</value>
+				<value>deletion = the process of removing an object from repository storage</value>
+				<value>digital signature validation = the process of determining that a decrypted digital signature matches an expected value</value>
+				<value>dissemination = the process of retrieving an object from repository storage and making it available to users</value>
+				<value>fixity check = the process of verifying that an object has not been changed in a given period</value>
+				<value>ingestion = the process of adding objects to a preservation repository</value>
+				<value>message digest calculation = the process by which a message digest ("hash") is created</value>
+				<value>migration = a transformation of an object creating a version in a more contemporary format</value>
+				<value>normalization = a transformation of an object creating a version more conducive to preservation</value>
+				<value>replication = the process of creating a copy of an object that is, bit-wise, identical to the original</value>
+				<value>validation = the process of comparing an object with a standard and noting compliance or exceptions</value>
+				<value>virus check = the process of scanning a file for malicious programs</value>
+			</values>
+			<description><p>These values are based on the PREMIS Data Dictionary starter list for eventType.</p></description>
+		</vocabulary>
+		<vocabulary>
+			<name>Australian METS Profile Agent Type</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>person = agent is a human</value>
+				<value>organization = agent is a collective entity</value>
+				<value>software = agent is a type of software</value>
+				<value>hardware = agent is a type of hardware</value>
+			</values>
+		</vocabulary>
+		<vocabulary>
+			<name>Australian METS Profile Identifier Type</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>internal = form of identifier that is known by the repository</value>
+				<value>URI = form of identifier that is a unique resource identifier</value>
+			</values>
+		</vocabulary>
+		<vocabulary>
+			<name>Australian METS Profile &#60;fileGrp&#62; USE Attribute</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>co-master = copies of original or master files that have been edited where this is required for delivery purposes</value>
+				<value>derivative = copies of original, master, co-master or derivative master files that have been created to enable the delivery of an object through an application or service</value>
+				<value>derivative master = copies of original, master or co-master files that have been migrated to a format suitable for the generation of derivatives</value>
+				<value>finding aid = files that describe the content of a collection of objects</value>
+				<value>master = preservation copies of a digitised object</value>
+				<value>original = preservation copies of a born-digital object</value>
+				<value>preview = files that enable users to sample the content of an object before requesting access and meeting any access obligations</value>
+				<value>print = files that deliver a version of an object in a form capable of being printed</value>
+				<value>related metadata = files containing metadata about an object that has been stored as part of the Archival Information Package</value>
+				<value>structural map = files that describe the structure of an object and the relationships between the components making up the object</value>
+				<value>transcript = files that render in text the content of an audio, video or still image object</value>
+			</values>
+		</vocabulary>
+		<vocabulary>
+			<name>Australian METS Profile &#60;structMap&#62; TYPE Attribute</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<values>
+				<value>logical = a way of arranging the components of an object based on their intellectual structure, e.g. a digitised photographic album containing twelve photographs</value>
+				<value>physical = a way of arranging the components of an object based on their physical characteristics, e.g. a digitised photographic album containing a front cover, an inside front cover, a sequence of four pages each containing a sequence of three photographs, then an inside back cover, and a back cover</value>
+				<value>spatial = a way of arranging the components of an object based on place</value>
+				<value>temporal = a way of arranging the components of an object based on time</value>
+			</values>
+		</vocabulary>
+		<vocabulary>
+			<name>Australian METS Profile &#60;div&#62; TYPE Attribute</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<URI>http://www.nla.gov.au/australianmetsprofile/divtype/</URI>
+			<description><p>Values for the &#60;div&#62; TYPE attribute are available from the Australian METS Profile Agency's website. This vocabulary is being maintained through a separate process so that new content models can be added without changing the core profile.</p></description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="metsRoot1">
+				<p>The &#60;mets&#62; root element must contain a PROFILE attribute with the value "http://www.loc.gov/mets/profiles/00000018.xml".
+</p>
+			</requirement>
+			<requirement ID="metsRoot2">
+				<p>The &#60;mets&#62; root element must contain an OBJID attribute. If the METS document is being used as a Submission Information Package (SIP) it does not need to be globally unique. If the METS document is being used as a Dissemination Information Package (DIP) it must be a persistent, globally unique and locally resolvable identifier for the METS document. 
+</p>
+			</requirement>
+			<requirement ID="metsRoot3">
+				<p>The &#60;mets&#62; root element must contain a TYPE attribute.  TYPE values must be taken from the Australian METS Profile &#60;div&#62; TYPE attribute controlled vocabulary.
+</p>
+			</requirement>
+			<requirement ID="metsRoot4">
+				<p>The &#60;mets&#62; root element must contain a &#60;metsHdr&#62; element.
+</p>
+			</requirement>
+			<requirement ID="metsRoot5">
+				<p>Use of the &#60;mets&#62; root element attributes of ID and LABEL is not supported by this profile.
+</p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement ID="metsHdr1">
+				<p>The &#60;metsHdr&#62; element must contain a CREATEDATE attribute specifying when the METS document was created and a LASTMODDATE attribute specifying when the METS document was last modified.  If the METS document is being used as a Submission Information Package (SIP) both the CREATEDATE and LASTMODDATE must be the date it was submitted. If the METS document is being used as a Dissemination Information Package (DIP) the CREATEDATE must be the date the persistent identifier in mets OBJID was assigned and the LASTMODDATE must be the most recent date modified of any element or attribute in the METS document. 
+</p>
+			</requirement>
+			<requirement ID="metsHdr2">
+				<p>Use of the &#60;metsHdr&#62; ID and RECORDSTATUS attributes is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="metsHdr3">
+				<p>Use of the &#60;altRecordID&#62; element within the &#60;metsHdr&#62; element is not supported by this profile. 
+</p>
+			</requirement>
+			<requirement ID="metsHdr4">
+				<p>The &#60;metsHdr&#62; element must contain an &#60;agent&#62; element with a ROLE of "disseminator" and a TYPE of either "organization" or "individual".  This &#60;agent&#62; element must contain a &#60;name&#62; element with the name of the organisation or individual responsible for publishing or disseminating the METS document.
+</p>
+			</requirement>
+			<requirement ID="metsHdr5">
+				<p>The &#60;metsHdr&#62; element must also contain an &#60;agent&#62; element with a ROLE of "creator" and a TYPE of "other".  This &#60;agent&#62; element must contain a &#60;name&#62; element with the name of the software and version used to produce the METS document.
+</p>
+			</requirement>
+			<requirement ID="metsHdr6">
+				<p>If the first required &#60;agent&#62; element has a TYPE="organization", an optional &#60;agent&#62; element may be used to encode the name of an individual responsible for publishing or disseminating the METS document.  If used, this optional &#60;agent&#62; element must have a ROLE attribute with a value of "creator", and a TYPE attribute with a value of "individual".
+</p>
+			</requirement>
+			<requirement ID="metsHdr7">
+				<p>Use of the &#60;agent&#62; ID, OTHERROLE and OTHERTYPE attributes and the &#60;note&#62; element is not supported by this profile.  
+</p>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement ID="dmdSec1">
+				<p>The &#60;dmdSec&#62; is reserved for bibliographic description and subject analysis of the object represented by the METS document.  There must be at least one &#60;dmdSec&#62; for the object conforming to the MODS descriptive metadata extension schema. 
+</p>
+			</requirement>
+			<requirement ID="dmdSec2">
+				<p>In the case of a composite object, include a separate &#60;dmdSec&#62; for each component needing to be described, unless the structMap provides a sufficient level of bibliographic description at the component level.
+</p>
+			</requirement>
+			<requirement ID="dmdSec3">
+				<p>Where multiple metadata records describing the same object or component using different schema are included in the METS document, these must be captured in separate &#60;dmdSec&#62; elements and linked via the GROUPID attribute.
+</p>
+			</requirement>
+			<requirement ID="dmdSec4">
+				<p>Each &#60;dmdSec&#62; must contain an &#60;mdWrap&#62;.
+</p>
+			</requirement>
+			<requirement ID="dmdSec5">
+				<p>Each &#60;dmdSec&#62; must contain a unique ID within the context of the document. 
+</p>
+			</requirement>
+			<requirement ID="dmdSec6">
+				<p>Use of the &#60;dmdSec&#62; ADMID, CREATED and STATUS attributes is not supported by this profile.
+</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement ID="amdSec1">
+				<p>There must be one and only one &#60;amdSec&#62; which may contain repeatable &#60;techMD&#62;, &#60;sourceMD&#62;, &#60;digiprovMD&#62; and &#60;rightsMD&#62; elements containing metadata records conforming to the relevant PREMIS extension schema or other relevant extension schema.  
+</p>
+			</requirement>
+			<requirement ID="amdSec2">
+				<p>Some PREMIS elements identified as mandatory in this profile are conditional or optional in the relevant PREMIS schema.  For example, &#60;preservationLevel&#62; is mandatory in this profile.
+</p>
+			</requirement>
+			<requirement ID="amdSec3">
+				<p>Use of the &#60;amdSec&#62; ID attribute is not supported by this profile. However, each &#60;techMD&#62;, &#60;sourceMD&#62;, &#60;digiprovMD&#62; and &#60;rightsMD&#62; element  must contain a unique ID attribute within the context of the document. 
+</p>
+			</requirement>
+			<requirement ID="amdSec4">
+				<p>Use of the GROUPID, ADMID, CREATED and STATUS attributes for the &#60;techMD&#62;, &#60;sourceMD&#62;, &#60;digiprovMD&#62; and &#60;rightsMD&#62; elements is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="amdSec5">
+				<p>For the primary object described in the first level &#60;div&#62; in the &#60;structMap&#62; there must be at least one &#60;techMD&#62; in the &#60;amdSec&#62; containing a metadata record in &#60;mdWrap&#62; &#60;xmlData&#62; conforming to the PREMIS Object schema with &#60;objectCategory&#62; set to "representation" and values encoded for all elements mandatory for this &#60;objectCategory&#62; (&#60;objectIdentifier&#62;, &#60;preservationLevel&#62;, &#60;objectCategory&#62;).  This &#60;objectIdentifier&#62; must be the same as the OBJID assigned to the &#60;mets&#62; root element.
+</p>
+			</requirement>
+			<requirement ID="amdSec6">
+				<p>If the METS document is being used as a Dissemination Information Package, there must be at least one &#60;techMD&#62; in the &#60;amdSec&#62; element containing a metadata record in &#60;mdWrap&#62; &#60;xmlData&#62; conforming to the PREMIS Object schema, with &#60;objectCategory&#62; set to "file" and values encoded for all elements mandatory for this &#60;objectCategory&#62; (&#60;objectIdentifier&#62;, &#60;preservationLevel&#62;, &#60;objectCategory&#62;, &#60;compositionLevel&#62;, &#60;format&#62;, &#60;storage&#62;). 
+</p>
+			</requirement>
+			<requirement ID="amdSec7">
+				<p>For PREMIS &#60;objectIdentifierType&#62; use values from the Australian METS Identifier Type controlled vocabulary.
+</p>
+			</requirement>
+			<requirement ID="amdSec8">
+				<p>For PREMIS &#60;preservationLevel&#62; when &#60;objectCategory&#62; is set to "file" use values from the Australian METS Profile Preservation Level for Files controlled vocabulary. When &#60;objectCategory&#62; is set to "representation" use values from the Australian METS Profile Preservation Level for Representations controlled vocabulary.
+</p>
+			</requirement>
+			<requirement ID="amdSec9">
+				<p>For PREMIS &#60;formatName&#62; use MIMETYPE or an appropriate external registry identifier. Also include &#60;formatVersion&#62; if known.
+</p>
+			</requirement>
+			<requirement ID="amdSec10">
+				<p>For PREMIS &#60;storageMedium&#62; use values from the Australian METS Profile Storage Medium controlled vocabulary.
+</p>
+			</requirement>
+			<requirement ID="amdSec11">
+				<p>Use of optional PREMIS metadata elements is not supported by this profile but may be included if data is available. SIZE, CHECKSUM and CHECKSUMTYPE are mandatory attributes for the METS &#60;file&#62; element and so there is no need to include PREMIS &#60;messageDigestAlgorithm&#62;, &#60;messageDigest&#62; or &#60;size&#62; in the &#60;techMD&#62;. Where optional elements are required by a sub-profile and values are supported by a controlled vocabulary this information must be included in the sub-profile.
+</p>
+			</requirement>
+			<requirement ID="amdSec12">
+				<p>A PREMIS relationship element must be included in the &#60;techMD&#62; where the object has been derived from another object included in the information package. In this case set &#60;relationshipType&#62; to "derivation" and &#60;relationshipSubtype&#62; to "derived from". (Note that there is no need in this profile to specify the relationship in both directions.)  			
+</p>
+			</requirement>
+			<requirement ID="amdSec13">		
+				<p>Use of the PREMIS relationship element to describe the relationship of an object to the intellectual entity it instantiates or to describe hierarchical relationships is not supported by this profile. The METS &#60;dmdSec&#62; and &#60;structMap&#62; should be sufficient for this purpose.
+</p>
+			</requirement>   
+			<requirement ID="amdSec14">
+				<p>For files, additional &#60;techMD&#62; elements may be included with data encoded using an appropriate extension schema to capture metadata not covered by PREMIS.
+</p>
+			</requirement>
+			<requirement ID="amdSec15">
+				<p>&#60;rightsMD&#62; is optional.  If rights metadata is already stored in the &#60;dmdSec&#62;, for example, it may not be necessary to repeat this metadata in the &#60;rightsMD&#62;.  Where present, however, &#60;rightsMD&#62; must contain an &#60;mdWrap&#62; &#60;xmlData&#62; element encoded using either the METS Rights, PREMIS Rights or XACML extension schema.
+</p>
+			</requirement>
+			<requirement ID="amdSec16">
+				<p>&#60;sourceMD&#62; may be used but is not required if the &#60;dmdSec&#62; describes the original source material used to create the METS object e.g. if the METS object is a digital surrogate for a physical item. &#60;sourceMD&#62; may be used to describe source materials between the original and current object where the source materials are not digital objects.
+</p>
+			</requirement>
+			<requirement ID="amdSec17">
+				<p>&#60;sourceMD&#62; must be used if &#60;digiprovMD&#62; includes PREMIS Event metadata which has a &#60;linkingObjectIdentifier&#62; to an object which is not being transferred as part of this METS document. In this case &#60;sourceMD&#62; &#60;mdWrap&#62; must contain a &#60;premisObject&#62;. For example, if a PDF was created from a Word document and the PDF is being transferred but the Word document is not (the Word document may have already been discarded by the transferring repository), the Word document would be described in &#60;sourceMD&#62; as a PREMIS Object.
+</p>
+			</requirement>
+			<requirement ID="amdSec18">
+				<p>If an object is being transferred from an existing repository, there must be at least one &#60;digiprovMD&#62; for the current archival or master copy, describing the ingest event into the transferring repository. &#60;digiprovMD&#62; is optional for objects which are not the master copy or for objects being submitted to a repository for the first time. Where &#60;digiprovMD&#62; is included there must be one &#60;digiprovMD&#62; for each event or agent.
+</p>
+			</requirement>
+			<requirement ID="amdSec19">
+				<p>As complete a provenance history as possible should be provided for 'master' or archival objects, describing events (in separate &#60;digiprovMD&#62; elements) which led to the creation of the current object and its ingest in the transferring repository. This includes changes to the object originally deposited (note that in PREMIS, an object cannot be modified: an event which modifies an object creates a new object) and changes of custody.
+</p>
+			</requirement>
+			<requirement ID="amdSec20">
+				<p>Each PREMIS Event must have values encoded for all mandatory elements (&#60;eventIdentifier&#62;, &#60;eventType&#62;, &#60;eventDateTime&#62;).  For PREMIS &#60;eventType&#62; use values from the Australian METS Profile Event Type controlled vocabulary.
+</p>
+			</requirement>
+			<requirement ID="amdSec21">
+				<p>If the event is one which changes an object, information about the hardware / software used must be included in the PREMIS &#60;linkingAgentIdentifier&#62; element. The value in &#60;linkingAgentIdentifierValue&#62; may be a unique identifier within the registry or transferring repository if the agent has one, or else simply a unique identifier to this agent within the METS document.  For &#60;linkingAgentIdentifierType&#62; use values from the Australian METS Profile Identifier Type controlled vocabulary.  
+</p>
+			</requirement>
+			<requirement ID="amdSec22">
+				<p>If an organisation other than the transferring repository was responsible for an event, that organisation must also be noted in an instance of PREMIS &#60;linkingAgentIdentifier&#62;.
+</p>
+			</requirement>
+			<requirement ID="amdSec23">
+				<p>If there is a PREMIS &#60;linkingAgentIdentifier&#62;, a &#60;digiprovMD&#62; element containing PREMIS Agent metadata for the agent should be present with values encoded for &#60;agentIdentifier&#62;, &#60;agentName&#62; and &#60;agentType&#62;. For &#60;agentIdentifierType&#62; use values from the Australian METS Profile Identifier Type controlled vocabulary.  For &#60;agentType&#62; use values from the Australian METS Profile Agent Type controlled vocabulary. 
+</p>
+			</requirement>
+			<requirement ID="amdSec24">
+				<p>Other types of events occurring after ingest of the current object into the transferring repository may be recorded in additional &#60;digiprovMD&#62; elements (e.g. format validation, checksum checking, generation of derivatives).
+</p>
+			</requirement>
+			<requirement ID="amdSec25">
+				<p>If the object is related to another digital object through an event and the related object is described in a &#60;techMD&#62; in the METS document, the event should contain a &#60;premisEvent&#62; &#60;linkingObjectIdentifier&#62; which matches the related object's &#60;premisObject&#62; &#60;objectIdentifier&#62; in the related object's &#60;amdSec&#62; &#60;techMD&#62; element.
+</p>
+			</requirement>
+			<requirement ID="amdSec26">
+				<p>If the object is related to another digital object through an event and the related object is not described in a &#60;techMD&#62; in the METS document, the event should contain a &#60;premisEvent&#62; &#60;linkingObjectIdentifier&#62; which matches a &#60;premisObject&#62; &#60;objectIdentifier&#62; in a &#60;premisObject&#62; in &#60;sourceMD&#62;. For example, a Word document may have been transformed into an RTF then to PDF. If only the PDF is being transferred, each event should be described in a separate PREMIS Event with &#60;linkingObjectIdentifier&#62; matching the &#60;objectIdentifier&#62; in a &#60;premisObject&#62; under &#60;sourceMD&#62;. The Word and RTF files would each be described (even if they no longer exist) in a &#60;premisObject&#62; element under separate &#60;sourceMD&#62; elements.
+</p>
+			</requirement>
+			<requirement ID="amdSec27">
+				<p>Additional &#60;digiprovMD&#62; elements describing the same events and agents in other schema may be included. If other schema are used, these schema must be listed as extension schema in a sub-profile.
+</p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement ID="fileSec1">
+				<p>A &#60;fileSec&#62; element containing at least one &#60;fileGrp&#62; must be used if there are data files associated with the object described by the METS document that need to be referenced for the implementation workflow being supported by the document.
+</p>
+			</requirement>
+			<requirement ID="fileSec2">
+				<p>Use of the &#60;fileSec&#62; ID attribute is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="fileSec3">
+				<p>Each &#60;fileGrp&#62; must have a USE attribute with a value from the Australian METS Profile &#60;fileGrp&#62; USE attribute controlled vocabulary, which is a list of values that may be used to sort files associated with a particular representation into groups based on their purpose.  Each &#60;fileGrp&#62; must contain at least one &#60;file&#62; belonging to that USE category. Values have not been included in this vocabulary for services that deliver access to an object because it is assumed that these would not be included in a Submission Information Package or Dissemination Information Package. Such a service may be archived as an object in its own right, in which case the &#60;fileGrp&#62; would have a USE attribute of "original". This decision may be reviewed if a use case emerges that requires a service USE attribute.
+</p>
+			</requirement>
+			<requirement ID="fileSec4">
+				<p>There may be a variety of different types of derivative (thumbnail, view, examination, streaming, special delivery). Within each of these types there may be multiple sub-types, e.g., two different-sized thumbnails, one for result sets, one for display with the descriptive metadata. At this stage it is assumed that the derivative &#60;fileGrp&#62; will contain all of the derivative files needed for the successful delivery of an object.  Within the derivative &#60;fileGrp&#62;, the &#60;file&#62; USE attribute may be used in order to distinguish between the different types of derivatives.  Values for the &#60;file&#62; USE attribute must be drawn from a controlled vocabulary, which must be specified in a sub-profile.  The Behaviors section of the sub-profile must also detail the different types of derivatives included in the &#60;fileGrp&#62;, and associate them with appropriate behaviours for each &#60;structMap&#62; &#60;div&#62; TYPE.
+</p>
+			</requirement>
+			<requirement ID="fileSec5">
+				<p>If the purpose of the document is to transfer files constituting a digital object to a repository, &#60;fileSec&#62; must contain one &#60;fileGrp&#62; with a USE attribute of "original" if the object is a born-digital object or at least one &#60;fileGrp&#62; with a USE attribute of "master" if the object is a digital surrogate. &#60;fileSec&#62; may also contain &#60;fileGrp&#62; elements for files with other USE attributes.
+</p>
+			</requirement>
+			<requirement ID="fileSec6">
+				<p>If used, there must not be more than one &#60;fileGrp&#62; element with a USE attribute of "original".  All other &#60;fileGrp&#62; USE attributes may occur more than once.  Where there is more than one &#60;fileGrp&#62; with the same USE attribute, however, it must be distinguished from other &#60;fileGrp&#62; instances with the same USE attribute through the use of the &#60;fileGrp&#62; VERSDATE attribute.
+</p>
+			</requirement>
+			<requirement ID="fileSec7">
+				<p>Nested &#60;fileGrp&#62; elements are not supported by this profile.  
+</p>
+			</requirement>
+			<requirement ID="fileSec8">
+				<p>Use of &#60;fileGrp&#62; ID and ADMID attributes is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="fileSec9">
+				<p>&#60;file&#62; must contain ID, MIMETYPE, SIZE, CHECKSUM and CHECKSUMTYPE attributes and either a single &#60;FLocat&#62; or &#60;FContent&#62; element. The &#60;file&#62; ID attribute is for internal use within the METS document (it pairs with IDREF in the &#60;fptr&#62; FILEID attribute) but may be based on a repository identifier. The &#60;file&#62; CHECKSUMTYPE attributes must contain values from the controlled vocabulary specified in METS.  This profile requires MIMETYPE, SIZE, CHECKSUM and CHECKSUMTYPE to be recorded as METS &#60;file&#62; attributes rather than as equivalent elements in a &#60;techMD&#62; &#60;premisObject&#62; instance because providing this information at the packaging level enables processing decisions to be made without having to parse the package payload, and potentially allows for a more modular design of processors. 
+</p>
+			</requirement>
+			<requirement ID="fileSec10">
+				<p>The &#60;file&#62; ADMID attribute must be used to provide a link to the file's administrative metadata. ID values must be inserted in the ADMID attribute for all &#60;techMD&#62;, &#60;sourceMD&#62;, &#60;digiprovMD&#62; and &#60;rightsMD&#62; elements related to this file included in the &#60;amdSec&#62; element.  Each ID value must be separated by a space.
+</p>
+			</requirement>
+			<requirement ID="fileSec11">
+				<p>Use of &#60;file&#62; SEQ, CREATED, DMDID and GROUPID attributes is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="fileSec12">
+				<p>Within the &#60;file&#62; element, use of the &#60;stream&#62;, &#60;transformFile&#62; and any nested &#60;file&#62; elements is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="fileSec13">
+				<p>&#60;file&#62; may contain an OWNERID attribute to provide a unique identifier (including a URI) assigned to the file which may differ from the URI used to retrieve the file.  This will often be the filename as known by the submitter. Use of OWNERID is strongly recommended for files which may be used by a 'root' file to reconstruct or render an object.
+</p>
+			</requirement>
+			<requirement ID="fileSec14">
+				<p>&#60;FLocat&#62; is not repeatable in this profile. A &#60;FLocat&#62; must be provided for each file if the content of the file is not embedded in &#60;FContent&#62;. &#60;FLocat&#62; must only be used if and only if the URL can be guaranteed under normal conditions (i.e. excluding network /connectivity issues) to be accessible. Any URL either needs to point directly to a file or to a service which exposes the file content to the requesting party.
+</p>
+			</requirement>
+			<requirement ID="fileSec15">
+				<p>&#60;FLocat&#62; must contain a LOCTYPE attribute with values from the controlled vocabulary specified in METS. However, the LOCTYPE value "other" and the OTHERLOCTYPE attribute must not be used in this profile. The location of the resource pointed to must be stored in the XLINK:HREF attribute as specified in METS.
+</p>
+			</requirement>
+			<requirement ID="fileSec16">
+				<p>&#60;FContent&#62; must be present if there is no &#60;FLocat&#62;. As specified in METS, the content file must be either Base 64 encoded and contained within the subsidiary &#60;binData&#62; wrapper element, or consist of XML information and be contained within the subsidiary &#60;xmlData&#62; wrapper element. The XLINK attribute is mandatory but this profile has no recommendations.
+</p>
+			</requirement>
+			<requirement ID="fileSec17">
+				<p>Use of the ID and USE attributes for the &#60;FLocat&#62; and &#60;FContent&#62; elements is not supported by this profile.
+</p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement ID="structMap1">
+				<p>The structural map is the heart of a METS document, defining the hierarchical arrangement of a primary source document which has been digitized. This profile regards the purpose of this element group as facilitating the deconstruction of a digital object for ingest or the reconstitution of a digital object for delivery or presentation. 
+</p>
+			</requirement>
+			<requirement ID="structMap2">
+				<p>There must be at least one &#60;structMap&#62; element that describes the structure of the whole object represented by the METS document. For an object consisting of a single file there will be a single &#60;div&#62; element. For an object whose structure is hierarchical the structure should be encoded as a tree of nested &#60;div&#62; elements. The first level &#60;div&#62; element must represent the whole object.  Lower level &#60;div&#62; elements must represent parts of the object. 
+</p>
+			</requirement>
+			<requirement ID="structMap3">
+				<p>If there is more than one &#60;structMap&#62;, the &#60;structMap&#62; TYPE attribute is mandatory, and values must be taken from the Australian METS Profile &#60;structMap&#62; TYPE controlled vocabulary.  Use of &#60;structMap&#62; ID attribute is mandatory if you have more than one &#60;structMap&#62; of the same TYPE. 
+</p>
+			</requirement>
+			<requirement ID="structMap4">
+				<p>This profile supports the use of the optional &#60;structMap&#62; LABEL attributes but makes no recommendations.
+</p>
+			</requirement>
+			<requirement ID="structMap5">
+				<p>The &#60;div&#62; TYPE attribute is mandatory and values must be taken from the Australian METS Profile &#60;div&#62; TYPE controlled vocabulary. 
+</p>
+			</requirement>
+			<requirement ID="structMap6">
+				<p>This profile supports the use of the optional &#60;div&#62; LABEL and ORDERLABEL attributes, which may be used to represent the relationship between components and the whole object.
+</p>
+			</requirement>
+			<requirement ID="structMap7">
+				<p>The &#60;div&#62; DMDID attribute must be present for the first level &#60;div&#62; representing the whole object and must be present for the lower level &#60;div&#62; elements if there is a corresponding &#60;dmdSec&#62; for that part of the object.
+</p>
+			</requirement>
+			<requirement ID="structMap8">
+				<p>The &#60;div&#62; ADMID attribute must be present for the first level &#60;div&#62; representing the whole object and must be present for the lower level &#60;div&#62; elements if there is any corresponding administrative metadata for the representation described. ID values must be inserted separated by a space for all &#60;techMD&#62;, &#60;sourceMD&#62;, &#60;digiprovMD&#62; and &#60;rightsMD&#62; elements related to this representation included in the &#60;amdSec&#62; element.
+</p>
+			</requirement>
+			<requirement ID="structMap9">
+				<p>Use of the &#60;div&#62; ID, ORDER and CONTENTIDS attributes is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="structMap10">
+				<p>There must be at least one &#60;fptr&#62; in each &#60;div&#62; that references a &#60;premisObject&#62; of TYPE="file". Each &#60;fptr&#62; must contain a FILEID to point to a file in the METS document.
+</p>
+			</requirement>
+			<requirement ID="structMap11">
+				<p>Use of the &#60;fptr&#62; ID and CONTENTIDS attributes and the child elements &#60;par&#62;, &#60;seq&#62; and &#60;area&#62; is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="structMap12">
+				<p>&#60;mptr&#62; may be used to reference any child object or component that has its own METS document.
+</p>
+			</requirement>
+			<requirement ID="structMap13">
+				<p>Use of the &#60;mptr&#62; ID and CONTENTIDS attributes is not supported by this profile.
+</p>
+			</requirement>
+			<requirement ID="structMap14">
+				<p>Use of the &#60;structLink&#62; and &#60;behaviorSec&#62; element groups is not supported by this profile.
+</p>
+			</requirement>
+		</structMap>
+		<multiSection>
+			<requirement ID="multiSection1">
+				<p>All date values must be xsd:dateTime compliant, as specified in XML Schema: Datatypes at http://www.w3.org/TR/xmlschema-2.
+</p>
+			</requirement>
+			<requirement ID="multiSection2">
+				<p>There must be only one &#60;mdWrap&#62; element in each parent element. All &#60;mdWrap&#62; elements must contain an MDTYPE attribute with a value from the controlled list prescribed by METS. If the value of MDTYPE is "other", the &#60;mdWrap&#62; element must also contain an OTHERMDTYPE attribute.  Any schema identified in MDTYPE or OTHERMDTYPE must be included as an extension schema in this profile or a sub-profile conformant with this profile.  The &#60;mdWrap&#62; element must also include data encoded in the specified schema in the &#60;xmlData&#62; element.
+</p>
+			</requirement>
+			<requirement ID="multiSection3">
+				<p>Use of the &#60;mdRef&#62; element is not supported by this profile.</p>
+			</requirement>
+		</multiSection>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement ID="content1">
+				<p>Specific technical requirements for content files should be recorded in sub-profiles. </p>
+			</requirement>
+		</content_files>
+		<behavior_files>
+			<requirement ID="behavior1">
+				<p>Specific technical requirements for behavior files should be recorded in sub-profiles. </p>
+			</requirement>
+		</behavior_files>
+		<metadata_files>
+			<requirement ID="metadata1">
+				<p>Specific technical requirements for metadata files should be recorded in sub-profiles.</p>
+			</requirement>
+		</metadata_files>
+	</technical_requirements>
+	<tool>
+		<note>
+			<p>Specific tools and applications should be recorded in sub-profiles.</p>
+		</note>
+	</tool>
+	<Appendix NUMBER="1" LABEL="Example of a Submission Information Package for a digitised still-image in the collection of the National Library of Australia">
+<mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000018.xml" OBJID="nla.pic-vn3579101" TYPE="still image" xmlns="http://www.loc.gov/METS/"  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd  http://www.loc.gov/standards/premis/v1  http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:premis="http://www.loc.gov/standards/premis/v1">
+	<!-- METS Header -->
+	<mets:metsHdr CREATEDATE="2007-10-19T09:06:54" LASTMODDATE="2007-10-19T09:06:54">
+		<mets:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+			<mets:name>Imaging Services</mets:name>
+		</mets:agent>
+		<mets:agent ROLE="CREATOR" TYPE="OTHER">
+			<mets:name>localWorkflowSystem</mets:name>
+		</mets:agent>
+	</mets:metsHdr>
+	<!-- Descriptive metadata - mandatory MODS record -->
+	<mets:dmdSec ID="MODS-1" GROUPID="group1">
+		<mets:mdWrap MDTYPE="MODS">
+			<mets:xmlData>
+				<mods:mods ID="mods-1" version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+					<mods:titleInfo>
+						<mods:title>[Brush bronzewing (Phaps elegans), male]</mods:title>
+					</mods:titleInfo>					
+					<mods:identifier type="uri">info:nla/nla.pic-vn3579101</mods:identifier>
+					<mods:relatedItem type="host">
+						<mods:identifier type="uri">info:nla/nla.pic-vn3563487</mods:identifier>
+						</mods:relatedItem>
+				</mods:mods>
+			</mets:xmlData>
+		</mets:mdWrap>
+	</mets:dmdSec>
+	<!-- Administrative metadata -->
+	<mets:amdSec>
+		<!-- techMD for the primary object  -->
+		<mets:techMD ID="representation-1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579101-o</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>pending</premis:preservationLevel>
+						<premis:objectCategory>representation</premis:objectCategory>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- techMD for the master file  -->
+		<mets:techMD ID="file-1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3563487-m</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>unknown</premis:preservationLevel>
+						<premis:objectCategory>file</premis:objectCategory>
+						<premis:objectCharacteristics>
+							<premis:format>
+								<premis:formatDesignation>
+									<premis:formatName>image/tiff</premis:formatName>
+									<premis:formatVersion>6.0</premis:formatVersion>
+								</premis:formatDesignation>
+							</premis:format>
+						</premis:objectCharacteristics>
+						<premis:creatingApplication>
+							<premis:creatingApplicationName>Adobe Photoshop CS</premis:creatingApplicationName>
+							<premis:creatingApplicationVersion>7</premis:creatingApplicationVersion>
+							<premis:dateCreatedByApplication>2005-11-03T12:15:59</premis:dateCreatedByApplication>
+						</premis:creatingApplication>
+						<premis:originalName>nla.pic-vn3579101-m.tif</premis:originalName>
+						<premis:storage>
+							<premis:contentLocation>
+								<premis:contentLocationType>filepath</premis:contentLocationType>
+								<premis:contentLocationValue>workingfiles/imagingservices/completed</premis:contentLocationValue>
+							</premis:contentLocation>
+							<premis:storageMedium>online resource</premis:storageMedium>
+						</premis:storage>
+						<premis:relationship>
+							<premis:relationshipType>derivation</premis:relationshipType>
+							<premis:relationshipSubType>derived from</premis:relationshipSubType>
+							<premis:relatedObjectIdentification>
+								<premis:relatedObjectIdentifierType>URI</premis:relatedObjectIdentifierType>
+								<premis:relatedObjectIdentifierValue>info:nla/nla.pic-vn3579101-o</premis:relatedObjectIdentifierValue>
+								<premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+							</premis:relatedObjectIdentification>
+							<premis:relatedEventIdentification>
+								<premis:relatedEventIdentifierType>internal</premis:relatedEventIdentifierType>
+								<premis:relatedEventIdentifierValue>28903-1</premis:relatedEventIdentifierValue>
+								<premis:relatedEventSequence>0</premis:relatedEventSequence>
+							</premis:relatedEventIdentification>
+							</premis:relationship>
+						</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- TechMD for the co-master file -->
+		<mets:techMD ID="file-2">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579101-c</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>unknown</premis:preservationLevel>
+						<premis:objectCategory>file</premis:objectCategory>
+						<premis:objectCharacteristics>
+							<premis:format>
+								<premis:formatDesignation>
+									<premis:formatName>image/tiff</premis:formatName>
+									<premis:formatVersion>6.0</premis:formatVersion>
+								</premis:formatDesignation>
+							</premis:format>
+						</premis:objectCharacteristics>
+						<premis:creatingApplication>
+							<premis:creatingApplicationName>Adobe Photoshop CS</premis:creatingApplicationName>
+							<premis:creatingApplicationVersion>7</premis:creatingApplicationVersion>
+							<premis:dateCreatedByApplication>2005-11-03T12:19:21</premis:dateCreatedByApplication>
+						</premis:creatingApplication>
+						<premis:originalName>nla.pic-vn3579101-c.tif</premis:originalName>
+						<premis:storage>
+							<premis:contentLocation>
+								<premis:contentLocationType>filepath</premis:contentLocationType>
+								<premis:contentLocationValue>workingfiles/imagingservices/completed</premis:contentLocationValue>
+							</premis:contentLocation>
+							<premis:storageMedium>online resource</premis:storageMedium>
+						</premis:storage>
+						<premis:relationship>
+							<premis:relationshipType>derivation</premis:relationshipType>
+							<premis:relationshipSubType>derived from</premis:relationshipSubType>
+							<premis:relatedObjectIdentification>
+								<premis:relatedObjectIdentifierType>URI</premis:relatedObjectIdentifierType>
+								<premis:relatedObjectIdentifierValue>info:nla/nla.pic-vn3579101-m</premis:relatedObjectIdentifierValue>
+								<premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+							</premis:relatedObjectIdentification>
+													<premis:relatedEventIdentification>
+								<premis:relatedEventIdentifierType>internal</premis:relatedEventIdentifierType>
+								<premis:relatedEventIdentifierValue>28903-2</premis:relatedEventIdentifierValue>
+								<premis:relatedEventSequence>0</premis:relatedEventSequence>
+							</premis:relatedEventIdentification>
+						</premis:relationship>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+			<mets:digiprovMD ID="event-1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28903-1</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>creation</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:15:59</premis:eventDateTime>
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Imaging Services</premis:linkingAgentIdentifierValue>
+							</premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Adope Photoshops CS 7</premis:linkingAgentIdentifierValue>
+							</premis:linkingAgentIdentifier>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Sinar 54H</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579101-m</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+				<mets:digiprovMD ID="event-2">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28903-2</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>creation</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:19:21</premis:eventDateTime>
+<premis:eventDetail>This is a cropped version of the master</premis:eventDetail>						
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Adobe Photoshop CS 7</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579101-c</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent-1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>Imaging Services</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentType>organization</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent-2">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>Adobe Photoshop CS 7</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentType>software</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent-3">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>Sinar 54H</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentType>software</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		</mets:amdSec>
+	<mets:fileSec>
+		<mets:fileGrp USE="master">
+			<mets:file ID="nla.pic-vn3579101-m" ADMID="file-1 event-1 agent-1 agent-2 agent-3" MIMETYPE="image/tiff" SIZE="133216256" CHECKSUM="7a8cf9b1be9803af9d3e0beca5a418b2" CHECKSUMTYPE="MD5">
+				<mets:FLocat LOCTYPE="URL" xlink:href="http://nla.gov.au/nla.pic-vn3579101-m.tif"/>
+			</mets:file>
+		</mets:fileGrp>
+		<mets:fileGrp USE="co-master">
+			<mets:file ID="nla.pic-vn3579101-c" ADMID="file-2 event-2 agent-1 agent-2" MIMETYPE="image/tiff" SIZE="51928392" CHECKSUM="229afc2712b7dcdfd8bfa6150da51459" CHECKSUMTYPE="MD5">
+				<mets:FLocat LOCTYPE="URL" xlink:href="http://nla.gov.au/nla.pic-vn3579101-c.tif"/>
+			</mets:file>
+		</mets:fileGrp>
+		</mets:fileSec>
+	<mets:structMap>
+		<mets:div TYPE="still-image" ADMID="representation-1" DMDID="MODS-1">
+			<mets:fptr FILEID="nla.pic-vn3579101-m"/>
+			<mets:fptr FILEID="nla.pic-vn3579101-c"/>
+		</mets:div>
+	</mets:structMap>
+</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="2" LABEL="Example of a Dissemination Information Package for a digitised still-image in the collection of the National Library of Australia">
+<mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000018.xml" OBJID="nla.pic-vn3579081" TYPE="still image" xmlns="http://www.loc.gov/METS/"  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd  http://www.loc.gov/mix/v10 http://www.loc.gov/standards/mix/mix10/mix10.xsd http://www.loc.gov/standards/premis/v1  http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:premis="http://www.loc.gov/standards/premis/v1" xmlns:mix="http://www.loc.gov/mix/v10">
+	<!-- METS Header -->
+	<mets:metsHdr CREATEDATE="2007-10-20T09:06:54" LASTMODDATE="2007-10-20T09:06:54">
+		<mets:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+			<mets:name>National Library of Australia</mets:name>
+		</mets:agent>
+		<mets:agent ROLE="CREATOR" TYPE="OTHER">
+			<mets:name>localDCMS</mets:name>
+		</mets:agent>
+	</mets:metsHdr>
+	<!-- Descriptive metadata - mandatory MODS record -->
+	<mets:dmdSec ID="MODS1" GROUPID="group1">
+		<mets:mdWrap MDTYPE="MODS">
+			<mets:xmlData>
+				<mods:mods ID="mods1" version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+					<mods:titleInfo>
+						<mods:title>[Crimson rosella (Platycercus elegans)]</mods:title>
+					</mods:titleInfo>
+					<mods:name type="personal">
+						<mods:namePart>Raper, George</mods:namePart>
+						<mods:namePart type="date">1769-1796.</mods:namePart>
+						<mods:role>
+							<mods:roleTerm authority="marcrelator" type="text">creator</mods:roleTerm>
+						</mods:role>
+						<mods:role>
+							<mods:roleTerm type="text">artist</mods:roleTerm>
+						</mods:role>
+					</mods:name>
+					<mods:typeOfResource>still image</mods:typeOfResource>
+					<mods:genre authority="marc">picture</mods:genre>
+					<mods:originInfo>
+						<mods:place>
+							<mods:placeTerm type="code" authority="marccountry">xx</mods:placeTerm>
+						</mods:place>
+						<mods:dateCreated>[1789?]</mods:dateCreated>
+						<mods:dateCreated encoding="w3cdtf" point="start">1789</mods:dateCreated>
+						<mods:dateCreated encoding="w3cdtf" point="end">1789</mods:dateCreated>
+					</mods:originInfo>
+					<mods:physicalDescription>
+						<mods:form authority="gmd">[picture]</mods:form>
+						<mods:extent> 1 drawing : watercolour ; 40.8 x 32 cm.</mods:extent>
+					</mods:physicalDescription>
+					<mods:note type="statement of responsibility"> / [George Raper].</mods:note>
+					<mods:note> Title devised by cataloguer based on information supplied by vendors' agent.</mods:note>
+					<mods:note> Attributed to George Raper by National Library of Australia Pictures Branch.</mods:note>
+					<mods:note>Part of the collection: The Ducie collection of First Fleet art.</mods:note>
+					<mods:note>Watermark: Dutch paper "C &amp; I (= J) HONIG", together with a lion within a circle and motto beneath a crown.</mods:note>
+					<mods:note type="additional form">Also available in an electronic version via the Internet at: http://nla.gov.au/nla.pic-vn3579081</mods:note>
+					<mods:note type="acquisition">Purchased from the Ducie/Moreton family, October 2005.</mods:note>
+					<mods:note type="exhibitions">Exhibited: "Directors Cut", New Parlimant House, 8 February 2006</mods:note>
+					<mods:subject authority="lcsh">
+						<mods:topic>Rosellas (Birds) --New South Wales --Sydney Region --Pictorial works --Early works to 1800</mods:topic>
+					</mods:subject>
+					<mods:subject authority="lcsh">
+						<mods:topic>Birds --New South Wales --Sydney Region --Pictorial works --Early works to 1800</mods:topic>
+					</mods:subject>
+					<mods:subject authority="marcgac"><mods:geographicCode>u-at-ne</mods:geographicCode></mods:subject>
+					<mods:location>
+						<mods:physicalLocation authority="marcorg">AuCNL</mods:physicalLocation>
+											</mods:location>
+					<mods:identifier type="uri">info:nla/nla.pic-vn3579081</mods:identifier>
+					<mods:identifier type="url">http://nla.gov.au/nla.pic-vn3579081</mods:identifier>
+					<mods:identifier type="local">PIC/9838/20 LOC Box 2 MS SR WS 2</mods:identifier>
+					<mods:recordInfo>
+						<mods:recordContentSource authority="marcorg">AuCNL</mods:recordContentSource>
+						<mods:recordCreationDate encoding="marc">051025</mods:recordCreationDate>
+						<mods:recordChangeDate encoding="marc">051025</mods:recordChangeDate>
+						<mods:recordIdentifier source="AuCNLKIN">000028653700</mods:recordIdentifier>
+					</mods:recordInfo>
+					<mods:relatedItem type="host">
+						<mods:titleInfo>
+							<mods:title>The Ducie collection of First Fleet art</mods:title>
+						</mods:titleInfo>
+						<mods:typeOfResource collection="yes">still image</mods:typeOfResource>
+						<mods:genre authority="marc">picture</mods:genre>
+						<mods:note type="statement of responsibility"> / [George Raper].</mods:note>
+						<mods:identifier type="uri">info:nla/nla.pic-vn3563487</mods:identifier>
+					</mods:relatedItem>
+					<mods:relatedItem type="otherVersion">
+						<mods:note>Used as the basis for: Crimson rosella (Platycercus elegans) / John Hunter, no. 45 in his: Birds &amp; flowers of New South Wales drawn on the spot in 1788, ’89 and ’90, located in the National Library of Australia Pictures collection.</mods:note>
+					</mods:relatedItem>
+				</mods:mods>
+			</mets:xmlData>
+		</mets:mdWrap>
+	</mets:dmdSec>
+	<!-- Administrative metadata -->
+	<mets:amdSec>
+		<!-- techMD for the primary object  -->
+		<mets:techMD ID="representation1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579101-o</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>1</premis:preservationLevel>
+						<premis:objectCategory>representation</premis:objectCategory>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- techMD for the master file  -->
+		<mets:techMD ID="file1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579081-m</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>supported</premis:preservationLevel>
+						<premis:objectCategory>file</premis:objectCategory>
+						<premis:objectCharacteristics>
+							<premis:format>
+								<premis:formatDesignation>
+									<premis:formatName>image/tiff</premis:formatName>
+									<premis:formatVersion>6.0</premis:formatVersion>
+								</premis:formatDesignation>
+							</premis:format>
+						</premis:objectCharacteristics>
+						<premis:creatingApplication>
+							<premis:creatingApplicationName>Adobe Photoshop CS</premis:creatingApplicationName>
+							<premis:creatingApplicationVersion>7</premis:creatingApplicationVersion>
+							<premis:dateCreatedByApplication>2005-11-03T12:15:59</premis:dateCreatedByApplication>
+						</premis:creatingApplication>
+						<premis:originalName>nla.pic-vn3579081-m.tif</premis:originalName>
+						<premis:storage>
+							<premis:contentLocation>
+								<premis:contentLocationType>filepath</premis:contentLocationType>
+								<premis:contentLocationValue>doss/</premis:contentLocationValue>
+							</premis:contentLocation>
+							<premis:storageMedium>online resource</premis:storageMedium>
+						</premis:storage>
+						<premis:relationship>
+							<premis:relationshipType>derivation</premis:relationshipType>
+							<premis:relationshipSubType>derived from</premis:relationshipSubType>
+							<premis:relatedObjectIdentification>
+								<premis:relatedObjectIdentifierType>URI</premis:relatedObjectIdentifierType>
+								<premis:relatedObjectIdentifierValue>info:nla/nla.pic-vn3579081-o</premis:relatedObjectIdentifierValue>
+								<premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+							</premis:relatedObjectIdentification>
+							<premis:relatedEventIdentification>
+								<premis:relatedEventIdentifierType>internal</premis:relatedEventIdentifierType>
+								<premis:relatedEventIdentifierValue>28902-1</premis:relatedEventIdentifierValue>
+								<premis:relatedEventSequence>0</premis:relatedEventSequence>
+							</premis:relatedEventIdentification>
+						</premis:relationship>
+							<premis:linkingEventIdentifier>
+							<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+							<premis:linkingEventIdentifierValue>28902-3</premis:linkingEventIdentifierValue>
+						</premis:linkingEventIdentifier>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- TechMD for the co-master file -->
+		<mets:techMD ID="file2">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579081-c</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>supported</premis:preservationLevel>
+						<premis:objectCategory>file</premis:objectCategory>
+						<premis:objectCharacteristics>
+							<premis:format>
+								<premis:formatDesignation>
+									<premis:formatName>image/tiff</premis:formatName>
+									<premis:formatVersion>6.0</premis:formatVersion>
+								</premis:formatDesignation>
+							</premis:format>
+						</premis:objectCharacteristics>
+						<premis:creatingApplication>
+							<premis:creatingApplicationName>Adobe Photoshop CS</premis:creatingApplicationName>
+							<premis:creatingApplicationVersion>7</premis:creatingApplicationVersion>
+							<premis:dateCreatedByApplication>2005-11-03T12:19:21</premis:dateCreatedByApplication>
+						</premis:creatingApplication>
+						<premis:originalName>nla.pic-vn3579081-c.tif</premis:originalName>
+						<premis:storage>
+							<premis:contentLocation>
+								<premis:contentLocationType>filepath</premis:contentLocationType>
+								<premis:contentLocationValue>doss/</premis:contentLocationValue>
+							</premis:contentLocation>
+							<premis:storageMedium>online resource</premis:storageMedium>
+						</premis:storage>
+						<premis:relationship>
+							<premis:relationshipType>derivation</premis:relationshipType>
+							<premis:relationshipSubType>derived from</premis:relationshipSubType>
+							<premis:relatedObjectIdentification>
+								<premis:relatedObjectIdentifierType>URI</premis:relatedObjectIdentifierType>
+								<premis:relatedObjectIdentifierValue>info:nla/nla.pic-vn3579081-m</premis:relatedObjectIdentifierValue>
+								<premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+							</premis:relatedObjectIdentification>
+							<premis:relatedEventIdentification>
+								<premis:relatedEventIdentifierType>internal</premis:relatedEventIdentifierType>
+								<premis:relatedEventIdentifierValue>28902-2</premis:relatedEventIdentifierValue>
+								<premis:relatedEventSequence>0</premis:relatedEventSequence>
+							</premis:relatedEventIdentification>
+						</premis:relationship>
+													<premis:linkingEventIdentifier>
+							<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+							<premis:linkingEventIdentifierValue>28902-4</premis:linkingEventIdentifierValue>
+						</premis:linkingEventIdentifier>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- techMD for the derivative master file  -->
+		<mets:techMD ID="file3">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579081-dm</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>supported</premis:preservationLevel>
+						<premis:objectCategory>file</premis:objectCategory>
+						<premis:objectCharacteristics>
+							<premis:format>
+								<premis:formatDesignation>
+									<premis:formatName>image/tiff</premis:formatName>
+									<premis:formatVersion>6.0</premis:formatVersion>
+								</premis:formatDesignation>
+							</premis:format>
+						</premis:objectCharacteristics>
+						<premis:creatingApplication>
+							<premis:creatingApplicationName>Image Alchemy</premis:creatingApplicationName>
+							<premis:creatingApplicationVersion>1.13</premis:creatingApplicationVersion>
+							<premis:dateCreatedByApplication>2005-11-03T12:19:52</premis:dateCreatedByApplication>
+						</premis:creatingApplication>
+						<premis:originalName>nla.pic-vn3579081-cm.tif</premis:originalName>
+						<premis:storage>
+							<premis:contentLocation>
+								<premis:contentLocationType>filepath</premis:contentLocationType>
+								<premis:contentLocationValue>doss/</premis:contentLocationValue>
+							</premis:contentLocation>
+							<premis:storageMedium>online resource</premis:storageMedium>
+						</premis:storage>
+						<premis:relationship>
+							<premis:relationshipType>derivation</premis:relationshipType>
+							<premis:relationshipSubType>derived from</premis:relationshipSubType>
+							<premis:relatedObjectIdentification>
+								<premis:relatedObjectIdentifierType>URI</premis:relatedObjectIdentifierType>
+								<premis:relatedObjectIdentifierValue>info:nla/nla.pic-vn3579081-c</premis:relatedObjectIdentifierValue>
+								<premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+							</premis:relatedObjectIdentification>
+							<premis:relatedEventIdentification>
+								<premis:relatedEventIdentifierType>internal</premis:relatedEventIdentifierType>
+								<premis:relatedEventIdentifierValue>28902-5</premis:relatedEventIdentifierValue>
+								<premis:relatedEventSequence>0</premis:relatedEventSequence>
+							</premis:relatedEventIdentification>
+						</premis:relationship>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- techMD for the view derivative file  -->
+		<mets:techMD ID="file4">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579081-v</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>supported</premis:preservationLevel>
+						<premis:objectCategory>file</premis:objectCategory>
+						<premis:objectCharacteristics>
+							<premis:format>
+								<premis:formatDesignation>
+									<premis:formatName>image/jpg</premis:formatName>
+								</premis:formatDesignation>
+							</premis:format>
+						</premis:objectCharacteristics>
+						<premis:creatingApplication>
+							<premis:creatingApplicationName>Image Alchemy</premis:creatingApplicationName>
+							<premis:creatingApplicationVersion>1.13</premis:creatingApplicationVersion>
+							<premis:dateCreatedByApplication>2005-11-03T12:19:52</premis:dateCreatedByApplication>
+						</premis:creatingApplication>
+						<premis:originalName>nla.pic-vn3579081-v.jpg</premis:originalName>
+						<premis:storage>
+							<premis:contentLocation>
+								<premis:contentLocationType>filepath</premis:contentLocationType>
+								<premis:contentLocationValue>doss/</premis:contentLocationValue>
+							</premis:contentLocation>
+							<premis:storageMedium>online resource</premis:storageMedium>
+						</premis:storage>
+						<premis:relationship>
+							<premis:relationshipType>derivation</premis:relationshipType>
+							<premis:relationshipSubType>derived from</premis:relationshipSubType>
+							<premis:relatedObjectIdentification>
+								<premis:relatedObjectIdentifierType>URI</premis:relatedObjectIdentifierType>
+								<premis:relatedObjectIdentifierValue>info:nla/nla.pic-vn3579081-cm</premis:relatedObjectIdentifierValue>
+								<premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+							</premis:relatedObjectIdentification>
+							<premis:relatedEventIdentification>
+								<premis:relatedEventIdentifierType>internal</premis:relatedEventIdentifierType>
+								<premis:relatedEventIdentifierValue>28902-6</premis:relatedEventIdentifierValue>
+								<premis:relatedEventSequence>0</premis:relatedEventSequence>
+							</premis:relatedEventIdentification>
+						</premis:relationship>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- techMD for the thumbnail derivative file  -->
+		<mets:techMD ID="file5">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:object>
+						<premis:objectIdentifier>
+							<premis:objectIdentifierType>uri</premis:objectIdentifierType>
+							<premis:objectIdentifierValue>info:nla/nla.pic-vn3579081-t</premis:objectIdentifierValue>
+						</premis:objectIdentifier>
+						<premis:preservationLevel>supported</premis:preservationLevel>
+						<premis:objectCategory>file</premis:objectCategory>
+						<premis:objectCharacteristics>
+							<premis:format>
+								<premis:formatDesignation>
+									<premis:formatName>image/tiff</premis:formatName>
+									<premis:formatVersion>6.0</premis:formatVersion>
+								</premis:formatDesignation>
+							</premis:format>
+						</premis:objectCharacteristics>
+						<premis:creatingApplication>
+							<premis:creatingApplicationName>Image Alchemy</premis:creatingApplicationName>
+							<premis:creatingApplicationVersion>1.13</premis:creatingApplicationVersion>
+							<premis:dateCreatedByApplication>2005-11-03T12:19:52</premis:dateCreatedByApplication>
+						</premis:creatingApplication>
+						<premis:originalName>nla.pic-vn3579081-t.tif</premis:originalName>
+						<premis:storage>
+							<premis:contentLocation>
+								<premis:contentLocationType>filepath</premis:contentLocationType>
+								<premis:contentLocationValue>doss/</premis:contentLocationValue>
+							</premis:contentLocation>
+							<premis:storageMedium>online resource</premis:storageMedium>
+						</premis:storage>
+						<premis:relationship>
+							<premis:relationshipType>derivation</premis:relationshipType>
+							<premis:relationshipSubType>derived from</premis:relationshipSubType>
+							<premis:relatedObjectIdentification>
+								<premis:relatedObjectIdentifierType>URI</premis:relatedObjectIdentifierType>
+								<premis:relatedObjectIdentifierValue>info:nla/nla.pic-vn3579081-cm</premis:relatedObjectIdentifierValue>
+								<premis:relatedObjectSequence>0</premis:relatedObjectSequence>
+							</premis:relatedObjectIdentification>
+							<premis:relatedEventIdentification>
+								<premis:relatedEventIdentifierType>internal</premis:relatedEventIdentifierType>
+								<premis:relatedEventIdentifierValue>28902-7</premis:relatedEventIdentifierValue>
+								<premis:relatedEventSequence>0</premis:relatedEventSequence>
+							</premis:relatedEventIdentification>
+						</premis:relationship>
+					</premis:object>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+		<!-- techMD for the master file MIX metadata  -->		
+		<mets:techMD ID="mix1">
+			<mets:mdWrap MDTYPE="NISOIMG">
+				<mets:xmlData>
+					<mix:mix>
+<mix:BasicImageInformation>
+		<mix:BasicImageCharacteristics>
+			<mix:imageWidth>4080</mix:imageWidth>
+			<mix:imageHeight> 5440</mix:imageHeight>
+			<mix:PhotometricInterpretation>
+				<mix:colorSpace>RGB</mix:colorSpace>
+				<mix:ColorProfile>
+					<mix:IccProfile>
+						<mix:iccProfileName>Not recorded</mix:iccProfileName>
+						<mix:iccProfileVersion>Not recorded</mix:iccProfileVersion>
+					</mix:IccProfile>
+				</mix:ColorProfile>
+			</mix:PhotometricInterpretation>
+		</mix:BasicImageCharacteristics>
+	</mix:BasicImageInformation>
+	<mix:ImageCaptureMetadata>
+		<mix:GeneralCaptureInformation>
+			<mix:captureDevice use="system">digital still camera</mix:captureDevice>
+		</mix:GeneralCaptureInformation>
+		<mix:DigitalCameraCapture>
+			<mix:DigitalCameraModel>
+				<mix:digitalCameraModelName>Sinar 54H</mix:digitalCameraModelName>
+			</mix:DigitalCameraModel>
+		</mix:DigitalCameraCapture>
+	</mix:ImageCaptureMetadata>
+	<mix:ImageAssessmentMetadata>
+		<mix:SpatialMetrics>
+			<mix:samplingFrequencyPlane>2</mix:samplingFrequencyPlane>
+			<mix:samplingFrequencyUnit>2</mix:samplingFrequencyUnit>
+			<mix:xSamplingFrequency>
+				<mix:numerator>300</mix:numerator>
+			</mix:xSamplingFrequency>
+			<mix:ySamplingFrequency>
+				<mix:numerator>300</mix:numerator>
+			</mix:ySamplingFrequency>
+		</mix:SpatialMetrics>
+		<mix:ImageColorEncoding>
+		<mix:bitsPerSample>
+		<mix:bitsPerSampleValue>48</mix:bitsPerSampleValue>
+		<mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit></mix:bitsPerSample>
+		<mix:samplesPerPixel>1</mix:samplesPerPixel></mix:ImageColorEncoding>
+	</mix:ImageAssessmentMetadata>
+</mix:mix>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+<!-- techMD for the co-master file MIX metadata  -->		
+		<mets:techMD ID="mix2">
+			<mets:mdWrap MDTYPE="NISOIMG">
+				<mets:xmlData>
+					<mix:mix>
+<mix:BasicImageInformation>
+		<mix:BasicImageCharacteristics>
+			<mix:imageWidth>3648</mix:imageWidth>
+			<mix:imageHeight>4627</mix:imageHeight>
+			<mix:PhotometricInterpretation>
+				<mix:colorSpace>RGB</mix:colorSpace>
+				<mix:ColorProfile>
+					<mix:IccProfile>
+						<mix:iccProfileName>Not recorded</mix:iccProfileName>
+						<mix:iccProfileVersion>Not recorded</mix:iccProfileVersion>
+					</mix:IccProfile>
+				</mix:ColorProfile>
+			</mix:PhotometricInterpretation>
+		</mix:BasicImageCharacteristics>
+	</mix:BasicImageInformation>
+	<mix:ImageAssessmentMetadata>
+		<mix:SpatialMetrics>
+			<mix:samplingFrequencyPlane>2</mix:samplingFrequencyPlane>
+			<mix:samplingFrequencyUnit>2</mix:samplingFrequencyUnit>
+			<mix:xSamplingFrequency>
+				<mix:numerator>300</mix:numerator>
+			</mix:xSamplingFrequency>
+			<mix:ySamplingFrequency>
+				<mix:numerator>300</mix:numerator>
+			</mix:ySamplingFrequency>
+		</mix:SpatialMetrics>
+		<mix:ImageColorEncoding>
+			<mix:bitsPerSample>
+				<mix:bitsPerSampleValue>24</mix:bitsPerSampleValue>
+				<mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+			</mix:bitsPerSample>
+			<mix:samplesPerPixel>1</mix:samplesPerPixel>
+		</mix:ImageColorEncoding>
+		</mix:ImageAssessmentMetadata>
+</mix:mix>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+	<!-- techMD for the derivative master file MIX metadata  -->		
+		<mets:techMD ID="mix3">
+			<mets:mdWrap MDTYPE="NISOIMG">
+				<mets:xmlData>
+					<mix:mix>
+<mix:BasicImageInformation>
+		<mix:BasicImageCharacteristics>
+			<mix:imageWidth>1261</mix:imageWidth>
+			<mix:imageHeight>1600</mix:imageHeight>
+			<mix:PhotometricInterpretation>
+				<mix:colorSpace>RGB</mix:colorSpace>
+				<mix:ColorProfile>
+					<mix:IccProfile>
+						<mix:iccProfileName>Not recorded</mix:iccProfileName>
+						<mix:iccProfileVersion>Not recorded</mix:iccProfileVersion>
+					</mix:IccProfile>
+				</mix:ColorProfile>
+			</mix:PhotometricInterpretation>
+		</mix:BasicImageCharacteristics>
+	</mix:BasicImageInformation>
+	<mix:ImageAssessmentMetadata>
+		<mix:SpatialMetrics>
+			<mix:samplingFrequencyPlane>2</mix:samplingFrequencyPlane>
+			<mix:samplingFrequencyUnit>2</mix:samplingFrequencyUnit>
+			<mix:xSamplingFrequency>
+				<mix:numerator>72</mix:numerator>
+			</mix:xSamplingFrequency>
+			<mix:ySamplingFrequency>
+				<mix:numerator>72</mix:numerator>
+			</mix:ySamplingFrequency>
+		</mix:SpatialMetrics>
+		<mix:ImageColorEncoding>
+			<mix:bitsPerSample>
+				<mix:bitsPerSampleValue>24</mix:bitsPerSampleValue>
+				<mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+			</mix:bitsPerSample>
+			<mix:samplesPerPixel>1</mix:samplesPerPixel>
+		</mix:ImageColorEncoding>
+		</mix:ImageAssessmentMetadata>
+</mix:mix>			
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>
+	<!-- techMD for the view derivative file MIX metadata  -->		
+		<mets:techMD ID="mix4">
+			<mets:mdWrap MDTYPE="NISOIMG">
+				<mets:xmlData>
+					<mix:mix>
+<mix:BasicImageInformation>
+		<mix:BasicImageCharacteristics>
+			<mix:imageWidth>461</mix:imageWidth>
+			<mix:imageHeight>600</mix:imageHeight>
+			<mix:PhotometricInterpretation>
+				<mix:colorSpace>RGB</mix:colorSpace>
+				<mix:ColorProfile>
+					<mix:IccProfile>
+						<mix:iccProfileName>Not recorded</mix:iccProfileName>
+						<mix:iccProfileVersion>Not recorded</mix:iccProfileVersion>
+					</mix:IccProfile>
+				</mix:ColorProfile>
+			</mix:PhotometricInterpretation>
+		</mix:BasicImageCharacteristics>
+	</mix:BasicImageInformation>
+	<mix:ImageAssessmentMetadata>
+		<mix:SpatialMetrics>
+			<mix:samplingFrequencyPlane>2</mix:samplingFrequencyPlane>
+			<mix:samplingFrequencyUnit>2</mix:samplingFrequencyUnit>
+			<mix:xSamplingFrequency>
+				<mix:numerator>72</mix:numerator>
+			</mix:xSamplingFrequency>
+			<mix:ySamplingFrequency>
+				<mix:numerator>72</mix:numerator>
+			</mix:ySamplingFrequency>
+		</mix:SpatialMetrics>
+		<mix:ImageColorEncoding>
+			<mix:bitsPerSample>
+				<mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+				<mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+			</mix:bitsPerSample>
+			<mix:samplesPerPixel>1</mix:samplesPerPixel>
+		</mix:ImageColorEncoding>
+		</mix:ImageAssessmentMetadata>
+</mix:mix>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>					
+	<!-- techMD for the thumbnail derivative file MIX metadata  -->		
+		<mets:techMD ID="mix5">
+			<mets:mdWrap MDTYPE="NISOIMG">
+				<mets:xmlData>
+					<mix:mix>
+<mix:BasicImageInformation>
+		<mix:BasicImageCharacteristics>
+			<mix:imageWidth>118</mix:imageWidth>
+			<mix:imageHeight>150</mix:imageHeight>
+			<mix:PhotometricInterpretation>
+				<mix:colorSpace>RGB</mix:colorSpace>
+				<mix:ColorProfile>
+					<mix:IccProfile>
+						<mix:iccProfileName>Not recorded</mix:iccProfileName>
+						<mix:iccProfileVersion>Not recorded</mix:iccProfileVersion>
+					</mix:IccProfile>
+				</mix:ColorProfile>
+			</mix:PhotometricInterpretation>
+		</mix:BasicImageCharacteristics>
+	</mix:BasicImageInformation>
+	<mix:ImageAssessmentMetadata>
+		<mix:SpatialMetrics>
+			<mix:samplingFrequencyPlane>2</mix:samplingFrequencyPlane>
+			<mix:samplingFrequencyUnit>2</mix:samplingFrequencyUnit>
+			<mix:xSamplingFrequency>
+				<mix:numerator>72</mix:numerator>
+			</mix:xSamplingFrequency>
+			<mix:ySamplingFrequency>
+				<mix:numerator>72</mix:numerator>
+			</mix:ySamplingFrequency>
+		</mix:SpatialMetrics>
+		<mix:ImageColorEncoding>
+			<mix:bitsPerSample>
+				<mix:bitsPerSampleValue>8</mix:bitsPerSampleValue>
+				<mix:bitsPerSampleUnit>integer</mix:bitsPerSampleUnit>
+			</mix:bitsPerSample>
+			<mix:samplesPerPixel>1</mix:samplesPerPixel>
+		</mix:ImageColorEncoding>
+		</mix:ImageAssessmentMetadata>
+</mix:mix>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:techMD>					
+		<mets:digiprovMD ID="event1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28902-1</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>creation</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:15:59</premis:eventDateTime>
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Imaging Services</premis:linkingAgentIdentifierValue>
+							</premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Adope Photoshops CS 7</premis:linkingAgentIdentifierValue>
+							</premis:linkingAgentIdentifier>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Sinar 54H</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579081-m</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+				<mets:digiprovMD ID="event2">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28902-2</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>creation</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:19:21</premis:eventDateTime>
+<premis:eventDetail>This is a cropped version of the master</premis:eventDetail>						
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Adobe Photoshop CS 7</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579081-c</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+				<mets:digiprovMD ID="event3">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28902-3</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>ingestion</premis:eventType>
+						<premis:eventDateTime>2005-11--03T12:15:59</premis:eventDateTime>
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>		
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>DCM</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>dsmith</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579081-m</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="event4">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28902-4</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>ingest</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:15:59</premis:eventDateTime>
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Imaging Services</premis:linkingAgentIdentifierValue>
+							</premis:linkingAgentIdentifier>
+													<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>DCM</premis:linkingAgentIdentifierValue>
+							</premis:linkingAgentIdentifier>
+							<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579081-c</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+						<mets:digiprovMD ID="event5">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28902-5</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>creation</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:19:52</premis:eventDateTime>
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Image Alchemy 1.13</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579081-dm</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+								<mets:digiprovMD ID="event6">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28902-6</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>creation</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:19:52</premis:eventDateTime>
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Image Alchemy 1.13</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579081-v</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+								<mets:digiprovMD ID="event7">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:event>
+						<premis:eventIdentifier>
+							<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+							<premis:eventIdentifierValue>28902-7</premis:eventIdentifierValue>
+						</premis:eventIdentifier>
+						<premis:eventType>creation</premis:eventType>
+						<premis:eventDateTime>2005-11-03T12:19:52</premis:eventDateTime>
+						<premis:eventOutcomeInformation>
+							<premis:eventOutcome>successful</premis:eventOutcome>
+						</premis:eventOutcomeInformation>
+						<premis:linkingAgentIdentifier>
+							<premis:linkingAgentIdentifierType>internal</premis:linkingAgentIdentifierType>
+							<premis:linkingAgentIdentifierValue>Image Alchemy 1.13</premis:linkingAgentIdentifierValue>
+						</premis:linkingAgentIdentifier>
+						<premis:linkingObjectIdentifier>
+							<premis:linkingObjectIdentifierType>uri</premis:linkingObjectIdentifierType>
+							<premis:linkingObjectIdentifierValue>info:nla/nla.pic-vn3579081-t</premis:linkingObjectIdentifierValue>
+						</premis:linkingObjectIdentifier>
+					</premis:event>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent1">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>Imaging Services</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentType>organization</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent2">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>Adobe Photoshop CS 7</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentType>software</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent3">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>Sinar 54H</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentType>software</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent4">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>dsmith</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentName>Beverley Smith</premis:agentName>
+						<premis:agentType>person</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent5">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>Image Alchemy 1.13</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentType>software</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+		<mets:digiprovMD ID="agent6">
+			<mets:mdWrap MDTYPE="PREMIS">
+				<mets:xmlData>
+					<premis:agent>
+						<premis:agentIdentifier>
+							<premis:agentIdentifierType>internal</premis:agentIdentifierType>
+							<premis:agentIdentifierValue>DCM</premis:agentIdentifierValue>
+						</premis:agentIdentifier>
+						<premis:agentName>Digital Collections Manager</premis:agentName>
+						<premis:agentType>software</premis:agentType>
+					</premis:agent>
+				</mets:xmlData>
+			</mets:mdWrap>
+		</mets:digiprovMD>
+	</mets:amdSec>
+	<mets:fileSec>
+		<mets:fileGrp USE="master">
+			<mets:file ID="nla.pic-vn3579081-m" ADMID="file1 mix1 event1 event3 agent1 agent2 agent3 agent4 agent6" MIMETYPE="image/tiff" SIZE="133216256" CHECKSUM="5784d1a8dad7c33a5a4f1b27428ef8dc" CHECKSUMTYPE="MD5">
+				<mets:FLocat LOCTYPE="URL" xlink:href="http://nla.gov.au/nla.pic-vn3579081-m.tif"/>
+			</mets:file>
+		</mets:fileGrp>
+		<mets:fileGrp USE="co-master">
+			<mets:file ID="nla.pic-vn3579081-c" ADMID="file2 mix2 event2 event4 agent1 agent2 agent4 agent6" MIMETYPE="image/tiff" SIZE="50650824" CHECKSUM="f4ce765e2141c475da3424b1af3d69c6" CHECKSUMTYPE="MD5">
+				<mets:FLocat LOCTYPE="URL" xlink:href="http://nla.gov.au/nla.pic-vn3579081-c.tif"/>
+			</mets:file>
+		</mets:fileGrp>
+				<mets:fileGrp USE="derivative master">
+			<mets:file ID="nla.pic-vn3579081-dm" ADMID="file3 mix3 event5 agent5" MIMETYPE="image/tiff" SIZE="4045692" CHECKSUM="94db7ee603eb9149da2ecdd65d1bb479" CHECKSUMTYPE="MD5"  >
+				<mets:FLocat LOCTYPE="URL" xlink:href="http://nla.gov.au/nla.pic-vn3579081-dm.tif"/>
+			</mets:file>
+		</mets:fileGrp>
+	<mets:fileGrp USE="derivative">
+			<mets:file ID="nla.pic-vn3579081-v" ADMID="file4 mix4 event6 agent5" MIMETYPE="image/jpeg" SIZE="34167" CHECKSUM="cec4b919d7615a82eb79f5425a593d0c" CHECKSUMTYPE="MD5"  >
+				<mets:FLocat LOCTYPE="URL" xlink:href="http://nla.gov.au/nla.pic-vn3579081-v.jpg"/>
+			</mets:file>
+			<mets:file ID="nla.pic-vn3579081-t" ADMID="file5 mix5 event7 agent5" MIMETYPE="image/jpeg" SIZE="5694" CHECKSUM="957c0a33eb7ea194f2e3e7e5cff9f895" CHECKSUMTYPE="MD5">
+				<mets:FLocat LOCTYPE="URL" xlink:href="http://nla.gov.au/nla.pic-vn3579081-t.jpg"/>
+			</mets:file>
+		</mets:fileGrp>
+	</mets:fileSec>
+	<mets:structMap>
+		<mets:div TYPE="still-image" ADMID="representation1" DMDID="MODS1">
+			<mets:fptr FILEID="nla.pic-vn3579081-m"/>
+			<mets:fptr FILEID="nla.pic-vn3579081-c"/>
+			<mets:fptr FILEID="nla.pic-vn3579081-dm"/>
+			<mets:fptr FILEID="nla.pic-vn3579081-v"/>
+			<mets:fptr FILEID="nla.pic-vn3579081-t"/>
+		</mets:div>
+	</mets:structMap>
+</mets:mets>
+	</Appendix>
+</METS_Profile>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 3 U (http://www.xmlspy.com) by Richard Beaubien (Univ. of California, Berkeley) -->
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xsi:schemaLocation="http://www.loc.gov/METS_Profile/
+																									       http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd
+																									       http://www.loc.gov/METS/
+																									       http://www.loc.gov/standards/mets/mets.xsd
+																									       http://www.loc.gov/mods/v3
+																									       http://www.loc.gov/standards/mods/v3/mods-3-0.xsd">
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000003.xml</URI>
+  <title>UCB Paged Text Object Profile</title>
+  <abstract>This profile represents a specific subset of the Model Paged Text Object Profile.  UC Berkeley Library  METS objects with associated text content files, or with both image content files and text content files implement this profile. </abstract>
+  <date>2004-04-27T08:00:00</date>
+  <contact>
+    <name>Rick Beaubien</name>
+    <address>Library Systems Office, Rm. 386 Doe Library, University of California, Berkeley, CA 94720-6000
+    </address>
+    <phone>(510) 643-9776</phone>
+    <email>rbeaubie@library.berkeley.edu</email>
+  </contact>
+  <related_profile RELATIONSHIP="subset of" URI="http://www.loc.gov/mets/profiles/00000005.xml">Model Paged Text Object Profile
+  </related_profile>
+  <related_profile RELATIONSHIP="extends" URI="http://www.loc.gov/mets/profiles/00000002.xml">UCB Imaged Object Profile
+  </related_profile>
+  <extension_schema>
+    <name>MODS</name>
+    <URI>http://www.loc.gov/standards/mods/v3/mods-3-0.xsd</URI>
+    <context>mets/dmdSec/mdWrap/xmlData</context>
+  </extension_schema>
+  <extension_schema>
+    <name>NISOIMG</name>
+    <URI>http://www.loc.gov/standards/mix/mix.xsd</URI>
+    <context>mets/amdSec/techMD/mdWrap/xmlData</context>
+    <note>Used for technical metadata about image content files.</note>
+  </extension_schema>
+  <extension_schema>
+    <name>textmd</name>
+    <URI>http://dlib.nyu.edu/METS/textmd.xsd</URI>
+    <context>mets/amdSec/techMD/mdWrap/xmlData</context>
+    <note>Used for technical metadata about text content files.</note>
+  </extension_schema>
+  <extension_schema>
+    <name>METSRights</name>
+    <URI>http://cosimo.stanford.edu/sdr/metsrights.xsd</URI>
+    <context>mets/amdSec/rightsMD/mdWrap/xmlData</context>
+  </extension_schema>
+  <description_rules>
+    <p>All applications of the MODS schema in conforming METS documents follow the MODS User Guidelines published by Library of Congress' Network Development and MARC Standards Office.</p>
+  </description_rules>
+  <controlled_vocabularies>
+    <vocabulary>
+      <name>Model Paged Text object Profile &lt;file&gt; USE attribute values</name>
+      <maintenance_agency>Library Systems Office, The General Library, University of California, Berkeley</maintenance_agency>
+      <values>
+	<value>archive image</value>
+	<value>reference image</value>
+	<value>thumbnail image</value>
+	<value>tei transcription</value>
+	<value>tei translation</value>
+	<value>ocr</value>
+	<value>ocr dirty</value>
+      </values>
+      <context ID="vc1" RELATEDMAT="fileSec2">
+	<p>mets/fileSec/fileGrp/@USE</p>
+	<p>mets/fileSec/fileGrp/file/@USE</p>
+      </context>
+      <description>
+	<p>These are the supported values for &lt;file&gt; and &lt;fileGrp&gt; USE attributes in paged text objects conforming to this profile.</p>
+	<p>&quot;archive image&quot;, &quot;reference image&quot; and &quot;thumbnail image&quot; are appropriate values to describe the USE of image content files. &quot;archive image&quot; designates image masters; &quot;thumbnail image&quot; image thumbnails; and &quot;reference image&quot; any intermediate resolutions intended for reference purposes.</p>
+	<p>&quot;tei transcription&quot; and &quot;tei translation&quot; are appropriate values to describe associated structured text files encoded according to TEI rules;&quot;tei transcription&quot; designates direct TEI transcriptions of text based materials; &quot;tei translation&quot; designates TEI translations of these materials from their original language.</p>
+	<p>&quot;ocr&quot; and &quot;ocr dirty&quot; should be used to designate versions of the text produced by ocr technologies.  &quot;ocr dirty&quot; would be used to distinguish ocr text that is not suitable for presentation to the user from clean &quot;ocr&quot;.</p>
+	<p>A given segment of the source material could be represented by more than one content file of a particular USE.  For example, the page of a manuscript that has been digitized could be represented by an image master (USE=&quot;archive image&quot;), a thumbnail image (USE=&quot;thumbnail image&quot;), but two jpeg reference images of different resolutions (USE=&quot;reference image&quot;)</p>
+      </description>
+    </vocabulary>
+    <vocabulary>
+      <name>Model Paged Text Object &lt;structMap&gt; TYPE attribute values</name>
+      <maintenance_agency>Library Systems Office, The General Library, University of California, Berkeley</maintenance_agency>
+      <values>
+	<value>physical</value>
+	<value>logical</value>
+	<value>mixed</value>
+      </values>
+      <context ID="vc2" RELATEDMAT="structMap2">
+	<p>mets/structMap/@TYPE</p>
+      </context>
+      <description>
+	<p>These are the supported values for the &lt;structMap&gt; TYPE attribute in METS documents conforming to this profile.</p>
+	<p>&quot;physical&quot; designates a purely physical structure.  For example, a book divided into page views.</p>
+	<p>&quot;logical&quot; designates a purely logical structure.  For example, a book divided into chapters; or a diary divided into diary entries.</p>
+	<p>&quot;mixed&quot; designates a mixed structure.  For example, a book divided into chapters, divided into page views.</p>
+      </description>
+    </vocabulary>
+  </controlled_vocabularies>
+  <structural_requirements>
+    <metsRootElement>
+      <requirement ID="metsRoot1">
+	<p>The root &lt;mets&gt;element must include a LABEL attribute value.</p>
+      </requirement>
+      <requirement ID="metsRoot2">
+	<p>The root &lt;mets&gt; element must include an OBJID attribute value containing a valid ark and that uniquely identifies the object in its owning repository.</p>
+      </requirement>
+    </metsRootElement>
+    <metsHdr>
+      <requirement ID="metsHdr1">
+	<p>Conforming METS documents must contain a metsHdr element.</p>
+      </requirement>
+      <requirement ID="metsHdr2">
+	<p>&lt;metsHdr&gt; element must include the CREATEDATE attribute value.  It must also include the LASTMODDATE attribute value if this does not coincide with the CREATEDATE</p>
+      </requirement>
+      <requirement>
+	<p>&lt;metsHdr&gt; element must include a child &lt;agent&gt; element identifying the person or  institution responsible for creating the METS object.</p>
+      </requirement>
+    </metsHdr>
+    <dmdSec>
+      <requirement ID="dmdSec1">
+	<p>Conforming METS documents may, but need not, contain a one or more &lt;dmdSec&gt; elements. Each &lt;dmdSec&gt; may in turn contain a &lt;dmdRef&gt; or a &lt;dmdWrap&gt;</p>
+      </requirement>
+      <requirement ID="dmdSec2">
+	<p>If a &lt;dmdSec&gt; of a conforming document contains a &lt;dmdWrap&gt; with &lt;xmlData&gt;, the &lt;xmlData&gt; must conform to the MODS schema.</p>
+      </requirement>
+    </dmdSec>
+    <amdSec>
+      <requirement ID="amdSec1">
+	<p>Conforming METS documents may but need not contain an &lt;amdSec&gt; element. This &lt;amdSec&gt; may but need not contain one or more &lt;techMD&gt; elements, &lt;sourceMD&gt; elements, &lt;rightsMD&gt; elements and/or &lt;digiprovMD&gt; elements. </p>
+      </requirement>
+      <requirement ID="amdSec2">
+	<p>A conforming METS document will contain no more than one &lt;amdSec&gt; element.  All &lt;techMD&gt;, &lt;sourceMD&gt;, &lt;rightsMD&gt; and &lt;digiprovMD&gt; elements will appear in this single &lt;amdSec&gt; element.</p>
+      </requirement>
+      <requirement ID="amdSec3">
+	<p>If one or more &lt;techMD&gt; elements pertaining to image content files are present, they must contain &lt;xmlData&gt; of NISOIMG type conforming to the MIX schema.</p>
+      </requirement>
+      <requirement ID="amdSec4">
+	<p>If one or more &lt;techMD&gt; elements pertaining to text content files are present, they must contain &lt;xmlData&gt; conforming to the textmd schema.</p>
+      </requirement>
+      <requirement ID="amdSec5">
+	<p>If one or more &lt;rightsMD&gt; elements are present, they must contain &lt;xmlData&gt; conforming to the METSRights schema.</p>
+      </requirement>
+      <requirement ID="amdSec6">
+	<p>Any &lt;sourceMD&gt; or &lt;digiprovMD&gt; elements should contain &lt;xmlData&gt; conforming to a METS Editorial Board endorsed schema whenever such a schema exists and covers the requisite concepts.</p>
+      </requirement>
+      <requirement ID="amdSec7">
+	<p>Source metadata pertaining to image content files may be expressed as part of any MIX encoded technical metadata in &lt;techMD&gt; elements rather than in separate &lt;sourceMD&gt; elements.  This might occur whenever the available source metadata is minimal and covered by the MIX schema.</p>
+      </requirement>
+    </amdSec>
+    <fileSec>
+      <requirement ID="fileSec1">
+	<p>The &lt;fileSec&gt; of a conforming METS document must contain a parent &lt;fileGrp&gt; for each file format/use represented by the content files.  For example, the &lt;fileSec&gt; of a typical METS document implementing this profile might contain one &lt;fileGrp&gt; representing TIFF master images, one &lt;fileGrp&gt; representing high resolution JPEG reference images , one &lt;fileGrp&gt; representing medium resolution JPEG reference images, one &lt;fileGrp&gt; representing GIF thumbnail images, and one &lt;fileGrp&gt; representing TEI transcriptions.  Each of these &lt;fileGrp&gt; elements may or may not contain subsidiary &lt;fileGrp&gt; elements representing subgroups of the content files.</p>
+      </requirement>
+      <requirement ID="fileSec2" RELATEDMAT="vc1">
+	<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an associated USE attribute.  The USE attribute may be expressed directly at the &lt;file&gt; element level. Alternately, however, the USE attribute may be expressed in conjunction with the &lt;fileGrp&gt; that is the immediate parent of a &lt;file&gt; element; in this case it is taken to pertain to all &lt;file&gt; elements in the &lt;fileGrp&gt;. Supported &lt;file&gt;/&lt;fileGrp&gt; USE attribute values appear in the &lt;controlled_vocabularies&gt; section of this document.</p>
+      </requirement>
+      <requirement ID="fileSec3">
+	<p>Any &lt;file&gt; element may reference any number of pertinent top level adminstrative metadata elements within the &lt;amdSec&gt; via its AMDID attribute value. It should only reference ID values at the &lt;techMD&gt;, &lt;rightsMD&gt;, &lt;sourceMD&gt; and/or &lt;digiprovMD&gt; levels of the &lt;amdSec&gt; </p>
+      </requirement>
+    </fileSec>
+    <structMap>
+      <requirement ID="structMap1">
+	<p>A conforming METS document must contain only one &lt;structMap&gt;.</p>
+      </requirement>
+      <requirement ID="structMap2" RELATEDMAT="vc2">
+	<p>A conforming &lt;structMap&gt; must contain a TYPE attribute. Supported TYPE values appear in the &lt;controlled_vocabularies&gt; section of this document (&quot;logical&quot;,&quot;physical&quot;, or &quot;mixed&quot;).</p>
+      </requirement>
+      <requirement ID="structMap3">
+	<p>Each &lt;div&gt; must include a LABEL attribute value.</p>
+      </requirement>
+      <requirement ID="structMap4">
+	<p>A &lt;div&gt; element at any level may point to one or more pertinent &lt;dmdSec&gt; elements via its DMDID attribute value. However, the DMDID attribute should only reference IDs specified at the &lt;dmdSec&gt; element level, and not IDs at lower levels.  For example, a &lt;div&gt; DMDID attribute should not reference an ID value of an element within the &lt;xmlData&gt; section of a &lt;dmdSec&gt;</p>
+      </requirement>		
+      <requirement ID="structMap5">
+	<p>A &lt;div&gt; element may or may not directly contain &lt;fptr&gt; elements. (In other words, a &lt;div&gt; of the &lt;structMap&gt; may or may not have content files directly associated with it).</p>
+      </requirement>
+      <requirement ID="structMap6">
+	<p>An &lt;fptr&gt; element must either 1) directly point to a &lt;file&gt; element via its FILEID attribute; or 2) contain an &lt;area&gt; element that points to a &lt;file&gt; element; or 3) contain a &lt;seq&gt; element comprising multiple &lt;area&gt;a elements that point to the relevant &lt;file&gt; elements. METS documents implementing this profile must not use the &lt;par&gt; element.   &lt;structMap&gt;s of &quot;physical&quot; and &quot;mixed&quot; TYPEs must not use either the &lt;par&gt; or &lt;seq&gt; elements.
+	</p>
+      </requirement>
+      <requirement ID="structMap7">
+	<p>An &lt;fptr&gt; element could directly contain an &lt;area&gt; element if only a portion of an integral file manifests the parent &lt;div&gt;.  This is likely to occur in either of two cases. 1) This would typically be the case when the parent &lt;div&gt; element represented just a segment of the entire document and the &lt;fptr&gt; represented a tei transcription or a tei translation. In this case, the &lt;area&gt; element under the &lt;fptr&gt; would point to the  &lt;file&gt; element representing the tei document (via its FILEID attribute) and must at least indicate  the starting point of the  the relevant section of the referenced tei file via the &lt;area&gt; BEGIN attribute. The BEGIN attribute, in this case, would have a BETYPE of &quot;IDREF&quot;. The &lt;area&gt; element might also express the end point of the relevant section of the referenced file via its END attribute, but it need not do so. 2) When a &lt;structMap&gt; represents a logical structure, its individual &lt;div&gt; elements may each be manifested by only a portion of the associated image content files represented by its child &lt;fptr&gt; elements. In this case, an &lt;fptr&gt; element representing an image content file could, but need not, contain a &lt;area&gt; element which specified the shape and coordinates of the relevant section of the image via the &lt;area&gt; element's SHAPE and COORDS attribute values. 
+	</p>
+      </requirement>
+      <requirement ID="structMap8">
+	<p>An &lt;fptr&gt; element would contain a &lt;seq&gt; element if multiple files needed to be&quot;played&quot; in sequence to manifest a division.  This might be the case if the &lt;structMap&gt; expressed a logical structure and a &lt;div&gt; in that structure required several files to manifest it.  For example, the &lt;div&gt; elements in the &lt;structMap&gt; for a diary might represent diary entries; and some of these entries might span multiple physical pages, and hence require multiple image content files to manifest them. In this case, the &lt;div&gt; representing the spanned diary entry would contain at least one &lt;fptr&gt;element; this &lt;fptr&gt; element would contain a &lt;seq&gt; element which in turn contained a separate &lt;area&gt; element pointing to each &lt;file&gt; element representing a page the diary entry spans. The &lt;area&gt; elements may include SHAPE and COORDS attribute values to identify the relevant sections of the associated image files, but they need not do so.
+	</p>
+      </requirement>
+      <requirement ID="structMap9">
+	<p>Each &lt;fptr&gt; element that does not contain subsidiary &lt;area&gt; or &lt;seq&gt; elements must  point directly to a &lt;file&gt; element in the &lt;fileSec&gt; via its FILEID attributes. Similarly, each &lt;area&gt; element appearing under an &lt;fptr&gt; element or a &lt;seq&gt; element must point to directly to a &lt;file&gt; element via its FILEID attribute.</p>
+      </requirement>
+    </structMap>
+    <structLink>
+      <requirement ID="structLink1">
+	<p>A conforming METS document may contain a &lt;structLink&gt; element.  This profile, however, establishes no guidelines or expectations for its use.</p>
+      </requirement>
+    </structLink>
+    <behaviorSec>
+      <requirement ID="behaviorSec1">
+	<p>A conforming METS document may contain a &lt;behaviorSec&gt; element. This profile, however, establishes no guidelines or expectations for its use.</p>
+      </requirement>
+    </behaviorSec>
+    <multiSection>
+      <requirement ID="multi1">
+	<p>Only &lt;file&gt; elements will reference &lt;techMD&gt;, &lt;sourceMD&gt; &lt;rightsMD&gt; and/or &lt;digiprovMD&gt; elements.  In other words, documents implementing this profile will express administrative metadata in conjunction with content files only rather than in conjunction with &lt;div&gt; elements in the &lt;structMap&gt;.</p>
+      </requirement>
+      <requirement ID="multi2">
+	<p>Only &lt;div&gt; elements will reference &lt;dmdSec&gt; elements.  In other words, documents implementing this profile will express descriptive metadata in conjunction with divisions of the &lt;structMap&gt; and not in conjunction with individual content files (&lt;file&gt; elements).</p>
+      </requirement>
+    </multiSection>
+  </structural_requirements>
+  <technical_requirements>
+    <content_files>
+      <requirement>
+	<p>If a METS document conforming to this profile has associated image content files, the master (archive) images must be represented and of TIFF format.</p>
+      </requirement>
+      <requirement>
+	<p>At least one version of any image content must be of JPEG or GIF format.  In other words, at least one content file format must be natively supported by typical internet browsers.</p>
+      </requirement>
+      <requirement>
+	<p>All &quot;tei translation&quot; and &quot;tei transcription&quot; files must be encoded according to version 1 of  the "TEI Text Encoding in Libraries: Guidelines for Best Encoding Practices" maintained by the Digital Library Federation (http://www.diglib.org/standards/tei.htm). </p>
+      </requirement>
+    </content_files>
+  </technical_requirements>
+  <tool/>
+  <Appendix NUMBER="1">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/TR/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd
+																										http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd" OBJID="ark:/13030/kt9s2009hz" TYPE="Text" LABEL="Dictation from Amelia Hartman Saunders : Sacramento : ms., 1887" PROFILE="http://www.loc.gov/mets/profiles/00000003.xml">
+      <mets:metsHdr CREATEDATE="2003-04-10T10:30:00">
+	<mets:agent ROLE="CREATOR">
+	  <mets:name>Rick Beaubien</mets:name>
+	</mets:agent>
+      </mets:metsHdr>
+      <mets:dmdSec ID="DMD1">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods>
+	      <mods:titleInfo>
+		<mods:title>Dictation from Amelia Hartman Saunders : ms., Sacramento : 1887</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Saunders, Amelia Hartman</mods:namePart>
+		<mods:namePart type="date">1851-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="lcnaf" type="text">author</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource manuscript="yes">text</mods:typeOfResource>
+	      <mods:genre authority="rbgenr">Autobiographies</mods:genre>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="text">Sacramento, California</mods:placeTerm>
+		</mods:place>
+		<mods:dateCreated>1887</mods:dateCreated>
+		<mods:dateCreated encoding="w3cdtf" point="start">1887</mods:dateCreated>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+	      </mods:language>
+	      <mods:physicalDescription>
+		<mods:extent>1 folder</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:abstract>From miscellaneous California dictations, statements and some questionnaires concerning social life, customs, economic conditions, recorded and prepared for H.H. Bancroft primarily between 1887 and 1889.</mods:abstract>
+	      <mods:note type="provenance">Forms part of the Hubert Howe Bancroft Collection</mods:note>
+	      <mods:subject authority="lcsh">
+		<mods:geographic>California--Biography</mods:geographic>
+	      </mods:subject>
+	      <mods:subject>
+		<mods:geographic>Sacramento (Calif.)--Social life and customs</mods:geographic>
+	      </mods:subject>
+	      <mods:relatedItem type="host">
+		<mods:titleInfo>
+		  <mods:title>Hubert Howe Bancroft Collection</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="host">
+		<mods:titleInfo type="uniform">
+		  <mods:title>Miscellaneous California dictations</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:identifier type="local">BANC C-D 810:386</mods:identifier>
+	      <mods:location>
+		<mods:physicalLocation>The Bancroft Library. University of California, Berkeley, CA 94720-6000</mods:physicalLocation>
+	      </mods:location>
+	      <mods:accessCondition displayLabel="Access restrictions:">Non-circulating; may be used only in the Bancroft library</mods:accessCondition>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:fileSec>
+	<mets:fileGrp VERSDATE="1999-06-17T00:00:00" USE="archive image">
+	  <mets:file ID="FID1" MIMETYPE="image/tiff" SEQ="1" CREATED="1999-06-17T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/masters/bkm00002773a.tif" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID2" MIMETYPE="image/tiff" SEQ="2" CREATED="1999-06-17T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/masters/bkm00002774a.tif" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="thumbnail image">
+	  <mets:file ID="FID3" MIMETYPE="image/gif" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_a.gif" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID4" MIMETYPE="image/gif" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_a.gif" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="reference image">
+	  <mets:file ID="FID5" MIMETYPE="image/jpeg" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_b.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID6" MIMETYPE="image/jpeg" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_b.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="reference image">
+	  <mets:file ID="FID7" MIMETYPE="image/jpeg" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_c.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID8" MIMETYPE="image/jpeg" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_c.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="tei transcription">
+	  <mets:file ID="FID9" MIMETYPE="text/sgml" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID3">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/tei/bkm00002772_a.sgml" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+      <mets:structMap TYPE="physical">
+	<mets:div ORDER="1" TYPE="text" LABEL="Dictation from Amelia Hartman Saunders : Sacramento : ms., 1887" DMDID="DMD1">
+	  <mets:fptr FILEID="FID9"/>
+	  <mets:div ORDER="1" TYPE="page" LABEL=" Page [1]">
+	    <mets:fptr FILEID="FID1"/>
+	    <mets:fptr FILEID="FID3"/>
+	    <mets:fptr FILEID="FID5"/>
+	    <mets:fptr FILEID="FID7"/>
+	  </mets:div>
+	  <mets:div ORDER="2" TYPE="page" LABEL=" Page [2]">
+	    <mets:fptr FILEID="FID2"/>
+	    <mets:fptr FILEID="FID4"/>
+	    <mets:fptr FILEID="FID6"/>
+	    <mets:fptr FILEID="FID8"/>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

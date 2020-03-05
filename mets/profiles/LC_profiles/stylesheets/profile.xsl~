@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns="http://www.w3.org/1999/xhtml">
+  <xsl:import href="xmlverbatim.xsl"/>
+
+  <xsl:output method="html" indent="yes"/>
+
+  <xsl:template match="/">
+    <html>
+      <head>
+	<title><xsl:call-template name="title_tag"/></title>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/profile.css" />
+
+      </head>
+      <body>
+	<h2>LC METS Profiles</h2>
+	<xsl:apply-templates select="METS_Profile"/>
+      </body>
+    </html>
+  </xsl:template>
+
+
+  <xsl:template match="METS_Profile">
+    <xsl:apply-templates select="title"/>
+    <xsl:apply-templates select="URI" mode="profile_uri_xml"/>
+    <xsl:apply-templates select="Appendix" mode="example_docs"/>
+    <xsl:apply-templates select="abstract"/>
+    <xsl:apply-templates select="URI" mode="profile_uri"/>
+    <xsl:apply-templates select="date"/>
+    <xsl:apply-templates select="contact"/>
+    <xsl:apply-templates select="related_profile"/>
+    <xsl:apply-templates select="extension_schema"/>
+    <xsl:apply-templates select="description_rules"/>
+    <xsl:apply-templates select="controlled_vocabularies"/>
+    <xsl:apply-templates select="structural_requirements"/>
+    <!--    <xsl:apply-templates select="Appendix"/>  -->
+  </xsl:template>
+
+
+  <xsl:template name="title_tag">
+    <xsl:value-of select="METS_Profile/title"/>
+  </xsl:template>
+
+
+  <xsl:template match="title">
+    <h3><xsl:value-of select="."/></h3><hr/>
+
+  </xsl:template>
+
+  <xsl:template match="abstract">
+    <br/><h4>Abstract</h4>
+    <p><xsl:value-of select="."/></p>
+  </xsl:template>
+
+  <xsl:template match="URI" mode="profile_uri_xml">
+    <xsl:param name="url" select="."/>
+    <p><a href="{$url}/profile.xml">XML Version of Profile Document</a></p>
+    <hr/>
+  </xsl:template>
+
+  <xsl:template match="URI" mode="profile_uri">
+    <br/><h4>URI</h4>
+    <p><xsl:value-of select="."/></p>
+  </xsl:template>
+
+  <xsl:template match="date">
+    <br/><h4>Date</h4>
+    <p><xsl:value-of select="."/></p>
+  </xsl:template>
+
+
+  <xsl:template match="contact">
+    <br/><h4>Contact</h4>
+    <p>
+      <xsl:apply-templates select="name"/><br/>
+      <xsl:apply-templates select="institution"/><br/>
+      <xsl:apply-templates select="address"/>
+    </p>
+  </xsl:template>
+
+
+  <xsl:template match="related_profile">
+    <br/><h4>Related Profile</h4>
+    <p><xsl:value-of select="."/></p>
+  </xsl:template>
+
+
+  <xsl:template match="extension_schema">
+    <br/><h4>Extension Schema</h4>
+    <p>
+      <xsl:apply-templates select="/METS_Profile/extension_schema/name"/>
+      <xsl:apply-templates select="URI" mode="schema_uri"/>
+    </p>
+  </xsl:template>
+
+
+  <xsl:template match="METS_Profile/extension_schema/name">
+    <xsl:value-of select="."/><br/>
+  </xsl:template>
+
+  <xsl:template match="URI" mode="schema_uri">
+    <xsl:value-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="name">
+    <xsl:value-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="institution">
+    <xsl:value-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="address">
+    <xsl:value-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="description_rules">
+    <br/><h4>Description Rules</h4>
+    <xsl:apply-templates select="p"/>
+  </xsl:template>
+
+
+
+  <xsl:template match="controlled_vocabularies">
+    <br/><h4>Controlled Vocabularies</h4>
+    <xsl:apply-templates select="vocabulary"/>
+
+  </xsl:template>
+
+  <xsl:template match="vocabulary">
+    <p>
+      <xsl:apply-templates select="name"/>
+      <xsl:apply-templates select="maintenance_agency"/>
+      <xsl:apply-templates select="URI"/>
+      <xsl:apply-templates select="context"/>
+    </p>
+  </xsl:template>
+
+  <xsl:template match="maintenance_agency">
+    <xsl:value-of select="."/><br/>
+  </xsl:template>
+
+  <xsl:template match="URI">
+    <xsl:value-of select="."/><br/>
+  </xsl:template>
+
+  <xsl:template match="context">
+    <xsl:value-of select="."/><br/>
+  </xsl:template>
+
+
+  <xsl:template match="structural_requirements">
+    <h4>Structural Requirements</h4>
+    <xsl:apply-templates select="dmdSec"/>
+    <xsl:apply-templates select="fileSec"/>
+    <xsl:apply-templates select="structMap"/>
+    <xsl:apply-templates select="multiSection"/>
+  </xsl:template>
+
+
+  <xsl:template match="dmdSec">
+    <h5>Descriptive Metadata Section</h5>
+    <xsl:apply-templates select="requirement"/>
+  </xsl:template>
+
+  <xsl:template match="fileSec">
+    <h5>File Section</h5>
+    <xsl:apply-templates select="requirement"/>
+  </xsl:template>
+
+  <xsl:template match="structMap">
+    <h5>Structure Map</h5>
+    <xsl:apply-templates select="requirement"/>
+  </xsl:template>
+
+  <xsl:template match="multiSection">
+    <h5>Multiple Sections</h5>
+    <xsl:apply-templates select="requirement"/>
+  </xsl:template>
+
+
+  <xsl:template match="requirement">
+    <xsl:param name="req_no" select="@RELATEDMAT"/>
+    <h6>Requirement</h6>
+    <xsl:apply-templates select="p"/>
+    <xsl:apply-templates select="/METS_Profile/Appendix" mode="tag_examples">
+      <xsl:with-param name="req_no" select="$req_no"/>
+    </xsl:apply-templates>
+  </xsl:template>
+
+
+  <xsl:template match="Appendix" mode="tag_examples">
+    <xsl:param name="req_no"/>
+    <xsl:if test="@ID=$req_no">
+      <h6>Example <xsl:value-of select="@NUMBER" />.</h6>
+      <div class="box">
+	<!-- call verbatim formatter -->
+	<xsl:apply-templates select="node()" mode="xmlverb" />
+      </div>
+      <p><xsl:apply-templates select="@note" /></p>
+      <br/><br/>
+    </xsl:if>
+  </xsl:template>
+
+
+  <xsl:template match="Appendix" mode="example_docs">
+    <xsl:apply-templates select="exampleDoc">
+      <xsl:with-param name="example_url" select="exampleDoc"/>
+    </xsl:apply-templates>
+  </xsl:template>
+
+  <xsl:template match="exampleDoc">
+    <xsl:param name="example_url"/>
+    <p><a href="{$example_url}">Example Instance Document</a></p><hr/>
+
+  </xsl:template>
+
+  <xsl:template match="p">
+    <p><xsl:value-of select="."/></p>
+  </xsl:template>
+
+
+
+</xsl:stylesheet>

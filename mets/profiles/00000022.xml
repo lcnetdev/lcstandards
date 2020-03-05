@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.loc.gov/METS_Profile/            http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+	<URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000022.xml</URI>
+	<title>METS Profile Version MANUSCRIPTS</title>
+	<abstract>This profile governs METS instance documents of Whitman authored manuscripts intended
+		for submission to other digital library and centers for digital humanities research as well
+		as METS documents intended for reference use and dissemination to internal and external
+		documents within the archive. The digital content governed by the METS documents conforming
+		to this profile must be of the type or combination of types including: images and tei-based
+		structured text. Source materials whose METS encoded digital versions would be covered by
+		this profile exclusively include manuscripts authored by Walt Whitman. This profile covers
+		reformatted-digital materials intended for general reference and scholarly use.</abstract>
+	<date>2007-01-30T00:00:00</date>
+	<contact>
+		<name>Stacey Berry</name>
+		<address>Center for Digital Research in the Humanities, University of Nebraska–Lincoln, 319
+			Love Library/P.O. Box 884100, Lincoln NE, 68588-4100 </address>
+		<phone>402.472.4547</phone>
+		<email>cdrh@unl.edu</email>
+	</contact>
+	<related_profile RELATIONSHIP="parents" URI=""/>
+	<related_profile RELATIONSHIP="" URI=""/>
+	<extension_schema ID="ext1">
+		<name>MODS</name>
+		<URI>http://www.loc.gov/standards/mods/v3/mods-3-1.xsd</URI>
+		<context>mets/dmdSec/mdWrap/xmlData</context>
+		<note>While the schema referenced above represents v.3.1 of MODS, all v.3.x MODS schemas are
+			largely backwards compatible with previous incremental releases of version 3. METS
+			documents using any version 3 MODS schema are accommodated by this profile.</note>
+	</extension_schema>
+	<extension_schema ID="ext2">
+		<name>NISO MIX</name>
+		<URI>http://www.loc.gov/standards/mix/mix.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData</context>
+		<note>Used for technical metadata about image content files.This profile supports both the
+			existing version 1.5 of the schema as well as version 2 as soon as this becomes
+			available.</note>
+	</extension_schema>
+	<extension_schema ID="ext3">
+		<name>textmd</name>
+		<URI>http://dlib.nyu.edu/METS/textmd.xsd</URI>
+		<context>mets/amdSec/techMD/mdWrap/xmlData</context>
+		<note>Used for technical metadata about text content files.</note>
+	</extension_schema>
+	<extension_schema ID="ext4">
+		<name>METSRights</name>
+		<URI>http://cosimo.stanford.edu/sdr/metsrights.xsd</URI>
+		<context>mets/amdSec/rightsMD/mdWrap/xmlData</context>
+		<note>Used for rights information about original and digital materials.</note>
+	</extension_schema>
+	<description_rules>
+		<p>All applications of the MODS schema in conforming METS documents should follow the MODS
+			User Guidelines published by Library of Congress' Network Development and MARC Standards
+			Office. (http://www.loc.gov/standards/mods/v3/mods-userguide.html). </p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary ID="vc1">
+			<name>&lt;mets&gt; TYPE attribute values</name>
+			<maintenance_agency>Walt Whitman Archive</maintenance_agency>
+			<URI>
+				<!--we do not yet have a web space dedicated to these kinds of guidelines-->
+			</URI>
+			<values>
+				<value>Manuscript</value>
+			</values>
+			<context>
+				<p>mets/@TYPE</p>
+			</context>
+			<description>
+				<p>This profile specifies the required vocabulary for the TYPE attribute value on
+					the root &lt;mets&gt; element. It is required that this attribute
+					appear.</p>
+			</description>
+		</vocabulary>
+		<vocabulary ID="vc6">
+			<name>&lt;dmdSec:mdWrap&gt; MIMETYPE attribute values</name>
+			<maintenance_agency>Walt Whitman Archive</maintenance_agency>
+			<URI/>
+			<values>
+				<value>text/xml</value>
+			</values>
+			<context>
+				<p>DMDSEC/MDWRAP/@MIMETYPE</p>
+			</context>
+			<description>
+				<p>This profile specifies the required vocabulary for the MIMETYPE attribute value
+					on the &lt;dmdSec:mdWrap&gt; element. It is required that this attribute
+					appear.</p>
+			</description>
+		</vocabulary>
+		<vocabulary ID="vc2">
+			<name>&lt;techMD:mdWrap&gt; MDTYPE/OTHERMDTYPE Attribute Values</name>
+			<maintenance_agency>Walt Whitman Archive</maintenance_agency>
+			<values>
+				<value>OTHER</value>
+				<value>textMD</value>
+				<value>NISO MIX</value>
+			</values>
+			<context>
+				<p>TECHMD/MDWRAP/@MDTYPE</p>
+				<p>TECHMD/MDWRAP/@OTHERMDTYPE</p>
+			</context>
+			<description>
+				<p>This profile specifies MDTYPE attribute value on the
+					&lt;techMD:mdWrap&gt; element. If the MDTYPE="OTHER", then a value must
+					be declared for OTHERMDTYPE from the listed attribute values.</p>
+			</description>
+		</vocabulary>
+		<vocabulary ID="vc3">
+			<name>METS &lt;fileGrp&gt; USE Attribute Values</name>
+			<maintenance_agency>Walt Whitman Archive</maintenance_agency>
+			<values>
+				<value>transcription</value>
+				<value>reference image</value>
+			</values>
+			<context>
+				<p>mets/fileSec/fileGrp/@USE</p>
+			</context>
+			<description>
+				<p>These are the supported values for &lt;fileGrp&gt; USE attributes in METS
+					documents implementing this profile. They are intended mainly to help
+					presentation programs know how they should treat particular content files. In
+					particular, they should help a presentation program distinguish between content
+					files that are text or image based. They can also provide a presentation program
+					with information that can help it or the end user decide what is the most
+					appropriate content file for a particular purpose when this information is not
+					apparent from the content file's MIME type. For example, the USE attribute can
+					help identify TEI encoded files and to distinguish these from other structured
+					text files. The individual USE attribute values are defined below.</p>
+				<p>&quot;transcription&quot; and &quot;reference image&quot; are
+					appropriate values to describe the intended use of manuscript image and
+					corresponding TEI transcription files encoded according to TEI rules that make
+					up digital objects.</p>
+			</description>
+		</vocabulary>
+		<vocabulary ID="vc5">
+			<name>METS &lt;structMap&gt; div TYPE Attribute Values</name>
+			<maintenance_agency>Walt Whitman Archive</maintenance_agency>
+			<values>
+				<value>manuscript</value>
+				<value>page</value>
+			</values>
+			<context>
+				<p>mets/structMap/div/@TYPE</p>
+			</context>
+			<description>
+				<p>These are the supported values for &lt;structMap&gt; div TYPE attributes
+					in METS documents implementing this profile. They are intended mainly to help
+					presentation programs know how they should treat particular content files. In
+					particular, they should help a presentation program distinguish the relationship
+					between manuscript pages.</p>
+				<p>&quot;manuscript&quot; is the appropriate value to describe the highest
+					level div pointing to the manuscript digital object as a whole, and
+					&quot;page&quot; is the appropriate value to describe the individual
+					page references that constitute the manuscript digital object as a whole.</p>
+			</description>
+		</vocabulary>
+	</controlled_vocabularies>
+	<structural_requirements>
+		<metsRootElement>
+			<requirement ID="metsRoot1">
+				<p>The root &lt;mets&gt; element must include an OBJID attribute value
+					containing a valid Whitman Archive Manuscript Tracking Number and uniquely
+					identifying the digital object represented by the METS document.</p>
+			</requirement>
+			<requirement ID="metsRoot2" RELATEDMAT="vc1">
+				<p>The root &lt;mets&gt; element requires a TYPE attribute value. This
+					profile specifies only one vocabulary for the TYPE attribute: Manuscript.</p>
+			</requirement>
+			<requirement ID="metsRoot3">
+				<p>The root &lt;mets&gt; element must include a PROFILE attribute value.
+					mets_profile_MANUSCRIPT.xml is the current standard profile of reference for all
+					Whitman Archive METS files for manuscript digital objects. </p>
+			</requirement>
+		</metsRootElement>
+		<metsHdr>
+			<requirement ID="metsHdr1">
+				<p>Conforming METS documents must contain a metsHdr element.</p>
+			</requirement>
+			<requirement ID="metsHdr2">
+				<p>The &lt;metsHdr&gt; element must include the CREATEDATE attribute value.
+					It must also include the LASTMODDATE attribute value if this does not coincide
+					with the CREATEDATE.</p>
+			</requirement>
+			<requirement>
+				<p>The &lt;metsHdr&gt; element must include a child &lt;agent&gt;
+					element identifying the person or institution responsible for creating the METS
+					object. The &lt;agent&gt; element must include the ROLE attribute with
+					the following possible values: CREATOR, EDITOR, [...].</p>
+			</requirement>
+		</metsHdr>
+		<dmdSec>
+			<requirement ID="dmdSec1">
+				<p>Conforming METS documents must contain one or more &lt;dmdSec&gt;
+					elements. Each &lt;dmdSec&gt; must contain an &lt;mdWrap&gt;</p>
+			</requirement>
+			<requirement ID="dmdSec2">
+				<p>Conforming METS documents must contain a unique ID for each
+					&lt;dmdSec&gt; (dmd1, dmd2, etc).</p>
+			</requirement>
+			<requirement ID="dmdSec3" RELATEDMAT="ext1">
+				<p>At least one version of any descriptive metadata appearing in
+					&lt;mdWrap&gt; elements in a compliant document must conform to the MODS
+					schema.</p>
+			</requirement>
+			<requirement ID="dmdSec4" RELATEDMAT="vc6">
+				<p>Each &lt;mdWrap&gt; element must contain the attributes ID, MDTYPE, and
+					MIMETYPE. The ID attributes must reflect the MDTYPE in consecutive numerical
+					order. If the MDTYPE attribute for the first mdWrap is, for example, MODS, then
+					the ID attribute for that mdWrap section will be MODS1. If there are more than
+					one MDTYPE="MODS" sections, then they should be numbered accordingly in the ID
+					attribute (MODS1, MODS2, MODS3, etc.). The MIMETYPE attribute should conform to
+					the controlled vocabulary contained within this profile and will in almost every
+					circumstance be text/xml.</p>
+			</requirement>
+		</dmdSec>
+		<amdSec>
+			<requirement ID="amdSec1">
+				<p>Conforming METS documents must contain only one &lt;amdSec&gt; element.
+					This section must contain one or more of each of the following elements:
+					&lt;techMD&gt;, &lt;rightsMD&gt;, and
+				&lt;sourceMD&lt;.</p>
+			</requirement>
+			<requirement ID="techMD1">
+				<p>Conforming METS documents for manuscripts must contain two &lt;techMD&gt;
+					elements. One element provides technical metadata for the TEI transcription and
+					the other for images. Each &lt;techMD&gt; element must contain a unique
+					ID attribute value (tmd1, tmd2, etc). </p>
+			</requirement>
+			<requirement ID="techMD2" RELATEDMAT="vc2">
+				<p>Each &lt;techMD&gt; element must contain an &lt;mdWrap&gt;
+					element and corresponding MDTYPE/OTHERMDTYPE attribute. The MDTYPE/OTHERMDTYPE
+					attributes must conform to the controlled vocabulary contained within this
+					profile. MDTYPE/OTHERMDTYPE attributes must describe the type of file as either
+					text based (textMD) or image based (NISO MIX).</p>
+			</requirement>
+			<requirement ID="techMD3" RELATEDMAT="ext2">
+				<p>&lt;techMD&gt; elements pertaining to image content files must contain
+					&lt;xmlData&gt; conforming to the MIX schema.</p>
+			</requirement>
+			<requirement ID="techMD4" RELATEDMAT="ext3">
+				<p>&lt;techMD&gt; elements pertaining to text content files must contain
+					&lt;xmlData&gt; conforming to the textMD schema.</p>
+			</requirement>
+			<requirement ID="rightsMD1">
+				<p>One &lt;rightsMD&lt; element must specify those rights declared for the
+					thematic research collection. Additional &lt;rightsMD&lt; elements must
+					specify those rights retained by the holding institution(s). Each must have a
+					unique ID attribute value (rights1, rights2, and etc.). </p>
+			</requirement>
+			<requirement ID="rightsMD2">
+				<p>&lt;rightsMD&gt; elements must contain &lt;xmlData&gt; conforming
+					to the METS Rights schema. </p>
+			</requirement>
+			<requirement ID="sourceMD1">
+				<p>Each &lt;sourceMD&lt; element must identify the repository location
+					information for the original material represented by the digital object. A
+					separate &lt;sourceMD&lt; element must identify the Whitman Archive as
+					the repository location for the digital object. Each &lt;sourceMD&lt;
+					element must include a unique ID attribute value (smd1, smd2, etc). </p>
+			</requirement>
+			<requirement ID="sourceMD2">
+				<p>The &lt;sourceMD&lt; must include an &lt;mdRef&lt; element with
+					the following attributes: LOCTYPE="URL", MDTYPE="EAD", xlink:href, and XPTR.
+					These attributes point to the location of the corresponding descriptive metadata
+					within the Whitman Archive and Holding Repository EAD files.</p>
+			</requirement>
+		</amdSec>
+		<fileSec>
+			<requirement ID="fileSec1">
+				<p>Conforming METS documents for this profile must contain a
+					&lt;fileSec&gt;. The &lt;fileSec&gt; of a conforming METS
+					document must contain a parent &lt;fileGrp&gt; for each file format/use
+					represented by the content files. For example, the &lt;fileSec&gt; of a
+					typical METS document implementing this profile will contain one
+					&lt;fileGrp&gt; representing TEI Transcriptions and one
+					&lt;fileGrp&gt; representing images. This profile does not support
+					nested &lt;fileGrp&gt; elements. </p>
+			</requirement>
+			<requirement ID="fileSec2" RELATEDMAT="vc3">
+				<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an
+					associated USE attribute. The USE attribute can be expressed directly at the
+					&lt;file&gt; element level. Alternately, the USE attribute may be
+					expressed in conjunction with the &lt;fileGrp&gt; that is the immediate
+					parent of a &lt;file&gt; element; in this case it is taken to pertain to
+					all &lt;file&gt; elements in the &lt;fileGrp&gt;. The
+					&lt;file&gt;/&lt;fileGrp&gt; USE attribute values must be drawn
+					from the controlled vocaulary for &lt;file&gt;/&lt;fileGrp&gt;
+					USE Attribute Values contained within this profile.</p>
+			</requirement>
+			<requirement ID="fileSec3">
+				<p>The &lt;file&gt; elements in a conforming METS document must contain ID
+					and SIZE attribute values. They must also contain CREATED attribute values when
+					available.</p>
+			</requirement>
+			<requirement ID="fileSec4">
+				<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an
+					associated MIMETYPE attribute. This attribute must contain the official Internet
+					Standard MIME type value for the content file represented</p>
+			</requirement>
+			<requirement ID="fileSec5">
+				<p>Each file must be associated with a &lt;techMD&gt; and a
+					&lt;rightsMD&gt; element, either via reference from the parent
+					&lt;fileGrp&gt; element ADMID attribute value or via reference from the
+					&lt;file&gt; element ADMID attribute value.</p>
+			</requirement>
+			<requirement ID="fileSec6">
+				<p>Each &lt;file&gt; element must contain an &lt;FLocat&gt; element
+					which specifies the external location of the content file in an xlink:href
+					attribute.The &lt;FLocat&gt; element must contain an xlink:href
+					attribute, as well as a LOCTYPE attribute indicating the type of href being
+					provided. In most cases, the LOCTYPE for manuscript objects will be URL.</p>
+			</requirement>
+			<requirement ID="fileSec7">
+				<p>This profile supports the use of one and only one &lt;FLocat&gt; element
+					in conjunction with each &lt;file&gt; element.</p>
+			</requirement>
+		</fileSec>
+		<structMap>
+			<requirement ID="structMap1">
+				<p>A conforming METS document must contain one and only one
+					&lt;structMap&gt;. This &lt;structMap&gt; must not be empty.</p>
+			</requirement>
+			<requirement ID="structMap2">
+				<p>A conforming &lt;structMap&gt; must contain a TYPE attribute. METS
+					documents conforming to this profile will report the value MIXED for the type
+					attribute.</p>
+			</requirement>
+			<requirement ID="structMap3">
+				<p>Each &lt;div&gt; at the highest level must include a LABEL attribute
+					value and a TYPE attribute value.The LABEL attribute should identify the content
+					of the material for presentation to the end user. For example, for the highest
+					level &lt;div&gt; the LABEL attribute value will be the title of the
+					poem. The TYPE attribute value must conform with the controlled TYPE attribute
+					vocabulary included in this profile.</p>
+			</requirement>
+			<requirement ID="structMap4" RELATEDMAT="dmdSec4">
+				<p>A &lt;div&gt; element at the highest level must point to one or more
+					pertinent &lt;dmdSec&gt; elements via its DMDID attribute value.
+					However, the DMDID attribute should only reference ID values declared at the
+					&lt;dmdSec&gt; element level, and not IDs at lower levels. For example,
+					a &lt;div&gt; DMDID attribute should not reference the ID value of an
+					element within the &lt;xmlData&gt; section of a
+				&lt;dmdSec&gt;.</p>
+			</requirement>
+			<requirement ID="structMap5" RELATEDMAT="sourceMD1">
+				<p>A &lt;div&gt; element at the highest level must include an ADMID
+					attribute to point to corresponding sourceMD IDs pertinent to the content the
+					&lt;div&gt; element represents (smd1, smd2, etc.). These sourceMD
+					sections point to the external metadata describing that object.</p>
+			</requirement>
+			<requirement ID="structMap6">
+				<p>A &lt;div&gt; element at the highest level must contain at least one or
+					more &lt;div&gt; elements and one or more &lt;fptr&gt; elements.
+					A &lt;div&gt; element at any level may contain one or more
+					&lt;div&gt; and/or &lt;fptr&gt; elements. The
+					&lt;div&gt; and &lt;fptr&gt; elements must be nested and labeled
+					to represent the relationship between individual pieces that constitute the
+					object. After the highest level &lt;div&gt; each subsequent
+					&lt;div&gt; element must contain both TYPE and LABEL values. The TYPE
+					value is always "page." The LABEL value indicates the order of pages (ie: "leaf
+					1 recto" and "leaf 1 verso").</p>
+			</requirement>
+			<requirement ID="structMap9">
+				<p>Each &lt;area&gt; element must include the following attribute values to
+					describe order and relationship between referenced IDs: BEGIN, END, and
+				BETYPE.</p>
+			</requirement>
+		</structMap>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>All &quot;tei&quot; files must be encoded according to version 1 of the
+					"TEI Text Encoding in Libraries: Guidelines for Best Encoding Practices"
+					maintained by the Digital Library Federation
+					(http://www.diglib.org/standards/tei.htm).</p>
+			</requirement>
+			<requirement>
+				<p>All files adhere to ISO-8859-1 character encoding standards maintained by the
+					Internet Assigned Numbers Authority (http://www.iana.org/).</p>
+			</requirement>
+			<requirement>
+				<p>All files reference stylesheet "Whitman.xsl" </p>
+			</requirement>
+			<requirement>
+				<p>All files reference DTD "whitman.dtd"</p>
+			</requirement>
+			<requirement>
+				<p>All files adhere to current MODS schema maintained by the Library of Congress
+					(http://www.loc.gov/standards/mods/v3/mods-3-1.xsd).</p>
+			</requirement>
+			<requirement>
+				<p>All files adhere to current NISO MIX standards maintained by the Library of
+					Congress (http://www.loc.gov/standards/mix/mix.xsd).</p>
+			</requirement>
+			<requirement>
+				<p>All files adhere to current textMD standards maintained by New York University
+					(http://dlib.nyu.edu/METS/text.xsd).</p>
+			</requirement>
+			<requirement>
+				<p>All files adhere to METSRights schema maintained by Stanford Univeristy
+					(http://cosimo.stanford.edu/sdr/metsrights.xsd).</p>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool/>
+	<Appendix ID="EX1" NUMBER="1" LABEL="Manuscript Example">
+		<mets:mets OBJID="yal.00003" xmlns:mets="http://www.loc.gov/METS/"
+			xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:mix="http://www.loc.gov/mix/"
+			xmlns:rights="http://cosimo.stanford.edu/sdr/metsrights/"
+			xmlns:textMD="http://www.nyu.edu/textMD/"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd http://www.loc.gov/mix/ http://www.loc.gov/standards/mix/mix02/mix02.xsd http://cosimo.stanford.edu/sdr/metsrights/ http://cosimo.stanford.edu/sdr/metsrights.xsd"
+			TYPE="Manuscript" PROFILE="WhitmanArchive_MS_Document_Profile.xml">
+			<mets:metsHdr CREATEDATE="2006-04-18T08:47:16">
+				<mets:agent ROLE="CREATOR">
+					<mets:name>Stacey Berry</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<!-- Descriptive Metadata -->
+			<mets:dmdSec ID="dmd1">
+				<mets:mdWrap ID="MODS1" MDTYPE="MODS" MIMETYPE="text/xml">
+					<mets:xmlData>
+						<mods:mods>
+							<mods:accessCondition type="useAndReproduction">For rights relating to
+								this resource, visit http://www.whitmanarchive.org/fair_use/</mods:accessCondition>
+							<mods:genre authority="marc">poetry</mods:genre>
+							<mods:identifier type="uri"
+								>http://www.whitmanarchive.org/manuscripts/manuscriptsframeset_files/transcriptions_alt/yal.00003</mods:identifier>
+							<mods:recordInfo>
+								<mods:recordContentSource authority="OCLC">LDL</mods:recordContentSource>
+								<mods:recordCreationDate encoding="w3cdtf">2006-09-12</mods:recordCreationDate>
+								<mods:languageOfCataloging>
+									<mods:languageTerm authority="iso639-2b">eng</mods:languageTerm>
+								</mods:languageOfCataloging>
+							</mods:recordInfo>
+							<mods:typeOfResource manuscript="yes">text</mods:typeOfResource>
+							<mods:typeOfResource>still image</mods:typeOfResource>
+							<mods:titleInfo>
+								<mods:title>Italian Music in Dakota</mods:title>
+							</mods:titleInfo>
+							<mods:name>
+								<mods:role>
+									<mods:roleTerm>Author</mods:roleTerm>
+								</mods:role>
+								<mods:namePart>Whitman, Walt</mods:namePart>
+							</mods:name>
+							<mods:name>
+								<mods:role>
+									<mods:roleTerm>Editor</mods:roleTerm>
+								</mods:role>
+								<mods:namePart>Price, Kenneth M.</mods:namePart>
+							</mods:name>
+							<mods:name>
+								<mods:role>
+									<mods:roleTerm>Editor</mods:roleTerm>
+								</mods:role>
+								<mods:namePart>Folsom, Ed</mods:namePart>
+							</mods:name>
+							<mods:originInfo>
+								<mods:dateIssued keyDate="yes">2003</mods:dateIssued>
+								<mods:dateModified>2006-09-02</mods:dateModified>
+							</mods:originInfo>
+							<mods:physicalDescription>
+								<mods:digitalOrigin>reformatted digital</mods:digitalOrigin>
+								<mods:internetMediaType>image/jpeg</mods:internetMediaType>
+								<mods:internetMediaType>text/xml</mods:internetMediaType>
+							</mods:physicalDescription>
+							<mods:targetAudience>Whitman scholars</mods:targetAudience>
+							<mods:classification authority="lcc">PS3222.I7</mods:classification>
+
+							<mods:relatedItem type="original">
+
+								<mods:location>
+									<mods:physicalLocation authority="marcorg">CtY-BR</mods:physicalLocation>
+									<mods:physicalLocation>Yale University, Beinecke Rare Book and
+										Manuscript Library (New Haven, CT)</mods:physicalLocation>
+								</mods:location>
+							</mods:relatedItem>
+							<mods:subject authority="lcsh">
+								<mods:geographic>United States</mods:geographic>
+							</mods:subject>
+						</mods:mods>
+
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+
+			<mets:amdSec>
+				<!-- Technical Metadata: Electronic Transcription -->
+				<mets:techMD ID="tmd1">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="textMD">
+						<mets:xmlData>
+							<textMD:textMD>
+								<textMD:markup_basis>XML</textMD:markup_basis>
+								<textMD:markup_language>TEI</textMD:markup_language>
+							</textMD:textMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<!-- Technical Metadata: JPEG Derivatives -->
+				<mets:techMD ID="tmd2">
+					<mets:mdWrap MDTYPE="NISOIMG">
+						<mets:xmlData>
+							<mix:mix>
+								<mix:BasicImageParameters>
+									<mix:Format>
+										<mix:MIMEType>image/jpeg</mix:MIMEType>
+									</mix:Format>
+								</mix:BasicImageParameters>
+							</mix:mix>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<!-- Rights Metadata: Whitman Archive-->
+				<mets:rightsMD ID="rights1">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METS RIGHTS">
+						<mets:xmlData>
+							<rights:RightsDeclarationMD>
+								<rights:RightsHolder>
+									<rights:RightsHolderName>Walt Whitman
+									Archive</rights:RightsHolderName>
+								</rights:RightsHolder>
+								<rights:Context CONTEXTCLASS="GENERAL PUBLIC">
+									<rights:Permissions DISCOVER="1"/>
+								</rights:Context>
+								<rights:Context CONTEXTCLASS="ACADEMIC USER">
+									<rights:Permissions DISCOVER="1" COPY="1"/>
+								</rights:Context>
+							</rights:RightsDeclarationMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+
+				<!-- Rights Metadata: Yale-->
+				<mets:rightsMD ID="rights2">
+					<mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="METS RIGHTS">
+						<mets:xmlData>
+							<rights:RightsDeclarationMD>
+								<rights:RightsHolder>
+									<rights:RightsHolderName>Yale University, Beinecke Rare Book and
+										Manuscript Library (New Haven, CT)</rights:RightsHolderName>
+								</rights:RightsHolder>
+								<rights:Context CONTEXTCLASS="GENERAL PUBLIC">
+									<rights:Permissions DISCOVER="1"/>
+								</rights:Context>
+								<rights:Context CONTEXTCLASS="ACADEMIC USER">
+									<rights:Permissions DISCOVER="1"/>
+								</rights:Context>
+							</rights:RightsDeclarationMD>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+
+				<!-- Source Descriptive Metadata: Whitman Archive -->
+				<mets:sourceMD ID="smd1">
+					<mets:mdRef LOCTYPE="URL" MDTYPE="EAD" xlink:href="unionGuide.xml"
+						XPTR="//c02[descendant::unitid = 'yal.00003' ]"/>
+				</mets:sourceMD>
+				<!-- Source Descriptive Metadata: Repository -->
+				<mets:sourceMD ID="smd2">
+					<mets:mdRef LOCTYPE="URL" MDTYPE="EAD" xlink:href="yal.ead01.xml"
+						XPTR="//c02[descendant::unitid = 'yal.00003' ]"/>
+				</mets:sourceMD>
+			</mets:amdSec>
+			<!-- File Section -->
+			<mets:fileSec>
+				<!-- Transcription -->
+				<mets:fileGrp USE="transcription">
+					<mets:file ID="FID1" MIMETYPE="text/xml" SIZE="12288"
+						CREATED="2006-02-09T12:00:00" ADMID="rights1 tmd1">
+						<mets:FLocat LOCTYPE="URL"
+							xlink:href="http://www.whitmanarchive.org/manuscripts/manuscriptsframeset_files/transcriptions_alt/yal.00003"
+						/>
+					</mets:file>
+				</mets:fileGrp>
+				<!-- Reference Images -->
+				<mets:fileGrp USE="reference image" ADMID="rights2">
+					<mets:file ID="FID2" MIMETYPE="image/jpg" SIZE="99192" ADMID="tmd2">
+						<mets:FLocat LOCTYPE="URL"
+							xlink:href="http://www.whitmanarchive.org/manuscripts/figures/yal.00003.001_large.jpg"
+						/>
+					</mets:file>
+					<mets:file ID="FID3" MIMETYPE="image/jpg" SIZE="74065" ADMID="tmd2">
+						<mets:FLocat LOCTYPE="URL"
+							xlink:href="http://www.whitmanarchive.org/manuscripts/figures/yal.00003.002_large.jpg"
+						/>
+					</mets:file>
+					<mets:file ID="FID4" MIMETYPE="image/jpg" SIZE="174863" ADMID="tmd2">
+						<mets:FLocat LOCTYPE="URL"
+							xlink:href="http://www.whitmanarchive.org/manuscripts/figures/yal.00003.003_large.jpg"
+						/>
+					</mets:file>
+					<mets:file ID="FID5" MIMETYPE="image/jpg" SIZE="149709" ADMID="tmd2">
+						<mets:FLocat LOCTYPE="URL"
+							xlink:href="http://www.whitmanarchive.org/manuscripts/figures/yal.00003.004_large.jpg"
+						/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<!-- Structure Map -->
+			<mets:structMap TYPE="mixed">
+				<mets:div TYPE="manuscript" LABEL="Italian Music in Dakota" ADMID="smd1 smd2"
+					DMDID="MODS1">
+					<mets:fptr FILEID="FID1"/>
+					<mets:div TYPE="page" LABEL="leaf 1 recto">
+						<mets:fptr>
+							<mets:area FILEID="FID1" BEGIN="leaf01r" END="leaf01v" BETYPE="IDREF"/>
+						</mets:fptr>
+						<mets:fptr FILEID="FID2"/>
+					</mets:div>
+					<mets:div TYPE="page" LABEL="leaf 1 verso">
+						<mets:fptr>
+							<mets:area FILEID="FID1" BEGIN="leaf01v" BETYPE="IDREF"/>
+						</mets:fptr>
+						<mets:fptr FILEID="FID3"/>
+					</mets:div>
+					<mets:div TYPE="page" LABEL="leaf 2 recto">
+						<mets:fptr>
+							<mets:area FILEID="FID3" BEGIN="leaf02r" END="leaf02v" BETYPE="IDREF"/>
+						</mets:fptr>
+						<mets:fptr FILEID="FID4"/>
+					</mets:div>
+					<mets:div TYPE="page" LABEL="leaf 2 verso">
+						<mets:fptr>
+							<mets:area FILEID="FID4" BEGIN="leaf02v" BETYPE="IDREF"/>
+						</mets:fptr>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>

@@ -1,0 +1,1717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd">
+	<URI LOCTYPE="URN">http://www.loc.gov/mets/profiles/00000019.xml</URI>
+	<title>Australian METS Journal Profile 1.0</title>
+	<abstract>
+This profile describes the rules and requirements for using METS as an exchange format to support the collection and preservation of and access to journal publications. It is a sub-profile of the Australian METS Profile 1.0 and adheres to the journals content model specified in the &#60;div&#62; TYPE Attribute vocabulary therein. 
+</abstract>
+	<date>2007-12-04T15:31:00</date>
+	<contact>
+		<institution>National Library of Australia</institution>
+		<address>
+Canberra, ACT, 2600, Australia
+</address>
+		<phone>+61 2 6262 1111</phone>
+		<email>standards@nla.gov.au</email>
+	</contact>
+	<related_profile URI="http://www.loc.gov/mets/profiles/00000018.xml" RELATIONSHIP="inherits">Australian METS Profile 1.0
+	</related_profile>
+	<extension_schema><note>This profile inherits the extension schemas supported by the Australian METS Profile 1.0. No additional extension schema are specified in this profile</note></extension_schema>
+	<description_rules>
+<p>This profile describes the rules and requirements
+for using METS as an exchange format to support the collection and preservation
+of and access to journal publications. It is a sub-profile of the Australian
+METS Profile 1.0 and adheres to the Journals content model specified in the
+&lt;div&gt; TYPE attribute vocabulary therein.</p>
+<p>A METS document conforming to this profile may
+have been created for use as a Submission Information Package (SIP) or a
+Dissemination Information Package (DIP). The example in Appendix 1 is a conforming METS
+document representing a published journal issue with a cover image and six
+articles. This document was created as a SIP to enable a copy of the issue to be archived in a repository. The Example in Appendix 2 is a conforming METS document representing another issue from the same journal that has already been archived in a repository. This document was created as a DIP to enable a delivery system to provide access to the archived copy.</p>
+<p>Journal issues and tables of content</p>
+<p>In accordance with the Australian METS Profile, a
+conforming METS document must include descriptive metadata encoded in MODS for
+the primary object represented by the METS document and each of its structural
+components, unless &lt;structMap&gt;&lt;div&gt; attributes provide a sufficient
+level of bibliographic description.</p>
+<p>In the example in Appendix 1 each of the articles in the issue has its own descriptive metadata
+but the cover image and sections are only represented in the structural map because they
+can be fully described using the &lt;div&gt; TYPE and LABEL attributes.  </p>
+<p>To aid discovery and navigation, implementers may also 
+choose to include section headings as &lt;subject&gt;&lt;topic&gt; elements in
+article descriptive metadata, with the ‘authority’ attribute set to ‘local’.
+However, this profile still requires the headings to be included in the
+&lt;structMap&gt;. This will allow a system to reproduce the table of content without
+having to parse the descriptive metadata or to understand local business rules.
+</p>
+<p>Mandatory elements and persistent identifiers</p>
+<p>Where a journal or article is being described in
+a conforming METS document, title is mandatory. Otherwise it need only be
+included if the component has its own distinctive title. Additional metadata,
+including use of controlled vocabularies and reference to authority lists, are
+encouraged within descriptive metadata but are not mandatory. However, if the
+METS document is being used as a DIP, each MODS record must include an
+identifier element containing a persistent, globally unique and locally
+resolvable identifier for the object or component being described. </p>
+<p>The example in Appendix 1 includes identifiers of type URI that resolve to the publisher's copy of the issue. The example in Appendix 2 includes the persistent identifiers assigned by the repository to the primary object and its components on ingest. This document also includes a full set of administrative metadata recording the ingest event for each file.</p>
+<p>Fully self-describing metadata</p> 
+<p>In accordance with the Australian METS Profile, the
+descriptive metadata must contain sufficient information for the component and
+its relationship to the host journal to be completely self-describing. MODS
+supports two ways of doing this: the hierarchy can be fully represented within
+a single relatedItem instance using repeatable part subelements; or each level
+of the hierarchy can be nested in its own relatedItem element. This profile
+requires a separate relatedItem element for each level in the hierarchy that
+plays a significant role in the delivery of access to the journal and its
+components.  In addition, if the METS document is being used as a DIP, an identifier
+element must be included for each relatedItem as described in the section
+above.</p><p>In both examples, the issue-level
+&lt;dmdSec&gt; has one relatedItem for the host journal. Although the issue is
+part of an annual volume, this has not been given its own nested
+&lt;relatedItem&gt; because volume does not play a significant role in the
+delivery of access to the journal. This is manifested by the fact that volumes do
+not have their own separate URI in the published copy of the journal. </p>
+<p>In both examples, article-level &lt;dmdSec&gt;s
+have a relatedItem for the issue which itself has a relatedItem for the host
+journal. This enables the identifiers to be recorded that will support navigation
+from the article to the issue or to the journal when the metadata is unpacked
+and deployed in other contexts such as a federated discovery service.</p>
+<p>The archived copy includes a relatedItem for the published copy. This may be the preferred version while it remains available online. However, the DIP for the archived copy can also be used to generate a fully navigable version of the journal issue.</p>
+<p>Mappings</p>
+<p>Mappings from  MARC21 and Dublin Core
+(unqualified) to MODS are given on the MODS website at http://www.loc.gov/standards/mods/dcsimple-mods.html.
+Note that this profile requires the extent of an article to be recorded under
+relatedItem/part/extent in MODS, although one could see this as being a
+property of the article, not the host. The main reason for this is that MODS
+does not yet support the use of the unit attribute when extent is used as a
+sub-element of physicalDescription. However, there is also a benefit in terms
+of processing of including all extent metadata in the same place. The start and
+end data elements in MODS are properties of the host.  </p>
+	</description_rules>
+	<controlled_vocabularies>
+		<vocabulary>
+			<name>Australian METS Profile &#60;div&#62; TYPE Attribute</name>
+			<maintenance_agency>Australian METS Profile Agency</maintenance_agency>
+			<URI>http://www.nla.gov.au/australianmetsprofile/divtype/</URI>
+			<description>
+				<p>This profile supports all values from the journals content model.</p>
+			</description>
+		</vocabulary></controlled_vocabularies>
+	<structural_requirements>
+<metsRootElement>
+			<requirement ID="metsRoot1">
+				<p>The &#60;mets&#62; root element must contain a PROFILE attribute with the value "http://www.loc.gov/mets/profiles/00000019.xml".
+</p>
+			</requirement>
+		</metsRootElement>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<p>There are currently no restrictions on file formats used. It is recommended that files listed in fileGrp USE="original" or "master" be of a type suitable for long-term archiving.</p>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool>
+		<note><p>There are no requirements for tools specified in this profile.</p></note>
+	</tool>
+	<Appendix NUMBER="1" LABEL="Example of a Submission Information Package for a digital journal issue">
+		<mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000019.xml" OBJID="METS-d1e1" TYPE="issue" xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd  http://www.loc.gov/standards/premis/v1  http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:premis="http://www.loc.gov/standards/premis/v1">		
+			<mets:metsHdr CREATEDATE="2007-09-25T09:03:05.202+10:00" LASTMODDATE="2007-09-25T09:03:05.202+10:00">
+				<mets:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+					<mets:name>University of Technology, Sydney</mets:name>
+				</mets:agent>
+				<mets:agent ROLE="CREATOR" TYPE="OTHER">
+					<mets:name>RIFF Submission Service v0.1</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<!-- Issue-level descriptive metadata -->
+			<mets:dmdSec ID="d1e1">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:genre>issue</mods:genre>
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:originInfo>
+								<mods:dateIssued>2007-05-02</mods:dateIssued>
+							</mods:originInfo>
+							<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/31</mods:identifier>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="issn">1449-2679</mods:identifier>
+								<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+								<mods:part>
+									<mods:detail type="volume">
+										<mods:number>3</mods:number>
+									</mods:detail>
+									<mods:detail type="issue">
+										<mods:number>1</mods:number>
+									</mods:detail>
+									<mods:date>March 2007</mods:date>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the first article (the preface) -->
+			<mets:dmdSec ID="d1e24">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Preface</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateIssued>2007-05-02</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Editorial</mods:namePart>
+								<mods:namePart type="family">Board</mods:namePart>
+								<mods:affiliation>AJICT</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>preface</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I21220070P71/392
+							</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/31</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>3</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>1</mods:number>
+										</mods:detail>
+										<mods:date>March 2007</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>2</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- descriptive metadata for the second article  -->
+			<mets:dmdSec ID="d1e55">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Encryption Efficiency Analysis and Security Evaluation of RC6 Block Cipher for Digital Images</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>This paper investigates the encryption efficiency of RC6 block cipher application to digital&#xD;
+images, providing a new mathematical measure for encryption efficiency, which we will call the&#xD;
+encryption quality instead of visual inspection, The encryption quality of RC6 block cipher is investigated&#xD;
+among its several design parameters such as word size, number of rounds, and secret key length and&#xD;
+the optimal choices for the best values of such design parameters are given. Also, the security analysis&#xD;
+of RC6 block cipher for digital images is investigated from strict cryptographic viewpoint. The security&#xD;
+estimations of RC6 block cipher for digital images against brute-force, statistical, and differential attacks&#xD;
+are explored. Experiments are made to test the security of RC6 block cipher for digital images against&#xD;
+all aforementioned types of attacks. Experiments and results verify and prove that RC6 block cipher is&#xD;
+highly secure for real-time image encryption from cryptographic viewpoint. Thorough experimental tests&#xD;
+are carried out with detailed analysis, demonstrating the high security of RC6 block cipher algorithm. So,&#xD;
+RC6 block cipher can be considered to be a real-time secure symmetric encryption for digital images.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2007-04-05</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">osama salah</mods:namePart>
+								<mods:namePart type="family">faragallah</mods:namePart>
+								<mods:affiliation>Faculty of Electronic Engineering</mods:affiliation>
+								<mods:affiliation>osam_sal@yahoo.com</mods:affiliation>
+								<mods:description>Computer science &amp; Eng.</mods:description>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Hossam El-din Hussien</mods:namePart>
+								<mods:namePart type="family">Ahmed</mods:namePart>
+								<mods:affiliation>Faculty of Electronic Engineering</mods:affiliation>
+								<mods:affiliation>Hossam_eldin@yahoo.com</mods:affiliation>
+								<mods:description>Computer science &amp; Eng.</mods:description>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Hossam El-din Hussien</mods:namePart>
+								<mods:namePart type="family">Ahmed</mods:namePart>
+								<mods:affiliation>Faculty of Electronic Engineering</mods:affiliation>
+								<mods:affiliation>Hossam_eldin@yahoo.com</mods:affiliation>
+								<mods:description>Computer science &amp; Eng.</mods:description>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Hossam El-din Hussien</mods:namePart>
+								<mods:namePart type="family">Ahmed</mods:namePart>
+								<mods:affiliation>Faculty of Electronic Engineering</mods:affiliation>
+								<mods:affiliation>Hossam_eldin@yahoo.com</mods:affiliation>
+								<mods:description>Computer science &amp; Eng.</mods:description>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Hamdy Mohamed</mods:namePart>
+								<mods:namePart type="family">Kalash</mods:namePart>
+								<mods:affiliation>Faculty of Electronic Engineering</mods:affiliation>
+								<mods:affiliation>Hamdy_kalash@yahoo.com</mods:affiliation>
+								<mods:description>Computer science &amp; Eng.</mods:description>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Hamdy Mohamed</mods:namePart>
+								<mods:namePart type="family">Kalash</mods:namePart>
+								<mods:affiliation>Faculty of Electronic Engineering</mods:affiliation>
+								<mods:affiliation>Hamdy_kalash@yahoo.com</mods:affiliation>
+								<mods:description>Computer science &amp; Eng.</mods:description>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Hamdy Mohamed</mods:namePart>
+								<mods:namePart type="family">Kalash</mods:namePart>
+								<mods:affiliation>Faculty of Electronic Engineering</mods:affiliation>
+								<mods:affiliation>Hamdy_kalash@yahoo.com</mods:affiliation>
+								<mods:description>Computer science &amp; Eng.</mods:description>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>Block cipher, Security analysis, Encryption quality</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Computing</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I3122007001/378
+							</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/31</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>3</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>1</mods:number>
+										</mods:detail>
+										<mods:date>March 2007</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>7</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the third article -->
+			<mets:dmdSec ID="d1e170">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>A MARK-UP APPROACH TO SERVICE CREATION</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>The paper presents a new mark-up approach to service creation in Next Generation Networks. The approach allows access to network functions exposed by open application programming interfaces. Based on ontology analysis of the application domain, language constructions are synthesized and formally defined. Language supporting tools are developed. The approach functionality is tested by simulation.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2007-04-27</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Ivaylo</mods:namePart>
+								<mods:namePart type="family">Atanasov</mods:namePart>
+								<mods:affiliation>Technical University of Sofia</mods:affiliation>
+								<mods:affiliation>iia@tu-sofia.bg</mods:affiliation>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Evelina</mods:namePart>
+								<mods:namePart type="family">Pencheva</mods:namePart>
+								<mods:affiliation>Technical University of Sofia</mods:affiliation>
+								<mods:affiliation>enp@tu-sofia.bg</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>NGN service creation, Parlay/OSA</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Prootcols, Algorithms and Applications</mods:topic>
+							</mods:subject>
+							<mods:identifier type="URI">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I3122007002/379
+							</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/31</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>3</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>1</mods:number>
+										</mods:detail>
+										<mods:date>March 2007</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>10</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the fourth article -->
+			<mets:dmdSec ID="d1e222">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>A Transport Protocol for Future Wireless Internets</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>The traditional assumptions made by TCP&#xD;
+about the operation of wired networks are often found to be invalid for wireless networks. Standard TCP semantics such as end-to-end flow control, congestion control mechanisms and error recovery provide reliability in wired networks. However, wireless communication systems have different characteristics when compared to wired networks that include higher bit error rates, higher latency, limited bandwidth, multipath fading of the signals and handoff. In this paper, we propose an enhancement to TCP that we shall call ETCP, which improves upon conventional TCP when it is applied to the wireless environment. Our simulation results show significant improvements to TCP performance with respect to packet loss detection.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2007-04-27</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Deddy</mods:namePart>
+								<mods:namePart type="family">Chandra</mods:namePart>
+								<mods:affiliation>RMIT University</mods:affiliation>
+								<mods:affiliation>deddy.chandra@gmail.com</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Richard J</mods:namePart>
+								<mods:namePart type="family">Harris</mods:namePart>
+								<mods:affiliation>Institute of Information Sciences and Technology, Massey University, Palmerston North</mods:affiliation>
+								<mods:affiliation>R.Harris@massey.ac.nz</mods:affiliation>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>TCP, wireless network, congestion loss, corruption loss, handoff loss, congestion control</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Protocols, Algorithms and Applications</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I3122007003/389</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/31</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>3</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>1</mods:number>
+										</mods:detail>
+										<mods:date>March 2007</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>12</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the fourth article (Author Guidelines)  -->
+			<mets:dmdSec ID="d1e265">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Author Guidelines</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>This document guides would be authors of papers for review in the AJICT on how to write their papers to meet the requirements for submissions, reviews and publications in the AJICT</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2007-04-27</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Editorial</mods:namePart>
+								<mods:namePart type="family">Board</mods:namePart>
+								<mods:affiliation>AJICT</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>guidelines, formats and page lengths</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I3122007MAR/390
+							</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/31</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>3</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>1</mods:number>
+										</mods:detail>
+										<mods:date>March 2007</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>5</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the fifth article (Copyright Form) -->
+			<mets:dmdSec ID="d1e292">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Copyright Form</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>This is the copyright form which all authors of papers accepted for publication in the AJICT must fill and send to the Editor of the AJICT prior to publication of their accepted papers.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2007-04-27</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Editorial</mods:namePart>
+								<mods:namePart type="family">Board</mods:namePart>
+								<mods:affiliation>AJICT</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>copyright form</mods:topic>
+							</mods:subject>
+							<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I21220070CPR1/391
+							</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="host">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/31</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>3</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>1</mods:number>
+										</mods:detail>
+										<mods:date>March 2007</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>1</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="T-d1e1">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>auto</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>METS-d1e1</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>full</premis:preservationLevel>
+								<premis:objectCategory>Representation</premis:objectCategory>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp USE="original">
+					<mets:file ID="F-d1e9" MIMETYPE="image/jpeg" SIZE="92795" CHECKSUM="8634b4a517943abf789259483c9721eb" CHECKSUMTYPE="MD5" OWNERID="March07_Cover.JPG">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e24" MIMETYPE="application/pdf" SIZE="60278" CHECKSUM="eb0fcf9ba0c30b0d2266139a38b6b7fa" CHECKSUMTYPE="MD5" OWNERID="Preface.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e55" MIMETYPE="application/pdf" SIZE="1552728" CHECKSUM="58a82a739a9a30d39e35b88532777676" CHECKSUMTYPE="MD5" OWNERID="paper-1.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e170" MIMETYPE="application/pdf" SIZE="757235" CHECKSUM="6640d903bdb58dc674fba2f0738561f0" CHECKSUMTYPE="MD5" OWNERID="ServiceCreationApproach_final.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e222" MIMETYPE="application/pdf" SIZE="1796361" CHECKSUM="8d67f887c47ae355d70603f17f6c9a9d" CHECKSUMTYPE="MD5" OWNERID="AJICT Journal_2.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e265" MIMETYPE="application/msword" SIZE="204509" CHECKSUM="87e6552bd83130ddd52c7d3c1db9c8a9" CHECKSUMTYPE="MD5" OWNERID="AJICT_Template-A4.rtf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+					<mets:file ID="F-d1e292" MIMETYPE="application/pdf" SIZE="84740" CHECKSUM="4d1ee024f19b6144c665c5b318e20bb3" CHECKSUMTYPE="MD5" OWNERID="copyright_form.pdf">
+						<mets:FContent>
+							<mets:binData>Data</mets:binData>
+						</mets:FContent>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div TYPE="issue" DMDID="d1e1" ADMID="T-d1e1">
+					<mets:div TYPE="cover">
+						<mets:fptr FILEID="F-d1e9"/>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Preface">
+						<mets:div TYPE="article" DMDID="d1e24">
+							<mets:fptr FILEID="F-d1e24"/>
+						</mets:div>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Computing">
+						<mets:div TYPE="article" DMDID="d1e55">
+							<mets:fptr FILEID="F-d1e55"/>
+						</mets:div>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Protocols, Algorithms and Applications">
+						<mets:div TYPE="article" DMDID="d1e170">
+							<mets:fptr FILEID="F-d1e170"/>
+						</mets:div>
+						<mets:div TYPE="article" DMDID="d1e222">
+							<mets:fptr FILEID="F-d1e222"/>
+						</mets:div>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Back Page">
+						<mets:div TYPE="article" DMDID="d1e265">
+							<mets:fptr FILEID="F-d1e265"/>
+						</mets:div>
+						<mets:div TYPE="article" DMDID="d1e292">
+							<mets:fptr FILEID="F-d1e292"/>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<Appendix NUMBER="2" LABEL="Example of a Dissemination Information Package for an archived digital journal issue">
+		<mets:mets PROFILE="http://www.loc.gov/mets/profiles/00000019.xml" OBJID="hdl:123456789/254" TYPE="issue" xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd  http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd  http://www.loc.gov/standards/premis/v1  http://www.loc.gov/standards/premis/v1/Object-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Agent-v1-1.xsd http://www.loc.gov/standards/premis/v1 http://www.loc.gov/standards/premis/v1/Event-v1-1.xsd" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:premis="http://www.loc.gov/standards/premis/v1">
+			<mets:metsHdr CREATEDATE="2007-09-25T09:06:54" LASTMODDATE="2007-09-25T09:06:54">
+				<mets:agent ROLE="DISSEMINATOR" TYPE="ORGANIZATION">
+					<mets:name>The Australian National University</mets:name>
+				</mets:agent>
+				<mets:agent ROLE="CREATOR" TYPE="OTHER">
+					<mets:name>au.edu.anu.dspace.content.packager.AustralianMETSJournalDisseminator</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<!-- Issue-level descriptive metadata -->
+			<mets:dmdSec ID="D1-123456789-254">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3  http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:typeOfResource>text</mods:typeOfResource>
+							<mods:genre>issue</mods:genre>
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:identifier type="hdl">123456789/254</mods:identifier>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/issue/view/27</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:titleInfo>
+									<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+								</mods:titleInfo>
+								<mods:identifier type="issn">1449-2679</mods:identifier>
+								<mods:identifier type="hdl">123456789/107</mods:identifier>
+								<mods:part>
+									<mods:detail type="volume">
+										<mods:number>2</mods:number>
+									</mods:detail>
+									<mods:detail type="issue">
+										<mods:number>4</mods:number>
+									</mods:detail>
+									<mods:date>December 2006</mods:date>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the first article (the preface) -->
+			<mets:dmdSec ID="D8-123456789-256">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Preface</mods:title>
+							</mods:titleInfo>
+							<mods:titleInfo type="abbreviated">
+								<mods:title>PRF</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>The three papers in this issue of the African Journal of Information and Communication Technology also cover three current hot areas of ICT, voice over Internet protocol (VoIP), ultra wideband systems and human computer interface. In the Issue we also present a list of reviewers who completed reviews of papers for the Journal for the last one year. The high standard of this journal is based on their expertise for which the editorial board is grateful.  The Issue also presents three papers of major significance to current research in broadband communications and human-computer interface.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-11</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Editorial</mods:namePart>
+								<mods:namePart type="family">Board</mods:namePart>
+								<mods:affiliation>University of Technology, Sydney / University of the Western Cape</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>VoIP, UWB, HCI</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">123456789/256</mods:identifier>
+							<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I21220060P7/351</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I21220060P7/351
+								</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="hdl">123456789/107</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>2</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- descriptive metadata for the second article (call for papers) -->
+			<mets:dmdSec ID="D13-123456789-257">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Call for Papers (Special Issue) on CROSS-LAYER DESIGN OF MULTIHOP WIRELESS NETWORKS</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-08</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Amoakoh</mods:namePart>
+								<mods:namePart type="family">Gyasi-Agyei</mods:namePart>
+								<mods:affiliation>University of Technology, Sydney / University of the Western Cape</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:identifier type="hdl">123456789/257</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I21220060P61/348</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="hdl">123456789/107</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>3</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the third article -->
+			<mets:dmdSec ID="D18-123456789-258">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods version="3.2" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Optimal Packetization Interval for VoIP Applications Over IEEE 802.16 Networks</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>An analysis of the impact of the packetization interval for constant bit rate traffic has been done in the context of the IEEE 802.16 MAC layer. Bandwidth used for overheads which include lower layer headers as well as retransmissions at the MAC layer is considered. An optimal packetization interval selection method for delay sensitive applications such as VoIP is proposed. Enhancements to the Unsolicited Grant Service retransmission strategy are proposed to further improve delay and minimize packet loss while making efficient use of the limited bandwidth resource.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-11</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Shehan</mods:namePart>
+								<mods:namePart type="family">Perera</mods:namePart>
+								<mods:affiliation>University of Canterbury</mods:affiliation>
+								<mods:affiliation>bep20@student.canterbury.ac.nz</mods:affiliation>
+								<mods:description>Department of Electrical &amp; Computer Engineering
+PhD student</mods:description>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Harsha</mods:namePart>
+								<mods:namePart type="family">Sirisena</mods:namePart>
+								<mods:affiliation>University of Canterbury</mods:affiliation>
+								<mods:affiliation>sirisehr@elec.canterbury.ac.nz</mods:affiliation>
+								<mods:description>Department of Electrical &amp; Computer Engineering
+Professor</mods:description>
+							</mods:name>
+							<mods:name>
+								<mods:namePart type="given">Krzysztof</mods:namePart>
+								<mods:namePart type="family">Pawlikowski</mods:namePart>
+								<mods:affiliation>University of Canterbury</mods:affiliation>
+								<mods:affiliation>krys@canterbury.ac.nz</mods:affiliation>
+								<mods:description>Department of Computer Science
+Professor</mods:description>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>IEEE 802.16; UGS; packetization interval; VoIP</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Wireless and Mobile Communications</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">123456789/258</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I2122006024/350</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="hdl">123456789/254</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>11</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the fourth article -->
+			<mets:dmdSec ID="D22-123456789-259">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:METS="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Timing Recovery for Ultra Wideband Systems</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>This paper examines the problems of symbol
+timing estimation and timing recovery for ultra wideband impulse radio signals. Two different approaches based onthe maximum likelihood technique are investigated. The first approach is based on derivative matched filter and the second one takes advantage of the early-late technique.
+Furthermore, two non-coherent timing recovery circuits are proposed and discussed. The first circuit is a digital delay-locked loop (DDLL) and the second circuit is based on early-late technique. Finally, performance analysis of the proposed techniques for IEEE 802.15.3a channel models in terms of the minimum squared error (MSE) is
+provided.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-08</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Mohammad</mods:namePart>
+								<mods:namePart type="family">Ghavami</mods:namePart>
+								<mods:affiliation>mohammad.ghavami@kcl.ac.uk</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>ultra wide band, antennas, timing recovery, synchronization</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Wireless and Mobile Communications</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">123456789/259</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I2122006025/344</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="hdl">123456789/107</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>7</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- descriptive metadata for the fifth article -->
+			<mets:dmdSec ID="D27-123456789-260">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:METS="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>HCI as an engineering discipline: to be or not to be!?</mods:title>
+							</mods:titleInfo>
+							<mods:abstract>One of the major challenges in the emerging interdisciplinary field of human-computer interaction (HCI) is the specification of a research line that can enable the development of validated design knowledge with a predictive power for the design of interactive systems. Based on the three different elements in the design of interactive systems: (1) human being(s), (2) technical artefact(s), and (3) context of use, different academic disciplines contribute with different research paradigms to this new field: social sciences with a strong empirical and experimental approach, industrial and interaction design with a strong emphasise on artistic form giving, and engineering disciplines with a strong technical and formal approach. This programmatic paper presents, discusses and recommends a possible way to integrate the strengths of different research and design paradigms based on triangulation, and we argue for HCI as an engineering discipline.</mods:abstract>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-11</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Matthias</mods:namePart>
+								<mods:namePart type="family">Rauterberg</mods:namePart>
+								<mods:affiliation>Eindhoven University of Technology</mods:affiliation>
+								<mods:affiliation>g.w.m.rauterberg@tue.nl</mods:affiliation>
+								<mods:description>full professor at Department Industrial Design, head of the Designed Intelligence Group</mods:description>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>(human computer interaction; design paradigm; research agenda; triangulation)</mods:topic>
+							</mods:subject>
+							<mods:subject authority="local">
+								<mods:topic>Computing</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">123456789/260</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I2122006026/345</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:identifier type="hdl">123456789/107</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="uri">http://epress.lib.uts.edu/journals/ajict</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>22</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the sixth article (list of reviewers) -->
+			<mets:dmdSec ID="D32-123456789-261">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:METS="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>List of Reviewers</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-08</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Editorial</mods:namePart>
+								<mods:namePart type="family">Board</mods:namePart>
+								<mods:affiliation>University of Technology, Sydney / University of the Western Cape</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:identifier type="hdl">123456789/261</mods:identifier>
+							<mods:genre>additional material</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/1I2122006REV/349</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="hdl">123456789/107</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>1</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the seventh article (Author Guidelines)  -->
+			<mets:dmdSec ID="D36-123456789-262">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:METS="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Author Guidelines</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-13</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Editorial</mods:namePart>
+								<mods:namePart type="family">Board</mods:namePart>
+								<mods:affiliation>University of Technology, Sydney / University of the Western Cape</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>Author Guidelines</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">123456789/262</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/1I2122006AUG/354</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="hdl">123456789/107</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>5</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Descriptive metadata for the eighth article (Copyright Form) -->
+			<mets:dmdSec ID="D40-123456789-263">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods xmlns:METS="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3">
+							<mods:language>
+								<mods:languageTerm type="text">en</mods:languageTerm>
+							</mods:language>
+							<mods:titleInfo>
+								<mods:title>Copyright Form</mods:title>
+							</mods:titleInfo>
+							<mods:originInfo>
+								<mods:dateIssued>2006-12-08</mods:dateIssued>
+							</mods:originInfo>
+							<mods:name>
+								<mods:namePart type="given">Editorial</mods:namePart>
+								<mods:namePart type="family">Board</mods:namePart>
+								<mods:affiliation>University of Technology, Sydney / University of the Western Cape</mods:affiliation>
+								<mods:affiliation>Johnson.Agbinya@uts.edu.au</mods:affiliation>
+								<mods:role>
+									<mods:roleTerm type="text">primary_contact</mods:roleTerm>
+								</mods:role>
+							</mods:name>
+							<mods:subject>
+								<mods:topic>copyright form</mods:topic>
+							</mods:subject>
+							<mods:identifier type="hdl">123456789/263</mods:identifier>
+							<mods:genre>article</mods:genre>
+							<mods:relatedItem type="otherVersion">
+								<mods:identifier type="uri">http://epress.lib.uts.edu.au/ojs/index.php/ajict/article/view/E1I21220060CPR3/347</mods:identifier>
+							</mods:relatedItem>
+							<mods:relatedItem type="host">
+								<mods:identifier type="hdl">123456789/254</mods:identifier>
+								<mods:relatedItem type="host">
+									<mods:titleInfo>
+										<mods:title>African Journal of Information &amp; Communication Technology</mods:title>
+									</mods:titleInfo>
+									<mods:identifier type="issn">1449-2679</mods:identifier>
+									<mods:identifier type="hdl">123456789/107</mods:identifier>
+									<mods:part>
+										<mods:detail type="volume">
+											<mods:number>2</mods:number>
+										</mods:detail>
+										<mods:detail type="issue">
+											<mods:number>4</mods:number>
+										</mods:detail>
+										<mods:date>June 2006</mods:date>
+										<mods:extent unit="pages">
+											<mods:total>1</mods:total>
+										</mods:extent>
+									</mods:part>
+								</mods:relatedItem>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:amdSec>
+				<mets:techMD ID="T2-123456789-254">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/254</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>full</premis:preservationLevel>
+								<premis:objectCategory>Representation</premis:objectCategory>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T6-123456789-255">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/255</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>46b6e51bee4121f764d2e6122314f40d</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>image/jpeg</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-255</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T11-123456789-256">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/256</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>25138b12fbba7dd61f1e1459b1992940</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-256</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T16-123456789-257">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/257</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>a5c1d10f314a629e38b422ad00b9d06a</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-257</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T21-123456789-258">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/258</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>c7e5b260f982195e8b2d2a4931e0229f</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-258</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T25-123456789-259">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/259</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>62f88e4303c6014674942c1e5be8a86d</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-259</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T30-123456789-260">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/260</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>31f965f58875493cbe690d42d598f977</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-260</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T35-123456789-261">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/261</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>f921423cae66ccc7faf1d8da9f28fc90</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-261</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T39-123456789-262">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/262</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>87e6552bd83130ddd52c7d3c1db9c8a9</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/msword</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-262</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:techMD ID="T43-123456789-263">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:object xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:objectIdentifier>
+									<premis:objectIdentifierType>handle</premis:objectIdentifierType>
+									<premis:objectIdentifierValue>123456789/263</premis:objectIdentifierValue>
+								</premis:objectIdentifier>
+								<premis:preservationLevel>known</premis:preservationLevel>
+								<premis:objectCategory>file</premis:objectCategory>
+								<premis:objectCharacteristics>
+									<premis:compositionLevel>0</premis:compositionLevel>
+									<premis:fixity>
+										<premis:messageDigestAlgorithm>MD5</premis:messageDigestAlgorithm>
+										<premis:messageDigest>4d1ee024f19b6144c665c5b318e20bb3</premis:messageDigest>
+									</premis:fixity>
+									<premis:format>
+										<premis:formatDesignation>
+											<premis:formatName>application/pdf</premis:formatName>
+										</premis:formatDesignation>
+									</premis:format>
+								</premis:objectCharacteristics>
+								<premis:linkingEventIdentifier>
+									<premis:linkingEventIdentifierType>internal</premis:linkingEventIdentifierType>
+									<premis:linkingEventIdentifierValue>E-123456789-263</premis:linkingEventIdentifierValue>
+								</premis:linkingEventIdentifier>
+							</premis:object>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:techMD>
+				<mets:digiprovMD ID="T4-123456789-255">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-255</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:10Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/255</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="T9-123456789-256">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-256</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:10Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/256</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="T14-123456789-257">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-257</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:11Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/257</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="T19-123456789-258">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-258</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:11Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/258</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="T23-123456789-259">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-259</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:12Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/259</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="T28-123456789-260">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-260</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:12Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/260</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="T33-123456789-261">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-261</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:13Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/261</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+				<mets:digiprovMD ID="T37-123456789-262">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-262</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:13Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/262</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+
+				<mets:digiprovMD ID="T41-123456789-263">
+					<mets:mdWrap MDTYPE="PREMIS">
+						<mets:xmlData>
+							<premis:event xmlns:premis="http://www.loc.gov/standards/premis">
+								<premis:eventIdentifier>
+									<premis:eventIdentifierType>internal</premis:eventIdentifierType>
+									<premis:eventIdentifierValue>E-123456789-263</premis:eventIdentifierValue>
+								</premis:eventIdentifier>
+								<premis:eventType>ingestion</premis:eventType>
+								<premis:eventDateTime>2007-07-27T06:23:13Z</premis:eventDateTime>
+								<premis:linkingObjectIdentifier>
+									<premis:linkingObjectIdentifierType>handle</premis:linkingObjectIdentifierType>
+									<premis:linkingObjectIdentifierValue>123456789/263</premis:linkingObjectIdentifierValue>
+								</premis:linkingObjectIdentifier>
+							</premis:event>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+			</mets:amdSec>
+			<mets:fileSec>
+				<mets:fileGrp USE="original">
+					<mets:file ID="F5-123456789-255" MIMETYPE="image/jpeg" SIZE="87769" CHECKSUM="46b6e51bee4121f764d2e6122314f40d" CHECKSUMTYPE="MD5" OWNERID="AJICT_Front_Dec06.JPG" ADMID="T6-123456789-255 T4-123456789-255">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/331/AJICT_Front_Dec06.JPG"/>
+					</mets:file>
+					<mets:file ID="F10-123456789-256" MIMETYPE="application/pdf" SIZE="63933" CHECKSUM="25138b12fbba7dd61f1e1459b1992940" CHECKSUMTYPE="MD5" OWNERID="Preface.pdf" ADMID="T9-123456789-256 T11-123456789-256">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/333/Preface.pdf"/>
+					</mets:file>
+					<mets:file ID="F15-123456789-257" MIMETYPE="application/pdf" SIZE="88120" CHECKSUM="a5c1d10f314a629e38b422ad00b9d06a" CHECKSUMTYPE="MD5" OWNERID="AJICT_FeatureTopic1.pdf" ADMID="T16-123456789-257 T14-123456789-257">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/335/AJICT_FeatureTopic1.pdf"/>
+					</mets:file>
+					<mets:file ID="F20-123456789-258" MIMETYPE="application/pdf" SIZE="504896" CHECKSUM="c7e5b260f982195e8b2d2a4931e0229f" CHECKSUMTYPE="MD5" OWNERID="AJICT_08-12-2006_Shehan Perera.pdf" ADMID="T19-123456789-258 T21-123456789-258">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/337/AJICT_08-12-2006_Shehan%20Perera.pdf"/>
+					</mets:file>
+					<mets:file ID="F24-123456789-259" MIMETYPE="application/pdf" SIZE="394999" CHECKSUM="62f88e4303c6014674942c1e5be8a86d" CHECKSUMTYPE="MD5" OWNERID="paper_aghvami.pdf" ADMID="T23-123456789-259 T25-123456789-259">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/339/paper_aghvami.pdf"/>
+					</mets:file>
+					<mets:file ID="F29-123456789-260" MIMETYPE="application/pdf" SIZE="559789" CHECKSUM="31f965f58875493cbe690d42d598f977" CHECKSUMTYPE="MD5" OWNERID="AJICT2006-paper-rauterberg_final.pdf" ADMID="T30-123456789-260 T28-123456789-260">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/341/AJICT2006-paper-rauterberg_final.pdf"/>
+					</mets:file>
+					<mets:file ID="F34-123456789-261" MIMETYPE="application/pdf" SIZE="14307" CHECKSUM="f921423cae66ccc7faf1d8da9f28fc90" CHECKSUMTYPE="MD5" OWNERID="AJICT_Reviewers_2006.pdf" ADMID="T35-123456789-261 T33-123456789-261">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/343/AJICT_Reviewers_2006.pdf"/>
+					</mets:file>
+					<mets:file ID="F38-123456789-262" MIMETYPE="application/msword" SIZE="204509" CHECKSUM="87e6552bd83130ddd52c7d3c1db9c8a9" CHECKSUMTYPE="MD5" OWNERID="AJICT_Template-A4.rtf" ADMID="T39-123456789-262 T37-123456789-262">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/345/AJICT_Template-A4.rtf"/>
+					</mets:file>
+					<mets:file ID="F42-123456789-263" MIMETYPE="application/pdf" SIZE="90788" CHECKSUM="4d1ee024f19b6144c665c5b318e20bb3" CHECKSUMTYPE="MD5" OWNERID="copyright_form.pdf" ADMID="T43-123456789-263 T41-123456789-263">
+						<mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="http://localhost:8080/dspace/retrieve/347/copyright_form.pdf"/>
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap TYPE="logical">
+				<mets:div DMDID="D1-123456789-254" ADMID="T2-123456789-254" TYPE="issue">
+					<mets:div TYPE="cover">
+						<mets:fptr FILEID="F5-123456789-255"/>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Preface">
+						<mets:div DMDID="D8-123456789-256" TYPE="article">
+							<mets:fptr FILEID="F10-123456789-256"/>
+						</mets:div>
+						<mets:div DMDID="D13-123456789-257" TYPE="article">
+							<mets:fptr FILEID="F15-123456789-257"/>
+						</mets:div>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Wireless and Mobile Communications">
+						<mets:div DMDID="D18-123456789-258" TYPE="article">
+							<mets:fptr FILEID="F20-123456789-258"/>
+						</mets:div>
+						<mets:div DMDID="D22-123456789-259" TYPE="article">
+							<mets:fptr FILEID="F24-123456789-259"/>
+						</mets:div>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Computing">
+						<mets:div DMDID="D27-123456789-260" TYPE="article">
+							<mets:fptr FILEID="F29-123456789-260"/>
+						</mets:div>
+					</mets:div>
+					<mets:div TYPE="section" LABEL="Back Page">
+						<mets:div DMDID="D32-123456789-261" TYPE="article">
+							<mets:fptr FILEID="F34-123456789-261"/>
+						</mets:div>
+						<mets:div DMDID="D36-123456789-262" TYPE="article">
+							<mets:fptr FILEID="F38-123456789-262"/>
+						</mets:div>
+						<mets:div DMDID="D40-123456789-263" TYPE="article">
+							<mets:fptr FILEID="F42-123456789-263"/>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>

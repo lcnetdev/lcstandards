@@ -1,0 +1,1492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 3 U (http://www.xmlspy.com) by Richard Beaubien (Univ. of California, Berkeley) -->
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ 
+																									       http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd
+																									       http://www.loc.gov/METS/
+																									       http://www.loc.gov/standards/mets/mets.xsd
+																									       http://www.loc.gov/mods/v3
+																									       http://www.loc.gov/standards/mods/v3/mods-3-0.xsd">
+  <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000005.xml</URI>
+  <title>Model Paged Text Object Profile</title>
+  <abstract>This profile is intended as a generic, model profile for METS objects representing manuscript, printed or born-digital text-based materials issued in a paged format.</abstract>
+  <date>2004-04-27T08:00:00</date>
+  <contact>
+    <name>Rick Beaubien</name>
+    <address>Library Systems Office, Rm. 386 Doe Library, University of California, Berkeley, CA 94720-6000
+    </address>
+    <phone>(510) 643-9776</phone>
+    <email>rbeaubie@library.berkeley.edu</email>
+  </contact>
+  <related_profile RELATIONSHIP="extends" URI="http://www.loc.gov/mets/profiles/00000004.xml">Model Imaged Object Profile
+  </related_profile>
+  <extension_schema>
+    <note>This profile does not require the use of any specific extension schemas in the context of METS  &lt;dmdSec&gt; and &lt;amdSec&gt; elements.</note>
+  </extension_schema>
+  <description_rules>
+    <p>Users of descriptive metadata extension schemas should follow the appropriate guidelines recommended by the extension schemas' maintenance agencies.  For example, users of the MODS schema should follow the MODS Users Guidelines published by the Library of Congress' Network Development and MARC Standards Office.</p>
+  </description_rules>
+  <controlled_vocabularies>
+    <vocabulary>
+      <name>Model Paged Text Object Profile &lt;file&gt; USE attribute values</name>
+      <maintenance_agency>Library Systems Office, The General Library, University of California, Berkeley</maintenance_agency>
+      <values>
+	<value>archive image</value>
+	<value>reference image</value>
+	<value>thumbnail image</value>
+	<value>tei transcription</value>
+	<value>tei translation</value>
+	<value>ocr</value>
+	<value>ocr dirty</value>
+      </values>
+      <context ID="vc1" RELATEDMAT="fileSec2">
+	<p>mets/fileSec/fileGrp/@USE</p>
+	<p>mets/fileSec/fileGrp/file/@USE</p>
+      </context>
+      <description>
+	<p>These are the supported values for &lt;file&gt; and &lt;fileGrp&gt; USE attributes in paged text objects conforming to this profile.</p>
+	<p>&quot;archive image&quot;, &quot;reference image&quot; and &quot;thumbnail image&quot; are appropriate values to describe the USE of image content files. &quot;archive image&quot; should designate the image master; &quot;thumbnail image&quot; the image thumbnail; and &quot;reference image&quot; any intermediate resolutions intended for reference purposes.</p>
+	<p>&quot;tei transcription&quot; and &quot;tei translation&quot; are appropriate values to describe associated structured text files encoded according to TEI rules. &quot;tei transcription&quot; designates a direct TEI transcription of text based materials. &quot;tei translation&quot; designates a TEI translation of these materials from their original language.</p>
+	<p>&quot;ocr&quot; and &quot;ocr dirty&quot; should be used to designate versions of the text produced by ocr technologies.  &quot;ocr dirty&quot; would be used to distinguish ocr text that is not suitable for presentation to the user from clean &quot;ocr&quot;.</p>
+	<p>A given segment of the source material could be represented by more than one content file of a particular USE.  For example, the page of a manuscript that has been digitized could be represented by an image master (USE=&quot;archive image&quot;), a thumbnail image (USE=&quot;thumbnail image&quot;), but two jpeg reference images of different resolutions (USE=&quot;reference image&quot;)</p>
+      </description>
+    </vocabulary>
+    <vocabulary>
+      <name>Model Paged Text Object &lt;structMap&gt; TYPE attribute values</name>
+      <maintenance_agency>Library Systems Office, The General Library, University of California, Berkeley</maintenance_agency>
+      <values>
+	<value>physical</value>
+	<value>logical</value>
+	<value>mixed</value>
+      </values>
+      <context ID="vc2" RELATEDMAT="structMap2">
+	<p>mets/structMap/@TYPE</p>
+      </context>
+      <description>
+	<p>These are the supported values for the &lt;structMap&gt; TYPE attribute in METS documents conforming to this profile.</p>
+	<p>&quot;physical&quot; designates a purely physical structure.  For example, a book divided into page views.</p>
+	<p>&quot;logical&quot; designates a purely logical structure.  For example, a book divided into chapters; or a diary divided into diary entries.</p>
+	<p>&quot;mixed&quot; designates a mixed structure.  For example, a book divided into chapters, divided into page views.</p>
+      </description>
+    </vocabulary>
+  </controlled_vocabularies>
+  <structural_requirements>
+    <metsRootElement>
+      <requirement ID="metsRoot1">
+	<p>The root &lt;mets&gt;element must include a LABEL attribute value.</p>
+      </requirement>
+      <requirement ID="metsRoot2">
+	<p>The root &lt;mets&gt; element must include an OBJID attribute value that uniquely identifies the object in its owning repository.</p>
+      </requirement>
+    </metsRootElement>
+    <metsHdr>
+      <requirement ID="metsHdr1">
+	<p>Conforming METS documents may, but need not, contain a &lt;metsHdr&gt; element.</p>
+      </requirement>
+    </metsHdr>
+    <dmdSec>
+      <requirement>
+	<p>Conforming METS documents may, but need not, contain a one or more &lt;dmdSec&gt; elements. Each &lt;dmdSec&gt; may in turn contain a &lt;dmdRef&gt; or a &lt;dmdWrap&gt;</p>
+      </requirement>
+      <requirement ID="dmdSec2">
+	<p>This profile establishes no requirements as to extension schemas that may be used to express descriptive metadata in the context of the dmdSec/mdWrap/xmlData element in conforming METS documents.</p>
+      </requirement>
+    </dmdSec>
+    <amdSec>
+      <requirement ID="amdSec1">
+	<p>Conforming METS documents may or may not contain administrative metadata. Any of the supported &lt;amdSec&gt; child elements may appear: &lt;techMD&gt;, &lt;sourceMD&gt;,&lt; rightsMD&gt; and/or &lt;digiprovMD&gt;.</p>
+      </requirement>
+      <requirement ID="amdSec2">
+	<p>This profile establishes no requirements as to extension schemas that may be used to express administrative metadata in the context of any techMD/mdWrap/xmlData, sourceMD/mdWrap/xmlData, rightsMD/mdWrap/xmlData, or digiprovMD/mdWrap/xmlData elements appearing in an &lt;amdSec&gt; in a conforming METS documents.</p>
+      </requirement>
+    </amdSec>
+    <fileSec>
+      <requirement ID="fileSec1">
+	<p>The &lt;fileSec&gt; of a conforming METS document must contain a parent &lt;fileGrp&gt; for each file format/use represented by the content files.  For example, the &lt;fileSec&gt; of a typical METS document implementing this profile might contain one &lt;fileGrp&gt; representing TIFF master images, one &lt;fileGrp&gt; representing high resolution JPEG reference images , one &lt;fileGrp&gt; representing medium resolution JPEG reference images, one &lt;fileGrp&gt; representing GIF thumbnail images, and one &lt;fileGrp&gt; representing TEI transcriptions.  Each of these &lt;fileGrp&gt; elements may or may not contain subsidiary &lt;fileGrp&gt; elements representing subgroups of the content files.</p>
+      </requirement>
+      <requirement ID="fileSec2" RELATEDMAT="vc1">
+	<p>Each &lt;file&gt; represented in the &lt;fileSec&gt; must have an associated USE attribute.  The USE attribute may, however, be expressed at the &lt;fileGrp&gt; level, in which case it is taken to pertain to all &lt;file&gt; elements in the &lt;fileGrp&gt;. It may also, of course, be expressed at the &lt;file&gt; element level. Supported &lt;file&gt;/&lt;fileGrp&gt; USE attribute values appear in the &lt;controlled_vocabularies&gt; section of this document.</p>
+      </requirement>
+    </fileSec>
+    <structMap>
+      <requirement ID="structMap1">
+	<p>A conforming METS document must contain at least one &lt;structMap&gt;; it may, however, contain more than one &lt;structMap&gt;. There is no requirement as to &lt;structMap&gt; TYPE (&quot;logical&quot;,&quot;physical&quot;, or &quot;mixed&quot;).</p>
+      </requirement>
+      <requirement ID="structMap2" RELATEDMAT="vc2">
+	<p>A conforming &lt;structMap&gt; must contain a TYPE attribute. Supported TYPE values appear in the &lt;controlled_vocabularies&gt; section of this document (&quot;logical&quot;,&quot;physical&quot;, or &quot;mixed&quot;).</p>
+      </requirement>
+      <requirement ID="structMap3">
+	<p>Each &lt;div&gt; must include a LABEL attribute value.</p>
+      </requirement>
+      <requirement ID="structMap4">
+	<p>A &lt;div&gt; element may or may not directly contain &lt;fptr&gt; elements. (In other words, a &lt;div&gt; of the &lt;structMap&gt; may or may not have content files directly associated with it).</p>
+      </requirement>
+      <requirement ID="structMap5">
+	<p>An &lt;fptr&gt; element must either 1) directly point to a &lt;file&gt; element via its FILEID attribute; or 2) contain an &lt;area&gt; element that points to a &lt;file&gt; element; or 3) contain a &lt;seq&gt; element comprising multiple &lt;area&gt; elements that point to the relevant &lt;file&gt; elements. METS documents implementing this profile must not use the &lt;par&gt; element.   &lt;structMap&gt;s of &quot;physical&quot; and &quot;mixed&quot; TYPEs must not use either the &lt;par&gt; or &lt;seq&gt; elements.
+	</p>
+      </requirement>
+      <requirement ID="structMap6">
+	<p>An &lt;fptr&gt; element could directly contain an &lt;area&gt; element if only a portion of an integral file manifests the parent &lt;div&gt;.  This is likely to occur in either of two cases. 1) This would typically be the case when the parent &lt;div&gt; element represented just a segment of the entire document and the &lt;fptr&gt; represented a tei transcription or a tei translation. In this case, the &lt;area&gt; element under the &lt;fptr&gt; would point to the  &lt;file&gt; element representing the tei document (via its FILEID attribute) and must at least indicate  the starting point of the  the relevant section of the referenced tei file via the &lt;area&gt; BEGIN attribute. The BEGIN attribute, in this case, would have a BETYPE of &quot;IDREF&quot;. The &lt;area&gt; element might also express the end point of the relevant section of the referenced file via its END attribute, but it need not do so. 2) When a &lt;structMap&gt; represents a logical structure, its individual &lt;div&gt; elements may each be manifested by only a portion of the associated image content files represented by its child &lt;fptr&gt; elements. In this case, an &lt;fptr&gt; element representing an image content file could, but need not, contain a &lt;area&gt; element which specified the shape and coordinates of the relevant section of the image via the &lt;area&gt; element's SHAPE and COORDS attribute values. 
+	</p>
+      </requirement>
+      <requirement ID="structMap7">
+	<p>An &lt;fptr&gt; element would contain a &lt;seq&gt; element if multiple files needed to be&quot;played&quot; in sequence to manifest a division.  This might be the case if the &lt;structMap&gt; expressed a logical structure and a &lt;div&gt; in that structure required several files to manifest it.  For example, the &lt;div&gt; elements in the &lt;structMap&gt; for a diary might represent diary entries; and some of these entries might span multiple physical pages, and hence require multiple image content files to manifest them. In this case, the &lt;div&gt; representing the spanned diary entry would contain at least one &lt;fptr&gt;element; this &lt;fptr&gt; element would contain a &lt;seq&gt; element which in turn contained a separate &lt;area&gt; element pointing to each &lt;file&gt; element representing a page the diary entry spans. The &lt;area&gt; elements may include SHAPE and COORDS attribute values to identify the relevant sections of the associated image files, but they need not do so.
+	</p>
+      </requirement>
+      <requirement ID="structMap8">
+	<p>Each &lt;fptr&gt; element that does not contain subsidiary &lt;area&gt; or &lt;seq&gt; elements must  point directly to a &lt;file&gt; element in the &lt;fileSec&gt; via its FILEID attributes. Similarly, each &lt;area&gt; element appearing under an &lt;fptr&gt; element or a &lt;seq&gt; element must point to directly to a &lt;file&gt; element via its FILEID attribute.</p>
+      </requirement>
+    </structMap>
+    <structLink>
+      <requirement ID="structLink1">
+	<p>A conforming METS document may contain a &lt;structLink&gt; element.  This profile, however, establishes no guidelines or expectations for its use.</p>
+      </requirement>
+    </structLink>
+    <behaviorSec>
+      <requirement ID="behaviorSec1">
+	<p>A conforming METS document may contain a &lt;behaviorSec&gt; element. This profile, however, establishes no guidelines or expectations for its use.</p>
+      </requirement>
+    </behaviorSec>
+  </structural_requirements>
+  <technical_requirements>
+    <content_files>
+      <requirement>
+	<p>This profile supports only image and text content files.</p>
+      </requirement>
+      <requirement>
+	<p>If there is image content, the image master (archive) files must be of TIFF format.</p>
+      </requirement>
+      <requirement>
+	<p>All &quot;tei translation&quot; and &quot;tei transcription&quot; files must be encoded according to version 1 of  the "TEI Text Encoding in Libraries: Guidelines for Best Encoding Practices" maintained by the Digital Library Federation (http://www.diglib.org/standards/tei.htm). </p>
+      </requirement>
+    </content_files>
+  </technical_requirements>
+  <tool/>
+  <Appendix NUMBER="1">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/TR/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd
+																										http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd http://www.loc.gov/mix/ http://www.loc.gov/mix/mix.xsd" OBJID="ark:/13030/kt9s2009hz" TYPE="Text" LABEL="Dictation from Amelia Hartman Saunders : Sacramento : ms., 1887" PROFILE="http://www.loc.gov/mets/profiles/00000005.xml">
+      <mets:metsHdr CREATEDATE="2003-04-10T10:30:00">
+	<mets:agent ROLE="CREATOR">
+	  <mets:name>Rick Beaubien</mets:name>
+	</mets:agent>
+      </mets:metsHdr>
+      <mets:dmdSec ID="DMD1A">
+	<mets:mdWrap MDTYPE="MODS">
+	  <mets:xmlData>
+	    <mods:mods>
+	      <mods:titleInfo>
+		<mods:title>Dictation from Amelia Hartman Saunders : ms., Sacramento : 1887</mods:title>
+	      </mods:titleInfo>
+	      <mods:name type="personal">
+		<mods:namePart>Saunders, Amelia Hartman</mods:namePart>
+		<mods:namePart type="date">1851-</mods:namePart>
+		<mods:role>
+		  <mods:roleTerm authority="lcnaf" type="text">author</mods:roleTerm>
+		</mods:role>
+	      </mods:name>
+	      <mods:typeOfResource manuscript="yes">text</mods:typeOfResource>
+	      <mods:genre authority="rbgenr">Autobiographies</mods:genre>
+	      <mods:originInfo>
+		<mods:place>
+		  <mods:placeTerm type="text">Sacramento, California</mods:placeTerm>
+		</mods:place>
+		<mods:dateCreated>1887</mods:dateCreated>
+		<mods:dateCreated encoding="w3cdtf" point="start">1887</mods:dateCreated>
+	      </mods:originInfo>
+	      <mods:language>
+		<mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+	      </mods:language>
+	      <mods:physicalDescription>
+		<mods:extent>1 folder</mods:extent>
+	      </mods:physicalDescription>
+	      <mods:abstract>From miscellaneous California dictations, statements and some questionnaires concerning social life, customs, economic conditions, recorded and prepared for H.H. Bancroft primarily between 1887 and 1889.</mods:abstract>
+	      <mods:note type="provenance">Forms part of the Hubert Howe Bancroft Collection</mods:note>
+	      <mods:subject authority="lcsh">
+		<mods:geographic>California--Biography</mods:geographic>
+	      </mods:subject>
+	      <mods:subject>
+		<mods:geographic>Sacramento (Calif.)--Social life and customs</mods:geographic>
+	      </mods:subject>
+	      <mods:relatedItem type="host">
+		<mods:titleInfo>
+		  <mods:title>Hubert Howe Bancroft Collection</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:relatedItem type="host">
+		<mods:titleInfo type="uniform">
+		  <mods:title>Miscellaneous California dictations</mods:title>
+		</mods:titleInfo>
+	      </mods:relatedItem>
+	      <mods:identifier type="local">BANC C-D 810:386</mods:identifier>
+	      <mods:location>
+		<mods:physicalLocation>The Bancroft Library. University of California, Berkeley, CA 94720-6000</mods:physicalLocation>
+	      </mods:location>
+	      <mods:accessCondition displayLabel="Access restrictions:">Non-circulating; may be used only in the Bancroft library</mods:accessCondition>
+	    </mods:mods>
+	  </mets:xmlData>
+	</mets:mdWrap>
+      </mets:dmdSec>
+      <mets:fileSec>
+	<mets:fileGrp VERSDATE="1999-06-17T00:00:00" USE="archive image">
+	  <mets:file ID="FID1A" MIMETYPE="image/tiff" SEQ="1" CREATED="1999-06-17T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/masters/bkm00002773a.tif" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID2A" MIMETYPE="image/tiff" SEQ="2" CREATED="1999-06-17T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/masters/bkm00002774a.tif" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="thumbnail image">
+	  <mets:file ID="FID3A" MIMETYPE="image/gif" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_a.gif" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID4A" MIMETYPE="image/gif" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_a.gif" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="reference image">
+	  <mets:file ID="FID5A" MIMETYPE="image/jpeg" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_b.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID6A" MIMETYPE="image/jpeg" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_b.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="reference image">
+	  <mets:file ID="FID7A" MIMETYPE="image/jpeg" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002773a_c.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	  <mets:file ID="FID8A" MIMETYPE="image/jpeg" SEQ="2" CREATED="1999-06-28T00:00:00" GROUPID="GID2">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/images/bkm00002774a_c.jpg" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1999-06-28T00:00:00" USE="tei transcription">
+	  <mets:file ID="FID9A" MIMETYPE="text/sgml" SEQ="1" CREATED="1999-06-28T00:00:00" GROUPID="GID3">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/moa2/tei/bkm00002772_a.sgml" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+      </mets:fileSec>
+      <mets:structMap TYPE="physical">
+	<mets:div ORDER="1" TYPE="text" LABEL="Dictation from Amelia Hartman Saunders : Sacramento : ms., 1887" DMDID="DMD1A">
+	  <mets:fptr FILEID="FID9"/>
+	  <mets:div ORDER="1" TYPE="page" LABEL=" Page [1]">
+	    <mets:fptr FILEID="FID1A"/>
+	    <mets:fptr FILEID="FID3A"/>
+	    <mets:fptr FILEID="FID5A"/>
+	    <mets:fptr FILEID="FID7A"/>
+	  </mets:div>
+	  <mets:div ORDER="2" TYPE="page" LABEL=" Page [2]">
+	    <mets:fptr FILEID="FID2A"/>
+	    <mets:fptr FILEID="FID4A"/>
+	    <mets:fptr FILEID="FID6A"/>
+	    <mets:fptr FILEID="FID8A"/>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+  <Appendix NUMBER="2">
+    <mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/" xmlns:xlink="http://www.w3.org/TR/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd" OBJID="ark:/13030/kt9s2010hz" TYPE="text" LABEL="[Patrick Breen Diary November 20, 1846 - March 1, 1847]" PROFILE="http://www.loc.gov/mets/profiles/00000005.xml">
+      <mets:metsHdr CREATEDATE="2003-04-10T10:30:00">
+	<mets:agent ROLE="CREATOR">
+	  <mets:name>Rick Beaubien</mets:name>
+	</mets:agent>
+      </mets:metsHdr>
+      <mets:dmdSec ID="DMD1">
+	<mets:mdRef xlink:href="http://sunsite2.berkeley.edu/cgi-bin/oac/calher/breen" LOCTYPE="URL" MDTYPE="EAD"/>
+      </mets:dmdSec>
+      <mets:fileSec>
+	<mets:fileGrp VERSDATE="1998-12-04T00:00:00" USE=" tei transcription">
+	  <mets:file ID="FID1" MIMETYPE="text/sgml" SEQ="1" CREATED="1998-12-04T00:00:00" GROUPID="GID1">
+	    <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/sgml/breen2.sgm" LOCTYPE="URL"/>
+	  </mets:file>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1998-04-03T00:00:00">
+	  <mets:fileGrp USE="archive image">
+	    <mets:file ID="FID2" MIMETYPE="image/tiff" SEQ="1" CREATED="1998-04-03T00:00:00" GROUPID="GID1">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018235A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	  <mets:fileGrp>
+	    <mets:file ID="FID3" MIMETYPE="image/tiff" SEQ="2" CREATED="1998-04-03T00:00:00" GROUPID="GID2">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018236A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID4" MIMETYPE="image/tiff" SEQ="3" CREATED="1998-04-03T00:00:00" GROUPID="GID3">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018237A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID5" MIMETYPE="image/tiff" SEQ="4" CREATED="1998-04-03T00:00:00" GROUPID="GID4">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018238A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID6" MIMETYPE="image/tiff" SEQ="5" CREATED="1998-04-03T00:00:00" GROUPID="GID5">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018239A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID7" MIMETYPE="image/tiff" SEQ="6" CREATED="1998-04-03T00:00:00" GROUPID="GID6">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018240A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID8" MIMETYPE="image/tiff" SEQ="7" CREATED="1998-04-03T00:00:00" GROUPID="GID7">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018241A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID9" MIMETYPE="image/tiff" SEQ="8" CREATED="1998-04-03T00:00:00" GROUPID="GID8">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018242A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID10" MIMETYPE="image/tiff" SEQ="9" CREATED="1998-04-03T00:00:00" GROUPID="GID9">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018243A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID11" MIMETYPE="image/tiff" SEQ="10" CREATED="1998-04-03T00:00:00" GROUPID="GID10">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018244A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID12" MIMETYPE="image/tiff" SEQ="11" CREATED="1998-04-03T00:00:00" GROUPID="GID11">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018245A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID13" MIMETYPE="image/tiff" SEQ="12" CREATED="1998-04-03T00:00:00" GROUPID="GID12">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018246A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID14" MIMETYPE="image/tiff" SEQ="13" CREATED="1998-04-03T00:00:00" GROUPID="GID13">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018247A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID15" MIMETYPE="image/tiff" SEQ="14" CREATED="1998-04-03T00:00:00" GROUPID="GID14">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018248A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID16" MIMETYPE="image/tiff" SEQ="15" CREATED="1998-04-03T00:00:00" GROUPID="GID15">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018249A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID17" MIMETYPE="image/tiff" SEQ="16" CREATED="1998-04-03T00:00:00" GROUPID="GID16">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018250A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID18" MIMETYPE="image/tiff" SEQ="17" CREATED="1998-04-03T00:00:00" GROUPID="GID17">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018251A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID19" MIMETYPE="image/tiff" SEQ="18" CREATED="1998-04-03T00:00:00" GROUPID="GID18">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018252A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID20" MIMETYPE="image/tiff" SEQ="19" CREATED="1998-04-03T00:00:00" GROUPID="GID19">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018253A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID21" MIMETYPE="image/tiff" SEQ="20" CREATED="1998-04-03T00:00:00" GROUPID="GID20">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018254A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID22" MIMETYPE="image/tiff" SEQ="21" CREATED="1998-04-03T00:00:00" GROUPID="GID21">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018255A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID23" MIMETYPE="image/tiff" SEQ="22" CREATED="1998-04-03T00:00:00" GROUPID="GID22">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018256A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID24" MIMETYPE="image/tiff" SEQ="23" CREATED="1998-04-03T00:00:00" GROUPID="GID23">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018258A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID25" MIMETYPE="image/tiff" SEQ="24" CREATED="1998-04-03T00:00:00" GROUPID="GID24">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018259A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID26" MIMETYPE="image/tiff" SEQ="25" CREATED="1998-04-03T00:00:00" GROUPID="GID25">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018260A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID27" MIMETYPE="image/tiff" SEQ="26" CREATED="1998-04-03T00:00:00" GROUPID="GID26">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018261A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID28" MIMETYPE="image/tiff" SEQ="27" CREATED="1998-04-03T00:00:00" GROUPID="GID27">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018262A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID29" MIMETYPE="image/tiff" SEQ="28" CREATED="1998-04-03T00:00:00" GROUPID="GID28">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018263A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID30" MIMETYPE="image/tiff" SEQ="29" CREATED="1998-04-03T00:00:00" GROUPID="GID29">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018264A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID31" MIMETYPE="image/tiff" SEQ="30" CREATED="1998-04-03T00:00:00" GROUPID="GID30">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018265A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	  <mets:fileGrp USE="archive image">
+	    <mets:file ID="FID32" MIMETYPE="image/tiff" SEQ="31" CREATED="1998-04-03T00:00:00" GROUPID="GID31">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018266A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID33" MIMETYPE="image/tiff" SEQ="32" CREATED="1998-04-03T00:00:00" GROUPID="GID32">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018267A.tif" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1998-04-03T00:00:00">
+	  <mets:fileGrp USE="reference image">
+	    <mets:file ID="FID34" MIMETYPE="image/jpeg" SEQ="1" CREATED="1998-04-03T00:00:00" GROUPID="GID1">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018235B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	  <mets:fileGrp USE="reference image">
+	    <mets:file ID="FID35" MIMETYPE="image/jpeg" SEQ="2" CREATED="1998-04-03T00:00:00" GROUPID="GID2">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018236B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID36" MIMETYPE="image/jpeg" SEQ="3" CREATED="1998-04-03T00:00:00" GROUPID="GID3">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018237B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID37" MIMETYPE="image/jpeg" SEQ="4" CREATED="1998-04-03T00:00:00" GROUPID="GID4">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018238B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID38" MIMETYPE="image/jpeg" SEQ="5" CREATED="1998-04-03T00:00:00" GROUPID="GID5">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018239B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID39" MIMETYPE="image/jpeg" SEQ="6" CREATED="1998-04-03T00:00:00" GROUPID="GID6">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018240B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID40" MIMETYPE="image/jpeg" SEQ="7" CREATED="1998-04-03T00:00:00" GROUPID="GID7">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018241B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID41" MIMETYPE="image/jpeg" SEQ="8" CREATED="1998-04-03T00:00:00" GROUPID="GID8">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018242B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID42" MIMETYPE="image/jpeg" SEQ="9" CREATED="1998-04-03T00:00:00" GROUPID="GID9">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018243B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID43" MIMETYPE="image/jpeg" SEQ="10" CREATED="1998-04-03T00:00:00" GROUPID="GID10">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018244B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID44" MIMETYPE="image/jpeg" SEQ="11" CREATED="1998-04-03T00:00:00" GROUPID="GID11">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018245B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID45" MIMETYPE="image/jpeg" SEQ="12" CREATED="1998-04-03T00:00:00" GROUPID="GID12">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018246B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID46" MIMETYPE="image/jpeg" SEQ="13" CREATED="1998-04-03T00:00:00" GROUPID="GID13">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018247B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID47" MIMETYPE="image/jpeg" SEQ="14" CREATED="1998-04-03T00:00:00" GROUPID="GID14">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018248B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID48" MIMETYPE="image/jpeg" SEQ="15" CREATED="1998-04-03T00:00:00" GROUPID="GID15">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018249B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID49" MIMETYPE="image/jpeg" SEQ="16" CREATED="1998-04-03T00:00:00" GROUPID="GID16">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018250B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID50" MIMETYPE="image/jpeg" SEQ="17" CREATED="1998-04-03T00:00:00" GROUPID="GID17">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018251B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID51" MIMETYPE="image/jpeg" SEQ="18" CREATED="1998-04-03T00:00:00" GROUPID="GID18">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018252B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID52" MIMETYPE="image/jpeg" SEQ="19" CREATED="1998-04-03T00:00:00" GROUPID="GID19">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018253B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID53" MIMETYPE="image/jpeg" SEQ="20" CREATED="1998-04-03T00:00:00" GROUPID="GID20">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018254B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID54" MIMETYPE="image/jpeg" SEQ="21" CREATED="1998-04-03T00:00:00" GROUPID="GID21">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018255B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID55" MIMETYPE="image/jpeg" SEQ="22" CREATED="1998-04-03T00:00:00" GROUPID="GID22">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018256B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID56" MIMETYPE="image/jpeg" SEQ="23" CREATED="1998-04-03T00:00:00" GROUPID="GID23">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018258B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID57" MIMETYPE="image/jpeg" SEQ="24" CREATED="1998-04-03T00:00:00" GROUPID="GID24">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018259B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID58" MIMETYPE="image/jpeg" SEQ="25" CREATED="1998-04-03T00:00:00" GROUPID="GID25">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018260B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID59" MIMETYPE="image/jpeg" SEQ="26" CREATED="1998-04-03T00:00:00" GROUPID="GID26">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018261B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID60" MIMETYPE="image/jpeg" SEQ="27" CREATED="1998-04-03T00:00:00" GROUPID="GID27">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018262B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID61" MIMETYPE="image/jpeg" SEQ="28" CREATED="1998-04-03T00:00:00" GROUPID="GID28">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018263B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID62" MIMETYPE="image/jpeg" SEQ="29" CREATED="1998-04-03T00:00:00" GROUPID="GID29">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018264B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID63" MIMETYPE="image/jpeg" SEQ="30" CREATED="1998-04-03T00:00:00" GROUPID="GID30">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018265B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	  <mets:fileGrp USE="reference image">
+	    <mets:file ID="FID64" MIMETYPE="image/jpeg" SEQ="31" CREATED="1998-04-03T00:00:00" GROUPID="GID31">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018266B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID65" MIMETYPE="image/jpeg" SEQ="32" CREATED="1998-04-03T00:00:00" GROUPID="GID32">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018267B.jpg" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	</mets:fileGrp>
+	<mets:fileGrp VERSDATE="1998-04-03T00:00:00">
+	  <mets:fileGrp USE="thumbnail image">
+	    <mets:file ID="FID66" MIMETYPE="image/gif" SEQ="1" CREATED="1998-04-03T00:00:00" GROUPID="GID1">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018235A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	  <mets:fileGrp>
+	    <mets:file ID="FID67" MIMETYPE="image/gif" SEQ="2" CREATED="1998-04-03T00:00:00" GROUPID="GID2">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018236A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID68" MIMETYPE="image/gif" SEQ="3" CREATED="1998-04-03T00:00:00" GROUPID="GID3">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018237A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID69" MIMETYPE="image/gif" SEQ="4" CREATED="1998-04-03T00:00:00" GROUPID="GID4">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018238A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID70" MIMETYPE="image/gif" SEQ="5" CREATED="1998-04-03T00:00:00" GROUPID="GID5">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018239A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID71" MIMETYPE="image/gif" SEQ="6" CREATED="1998-04-03T00:00:00" GROUPID="GID6">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018240A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID72" MIMETYPE="image/gif" SEQ="7" CREATED="1998-04-03T00:00:00" GROUPID="GID7">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018241A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID73" MIMETYPE="image/gif" SEQ="8" CREATED="1998-04-03T00:00:00" GROUPID="GID8">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018242A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID74" MIMETYPE="image/gif" SEQ="9" CREATED="1998-04-03T00:00:00" GROUPID="GID9">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018243A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID75" MIMETYPE="image/gif" SEQ="10" CREATED="1998-04-03T00:00:00" GROUPID="GID10">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018244A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID76" MIMETYPE="image/gif" SEQ="11" CREATED="1998-04-03T00:00:00" GROUPID="GID11">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018245A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID77" MIMETYPE="image/gif" SEQ="12" CREATED="1998-04-03T00:00:00" GROUPID="GID12">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018246A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID78" MIMETYPE="image/gif" SEQ="13" CREATED="1998-04-03T00:00:00" GROUPID="GID13">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018247A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID79" MIMETYPE="image/gif" SEQ="14" CREATED="1998-04-03T00:00:00" GROUPID="GID14">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018248A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID80" MIMETYPE="image/gif" SEQ="15" CREATED="1998-04-03T00:00:00" GROUPID="GID15">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018249A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID81" MIMETYPE="image/gif" SEQ="16" CREATED="1998-04-03T00:00:00" GROUPID="GID16">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018250A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID82" MIMETYPE="image/gif" SEQ="17" CREATED="1998-04-03T00:00:00" GROUPID="GID17">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018251A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID83" MIMETYPE="image/gif" SEQ="18" CREATED="1998-04-03T00:00:00" GROUPID="GID18">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018252A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID84" MIMETYPE="image/gif" SEQ="19" CREATED="1998-04-03T00:00:00" GROUPID="GID19">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018253A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID85" MIMETYPE="image/gif" SEQ="20" CREATED="1998-04-03T00:00:00" GROUPID="GID20">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018254A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID86" MIMETYPE="image/gif" SEQ="21" CREATED="1998-04-03T00:00:00" GROUPID="GID21">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018255A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID87" MIMETYPE="image/gif" SEQ="22" CREATED="1998-04-03T00:00:00" GROUPID="GID22">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018256A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID88" MIMETYPE="image/gif" SEQ="23" CREATED="1998-04-03T00:00:00" GROUPID="GID23">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018258A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID89" MIMETYPE="image/gif" SEQ="24" CREATED="1998-04-03T00:00:00" GROUPID="GID24">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018259A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID90" MIMETYPE="image/gif" SEQ="25" CREATED="1998-04-03T00:00:00" GROUPID="GID25">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018260A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID91" MIMETYPE="image/gif" SEQ="26" CREATED="1998-04-03T00:00:00" GROUPID="GID26">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018261A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID92" MIMETYPE="image/gif" SEQ="27" CREATED="1998-04-03T00:00:00" GROUPID="GID27">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018262A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID93" MIMETYPE="image/gif" SEQ="28" CREATED="1998-04-03T00:00:00" GROUPID="GID28">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018263A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID94" MIMETYPE="image/gif" SEQ="29" CREATED="1998-04-03T00:00:00" GROUPID="GID29">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018264A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID95" MIMETYPE="image/gif" SEQ="30" CREATED="1998-04-03T00:00:00" GROUPID="GID30">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018265A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	  <mets:fileGrp USE="thumbnail image">
+	    <mets:file ID="FID96" MIMETYPE="image/gif" SEQ="31" CREATED="1998-04-03T00:00:00" GROUPID="GID31">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018266A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	    <mets:file ID="FID97" MIMETYPE="image/gif" SEQ="32" CREATED="1998-04-03T00:00:00" GROUPID="GID32">
+	      <mets:FLocat xlink:href="http://sunsite.berkeley.edu/~jmcdonou/BREEN/figures/I0018267A.gif" LOCTYPE="URL"/>
+	    </mets:file>
+	  </mets:fileGrp>
+	</mets:fileGrp>
+      </mets:fileSec>
+      <mets:structMap TYPE="logical">
+	<mets:div ORDER="1" TYPE="diary" LABEL="[Patrick Breen Diary November 20, 1846 - March 1, 1847]" DMDID="DMD1">
+	  <mets:fptr FILEID="FID2"/>
+	  <mets:fptr FILEID="FID34"/>
+	  <mets:fptr FILEID="FID66"/>
+	  <mets:fptr>
+	    <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="titlepage"/>
+	  </mets:fptr>
+	  <mets:div ORDER="1" TYPE="entry" LABEL="Friday Nov. 20th 1846">
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID3"/>
+		<mets:area FILEID="FID4"/>
+	      </mets:seq>
+	    </mets:fptr>
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID35"/>
+		<mets:area FILEID="FID36"/>
+	      </mets:seq>
+	    </mets:fptr>
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID67"/>
+		<mets:area FILEID="FID68"/>
+	      </mets:seq>
+	    </mets:fptr>
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry1"/>
+	      </mets:seq>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="2" TYPE="entry" LABEL="sat. 21st">
+	    <mets:fptr FILEID="FID4"/>
+	    <mets:fptr FILEID="FID36"/>
+	    <mets:fptr FILEID="FID68"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry2"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="3" TYPE="entry" LABEL="Sunday 22nd">
+	    <mets:fptr FILEID="FID4"/>
+	    <mets:fptr FILEID="FID36"/>
+	    <mets:fptr FILEID="FID68"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry3"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="4" TYPE="entry" LABEL="Monday 23rd">
+	    <mets:fptr FILEID="FID4"/>
+	    <mets:fptr FILEID="FID36"/>
+	    <mets:fptr FILEID="FID68"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry4"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="5" TYPE="entry" LABEL="Tuesday 24th">
+	    <mets:fptr FILEID="FID5"/>
+	    <mets:fptr FILEID="FID37"/>
+	    <mets:fptr FILEID="FID69"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry5"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="6" TYPE="entry" LABEL="Wednesday 25th">
+	    <mets:fptr FILEID="FID5"/>
+	    <mets:fptr FILEID="FID37"/>
+	    <mets:fptr FILEID="FID69"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry6"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="7" TYPE="entry" LABEL="Thurssday the 26th">
+	    <mets:fptr FILEID="FID5"/>
+	    <mets:fptr FILEID="FID37"/>
+	    <mets:fptr FILEID="FID69"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry7"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="8" TYPE="entry" LABEL="Frriday 27">
+	    <mets:fptr FILEID="FID5"/>
+	    <mets:fptr FILEID="FID37"/>
+	    <mets:fptr FILEID="FID69"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry8"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="9" TYPE="entry" LABEL="Saturday 28th">
+	    <mets:fptr FILEID="FID5"/>
+	    <mets:fptr FILEID="FID37"/>
+	    <mets:fptr FILEID="FID69"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry9"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="10" TYPE="entry" LABEL="Sunday 29th">
+	    <mets:fptr FILEID="FID5"/>
+	    <mets:fptr FILEID="FID37"/>
+	    <mets:fptr FILEID="FID69"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry10"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="11" TYPE="entry" LABEL="Monday 30th">
+	    <mets:fptr FILEID="FID6"/>
+	    <mets:fptr FILEID="FID38"/>
+	    <mets:fptr FILEID="FID70"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry11"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="12" TYPE="entry" LABEL="December 1st Tuesday">
+	    <mets:fptr FILEID="FID6"/>
+	    <mets:fptr FILEID="FID38"/>
+	    <mets:fptr FILEID="FID70"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry12"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="13" TYPE="entry" LABEL="wedns. 2nd">
+	    <mets:fptr FILEID="FID6"/>
+	    <mets:fptr FILEID="FID38"/>
+	    <mets:fptr FILEID="FID70"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry13"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="14" TYPE="entry" LABEL="Thursd. 3rd.">
+	    <mets:fptr FILEID="FID7"/>
+	    <mets:fptr FILEID="FID39"/>
+	    <mets:fptr FILEID="FID71"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry14"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="15" TYPE="entry" LABEL="Friday 4th">
+	    <mets:fptr FILEID="FID7"/>
+	    <mets:fptr FILEID="FID39"/>
+	    <mets:fptr FILEID="FID71"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry15"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="16" TYPE="entry" LABEL="Saturday 5th">
+	    <mets:fptr FILEID="FID7"/>
+	    <mets:fptr FILEID="FID39"/>
+	    <mets:fptr FILEID="FID71"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry16"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="17" TYPE="entry" LABEL="Sund. 6th">
+	    <mets:fptr FILEID="FID7"/>
+	    <mets:fptr FILEID="FID39"/>
+	    <mets:fptr FILEID="FID71"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry17"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="18" TYPE="entry" LABEL="Mond. 7th">
+	    <mets:fptr FILEID="FID8"/>
+	    <mets:fptr FILEID="FID40"/>
+	    <mets:fptr FILEID="FID72"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry18"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="19" TYPE="entry" LABEL="Tues 8th">
+	    <mets:fptr FILEID="FID8"/>
+	    <mets:fptr FILEID="FID40"/>
+	    <mets:fptr FILEID="FID72"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry19"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="20" TYPE="entry" LABEL="Wedns. 9th">
+	    <mets:fptr FILEID="FID8"/>
+	    <mets:fptr FILEID="FID40"/>
+	    <mets:fptr FILEID="FID72"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry20"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="21" TYPE="entry" LABEL="Thursd. 10th">
+	    <mets:fptr FILEID="FID9"/>
+	    <mets:fptr FILEID="FID41"/>
+	    <mets:fptr FILEID="FID73"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry21"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="22" TYPE="entry" LABEL="Friday 11th">
+	    <mets:fptr FILEID="FID9"/>
+	    <mets:fptr FILEID="FID73"/>
+	    <mets:fptr FILEID="FID41"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry22"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="23" TYPE="entry" LABEL="Satd. 12th">
+	    <mets:fptr FILEID="FID9"/>
+	    <mets:fptr FILEID="FID73"/>
+	    <mets:fptr FILEID="FID41"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry23"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="24" TYPE="entry" LABEL="Sunday 13th">
+	    <mets:fptr FILEID="FID9"/>
+	    <mets:fptr FILEID="FID73"/>
+	    <mets:fptr FILEID="FID41"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry24"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="25" TYPE="entry" LABEL="monday 14">
+	    <mets:fptr FILEID="FID9"/>
+	    <mets:fptr FILEID="FID73"/>
+	    <mets:fptr FILEID="FID41"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry25"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="26" TYPE="entry" LABEL="Tuesday 15th">
+	    <mets:fptr FILEID="FID10"/>
+	    <mets:fptr FILEID="FID74"/>
+	    <mets:fptr FILEID="FID42"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry26"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="27" TYPE="entry" LABEL="Wed&apos;d 16th">
+	    <mets:fptr FILEID="FID10"/>
+	    <mets:fptr FILEID="FID74"/>
+	    <mets:fptr FILEID="FID42"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry27"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="28" TYPE="entry" LABEL="Thursd. 17th">
+	    <mets:fptr FILEID="FID10"/>
+	    <mets:fptr FILEID="FID74"/>
+	    <mets:fptr FILEID="FID42"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry28"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="29" TYPE="entry" LABEL="Frid&apos;d. 18th">
+	    <mets:fptr FILEID="FID10"/>
+	    <mets:fptr FILEID="FID74"/>
+	    <mets:fptr FILEID="FID42"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry29"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="30" TYPE="entry" LABEL="Satd. 19">
+	    <mets:fptr FILEID="FID10"/>
+	    <mets:fptr FILEID="FID74"/>
+	    <mets:fptr FILEID="FID42"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry30"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="31" TYPE="entry" LABEL="Sund. 20">
+	    <mets:fptr FILEID="FID11"/>
+	    <mets:fptr FILEID="FID75"/>
+	    <mets:fptr FILEID="FID43"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry31"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="32" TYPE="entry" LABEL="Mond. 21">
+	    <mets:fptr FILEID="FID11"/>
+	    <mets:fptr FILEID="FID75"/>
+	    <mets:fptr FILEID="FID43"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry32"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="33" TYPE="entry" LABEL="Tuesd. 22">
+	    <mets:fptr FILEID="FID12"/>
+	    <mets:fptr FILEID="FID76"/>
+	    <mets:fptr FILEID="FID44"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry33"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="34" TYPE="entry" LABEL="Wend. 23rd.">
+	    <mets:fptr FILEID="FID12"/>
+	    <mets:fptr FILEID="FID76"/>
+	    <mets:fptr FILEID="FID44"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry34"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="35" TYPE="entry" LABEL="Thursd. 24th">
+	    <mets:fptr FILEID="FID12"/>
+	    <mets:fptr FILEID="FID76"/>
+	    <mets:fptr FILEID="FID44"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry35"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="36" TYPE="entry" LABEL="Friday 25th">
+	    <mets:fptr FILEID="FID13"/>
+	    <mets:fptr FILEID="FID77"/>
+	    <mets:fptr FILEID="FID45"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry36"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="37" TYPE="entry" LABEL="Satd. 26th">
+	    <mets:fptr FILEID="FID13"/>
+	    <mets:fptr FILEID="FID77"/>
+	    <mets:fptr FILEID="FID45"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry37"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="38" TYPE="entry" LABEL="Sun 27">
+	    <mets:fptr FILEID="FID13"/>
+	    <mets:fptr FILEID="FID77"/>
+	    <mets:fptr FILEID="FID45"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry38"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="39" TYPE="entry" LABEL="Monday 28th">
+	    <mets:fptr FILEID="FID14"/>
+	    <mets:fptr FILEID="FID46"/>
+	    <mets:fptr FILEID="FID78"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry39"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="40" TYPE="entry" LABEL="Tuesday 29th">
+	    <mets:fptr FILEID="FID14"/>
+	    <mets:fptr FILEID="FID46"/>
+	    <mets:fptr FILEID="FID78"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry40"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="41" TYPE="entry" LABEL="Wedsd. 30th">
+	    <mets:fptr FILEID="FID14"/>
+	    <mets:fptr FILEID="FID46"/>
+	    <mets:fptr FILEID="FID78"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry41"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="42" TYPE="entry" LABEL="Thursday 31st">
+	    <mets:fptr FILEID="FID15"/>
+	    <mets:fptr FILEID="FID47"/>
+	    <mets:fptr FILEID="FID79"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry42"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="43" TYPE="entry" LABEL="Jany. 1st 1847">
+	    <mets:fptr FILEID="FID16"/>
+	    <mets:fptr FILEID="FID48"/>
+	    <mets:fptr FILEID="FID80"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry43"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="44" TYPE="entry" LABEL="Sat. 2nd">
+	    <mets:fptr FILEID="FID16"/>
+	    <mets:fptr FILEID="FID48"/>
+	    <mets:fptr FILEID="FID80"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry44"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="45" TYPE="entry" LABEL="Sund. 3rd">
+	    <mets:fptr FILEID="FID16"/>
+	    <mets:fptr FILEID="FID48"/>
+	    <mets:fptr FILEID="FID80"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry45"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="46" TYPE="entry" LABEL="Mond. 4th">
+	    <mets:fptr FILEID="FID17"/>
+	    <mets:fptr FILEID="FID49"/>
+	    <mets:fptr FILEID="FID81"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry46"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="47" TYPE="entry" LABEL="Tuesd. 5th">
+	    <mets:fptr FILEID="FID17"/>
+	    <mets:fptr FILEID="FID49"/>
+	    <mets:fptr FILEID="FID81"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry47"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="48" TYPE="entry" LABEL="Weds. 6th">
+	    <mets:fptr FILEID="FID17"/>
+	    <mets:fptr FILEID="FID49"/>
+	    <mets:fptr FILEID="FID81"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry48"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="49" TYPE="entry" LABEL="Thursd. 7th">
+	    <mets:fptr FILEID="FID17"/>
+	    <mets:fptr FILEID="FID49"/>
+	    <mets:fptr FILEID="FID81"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry49"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="50" TYPE="entry" LABEL="Friday 8th">
+	    <mets:fptr FILEID="FID18"/>
+	    <mets:fptr FILEID="FID50"/>
+	    <mets:fptr FILEID="FID82"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry50"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="51" TYPE="entry" LABEL="Satd. 9th">
+	    <mets:fptr FILEID="FID18"/>
+	    <mets:fptr FILEID="FID50"/>
+	    <mets:fptr FILEID="FID82"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry51"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="52" TYPE="entry" LABEL="Sund. 10">
+	    <mets:fptr FILEID="FID18"/>
+	    <mets:fptr FILEID="FID50"/>
+	    <mets:fptr FILEID="FID82"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry52"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="53" TYPE="entry" LABEL="Mond. 11th">
+	    <mets:fptr FILEID="FID19"/>
+	    <mets:fptr FILEID="FID51"/>
+	    <mets:fptr FILEID="FID83"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry53"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="54" TYPE="entry" LABEL="Tuesd. 12th">
+	    <mets:fptr FILEID="FID19"/>
+	    <mets:fptr FILEID="FID51"/>
+	    <mets:fptr FILEID="FID83"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry54"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="55" TYPE="entry" LABEL="Wends. 13th">
+	    <mets:fptr FILEID="FID19"/>
+	    <mets:fptr FILEID="FID51"/>
+	    <mets:fptr FILEID="FID83"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry55"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="56" TYPE="entry" LABEL="Thursd. 14th">
+	    <mets:fptr FILEID="FID19"/>
+	    <mets:fptr FILEID="FID51"/>
+	    <mets:fptr FILEID="FID83"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry56"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="57" TYPE="entry" LABEL="Frid. 15th">
+	    <mets:fptr FILEID="FID19"/>
+	    <mets:fptr FILEID="FID51"/>
+	    <mets:fptr FILEID="FID83"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry57"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="58" TYPE="entry" LABEL="Satd. 16th">
+	    <mets:fptr FILEID="FID20"/>
+	    <mets:fptr FILEID="FID52"/>
+	    <mets:fptr FILEID="FID84"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry58"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="59" TYPE="entry" LABEL="Sund. 17 th">
+	    <mets:fptr FILEID="FID20"/>
+	    <mets:fptr FILEID="FID52"/>
+	    <mets:fptr FILEID="FID84"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry59"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="60" TYPE="entry" LABEL="Mond. 18th">
+	    <mets:fptr FILEID="FID20"/>
+	    <mets:fptr FILEID="FID52"/>
+	    <mets:fptr FILEID="FID84"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry60"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="61" TYPE="entry" LABEL="Tuesd. 19th">
+	    <mets:fptr FILEID="FID20"/>
+	    <mets:fptr FILEID="FID52"/>
+	    <mets:fptr FILEID="FID84"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry61"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="62" TYPE="entry" LABEL="Wed. 20th">
+	    <mets:fptr FILEID="FID21"/>
+	    <mets:fptr FILEID="FID53"/>
+	    <mets:fptr FILEID="FID85"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry62"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="63" TYPE="entry" LABEL="Thursd. 21">
+	    <mets:fptr FILEID="FID21"/>
+	    <mets:fptr FILEID="FID53"/>
+	    <mets:fptr FILEID="FID85"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry63"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="64" TYPE="entry" LABEL="Frid. 22nd.">
+	    <mets:fptr FILEID="FID21"/>
+	    <mets:fptr FILEID="FID53"/>
+	    <mets:fptr FILEID="FID85"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry64"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="65" TYPE="entry" LABEL="Satd. 23rd">
+	    <mets:fptr FILEID="FID21"/>
+	    <mets:fptr FILEID="FID53"/>
+	    <mets:fptr FILEID="FID85"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry65"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="66" TYPE="entry" LABEL="Sund.; 24th">
+	    <mets:fptr FILEID="FID21"/>
+	    <mets:fptr FILEID="FID53"/>
+	    <mets:fptr FILEID="FID85"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry66"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="67" TYPE="entry" LABEL="Mod. 25th">
+	    <mets:fptr FILEID="FID22"/>
+	    <mets:fptr FILEID="FID54"/>
+	    <mets:fptr FILEID="FID86"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry67"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="68" TYPE="entry" LABEL="Tuesd. 26">
+	    <mets:fptr FILEID="FID22"/>
+	    <mets:fptr FILEID="FID54"/>
+	    <mets:fptr FILEID="FID86"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry68"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="69" TYPE="entry" LABEL="Weds. 27th">
+	    <mets:fptr FILEID="FID22"/>
+	    <mets:fptr FILEID="FID54"/>
+	    <mets:fptr FILEID="FID86"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry69"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="70" TYPE="entry" LABEL="Thursd. 28th">
+	    <mets:fptr FILEID="FID22"/>
+	    <mets:fptr FILEID="FID54"/>
+	    <mets:fptr FILEID="FID86"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry70"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="71" TYPE="entry" LABEL="Frid. 29th">
+	    <mets:fptr FILEID="FID22"/>
+	    <mets:fptr FILEID="FID54"/>
+	    <mets:fptr FILEID="FID86"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry71"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="72" TYPE="entry" LABEL="Satd. 30th">
+	    <mets:fptr FILEID="FID23"/>
+	    <mets:fptr FILEID="FID55"/>
+	    <mets:fptr FILEID="FID87"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry72"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="73" TYPE="entry" LABEL="Sund. 31st">
+	    <mets:fptr FILEID="FID23"/>
+	    <mets:fptr FILEID="FID55"/>
+	    <mets:fptr FILEID="FID87"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry73"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="74" TYPE="entry" LABEL="Mond. February the 1st">
+	    <mets:fptr FILEID="FID23"/>
+	    <mets:fptr FILEID="FID55"/>
+	    <mets:fptr FILEID="FID87"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry74"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="75" TYPE="entry" LABEL="Tuesday 2nd">
+	    <mets:fptr FILEID="FID24"/>
+	    <mets:fptr FILEID="FID56"/>
+	    <mets:fptr FILEID="FID88"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry75"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="76" TYPE="entry" LABEL="Wend. 3rd">
+	    <mets:fptr FILEID="FID24"/>
+	    <mets:fptr FILEID="FID56"/>
+	    <mets:fptr FILEID="FID88"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry76"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="77" TYPE="entry" LABEL="Thurd. 4th">
+	    <mets:fptr FILEID="FID24"/>
+	    <mets:fptr FILEID="FID56"/>
+	    <mets:fptr FILEID="FID88"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry77"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="78" TYPE="entry" LABEL="Frid. 5th">
+	    <mets:fptr FILEID="FID24"/>
+	    <mets:fptr FILEID="FID56"/>
+	    <mets:fptr FILEID="FID88"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry78"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="79" TYPE="entry" LABEL="Satd. 6th">
+	    <mets:fptr FILEID="FID25"/>
+	    <mets:fptr FILEID="FID57"/>
+	    <mets:fptr FILEID="FID89"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry79"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="80" TYPE="entry" LABEL="Sund. 7th">
+	    <mets:fptr FILEID="FID25"/>
+	    <mets:fptr FILEID="FID57"/>
+	    <mets:fptr FILEID="FID89"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry80"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="81" TYPE="entry" LABEL="Mond. 8th">
+	    <mets:fptr FILEID="FID25"/>
+	    <mets:fptr FILEID="FID57"/>
+	    <mets:fptr FILEID="FID89"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry81"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="82" TYPE="entry" LABEL="Tuesd. 9th">
+	    <mets:fptr FILEID="FID26"/>
+	    <mets:fptr FILEID="FID58"/>
+	    <mets:fptr FILEID="FID90"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry82"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="83" TYPE="entry" LABEL="Wednsd. 10th">
+	    <mets:fptr FILEID="FID26"/>
+	    <mets:fptr FILEID="FID58"/>
+	    <mets:fptr FILEID="FID90"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry83"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="84" TYPE="entry" LABEL="Thursd. 11th">
+	    <mets:fptr FILEID="FID26"/>
+	    <mets:fptr FILEID="FID58"/>
+	    <mets:fptr FILEID="FID90"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry84"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="85" TYPE="entry" LABEL="Frid . 12th">
+	    <mets:fptr FILEID="FID27"/>
+	    <mets:fptr FILEID="FID59"/>
+	    <mets:fptr FILEID="FID91"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry85"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="86" TYPE="entry" LABEL="Sat. 13th">
+	    <mets:fptr FILEID="FID27"/>
+	    <mets:fptr FILEID="FID59"/>
+	    <mets:fptr FILEID="FID91"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry86"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="87" TYPE="entry" LABEL="Sund. 14th">
+	    <mets:fptr FILEID="FID27"/>
+	    <mets:fptr FILEID="FID59"/>
+	    <mets:fptr FILEID="FID91"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry87"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="88" TYPE="entry" LABEL="Mond. 15">
+	    <mets:fptr FILEID="FID27"/>
+	    <mets:fptr FILEID="FID59"/>
+	    <mets:fptr FILEID="FID91"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry88"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="89" TYPE="entry" LABEL="Tuesd. 16th">
+	    <mets:fptr FILEID="FID28"/>
+	    <mets:fptr FILEID="FID60"/>
+	    <mets:fptr FILEID="FID92"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry89"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="90" TYPE="entry" LABEL="Wedsd. 17th">
+	    <mets:fptr FILEID="FID28"/>
+	    <mets:fptr FILEID="FID60"/>
+	    <mets:fptr FILEID="FID92"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry90"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="91" TYPE="entry" LABEL="Thursd. 18th">
+	    <mets:fptr FILEID="FID28"/>
+	    <mets:fptr FILEID="FID60"/>
+	    <mets:fptr FILEID="FID92"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry91"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="92" TYPE="entry" LABEL="Frid. 19th">
+	    <mets:fptr FILEID="FID28"/>
+	    <mets:fptr FILEID="FID60"/>
+	    <mets:fptr FILEID="FID92"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry92"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="93" TYPE="entry" LABEL="Saturd. 20th">
+	    <mets:fptr FILEID="FID29"/>
+	    <mets:fptr FILEID="FID61"/>
+	    <mets:fptr FILEID="FID93"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry93"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="94" TYPE="entry" LABEL="Sund. 21st">
+	    <mets:fptr FILEID="FID29"/>
+	    <mets:fptr FILEID="FID61"/>
+	    <mets:fptr FILEID="FID93"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry94"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="95" TYPE="entry" LABEL="Mond. 22nd">
+	    <mets:fptr FILEID="FID29"/>
+	    <mets:fptr FILEID="FID61"/>
+	    <mets:fptr FILEID="FID93"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry95"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="96" TYPE="entry" LABEL="Tuesd. 23">
+	    <mets:fptr FILEID="FID29"/>
+	    <mets:fptr FILEID="FID61"/>
+	    <mets:fptr FILEID="FID93"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry96"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="97" TYPE="entry" LABEL="Wend. 24th">
+	    <mets:fptr FILEID="FID29"/>
+	    <mets:fptr FILEID="FID61"/>
+	    <mets:fptr FILEID="FID93"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry97"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="98" TYPE="entry" LABEL="Thursd. 25th">
+	    <mets:fptr FILEID="FID30"/>
+	    <mets:fptr FILEID="FID62"/>
+	    <mets:fptr FILEID="FID94"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry98"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="99" TYPE="entry" LABEL="Frid. 26th">
+	    <mets:fptr FILEID="FID30"/>
+	    <mets:fptr FILEID="FID62"/>
+	    <mets:fptr FILEID="FID94"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry99"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="100" TYPE="entry" LABEL="Satd. 27th">
+	    <mets:fptr FILEID="FID31"/>
+	    <mets:fptr FILEID="FID63"/>
+	    <mets:fptr FILEID="FID95"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry100"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="101" TYPE="entry" LABEL="Sund. 28th">
+	    <mets:fptr FILEID="FID31"/>
+	    <mets:fptr FILEID="FID63"/>
+	    <mets:fptr FILEID="FID95"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry101"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="102" TYPE="entry" LABEL="Mond. March the 1st">
+	    <mets:fptr FILEID="FID31"/>
+	    <mets:fptr FILEID="FID63"/>
+	    <mets:fptr FILEID="FID95"/>
+	    <mets:fptr>
+	      <mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="entry102"/>
+	    </mets:fptr>
+	  </mets:div>
+	  <mets:div ORDER="103" TYPE="letter" LABEL="Letter by George McKinstry, tipped into original diary">
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID32"/>
+		<mets:area FILEID="FID33"/>
+	      </mets:seq>
+	    </mets:fptr>
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID32"/>
+		<mets:area FILEID="FID33"/>
+	      </mets:seq>
+	    </mets:fptr>
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID64"/>
+		<mets:area FILEID="FID65"/>
+	      </mets:seq>
+	    </mets:fptr>
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID96"/>
+		<mets:area FILEID="FID97"/>
+	      </mets:seq>
+	    </mets:fptr>
+	    <mets:fptr>
+	      <mets:seq>
+		<mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="GMletter1"/>
+		<mets:area FILEID="FID1" BETYPE="IDREF" BEGIN="GMletter2"/>
+	      </mets:seq>
+	    </mets:fptr>
+	  </mets:div>
+	</mets:div>
+      </mets:structMap>
+    </mets:mets>
+  </Appendix>
+</METS_Profile>

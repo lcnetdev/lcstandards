@@ -1,0 +1,1143 @@
+﻿<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"></HEAD>
+<BODY>
+<PRE>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;METS_Profile REGISTRATION="registered" STATUS="final"	xmlns="http://www.loc.gov/METS_Profile/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xsi:schemaLocation="http://www.loc.gov/METS_Profile/v2 http://www.loc.gov/standards/mets/profile_docs/mets.profile.v2-0.xsd"&gt;
+	&lt;URI LOCTYPE="URL" ASSIGNEDBY="local"&gt;https://github.com/SGA-AEP/mets-profile/edit/master/20160913_perfil-mets.xml&lt;/URI&gt;
+	&lt;URI LOCTYPE="URL" ASSIGNEDBY="metsboard"&gt;http://www.loc.gov/standards/mets/profiles/00000046.xml&lt;/URI&gt;
+	&lt;title xml:lang="es"&gt;Perfil METS del Archivo Electrónico del Patrimonio de Galicia&lt;/title&gt;
+	&lt;abstract xml:lang="es"&gt;Este perfil describe los requisitos que debe seguir un fichero METS para su integración en el Sistema de Descripciones Archivísticas y en el Sistema de Preservación, ambos sistemas componentes del Archivo Electrónico del Patrimonio de Galicia. Ha sido elaborado por la Subdirección Xeral de Arquivos de la Secretaría Xeral de Cultura.&lt;/abstract&gt;
+	&lt;date&gt;2016-09-13T10:00:00&lt;/date&gt;
+	&lt;contact&gt;
+		&lt;institution&gt;Galicia. Subdirección Xeral de Arquivos&lt;/institution&gt;
+		&lt;address&gt;Cidade da Cultura. 15707 Santiago de Compostela&lt;/address&gt;
+		&lt;phone&gt;+34 981 544 816&lt;/phone&gt;
+		&lt;email&gt;email@xunta.es&lt;/email&gt;
+	&lt;/contact&gt;
+	&lt;related_profile RELATIONSHIP="based on" URI="http://www.loc.gov/mets/profiles/00000004.xml"&gt;Model Imaged Object Profile&lt;/related_profile&gt;
+	&lt;related_profile RELATIONSHIP="based on" URI="http://www.loc.gov/mets/profiles/00000044.xml"&gt;Perfil METS-BVPB para ingesta y preservación de recursos digitales&lt;/related_profile&gt;
+	&lt;related_profile RELATIONSHIP="based on" URI="http://www.loc.gov/mets/profiles/00000041.xml"&gt;The Matterhorn METS-Profile for Archives&lt;/related_profile&gt;
+	&lt;profile_context&gt;
+		&lt;resource_model&gt;
+			&lt;xhtml:p xml:lang="es"&gt;Este documento describe el perfil METS que debe ser utilizado
+				para la elaboración de ficheros de metadatos que acompañen a las imágenes de
+				cualquier proyecto de digitalización que se quiera integrar en el Archivo
+				Electrónico del Patrimonio de Galicia.&lt;/xhtml:p&gt;
+			&lt;xhtml:p xml:lang="es"&gt;Este perfil está orientado a la creación de ficheros METS que
+				sirvan para representar, preservar e ingestar los objetos digitales asociados a
+				material textual o material gráfico. Estos objetos digitales harán referencia,
+				fundamentalmente, a imágenes en formato JPEG, TIFF, ficheros PDF/A o ficheros ALTO
+				(Analyzed Layout and Text Object) obtenidos a través del proceso de Reconocimiento
+				Óptico de Caracteres (OCR)&lt;/xhtml:p&gt;
+		&lt;/resource_model&gt;
+	&lt;/profile_context&gt;
+	&lt;external_schema&gt;
+		&lt;name&gt;Encoded Archival Description (EAD): EAD3, version 1.0&lt;/name&gt;
+		&lt;URL&gt;http://www.loc.gov/ead/&lt;/URL&gt;
+		&lt;context&gt; Descriptive metadata must be supplied in EAD3 format inside of a
+			"mets/dmdSec/mdWrap[@MDTYPE="EAD"]/:xmlData" element.&lt;/context&gt;
+		&lt;note&gt;
+			&lt;xhtml:p xml:lang="es"&gt;Los metadatos descriptivos se codifican obligatoriamente
+				utilizando EAD3 versión1.0&lt;/xhtml:p&gt;
+		&lt;/note&gt;
+	&lt;/external_schema&gt;
+	&lt;external_schema&gt;
+		&lt;name&gt;Preservation Metadata: Implementation Strategies (PREMIS) 3.0&lt;/name&gt;
+		&lt;URL&gt;http://www.loc.gov/standards/premis&lt;/URL&gt;
+		&lt;context&gt;mets/amdSec/techMD/mdWrap[@MDTYPE="PREMIS:OBJECT"]&lt;/context&gt;
+		&lt;context&gt;mets/amdSec/techMD/mdWrap[@MDTYPE="PREMIS:EVENT"]&lt;/context&gt;
+		&lt;context&gt;mets/amdSec/techMD/mdWrap[@MDTYPE="PREMIS:AGENT"]&lt;/context&gt;
+		&lt;note&gt;
+			&lt;xhtml:p xml:lang="es"&gt;Los metadatos de preservación se codifican siguiendo el esquema
+				PREMIS y el PREMIS Data Dictionary versión 3.0.&lt;/xhtml:p&gt;
+		&lt;/note&gt;
+	&lt;/external_schema&gt;
+	&lt;external_schema ID="MIX"&gt;
+		&lt;name&gt;NISO Metadata for Images in XML (NISO MIX)&lt;/name&gt;
+		&lt;URL&gt;http://www.loc.gov/standards/mix/&lt;/URL&gt;
+		&lt;context&gt;mets/amdSec/techMD/mdWrap/xmlData/premis:object/objectCharacteristicsExtension&lt;/context&gt;
+		&lt;note&gt;
+			&lt;xhtml:p xml:lang="es"&gt;Este perfil de METS establece que los metadatos técnicos para
+				imágenes se realizan siguiendo el esquema NISO Metadata for Images in XML (NISO
+				MIX). Describen las características técnicas de los ficheros de imágenes de la
+				versión de preservación y van incluidos en una sección techMD de la sección de
+				metadatos administrativos (amdSec).&lt;/xhtml:p&gt;
+		&lt;/note&gt;
+	&lt;/external_schema&gt;
+	&lt;external_schema ID="METSrights"&gt;
+		&lt;name&gt;METSrights&lt;/name&gt;
+		&lt;URL&gt;http://cosimo.stanford.edu/sdr/metsrights/&lt;/URL&gt;
+		&lt;context&gt;mets/amdSec&lt;/context&gt;
+		&lt;note&gt;
+			&lt;xhtml:p xml:lang="es"&gt;Se incluyen metadatos METSrights con indicación sobre los
+				derechos de autor a los que están sujetos los objetos digitales que se describen en
+				el METS.&lt;/xhtml:p&gt;
+		&lt;/note&gt;
+	&lt;/external_schema&gt;
+	&lt;description_rules&gt;
+		&lt;xhtml:p xml:lang="es"&gt;Las descripciones archivísticas deben seguir la Norma Gallega de
+			Descripción Archivística (NOGADA), versión 2ª. Febrero 2010.&lt;/xhtml:p&gt;
+	&lt;/description_rules&gt;
+	&lt;controlled_vocabularies&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;Valores para el atributo @LEVEL y @OTHERLEVEL de los elementos &amp;lt;archdesc&amp;gt; y &amp;lt;c01-c12&amp;gt;&lt;/name&gt;
+			&lt;maintenance_agency&gt;Prepared and maintained by the Technical Subcommittee for Encoded Archival Description of the Society of American Archivists&lt;/maintenance_agency&gt;
+			&lt;URI&gt;http://www.loc.gov/ead/EAD3taglib/index.html&lt;/URI&gt;
+			&lt;values&gt;
+				&lt;value&gt;class&lt;/value&gt;
+				&lt;value&gt;collection&lt;/value&gt;
+				&lt;value&gt;file&lt;/value&gt;
+				&lt;value&gt;fonds&lt;/value&gt;
+				&lt;value&gt;item&lt;/value&gt;
+				&lt;value&gt;otherlevel&lt;/value&gt;
+				&lt;value&gt;recordgrp&lt;/value&gt;
+				&lt;value&gt;series&lt;/value&gt;
+				&lt;value&gt;subfonds&lt;/value&gt;
+				&lt;value&gt;subgrp&lt;/value&gt;
+				&lt;value&gt;subseries&lt;/value&gt;
+			&lt;/values&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Estos son los valores del atributo @LEVEL y @OTHERLEVEL del
+					elemento &amp;lt;archdesc&amp;gt; y de los elementos &amp;lt;c01-c12&amp;gt; especificados en
+					EAD3 que se deben usar en los ficheros METS que estén conformes a este
+					perfil.&lt;/xhtml:p&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;MARC Code List for Languages&lt;/name&gt;
+			&lt;maintenance_agency&gt;Library of Congress&lt;/maintenance_agency&gt;
+			&lt;URI&gt;https://www.loc.gov/marc/languages/&lt;/URI&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Valores designados para la codificación de lenguas.&lt;/xhtml:p&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;MARC Code List for Countries&lt;/name&gt;
+			&lt;maintenance_agency&gt;Library of Congress&lt;/maintenance_agency&gt;
+			&lt;URI&gt;Library of Congress&lt;/URI&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Valores designados para la codificación de países.&lt;/xhtml:p&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;Valores para el atributo @mimeType del elemento &amp;lt;grupoObjetoMultimedia&amp;gt;&lt;/name&gt;
+			&lt;URI&gt;https://tools.ietf.org/html/rfc6838&lt;/URI&gt;
+			&lt;values&gt;
+				&lt;value&gt;application/vnd.ms-excel&lt;/value&gt;
+				&lt;value&gt;application/x-mobipocket-ebook&lt;/value&gt;
+				&lt;value&gt;application/vnd.ms-powerpoint&lt;/value&gt;
+				&lt;value&gt;application/msword&lt;/value&gt;
+				&lt;value&gt;application/xhtml+xml&lt;/value&gt;
+				&lt;value&gt;application/octet-stream&lt;/value&gt;
+				&lt;value&gt;application/pdf&lt;/value&gt;
+				&lt;value&gt;image&lt;/value&gt;
+				&lt;value&gt;image/gif&lt;/value&gt;
+				&lt;value&gt;image/jpeg&lt;/value&gt;
+				&lt;value&gt;image/tiff&lt;/value&gt;
+				&lt;value&gt;application/sla&lt;/value&gt;
+				&lt;value&gt;video/mpeg&lt;/value&gt;
+				&lt;value&gt;application/wavefront-obj&lt;/value&gt;
+				&lt;value&gt;text/plain&lt;/value&gt;
+				&lt;value&gt;text/html&lt;/value&gt;
+				&lt;value&gt;application/vnd.oasis.opendocument.text&lt;/value&gt;
+				&lt;value&gt;video/x-flv&lt;/value&gt;
+				&lt;value&gt;video/x-m4v&lt;/value&gt;
+				&lt;value&gt;video/mp4&lt;/value&gt;
+				&lt;value&gt;video/mpeg&lt;/value&gt;
+				&lt;value&gt;application/xml&lt;/value&gt;
+				&lt;value&gt;application/epub+zip&lt;/value&gt;
+			&lt;/values&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Estos son los valores del atributo @mimeType del elemento
+					&amp;lt;grupoObjetoMultimedia&amp;gt; que se deben usar en los METS que estén conformes
+					a este perfil.&lt;/xhtml:p&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;Valores para el atributo mets/structMap[@TYPE]&lt;/name&gt;
+			&lt;values&gt;
+				&lt;value&gt;physical&lt;/value&gt;
+				&lt;value&gt;logical&lt;/value&gt;
+				&lt;value&gt;mixed&lt;/value&gt;
+			&lt;/values&gt;
+			&lt;context&gt;mets/structMap[@TYPE]&lt;/context&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Estos son los valores del atributo @TYPE del elemento
+					&amp;lt;structMap&amp;gt; que se deben usar en los METS que estén conformes a este
+					perfil: &lt;/xhtml:p&gt;
+				&lt;xhtml:ul xml:lang="es"&gt;
+					&lt;xhtml:li&gt;&amp;quot;physical&amp;quot; para designar una estructura puramente física
+						(páginas dentro de un documento).&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;logical&amp;quot; para designar una estructura lógica (capítulos
+						dentro del documento).&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;mixed&amp;quot; para designar una estructura mixta.&lt;/xhtml:li&gt;
+				&lt;/xhtml:ul&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;Valores para el atributo @USE del elemento &amp;lt;fileGrp&amp;gt;&lt;/name&gt;
+			&lt;values&gt;
+				&lt;value&gt;archive&lt;/value&gt;
+				&lt;value&gt;reference&lt;/value&gt;
+				&lt;value&gt;thumbnail&lt;/value&gt;
+				&lt;value&gt;ocr&lt;/value&gt;
+			&lt;/values&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Estos son los valores del atributo @USE del elemento
+					&amp;lt;fileGrp&amp;gt; que se deben usar en los METS que estén conformes a este
+					perfil.&lt;/xhtml:p&gt;
+				&lt;xhtml:ul xml:lang="es"&gt;
+					&lt;xhtml:li&gt;&amp;quot;archive&amp;quot; para ficheros master de máxima calidad.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;reference&amp;quot; para ficheros en copia de difusión.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;thumbnail&amp;quot; para miniaturas.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;ocr&amp;quot; para ficheros resultantes del proceso de
+						Reconocimiento Óptico de Caracteres.&lt;/xhtml:li&gt;
+				&lt;/xhtml:ul&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;Valores para el atributo @visor del elemento &amp;lt;grupoObjetoMultimedia&amp;gt;&lt;/name&gt;
+			&lt;values&gt;
+				&lt;value&gt;defecto&lt;/value&gt;
+				&lt;value&gt;tile&lt;/value&gt;
+				&lt;value&gt;360tile&lt;/value&gt;
+			&lt;/values&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Estos son los valores del atributo @visor del elemento
+					&amp;lt;grupoObjetoMultimedia&amp;gt; que se deben usar en los METS que estén conformes
+					a este perfil.&lt;/xhtml:p&gt;
+				&lt;xhtml:ul xml:lang="es"&gt;
+					&lt;xhtml:li&gt;&amp;quot;defecto&amp;quot; para copias digitales que se desean visualizar con
+						el visor estándar del Sistema de Descripciones Archivísticas.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;tile&amp;quot; para copias digitales que se desean visualizar con el
+						visor de alta resolución.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;360tile&amp;quot; para copias digitales que se desean visualizar con
+						el visor 360.&lt;/xhtml:li&gt;
+				&lt;/xhtml:ul&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;Valores para el atributo @tieneOCR del elemento &amp;lt;grupoObjetoMultimedia&amp;gt;&lt;/name&gt;
+			&lt;values&gt;
+				&lt;value&gt;true&lt;/value&gt;
+				&lt;value&gt;false&lt;/value&gt;
+			&lt;/values&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Estos son los valores del atributo @tieneOCR; del elemento
+					&amp;lt;grupoObjetoMultimedia&amp;gt; que se deben usar en los METS que estén conformes
+					a este perfil.&lt;/xhtml:p&gt;
+				&lt;xhtml:ul xml:lang="es"&gt;
+					&lt;xhtml:li&gt;&amp;quot;true&amp;quot; para indicar que la copia digital se debe indexar a
+						texto completo.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;false&amp;quot; para indicar que la copia digital no se debe indexar
+						a texto completo.&lt;/xhtml:li&gt;
+				&lt;/xhtml:ul&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+		&lt;vocabulary&gt;
+			&lt;name&gt;Valores para el atributo @presentacionDef del elemento &amp;lt;grupoObjetoMultimedia&amp;gt;&lt;/name&gt;
+			&lt;values&gt;
+				&lt;value&gt;miniaturas&lt;/value&gt;
+				&lt;value&gt;abrir&lt;/value&gt;
+				&lt;value&gt;pagina&lt;/value&gt;
+				&lt;value&gt;portada&lt;/value&gt;
+			&lt;/values&gt;
+			&lt;description&gt;
+				&lt;xhtml:p xml:lang="es"&gt;Estos son los valores del atributo @presentacionDef del
+					elemento &amp;lt;grupoObjetoMultimedia&amp;gt; que se deben usar en los METS que estén
+					conformes a este perfil.&lt;/xhtml:p&gt;
+				&lt;xhtml:ul xml:lang="es"&gt;
+					&lt;xhtml:li&gt;&amp;quot;miniaturas&amp;quot; para mostrar la copia digital en formato de
+						miniatura.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;abrir&amp;quot; para mostrar la copia digital a pantalla completa
+						sin visualizar primero las miniaturas.&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;pagina&amp;quot; para mostra la copia digital con el tipo de viso
+						seleccionado (por defecto, alta resolución o 360).&lt;/xhtml:li&gt;
+					&lt;xhtml:li&gt;&amp;quot;portada&amp;quot; para mostrar la copia digital en forma de
+						previsualización junto a la descripción de la unidad documental, impidiendo
+						el acceso a pantalla completa del contenido multimedia.&lt;/xhtml:li&gt;
+				&lt;/xhtml:ul&gt;
+			&lt;/description&gt;
+		&lt;/vocabulary&gt;
+	&lt;/controlled_vocabularies&gt;
+	&lt;structural_requirements&gt;
+		&lt;metsRootElement&gt;
+			&lt;requirement ID="ROOT_001" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Esquema&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El fichero METS debe estar estructurado según el esquema
+						METS 1.11 y el perfil 2.0.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="ROOT_002" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Namespace&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El fichero METS debe incorporar los namespaces de EAD3,
+						PREMIS, METSrights y MIX.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="ROOT_003" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Perfil&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El atributo @PROFILE es obligatorio y contiene la URL de
+						este perfil&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+		&lt;/metsRootElement&gt;
+		&lt;metsHdr&gt;
+			&lt;requirement ID="HDR_001" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Fecha de creación del fichero METS&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El atributo @CREATEDATE es obligatorio y contiene la
+						fecha de creación del fichero METS. &lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="HDR_002" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Personas o instituciones responsables&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Para la identificación del responsable de la creación del
+						fichero METS, se utiliza obligatoriamente en la cabecera el elemento
+						&amp;lt;agent&amp;gt; con el atributo @ROLE y el elemento &amp;lt;name&amp;gt; anidado en
+						ella con el nombre del responsable.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Se deben utilizar los valores y significados
+						especificados en el Esquema METS 1.11, especialmente los siguientes: CREATOR
+						para identificar la(s) persona(s) o institución(es) responsables del
+						documento METS; EDITOR: para la(s) persona(s), o institución(es) que han
+						preparado la codificación de los metadatos; ARCHIVIST: para la(s) persona(s)
+						o institución(es) responsables de los documentos o colecciones. &lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Si corresponde, se utilizarán los valores PRESERVATION:
+						para la(s) persona(s) o institución(es) responsables de las funciones de
+						preservación. DISSEMINATOR: para la(s) persona(s) o institución(es)
+						responsables de las funciones de difusión. CUSTODIAN: para la(s) persona(s)
+						o institución(es) responsables de la supervisión de un documento o
+						colección. IPOWNER: Propietario de los derechos de propiedad intelectual.
+						OTHER: se utiliza si ninguno de los valores anteriores es apropiado; en este
+						caso el valor que sirva para clarificar y especificar la función se debe
+						incluir en el atributo @OTHERROLE.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="HDR_003" REQLEVEL="SHOULD"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Estado de registro&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Se recomienda utilizar el atributo @RECORDSTATUS. Debe
+						contener los valores: NUEVO: cuando la descripción EAD consignada en dmdSec
+						sea una descripción no existente en el Sistema de Descripción Archivística
+						del Archivo Electrónico del Patrimonio de Galicia; REVISADO: cuando la
+						descripción EAD suponga una modificación o actualización de la descripción
+						existente en el Archivo Electrónico del Patrimonio; y SIN REVISAR: cuando la
+						descripción EAD se corresponda exactamente con la existente en el Archivo
+						Electrónico del Patrimonio&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+		&lt;/metsHdr&gt;
+		&lt;dmdSec&gt;
+			&lt;requirement ID="DMD_001" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Metadatos descriptivos en EAD&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Es obligatorio que el fichero METS contenga una sección
+						de metadatos descriptivos codificados en EAD3. La sección &amp;lt;dmdSec&amp;gt;
+						debe contener un único elemento
+						&amp;lt;mets/dmdSec/mdWrap[@MDTYPE='EAD']/xmlData&amp;gt;&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Dentro del registro EAD, es obligatorio el elemento
+						&amp;lt;EAD/archdesc&amp;gt; Este elemento debe contener un atributo @level u
+						@otherlevel&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El elemento &amp;lt;EAD/archdesc&amp;gt; debe contener un
+						elemento &amp;lt;EAD/archdesc/dsc/c01&amp;gt; con los atributos @level u
+						@otherlevel.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El registro EAD debe hacer referencia a la unidad
+						documental digitalizada. Para representar la jerarquía de descripción se
+						utilizarán elementos &amp;lt;cxx&amp;gt;, desde el elemento &amp;lt;c01&amp;gt; hasta el
+						&amp;lt;cxx&amp;gt; correspondiente, siendo el último nivel &amp;lt;cxx&amp;gt; la
+						representación del documento digitalizado&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El elemento &amp;lt;cxx&amp;gt; correspondiente al último nivel
+						de de la jerarquía y que hace referencia al documento digitalizado debe
+						contener además un elemento &amp;lt;physloc label='Signatura'&amp;gt; y un elemento
+						&amp;lt;unitid repositorycode='Código del Archivo'&amp;gt;&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="DMD_002" REQLEVEL="SHOULD"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Metadatos descriptivos adicionales&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Todos los elementos &amp;lt;cxx&amp;gt; pueden contener los
+						elementos &amp;lt;unitid label='Código de referencia'&amp;gt; y &amp;lt;unitid
+						label='Número de identificación del sistema'&amp;gt;, para indicar el código de
+						referencia de la unidad documental y el número de identificación del Sistema
+						de Descripción Archivística del Archivo Electrónico de Patrimonio,
+						respectivamente&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="DMD_003" REQLEVEL="SHOULD"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Metadatos descriptivos de la copia digital de difusión&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El METS puede contener, opcionalmente, una segunda
+						sección de metadatos descriptivos (&amp;lt;dmSec&amp;gt;) en la que se puede incluir
+						información específica de la copia digital de difusión de la unidad
+						documental. En caso de incluir esta segunda sección de metadatos
+						descriptivos, se deben consignar obligatoriamente los elementos
+						&amp;lt;grupoObjetoMultimedia&amp;gt; e &amp;lt;imagenFavorita&amp;gt;&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El elemento &amp;lt;grupoObjetoMultimedia&amp;gt; incluye los
+						atributos @mimeType, @presentacionDef, @visor y @tieneOCR a los que se
+						incorporan los valores enumerados anteriormente en el apartado de
+						vocabularios. Del mismo modo, se incluye el atributo @nombre con el valor
+						del nombre del grupo de objetos multimedia que quedará almacenado en el
+						Archivo Electrónico del Patrimonio de Galicia (generalmente el título de la
+						unidad de descripción) y el atributo @descripcion con el valor del texto de
+						enlace que permite acceder al contenido multimedia desde la ficha de
+						descripción de la unidad documental accesible a través de la Web.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El elemento &amp;lt;imagenFavorita&amp;gt; contiene
+						obligatoriamente el ID del fichero representativo de la unidad documental.
+						Se considerará fichero representativo de la unidad documental a uno de los
+						ficheros (habitualmente una imagen) que conforman la versión de difusión de
+						la copia digital utilizado como previsualización para la presentación de la
+						unidad documental en la Web.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="DMD_004" REQLEVEL="SHOULD"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Registros de autoridad en metadatos descriptivos&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;La descripción EAD puede contener, además de los datos
+						descriptivos principales de la unidad y sus componentes, información
+						referente a los registros de autoridad asociados a la unidad de descripción
+						que pueden codificarse siguiendo el esquema EAC-CPF. Las referencias a los
+						registros de autoridad, dentro de la descripción EAD incluida en la sección
+						de metadatos descriptivos, aparecerán anidadas dentro del elemento
+						&amp;lt;controlaccess&amp;gt; Cada uno de estos elementos incluirá los atributos
+						@identifier y @relator. El primero de ellos incluirá el número de control
+						del registro de autoridad al que hace referencia; el segundo, el papel o
+						relación del registro de autoridad con el contenido de la descripción
+						EAD.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+		&lt;/dmdSec&gt;
+		&lt;amdSec&gt;
+			&lt;requirement ID="AMD_001" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Metadatos de propiedad intelectual&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los ficheros METS conforme a este perfil contienen una
+						sección de metadatos administrativos (&amp;lt;amdSec&amp;gt;) en la que se incluyen
+						los metadatos de derechos conforme al esquema de metadatos METSrights
+						(http://cosimo.stanford.edu/sdr/metsrights/
+						http://cosimo.stanford.edu/sdr/metsrights.xsd).&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Estos metadatos se anidan en un elemento
+						mets/dmdSec/mdWrap[@MDTYPE = 'METSRIGHTS']/xmlData&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El elemento &amp;lt;rightsMD&amp;gt; se identifica mediante un
+						atributo @ID.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="AMD_002" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Metadatos de preservación. Versión digital de mayor calidad&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los metadatos de preservación relativos a los objetos
+						(ficheros) digitales se incluyen obligatoriamente en un elemento
+						&amp;lt;mets/amdSec/techMd&amp;gt;. En esta sección se describen obligatoriamente
+						cada uno los ficheros (premis:object) que componen la versión digital de
+						mayor calidad o de calidad de preservación. Los metadatos PREMIS de cada
+						objeto aparecen incluidos en un elemento
+						&amp;lt;amdSec/techMd/mdWrap/xmlData[@MDTYPE=PREMIS:OBJECT]/premis:object&amp;gt;&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los elementos obligatorios para la descripción de cada
+						uno de los ficheros que componen un objeto digital son:&lt;/xhtml:p&gt;
+					&lt;xhtml:ul&gt;
+						&lt;xhtml:li&gt;El atributo @ID del elemto techMd&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:objectIdentifierType"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:objectIdentifierValue"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:compositionLevel" con valor 0&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:fixity/premis:messageDigestAlgorithm"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:fixity/premis:messageDigest"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:size"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:formatName"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"creatingApplication"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"premis:storage"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"objectCharacteristicsExtension"&lt;/xhtml:li&gt;
+					&lt;/xhtml:ul&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="AMD_003" REQLEVEL="SHOULD"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Metadatos de preservación. Información adicional&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Si se desea incluir metadatos de otras versiones
+						digitales, como por ejemplo ficheros JPEG, PDF, PDF/A, etc., se utilizan
+						elementos techMd repetidos y en cada uno de ellos se describe una única
+						versión. &lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="AMD_004" REQLEVEL="SHOULD" RELATEDMAT="AMD_002"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Descripción de eventos PREMIS&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Se recomienda consignar los eventos realizados para la
+						obtención de un objeto digital en un elemento
+						&amp;lt;amdSec/digiprovMD/mdWrap/xmlData[@MDTYPE="PREMIS:EVENT"]/premis:event&amp;gt;&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Para la descripción de los eventos se utilizan los
+						valores incluidos en el conjunto de datos Event Type de la Library of
+						Congress disponibles en
+						http://id.loc.gov/vocabulary/preservation/eventType.html.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los elementos mínimos, además de los obligatorios para
+						los eventos en el esquema PREMIS, son los siguientes:&lt;/xhtml:p&gt;
+					&lt;xhtml:ul&gt;
+						&lt;xhtml:li&gt;premis:eventIdentifier&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;premis:eventType&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;premis:eventDateTime&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;creatingApplicationName&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;creatingApplicationVersion&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;linkingAgentIdentifier. Es recomendable utilizar este elemento
+							para la descripción de los agentes que realizan diferentes
+							eventos&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;linkingObjectIdentifierType&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;linkingObjectIdentifierValue&lt;/xhtml:li&gt;
+					&lt;/xhtml:ul&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="AMD_005" REQLEVEL="SHOULD"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Agente&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cuando un mismo agente realice todos los eventos
+						consignados en los metadatos PREMIS se recomienda consignarlo en un elemento
+						&amp;lt;amdSec/digiprovMD/mdWrap/xmlData[@MDTYPE="PREMIS:AGENT"]/premis:agent&amp;gt;&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los elementos mínimos, además de los obligatorios para
+						los agentes en el esquema PREMIS, son los siguientes:&lt;/xhtml:p&gt;
+					&lt;xhtml:ul&gt;
+						&lt;xhtml:li&gt;premis:agentIdentifierType&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;premis:agentIdentifierValue&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;premis:agentName&lt;/xhtml:li&gt;
+					&lt;/xhtml:ul&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="AMD_006" REQLEVEL="MUST" RELATEDMAT="AMD_002"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Metadatos técnicos. Metadatos MIX&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Para los objetos digitales en formato imagen se debe
+						incluir un elemento
+						&amp;lt;amdSec/techMd/mdWrap/xmlData[@MDTYPE=PREMIS:OBJECT"]/premis:object/objectCharacteristicsExtension/mix:mix&amp;gt;
+						con los metadatos NISO Metadata for Images in XML (NISO MIX).&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;En el caso de objetos multipágina, cada fichero
+						(premis:object) debe incluir sus propios metadatos MIX en un elemento
+						objectCharacteristicsExtension/mix:mix .&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los elementos obligatorios son:&lt;/xhtml:p&gt;
+					&lt;xhtml:ul&gt;
+						&lt;xhtml:li&gt;"mix:BasicDigitalObjectInformation"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"mix:BasicImageInformation"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"mix:BasicImageCharacteristics"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"mix:SpatialMetrics"&lt;/xhtml:li&gt;
+						&lt;xhtml:li&gt;"mix:ImageColorEncoding"&lt;/xhtml:li&gt;
+					&lt;/xhtml:ul&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+		&lt;/amdSec&gt;
+		&lt;fileSec&gt;
+			&lt;requirement ID="FILE_001" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Versiones de la copia digital&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;La sección de archivo (fileSec) debe incluir un elemento
+						&amp;lt;fileGrp&amp;gt; por cada una de las distintas versiones de la copia digital
+						representadas en el METS. Cada una de estas copias digitales es en sí misma
+						una manifestación de la unidad documental que se está describiendo en el
+						METS. Estas copias digitales pueden diferir entre sí en cuanto al formato
+						(TIFF, JPEG, PDF, OCR, etc.), la resolución u otras características (blanco
+						y negro, color...).&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="FILE_002" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Identificación de versiones de la copia digital: difusión y preservación&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;En cada uno de los elementos &amp;lt;fileGrp&amp;gt; se debe
+						incluir un atributo @USE cuyo valor puede estar entre los siguientes:
+						"archive" (para ficheros master en copia de preservación), "thumbnail" (para
+						miniaturas), "reference" (para ficheros en copia de difusión), "ocr" (para
+						ficheros resultantes del proceso de Reconocimiento Óptico de
+						Caracteres)&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Para la ingesta de objetos digitales y metadatos en el
+						Archivo Electrónico de Patrimonio, los ficheros METS contienen un
+						&amp;lt;fileGrp&amp;gt; cuyo atributo @USE tiene el valor "reference". Este
+						&amp;lt;fileGrp&amp;gt; hace referencia al fichero o grupo de ficheros optimizados
+						para su visualización en la Web.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="FILE_003" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Atributos del elemento &amp;lt;file&amp;gt;&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cada elemento &amp;lt;file&amp;gt; debe incluir los atributos
+						correspondientes al formato del fichero @MIMETYPE, a la secuencia del
+						fichero dentro del &amp;lt;fileGrp&amp;gt; @SEQ y la fecha de creación del fichero
+						@CREATED.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="FILE_004" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Valores del atributo @LOCTYPE &lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cada elemento &amp;lt;file&amp;gt; debe anidar un elemento
+						&amp;lt;Flocat&amp;gt; con atributo @LOCTYPE con uno de los siguientes valores:
+						"ARK", "DOI", "HANDLE", "OTHER", "PURL", "URL", "URN". Generalmente se
+						utilizará el valor "URL"&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="FILE_005" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Valores del atributo @xlink:href&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cada elemento &amp;lt;Flocat&amp;gt; debe incluir un atributo
+						@xlink:href cuyo valor es la dirección o ruta de acceso al fichero. Es
+						indispensable que estas direcciones sean válidas y permitan el acceso a cada
+						uno de los ficheros que conforman la copia digital en sus distintas
+						versiones.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+		&lt;/fileSec&gt;
+		&lt;structMap&gt;
+			&lt;requirement ID="STRUCT_001" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Mapa estructural&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El METS debe contener un Mapa estructural
+						(&amp;lt;structMap&amp;gt;) por cada estructura de la obra que se pretenda importar
+						o archivar.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Existe normalmente un único mapa estructural que vale
+						para cualquiera de las versiones que son estructuralmente equivalentes (por
+						ejemplo, una copia TIFF y otra JPG derivada de ésta). En caso de aparecer
+						versiones de una copia digital que se hayan generado estructuralmente de
+						forma dispar y se pretenda importar ambas versiones, es necesario incluir un
+						mapa estructural distinto para cada versión (es el caso por ejemplo de una
+						obra que se pretende importar por un lado como conjunto de imágenes JPEG y
+						por otro como un archivo único PDF).&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_002" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Valores del atributo @TYPE&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cada elemento &amp;lt;stuctMap&amp;gt; incorpora un atributo
+						@TYPE con uno de los siguientes valores: "physical", "logical" o "mixed". El
+						valor "physical" se utiliza preferentemente para la versión de la copia
+						digital que incorpora varios ficheros y en los que se desea establecer una
+						paginación a cada uno de ellos. El valor "logical" se utiliza para la
+						versión de la copia digital en la que se desea establecer una estructura de
+						marcadores. El valor "mixed" se utiliza preferentemente para las versiones
+						de la copia digital en formato PDF.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_003" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Atributo @LABEL del &amp;lt;stuctMap&amp;gt;&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los elementos &amp;lt;stuctMap&amp;gt; incorporan un atributo
+						@LABEL con un valor que coincide con el título de la unidad de descripción
+						al que hace referencia la copia digital.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_004" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Elementos elementos &amp;lt;div&amp;gt; dentro del mapa estructural&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Las secciones de mapa estructural anidan tantos niveles
+						de elementos &amp;lt;div&amp;gt; como niveles jerárquicos tiene la estructura que se
+						pretende definir. Cada &amp;lt;stuctMap&amp;gt; anida al menos un elemento
+						&amp;lt;div&amp;gt; (div de primer orden) que corresponde a la unidad documental en
+						su conjunto.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cuando se pretende procesar un único fichero, por ejemplo
+						un PDF, se requiere únicamente un &amp;lt;div&amp;gt; de primer orden para reflejar
+						la estructura. En caso de procesar unidades de descripción cuya
+						representación digital la conformen varios ficheros, es necesario consignar
+						un segundo nivel de &amp;lt;div&amp;gt; esto es, una serie de elementos &amp;lt;div&amp;gt;
+						(uno por fichero) anidados en el de primer orden.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_005" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Enlace del mapa estructural con la sección de metadatos descriptivos&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El primer &amp;lt;div&amp;gt; (div de primer orden) debe incluir
+						un atributo @DMDID que enlace con la sección de metadatos descriptivos
+						(&amp;lt;dmdSec&amp;gt;) en la que aparece la descripción EAD. El valor de este
+						atributo debe ser idéntico al valor del atributo @ID de la referida sección
+						de metadatos descriptivos.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_006" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Valor del atributo @ORDER en los &amp;lt;div&amp;gt; de segundo orden&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cada &amp;lt;div&amp;gt; de segundo orden del mapa estructural
+						contiene el atributo @ORDER, cuyo valor es el número de orden de dicho
+						&amp;lt;div,&amp;gt; dentro del conjunto de elementos &amp;lt;div&amp;gt; que se encuentran
+						a su mismo nivel de anidamiento, es decir, entre los &amp;lt;div&amp;gt;
+						hermanos.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_007" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Valores del atributo @TYPE en el elemento &amp;lt;div&amp;gt;&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cada &amp;lt;div&amp;gt; debe contener además el atributo @TYPE.
+						El valor de este atributo indica el tipo o nivel de &amp;lt;div&amp;gt; (obra,
+						codificado como "book" o página codificado como "page").&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Si se trata de una estructura de sólo dos niveles, por
+						ejemplo una unidad de descripción dividida en páginas (un fichero por
+						página), los valores de este atributo para el primer nivel de &amp;lt;div&amp;gt;
+						indican el tipo de obra (por ejemplo TYPE="book"), mientras que los valores
+						de este atributo para el segundo nivel de &amp;lt;div&amp;gt; indican que tal nivel
+						corresponde a los ficheros individuales (normalmente de página
+						TYPE="page").&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_008" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Valores del atributo @LABEL en los elementos &amp;lt;div&amp;gt;&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Cada &amp;lt;div&amp;gt; debe contener el atributo @LABEL, cuyo
+						valor sirve para identificar y visualizar la parte de la estructura que
+						representa dicho elemento.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El atributo @LABEL del &amp;lt;div&amp;gt; de primer orden (o
+						nivel de anidamiento) incluye el título de la unidad de descripción a la que
+						hace referencia la copia digital.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;El atributo @LABEL del &amp;lt;div&amp;gt; de segundo orden (con
+						atributo @TYPE="page") incluye el nombre de la página.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+			&lt;requirement ID="STRUCT_009" REQLEVEL="MUST"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Valor del atributo @FILEID en los elementos &amp;lt;fptr&amp;gt;&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Los elementos &amp;lt;div&amp;gt; de nivel de página, es decir,
+						de último nivel, anidan necesariamente elementos &amp;lt;fptr&amp;gt; con atributos
+						@FILEID. El valor de este atributo es idéntico al valor del atributo @ID del
+						elemento &amp;lt;file&amp;gt; de la versión de la copia digital al que el
+						&amp;lt;div&amp;gt; está haciendo referencia en esa parte de la
+						estructura.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Es obligatorio asociar el mapa estructural con ficheros
+						concretos de forma que los atributos @FILEID de la sección de mapa
+						estructural (&amp;lt;StrucMap&amp;gt;) estén relacionados con los correspondientes
+						atributos @ID de la sección de archivo (&amp;lt;fileSec&amp;gt;)&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+		&lt;/structMap&gt;
+	&lt;/structural_requirements&gt;
+	&lt;technical_requirements&gt;
+		&lt;content_files&gt;
+			&lt;requirement ID="TECH_001" REQLEVEL="SHOULD"&gt;
+				&lt;description&gt;
+					&lt;head&gt;Imágenes TIFF de preservación / Preservation TIFF images&lt;/head&gt;
+					&lt;xhtml:p xml:lang="es"&gt;Este perfil puede usarse para preservación de imágenes
+						digitales.&lt;/xhtml:p&gt;
+					&lt;xhtml:p xml:lang="es"&gt;En este caso, las imágenes de preservación han de tener
+						formato TIFF.&lt;/xhtml:p&gt;
+				&lt;/description&gt;
+			&lt;/requirement&gt;
+		&lt;/content_files&gt;
+	&lt;/technical_requirements&gt;
+	&lt;tool&gt;
+		&lt;name&gt;JHOVE&lt;/name&gt;
+		&lt;agency&gt;JSTOR y la Biblioteca de la universidad de Harvard. / JSTOR and Harvard University Library&lt;/agency&gt;
+		&lt;URI&gt;http://hul.harvard.edu/jhove/&lt;/URI&gt;
+		&lt;description&gt;
+			&lt;xhtml:p xml:lang="es"&gt;JHOVE es una aplicación capaz de identificar formatos, validar y
+				extraer características de los objetos digitales.&lt;/xhtml:p&gt;
+		&lt;/description&gt;
+		&lt;note&gt;
+			&lt;xhtml:p xml:lang="es"&gt;Los METS acordes a este perfil deben ser validos según el
+				programa JHOVE.&lt;/xhtml:p&gt;
+		&lt;/note&gt;
+	&lt;/tool&gt;
+	&lt;Appendix ID="a1" NUMBER="1" LABEL="apéndice1"&gt;
+		&lt;mets PROFILE="https://github.com/SGA-AEP/mets-profile/edit/master/20160913_perfil-mets.xml"
+			xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:ead="http://ead3.archivists.org/schema/"
+			xmlns:mix="http://www.loc.gov/standards/mix/mix20/"
+			xmlns:rts="http://cosimo.stanford.edu/sdr/metsrights/"
+			xmlns:premis="http://www.loc.gov/premis/v3"
+			xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://ead3.archivists.org/schema/ https://raw.githubusercontent.com/SAA-SDT/EAD3/v1.0.0/ead3.xsd http://www.loc.gov/premis/v3 http://www.loc.gov/standards/premis/premis.xsd  http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd http://cosimo.stanford.edu/sdr/metsrights/ http://www.loc.gov/standards/rights/METSRights.xsd"&gt;
+			&lt;metsHdr CREATEDATE="2016-09-09T10:05:24" RECORDSTATUS="REVISADO"&gt;
+				&lt;agent ROLE="CREATOR" TYPE="ORGANIZATION"&gt;
+					&lt;name&gt;Subdirección General de Arquivos&lt;/name&gt;
+				&lt;/agent&gt;
+				&lt;agent ROLE="EDITOR" TYPE="ORGANIZATION"&gt;
+					&lt;name&gt;nombre de la empresa que realiza el fichero METS&lt;/name&gt;
+				&lt;/agent&gt;
+				&lt;agent ROLE="ARCHIVIST" TYPE="ORGANIZATION"&gt;
+					&lt;name&gt;Arquivo del Reino de Galicia&lt;/name&gt;
+				&lt;/agent&gt;
+				&lt;agent ROLE="PRESERVATION" TYPE="ORGANIZATION"&gt;
+					&lt;name&gt;Arquivo del Reino de Galicia&lt;/name&gt;
+				&lt;/agent&gt;
+				&lt;agent ROLE="CUSTODIAN" TYPE="ORGANIZATION"&gt;
+					&lt;name&gt;Arquivo del Reino de Galicia&lt;/name&gt;
+				&lt;/agent&gt;
+				&lt;agent ROLE="IPOWNER" TYPE="ORGANIZATION"&gt;
+					&lt;name&gt;Nombre del propietario de los derechos de propiedad intelectual&lt;/name&gt;
+				&lt;/agent&gt;
+			&lt;/metsHdr&gt;
+			&lt;dmdSec ID="DM1"&gt;
+				&lt;mdWrap MDTYPE="EAD"&gt;
+					&lt;xmlData&gt;
+						&lt;ead:ead&gt;
+							&lt;ead:control script="Latn" repositoryencoding="iso15511"
+								langencoding="iso639-2b" dateencoding="iso8601"
+								countryencoding="iso3166-1" audience="external"&gt;
+								&lt;ead:recordid&gt;ADGD160016656&lt;/ead:recordid&gt;
+								&lt;ead:filedesc&gt;
+									&lt;ead:titlestmt&gt;
+										&lt;ead:titleproper&gt;El cabildo de Tuy con Esteban Pérez de
+											Ceta, sobre reivindicación por el Lugar de
+											Francelos&lt;/ead:titleproper&gt;
+									&lt;/ead:titlestmt&gt;
+									&lt;ead:publicationstmt&gt;
+										&lt;ead:publisher&gt;Xunta de Galicia&lt;/ead:publisher&gt;
+									&lt;/ead:publicationstmt&gt;
+								&lt;/ead:filedesc&gt;
+								&lt;ead:maintenancestatus value="new"/&gt;
+								&lt;ead:maintenanceagency&gt;
+									&lt;ead:agencycode&gt;15030.ARG&lt;/ead:agencycode&gt;
+									&lt;ead:agencyname&gt;Archivo del Reino de Galicia&lt;/ead:agencyname&gt;
+								&lt;/ead:maintenanceagency&gt;
+								&lt;ead:maintenancehistory&gt;
+									&lt;ead:maintenanceevent&gt;
+										&lt;ead:eventtype value="derived"/&gt;
+										&lt;ead:eventdatetime&gt;20160512193907.0&lt;/ead:eventdatetime&gt;
+										&lt;ead:agenttype value="machine"/&gt;
+										&lt;ead:agent&gt;ead_comun.xsl&lt;/ead:agent&gt;
+									&lt;/ead:maintenanceevent&gt;
+								&lt;/ead:maintenancehistory&gt;
+							&lt;/ead:control&gt;
+							&lt;ead:archdesc level="fonds"&gt;
+								&lt;ead:did&gt;
+									&lt;ead:unittitle&gt;Real Audiencia de Galicia&lt;/ead:unittitle&gt;
+								&lt;/ead:did&gt;
+								&lt;ead:dsc&gt;
+									&lt;ead:c01 level="subseries"&gt;
+										&lt;ead:did&gt;
+											&lt;ead:unitid repositorycode="ES.GA.15030.ARG"
+												label="Código de referencia"
+												&gt;ES.GA.15030.ARG/1.1.1.2.3.1.2.2&lt;/ead:unitid&gt;
+											&lt;ead:unitid label="Número de identificación del sistema"
+												&gt;ARCG20150000083&lt;/ead:unitid&gt;
+											&lt;ead:unittitle&gt;Cabidos e igrexas&lt;/ead:unittitle&gt;
+											&lt;ead:unitdate label="Datas" unitdatetype="inclusive"
+												normal="1540/2001"&gt;1540-2001&lt;/ead:unitdate&gt;
+											&lt;ead:physdesc label="Extensión"&gt;153 unidades de
+												instalación de documentos maioritariamente textuais,
+												en papel&lt;/ead:physdesc&gt;
+										&lt;/ead:did&gt;
+										&lt;ead:c02 level="file"&gt;
+											&lt;ead:did&gt;
+												&lt;ead:unitid label="Código de referencia"
+												&gt;ES.GA.15030.ARG.1.1.1.2.3.1.2.2.//C-848-18&lt;/ead:unitid&gt;
+												&lt;ead:unitid
+												label="Número de identificación del sistema"
+												&gt;ADGD160016656&lt;/ead:unitid&gt;
+												&lt;ead:unitid repositorycode="ES.GA.15030.ARG"/&gt;
+												&lt;ead:physloc label="Signatura"
+												&gt;C-848-18&lt;/ead:physloc&gt;
+												&lt;ead:unittitle label="Título"&gt;El cabildo de Tuy con
+												Esteban Pérez de Ceta, sobre reivindicación por el
+												Lugar de Francelos&lt;/ead:unittitle&gt;
+												&lt;ead:unitdate unitdatetype="inclusive"
+												label="Data de inicio"&gt;1574&lt;/ead:unitdate&gt;
+												&lt;ead:unitdate label="Siglo"&gt;XVI&lt;/ead:unitdate&gt;
+												&lt;ead:container label="Signatura"
+												&gt;C-848-18&lt;/ead:container&gt;
+												&lt;ead:origination&gt;
+												&lt;ead:corpname relator="Productor"&gt;
+												&lt;ead:part&gt;Real Audiencia de Galicia&lt;/ead:part&gt;
+												&lt;/ead:corpname&gt;
+												&lt;/ead:origination&gt;
+											&lt;/ead:did&gt;
+											&lt;ead:controlaccess&gt;
+												&lt;ead:subject localtype="Descriptor de materia"&gt;
+												&lt;ead:part&gt;Reivindicación de
+												lugar-lugares&lt;/ead:part&gt;
+												&lt;/ead:subject&gt;
+												&lt;ead:geogname localtype="Descriptor geográfico"&gt;
+												&lt;ead:part&gt;Tui, Toponimo Moderno&lt;/ead:part&gt;
+												&lt;/ead:geogname&gt;
+												&lt;ead:geogname localtype="Descriptor geográfico"&gt;
+												&lt;ead:part&gt;Tuy, Toponimo Antigo&lt;/ead:part&gt;
+												&lt;/ead:geogname&gt;
+												&lt;ead:geogname localtype="Descriptor geográfico"&gt;
+												&lt;ead:part&gt;Francelos, Lugar de &lt;/ead:part&gt;
+												&lt;/ead:geogname&gt;
+												&lt;ead:persname localtype="Descriptor de personas"&gt;
+												&lt;ead:part&gt;Perez de Ceta, Esteban,
+												Demandado&lt;/ead:part&gt;
+												&lt;/ead:persname&gt;
+											&lt;/ead:controlaccess&gt;
+										&lt;/ead:c02&gt;
+									&lt;/ead:c01&gt;
+								&lt;/ead:dsc&gt;
+							&lt;/ead:archdesc&gt;
+						&lt;/ead:ead&gt;
+					&lt;/xmlData&gt;
+				&lt;/mdWrap&gt;
+			&lt;/dmdSec&gt;
+			&lt;dmdSec ID="DM2"&gt;
+				&lt;mdWrap MDTYPE="OTHER" OTHERMDTYPE="DMDGOM"&gt;
+					&lt;xmlData&gt;
+						&lt;grupoObjetoMultimedia mimeType="image/jpeg" presentacionDef="miniaturas"
+							tieneOCR="false" visor="defecto"
+							nombre="El cabildo de Tuy con Esteban Pérez de Ceta, sobre reivindicación por el Lugar de Francelos"
+							descripcion="Copia digital"&gt;
+							&lt;imagenFavorita&gt;JPEGID-2968534&lt;/imagenFavorita&gt;
+						&lt;/grupoObjetoMultimedia&gt;
+					&lt;/xmlData&gt;
+				&lt;/mdWrap&gt;
+			&lt;/dmdSec&gt;
+			&lt;amdSec ID="AMDMETSRIGHTS"&gt;
+				&lt;rightsMD ID="RIGHTS001"&gt;
+					&lt;mdWrap MDTYPE="METSRIGHTS"&gt;
+						&lt;xmlData&gt;
+							&lt;rts:RightsDeclarationMD RIGHTSCATEGORY="PUBLIC DOMAIN"&gt;
+								&lt;rts:RightsDeclaration&gt;http://creativecommons.org/publicdomain/mark/1.0/&lt;/rts:RightsDeclaration&gt;
+								&lt;rts:RightsHolder RIGHTSHOLDERID="HOLDER001"&gt;
+									&lt;rts:RightsHolderName&gt;Galicia. Subdirección Xeral de
+										Arquivos&lt;/rts:RightsHolderName&gt;
+									&lt;rts:RightsHolderContact&gt;
+										&lt;rts:RightsHolderContactAddress&gt;Cidade da Cultura. 15707
+											Santiago de Compostela&lt;/rts:RightsHolderContactAddress&gt;
+										&lt;rts:RightsHolderContactPhone&gt;+34981544816&lt;/rts:RightsHolderContactPhone&gt;
+										&lt;rts:RightsHolderContactEmail&gt;email@xunta.es&lt;/rts:RightsHolderContactEmail&gt;
+									&lt;/rts:RightsHolderContact&gt;
+								&lt;/rts:RightsHolder&gt;
+								&lt;rts:Context CONTEXTCLASS="GENERAL PUBLIC"&gt;
+									&lt;rts:Permissions DISCOVER="true" DISPLAY="true" COPY="true"
+										DUPLICATE="true" MODIFY="false" DELETE="false" PRINT="true"
+										OTHER="false"/&gt;
+								&lt;/rts:Context&gt;
+								&lt;rts:Context CONTEXTCLASS="REPOSITORY MGR"&gt;
+									&lt;rts:Permissions DISCOVER="true" DISPLAY="true" COPY="true"
+										DUPLICATE="true" MODIFY="true" DELETE="true" PRINT="true"
+										OTHER="false"/&gt;
+								&lt;/rts:Context&gt;
+							&lt;/rts:RightsDeclarationMD&gt;
+						&lt;/xmlData&gt;
+					&lt;/mdWrap&gt;
+				&lt;/rightsMD&gt;
+			&lt;/amdSec&gt;
+			&lt;amdSec&gt;
+				&lt;techMD ID="PREMISOBJ-FILE-2968261"&gt;
+					&lt;mdWrap MDTYPE="PREMIS:OBJECT"&gt;
+						&lt;xmlData&gt;
+							&lt;premis:object xsi:type="premis:file"&gt;
+								&lt;premis:objectIdentifier&gt;
+									&lt;premis:objectIdentifierType&gt;object_identifier_type.IDFICHERO&lt;/premis:objectIdentifierType&gt;
+									&lt;premis:objectIdentifierValue&gt;2968261&lt;/premis:objectIdentifierValue&gt;
+								&lt;/premis:objectIdentifier&gt;
+								&lt;premis:objectCharacteristics&gt;
+									&lt;premis:compositionLevel&gt;0&lt;/premis:compositionLevel&gt;
+									&lt;premis:fixity&gt;
+										&lt;premis:messageDigestAlgorithm&gt;MD5&lt;/premis:messageDigestAlgorithm&gt;
+										&lt;premis:messageDigest&gt;b8e28e23039c171e50e8d25e014cd656&lt;/premis:messageDigest&gt;
+										&lt;premis:messageDigestOriginator&gt;message_digest_originator&lt;/premis:messageDigestOriginator&gt;
+									&lt;/premis:fixity&gt;
+									&lt;premis:size&gt;5947392&lt;/premis:size&gt;
+									&lt;premis:format&gt;
+										&lt;premis:formatDesignation&gt;
+											&lt;premis:formatName&gt;image/tiff&lt;/premis:formatName&gt;
+										&lt;/premis:formatDesignation&gt;
+									&lt;/premis:format&gt;
+									&lt;premis:creatingApplication&gt;
+										&lt;premis:creatingApplicationName&gt;creating_application_name&lt;/premis:creatingApplicationName&gt;
+										&lt;premis:creatingApplicationVersion&gt;1.0&lt;/premis:creatingApplicationVersion&gt;
+										&lt;premis:dateCreatedByApplication&gt;2014-11-17T07:41:26&lt;/premis:dateCreatedByApplication&gt;
+									&lt;/premis:creatingApplication&gt;
+								&lt;/premis:objectCharacteristics&gt;
+								&lt;premis:storage&gt;
+									&lt;premis:contentLocation&gt;
+										&lt;premis:contentLocationType&gt;URL&lt;/premis:contentLocationType&gt;
+										&lt;premis:contentLocationValue&gt;file:///tiff/exemplo_1_01.tif&lt;/premis:contentLocationValue&gt;
+									&lt;/premis:contentLocation&gt;
+									&lt;premis:storageMedium&gt;USB Disk&lt;/premis:storageMedium&gt;
+								&lt;/premis:storage&gt;
+							&lt;/premis:object&gt;
+							&lt;premis:objectCharacteristicsExtension&gt;
+								&lt;mix:mix&gt;
+									&lt;mix:BasicDigitalObjectInformation&gt;
+										&lt;mix:ObjectIdentifier&gt;
+											&lt;mix:objectIdentifierType&gt;JHOVE&lt;/mix:objectIdentifierType&gt;
+										&lt;/mix:ObjectIdentifier&gt;
+										&lt;mix:byteOrder&gt;little endian&lt;/mix:byteOrder&gt;
+										&lt;mix:Compression&gt;
+											&lt;mix:compressionScheme&gt;LZW&lt;/mix:compressionScheme&gt;
+										&lt;/mix:Compression&gt;
+									&lt;/mix:BasicDigitalObjectInformation&gt;
+									&lt;mix:BasicImageInformation&gt;
+										&lt;mix:BasicImageCharacteristics&gt;
+											&lt;mix:imageWidth&gt;2667&lt;/mix:imageWidth&gt;
+											&lt;mix:imageHeight&gt;1955&lt;/mix:imageHeight&gt;
+											&lt;mix:PhotometricInterpretation&gt;
+												&lt;mix:colorSpace&gt;RGB&lt;/mix:colorSpace&gt;
+												&lt;mix:ReferenceBlackWhite&gt;
+												&lt;mix:Component&gt;
+												&lt;mix:componentPhotometricInterpretation&gt;R&lt;/mix:componentPhotometricInterpretation&gt;
+												&lt;mix:footroom&gt;
+												&lt;mix:numerator&gt;0&lt;/mix:numerator&gt;
+												&lt;/mix:footroom&gt;
+												&lt;mix:headroom&gt;
+												&lt;mix:numerator&gt;255&lt;/mix:numerator&gt;
+												&lt;/mix:headroom&gt;
+												&lt;/mix:Component&gt;
+												&lt;mix:Component&gt;
+												&lt;mix:componentPhotometricInterpretation&gt;G&lt;/mix:componentPhotometricInterpretation&gt;
+												&lt;mix:footroom&gt;
+												&lt;mix:numerator&gt;0&lt;/mix:numerator&gt;
+												&lt;/mix:footroom&gt;
+												&lt;mix:headroom&gt;
+												&lt;mix:numerator&gt;255&lt;/mix:numerator&gt;
+												&lt;/mix:headroom&gt;
+												&lt;/mix:Component&gt;
+												&lt;mix:Component&gt;
+												&lt;mix:componentPhotometricInterpretation&gt;B&lt;/mix:componentPhotometricInterpretation&gt;
+												&lt;mix:footroom&gt;
+												&lt;mix:numerator&gt;0&lt;/mix:numerator&gt;
+												&lt;/mix:footroom&gt;
+												&lt;mix:headroom&gt;
+												&lt;mix:numerator&gt;255&lt;/mix:numerator&gt;
+												&lt;/mix:headroom&gt;
+												&lt;/mix:Component&gt;
+												&lt;/mix:ReferenceBlackWhite&gt;
+											&lt;/mix:PhotometricInterpretation&gt;
+										&lt;/mix:BasicImageCharacteristics&gt;
+									&lt;/mix:BasicImageInformation&gt;
+									&lt;mix:ImageCaptureMetadata&gt;
+										&lt;mix:orientation&gt;normal*&lt;/mix:orientation&gt;
+									&lt;/mix:ImageCaptureMetadata&gt;
+									&lt;mix:ImageAssessmentMetadata&gt;
+										&lt;mix:SpatialMetrics&gt;
+											&lt;mix:samplingFrequencyUnit&gt;in.&lt;/mix:samplingFrequencyUnit&gt;
+											&lt;mix:xSamplingFrequency&gt;
+												&lt;mix:numerator&gt;629145600&lt;/mix:numerator&gt;
+												&lt;mix:denominator&gt;2097152&lt;/mix:denominator&gt;
+											&lt;/mix:xSamplingFrequency&gt;
+											&lt;mix:ySamplingFrequency&gt;
+												&lt;mix:numerator&gt;629145600&lt;/mix:numerator&gt;
+												&lt;mix:denominator&gt;2097152&lt;/mix:denominator&gt;
+											&lt;/mix:ySamplingFrequency&gt;
+										&lt;/mix:SpatialMetrics&gt;
+										&lt;mix:ImageColorEncoding&gt;
+											&lt;mix:BitsPerSample&gt;
+												&lt;mix:bitsPerSampleValue&gt;8&lt;/mix:bitsPerSampleValue&gt;
+												&lt;mix:bitsPerSampleValue&gt;8&lt;/mix:bitsPerSampleValue&gt;
+												&lt;mix:bitsPerSampleUnit&gt;integer&lt;/mix:bitsPerSampleUnit&gt;
+											&lt;/mix:BitsPerSample&gt;
+											&lt;mix:samplesPerPixel&gt;3&lt;/mix:samplesPerPixel&gt;
+										&lt;/mix:ImageColorEncoding&gt;
+									&lt;/mix:ImageAssessmentMetadata&gt;
+								&lt;/mix:mix&gt;
+							&lt;/premis:objectCharacteristicsExtension&gt;
+						&lt;/xmlData&gt;
+					&lt;/mdWrap&gt;
+				&lt;/techMD&gt;
+				&lt;digiprovMD ID="PREMISEVT-DIG-2968261"&gt;
+					&lt;mdWrap MDTYPE="PREMIS:EVENT"&gt;
+						&lt;xmlData&gt;
+							&lt;event&gt;
+								&lt;eventIdentifier&gt;
+									&lt;eventIdentifierType&gt;DIG&lt;/eventIdentifierType&gt;
+									&lt;eventIdentifierValue&gt;2968261&lt;/eventIdentifierValue&gt;
+								&lt;/eventIdentifier&gt;
+								&lt;eventType&gt;capture&lt;/eventType&gt;
+								&lt;eventDateTime&gt;2014-11-17T07:41:26&lt;/eventDateTime&gt;
+								&lt;creatingApplication&gt;
+									&lt;creatingApplicationName&gt;i2s Digibook
+										Scanner&lt;/creatingApplicationName&gt;
+									&lt;creatingApplicationVersion&gt;Suprascan 10000
+										RGB&lt;/creatingApplicationVersion&gt;
+								&lt;/creatingApplication&gt;
+								&lt;linkingAgentIdentifier&gt;
+									&lt;linkingAgentIdentifierType&gt;Common
+										name&lt;/linkingAgentIdentifierType&gt;
+									&lt;linkingAgentIdentifierValue&gt;agent_identifier_value&lt;/linkingAgentIdentifierValue&gt;
+									&lt;premis:linkingAgentRole&gt;digitization agency&lt;/premis:linkingAgentRole&gt;
+								&lt;/linkingAgentIdentifier&gt;
+								&lt;linkingObjectIdentifier&gt;
+									&lt;linkingObjectIdentifierType&gt;DIGIOUT.IDFICHERO&lt;/linkingObjectIdentifierType&gt;
+									&lt;linkingObjectIdentifierValue&gt;2968261&lt;/linkingObjectIdentifierValue&gt;
+									&lt;linkingObjectRole&gt;digitized file&lt;/linkingObjectRole&gt;
+								&lt;/linkingObjectIdentifier&gt;
+							&lt;/event&gt;
+						&lt;/xmlData&gt;
+					&lt;/mdWrap&gt;
+				&lt;/digiprovMD&gt;
+				&lt;digiprovMD ID="PREMISEVT-VAL-2968261"&gt;
+					&lt;mdWrap MDTYPE="PREMIS:EVENT"&gt;
+						&lt;xmlData&gt;
+							&lt;event&gt;
+								&lt;eventIdentifier&gt;
+									&lt;eventIdentifierType&gt;VAL&lt;/eventIdentifierType&gt;
+									&lt;eventIdentifierValue&gt;2968261&lt;/eventIdentifierValue&gt;
+								&lt;/eventIdentifier&gt;
+								&lt;eventType&gt;validation&lt;/eventType&gt;
+								&lt;eventDateTime&gt;2014-11-20T11:53:34+01:00&lt;/eventDateTime&gt;
+								&lt;creatingApplication&gt;
+									&lt;creatingApplicationName&gt;JHOVE&lt;/creatingApplicationName&gt;
+									&lt;creatingApplicationVersion&gt;1.11&lt;/creatingApplicationVersion&gt;
+								&lt;/creatingApplication&gt;
+								&lt;linkingAgentIdentifier&gt;
+									&lt;linkingAgentIdentifierType&gt;Common
+										name&lt;/linkingAgentIdentifierType&gt;
+									&lt;linkingAgentIdentifierValue&gt;agent_identifier_value&lt;/linkingAgentIdentifierValue&gt;
+									&lt;premis:linkingAgentRole&gt;validator&lt;/premis:linkingAgentRole&gt;
+								&lt;/linkingAgentIdentifier&gt;
+								&lt;linkingObjectIdentifier&gt;
+									&lt;linkingObjectIdentifierType&gt;object_identifier_type.IDFICHERO&lt;/linkingObjectIdentifierType&gt;
+									&lt;linkingObjectIdentifierValue&gt;2968261&lt;/linkingObjectIdentifierValue&gt;
+									&lt;linkingObjectRole&gt;validated file&lt;/linkingObjectRole&gt;
+								&lt;/linkingObjectIdentifier&gt;
+							&lt;/event&gt;
+						&lt;/xmlData&gt;
+					&lt;/mdWrap&gt;
+				&lt;/digiprovMD&gt;
+				&lt;digiprovMD ID="PREMISAG-001"&gt;
+					&lt;mdWrap MDTYPE="PREMIS:AGENT"&gt;
+						&lt;xmlData&gt;
+							&lt;premis:agent&gt;
+								&lt;premis:agentIdentifier&gt;
+									&lt;premis:agentIdentifierType&gt;Common name&lt;/premis:agentIdentifierType&gt;
+									&lt;premis:agentIdentifierValue&gt;agent_identifier_value&lt;/premis:agentIdentifierValue&gt;
+								&lt;/premis:agentIdentifier&gt;
+								&lt;premis:agentName&gt;agent_name&lt;/premis:agentName&gt;
+							&lt;/premis:agent&gt;
+						&lt;/xmlData&gt;
+					&lt;/mdWrap&gt;
+				&lt;/digiprovMD&gt;
+			&lt;/amdSec&gt;
+			&lt;fileSec&gt;
+				&lt;fileGrp USE="archive"&gt;
+					&lt;file ID="TIFFID-2968261" MIMETYPE="image/tiff" SEQ="1"
+						CREATED="2014-11-17T07:41:26"&gt;
+						&lt;FLocat LOCTYPE="URL" xlink:type="simple"
+							xlink:href="file:///ES.GA.15030.ARG/C-848-18/tiff/ES.GA.15030.ARG_C-848-18_00001.tiff"
+						/&gt;
+					&lt;/file&gt;
+				&lt;/fileGrp&gt;
+				&lt;fileGrp USE="reference"&gt;
+					&lt;file ID="JPEGID-2968534" MIMETYPE="image/jpeg" SEQ="1"
+						CREATED="2014-11-18T07:20:00"&gt;
+						&lt;FLocat LOCTYPE="URL" xlink:type="simple"
+							xlink:href="file:///ES.GA.15030.ARG/C-848-18/jpeg/ES.GA.15030.ARG_C-848-18_00001.jpg"
+						/&gt;
+					&lt;/file&gt;
+				&lt;/fileGrp&gt;
+				&lt;fileGrp USE="reference"&gt;
+					&lt;file ID="PDFID-2969361" MIMETYPE="application/pdf" SEQ="1"
+						CREATED="2014-11-19T08:21:12"&gt;
+						&lt;FLocat LOCTYPE="URL" xlink:type="simple"
+							xlink:href="file:///ES.GA.15030.ARG/C-848-18/pdf/ES.GA.15030.ARG_C-848-18_00001.pdf"
+						/&gt;
+					&lt;/file&gt;
+				&lt;/fileGrp&gt;
+			&lt;/fileSec&gt;
+			&lt;structMap
+				LABEL="El cabildo de Tuy con Esteban Pérez de Ceta, sobre reivindicación por el Lugar de Francelos"
+				TYPE="physical"&gt;
+				&lt;div
+					LABEL="El cabildo de Tuy con Esteban Pérez de Ceta, sobre reivindicación por el Lugar de Francelos"
+					DMDID="DM1" TYPE="book"&gt;
+					&lt;div ORDER="1" LABEL="[Cubierta]" TYPE="page"&gt;
+						&lt;fptr FILEID="TIFFID-2968261"/&gt;
+						&lt;fptr FILEID="JPEGID-2968534"/&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/structMap&gt;
+			&lt;structMap
+				LABEL="El cabildo de Tuy con Esteban Pérez de Ceta, sobre reivindicación por el Lugar de Francelos"
+				TYPE="mixed"&gt;
+				&lt;div
+					LABEL="El cabildo de Tuy con Esteban Pérez de Ceta, sobre reivindicación por el Lugar de Francelos"
+					DMDID="DM1" TYPE="book"&gt;
+					&lt;fptr FILEID="PDFID-2969361"/&gt;
+				&lt;/div&gt;
+			&lt;/structMap&gt;
+		&lt;/mets&gt;
+	&lt;/Appendix&gt;
+&lt;/METS_Profile&gt;
+</PRE></BODY></HTML>

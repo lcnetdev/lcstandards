@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited by Chi-Yu Huang (private) -->
+<!-- Greenstone METS Profile Schema Version 1.0 -->
+<!-- Copyright Â© 2004, XXXX-->
+<METS_Profile    xsi:noNamespaceSchemaLocation="http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-1.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="HTTP://www.loc.gov/METS"
+    xmlns:gsdl3="http://www.greenstone.org/namespace/gsdlmetadata/1.0/"
+    xmlns:xlink="http://www.w3.org/TR/xlink" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.greenstone.org/namespace/gsdlmetadata/1.0/ http://www.greenstone.org/namespace/gsdlmetadata/1.0/gsdl_metadata.xsd http://www.w3.org/TR/xlink http://www.loc.gov/standards/mets/xlink.xsd">
+    <URI LOCTYPE="URN">http://www.loc.gov/mets/profiles/00000006.xml</URI>
+    <title>The University of Waikato Digital Library Group - Greenstone Project METS Profile [Draft]</title>
+    <abstract>This profile specifies how METS documents representing digital objects within the
+        Greenstone Digital library software should be encoded. Greenstone is an open source software
+        from the New Zealand Digital Library Project at the University of Waikato (see
+        www.greenstone.org for more details). Each digital source document is represented in a
+        canonical form that involves two compulsorary XML files plus associated files such as
+        supporting images (optional). One XML file is in METS syntax that describes the potentially
+        nested sections to the document with metadata attached at any section level; the other XML
+        file uses a supporting syntax to represent any text a source document may have, again
+        reflecting the nested sections structure.</abstract>
+    <date>2004-11-29T15:22:00</date>
+    <contact>
+        <name>Chi-Yu Huang</name>
+        <address>Greenstone Digital Library Research Group, Department of Computer Sciences,Waikto
+            University, Private Bag 3105,Hamilton, New Zealand</address>
+        <phone>(64) 856-2889 ext 6038</phone>
+        <email>greenstone@cs.waikato.ac.nz</email>
+    </contact>
+    <related_profile>None.</related_profile>
+    <extension_schema>
+        <name>Greenstone Supporting Text Structure XML Schema</name>
+        <URI>http://www.greenstone.org/namespace/gsdltext/1.0/gsdl_text.xsd</URI>
+    </extension_schema>
+    <extension_schema>
+        <name>Greenstone Metadata XML Schema</name>
+        <URI>http://www.greenstone.org/namespace/gsdlmetadata/1.0/gsdl_metadata.xsd</URI>
+    </extension_schema>
+    <description_rules>
+        <p>None.</p>
+    </description_rules>
+    <controlled_vocabularies/>
+    <structural_requirements>
+        <dmdSec>
+            <requirement>
+                <p>A conforming document must contain one or more Descriptive Metadata Section(s)
+                    (dmdSec) to describe the top-level metadata for the whole document and the
+                    metadata for each related section within that document. For each of dmdSec, it
+                    will contain:</p>
+                <p>a &lt;mdWrap&gt; containing a &lt;xmlData&gt; wrapper around
+                    embedded Greenstone metadata. See Greenstone Metadata XML schema above.</p>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement>
+                <p>There is no amdSec in the current GS METS version yet</p>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement>
+                <p>The conforming document must contain one file section (&lt;fileSec&gt;)
+                    which in turn contains one or more file group(&lt;fileGrp&gt;)
+                    element(s) used to indicate and group together related sections.</p>
+            </requirement>
+            <requirement>
+                <p>In addition, a default &lt;fileGrp&gt; is defined which list the original
+                    source document and all associated files.</p>
+            </requirement>
+            <requirement>
+                <p> All of the &lt;file&gt; elements have a unique ID attribute which is
+                    used to provide a unique, internal name for this file element. This ID can be
+                    referenced by other portions of the document (e.g. It will be referenced in the
+                    Structural Map Section.)</p>
+            </requirement>
+        </fileSec>
+        <structMap>
+            <requirement>
+                <p>A METS document conforming to the Greenstone profile contains two Structure Maps
+                    (structMap), which are:</p>
+                <p>1. A &lt;mets:structMap&gt; for each related sections.</p>
+                <p>2. A &lt;mets:structMap&gt; for the Whole Document.</p>
+                <p> This is the heart of a METs documents. Each structMap contains an element with a
+                    TYPE attribute with value "Section" or "Whole Document".</p>
+                <p>The Structure Map must contain one high level &lt;div&gt; element with a
+                    TYPE attribute with value "Section" or "Document" and a DMDID attribute that
+                    references the dmdSec element.</p>
+                <p>Each &lt;div TYPE=Section&gt; element will contain more divs if there are
+                    further sub-sectoions within the document. The &lt;div&gt; will contain
+                    one or more File Pointer (&lt;fptr&gt;) elements that reference
+                    File(file) element in the File Group(&lt;fileGrp&gt;) section.</p>
+            </requirement>
+        </structMap>
+        <structLink>
+            <requirement>
+                <p>There is no &lt;structLink&gt; in the current GS METS version.</p>
+            </requirement>
+        </structLink>
+        <behaviorSec>
+            <requirement>
+                <p>There is no &lt;behaviorSec&gt; in the current GS METS version.</p>
+            </requirement>
+        </behaviorSec>
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement>
+                <p>None.</p>
+            </requirement>
+        </content_files>
+        <behavior_files>
+            <requirement>
+                <p>None.</p>
+            </requirement>
+        </behavior_files>
+        <metadata_files>
+            <requirement>
+                <p>None.</p>
+            </requirement>
+        </metadata_files>
+    </technical_requirements>
+    <tool>
+        <name>Greenstone Digital Library Software</name>
+        <agency>New Zealand Digital Library Project at the University of Waikato</agency>
+        <URI>http://www.greenstone.org</URI>
+        <description>
+            <p>Greenstone is a suite of software for building and distributing digital library
+                collections. It provides a new way of organizing information and publishing it on
+                the Internet or on CD-ROM. Greenstone is produced by the New Zealand Digital Library
+                Project at the University of Waikato, and developed and distributed in cooperation
+                with UNESCO and the Human Info NGO. It is open-source, multilingual software, issued
+                under the terms of the GNU General Public License.</p>
+        </description>
+    </tool>
+    <Appendix NUMBER="1">
+        <mets:mets xmlns:mets="http://www.loc.gov/METS/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:gsdl3="http://www.greenstone.org/namespace/gsdlmetadata/1.0/"
+            xmlns:xlink="http://www.w3.org/TR/xlink"
+            xsi:schemaLocation="http://www.loc.gov/METS/                 http://www.loc.gov/standards/mets/mets.xsd                        http://www.greenstone.org/namespace/gsdlmetadata/1.0/                        http://www.greenstone.org/namespace/gsdlmetadata/1.0/gsdl_metadata.xsd" OBJID="HASH01d242dc3e08e1fdcf7343bb:2">
+            <mets:dmdSec ID="DM1" GROUPID="1">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="gsdlsourcefilename">/research/chi/ gsdl/collect/demo/import/b21wae/b21wae.htm</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdldoctype">indexed_doc </gsdl3:Metadata>
+                        <gsdl3:Metadata name="Language">en</gsdl3:Metadata>
+                        <gsdl3:Metadata name="Encoding"> iso_8859_1 </gsdl3:Metadata>
+                        <gsdl3:Metadata name="Plugin">HTMLPlug</gsdl3:Metadata>
+                        <gsdl3:Metadata name="Source">b21wae.htm</gsdl3:Metadata>
+                        <gsdl3:Metadata name="dls.Organization"> BOSTID </gsdl3:Metadata>
+                        <gsdl3:Metadata name="dls.Title">The Water Buffalo: New Prospects For An
+                            Underutilized Animal (1984) (b21wae)</gsdl3:Metadata>
+                        <gsdl3:Metadata name="dls.Language">English </gsdl3:Metadata>
+                        <gsdl3:Metadata name="dls.AZList">A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z</gsdl3:Metadata>
+                        <gsdl3:Metadata name="dls.Subject">Animal Husbandry and Animal Product Processing|Cattle</gsdl3:Metadata>
+                        <gsdl3:Metadata name="dls.Subject">Animal Husbandry and Animal Product
+                            Processing|Other animals (micro-livestock, little known animals,
+                            silkworms, reptiles, frogs, snails, game, etc.)</gsdl3:Metadata>
+                        <gsdl3:Metadata name="dls.Keyword">utilize the Water Buffalo more effectively</gsdl3:Metadata>
+                        <gsdl3:Metadata name="URL">http://b21wae/b21wae.htm </gsdl3:Metadata>
+                        <gsdl3:Metadata name="Title">The Water Buffalo: New Prospects For An
+                            Underutilized Animal (1984)</gsdl3:Metadata>
+                        <gsdl3:Metadata name="Identifier">HASH01d242dc3e08e1fdcf7343bb</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">cover.jpg:image/jpeg:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">p04to05.png:image/png:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">p27.png:image/png:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">p31.png:image/png:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">p32.png:image/png:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">p59.png:image/png:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">p68to69.png:image/png:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="gsdlassocfile">p98.png:image/png:</gsdl3:Metadata>
+                        <gsdl3:Metadata name="assocfilepath">HASH01d2.dir</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.1" GROUPID="1.1">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.1">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">Panel on Water Buffalo </gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.2" GROUPID="1.2">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.2">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">Preface</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.3" GROUPID="1.3">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.3">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">1 Introduction </gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.4" GROUPID="1.4">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.4">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">2 Meat</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.5" GROUPID="1.5">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.5">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">3 Milk</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.6" GROUPID="1.6">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.6">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">4 Work</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.7" GROUPID="1.7">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.7">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">5 Adaptability and Environmental Tolerance</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.8" GROUPID="1.8">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.8">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">6 Nutrition</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.9" GROUPID="1.9">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.9">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">7 Health</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.10" GROUPID="1.10">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.10">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">8 Reproduction </gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.11" GROUPID="1.11">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.11">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">9 Management </gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.12" GROUPID="1.12">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.12">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">10 Environmental Effects </gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.13" GROUPID="1.13">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.13">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">11 Recommendations and Research Needs</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.14" GROUPID="1.14">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.14">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">Appendixes</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.14.1" GROUPID="1.14.1">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.14.1">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">Appendix A</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.14.2" GROUPID="1.14.2">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.14.2">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">Appendix B</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:dmdSec ID="DM1.14.3" GROUPID="1.14.3">
+                <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="gsdl3" ID="gsdl1.14.3">
+                    <mets:xmlData>
+                        <gsdl3:Metadata name="Title">Appendix C</gsdl3:Metadata>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:fileSec>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.1">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.1">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[1]/text()"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.2">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.2">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[2]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.3">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.3">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[3]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.4">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.4">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[4]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.5">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.5">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[5]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.6">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.6">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[6]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.7">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.7">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[7]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.8">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.8">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[8]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.9">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.9">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[9]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.10">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.10">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[10]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.11">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.11">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[11]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.12">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.12">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[12]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.13">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.13">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[13]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.14">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.14">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[14]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.14.1">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.14.1">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[14]/Section[1]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.14.2">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.14.2">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[14]/Section[2]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="FILEGROUP_PRELUDE1.14.3">
+                    <mets:file MIMETYPE="text/xml" ID="FILE1.14.3">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:doctxt.xml#xpointer(/Section[1]/Section[14]/Section[3]/text())"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="default">
+                    <mets:file MIMETYPE="text/xml" ID="default.1">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/b21wae.htm"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/jpeg" ID="default.2">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/cover.jpg"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/png" ID="default.3">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/p04to05.png"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/png" ID="default.4">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/p27.png"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/png" ID="default.5">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/p31.png"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/png" ID="default.6">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/p32.png"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/png" ID="default.7">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/p59.png"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/png" ID="default.8">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/p68to69.png"/>
+                    </mets:file>
+                    <mets:file MIMETYPE="image/png" ID="default.9">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file:/research/chi/gsdl/collect/demo/import/b21wae/p98.png"/>
+                    </mets:file>
+                </mets:fileGrp>
+            </mets:fileSec>
+            <mets:structMap ID="Section" TYPE="Section" LABEL="Section">
+                <mets:div ID="DS1" TYPE="Section" ORDER="1" ORDERLABEL="1" LABEL="1" DMDID="DM1">
+                    <mets:fptr FILEID="FILEGROUP_PRELUDE1"/>
+                    <mets:div ID="DS1.1" TYPE="Section" ORDER="2" ORDERLABEL="1.1" LABEL="1.1" DMDID="DM1.1">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.1"/>
+                    </mets:div>
+                    <mets:div ID="DS1.2" TYPE="Section" ORDER="3" ORDERLABEL="1.2" LABEL="1.2" DMDID="DM1.2">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.2"/>
+                    </mets:div>
+                    <mets:div ID="DS1.3" TYPE="Section" ORDER="4" ORDERLABEL="1.3" LABEL="1.3" DMDID="DM1.3">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.3"/>
+                    </mets:div>
+                    <mets:div ID="DS1.4" TYPE="Section" ORDER="5" ORDERLABEL="1.4" LABEL="1.4" DMDID="DM1.4">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.4"/>
+                    </mets:div>
+                    <mets:div ID="DS1.5" TYPE="Section" ORDER="6" ORDERLABEL="1.5" LABEL="1.5" DMDID="DM1.5">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.5"/>
+                    </mets:div>
+                    <mets:div ID="DS1.6" TYPE="Section" ORDER="7" ORDERLABEL="1.6" LABEL="1.6" DMDID="DM1.6">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.6"/>
+                    </mets:div>
+                    <mets:div ID="DS1.7" TYPE="Section" ORDER="8" ORDERLABEL="1.7" LABEL="1.7" DMDID="DM1.7">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.7"/>
+                    </mets:div>
+                    <mets:div ID="DS1.8" TYPE="Section" ORDER="9" ORDERLABEL="1.8" LABEL="1.8" DMDID="DM1.8">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.8"/>
+                    </mets:div>
+                    <mets:div ID="DS1.9" TYPE="Section" ORDER="10" ORDERLABEL="1.9" LABEL="1.9" DMDID="DM1.9">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.9"/>
+                    </mets:div>
+                    <mets:div ID="DS1.10" TYPE="Section" ORDER="11" ORDERLABEL="1.10" LABEL="1.10" DMDID="DM1.10">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.10"/>
+                    </mets:div>
+                    <mets:div ID="DS1.11" TYPE="Section" ORDER="12" ORDERLABEL="1.11" LABEL="1.11" DMDID="DM1.11">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.11"/>
+                    </mets:div>
+                    <mets:div ID="DS1.12" TYPE="Section" ORDER="13" ORDERLABEL="1.12" LABEL="1.12" DMDID="DM1.12">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.12"/>
+                    </mets:div>
+                    <mets:div ID="DS1.13" TYPE="Section" ORDER="14" ORDERLABEL="1.13" LABEL="1.13" DMDID="DM1.13">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.13"/>
+                    </mets:div>
+                    <mets:div ID="DS1.14" TYPE="Section" ORDER="15" ORDERLABEL="1.14" LABEL="1.14" DMDID="DM1.14">
+                        <mets:fptr FILEID="FILEGROUP_PRELUDE1.14"/>
+                        <mets:div ID="DS1.14.1" TYPE="Section" ORDER="16" ORDERLABEL="1.14.1"
+                            LABEL="1.14.1" DMDID="DM1.14.1">
+                            <mets:fptr FILEID="FILEGROUP_PRELUDE1.14.1"/>
+                        </mets:div>
+                        <mets:div ID="DS1.14.2" TYPE="Section" ORDER="17" ORDERLABEL="1.14.2"
+                            LABEL="1.14.2" DMDID="DM1.14.2">
+                            <mets:fptr FILEID="FILEGROUP_PRELUDE1.14.2"/>
+                        </mets:div>
+                        <mets:div ID="DS1.14.3" TYPE="Section" ORDER="18" ORDERLABEL="1.14.3"
+                            LABEL="1.14.3" DMDID="DM1.14.3">
+                            <mets:fptr FILEID="FILEGROUP_PRELUDE1.14.3"/>
+                        </mets:div>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+            <mets:structMap ID="All" TYPE="Whole Document" LABEL="All">
+                <mets:div ID="DSAll" TYPE="Document" ORDER="0" ORDERLABEL="All"
+                    LABEL="Whole Documemt" DMDID="DM1">
+                    <mets:fptr FILEID="default.1"/>
+                    <mets:fptr FILEID="default.2"/>
+                    <mets:fptr FILEID="default.3"/>
+                    <mets:fptr FILEID="default.4"/>
+                    <mets:fptr FILEID="default.5"/>
+                    <mets:fptr FILEID="default.6"/>
+                    <mets:fptr FILEID="default.7"/>
+                    <mets:fptr FILEID="default.8"/>
+                    <mets:fptr FILEID="default.9"/>
+                </mets:div>
+            </mets:structMap>
+        </mets:mets>
+    </Appendix>
+</METS_Profile>

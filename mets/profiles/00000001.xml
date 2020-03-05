@@ -1,0 +1,1306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mets="http://www.loc.gov/METS/"
+    xmlns:mods="http://www.loc.gov/mods/v3"
+    xsi:schemaLocation="http://www.loc.gov/METS_Profile/
+http://www.loc.gov/standards/mets/profile_docs/mets.profile.v1-2.xsd
+    http://www.loc.gov/METS/  http://www.loc.gov/standards/mets/mets.xsd 
+    http://www.loc.gov/mods/ http://www.loc.gov/standards/mods/v3/mods-3-0.xsd">
+    <URI LOCTYPE="URL">http://www.loc.gov/mets/profiles/00000001.xml</URI>
+    <title>Oxford Digital Library METS Profile</title>
+    <abstract>This profile documents the use of METS for standard image or image+text digital
+        objects within the Oxford Digital Library (ODL). </abstract>
+    <date>2003-12-12T15:15:00</date>
+    <contact>
+        <name>Richard Gartner</name>
+        <address>SERS Building, Osney Mead, Oxford OX2 0EZ, UK</address>
+        <phone>+44 1865 280029</phone>
+        <email>richard.gartner@sers.ox.ac.uk</email>
+    </contact>
+    <related_profile>There are no related profiles.</related_profile>
+    <extension_schema>
+        <name>MODS (Metadata Object Description Schema) schema, version 3</name>
+        <URI>http://www.loc.gov/standards/mods/v3/mods-3-0.xsd</URI>
+        <context>Used for encoding descriptive metadata</context>
+    </extension_schema>
+    <extension_schema>
+        <name>ODL Administrative Metadata Schema</name>
+        <URI>http://www2.odl.ox.ac.uk/data/aaaaaa/schema/odl-adminmetadata.dtd</URI>
+        <context>Used to encode administrative metadata for image files. This DTD is used only for
+            external metadata records, and should only be used for records linked from a techMD element.</context>
+    </extension_schema>
+    <extension_schema>
+        <name>ODL extensions to MODS</name>
+        <URI>http://www2.odl.ox.ac.uk/data/aaaaaa/schema/odl.xsd</URI>
+        <note>Extensions to the MODS schema specific to the ODL: these cover any facets of
+            descriptive metadata not adequately handled by MODS itself</note>
+    </extension_schema>
+    <description_rules>
+        <p>Descriptive metadata should follow the ODL Guidelines for descriptive metadata
+            (http://www2.odl.ox.ac.uk/guidelines/), including the ODL's name authority rules
+            enumerated within these (essentially conformance to the Anglo-American Name Authority
+            file with supplementary lists specific to the ODL for names absent from this). The
+            metadata is input into the ODL's webform-based metadata system using qualified Dublin
+            Core fields (described in the above guidelines), but converted to the MODS schema when
+            the METS file is generated.</p>
+        <p>Any names or titles not taken from an authority list should be formatted according to
+            AACR2 conventions.</p>
+    </description_rules>
+    <controlled_vocabularies>
+        <vocabulary>
+            <name>Library of Congress Subject Headings</name>
+            <maintenance_agency>Library of Congress Network Development &amp; MARC Standards Office</maintenance_agency>
+            <context>
+                <p>At least one LCSH heading is compulsory for each record - other taxonomies
+                    specific to each project may be used in addition to this</p>
+            </context>
+        </vocabulary>
+        <vocabulary>
+            <name>MARC21 relator codes</name>
+            <maintenance_agency>Library of Congress Network Development &amp; MARC Standards Office</maintenance_agency>
+            <URI>http://www.loc.gov/marc/relators/relaterm.html</URI>
+            <context>
+                <p>Used for encoding the relationship of any person or entity named in descriptive
+                    metadata to the item itself.</p>
+            </context>
+        </vocabulary>
+        <vocabulary>
+            <name>ODL List of Types</name>
+            <maintenance_agency>Oxford Digital Library</maintenance_agency>
+            <URI>http://www2.odl.ox.ac.uk/guidelines/odl-types.html</URI>
+            <context>
+                <p>Used to encode the genre of the item</p>
+            </context>
+        </vocabulary>
+        <vocabulary>
+            <name>ISO 639-2</name>
+            <maintenance_agency>International Standard Organization</maintenance_agency>
+            <URI>http://www.iso.ch/</URI>
+            <context>
+                <p>Encodes the languages used in the content of the item</p>
+            </context>
+        </vocabulary>
+    </controlled_vocabularies>
+    <structural_requirements>
+        <metsHdr>
+            <requirement>
+                <p>The OBJID attribute in the mets element must be present: this contains the system
+                    id for the item (eg. munahi010-aaa).</p>
+            </requirement>
+        </metsHdr>
+        <dmdSec>
+            <requirement>
+                <p>One dmdSec, identified by an ID attribute in the form "objectid-dmd-0001" will
+                    contain a MODS record detailing the descriptive metadata for the item as a
+                    whole: this is embedded in a mdWrap element.</p>
+            </requirement>
+            <requirement>
+                <p>Other dmdSecs may contain descriptive metadata in other schemas for all or part
+                    of the item: these are referenced by DMDID attributes within the structMap.</p>
+            </requirement>
+        </dmdSec>
+        <amdSec>
+            <requirement>
+                <p>Files are grouped according to their referent into amdSec elements, one for each
+                    object referenced: thus, all adminstrative metadata for manifestations of the
+                    same scanned object (eg page of a volume) are grouped into the same amdSec.</p>
+            </requirement>
+            <requirement>
+                <p>Each amdSec is given an identifier in the form "objectid-amd-0001" etc, numbered sequentially.</p>
+            </requirement>
+            <requirement>
+                <p>Each amdSec contains one techMD element for each file associated with the object
+                    referenced by it: these techMD elements are given identifiers in the form
+                    "objectid-tmd-0001-0" numbered sequentially - the final digit refers to the
+                    version of the referent instantiated by the file, according to the same schema
+                    as that followed by the file's GROUPID attribute in the fileSec.</p>
+            </requirement>
+            <requirement>
+                <p>Each techMD element contains an mdRef element referencing the location of the XML
+                    file containing the administrative metadata itself. The MDTYPE attribute is set
+                    to "OTHER" and the OTHERMDTYPE attribyte to "ODL Admin Metadata Scheme".</p>
+            </requirement>
+        </amdSec>
+        <fileSec>
+            <requirement>
+                <p>Files are grouped according to their referent into fileGrp elements: thus, all
+                    manifestations of the same scanned object (eg page of a volume) are grouped into
+                    the same fileGrp.</p>
+            </requirement>
+            <requirement>
+                <p>Each fileGrp is given an identifier in the form "objectid-fgrp-001" etc, numbered sequentially.</p>
+            </requirement>
+            <requirement>
+                <p>The GROUPID attribute for each file element refers to which instantiation of the
+                    referent is represented by the given file - eg thumbnail, delivery version. The
+                    following scheme is used for these codes: 0 = archival master, 1 = archival
+                    production, 2 = delivery, large, 3 = delivery, medium, 4 = delivery, small, 5 =
+                    thumbnail, 6 = small thumbnail, 7 = other. Non-image files may be identified by
+                    an suitable code, eg TEI. </p>
+            </requirement>
+            <requirement>
+                <p>An fLocat element within each file element references the file itself by the
+                    xlink:href attribute.</p>
+            </requirement>
+            <requirement>
+                <p>An ADMID attribute on each file attribute points to the technical metadata for
+                    that file held within the admSec.</p>
+            </requirement>
+        </fileSec>
+        <structMap>
+            <requirement>
+                <p>Only one structMap is present in the METS document: this contains both the
+                    logical and physical structures of the item within a single hierarchy. This
+                    hierarchy is bounded by a div element, the DMDID attribute of which is set to
+                    the ID "objectid-dmd-0001" - ie. the ID of the MODS record describing the item
+                    as a whole. </p>
+            </requirement>
+            <requirement>
+                <p>The div elements within the structural map each have an ID attribute in the form
+                    "objectid-div.x.x.x." where "x.x.x" represents a hierarchical numbering system
+                    which mirrors the hierarchical arrangement of the divs themselves (eg munahi010-aaa-div.1.2.1)</p>
+            </requirement>
+            <requirement>
+                <p>No type attributes are used for div elements</p>
+            </requirement>
+            <requirement>
+                <p>Each lowest level div element contains a fptr element, whose FILEID attribute
+                    points to the fileGrp of the referenced item in the fileSec.</p>
+            </requirement>
+            <requirement>
+                <p>A LABEL attribute must be provided for each div element.</p>
+            </requirement>
+        </structMap>
+    </structural_requirements>
+    <technical_requirements>
+        <content_files>
+            <requirement>
+                <p>Archival quality images, identified by GROUPID=0 in the file element, are scanned
+                    in TIFF format, in bit-depths of either 1,8 or 24 bits per pixel depending on
+                    the requirements of the source material. 1 bit images are compressed using
+                    G4(2D) compression, otherwise the images are uncompressed.</p>
+            </requirement>
+            <requirement>
+                <p>Medium-sized delivery images, identified by GROUPID=3, are stored in JPEG format
+                    at a maximum resolution of 1000x1000 pixels. </p>
+            </requirement>
+            <requirement>
+                <p>Thumbnail images, identified by GROUPID=6, are stored in JPEG format at a maximum
+                    resolution of 96x96 pixels.</p>
+            </requirement>
+            <requirement>
+                <p>All text files referenced by the METS object must conform to the TEI P4 DTD
+                    (http://www.tei-c.org/P4X/) and to one of levels 1-4 of the TEI Text Encoding in
+                    Libraries Guidelines for Best Encoding Practices
+                    (http://www.indiana.edu/~letrs/tei/). </p>
+            </requirement>
+        </content_files>
+    </technical_requirements>
+    <tool>
+        <agency>Oxford Digital Library</agency>
+        <description>
+            <p>METS files for the Oxford Digital Library are created by an in-house web-form input
+                mechanism, based on mySql and PHP. It is not available for general access at present.</p>
+        </description>
+    </tool>
+    <Appendix NUMBER="1">
+        <mets:mets OBJID="munahi010-aag" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/TR/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/mets/mets.xsd
+http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd" >
+            <mets:metsHdr RECORDSTATUS="interim"/>
+            <mets:dmdSec ID="munahi010-aag-dmd-0001">
+                <mets:mdWrap LABEL="MODS Metadata" MDTYPE="MODS" MIMETYPE="text/xml">
+                    <mets:xmlData>
+                        <mods:mods>
+                            <mods:titleInfo>
+                                <mods:title>A Catalogue of the Organic Remains of the County of Wiltshire.</mods:title>
+                            </mods:titleInfo>
+                            <mods:titleInfo type="alternative">
+                                <mods:title>Wiltshire Organic Remains.</mods:title>
+                            </mods:titleInfo>
+                            <mods:name>
+                                <mods:namePart>$aBenet, Ethedred</mods:namePart>
+                                <mods:role>
+                                    <mods:roleTerm authority="marcrelator">aut</mods:roleTerm>
+                                </mods:role>
+                            </mods:name>
+                            <mods:name>
+                                <mods:namePart>$aVardy, J.L.</mods:namePart>
+                                <mods:role>
+                                    <mods:roleTerm authority="marcrelator">prt</mods:roleTerm>
+                                </mods:role>
+                            </mods:name>
+                            <mods:name>
+                                <mods:namePart>$aSmith, E.D.</mods:namePart>
+                                <mods:role>
+                                    <mods:roleTerm authority="marcrelator">drm</mods:roleTerm>
+                                </mods:role>
+                            </mods:name>
+                            <mods:genre>Text. Manuscript</mods:genre>
+                            <mods:originInfo>
+                                <mods:publisher>Warminster (England)</mods:publisher>
+                                <mods:dateIssued point="start">1831</mods:dateIssued>
+                            </mods:originInfo>
+                            <mods:language>
+                                <mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+                            </mods:language>
+                            <mods:physicalDescription>
+                                <mods:note type="dimensions">290 x 220</mods:note>
+                                <mods:extent>[8], iv p., 9 p., 18 plates: ill., [3]</mods:extent>
+                            </mods:physicalDescription>
+                            <mods:abstract type="summary">A catalogue of organic remains found in
+                                Wiltshire, England.</mods:abstract>
+                            <mods:subject authority="lcsh">
+                                <mods:topic>$aLocal Geology$xfossils</mods:topic>
+                            </mods:subject>
+                            <mods:subject>
+                                <mods:geographic>Wiltshire, England</mods:geographic>
+                            </mods:subject>
+                            <mods:relatedItem type="original">
+                                <mods:identifier>OUM: AL4 Wilts. 1</mods:identifier>
+                            </mods:relatedItem>
+                        </mods:mods>
+                    </mets:xmlData>
+                </mets:mdWrap>
+            </mets:dmdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0001">
+                <mets:techMD ID="munahi010-aag-tmd-0001-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0001-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0001-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0001-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0001-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0001-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0002">
+                <mets:techMD ID="munahi010-aag-tmd-0002-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0002-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0002-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0002-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0002-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0002-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0003">
+                <mets:techMD ID="munahi010-aag-tmd-0003-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0003-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0003-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0003-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0003-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0003-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0004">
+                <mets:techMD ID="munahi010-aag-tmd-0004-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0004-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0004-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0004-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0004-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0004-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0005">
+                <mets:techMD ID="munahi010-aag-tmd-0005-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0005-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0005-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0005-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0005-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0005-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0006">
+                <mets:techMD ID="munahi010-aag-tmd-0006-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0006-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0006-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0006-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0006-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0006-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0007">
+                <mets:techMD ID="munahi010-aag-tmd-0007-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0007-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0007-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0007-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0007-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0007-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0008">
+                <mets:techMD ID="munahi010-aag-tmd-0008-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0008-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0008-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0008-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0008-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0008-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0009">
+                <mets:techMD ID="munahi010-aag-tmd-0009-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0009-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0009-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0009-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0009-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0009-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0010">
+                <mets:techMD ID="munahi010-aag-tmd-0010-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0010-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0010-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0010-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0010-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0010-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0011">
+                <mets:techMD ID="munahi010-aag-tmd-0011-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0011-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0011-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0011-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0011-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0011-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0012">
+                <mets:techMD ID="munahi010-aag-tmd-0012-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0012-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0012-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0012-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0012-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0012-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0013">
+                <mets:techMD ID="munahi010-aag-tmd-0013-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0013-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0013-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0013-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0013-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0013-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0014">
+                <mets:techMD ID="munahi010-aag-tmd-0014-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0014-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0014-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0014-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0014-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0014-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0015">
+                <mets:techMD ID="munahi010-aag-tmd-0015-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0015-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0015-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0015-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0015-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0015-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0016">
+                <mets:techMD ID="munahi010-aag-tmd-0016-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0016-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0016-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0016-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0016-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0016-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0017">
+                <mets:techMD ID="munahi010-aag-tmd-0017-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0017-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0017-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0017-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0017-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0017-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0018">
+                <mets:techMD ID="munahi010-aag-tmd-0018-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0018-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0018-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0018-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0018-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0018-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0019">
+                <mets:techMD ID="munahi010-aag-tmd-0019-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0019-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0019-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0019-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0019-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0019-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0020">
+                <mets:techMD ID="munahi010-aag-tmd-0020-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0020-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0020-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0020-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0020-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0020-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0021">
+                <mets:techMD ID="munahi010-aag-tmd-0021-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0021-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0021-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0021-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0021-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0021-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0022">
+                <mets:techMD ID="munahi010-aag-tmd-0022-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0022-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0022-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0022-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0022-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0022-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0023">
+                <mets:techMD ID="munahi010-aag-tmd-0023-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0023-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0023-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0023-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0023-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0023-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0024">
+                <mets:techMD ID="munahi010-aag-tmd-0024-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0024-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0024-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0024-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0024-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0024-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0025">
+                <mets:techMD ID="munahi010-aag-tmd-0025-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0025-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0025-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0025-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0025-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0025-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0026">
+                <mets:techMD ID="munahi010-aag-tmd-0026-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0026-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0026-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0026-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0026-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0026-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0027">
+                <mets:techMD ID="munahi010-aag-tmd-0027-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0027-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0027-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0027-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0027-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0027-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0028">
+                <mets:techMD ID="munahi010-aag-tmd-0028-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0028-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0028-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0028-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0028-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0028-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0029">
+                <mets:techMD ID="munahi010-aag-tmd-0029-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0029-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0029-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0029-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0029-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0029-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0030">
+                <mets:techMD ID="munahi010-aag-tmd-0030-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0030-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0030-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0030-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0030-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0030-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0031">
+                <mets:techMD ID="munahi010-aag-tmd-0031-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0031-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0031-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0031-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0031-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0031-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0032">
+                <mets:techMD ID="munahi010-aag-tmd-0032-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0032-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0032-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0032-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0032-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0032-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0033">
+                <mets:techMD ID="munahi010-aag-tmd-0033-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0033-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0033-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0033-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0033-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0033-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0034">
+                <mets:techMD ID="munahi010-aag-tmd-0034-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0034-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0034-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0034-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0034-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0034-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0035">
+                <mets:techMD ID="munahi010-aag-tmd-0035-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0035-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0035-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0035-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0035-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0035-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:amdSec ID="munahi010-aag-amd-0036">
+                <mets:techMD ID="munahi010-aag-tmd-0036-0">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/0/munahi010-aag-0036-0.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0036-3">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/3/munahi010-aag-0036-3.xml"/>
+                </mets:techMD>
+                <mets:techMD ID="munahi010-aag-tmd-0036-6">
+                    <mets:mdRef LOCTYPE="URL" MDTYPE="OTHER" OTHERMDTYPE="ODL Admin Metadata Scheme" xlink:href="file:/data/aaaaaa/munahi010/admMetadata/aag/6/munahi010-aag-0036-6.xml"/>
+                </mets:techMD>
+            </mets:amdSec>
+            <mets:fileSec>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0001">
+                    <mets:file ADMID="munahi010-aag-tmd-0001-0" GROUPID="0"
+                        ID="munahi010-aag-0001-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0001.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0001-6" GROUPID="6"
+                        ID="munahi010-aag-0001-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0001-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0001-3" GROUPID="3"
+                        ID="munahi010-aag-0001-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0001-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0002">
+                    <mets:file ADMID="munahi010-aag-tmd-0002-0" GROUPID="0"
+                        ID="munahi010-aag-0002-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0002.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0002-6" GROUPID="6"
+                        ID="munahi010-aag-0002-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0002-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0002-3" GROUPID="3"
+                        ID="munahi010-aag-0002-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0002-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0003">
+                    <mets:file ADMID="munahi010-aag-tmd-0003-0" GROUPID="0"
+                        ID="munahi010-aag-0003-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0003.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0003-6" GROUPID="6"
+                        ID="munahi010-aag-0003-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0003-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0003-3" GROUPID="3"
+                        ID="munahi010-aag-0003-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0003-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0004">
+                    <mets:file ADMID="munahi010-aag-tmd-0004-0" GROUPID="0"
+                        ID="munahi010-aag-0004-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0004.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0004-6" GROUPID="6"
+                        ID="munahi010-aag-0004-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0004-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0004-3" GROUPID="3"
+                        ID="munahi010-aag-0004-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0004-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0005">
+                    <mets:file ADMID="munahi010-aag-tmd-0005-0" GROUPID="0"
+                        ID="munahi010-aag-0005-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0005.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0005-6" GROUPID="6"
+                        ID="munahi010-aag-0005-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0005-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0005-3" GROUPID="3"
+                        ID="munahi010-aag-0005-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0005-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0006">
+                    <mets:file ADMID="munahi010-aag-tmd-0006-0" GROUPID="0"
+                        ID="munahi010-aag-0006-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0006.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0006-6" GROUPID="6"
+                        ID="munahi010-aag-0006-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0006-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0006-3" GROUPID="3"
+                        ID="munahi010-aag-0006-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0006-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0007">
+                    <mets:file ADMID="munahi010-aag-tmd-0007-0" GROUPID="0"
+                        ID="munahi010-aag-0007-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0007.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0007-6" GROUPID="6"
+                        ID="munahi010-aag-0007-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0007-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0007-3" GROUPID="3"
+                        ID="munahi010-aag-0007-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0007-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0008">
+                    <mets:file ADMID="munahi010-aag-tmd-0008-0" GROUPID="0"
+                        ID="munahi010-aag-0008-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0008.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0008-6" GROUPID="6"
+                        ID="munahi010-aag-0008-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0008-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0008-3" GROUPID="3"
+                        ID="munahi010-aag-0008-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0008-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0009">
+                    <mets:file ADMID="munahi010-aag-tmd-0009-0" GROUPID="0"
+                        ID="munahi010-aag-0009-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0009.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0009-6" GROUPID="6"
+                        ID="munahi010-aag-0009-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0009-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0009-3" GROUPID="3"
+                        ID="munahi010-aag-0009-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0009-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0010">
+                    <mets:file ADMID="munahi010-aag-tmd-0010-0" GROUPID="0"
+                        ID="munahi010-aag-0010-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0010.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0010-6" GROUPID="6"
+                        ID="munahi010-aag-0010-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0010-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0010-3" GROUPID="3"
+                        ID="munahi010-aag-0010-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0010-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0011">
+                    <mets:file ADMID="munahi010-aag-tmd-0011-0" GROUPID="0"
+                        ID="munahi010-aag-0011-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0011.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0011-6" GROUPID="6"
+                        ID="munahi010-aag-0011-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0011-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0011-3" GROUPID="3"
+                        ID="munahi010-aag-0011-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0011-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0012">
+                    <mets:file ADMID="munahi010-aag-tmd-0012-0" GROUPID="0"
+                        ID="munahi010-aag-0012-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0012.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0012-6" GROUPID="6"
+                        ID="munahi010-aag-0012-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0012-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0012-3" GROUPID="3"
+                        ID="munahi010-aag-0012-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0012-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0013">
+                    <mets:file ADMID="munahi010-aag-tmd-0013-0" GROUPID="0"
+                        ID="munahi010-aag-0013-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0013.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0013-6" GROUPID="6"
+                        ID="munahi010-aag-0013-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0013-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0013-3" GROUPID="3"
+                        ID="munahi010-aag-0013-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0013-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0014">
+                    <mets:file ADMID="munahi010-aag-tmd-0014-0" GROUPID="0"
+                        ID="munahi010-aag-0014-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0014.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0014-6" GROUPID="6"
+                        ID="munahi010-aag-0014-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0014-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0014-3" GROUPID="3"
+                        ID="munahi010-aag-0014-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0014-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0015">
+                    <mets:file ADMID="munahi010-aag-tmd-0015-0" GROUPID="0"
+                        ID="munahi010-aag-0015-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0015.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0015-6" GROUPID="6"
+                        ID="munahi010-aag-0015-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0015-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0015-3" GROUPID="3"
+                        ID="munahi010-aag-0015-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0015-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0016">
+                    <mets:file ADMID="munahi010-aag-tmd-0016-0" GROUPID="0"
+                        ID="munahi010-aag-0016-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0016.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0016-6" GROUPID="6"
+                        ID="munahi010-aag-0016-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0016-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0016-3" GROUPID="3"
+                        ID="munahi010-aag-0016-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0016-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0017">
+                    <mets:file ADMID="munahi010-aag-tmd-0017-0" GROUPID="0"
+                        ID="munahi010-aag-0017-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0017.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0017-6" GROUPID="6"
+                        ID="munahi010-aag-0017-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0017-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0017-3" GROUPID="3"
+                        ID="munahi010-aag-0017-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0017-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0018">
+                    <mets:file ADMID="munahi010-aag-tmd-0018-0" GROUPID="0"
+                        ID="munahi010-aag-0018-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0018.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0018-6" GROUPID="6"
+                        ID="munahi010-aag-0018-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0018-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0018-3" GROUPID="3"
+                        ID="munahi010-aag-0018-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0018-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0019">
+                    <mets:file ADMID="munahi010-aag-tmd-0019-0" GROUPID="0"
+                        ID="munahi010-aag-0019-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0019.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0019-6" GROUPID="6"
+                        ID="munahi010-aag-0019-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0019-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0019-3" GROUPID="3"
+                        ID="munahi010-aag-0019-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0019-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0020">
+                    <mets:file ADMID="munahi010-aag-tmd-0020-0" GROUPID="0"
+                        ID="munahi010-aag-0020-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0020.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0020-6" GROUPID="6"
+                        ID="munahi010-aag-0020-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0020-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0020-3" GROUPID="3"
+                        ID="munahi010-aag-0020-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0020-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0021">
+                    <mets:file ADMID="munahi010-aag-tmd-0021-0" GROUPID="0"
+                        ID="munahi010-aag-0021-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0021.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0021-6" GROUPID="6"
+                        ID="munahi010-aag-0021-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0021-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0021-3" GROUPID="3"
+                        ID="munahi010-aag-0021-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0021-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0022">
+                    <mets:file ADMID="munahi010-aag-tmd-0022-0" GROUPID="0"
+                        ID="munahi010-aag-0022-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0022.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0022-6" GROUPID="6"
+                        ID="munahi010-aag-0022-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0022-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0022-3" GROUPID="3"
+                        ID="munahi010-aag-0022-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0022-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0023">
+                    <mets:file ADMID="munahi010-aag-tmd-0023-0" GROUPID="0"
+                        ID="munahi010-aag-0023-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0023.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0023-6" GROUPID="6"
+                        ID="munahi010-aag-0023-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0023-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0023-3" GROUPID="3"
+                        ID="munahi010-aag-0023-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0023-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0024">
+                    <mets:file ADMID="munahi010-aag-tmd-0024-0" GROUPID="0"
+                        ID="munahi010-aag-0024-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0024.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0024-6" GROUPID="6"
+                        ID="munahi010-aag-0024-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0024-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0024-3" GROUPID="3"
+                        ID="munahi010-aag-0024-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0024-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0025">
+                    <mets:file ADMID="munahi010-aag-tmd-0025-0" GROUPID="0"
+                        ID="munahi010-aag-0025-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0025.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0025-6" GROUPID="6"
+                        ID="munahi010-aag-0025-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0025-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0025-3" GROUPID="3"
+                        ID="munahi010-aag-0025-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0025-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0026">
+                    <mets:file ADMID="munahi010-aag-tmd-0026-0" GROUPID="0"
+                        ID="munahi010-aag-0026-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0026.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0026-6" GROUPID="6"
+                        ID="munahi010-aag-0026-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0026-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0026-3" GROUPID="3"
+                        ID="munahi010-aag-0026-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0026-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0027">
+                    <mets:file ADMID="munahi010-aag-tmd-0027-0" GROUPID="0"
+                        ID="munahi010-aag-0027-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0027.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0027-6" GROUPID="6"
+                        ID="munahi010-aag-0027-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0027-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0027-3" GROUPID="3"
+                        ID="munahi010-aag-0027-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0027-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0028">
+                    <mets:file ADMID="munahi010-aag-tmd-0028-0" GROUPID="0"
+                        ID="munahi010-aag-0028-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0028.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0028-6" GROUPID="6"
+                        ID="munahi010-aag-0028-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0028-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0028-3" GROUPID="3"
+                        ID="munahi010-aag-0028-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0028-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0029">
+                    <mets:file ADMID="munahi010-aag-tmd-0029-0" GROUPID="0"
+                        ID="munahi010-aag-0029-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0029.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0029-6" GROUPID="6"
+                        ID="munahi010-aag-0029-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0029-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0029-3" GROUPID="3"
+                        ID="munahi010-aag-0029-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0029-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0030">
+                    <mets:file ADMID="munahi010-aag-tmd-0030-0" GROUPID="0"
+                        ID="munahi010-aag-0030-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0030.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0030-6" GROUPID="6"
+                        ID="munahi010-aag-0030-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0030-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0030-3" GROUPID="3"
+                        ID="munahi010-aag-0030-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0030-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0031">
+                    <mets:file ADMID="munahi010-aag-tmd-0031-0" GROUPID="0"
+                        ID="munahi010-aag-0031-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0031.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0031-6" GROUPID="6"
+                        ID="munahi010-aag-0031-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0031-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0031-3" GROUPID="3"
+                        ID="munahi010-aag-0031-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0031-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0032">
+                    <mets:file ADMID="munahi010-aag-tmd-0032-0" GROUPID="0"
+                        ID="munahi010-aag-0032-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0032.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0032-6" GROUPID="6"
+                        ID="munahi010-aag-0032-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0032-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0032-3" GROUPID="3"
+                        ID="munahi010-aag-0032-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0032-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0033">
+                    <mets:file ADMID="munahi010-aag-tmd-0033-0" GROUPID="0"
+                        ID="munahi010-aag-0033-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0033.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0033-6" GROUPID="6"
+                        ID="munahi010-aag-0033-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0033-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0033-3" GROUPID="3"
+                        ID="munahi010-aag-0033-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0033-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0034">
+                    <mets:file ADMID="munahi010-aag-tmd-0034-0" GROUPID="0"
+                        ID="munahi010-aag-0034-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0034.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0034-6" GROUPID="6"
+                        ID="munahi010-aag-0034-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0034-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0034-3" GROUPID="3"
+                        ID="munahi010-aag-0034-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0034-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0035">
+                    <mets:file ADMID="munahi010-aag-tmd-0035-0" GROUPID="0"
+                        ID="munahi010-aag-0035-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0035.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0035-6" GROUPID="6"
+                        ID="munahi010-aag-0035-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0035-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0035-3" GROUPID="3"
+                        ID="munahi010-aag-0035-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0035-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+                <mets:fileGrp ID="munahi010-aag-fgrp-0036">
+                    <mets:file ADMID="munahi010-aag-tmd-0036-0" GROUPID="0"
+                        ID="munahi010-aag-0036-0" MIMETYPE="image/tiff">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="file://hfs.ox.ac.uk/data/odl/munahi010/digObjects/aag/0/munahi010-aag-0036.tiff"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0036-6" GROUPID="6"
+                        ID="munahi010-aag-0036-6" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/6/munahi010-aag-0036-6.jpg"/>
+                    </mets:file>
+                    <mets:file ADMID="munahi010-aag-tmd-0036-3" GROUPID="3"
+                        ID="munahi010-aag-0036-3" MIMETYPE="image/jpeg">
+                        <mets:FLocat LOCTYPE="URL" xlink:href="http://www2.odl.ox.ac.uk/data/aaaaaa/munahi010/digObjects/aag/3/munahi010-aag-0036-3.jpg"/>
+                    </mets:file>
+                </mets:fileGrp>
+            </mets:fileSec>
+            <mets:structMap>
+                <mets:div DMDID="munahi010-aag-dmd-0001">
+                    <mets:div ID="munahi010-aag-div.1" LABEL="Short Title">
+                        <mets:div ID="munahi010-aag-div.1.1" LABEL="Half Title Page">
+                            <mets:fptr FILEID="munahi010-aag-fgrp-0001"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ID="munahi010-aag-div.2" LABEL="Title">
+                        <mets:div ID="munahi010-aag-div.2.1" LABEL="Main Title Page">
+                            <mets:fptr FILEID="munahi010-aag-fgrp-0002"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ID="munahi010-aag-div.3" LABEL="Dedication">
+                        <mets:div ID="munahi010-aag-div.3.1" LABEL="Verso Title Page">
+                            <mets:fptr FILEID="munahi010-aag-fgrp-0003"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ID="munahi010-aag-div.4" LABEL="Note to reader">
+                        <mets:div ID="munahi010-aag-div.4.1" LABEL="Page [i]">
+                            <mets:fptr FILEID="munahi010-aag-fgrp-0004"/>
+                        </mets:div>
+                        <mets:div ID="munahi010-aag-div.4.2" LABEL="Page [ii]">
+                            <mets:fptr FILEID="munahi010-aag-fgrp-0005"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ID="munahi010-aag-div.5" LABEL="Letter to Sir Richard Colt Hoare, Bart.">
+                        <mets:div ID="munahi010-aag-div.5.1" LABEL="Page [iii]">
+                            <mets:fptr FILEID="munahi010-aag-fgrp-0006"/>
+                        </mets:div>
+                        <mets:div ID="munahi010-aag-div.5.2" LABEL="Page iv">
+                            <mets:fptr FILEID="munahi010-aag-fgrp-0007"/>
+                        </mets:div>
+                    </mets:div>
+                    <mets:div ID="munahi010-aag-div.6" LABEL="A Catalogue of Wiltshire Organic Remains">
+                        <mets:div ID="munahi010-aag-div.6.1" LABEL="Mammalia, Reptilia, Pisces">
+                            <mets:div ID="munahi010-aag-div.6.1.1" LABEL="Page 1">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0008"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ID="munahi010-aag-div.6.2" LABEL="Testacea">
+                            <mets:div ID="munahi010-aag-div.6.2.1" LABEL="Page 2">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0009"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.2.2" LABEL="Page 3">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0010"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.2.3" LABEL="Page 4">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0011"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.2.4" LABEL="Page 5">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0012"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ID="munahi010-aag-div.6.3" LABEL="Mollusca, Crustacea, Echinida">
+                            <mets:div ID="munahi010-aag-div.6.3.1" LABEL="Page 6">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0013"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ID="munahi010-aag-div.6.4" LABEL="Stellerides, Polypi Lamellifera, Polypi Foraminati">
+                            <mets:div ID="munahi010-aag-div.6.4.1" LABEL="Page 7">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0014"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ID="munahi010-aag-div.6.5" LABEL="Polypi Natants, Polypi Corticifera, Polypi Glutinus">
+                            <mets:div ID="munahi010-aag-div.6.5.1" LABEL="Page 8">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0015"/>
+                            </mets:div>
+                        </mets:div>
+                        <mets:div ID="munahi010-aag-div.6.6" LABEL="Woods">
+                            <mets:div ID="munahi010-aag-div.6.6.1" LABEL="Page 9">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0016"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.2" LABEL="Unpag. leaf">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0017"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.3" LABEL="Unpag. leaf">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0018"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.4" LABEL="Plate 1">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0019"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.5" LABEL="Plate 2">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0020"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.6" LABEL="Plate 3">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0021"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.7" LABEL="Plate 4">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0022"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.8" LABEL="Plate 5">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0023"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.9" LABEL="Plate 6">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0024"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.10" LABEL="Plate 7">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0025"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.11" LABEL="Plate 8">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0026"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.12" LABEL="Plate 9">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0027"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.13" LABEL="Plate 10">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0028"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.14" LABEL="Plate 11">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0029"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.15" LABEL="Plate 12">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0030"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.16" LABEL="Plate 13">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0031"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.17" LABEL="Plate 14">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0032"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.18" LABEL="Plate 15">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0033"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.19" LABEL="Plate 16">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0034"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.20" LABEL="Plate 17">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0035"/>
+                            </mets:div>
+                            <mets:div ID="munahi010-aag-div.6.6.21" LABEL="Plate 18">
+                                <mets:fptr FILEID="munahi010-aag-fgrp-0036"/>
+                            </mets:div>
+                        </mets:div>
+                    </mets:div>
+                </mets:div>
+            </mets:structMap>
+        </mets:mets>
+    </Appendix>
+</METS_Profile>
