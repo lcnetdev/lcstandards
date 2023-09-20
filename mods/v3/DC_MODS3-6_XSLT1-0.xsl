@@ -1,20 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>	
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns:dc="http://purl.org/dc/elements/1.1/" 
     xmlns:sru_dc="info:srw/schema/1/dc-schema" 
     xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" 
     xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/mods/v3" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="sru_dc oai_dc dc" 
-    version="2.0">
+    version="1.0">
     <!--
-        Version 2.1     2015-02-13 wsalesky@gmail.com
-                        Updated URIs to include xslts
-                        Upgraded to MODS 3.5
-        Version 2.0     2012-08-12 WS  
-                        Upgraded stylesheet to XSLT 2.0 
-                        Upgraded to MODS 3.4
+        Version 1.3 2020-06-01 ws
+        Upgraded to MODS 3.6
         
-        Version 1.0     2006-11-01 cred@loc.gov
+        Version 1.2 2015-01-23 ws
+        Updated URIs to include xslts
+        Upgraded to MODS 3.5
+        
+        Version 1.1 2012-08-12 WS  
+        Upgraded to MODS 3.4
+        
+        Version 1.0 2006-11-01 cred@loc.gov
         
         This stylesheet will transform simple Dublin Core (DC) expressed in either OAI DC [1] or SRU DC [2] schemata to MODS 
         version 3.2.
@@ -37,7 +40,7 @@
         
     -->
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
-    <!-- ws 2.1 -->
+    <!-- ws 1.2 -->
     <xsl:include href="http://www.loc.gov/standards/mods/inc/dcmiType.xsl"/>
     <xsl:include href="http://www.loc.gov/standards/mods/inc/mimeType.xsl"/>
     <xsl:include href="http://www.loc.gov/standards/mods/inc/csdgm.xsl"/>
@@ -63,7 +66,7 @@
     <xsl:template match="sru_dc:dcCollection">
         <modsCollection xmlns="http://www.loc.gov/mods/v3" 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
 			<xsl:apply-templates select="sru_dc:dc">
 				<xsl:with-param name="dcCollection">
 					<xsl:text>true</xsl:text>
@@ -75,23 +78,24 @@
 		<xsl:param name="dcCollection"/>
 		<xsl:choose>
 			<xsl:when test="$dcCollection = 'true'">
-			    <mods version="3.5">
+			    <mods version="3.6">
 					<xsl:call-template name="dcMain"/>
 				</mods>
 			</xsl:when>
 			<xsl:otherwise>
-			    <mods version="3.5" xmlns="http://www.loc.gov/mods/v3" 
+			    <mods version="3.6" xmlns="http://www.loc.gov/mods/v3" 
 			        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-			        xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+			        xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
 					<xsl:call-template name="dcMain"/>
 				</mods>
 			</xsl:otherwise>
 		</xsl:choose>
+        
     </xsl:template>
     <xsl:template match="oai_dc:dc">
-        <mods version="3.5" xmlns="http://www.loc.gov/mods/v3" 
+        <mods version="3.6" xmlns="http://www.loc.gov/mods/v3" 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
 			<xsl:call-template name="dcMain"/>
         </mods>
     </xsl:template>
@@ -339,11 +343,12 @@
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:if test="not(string($types) = text())">
+                            <xsl:variable name="lowercaseType" select="translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
                             <!--<typeOfResource>
                                 <xsl:text>mixed material</xsl:text>
                                 </typeOfResource>-->
                             <genre>
-                                <xsl:value-of select="lower-case(.)"/>
+                                <xsl:value-of select="$lowercaseType"/>
                             </genre>
                         </xsl:if>
                     </xsl:otherwise>
@@ -370,8 +375,7 @@
                         </xsl:otherwise>
                     </xsl:choose>                    
                 </xsl:when>
-                <!-- 2.0: added regex to test for numeric data at the begining of the element -->
-                <xsl:when test="matches(.,'^\d')">
+                <xsl:when test="starts-with(.,'1') or starts-with(.,'2') or starts-with(.,'3') or starts-with(.,'4') or starts-with(.,'5') or starts-with(.,'6') or starts-with(.,'7') or starts-with(.,'8') or starts-with(.,'9')">
                     <extent>
                         <xsl:apply-templates/>
                     </extent>
@@ -423,7 +427,7 @@
                         <xsl:text>tag</xsl:text>
                     </xsl:when>
                     <!--NOTE:  will need to update for ISBN 13 as of January 1, 2007, see XSL tool at http://isbntools.com/ -->
-                    <xsl:when test="(starts-with(text(), 'ISBN')  or starts-with(text(), 'isbn'))  or ((string-length(text()) = 13) and contains(text(), '-') and (starts-with(text(), '0') or starts-with(text(), '1'))) or ((string-length(text()) = 10) and (starts-with(text(), '0') or starts-with(text(), '1')))">
+                    <xsl:when test="(starts-with(text(), 'ISBN') or starts-with(text(), 'isbn')) or ((string-length(text()) = 13) and contains(text(), '-') and (starts-with(text(), '0') or starts-with(text(), '1'))) or ((string-length(text()) = 10) and (starts-with(text(), '0') or starts-with(text(), '1')))">
                         <xsl:text>isbn</xsl:text>
                     </xsl:when>
                     <xsl:when test="(starts-with(text(), 'ISRC') or starts-with(text(), 'isrc')) or ((string-length(text()) = 12) and (contains($iso3166-1, $iso-3166Check))) or ((string-length(text()) = 15) and (contains(text(), '-') or contains(text(), '/')) and contains($iso3166-1, $iso-3166Check))">
@@ -545,7 +549,7 @@
                         </cartographics>
                     </subject>
                 </xsl:when>
-                <xsl:when test="contains(text(), ':') and starts-with(text(), '1') and matches(substring-after(text(), ':'),'^\d')">
+                <xsl:when test="contains(text(), ':') and starts-with(text(), '1') and (contains(substring-after(text(), ':'), '1') or contains(substring-after(text(), ':'), '2') or contains(substring-after(text(), ':'), '3') or contains(substring-after(text(), ':'), '4') or contains(substring-after(text(), ':'), '5') or contains(substring-after(text(), ':'), '6') or contains(substring-after(text(), ':'), '7') or contains(substring-after(text(), ':'), '8') or contains(substring-after(text(), ':'), '9'))">                    
                         <subject>
                             <cartographics>
                                 <scale>
@@ -572,7 +576,7 @@
                         </cartographics>
                     </subject>
                 </xsl:when>
-                <xsl:when test="string-length(.) &gt;= 3 and (matches(.,'^\d') or starts-with(text(), '-') or contains(.,'AD') or contains(.,'BC')) and not(contains(.,':'))">
+                <xsl:when test="string-length(text()) >= 3 and (starts-with(text(), '1') or starts-with(text(), '2') or starts-with(text(), '3') or starts-with(text(), '4') or starts-with(text(), '5') or starts-with(text(), '6') or starts-with(text(), '7') or starts-with(text(), '8') or starts-with(text(), '9') or starts-with(text(), '-') or contains(text(), 'AD') or contains(text(), 'BC')) and not(contains(text(), ':'))">
                     <subject> 
                         <temporal>
                             <xsl:apply-templates/>

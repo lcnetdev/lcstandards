@@ -1,28 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  Editor:  Ray Denenberg, Library of Congress; rden@loc.gov -->
-<!-- -->
-<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.loc.gov/mods/v3" targetNamespace="http://www.loc.gov/mods/v3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<!--  
+	Library of Congress
+	
+Editor: Ray Denenberg	raydenenberg@gmail.com 
+ -->
+<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.loc.gov/mods/v3" targetNamespace="http://www.loc.gov/mods/v3"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!-- -->
-	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.loc.gov/mods/xml.xsd"/>
-	<xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.loc.gov/standards/xlink/xlink.xsd"/>
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"
+		schemaLocation="http://www.loc.gov/mods/xml.xsd"/>
+	<xs:import namespace="http://www.w3.org/1999/xlink"
+		schemaLocation="http://www.loc.gov/standards/xlink/xlink.xsd"/>
 	<!-- 
 MODS: Metadata Object Description Schema. See http://www.loc.gov/standards/mods/
 
-          ****************************************************************
+          *******************************************************************
          *                                                                                
-         *                            MODS 3.7
+         *                          MODS 3.8
          *         
-         *                           January 4, 2018                 
-         *                    
-          *****************************************************************w
+         *                     September 16, 2022
+         *             
+          *********************************************************************
 
-***************************************************
+********* November 10, 2022 the attribute @supplied has been added to the <name> definition.
+********* August 11, 2023 removed duplicate IDAttributeGroup declaration from accessCondition.
 
-Changes in version 3.7
-1.	Capability added to supply an authority for a publisher. 
-2.	Controlled-list restriction removed from typeOfResource so that any value may be supplied. 
-3.	Capability added to supply  a calendar name for a date. 
-4.	Capability added to supply an alternative name for a name.
+
+*************** Changes in version 3.8
+
+1. Controlled-list restriction removed on authority attribute 
+   for <placeTerm> <geographic Code> and <languageTerm>.	
+
+2.  Attributes @otherTypeAuth,  @otherTypeAuthURI,  and @otherTypeURI added for <titleInfo>.
+
+3. Element <agent>  added, subelement of <originInfo>.
+   
+4. Authority attributes added for <accessCondition> and for <affiliation>. 
+
+5. Attribute @usage added for <recordInfo>, value "primary".
+
+6. Attribute @IDref added to any element that has the @ID attribute; 
+   attributes @ID and @idref added to top-level elements that have neither.
+
+7. Element <nameIdentifier> element added, subelement of <place>    .
+
+8. Element <cartographics> added, subelement of <place>.
+
+9. Attribute @stateType added, subelement of <subject><hierarchicalGeographic><state> .
+
+10.  Element <displayDate> added, subelement of <originInfo>.
+
+11.  Attribute @eventTypeURI added to <originInfo>.
+
+12.  Attribute @usage of <location><url>, value "primary display" deprecated.
+
+13. All occurrences of @fixed removed, replaced by a single-value controlled list,
+    where the value is the previous value of @fixed.
+
+14. @type  added to <extension>.
 
 ***************************************************
 ***************************************************
@@ -55,10 +91,14 @@ The schema has three parts:
 	<!--  -->
 	<xs:complexType name="modsDefinition">
 		<xs:group ref="modsGroup" maxOccurs="unbounded"/>
-		<xs:attribute name="ID" type="xs:ID"/>
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 		<xs:attribute name="version">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
+					<xs:enumeration value="3.8"/>
 					<xs:enumeration value="3.7"/>
 					<xs:enumeration value="3.6"/>
 					<xs:enumeration value="3.5"/>
@@ -148,9 +188,17 @@ End list of "top level" MODS elements
 				<xs:attribute name="displayLabel" type="xs:string"/>
 				<xs:attribute name="type" type="xs:string"/>
 				<xs:attributeGroup ref="xlink:simpleLink"/>
-				<xs:attribute name="shareable" fixed="no"/>
+				<!-- 
+					@sharable definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+				<xs:attribute name="shareable" type="no"/>
+				<!--  -->
 				<xs:attribute name="altRepGroup" type="xs:string"/>
 				<xs:attributeGroup ref="altFormatAttributeGroup"/>
+				<!-- 
+****************** following attribute group added in 3.8-->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -167,9 +215,21 @@ End list of "top level" MODS elements
 			<xs:extension base="extensionDefinition">
 				<xs:attributeGroup ref="xlink:simpleLink"/>
 				<xs:attributeGroup ref="languageAttributeGroup"/>
-				<xs:attribute name="type" type="xs:string"/>
+				<!-- 
+			Previously attribute @type was here. It is 
+			removed  in 3.8 because it has been added 
+			to the "extension" defintion;  "accessCondition"
+			is based on the "extension definition" so @type is
+			thereby implicitly included in this definition.
+				-->
 				<xs:attribute name="altRepGroup" type="xs:string"/>
 				<xs:attributeGroup ref="altFormatAttributeGroup"/>
+				<!-- 
+****************** following two attribute groups added in 3.8 -->
+		 		<!--ID attribute group removed as duplicate. See August 11, 2023 note -->
+				<!-- <xs:attributeGroup ref="IDAttributeGroup"/> -->
+				<xs:attributeGroup ref="authorityAttributeGroup"/>
+				<!--  -->
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -186,8 +246,16 @@ End list of "top level" MODS elements
 				<xs:attribute name="edition" type="xs:string"/>
 				<xs:attribute name="displayLabel" type="xs:string"/>
 				<xs:attribute name="altRepGroup" type="xs:string"/>
-				<xs:attribute name="usage" fixed="primary"/>
+				<!-- 
+					@usage definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+				<xs:attribute name="usage" type="usagePrimary"/>
+				<!-- -->
 				<xs:attribute name="generator" type="xs:string"/>
+				<!-- 
+****************** following  attribute group added in 3.8-->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!--  -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -203,6 +271,13 @@ End list of "top level" MODS elements
 			<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="displayLabel" type="xs:string"/>
+		<!-- 
+****************** following  attribute added in 3.8 -->
+		<xs:attribute name="type" type="xs:string"/>
+		<!-- 
+****************** following  attribute group added in 3.8-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!--  -->
 	</xs:complexType>
 	<!--  
 ****************************************************
@@ -217,7 +292,14 @@ End list of "top level" MODS elements
 				<xs:attribute name="type" type="xs:string"/>
 				<xs:attribute name="displayLabel" type="xs:string"/>
 				<xs:attribute name="altRepGroup" type="xs:string"/>
-				<xs:attribute name="usage" fixed="primary"/>
+				<!-- 
+					@usage definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+				<xs:attribute name="usage" type="usagePrimary"/>
+				<!-- 
+****************** following  attribute group added in 3.8 -->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!--  -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -234,8 +316,16 @@ End list of "top level" MODS elements
 				<xs:attribute name="displayLabel" type="xs:string"/>
 				<xs:attribute name="type" type="xs:string"/>
 				<xs:attribute name="typeURI" type="xs:anyURI"/>
-				<xs:attribute name="invalid" fixed="yes"/>
+				<!-- 
+					@invalid definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+				<xs:attribute name="invalid" type="yes"/>
+				<!-- -->
 				<xs:attribute name="altRepGroup" type="xs:string"/>
+				<!-- 
+****************** following attribute group  added in 3.8 -->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -255,31 +345,32 @@ End list of "top level" MODS elements
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
-		<xs:attribute name="usage" fixed="primary"/>
+		<!-- 
+					@usage definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+		<xs:attribute name="usage" type="usagePrimary"/>
+		<!-- 
+****************** following attribute group added in 3.8 -->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
-********   Subordinate Elements for <language>                
+********   Subordinate Elements for <language>  ********
+
+ 
+*****************languageTerm ************************
  -->
 	<xs:element name="languageTerm" type="languageTermDefinition"/>
 	<!-- -->
 	<xs:complexType name="languageTermDefinition">
 		<xs:simpleContent>
-			<xs:extension base="stringPlusLanguage">
-				<xs:attribute name="authorityURI" type="xs:anyURI"/>
-				<xs:attribute name="valueURI" type="xs:anyURI"/>
-				<xs:attribute name="authority">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="rfc3066"/>
-							<xs:enumeration value="iso639-2b"/>
-							<xs:enumeration value="iso639-3"/>
-							<xs:enumeration value="rfc4646"/>
-							<xs:enumeration value="rfc5646"/>
-							<!-- -->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:attribute>
+			<xs:extension base="stringPlusLanguagePlusAuthority">			  
+	<!--	    ****** changed in 3.8 from "stringPlusLanguage" to
+				****** "stringPlusLanguagePlusAuthority".  Previously,
+				******  @authority was restricted to specific values.
+				******   That restriction is removed in 3.8
+				-->
 				<xs:attribute name="type" type="codeOrText"/>
 			</xs:extension>
 		</xs:simpleContent>
@@ -315,6 +406,10 @@ End list of "top level" MODS elements
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
+		<!-- 
+****************** following attribute group  added in 3.8 -->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
@@ -364,7 +459,10 @@ End list of "top level" MODS elements
 							<xs:attribute name="displayLabel" type="xs:string"/>
 							<xs:attribute name="type" type="xs:string"/>
 							<xs:attributeGroup ref="xlink:simpleLink"/>
-							<xs:attribute name="ID" type="xs:ID"/>
+							<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+							<xs:attributeGroup ref="IDAttributeGroup"/>
+							<!-- -->
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
@@ -377,14 +475,14 @@ End list of "top level" MODS elements
 	<!--
 **********itemIdentifier **********     
  -->
-		<xs:element name="itemIdentifier" type="itemIdentifierDefinition"/>
-			<xs:complexType name="itemIdentifierDefinition">
-				<xs:simpleContent>
-					<xs:extension base="stringPlusLanguage">
-						<xs:attribute name="type" type="xs:string"/>
-					</xs:extension>
-				</xs:simpleContent>
-			</xs:complexType>
+	<xs:element name="itemIdentifier" type="itemIdentifierDefinition"/>
+	<xs:complexType name="itemIdentifierDefinition">
+		<xs:simpleContent>
+			<xs:extension base="stringPlusLanguage">
+				<xs:attribute name="type" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<!--
 **********form**********     
  -->
@@ -444,6 +542,11 @@ End list of "top level" MODS elements
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="primary display"/>
+							<!-- This value,"primary display”, is deprecated in version 3.8;
+								“primary” is the only value that should be used in 3.8 and beyond.
+								("primary display” remains a legal value in the schema, 
+								for compatibility with earlier versions.) 
+							-->
 							<xs:enumeration value="primary"/>
 						</xs:restriction>
 					</xs:simpleType>
@@ -462,7 +565,7 @@ End list of "top level" MODS elements
 	<!-- -->
 	<xs:complexType name="nameDefinition">
 		<xs:choice>
-			
+
 			<!-- this choice gives two ways to do this.  
 				The second way allows the element <etal>,  to express "et. al."
 
@@ -475,10 +578,8 @@ Choice one. WITHOUT <etal>.
 				<xs:element ref="role"/>
 				<xs:element ref="description"/>
 				<xs:element ref="nameIdentifier"/>
-				<!-- 
-				The following,alternativeName, is new in 3.7-->
-				<xs:element ref="alternativeName"/>				
-		<!--   -->		
+				<xs:element ref="alternativeName"/>
+				<!--   -->
 			</xs:choice>
 			<!-- 
 Choice two.	With <etal>.
@@ -507,14 +608,20 @@ Choice two.	With <etal>.
 			</xs:sequence>
 			<!-- -->
 		</xs:choice>
-		<xs:attribute name="ID" type="xs:ID"/>
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 		<xs:attributeGroup ref="authorityAttributeGroup"/>
 		<xs:attributeGroup ref="xlink:simpleLink"/>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
 		<xs:attribute name="nameTitleGroup" type="xs:string"/>
-		<xs:attribute name="usage" fixed="primary"/>
+		<!-- 
+					@usage definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+		<xs:attribute name="usage" type="usagePrimary"/>
 		<xs:attribute name="type">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
@@ -525,6 +632,11 @@ Choice two.	With <etal>.
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
+		<!--    
+******************  Following line added 11/10/2022.  Fixes a flaw.
+			 -->
+		<xs:attribute name="supplied"  type="yes"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
@@ -551,13 +663,15 @@ Choice two.	With <etal>.
 	</xs:complexType>
 	<!-- displayForm, affiliation, description, alternativeName -->
 	<xs:element name="displayForm" type="stringPlusLanguage"/>
-	<xs:element name="affiliation" type="stringPlusLanguage"/>
+	<!-- 
+		affiliation definition changed in 3.8. Authority attributes added -->
+	<xs:element name="affiliation" type="stringPlusLanguagePlusAuthority"/>
+	<!-- -->
 	<xs:element name="description" type="stringPlusLanguage"/>
 	<xs:element name="nameIdentifier" type="identifierDefinition"/>
-	<!-- the following element, alternativeName, is new in 3.7 -->
 	<xs:element name="alternativeName" type="alternativeNameDefinition"/>
-
 	<!--  
+		
 ******** role *********************
     -->
 	<xs:element name="role" type="roleDefinition"/>
@@ -585,25 +699,24 @@ Choice two.	With <etal>.
 	<xs:element name="etal" type="stringPlusLanguage"/>
 	<!--   
 ********  alternativeName  ********
-******************** new in 3.7 ****************************
 -->
-<xs:complexType name="alternativeNameDefinition">
+	<xs:complexType name="alternativeNameDefinition">
 
-			<xs:choice minOccurs="0" maxOccurs="unbounded">
-				<xs:element ref="namePart"/>
-				<xs:element ref="displayForm"/>
-				<xs:element ref="affiliation"/>
-				<xs:element ref="role"/>
-				<xs:element ref="description"/>
-				<xs:element ref="nameIdentifier"/>				
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="namePart"/>
+			<xs:element ref="displayForm"/>
+			<xs:element ref="affiliation"/>
+			<xs:element ref="role"/>
+			<xs:element ref="description"/>
+			<xs:element ref="nameIdentifier"/>
 		</xs:choice>
-			<!-- -->
+		<!-- -->
 		<xs:attributeGroup ref="xlink:simpleLink"/>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altType" type="xs:string"/>
-</xs:complexType>
-	
+	</xs:complexType>
+
 	<!--
 
 ****************************************************
@@ -619,8 +732,12 @@ Choice two.	With <etal>.
 				<xs:attribute name="type" type="xs:string"/>
 				<xs:attribute name="typeURI" type="xs:anyURI"/>
 				<xs:attributeGroup ref="xlink:simpleLink"/>
-				<xs:attribute name="ID" type="xs:ID"/>
+				<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!-- -->
 				<xs:attribute name="altRepGroup" type="xs:string"/>
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -628,7 +745,7 @@ Choice two.	With <etal>.
 
 ****************************************************
 *   Top Level Element <originInfo>                 *
-*****************************************************         
+****************************************************        
 -->
 	<xs:element name="originInfo" type="originInfoDefinition"/>
 	<!-- -->
@@ -643,76 +760,108 @@ Choice two.	With <etal>.
 			<xs:element ref="dateModified"/>
 			<xs:element ref="copyrightDate"/>
 			<xs:element ref="dateOther"/>
+			<!-- 
+				following element, "displayDate", added in 3.8  -->
+			<xs:element ref="displayDate"/>
+			<!--  -->
 			<xs:element ref="edition"/>
 			<xs:element ref="issuance"/>
 			<xs:element ref="frequency"/>
+			<!--  
+				following element, "agent", added in 3.8-->
+			<xs:element ref="agent"/>
+			<!--		-->
 		</xs:choice>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
 		<xs:attribute name="eventType" type="xs:string"/>
+		<!--  
+			following attribute, @eventTypeURI, added in 3.8	-->
+		<xs:attribute name="eventTypeURI" type="xs:anyURI"/>
+		<!--
+******************  following attribute group added in 3.8 -->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
-********   Subordinate Elements for <originInfo>                
- -->
-	<!-- 
+********   Subordinate Elements for <originInfo>    -->             
+<!--
+		
 *** place ***
 -->
 	<xs:element name="place" type="placeDefinition"/>
 	<!-- -->
 	<xs:complexType name="placeDefinition">
-		<xs:sequence>
-			<xs:element ref="placeTerm" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="supplied" fixed="yes"/>
+		<xs:choice minOccurs="1" maxOccurs="unbounded">
+			<!-- 
+				Previously, place was simply one or more occurrences of placeTerm.
+				In 3.8, placeIdentifer and cartographics are added to placeDefinition. 
+				placeIdentifier is a new element in 3.8; cartographics uses the 
+				existing cartographicsDefinition. 
+				
+				So, now place is one or more of the following three subelements where 
+				each may be any of the three.
+			-->
+			<xs:element ref="placeTerm"/>
+			<xs:element ref="placeIdentifier"/>
+			<xs:element ref="cartographics"/>
+			<!-- -->
+		</xs:choice>
+		<!-- 
+					@supplied definition corrected in 3.8.  
+					See "Changes in version 3.8" #13 -->
+		<xs:attribute name="supplied" type="yes"/>
+		<!-- -->
 	</xs:complexType>
 	<!-- 
+		
 *** placeTerm ***
 -->
 	<xs:element name="placeTerm" type="placeTermDefinition"/>
 	<!-- -->
 	<xs:complexType name="placeTermDefinition">
 		<xs:simpleContent>
-			<xs:extension base="stringPlusLanguage">
-				<xs:attribute name="authorityURI" type="xs:anyURI"/>
-				<xs:attribute name="valueURI" type="xs:anyURI"/>
-				<xs:attribute name="authority">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="marcgac"/>
-							<xs:enumeration value="marccountry"/>
-							<xs:enumeration value="iso3166"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:attribute>
+			<xs:extension base="stringPlusLanguagePlusAuthority">
+				<!--  
+				****** changed in 3.8 from "stringPlusLanguage" to
+				****** "stringPlusLanguagePlusAuthority".  Previously,
+				******  @authority was restricted to specific values.
+				******   That restriction is removed in 3.8
+				-->
 				<xs:attribute name="type" type="codeOrText"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
 	<!-- 
+		
+*** placeIdentifier ***    (********new in 3.8) 
+-->
+	<xs:element name="placeIdentifier" type="xs:anyURI"/>
+	<!-- -->
+	<!-- 
+		
 *** publisher ***
 -->
-	<xs:element name="publisher" type="publisherDefinition"/> 
-<!--     ******************* definition changed in 3.7 *******************
-		****** in 3.6, publisher was defined as stringPlusLanguagePlusSupplied
-		****** in 3.7, the authority attributes are added
--->		
-	<xs:complexType  name="publisherDefinition">
+	<xs:element name="publisher" type="publisherDefinition"/>
+	<!--   -->
+	<xs:complexType name="publisherDefinition">
 		<xs:simpleContent>
 			<xs:extension base="stringPlusLanguagePlusSupplied">
 				<xs:attributeGroup ref="authorityAttributeGroup"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-
-	
-	
-	
-	
-	<!--  
-********** dates  **********  
--->
+	<!--
+		
+	agent ***    (********new in 3.8) 
+		
+	 -->
+	<xs:element name="agent" type="nameDefinition"/>
+	<!-- 
+		
+********** dates  **********  -->
 	<xs:element name="dateIssued" type="dateDefinition"/>
 	<xs:element name="dateCreated" type="dateDefinition"/>
 	<xs:element name="dateCaptured" type="dateDefinition"/>
@@ -720,7 +869,11 @@ Choice two.	With <etal>.
 	<xs:element name="dateModified" type="dateDefinition"/>
 	<xs:element name="copyrightDate" type="dateDefinition"/>
 	<xs:element name="dateOther" type="dateOtherDefinition"/>
+
+	<!-- following definition added 3.8  -->
+	<xs:element name="displayDate" type="xs:string"/>
 	<!--  -->
+
 	<xs:complexType name="dateDefinition">
 		<xs:simpleContent>
 			<xs:extension base="stringPlusLanguage">
@@ -752,12 +905,13 @@ Choice two.	With <etal>.
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:attribute>
-				<xs:attribute name="keyDate" fixed="yes"/>
 				<!-- 
-				***********  Following attribute, @calendar, added in 3.7
-				-->
+					@keyDate definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+				<xs:attribute name="keyDate" type="yes"/>
+				<!-- -->
 				<xs:attribute name="calendar" type="xs:string"/>
-<!-- -->				
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -791,14 +945,15 @@ Choice two.	With <etal>.
 		</xs:restriction>
 	</xs:simpleType>
 	<!--
-	********** frequency**********  
+	********** frequency **********  
 -->
 	<xs:element name="frequency" type="stringPlusLanguagePlusAuthority"/>
-	<!--  
 
+
+	<!--
 ****************************************************
 *   Top Level Element <part>                       *
-*****************************************************         
+*****************************************************  
 -->
 	<xs:element name="part" type="partDefinition"/>
 	<!-- -->
@@ -809,12 +964,15 @@ Choice two.	With <etal>.
 			<xs:element ref="date"/>
 			<xs:element ref="text"/>
 		</xs:choice>
-		<xs:attribute name="ID" type="xs:ID"/>
 		<xs:attribute name="type" type="xs:string"/>
 		<xs:attribute name="order" type="xs:integer"/>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
@@ -893,6 +1051,10 @@ Choice two.	With <etal>.
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
+		<!-- 
+******************  following attribute group added in in 3.8-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
@@ -923,7 +1085,7 @@ Choice two.	With <etal>.
 				<xs:extension base="stringPlusLanguagePlusSupplied">
 					<xs:attribute name="unit"/>
 				</xs:extension>
-				</xs:simpleContent>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 	<!--
@@ -949,7 +1111,10 @@ Choice two.	With <etal>.
 				<xs:attribute name="type" type="xs:string"/>
 				<xs:attribute name="typeURI" type="xs:anyURI"/>
 				<xs:attributeGroup ref="xlink:simpleLink"/>
-				<xs:attribute name="ID" type="xs:ID"/>
+				<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -972,11 +1137,18 @@ Choice two.	With <etal>.
 			<xs:element ref="recordOrigin"/>
 			<xs:element ref="descriptionStandard"/>
 			<xs:element ref="recordInfoNote"/>
-<!-- -->			
+			<!-- -->
 		</xs:choice>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
+		<!-- 
+					@usage added to recordInfo in 3.8.  -->
+		<xs:attribute name="usage" type="usagePrimary"/>
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following) -->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
@@ -1031,15 +1203,17 @@ Choice two.	With <etal>.
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
-		<!-- -->	
+		<!-- -->
 		<xs:attribute name="otherType" type="xs:string"/>
 		<xs:attribute name="otherTypeAuth" type="xs:string"/>
 		<xs:attribute name="otherTypeAuthURI" type="xs:string"/>
 		<xs:attribute name="otherTypeURI" type="xs:string"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
-		<xs:attribute name="ID" type="xs:ID"/>
 		<xs:attributeGroup ref="xlink:simpleLink"/>
-		
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--  
 
@@ -1063,13 +1237,19 @@ Choice two.	With <etal>.
 			<xs:element ref="genre"/>
 			<!-- uses top-level genre definition -->
 		</xs:choice>
-		<xs:attribute name="ID" type="xs:ID"/>
 		<xs:attributeGroup ref="authorityAttributeGroup"/>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attributeGroup ref="xlink:simpleLink"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 		<xs:attribute name="altRepGroup" type="xs:string"/>
-		<xs:attribute name="usage" fixed="primary"/>
+		<!-- 
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
+		<!-- 
+					@usage definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+		<xs:attribute name="usage" type="usagePrimary"/>
 	</xs:complexType>
 	<!--
 
@@ -1078,6 +1258,12 @@ Choice two.	With <etal>.
 	<!-- topic, geographic -->
 	<xs:element name="topic" type="stringPlusLanguagePlusAuthority"/>
 	<xs:element name="geographic" type="stringPlusLanguagePlusAuthority"/>
+	<xs:element name="geographicCode" type="stringPlusLanguagePlusAuthority"/>
+	<!-- changed in 3.8 from "geographicCodeDefinition" to "stringPlusLanguagePlusAuthority". 
+		Previously there had been a separate definition for geographicCode 
+		to accomodate a controlled list restriction.  That restriction is 
+		dropped in 3.8 
+		-->
 	<!-- 
 *****************temporal  ************************
  -->
@@ -1101,7 +1287,10 @@ Choice two.	With <etal>.
 			<xs:element ref="partName"/>
 			<xs:element ref="nonSort"/>
 		</xs:choice>
-		<xs:attribute name="ID" type="xs:ID"/>
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 		<xs:attributeGroup ref="authorityAttributeGroup"/>
 		<xs:attributeGroup ref="xlink:simpleLink"/>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
@@ -1116,6 +1305,13 @@ Choice two.	With <etal>.
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
+		<!--	
+					Following four attributes added in 3.8 -->
+		<xs:attribute name="otherType"/>
+		<xs:attribute name="otherTypeAuth" type="xs:string"/>
+		<xs:attribute name="otherTypeAuthURI" type="xs:anyURI"/>
+		<xs:attribute name="otherTypeURI" type="xs:anyURI"/>
+		<!-- -->
 	</xs:complexType>
 	<!-- 
 *****************subjectName ************************
@@ -1140,34 +1336,21 @@ Choice two.	With <etal>.
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
-		<xs:attribute name="ID" type="xs:ID"/>
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 		<xs:attributeGroup ref="authorityAttributeGroup"/>
 		<xs:attributeGroup ref="xlink:simpleLink"/>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
 	</xs:complexType>
 	<!--
- ********** geographicCode **********  	 	
+ ********** geographicCode ********** 
+ 
+ "geographicCode definition, here, prior to 3.8, is removed in 3.8;
+ it is now in "subordinate defitions for subject"
 -->
-	<xs:element name="geographicCode" type="geographicCodeDefinition"/>
-	<!-- -->
-	<xs:complexType name="geographicCodeDefinition">
-		<xs:simpleContent>
-			<xs:extension base="stringPlusLanguage">
-				<xs:attribute name="authorityURI" type="xs:anyURI"/>
-				<xs:attribute name="valueURI" type="xs:anyURI"/>
-				<xs:attribute name="authority">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="marcgac"/>
-							<xs:enumeration value="marccountry"/>
-							<xs:enumeration value="iso3166"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:attribute>
-			</xs:extension>
-		</xs:simpleContent>
-	</xs:complexType>
 	<!--  
 ********** hierarchicalGeographic **********  	 
 -->
@@ -1178,8 +1361,11 @@ Choice two.	With <etal>.
 			<xs:element ref="extraTerrestrialArea"/>
 			<xs:element ref="continent"/>
 			<xs:element ref="country"/>
+			<!-- -->
 			<xs:element ref="province"/>
-			<!-- province is deprecated.  Use <state> instead.  -->
+			<!-- province has been deprecated (in a previous version). 
+				Use <state> instead of province. 
+			-->
 			<xs:element ref="region"/>
 			<xs:element ref="state"/>
 			<xs:element ref="territory"/>
@@ -1192,7 +1378,7 @@ Choice two.	With <etal>.
 		<xs:attributeGroup ref="authorityAttributeGroup"/>
 	</xs:complexType>
 	<!-- -->
-		<!-- 		********** hierarchicalPart   *** auxiliary definition 	-->
+	<!-- 		********** hierarchicalPart   *** auxiliary definition 	-->
 	<xs:complexType name="hierarchicalPart">
 		<xs:simpleContent>
 			<xs:extension base="stringPlusLanguage">
@@ -1202,11 +1388,14 @@ Choice two.	With <etal>.
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-		<!-- 
+	<!-- 
 		Next, definitions for the place elements, starting with area, region, and citySection
 		-->
-
-		<xs:element name="area" type="areaDefinition"/>
+	<!--
+		
+********** area 
+-->
+	<xs:element name="area" type="areaDefinition"/>
 	<!-- -->
 	<xs:complexType name="areaDefinition">
 		<xs:simpleContent>
@@ -1215,8 +1404,11 @@ Choice two.	With <etal>.
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-		<!-- -->
-	
+	<!-- -->
+	<!--
+		
+********** region 
+-->
 	<xs:element name="region" type="regionDefinition"/>
 	<!-- -->
 	<xs:complexType name="regionDefinition">
@@ -1226,8 +1418,11 @@ Choice two.	With <etal>.
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	
-		<xs:element name="citySection" type="citySectionDefinition"/>
+	<!--
+		
+********** citySection
+-->
+	<xs:element name="citySection" type="citySectionDefinition"/>
 	<!-- -->
 	<xs:complexType name="citySectionDefinition">
 		<xs:simpleContent>
@@ -1236,37 +1431,64 @@ Choice two.	With <etal>.
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-		<!--  
+	<!--  -->	
+	<!-- 
+		Next, definitions for state
+		-->
+	<!--
+		
+********** state
+-->
+	<xs:element name="state" type="stateDefinition"/>
+	<!-- see stateDefinition, revised in 3.8: @stateType added.  -->
+	<!-- 
+		
 	The rest are all of type "hierarchicalPart"   ......
 		-->
 	<xs:element name="extraTerrestrialArea" type="hierarchicalPart"/>
-		<xs:element name="city" type="hierarchicalPart"/>
+	<xs:element name="city" type="hierarchicalPart"/>
 	<xs:element name="continent" type="hierarchicalPart"/>
 	<xs:element name="country" type="hierarchicalPart"/>
 	<xs:element name="county" type="hierarchicalPart"/>
 	<xs:element name="island" type="hierarchicalPart"/>
-	<xs:element name="state" type="hierarchicalPart"/>
+	<!-- 
+		following removed in 3.8, replaced by new definition for state, below.
+	****REMOVED: <xs:element name="state" type="hierarchicalPart"/>  ****REMOVED
+	-->
 	<xs:element name="territory" type="hierarchicalPart"/>
 	<!--  
-		..... except for province
-	-->
+		..... except for province  (which was depricated in a previous version)	-->
 	<xs:element name="province" type="stringPlusLanguage"/>
+	<!-- 	
+		.... and (in 3.8) for state: 
+	
+	new state definition, 3.8. Before, state was simply hierarchicalPart.
+	 Now @stateType is added-->
+	<xs:complexType name="stateDefinition">
+		<xs:simpleContent>
+			<xs:extension base="hierarchicalPart">
+				<xs:attribute name="stateType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<!--  
+		
  ********** cartographics **********  
 -->
 	<xs:element name="cartographics" type="cartographicsDefinition"/>
 	<!-- -->
 	<xs:complexType name="cartographicsDefinition">
-		
+
 		<xs:sequence>
 			<xs:element ref="scale" minOccurs="0"/>
 			<xs:element ref="projection" minOccurs="0"/>
 			<xs:element ref="coordinates" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="cartographicExtension" minOccurs="0" maxOccurs="unbounded"/>
-<!--  -->   
+			<!--  -->
 		</xs:sequence>
-		
+		<!--  -->
 		<xs:attributeGroup ref="authorityAttributeGroup"/>
+		<!--  -->
 	</xs:complexType>
 	<!-- -->
 	<xs:element name="scale" type="stringPlusLanguage"/>
@@ -1274,6 +1496,7 @@ Choice two.	With <etal>.
 	<xs:element name="coordinates" type="stringPlusLanguage"/>
 	<xs:element name="cartographicExtension" type="extensionDefinition"/>
 	<!-- 
+		
  ********** occupation **********  
 -->
 	<xs:element name="occupation" type="stringPlusLanguagePlusAuthority"/>
@@ -1290,9 +1513,17 @@ Choice two.	With <etal>.
 				<xs:attribute name="displayLabel" type="xs:string"/>
 				<xs:attribute name="type" type="xs:string"/>
 				<xs:attributeGroup ref="xlink:simpleLink"/>
-				<xs:attribute name="shareable" fixed="no"/>
+				<!-- 
+					@sharable definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+				<xs:attribute name="shareable" type="no"/>
+				<!--  -->
 				<xs:attribute name="altRepGroup" type="xs:string"/>
 				<xs:attributeGroup ref="altFormatAttributeGroup"/>
+				<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1309,6 +1540,10 @@ Choice two.	With <etal>.
 			<xs:extension base="stringPlusLanguagePlusAuthority">
 				<xs:attribute name="displayLabel" type="xs:string"/>
 				<xs:attribute name="altRepGroup" type="xs:string"/>
+				<!-- 
+******************  following attribute group added in 3.8-->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1338,16 +1573,35 @@ Choice two.	With <etal>.
 			</xs:simpleType>
 		</xs:attribute>
 		<xs:attribute name="otherType"/>
-		<xs:attribute name="supplied" fixed="yes"/>
+		<!-- 
+			Following three attributes added in 3.8 
+			(For consistency with relatedItem.)
+			-->
+		<xs:attribute name="otherTypeAuth" type="xs:string"/>
+		<xs:attribute name="otherTypeAuthURI" type="xs:anyURI"/>
+		<xs:attribute name="otherTypeURI" type="xs:anyURI"/>
+		<!--  -->
+		<!-- 
+					@supplied definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+		<xs:attribute name="supplied" type="yes"/>
+		<!-- -->
 		<xs:attribute name="altRepGroup" type="xs:string"/>
 		<xs:attributeGroup ref="altFormatAttributeGroup"/>
 		<xs:attribute name="nameTitleGroup" type="xs:string"/>
-		<xs:attribute name="usage" fixed="primary"/>
-		<xs:attribute name="ID" type="xs:ID"/>
+		<!-- 
+					@usage definition corrected in 3.8.  
+					See "Changes in version 3.8" #13-->
+		<xs:attribute name="usage" type="usagePrimary"/>
+		<!-- -->
 		<xs:attributeGroup ref="authorityAttributeGroup"/>
 		<xs:attributeGroup ref="xlink:simpleLink"/>
 		<xs:attributeGroup ref="languageAttributeGroup"/>
 		<xs:attribute name="displayLabel" type="xs:string"/>
+		<!--
+****************** @IDREF added in 3.8 (@ID removed and replaced by the following)-->
+		<xs:attributeGroup ref="IDAttributeGroup"/>
+		<!-- -->
 	</xs:complexType>
 	<!--
 
@@ -1368,7 +1622,7 @@ Choice two.	With <etal>.
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
-	</xs:element> 
+	</xs:element>
 	<!--
 ****************************************************
 *   Top Level Element <typeOfResource>     *
@@ -1380,22 +1634,27 @@ Choice two.	With <etal>.
 		<xs:simpleContent>
 			<xs:extension base="stringPlusLanguagePlusAuthority">
 				<!-- 
-					***************** definition changed in 3.7 *****************
-				In 3.6 the base was "resourceTypeDefinition", 
-				which was a controlled list.
-				In 3.7 resourceTypeDefinition is removed, so
-				any value may be supplied.
-				-->
-				<xs:attribute name="collection" fixed="yes"/>
-				<xs:attribute name="manuscript" fixed="yes"/>
+
+					@collection, @manuscript, and @usage definitions changed.  
+					See "Changes in version 3.8" #13-->
+				<xs:attribute name="collection" type="yes"/>
+				<xs:attribute name="manuscript" type="yes"/>
+				<xs:attribute name="usage" type="usagePrimary"/>
+				<!-- -->
 				<xs:attribute name="displayLabel" type="xs:string"/>
 				<xs:attribute name="altRepGroup" type="xs:string"/>
-				<xs:attribute name="usage" fixed="primary"/>
+				<!-- 
+******************  following attribute group added in 3.8-->
+				<xs:attributeGroup ref="IDAttributeGroup"/>
+				<!-- -->
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	
+
 	<!--  
+		
+		***** End of top level elements *****
+		
          *********************************
          *********************************
          Part 3:   Auxiliary definitions
@@ -1432,7 +1691,7 @@ String Definitions
 	<xs:complexType name="stringPlusLanguagePlusSupplied">
 		<xs:simpleContent>
 			<xs:extension base="stringPlusLanguage">
-				<xs:attribute name="supplied" fixed="yes"/>
+				<xs:attribute name="supplied" type="yes"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -1466,7 +1725,16 @@ String Definitions
 		<xs:attribute name="altFormat" type="xs:anyURI"/>
 		<xs:attribute name="contentType" type="xs:string"/>
 	</xs:attributeGroup>
-	<!--  
+
+	<!--   ********** IDAttributeGroup   **********  	                       	  
+-
+			This attribute group added in 3.8 
+			-->
+	<xs:attributeGroup name="IDAttributeGroup">
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="IDREF" type="xs:IDREF"/>
+	</xs:attributeGroup>
+	<!-- 
 ****************************************************
   - Attribute definitions (simpleTypes)
 *****************************************************
@@ -1482,5 +1750,25 @@ String Definitions
 			<xs:enumeration value="text"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<!-- 
+		all following attribute definitions added 3.8	
+	-->
+	<xs:simpleType name="no">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="no"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- -->
+	<xs:simpleType name="yes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="yes"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="usagePrimary">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="primary"/>
+		</xs:restriction>
+	</xs:simpleType>
+
 </xs:schema>

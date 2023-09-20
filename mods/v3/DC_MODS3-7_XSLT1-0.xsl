@@ -7,7 +7,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="sru_dc oai_dc dc" 
     version="1.0">
     <!--
-        Version 1.2 2015-01-23 wsalesky@gmail.com
+        Version 1.4 2020-06-01 ws
+        Upgraded to MODS 3.7
+        
+        Version 1.3 2020-06-01 ws
+        Upgraded to MODS 3.6
+        
+        Version 1.2 2015-01-23 ws
         Updated URIs to include xslts
         Upgraded to MODS 3.5
         
@@ -63,7 +69,7 @@
     <xsl:template match="sru_dc:dcCollection">
         <modsCollection xmlns="http://www.loc.gov/mods/v3" 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
 			<xsl:apply-templates select="sru_dc:dc">
 				<xsl:with-param name="dcCollection">
 					<xsl:text>true</xsl:text>
@@ -75,14 +81,14 @@
 		<xsl:param name="dcCollection"/>
 		<xsl:choose>
 			<xsl:when test="$dcCollection = 'true'">
-			    <mods version="3.5">
+			    <mods version="3.7">
 					<xsl:call-template name="dcMain"/>
 				</mods>
 			</xsl:when>
 			<xsl:otherwise>
-			    <mods version="3.5" xmlns="http://www.loc.gov/mods/v3" 
+			    <mods version="3.7" xmlns="http://www.loc.gov/mods/v3" 
 			        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-			        xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+			        xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
 					<xsl:call-template name="dcMain"/>
 				</mods>
 			</xsl:otherwise>
@@ -90,9 +96,9 @@
         
     </xsl:template>
     <xsl:template match="oai_dc:dc">
-        <mods version="3.5" xmlns="http://www.loc.gov/mods/v3" 
+        <mods version="3.7" xmlns="http://www.loc.gov/mods/v3" 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
 			<xsl:call-template name="dcMain"/>
         </mods>
     </xsl:template>

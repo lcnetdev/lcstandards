@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="ExtractSchFromRNG-2.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="ExtractSchFromXSD-2.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="iso_abstract_expand.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="iso_schematron_message_xslt2.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="iso_schematron_skeleton_for_saxon.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="iso_dsdl_include.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="iso_schematron_text.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="iso_svrl_for_xslt2.xsl" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="readme.txt" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="sch-messages-cs.xhtml" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="sch-messages-de.xhtml" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="sch-messages-en.xhtml" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="sch-messages-fr.xhtml" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="sch-messages-nl.xhtml" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="schematron-skeleton-api.htm" server="rs7//marvel/www/data/ead/" local="132059088000000000" remote="132059088000000000" Dst="2" />
+<file name="schematron-skeleton-api.htm" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792410000000" remote="132059792410000000" Dst="1" />
+<file name="sch-messages-nl.xhtml" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792400000000" remote="132059792400000000" Dst="1" />
+<file name="sch-messages-fr.xhtml" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792400000000" remote="132059792400000000" Dst="1" />
+<file name="sch-messages-en.xhtml" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792400000000" remote="132059792400000000" Dst="1" />
+<file name="sch-messages-de.xhtml" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792400000000" remote="132059792400000000" Dst="1" />
+<file name="sch-messages-cs.xhtml" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792400000000" remote="132059792400000000" Dst="1" />
+<file name="readme.txt" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792400000000" remote="132059792400000000" Dst="1" />
+<file name="iso_svrl_for_xslt2.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792400000000" remote="132059792400000000" Dst="1" />
+<file name="iso_schematron_text.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792390000000" remote="132059792390000000" Dst="1" />
+<file name="iso_schematron_skeleton_for_saxon.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792390000000" remote="132059792390000000" Dst="1" />
+<file name="iso_schematron_message_xslt2.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792390000000" remote="132059792390000000" Dst="1" />
+<file name="iso_dsdl_include.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792390000000" remote="132059792390000000" Dst="1" />
+<file name="iso_abstract_expand.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792390000000" remote="132059792390000000" Dst="1" />
+<file name="ExtractSchFromXSD-2.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792390000000" remote="132059792390000000" Dst="1" />
+<file name="ExtractSchFromRNG-2.xsl" server="teamsite.loc.gov//default/main/LC-PUB/LC-HOME/WORKAREA/ggar/htdocs/ead/" local="132059792390000000" remote="132059792390000000" Dst="1" />
+</dwsync>

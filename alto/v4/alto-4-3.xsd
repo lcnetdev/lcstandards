@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- ALTO: Analyzed Layout and Text Object  -->
-<!-- This document is available under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/ ). 
+<!-- This document is available under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/ ).
 The ALTO Editorial Board has waived all rights to it worldwide under copyright law with confirmation of the original creating authors, including all related and neighboring rights, to the extent allowed by law.
 For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. -->
 
 <!-- Originally created during the EU-funded Project METAe, the Metadata Engine Project (2001 - 2003), by Alexander Egger (1), Birgit Stehno (2) and Gregor Retti (2), (1) University of Graz and (2) University of Innsbruck, Austria with contributions of Ralph Tiede, CCS GmbH, Germany -->
 <!-- Prepared for the Library of Congress by Ralph Tiede, CCS GmbH, with the assistance of Justin Littman (Library of Congress). -->
 
-<!-- Version 4.0 DRAFT -->
+<!-- Version 4.3 -->
 
 <!-- Change History -->
 <!-- June 22, 2004: Version finalized for docWORKS/METAe -->
 <!-- November 19, 2004: Modifications requested by Justin Littman -->
-<!-- Modifications of November 19, 2004: 
+<!-- Modifications of November 19, 2004:
 	1. add "Description" element
 	2. change "InnerMargin/OuterMargin" to "LeftMargin/RightMargin", add "POSITION" attribute to "PAGE" element
 	3. add "PROCESSING" attribute to "PAGE" element
 	4. internal changes to validate with Xerces parser
 	5. define fontstyles by enumerations
 	6. change "WC" (word confidence) attribute to xsd:float in range of "0" to "1".
-	7. Add "ALTERNATIVE" als childs to "STRING" element 
+	7. Add "ALTERNATIVE" als childs to "STRING" element
 	8. Add "language" attribute to "Textblock" and "STRING" element
 -->
-<!-- Modifications of December 02, 2004: 
+<!-- Modifications of December 02, 2004:
 	1. fixed problem with multiple use of blockgroup
 	2. add measurement enumeration 'inch1200'
 -->
@@ -49,10 +49,10 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 	2. Use standard LC XLink Schema.
 	3. Push version to 2.0 to reflect change in maintenance agency.
 	4. Remove CCS copyright statement.
-	5. Rollback to model used in 1.4 schema except with the changes itemized in 1-4 of this change note.  An incorrect version of the 2.0 alpha schema was public until 2010-01-11.  The incorrect version was a derivative of the Library of Congress's custom ALTO XML Schema that introduced new elements and attributes. 
+	5. Rollback to model used in 1.4 schema except with the changes itemized in 1-4 of this change note.  An incorrect version of the 2.0 alpha schema was public until 2010-01-11.  The incorrect version was a derivative of the Library of Congress's custom ALTO XML Schema that introduced new elements and attributes.
 -->
 <!-- Modifications of January 11, 2010:
-	1. Rollback to model used in 1.4 schema except with the changes itemized in 1-4 of the previous change note of August 7, 2009.  An incorrect version of the 2.0 alpha schema was public until 2010-01-11.  The incorrect version was a derivative of the Library of Congress's custom ALTO XML Schema that introduced new elements and attributes that extended the 1.4 model prior to editorial board approval. 
+	1. Rollback to model used in 1.4 schema except with the changes itemized in 1-4 of the previous change note of August 7, 2009.  An incorrect version of the 2.0 alpha schema was public until 2010-01-11.  The incorrect version was a derivative of the Library of Congress's custom ALTO XML Schema that introduced new elements and attributes that extended the 1.4 model prior to editorial board approval.
 -->
 <!-- February 20, 2014, version 2.1:
 	1. Page and BlockType element HEIGHT, WIDTH, HPOS, VPOS attribute types changed to xsd:float from xsd:int.
@@ -75,17 +75,17 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 -->
 <!-- August 2014, version 3.0
 	1. Changed namespace and targetNamespace to http://www.loc.gov/standards/alto/ns-v3#
-	2. Changed schema version to 3.0 
+	2. Changed schema version to 3.0
 
-	ALTO schemas will be updated by whole numbers upon making changes that break backward compatibility (version 1 to version 2), 
-	and decimals for changes that will not (2.0 to 2.1). The namespace itself will also only change on major versions (ns-v2 to ns-v3). 
+	ALTO schemas will be updated by whole numbers upon making changes that break backward compatibility (version 1 to version 2),
+	and decimals for changes that will not (2.0 to 2.1). The namespace itself will also only change on major versions (ns-v2 to ns-v3).
 -->
 <!-- January 2016, version 3.1
 	1. Changed schema version to 3.1
 	2. Added support for using different shapes for the elements String, TextLine, all PageSpaceType elements and on all BlockType elements.
 	3. The description of the attribute ROTATION is changed to the rotation of the contents of a block and not the block itself. The attribute is inherited by all sub elements.
 -->
-<!-- January 2018, version 4.0 (draft)
+<!-- January 2018, version 4.0
 	1. Changed schema version to 4.0
 	2. Changed namespace and targetNamespace to http://www.loc.gov/standards/alto/ns-v4#
 	3. Clarification and definition of the licensing to common standard "CC BY-SA 4.0" for this ALTO standard (with agreement of the authors)
@@ -96,12 +96,24 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 	8. Add common vocabulary for "processingStep" comprising the "ContentGeneration", "ContentModification", "PreOperation", "PostOperation", "Other"
 	9. Fix for the element Shape. The Shape element can now only be used once within a PageSpace or a TextLine as it was intended.
 -->
-
-<xsd:schema xmlns="http://www.loc.gov/standards/alto/ns-v4#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" targetNamespace="http://www.loc.gov/standards/alto/ns-v4#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.0">
+<!-- May 2019, version 4.1
+	1. Fix for Processing including  processingStepType.
+	2. Add missing PROCESSINGREFS to PageType, PageSpaceType, BlockType, TextLine, StringType for referencing Processing history.
+-->
+<!-- June/July 2020, version 4.2
+	1. Change BASELINE to accommodate a list of points in addition to a single point.
+	2. Make FONTSIZE optional.
+	3. Add "strikethrough" to list of allowed values for FONTSTYLE.
+-->
+<!-- May 2022, version 4.3
+	1. Add BASEDIRECTION attribute defining base direction and line orientation to TextLine and BlockType.
+	2. Add support for explicit reading order definitions with "ReadingOrder" element containing "UnorderedGroup"s, "OrderedGroup"s, and "ElementRef"s.
+-->
+<xsd:schema xmlns="http://www.loc.gov/standards/alto/ns-v4#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" targetNamespace="http://www.loc.gov/standards/alto/ns-v4#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.3">
 	<xsd:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.loc.gov/standards/xlink/xlink.xsd"/>
 	<xsd:element name="alto" type="altoType">
 		<xsd:annotation>
-			<xsd:documentation>ALTO (analyzed layout and text object) stores layout information and 
+			<xsd:documentation>ALTO (analyzed layout and text object) stores layout information and
 			OCR recognized text of pages of any kind of printed documents like books, journals and newspapers.
 			ALTO is a standardized XML format to store layout and content information.
 			It is designed to be used as an extension schema to METS (Metadata Encoding and Transmission Standard),
@@ -126,6 +138,15 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 					<xsd:documentation>
 						Tag define properties of additional characteristic. The tags are referenced from related content element on Block or String element by attribute TAGREF via the tag ID.
 						This container element contains the individual elements for LayoutTags, StructureTags, RoleTags, NamedEntityTags and OtherTags
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReadingOrder" type="ReadingOrderType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Describes alternative hierarchical orderings of the page (i.e. total orders over its segments, for linear text flow),
+						in addition to the explicit flat reading order defined by @IDNEXT on the block level,
+						and the implicit flat reading order implied by the segment element ordering.
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
@@ -194,6 +215,113 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 				<xsd:element name="OtherTag" type="TagType"/>
 			</xsd:choice>
 		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ReadingOrderType">
+		<xsd:annotation>
+			<xsd:documentation>
+                                Defines one or more reading orders within the
+                                page. Groups may be either unordered or ordered and can
+                                contain other groups, e.g. a page containing
+                                unrelated texts that are ordered individually
+                                would be encoded as an UnorderedGroup containing
+                                multiple OrderedGroups. The granularity of
+                                elements can vary inside groups.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice minOccurs="1" maxOccurs="unbounded">
+				<xsd:element name="OrderedGroup" type="OrderedGroupType"/>
+				<xsd:element name="UnorderedGroup" type="UnorderedGroupType"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ElementRefType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A reference to an element such as a block, TextLine, String, or Glyph.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="REF" type="xsd:IDREFS" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+                                        A link to the referenced element. Valid
+                                        target elements are any block type,
+                                        TextLine, String, or Glyph.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+                                        Optionally annotates the role of the
+                                        referenced element in the reading order
+                                        with one or more tags. Examples could be
+                                        interlinear additions or marginalia.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="OrderedGroupType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A group containing ordered elements (i.e. the sequence of OrderedGroup, UnorderedGroup or ElementRef subelements is ordered).
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice minOccurs="1" maxOccurs="unbounded">
+				<xsd:element name="ElementRef" type="ElementRefType"/>
+				<xsd:element name="OrderedGroup" type="OrderedGroupType"/>
+				<xsd:element name="UnorderedGroup" type="UnorderedGroupType"/>
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+                                        Optionally annotates the role of the
+                                        group in the reading order
+                                        with one or more tags. Examples could be
+                                        distinguishing
+                                        parallel texts or apparatus criticus and
+                                        main text.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="REF" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					A link to the referenced element. Valid
+					target elements are any block type,
+					TextLine, or String.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="UnorderedGroupType">
+		<xsd:annotation>
+			<xsd:documentation>
+				A group containing unordered elements (i.e. the sequence of OrderedGroup, UnorderedGroup or ElementRef subelements is arbitrary).
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice minOccurs="1" maxOccurs="unbounded">
+				<xsd:element name="ElementRef" type="ElementRefType"/>
+				<xsd:element name="OrderedGroup" type="OrderedGroupType"/>
+				<xsd:element name="UnorderedGroup" type="UnorderedGroupType"/>
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
+		<xsd:attribute name="REF" type="xsd:IDREFS" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>
+					A link to the referenced element. Valid
+					target elements are any block type,
+					TextLine, or String.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
 	</xsd:complexType>
 	<xsd:simpleType name="QualityType">
 		<xsd:annotation>
@@ -274,6 +402,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 			</xsd:annotation>
 		</xsd:attribute>
 		<xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
+		<xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
 		<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
 		<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
 		<xsd:attribute name="PHYSICAL_IMG_NR" type="xsd:float" use="required">
@@ -411,6 +540,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 		<xsd:attribute name="ID" type="BlockTypeID" use="required"/>
 		<xsd:attribute name="STYLEREFS" type="xsd:IDREFS"/>
 		<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
+		<xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
 		<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
 		<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
 		<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
@@ -422,7 +552,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 		</xsd:attribute>
 		<xsd:attribute name="IDNEXT" type="xsd:IDREF" use="optional">
 			<xsd:annotation>
-				<xsd:documentation>The next block in reading sequence on the page.</xsd:documentation>
+				<xsd:documentation>The next block in reading order of the page (if ReadingOrder is not specified, and elements are not in order).</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
 		<xsd:attribute name="CS" type="xsd:boolean" use="optional">
@@ -472,7 +602,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 				Any alternative for the word.
 				Alternative can outline a variant of writing by new typing / spelling rules, typically manually done or by dictionary replacements.
 				The above sample is an old composed character "Æ" of ancient time, which is replaced now by "Ä".
-				As variant are meant alternatives of the real printed content which are options outlined by the text recognition process. 
+				As variant are meant alternatives of the real printed content which are options outlined by the text recognition process.
 				Similar sample: "Straße" vs. "Strasse". Such alternatives are not coming from text recognition.
 			</xsd:documentation>
 		</xsd:annotation>
@@ -498,6 +628,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 		<xsd:attribute name="ID" type="StringTypeID" use="optional"/>
 		<xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
 		<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
+		<xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
 		<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
 		<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
 		<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
@@ -532,13 +663,14 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 			<xsd:documentation>A region on a page</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="Shape" type="ShapeType" minOccurs="0"  maxOccurs="1"/>
+			<xsd:element name="Shape" type="ShapeType" minOccurs="0" maxOccurs="1"/>
 			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
 				<xsd:group ref="BlockGroup"/>
 			</xsd:sequence>
 		</xsd:sequence>
 		<xsd:attribute name="ID" type="PageSpaceTypeID" use="optional"/>
 		<xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
+		<xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
 		<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
 		<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
 		<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
@@ -560,6 +692,19 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 			<xsd:element name="Circle" type="CircleType"/>
 		</xsd:choice>
 	</xsd:complexType>
+	<xsd:simpleType name="InlineDirType">
+		<xsd:annotation>
+			<xsd:documentation>Describes the inline base direction and line orientation of a line or of all lines inside a text block.</xsd:documentation>
+			<xsd:documentation>The meaning of these terms is defined by the W3C writing modes document: <a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode"/></xsd:documentation>
+			<xsd:documentation>These values should correspond to the base direction set in the BiDi algorithm to the respective elements during Unicode encoding. A value of "ttb" (top-to-bottom) implies a base direction of left-to-right, a value of "btt" (bottom-to-top) a base direction of right-to-left.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ltr"/>
+			<xsd:enumeration value="rtl"/>
+			<xsd:enumeration value="ttb"/>
+			<xsd:enumeration value="btt"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 	<xsd:complexType name="PolygonType">
 		<xsd:annotation>
 			<xsd:documentation>A polygon shape.</xsd:documentation>
@@ -569,9 +714,9 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 	<xsd:complexType name="EllipseType">
 		<xsd:annotation>
 			<xsd:documentation>An ellipse shape. HPOS and VPOS describe the center of the ellipse.
-                                HLENGTH and VLENGTH are the width and height of the described ellipse.</xsd:documentation>
-			<xsd:documentation>The attribute ROTATION tells the rotation of the e.g. text or 
-				           illustration within the block. The value is in degrees counterclockwise. </xsd:documentation>
+										            HLENGTH and VLENGTH are the width and height of the described ellipse.</xsd:documentation>
+			<xsd:documentation>The attribute ROTATION tells the rotation of the e.g. text or
+									 illustration within the block. The value is in degrees counterclockwise. </xsd:documentation>
 		</xsd:annotation>
 		<xsd:attribute name="HPOS" type="xsd:float" use="required"/>
 		<xsd:attribute name="VPOS" type="xsd:float" use="required"/>
@@ -598,7 +743,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 		</xsd:attribute>
 		<xsd:attribute name="FONTTYPE" type="fontTypeType" use="optional"/>
 		<xsd:attribute name="FONTWIDTH" type="fontWidthType" use="optional"/>
-		<xsd:attribute name="FONTSIZE" type="xsd:float" use="required">
+		<xsd:attribute name="FONTSIZE" type="xsd:float" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>The font size, in points (1/72 of an inch).</xsd:documentation>
 			</xsd:annotation>
@@ -632,19 +777,19 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 	<xsd:simpleType name="MeasurementUnitType">
 		<xsd:annotation>
 			<xsd:documentation>
-				All measurement values inside the alto file are related to 
+				All measurement values inside the alto file are related to
 				this unit, except the font size.
 				Coordinates as being used in HPOS and VPOS are absolute coordinates referring to the upper-left corner of a page.
-				The upper left corner of the page is defined as coordinate (0/0). 
+				The upper left corner of the page is defined as coordinate (0/0).
 
 				values meaning:
 				mm10: 1/10th of millimeter
-				inch1200: 1/1200th of inch 
+				inch1200: 1/1200th of inch
 				pixel: 1 pixel
 										
-				The values for pixel will be related to the resolution of the image based 
+				The values for pixel will be related to the resolution of the image based
 				on which the layout is described. Incase the original image is not known
-				the scaling factor can be calculated based on total width and height of 
+				the scaling factor can be calculated based on total width and height of
 				the image and the according information of the PAGE element.
 		</xsd:documentation>
 		</xsd:annotation>
@@ -661,7 +806,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 		<xsd:sequence>
 			<xsd:element name="fileName" type="fileNameType" minOccurs="0"/>
 			<xsd:element name="fileIdentifier" type="fileIdentifierType" minOccurs="0" maxOccurs="unbounded"/>
-		        <xsd:element name="documentIdentifier" type="documentIdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="documentIdentifier" type="documentIdentifierType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:simpleType name="fileNameType">
@@ -676,7 +821,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 	<xsd:complexType name="fileIdentifierType">
 		<xsd:annotation>
 			<xsd:documentation>A unique identifier for the image file. This is drawn from MIX.</xsd:documentation>
-			<xsd:documentation> This identifier must be unique within the local system. 
+			<xsd:documentation> This identifier must be unique within the local system.
 			To facilitate file sharing or interoperability with other systems, fileIdentifierLocation may be added to designate the system or application where the identifier is unique.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:simpleContent>
@@ -698,7 +843,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 	<xsd:complexType name="documentIdentifierType">
 		<xsd:annotation>
 			<xsd:documentation>A unique identifier for the document.</xsd:documentation>
-			<xsd:documentation> This identifier must be unique within the local system. 
+			<xsd:documentation> This identifier must be unique within the local system.
 			To facilitate file sharing or interoperability with other systems, documentIdentifierLocation may be added to designate the system or application where the identifier is unique.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:simpleContent>
@@ -713,7 +858,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 	</xsd:complexType>
 	<xsd:complexType name="ocrProcessingType">
 		<xsd:annotation>
-			<xsd:documentation>Deprecated. processingType should be used instead.</xsd:documentation>
+			<xsd:documentation>Deprecated. processingStepType should be used instead.</xsd:documentation>
 			<xsd:documentation>Information on how the text was created, including preprocessing, OCR processing, and postprocessing steps. Where possible, this draws from MIX's change history.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
@@ -722,23 +867,16 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 			<xsd:element name="postProcessingStep" type="processingStepType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
-	<xsd:complexType name="processingType">
-		<xsd:annotation>
-			<xsd:documentation>Information on how the text was created, including generation, modification, preprocessing, postprocessing or any other steps. May include references to a list of space-separated IDs of elements processed.</xsd:documentation>
-		</xsd:annotation>
-		<xsd:sequence>
-			<xsd:element name="contentGeneration" type="processingType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="contentModification" type="processingType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="preOperation" type="processingType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="postOperation" type="processingType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="other" type="processingType" minOccurs="0" maxOccurs="unbounded"/>
-		</xsd:sequence>
-	</xsd:complexType>
 	<xsd:complexType name="processingStepType">
 		<xsd:annotation>
-			<xsd:documentation>A processing step.</xsd:documentation>
+			<xsd:documentation>Description of the processing step.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
+			<xsd:element name="processingCategory" type="processingCategoryType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Classification of the category of operation, how the file was created, including generation, modification, preprocessing, postprocessing or any other steps.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="processingDateTime" type="dateTimeType" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation>Date or DateTime the image was processed.</xsd:documentation>
@@ -762,6 +900,19 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 			<xsd:element name="processingSoftware" type="processingSoftwareType" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
+	<xsd:simpleType name="processingCategoryType">
+		<xsd:list>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="contentGeneration"/>
+					<xsd:enumeration value="contentModification"/>
+					<xsd:enumeration value="preOperation"/>
+					<xsd:enumeration value="postOperation"/>
+					<xsd:enumeration value="other"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:list>
+	</xsd:simpleType>
 	<xsd:complexType name="processingSoftwareType">
 		<xsd:annotation>
 			<xsd:documentation>Information about a software application. Where applicable, the preferred method for determining this information is by selecting Help -- About.</xsd:documentation>
@@ -803,9 +954,10 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 						<xsd:restriction base="xsd:string">
 							<xsd:enumeration value="bold"/>
 							<xsd:enumeration value="italics"/>
+							<xsd:enumeration value="smallcaps"/>
+							<xsd:enumeration value="strikethrough"/>
 							<xsd:enumeration value="subscript"/>
 							<xsd:enumeration value="superscript"/>
-							<xsd:enumeration value="smallcaps"/>
 							<xsd:enumeration value="underline"/>
 						</xsd:restriction>
 					</xsd:simpleType>
@@ -899,11 +1051,16 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 							<xsd:attribute name="ID" type="TextLineID"/>
 							<xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
 							<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
+							<xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
 							<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
 							<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
 							<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
 							<xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
-							<xsd:attribute name="BASELINE" type="xsd:float" use="optional"/>
+							<xsd:attribute name="BASELINE" type="PointsType" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Pixel coordinates based on the left-hand top corner of an image which define a polyline on which a line of text rests.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
 							<xsd:attribute name="LANG" type="xsd:language" use="optional">
 								<xsd:annotation>
 									<xsd:documentation>Attribute to record language of the textline.</xsd:documentation>
@@ -912,6 +1069,11 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 							<xsd:attribute name="CS" type="xsd:boolean" use="optional">
 								<xsd:annotation>
 									<xsd:documentation>Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String).</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Indicates the inline base direction of this TextLine. Overrides the value on elements higher in the hierarchy.</xsd:documentation>
 								</xsd:annotation>
 							</xsd:attribute>
 						</xsd:complexType>
@@ -925,6 +1087,11 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 				<xsd:attribute name="LANG" type="xsd:language" use="optional">
 					<xsd:annotation>
 						<xsd:documentation>Attribute to record language of the textblock.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>Indicates the inline base direction of the TextBlock.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
 			</xsd:extension>
@@ -975,7 +1142,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 		</xsd:attribute>
 	</xsd:complexType>
 	<xsd:complexType name="GlyphType" mixed="false">
-		<xsd:annotation> 
+		<xsd:annotation>
 			<xsd:documentation>
 				Modern OCR software stores information on glyph level. A glyph is essentially a character or ligature.
 				Accordingly the value for the glyph element will be defined as follows:
@@ -995,12 +1162,12 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 				The glyph elements are in order of the word. Each glyph need to be recorded to built up the whole word sequence.
 				
 				The glyph’s CONTENT attribute is no replacement for the string’s CONTENT attribute.
-				Due to post-processing steps such as correction the values of both attributes may be inconsistent. 
+				Due to post-processing steps such as correction the values of both attributes may be inconsistent.
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence minOccurs="0">
 			<xsd:element name="Shape" type="ShapeType" minOccurs="0"/>
-			<xsd:element name="Variant" type="VariantType" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="Variant" type="VariantType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="ID" type="xsd:ID" use="optional"/>
 		<xsd:attribute name="CONTENT" use="required">
@@ -1020,8 +1187,8 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
 		<xsd:attribute name="GC" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>
-					This GC attribute records a float value between 0.0 and 1.0 that expresses the level of confidence for the variant where is 1 is certain.
-					This attribute is optional. If it is not available, the default value for the variant is “0”.
+					This GC attribute records a float value between 0.0 and 1.0 that expresses the level of confidence for the glyph where 1 is certain.
+					This attribute is optional. If it is not available, the default value for the glyph is “0”.
 					The GC attribute semantic is the same as the WC attribute on the String element and VC on Variant element.
 				</xsd:documentation>
 			</xsd:annotation>
